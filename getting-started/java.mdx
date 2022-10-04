@@ -1,0 +1,67 @@
+---
+id: java
+title: Java
+description: JVM 환경에서 동작하는 모든 애플리케이션에 적용할 수 있는 에이전트 설치 방법입니다.
+tags:
+    - Java
+---
+
+## 지원 환경
+
+Web Application Server (WAS) 뿐 아니라 데몬 및 배치 애플리케이션 등 JVM에서 동작하는 모든 애플리케이션에 적용할 수 있습니다. Java 1.5 이하는 <support@whatap.io>로 문의하세요.
+
+### JVM
+
+|지원범위|환경|OS|JVM 버전|
+|---|---|---|---|
+|Fully support|Java|JVM으로 구동하는 모든 OS|Java 6 이상, Java 13 이하|
+|Limited support|Java|JVM으로 구동하는 모든 OS|Java 1.5 이하|
+
+### Web Application Server (WAS)
+
+Tomcat, JBoss, JEUS, WebLogic, WebSphere 등 Java EE Spec을 준수하는 모든 Application Server, 다음 링크를 참조하세요. [Java EE Compatibility](https://www.oracle.com/technetwork/java/javaee/overview/compatibility-jsp-136984.html)
+
+### Framework / Library
+
+- Spring Boot Project
+- Netty, Akka HTTP 및 Play Framework 등 비동기 Framework
+- 이외 Java EE Spec을 준수하는 Application Server에서 동작하는 모든 라이브러리
+
+### DataSource
+
+- Generic JDBC (any JDBC compliant driver)
+- DB2 JDBC
+- Derby JDBC
+- H2 JDBC
+- jTDS JDBC
+- MariaDB JDBC
+- Microsoft SQL Server JDBC
+- MySQL mysql-connector-java
+- Oracle ojdbc14, ojdbc5, ojdbc6, ojdbc7, ojdbc8
+- Postgres JDBC
+- Tibero
+- Jedis Redis driver
+
+## 설정 적용하기
+
+*$WHATAP_HOME/whatap.conf* 파일 내용에 라이선스 키와 데이터 수집 서버 주소가 정상적으로 들어가 있는지 확인하세요. 값이 없다면 설치 안내 페이지의 설정 값을 복사한 다음 붙여넣기하세요.
+
+*whatap.conf*
+
+```
+license={라이선스 키}
+whatap.server.host={수집서버 IP}
+```
+
+:::note
+UI를 통해 다운로드 받은 경우 *whatap.conf*에 설정 값이 들어가 있습니다. 서버에서 직접 다운로드한 경우 **설치 안내** 페이지의 라이선스 키와 수집 서버 주소를 별도 입력하세요.
+:::
+
+## 에이전트 적용하기
+
+적용 대상(WAS 및 Batch, Daemon과 같은 Java 애플리케이션)에 javagent 옵션으로 whatap agent path를 추가합니다.
+
+JVM_OPTS
+
+다시 시작 후 프로세스 정보에서 설정한 옵션이 보인다면 설정 적용이 완료된
+것입니다.

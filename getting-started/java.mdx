@@ -6,62 +6,65 @@ tags:
     - Java
 ---
 
-## 지원 환경
+에이전트를 설치하고 적용하기 전에 [지원 환경](supported-spec#java)을 먼저 확인한 다음 아래의 과정대로 진행하세요.
 
-Web Application Server (WAS) 뿐 아니라 데몬 및 배치 애플리케이션 등 JVM에서 동작하는 모든 애플리케이션에 적용할 수 있습니다. Java 1.5 이하는 <support@whatap.io>로 문의하세요.
+import Paccesskey from '../getting-started/_accesskey.mdx';
+import Download from '../getting-started/_download-agent.mdx';
+import WhatapConf from '../getting-started/_whatap_conf.mdx';
+import JvmOpt from '../getting-started/_add-jvmopt.mdx'
 
-### JVM
+## 프로젝트 액세스 키 확인
+<Paccesskey/>
 
-|지원범위|환경|OS|JVM 버전|
-|---|---|---|---|
-|Fully support|Java|JVM으로 구동하는 모든 OS|Java 6 이상, Java 13 이하|
-|Limited support|Java|JVM으로 구동하는 모든 OS|Java 1.5 이하|
+## 에이전트 다운로드
+<Download/>
 
-### Web Application Server (WAS)
+## *whatap.conf* 설정하기
+<WhatapConf/>
 
-Tomcat, JBoss, JEUS, WebLogic, WebSphere 등 Java EE Spec을 준수하는 모든 Application Server, 다음 링크를 참조하세요. [Java EE Compatibility](https://www.oracle.com/technetwork/java/javaee/overview/compatibility-jsp-136984.html)
+## JVM 옵션 추가
+<JvmOpt/>
 
-### Framework / Library
+### Topcat
 
-- Spring Boot Project
-- Netty, Akka HTTP 및 Play Framework 등 비동기 Framework
-- 이외 Java EE Spec을 준수하는 Application Server에서 동작하는 모든 라이브러리
+#### **Linux**  
+*catalina.sh* 파일 상단에 ```JAVA_OPTS```을 추가하세요.
 
-### DataSource
-
-- Generic JDBC (any JDBC compliant driver)
-- DB2 JDBC
-- Derby JDBC
-- H2 JDBC
-- jTDS JDBC
-- MariaDB JDBC
-- Microsoft SQL Server JDBC
-- MySQL mysql-connector-java
-- Oracle ojdbc14, ojdbc5, ojdbc6, ojdbc7, ojdbc8
-- Postgres JDBC
-- Tibero
-- Jedis Redis driver
-
-## 설정 적용하기
-
-*$WHATAP_HOME/whatap.conf* 파일 내용에 라이선스 키와 데이터 수집 서버 주소가 정상적으로 들어가 있는지 확인하세요. 값이 없다면 설치 안내 페이지의 설정 값을 복사한 다음 붙여넣기하세요.
-
-*whatap.conf*
-
-```
-license={라이선스 키}
-whatap.server.host={수집서버 IP}
+```text title='{Tomcat 설치 경로}/bin/catalina.sh' {2,4} showLineNumbers
+########## WHATAP START ############
+WHATAP_HOME=/whatap
+WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1`
+JAVA_OPTS="${JAVA_OPTS} -javaagent:${WHATAP_JAR} "
+########## WHATAP END ############
 ```
 
-:::note
-UI를 통해 다운로드 받은 경우 *whatap.conf*에 설정 값이 들어가 있습니다. 서버에서 직접 다운로드한 경우 **설치 안내** 페이지의 라이선스 키와 수집 서버 주소를 별도 입력하세요.
-:::
+#### **Windows**
+* **Tomcat** 서비스로 설치한 경우
+    1. 프로그램 메뉴에서 **Configure Tomcat** 또는 **톰캣 설치 폴더** */bin* 경로의 *tomcat<톰캣버전>w.exe* 파일을 실행하세요.
+    2. ***Java*** 탭을 클릭하세요.
+    3. ***Java Options*** 항목에 Whatap 에이전트를 등록하세요.
 
-## 에이전트 적용하기
+        ```text
+        -javaagent:<와탭설치경로>/whatap.agent-<version>.jar
+        ```
+    ![Apache Tomcat](https://img.whatap.io/media/images/tomcat-win.png)
 
-적용 대상(WAS 및 Batch, Daemon과 같은 Java 애플리케이션)에 javagent 옵션으로 whatap agent path를 추가합니다.
+* *setup.bat* 파일을 통해 실행하는 경우
+    ```text title='{Tomcat 설치 경로}/bin/catalina.bat' {2,5} showLineNumbers
+    rem ########## WHATAP START ############
+    set WHATAP_HOME=C:\whatap
+    for /f %%f in ('dir /b /on "%WHATAP_HOME%\whatap.agent-*.jar"') do set last=%%f
+    set WHATAP_JAR=%last%
+    set WHATAP_OPTS=-javaagent:%WHATAP_HOME%\%WHATAP_JAR%
 
-JVM_OPTS
+    if "x%JAVA_OPTS%"=="x" goto setWhatap
 
-다시 시작 후 프로세스 정보에서 설정한 옵션이 보인다면 설정 적용이 완료된
-것입니다.
+    set JAVA_OPTS_TMP=%JAVA_OPTS:"=%
+    if not "x%JAVA_OPTS_TMP:whatap=%"=="x%JAVA_OPTS_TMP%" goto endWhatap
+
+    :setWhatap
+    set JAVA_OPTS=%JAVA_OPTS% %WHATAP_OPTS%
+
+    :endWhatap
+    rem ########## WHATAP END ############
+    ```

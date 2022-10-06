@@ -1,0 +1,63 @@
+---
+id: tomcat
+title: Tomcat
+description: Tomcat 환경에서 JAVA_OPTS 추가
+tags:
+    - Java
+    - Tomcat
+---
+
+Tomcat을 사용하는 환경에서 ```JAVA_OPTS```를 추가하는 방법입니다. 사용하는 운영체제에 맞게 설정하세요.
+
+## **Linux**
+
+*catalina.sh* 파일 상단에 ```JAVA_OPTS```을 추가하세요.
+
+```bash text title='{Tomcat 설치 경로}/bin/catalina.sh' {2,4} showLineNumbers
+########## WHATAP START ############
+WHATAP_HOME=/whatap
+WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1`
+JAVA_OPTS="${JAVA_OPTS} -javaagent:${WHATAP_JAR} "
+########## WHATAP END ############
+```
+
+## **Windows**
+
+### Tomcat을 Windows 인스톨러로 설치한 경우
+
+1. **Tomcat Service Manager**를 관리자 권한으로 실행하세요.
+
+    **파일명** : *%TOMCAT_HOME%\bin\tomcat8w.exe* 또는 *tomcat7w.exe*
+
+1. ***Java*** 탭을 클릭하세요.
+
+1. ***Java Options*** 항목에 Whatap 에이전트를 등록하세요.
+
+```text
+-javaagent:<와탭설치경로>/whatap.agent-<version>.jar
+```
+
+![Apache Tomcat](https://img.whatap.io/media/images/tomcat-win.png)
+
+### *setup.bat* 파일을 통해 실행하는 경우  
+
+*catalina.bat* 파일 상단에 ```JAVA_OPT```를 추가하세요.
+
+```batch title='{Tomcat 설치 경로}/bin/catalina.bat' {2,5} showLineNumbers
+rem ########## WHATAP START ############
+set WHATAP_HOME=C:\whatap
+for /f %%f in ('dir /b /on "%WHATAP_HOME%\whatap.agent-*.jar"') do set last=%%f
+set WHATAP_JAR=%last%
+set WHATAP_OPTS=-javaagent:%WHATAP_HOME%\%WHATAP_JAR%
+
+if "x%JAVA_OPTS%"=="x" goto setWhatap
+
+set JAVA_OPTS_TMP=%JAVA_OPTS:"=%
+if not "x%JAVA_OPTS_TMP:whatap=%"=="x%JAVA_OPTS_TMP%" goto endWhatap
+
+:setWhatap
+set JAVA_OPTS=%JAVA_OPTS% %WHATAP_OPTS%
+
+:endWhatap
+rem ########## WHATAP END ############
+```

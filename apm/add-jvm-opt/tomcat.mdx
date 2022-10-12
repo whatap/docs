@@ -1,63 +1,99 @@
 ---
 id: tomcat
 title: Tomcat
-description: Tomcat 환경에서 JAVA_OPTS 추가
+description: Tomcat 애플리케이션 서버 환경에서 JVM 옵션 추가 설정을 완료하세요.
 tags:
     - Java
     - Tomcat
 ---
 
-Tomcat을 사용하는 환경에서 ```JAVA_OPTS```를 추가하는 방법입니다. 사용하는 운영체제에 맞게 설정하세요.
+Tomcat을 사용하는 애플리케이션 서버 환경에서 JVM 옵션을 추가하는 방법을 확인하세요. 사용하는 운영체제에 맞게 설정하세요.
 
-## **Linux**
+## 운영체제 별 환경 변수 추가
 
-*catalina.sh* 파일 상단에 ```JAVA_OPTS```을 추가하세요.
+### **Linux**
 
-```bash text title='{Tomcat 설치 경로}/bin/catalina.sh' {2,4} showLineNumbers
+*catalina.sh* 파일 상단에 ```JAVA_OPTS``` 환경 변수를 추가하세요.
+
+```bash text title='{Tomcat 설치 경로}/bin/catalina.sh' showLineNumbers
 ########## WHATAP START ############
 WHATAP_HOME=/whatap
-WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1`
+WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-X.Y.Z.jar | sort | tail -1`
 JAVA_OPTS="${JAVA_OPTS} -javaagent:${WHATAP_JAR} "
 ########## WHATAP END ############
 ```
 
-## **Windows**
+:::note
+```ls ${WHATAP_HOME}/whatap.agent-X.Y.Z.jar | sort | tail -1``` 항목은 향후 에이전트 업데이트를 진행할 경우 최신 와탭 에이전트를 적용하기 위해서입니다.
+:::
 
-### Tomcat을 Windows 인스톨러로 설치한 경우
+### **Windows**
 
-1. **Tomcat Service Manager**를 관리자 권한으로 실행하세요.
+* *setup.bat* 파일을 통해 실행하는 경우
 
-    **파일명** : *%TOMCAT_HOME%\bin\tomcat8w.exe* 또는 *tomcat7w.exe*
+  *catalina.bat* 파일 상단에 ```JAVA_OPT``` 환경 변수를 추가하세요.
 
-1. ***Java*** 탭을 클릭하세요.
+  ```batch title='{Tomcat 설치 경로}/bin/catalina.bat' {2} showLineNumbers
+  rem ########## WHATAP ############
+  set WHATAP_HOME=C:\whatap
+  for /f %%f in ('dir /b /on %WHATAP_HOME%\whatap.agent-X.Y.Z.jar') do set last=%%f
+  set WHATAP_JAR=%last%
+  if x%JAVA_OPTS:whatap=%==x%JAVA_OPTS% (
+    set JAVA_OPTS=%JAVA_OPTS% -javaagent:%WHATAP_HOME%\%WHATAP_JAR%
+  )
+  rem ########## WHATAP ############
+  ```
 
-1. ***Java Options*** 항목에 Whatap 에이전트를 등록하세요.
+* Tomcat을 Windows 인스톨러로 설치한 경우
 
-```text
--javaagent:<와탭설치경로>/whatap.agent-<version>.jar
-```
+  1. ***시작*** → ***Apache Tomcat ```X.Y.Z.```*** → ***Configure Tomcat***을 선택하세요.
 
-![Apache Tomcat](https://img.whatap.io/media/images/tomcat-win.png)
+  1. ***Java*** 탭을 선택하세요.
 
-### *setup.bat* 파일을 통해 실행하는 경우  
+  1. ***Java Options*** 텍스트 박스에 ```-javaagent``` 옵션을 추가하세요.
 
-*catalina.bat* 파일 상단에 ```JAVA_OPT```를 추가하세요.
+  ```text
+  -javaagent:{와탭 설치 경로}/whatap.agent-X.Y.Z.jar
+  ```
 
-```batch title='{Tomcat 설치 경로}/bin/catalina.bat' {2,5} showLineNumbers
-rem ########## WHATAP START ############
-set WHATAP_HOME=C:\whatap
-for /f %%f in ('dir /b /on "%WHATAP_HOME%\whatap.agent-*.jar"') do set last=%%f
-set WHATAP_JAR=%last%
-set WHATAP_OPTS=-javaagent:%WHATAP_HOME%\%WHATAP_JAR%
+  ![Apache Tomcat](https://img.whatap.io/media/images/tomcat-win.png)
 
-if "x%JAVA_OPTS%"=="x" goto setWhatap
+## Tomcat 호환성
 
-set JAVA_OPTS_TMP=%JAVA_OPTS:"=%
-if not "x%JAVA_OPTS_TMP:whatap=%"=="x%JAVA_OPTS_TMP%" goto endWhatap
+| WAS Ver. | Java SE 6 (jdk1.6.0) | Java SE 7 (jdk1.7.0_80) | Java SE 8 (jdk1.8.0_91) |
+| -------- | :------------------: | :---------------------: | :---------------------: |
+| Tomcat 6 | ✅                   | ✅                      | ✅                      |
+| Tomcat 7 | ✅                   | ✅                      | ✅                      |
+| Tomcat 8 | ❌                   | ✅                      | ✅                      |
+| Tomcat 9 | ❌                   | ❌                      | ✅                      |
 
-:setWhatap
-set JAVA_OPTS=%JAVA_OPTS% %WHATAP_OPTS%
+| WAS Ver. | OpenJDK 6 (1.6.0_45) | OpenJDK 7 (1.7.0_80) | OpenJDK 8 (1.8.0_91) |
+| -------- | :------------------: | :------------------: | :------------------: |
+| Tomcat 6 | ✅                   | ✅                   | ✅                   |
+| Tomcat 7 | ✅                   | ✅                   | ✅                   |
+| Tomcat 8 | ❌                   | ✅                   | ✅                   |
+| Tomcat 9 | ❌                   | ❌                   | ✅                   |
 
-:endWhatap
-rem ########## WHATAP END ############
-```
+| WAS Ver. | OpenJDK 6 (1.6.0_45) | OpenJDK 7 (1.7.0_80) | OpenJDK 8 (1.8.0_91) |
+| -------- | :------------------: | :------------------: | :------------------: |
+| Tomcat 6 | ✅                   | ✅                   | ✅                   |
+| Tomcat 7 | ✅                   | ✅                   | ✅                   |
+| Tomcat 8 | ❌                   | ✅                   | ✅                   |
+| Tomcat 9 | ❌                   | ❌                   | ✅                   |
+
+| WAS Ver. | ibm-java-x86_64-60 | ibm-java-x86_64-71 | ibm-java-x86_64-80 |
+| -------- | :----------------: | :----------------: | :----------------: |
+| Tomcat 6 | ✅                 | ✅                 | ✅                 |
+| Tomcat 7 | ✅                 | ✅                 | ✅                 |
+| Tomcat 8 | ❌                 | ✅                 | ✅                 |
+| Tomcat 9 | ❌                 | ❌                 | ✅                 |
+
+## Tomcat DataSource
+|DB|JDBC Driver 파일명|JDBC Ver.|JDK Ver.|호환성|
+|--|--|--|--|:--:|
+|MySQL|mysql-connector-java-5.1.39-bin.jar|5.1.39|JDK 1.7.0_80|✅|
+|MariaDB|mariadb-java-client-1.4.6.jar|1.4.6|JDK 1.7.0_80|✅|
+|PostgreSQL|postgresql-9.4.1209.jre7.jar|9.4.1209|JDK 1.7.0_80|✅|
+|Amazon Aurora|mysql-connector-java-5.1.39-bin.jar|5.1.39|JDK 1.7.0_80|✅|
+|Oracle|ojdbc6-11.2.0.2.0.jar|11.2.0.2.0|JDK 1.7.0_80|✅|
+|DB2|db2jcc.jar, db2jcc_license_cu.jar|1.4.2|JDK 1.7.0_80|✅|

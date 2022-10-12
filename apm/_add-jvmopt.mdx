@@ -1,9 +1,12 @@
-1. 적용 대상(WAS 및 Batch, Daemon과 같은 Java 애플리케이션)에 javaagent 옵션으로 whatap agent path를 추가하세요.
+1. 적용 대상(WAS 및 Batch, Daemon과 같은 Java 애플리케이션)에 와탭 에이전트 경로를 ```javaagent``` 옵션을 추가하세요.
+
     ```bash title=JVM_OPTS
-    -javaagent:/whatap/whatap.agent-#.#.#.jar
+    -javaagent:/whatap/whatap.agent-X.Y.Z.jar
     ```
+
 2. 서버를 다시 시작하세요.
-3. 프로세스 정보에서 설정한 옵션을 확인하세요. 
+
+3. 프로세스 정보에서 설정한 환경 변수를 확인하세요. 
 
 다음 이미지와 같다면 설정 적용을 완료한 것입니다.
 

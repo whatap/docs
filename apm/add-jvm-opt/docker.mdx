@@ -1,13 +1,17 @@
 ---
 id: docker
 title: Docker
-description: Docker 환경에서 JAVA_OPTS 추가
+description: Docker 환경에서 와탭 에이전트 적용을 완료하세요.
 tags:
     - Java
     - Docker
 ---
 
-기존 Docker 이미지를 바탕으로 WhaTap 에이전트 설정을 추가한 이미지를 빌드하세요.
+기존 Docker 이미지를 바탕으로 와탭 에이전트 설정을 추가한 이미지를 빌드하세요.
+
+:::note
+본문에서는 Java 에이전트를 설치하는 경우만을 다룹니다. 와탭 쿠버네티스 모니터링과 함께 적용하는 경우 ~~별도 절차~~를 참고하세요.
+:::
 
 1. Docker 빌드 디렉토리를 생성하세요.
 
@@ -16,36 +20,37 @@ tags:
     ```
 
 1. *whatap.conf* 파일을 생성하세요.
-    <!-- 담당자에게 명령어 확인 필요 -->
+
     ```docker {3,5} showLineNumbers
-    cat <<EOF >{Docker build Dir}/whatap.conf 
+    cat >{Docker build Dir}/whatap.conf <<EOL
     #프로젝트 라이선스 키를 입력하세요.
     license=XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX 
     #Proxy IP 정보를 입력하세요.
     whatap.server.host=xx.xx.xx.xx/yy.yy.yy.yy 
-    EOF
+    EOL
     ```
 
-1. Dockerfile을 생성하세요.
-    이미지를 빌드 할 경우 와탭 이미지에서 ```-javaagent``` 옵션에 적용할 jar 파일을 복사할 수 있습니다.
-    <!-- 담당자에게 명령어 확인 필요 -->
+1. Dockerfile을 생성하세요.  
+    이미지를 빌드할 경우 와탭 이미지에서 ```-javaagent``` 옵션에 적용할 jar 파일을 복사할 수 있습니다.
+    
     ```docker
-    cat <<EOF >/home/silver/whatap/docker/Dockerfile 
+    cat >/home/silver/whatap/docker/Dockerfile <<EOL
     FROM whatap/kube_mon as build
-    #실제 이미지 생성 (기존 이미지에 Whatap 추가)
-    #$Image_Name(이미지명)
+    ## 실제 이미지 생성 (기존 이미지에 Whatap 추가)
+    ## $Image_Name(이미지명)
     FROM $Image_Name
     RUN mkdir -p /whatap
     COPY --from=build /data/agent/micro/whatap.agent-*.jar /whatap
     COPY ./whatap.conf /whatap/
-    #... {중략} ...
-    EOF
+    #...
+    EOL
     ```
 
 1. ```JAVA_OPT```에 다음 내용을 추가하세요.
+
     ```apacheconf
     WHATAP_HOME=/whatap
-    WHATAP_JAR=ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1
+    WHATAP_JAR=ls ${WHATAP_HOME}/whatap.agent-X.Y.Z.jar | sort | tail -1
     export JAVA_OPTS="-javaagent:${WHATAP_JAR} "
     ```
 
@@ -57,10 +62,9 @@ tags:
     ```
 
 :::note
-* Java 에이전트를 설치하는 경우에 한합니다. 와탭 쿠버네티스 모니터링과 함께 적용하는 경우 ~~별도 절차~~를 참고하세요.
-* Java 에이전트 파일 이름은 ```Rename``` 기능을 활용해 수정할 수 있습니다. Java 에이전트의 이름을 수정했다면 ```JAVA_OPTS```에 새로운 Java 에이전트 이름을 등록하세요.
+Java 에이전트 파일 이름은 ```Rename``` 기능을 활용해 수정할 수 있습니다. Java 에이전트의 이름을 수정했다면 ```JAVA_OPTS```에 새로운 Java 에이전트 이름을 등록하세요.
 
-    ```bash title='Java 에이전트 이름 수정 방법 예시'
-    java -cp whatap.agent-2.1.1.jar whatap.agent.setup.Rename -from whatap.agent-2.1.1.jar -to whatap.agent.jar
-    ```
+```bash title='Java 에이전트 이름 수정 방법 예시'
+java -cp whatap.agent-X.Y.Z.jar whatap.agent.setup.Rename -from whatap.agent-X.Y.Z.jar -to whatap.agent.jar
+```
 :::

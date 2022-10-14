@@ -17,11 +17,11 @@ JVM 옵션에 ```-javaagent``` 및 ```-Djboss.modules.system.pkgs``` 옵션을 �
 
 설정 위치 : (JBoss 설치 경로)/bin/standalone.conf(domain.conf)
 
-```apacheconf title=standalone.sh
+```bash title=standalone.sh
 #!/bin/sh
 ########## WHATAP ############
 WHATAP_HOME=/home/ec2-user/whatap
-WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-X.Y.Z.jar | sort | tail -1`
+WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1`
 JAVA_OPTS="${JAVA_OPTS} -javaagent:${WHATAP_JAR} -Djboss.modules.system.pkgs=whatap"
 ########## WHATAP ############
 ```

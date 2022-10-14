@@ -1,6 +1,6 @@
 ---
-id: batch-program
-title: 배치 프로그램
+id: batch-app
+title: 배치 애플리케이션
 description: 배치 애플리케이션 환경에서 와탭 에이전트 적용을 완료하세요.
 tags:
     - Java
@@ -37,7 +37,7 @@ Batch Job Agent와 Batch Host Agent 사이는 UDP를 이용해 통신합니다.
 
 배치 잡은 일반적으로 장시간 수행합니다. 수십초가 넘을 수도 있습니다. 따라서 배치 잡 별로 ```time_limit```의 값은 다를 수 있습니다. 배치 잡이 실행되는 예상 처리시간을 ```time_limit```에 설정하세요.
 
-```apacheconf title=whatap.conf
+```ini title=whatap.conf
 time_limit=300000
 warning_time=time_limit’s 70%
 step_interval=5000
@@ -47,7 +47,7 @@ step_interval=5000
 
 배치 잡의 실행시간이 ```time_limit```의 70%를 지나면 노란색으로 표시하고 ```time_limit```을 초과하면 붉은색으로 표시합니다.
 
-```apacheconf title='whatap.conf' {2,4} showLineNumbers
+```ini title='whatap.conf' {2,4} showLineNumbers
 ## 기대 종료시간의 70%
 yellow_time = time_limit * 0.7;
 ## 기대 종료 시간을 초과

@@ -6,11 +6,11 @@ error log 내용 중 `segmentation fault`, `sig bus` 등의 오류 문구가 있
 
 해당 오류가 발생하는 경우는 PHP Extension 모듈인 *whatap.so* 모듈에서 충돌이 발생하는 것으로 볼 수 있습니다. PHP Extension 모듈인 *whatap.so* 를 중지한 후에 Apache 또는 PHP-FPM을 재시작하세요.
 
-서비스에 영향을 주지 않는 환경에서 Apache 및 PHP-FPM에 `Core dump` 설정을 추가한 후 *whatap.so*를 다시 로딩합니다. 이후 오류가 발생하면 *dump* 파일이 생성됩니다. *dump* 파일을 gdb로 분석하여 원인을 해결하세요. 
+서비스에 영향을 주지 않는 환경에서 Apache 및 PHP-FPM에 `Core dump` 설정을 추가한 후 *whatap.so*를 다시 로딩하세요. 이후 오류가 발생하면 *dump* 파일이 생성됩니다. *dump* 파일을 gdb로 분석하여 원인을 해결하세요. 
 
 ### Core Dump 설정
 
-*dump* 파일을 생성할 디렉토리의 권한을 부여합니다.
+*dump* 파일을 생성할 디렉토리의 권한을 부여하세요
 
 ```bash
 chmod 0777 /home/httpd-core
@@ -27,13 +27,40 @@ sysctl kernel.core_pattern='| /home/httpd-core/core-%e.%p'
 
 ### Apache
 
-Apache conf 에 CoreDumpDirectory 항목을 설정합니다. 
+Apache conf 에 CoreDumpDirectory 항목을 설정하세요. 
 
 ```bash
 vi /etc/httpd/conf/httpd.conf
 
 CoreDumpDirectory /home/httpd-core
 ```
-Apache를 재시작하면 설정이 완료됩니다. 오류가 발생하면 dump 파일이 생성됩니다.
+Apache를 재시작하면 설정이 완료됩니다. 오류가 발생하면 *dump* 파일이 생성됩니다.
 
-*dump* 파일이 생성되면 gdb를 통해 오류 원인을 확인합니다. `bt full` 명령어를 통해서 전체 스택 정보를 확인합니다.
+*dump* 파일이 생성되면 gdb를 통해 오류 원인을 확인합니다. `bt full` 명령어를 통해서 전체 스택 정보를 확인하세요.
+
+```b# gdb /usr/sbin/httpd /home/httpd-core/core-httpd.31832
+...
+...
+
+> bt full
+```
+
+### PHP-FPM
+
+FPM 설정 파일에서 `rlimit_core` 를 설정하세요. 
+
+```bash
+rlimit_core = unlimited
+```
+
+PHP-FPM을 재시작하면 설정이 완료됩니다. 오류가 발생하면 *dump* 파일이 생성됩니다.
+
+*dump* 파일이 생성되면 gdb를 통해 오류 원인을 확인하세요. `bt full` 명령어를 통해서 전체 스택 정보를 확인하세요.
+
+```bash
+# gdb /usr/sbin/php-fpm /home/httpd-core/core-php-fpm.31832
+...
+...
+
+> bt full
+```

@@ -1,0 +1,48 @@
+---
+id: php-install-check
+title: 설치 점검
+description: PHP 에이전트 설치 점검에 대한 설명입니다.
+tags:
+    - PHP
+---
+<!-- 구성 수정 -->
+## 다시 실행하기
+
+설치가 완료된 후 Apache 또는 PHP-FPM 서비스(Service)를 다시 시작하면 설정된 PHP 확장 모듈(PHP Extension module) *whatap.so* 파일이 로딩됩니다.
+
+만약 whatap-php 서비스(Service)가 실행 중이지 않거나 오류가 발생하면 다시 시작하세요.
+
+### Redhat/CentOS
+
+```java title=SH
+$ service whatap-php restart
+```
+
+### Debian/Ubuntu
+
+```java title=SH
+$ sudo service whatap-php restart
+```
+
+### FreeBSD
+
+```java title=SH
+$ service whatap_php restart
+```
+
+## PHP 확장 모듈 및 whatap-php 서비스 등록
+
+PHP 확장 모듈(PHP Extension module) 및 whatap-php 서비스(Service)를 자동으로 설치할 경우에 아래와 같이 적용하세요.
+
+``` javatitle=sh
+$ sudo /usr/whatap/php/install.sh
+Input license key
+xxxxxxxxxxxxxxxx                          # 발급된 라이센스 key 입력
+
+Input whatap.server.host
+192.x.x.x                                  # 발급된 서버 IP 입력
+```
+
+PHP 확장 모듈(PHP Extension module) 및 whatap-php 서비스(Service)를 자동으로 인식하지 못하면 아래와 같이 선택 설치를 진행해야 합니다.
+
+주로 Apache 명령어(`apachectl`, `httpd`, `apache2`) 및 PHP 명령어(CLI)가 기본 경로(*$PATH*)에 설정되어 있지 않거나, 여러 개의 PHP가 설치되어 PHP 명령어(CLI)가 여러 개일 경우(`php5`, `php70`, `php-zts`, `zts-php`…) 실제로 적용하고 있는 버전을 선택해 진행하세요.

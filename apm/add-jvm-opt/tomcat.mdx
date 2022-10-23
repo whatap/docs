@@ -2,9 +2,7 @@
 id: tomcat
 title: Tomcat
 description: Tomcat 애플리케이션 서버 환경에서 JVM 옵션 추가 설정을 완료하세요.
-tags:
-    - Tomcat
-    - Java
+tags: [ Tomcat, Java]
 ---
 
 Tomcat을 사용하는 애플리케이션 서버 환경에서 JVM 옵션을 추가하는 방법을 확인하세요. 사용하는 운영체제에 맞게 설정하세요.
@@ -15,16 +13,16 @@ Tomcat을 사용하는 애플리케이션 서버 환경에서 JVM 옵션을 추�
 
 *catalina.sh* 파일 상단에 ```JAVA_OPTS``` 환경 변수를 추가하세요.
 
-```bash text title='{Tomcat 설치 경로}/bin/catalina.sh' showLineNumbers
+```bash title='{Tomcat 설치 경로}/bin/catalina.sh' showLineNumbers
 ########## WHATAP START ############
 WHATAP_HOME=/whatap
-WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-X.Y.Z.jar | sort | tail -1`
+WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1`
 JAVA_OPTS="${JAVA_OPTS} -javaagent:${WHATAP_JAR} "
 ########## WHATAP END ############
 ```
 
-:::note
-```ls ${WHATAP_HOME}/whatap.agent-X.Y.Z.jar | sort | tail -1``` 항목은 향후 에이전트 업데이트를 진행할 경우 최신 와탭 에이전트를 적용하기 위해서입니다.
+:::info
+```ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1``` 항목은 향후 에이전트 업데이트를 진행할 경우 최신 와탭 에이전트를 적용하기 위해서입니다.
 :::
 
 ### **Windows**

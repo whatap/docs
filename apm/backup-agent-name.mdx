@@ -1,0 +1,31 @@
+## 에이전트 이름 설정
+
+상황에 따라 시작 스크립트에 JVM 옵션을 추가해 직접 이름을 설정할 수 있습니다. 
+
+```bash
+export WHATAP_OPTS="$WHATAP_OPTS -Dwhatap.name={type}-{ip4}-{port}"
+export WHATAP_OPTS="$WHATAP_OPTS -Dwhatap.okind=Aservice"
+export JAVA_OPTS="$JAVA_OPTS $WHATAP_OPTS"
+```
+
+다음의 순서로 우선 순위를 가집니다.
+
+* `-Dwhatap.name`  
+    애플리케이션 명칭을 이름 변수 조합으로 설정합니다. 설정한 값이 없을 경우 기본값은 `{type}`-`{ip2}`-`{ip3}`-`{port}`입니다.
+
+* `-Dwhatap.oname`  
+    애플리케이션 명칭을 고정값으로 설정합니다
+
+에이전트 이름과 관련해 설정할 수 있는 옵션은 다음과 같습니다.
+
+<div class='java-name'>
+
+| 옵션 이름 | 기본값 | Type | 설명 |
+| ------- | :--: | :--: | -- |
+| -Dwhatap.okind | NONE | String | 에이전트가 속한 그룹 단위를 설정합니다. |
+| -Dwhatap.onode | NONE | String | 에이전트가 속한 노드 단위를 설정합니다. |
+| -Dauto_oname_enabled | false | Boolean | 서버에 등록할 에이전트 이름(oname)을 서버로부터 자동 부여받는 기능을 활성화합니다. 값이 `true`이면 `-Dwhatap.name`, `-Dwhatap.oname` 옵션은 무시합니다. 수집 서버와의 통신을 통해 oname을 부여받은 다음 에이전트의 일반적인 동작을 시작합니다. |
+| -Dauto_oname_prefix | agent | String | 에이전트 이름을 서버로부터 자동 부여할 때 에이전트 이름의 prefix, 보통 업무명을 사용합니다. prefix 일련번호 '1~)'를 부여합니다. `-Dauto_oname_enabled`의 값이 `true`일 때 적용됩니다. |
+| -Dauto_oname_reset | 0 | Int | 서버로부터 새로운 에이전트 이름을 부여받기 위해 수정합니다. 에이전트 이름을 자동 부여하면 `whatap.oname`이라는 시스템 환경 변수로 설정됩니다. 한번 정해진 시스템 환경 변수는 자바 인스턴스가 다시 시작할 때까지 유지합니다. 리셋을 원할 때 auto_oname_reset 값을 수정하세요. 현재 설정 값과 다른 값으로 변경하면 적용됩니다. |
+
+</div>

@@ -17,7 +17,7 @@ WebLogic을 사용하는 애플리케이션 서버 환경에서 JVM 옵션을 �
 <Tabs>
 <TabItem value="windows" label="Windows" default>
 
-```bash title="{WebLogic 설치 경로}/user_projects/domains/{사용자도메인}/bin/startWebLogic.bat"
+```batch title="{WebLogic 설치 경로}/user_projects/domains/{사용자도메인}/bin/startWebLogic.bat"
 rem ########## WHATAP START ############
 set WHATAP_HOME=C:\whatap
 for /f %%f in ('dir /b /on "%WHATAP_HOME%\whatap.agent-X.Y.Z.jar"') do set last=%%f
@@ -42,7 +42,7 @@ rem ########## WHATAP END ############
 ```bash title="{WebLogic 설치 경로}/user_projects/domains/{사용자도메인}/bin/startWebLogic.sh"
 ########## WHATAP START ############
 WHATAP_HOME=/whatap
-WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-X.Y.Z.jar | sort | tail -1`
+WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1`
 JAVA_OPTS="${JAVA_OPTS} -javaagent:${WHATAP_JAR} "
 ########## WHATAP END ############
 ```

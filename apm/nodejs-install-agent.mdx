@@ -1,0 +1,45 @@
+---
+id: nodejs-install-agent
+title: Node.js 에이전트 설치
+description: Node.js 환경의 애플리케이션 서버에 에이전트를 설치하는 방법을 제공합니다.
+tags: [ Node.js ]
+---
+
+{@include: _agent-signup-guide.mdx}
+
+{@youtube: QXKweGBucjI}
+
+Node.js 모니터링 서비스를 사용하려면 모니터링 대상 애플리케이션에 모니터링 에이전트를 설치해야 합니다. 설치는 npm(Node Package Manager)을 이용하세요.
+
+* 서비스 중인 Node.js 애플리케이션 디렉터리 경로에 와탭 에이전트 모듈을 설치하세요.
+
+* 와탭 라이센스 환경 설정(*whatap.conf*)을 작성하세요.
+
+* Node.js 서비스를 다시 실행합니다.
+
+{@include: ../getting-started/_create-project.mdx}
+
+{@include: ../getting-started/_accesskey.mdx}
+
+## 와탭 에이전트 다운로드
+
+1. 서비스 중인 Node.js 애플리케이션 디렉터리 경로로 이동해 와탭 에이전트를 설치하세요.
+
+    ```bash
+    $ npm install --save whatap
+    ```
+
+1. node_modules/whatap 경로의 whatap.conf 파일을 복사하세요.
+
+1. [와탭 모니터링 서비스](https://service.whatap.io) 화면으로 이동해 ***설치 안내*** 섹션의 ***와탭 에이전트 다운로드*** 내용 중 다음과 같은 내용을 복사하세요.
+
+    ```ini title='예시'
+    license=x46n3a26be1ah-z2rswcfcvlq2ph-z114c81gfhqpgg
+    whatap.server.host=52.78.209.94/52.78.224.235
+    ```
+
+1. *whatap.conf* 파일에 붙여넣기 하세요.
+
+호스트(`whatap.server.host`) 주소는 와탭 proxy를 설치한 서버의 주소입니다. '/' 구분자를 이용해 와탭 서버 중 proxy 서버가 실행 중인 서버의 모든 주소를 입력할 수 있습니다.
+
+## 활용

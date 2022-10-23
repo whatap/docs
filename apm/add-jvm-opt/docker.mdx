@@ -13,7 +13,7 @@ tags:
 본문에서는 Java 에이전트를 설치하는 경우만을 다룹니다. 와탭 쿠버네티스 모니터링과 함께 적용하는 경우 ~~별도 절차~~를 참고하세요.
 :::
 
-1. Docker 빌드 디렉토리를 생성하세요.
+1. Docker 빌드 디렉터리를 생성하세요.
 
     ```bash
     mkdir -p {Docker build dir}
@@ -48,9 +48,9 @@ tags:
 
 1. ```JAVA_OPT```에 다음 내용을 추가하세요.
 
-    ```apacheconf
+    ```bash
     WHATAP_HOME=/whatap
-    WHATAP_JAR=ls ${WHATAP_HOME}/whatap.agent-X.Y.Z.jar | sort | tail -1
+    WHATAP_JAR=ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1
     export JAVA_OPTS="-javaagent:${WHATAP_JAR} "
     ```
 

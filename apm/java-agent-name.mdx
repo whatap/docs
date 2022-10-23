@@ -46,12 +46,14 @@ JVM 옵션으로 `whatap.onname` 설정이 없는 경우 에이전트 이름을 
 
 ## 에이전트 이름 설정
 
+*whatap.conf* 파일에 옵션을 적용해 이름을 설정하려면 [부가 기능 → 에이전트 이름 설정](java-agent-adv-settings#agentname)를 참조하세요.
+
 시작 스크립트에 JVM 옵션을 추가해 자동으로 부여한 이름 대신 직접 이름을 설정할 수 있습니다.
 
 | 우선순위 | 옵션           | 설정 위치   | 설명                                                                         |
 | -------- | -------------- | ----------- | ---------------------------------------------------------------------------- |
-| 1        | -Dwhatap.name  | JVM Options | 애플리케이션 이름을 패턴으로 설정하세요.<br/>default : {type}-{ip2}-{ip3}-{port} |
-| 2        | -Dwhatap.oname | JVM Options | 애플리케이션 이름을 고정값으로 설정합니다. |
+| 1        | -Dwhatap.name  | JVM Options | 애플리케이션 이름을 패턴으로 설정하세요.<br/>default : `{type}-{ip2}-{ip3}-{port}` |
+| 2        | -Dwhatap.oname | JVM Options | 애플리케이션 이름을 고정값으로 설정합니다.<br/>`-Dwhatap.oname=front-{ip3}-{port}` |
 
 :::info
 * 클라우드의 Scale Out 환경에서는 VM이 복사되어 사용될 수 있습니다. 따라서 오브젝트 이름이 자동 부여되는 것이 중요합니다.

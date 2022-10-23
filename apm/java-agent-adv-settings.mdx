@@ -8,189 +8,25 @@ tags: [ Java, whatap.conf ]
 
 와탭 에이전트는 *whatap.conf* 파일에 다음과 같은 옵션을 설정해 다양한 기능을 수행할 수 있습니다.
 
-## 에이전트 이름 설정
+## 에이전트 이름 설정{#agentname}
 
-Java 에이전트 이름 설정에 관한 자세한 사항은 [에이전트 이름 식별](java-agent-name)을 참조하세요.
-
-* **whatap.name**<span class='type'>String</span><br/>
-    기본값 `{type}-{ip2}-{ip3}-{port}`<br/>
-    에이전트 이름을 패턴으로 정의합니다.
-
-* **whatap.oname**<span class='type'>String</span><br/>
-    에이전트 이름을 문자열로 정의합니다.
-
-* **whatap.okind**<span class='type'>String</span><br/>
-    에이전트가 속한 그룹 단위를 정의합니다.
-
-* **whatap.onode**<span class='type'>String</span><br/>
-    에이전트가 속한 노드 단위를 정의합니다.
-
-* **auto_oname_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `false`<br/>
-    서버에 등록할 에이전트 이름(`whatap.oname`)을 서버로부터 자동 부여받는 기능을 활성화합니다. 해당 옵션 적용 시 JVM 옵션으로 설정한 `-Dwhatap.name`, `-Dwhatap.oname` 값은 무시합니다. 수집 서버와의 통신을 통해 `whatap.oname` 값을 부여 받은 다음 에이전트의 일반적인 동작을 시작합니다.  
-
-* **auto_oname_prefix**<span class='type'>String</span><br/>
-    기본값 `agent`<br/>
-    에이전트 이름을 서버로부터 자동 부여할 때 에이전트 이름의 prefix, 보통 업무명을 사용합니다. prefix 일련번호 '1~)'을 부여합니다.
-
-* **auto_oname_reset**<span class='type'>Int</span><br/>
-    기본값 `0`<br/>
-    서버로부터 새로운 에이전트 이름을 부여받기 위해 수정합니다. 에이전트 이름을 자동 부여하면 `whatap.oname`이라는 시스템 환경 변수로 설정됩니다. 한번 정해진 시스템 환경 변수는 자바 인스턴스가 다시 시작할 때까지 유지합니다. 리셋을 원할 때 auto_oname_reset 값을 수정하세요. 현재 설정 값과 다른 값으로 변경하면 적용됩니다.
+{@include: _java-check-agent-name.mdx}
 
 ## 기능 제어
 
-Java 애플리케이션 서버의 기능을 제어할 수 있습니다.
-
-* **shutdown**<span class='type'>Boolean</span><br/>
-    기본값 `false`<br/>
-    `true`인 경우 에이전트의 모든 동작을 중지하고 서버와의 연결을 종료합니다.
-
-* **enabled**<span class='type'>Boolean</span><br/>
-    기본값 `true`<br/>
-    전체 기능을 활성화합니다. `false`인 경우에도 서버와 최소한의 통신을 유지하기 위한 정보는 전송됩니다.
-
-* **transaction_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `true`<br/>
-    트랜잭션 추적 기능을 활성화합니다. 히트맵에 기록되는 트랜잭션 정보가 해당합니다. `enabled` 옵션이 `false`인 경우 비활성화합니다.
-
-* **counter_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `true`<br/>
-    성능 카운터 추적 기능을 활성화합니다. 액티브 트랜잭션 수 및 사용자 수, JVM 자원 사용량, Process CPU 사용량, DB Pool 사용량 정보 등이 해당합니다. `enabled` 옵션이 `false`인 경우 비활성화합니다.
-
-* **stat_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `true`<br/>
-    통계 정보 추적 기능을 활성화합니다. 5분 단위로 수집하는 트랜잭션, SQL, HTTPCALL, UserAgent, Client IP 등의 통계 데이터 등이 해당합니다. `enabled` 옵션이 `false`인 경우 비활성화합니다.
-
-* **sigar_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `true`<br/>
-    sigar 라이브러리를 통한 OS 정보 수집을 활성화합니다. sigar 라이브러리를 통해 5초 단위로 수집하는 CPU, Memory, Disk 등의 OS 자원 데이터가 해당합니다. `enabled` 옵션이 `false`인 경우 비활성화합니다.
-
-* **active_stack_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `true`<br/>
-    액티브 스택 추적을 활성화합니다. 스택 메뉴의 탑 스택 및 유니크 스택, 액티브 스택이 해당합니다. `enabled` 또는 `counter_enabled` 옵션이 `false`인 경우 비활성화합니다.
-
-* **license**<span class='type'>String</span><br/>
-    에이전트 설치 시 서버로부터 부여받은 프로젝트 액세스 키를 입력합니다. 프로젝트 액세스 키에는 에이전트가 속한 프로젝트와 보안 통신을 위한 암호 키를 포함합니다.
-
-* **cypher_level**<span class='type'>aes_bit [128, 256]</span><br/>
-    기본값 `128`<br/>
-    AES 보안 알고리즘에 대한 암호 레벨을 설정합니다. 256 비트까지 확장할 수 있습니다. AES 256 암호화 설정에 대한 자세한 사항은 [AES 256 암호화](java-aes-256-encryption)를 참조하세요.
-
-* **encrypt_level**<span class='type'>encrypt_level [1, 2, 3]</span><br/>
-    기본값 `2`<br/>
-    와탭 에이전트는 서버로 데이터를 전송할 때 데이터 속성에 따라 선택적으로 암호화합니다. 높은 보안을 유지하면서도 성능상 이점을 가지고 있습니다. 데이터 유형에 상관 없이 일괄적인 암호화 정책을 적용하려면 다음 옵션을 참조하세요.
-    * `1` : 암호화 전송 기능 사용 안함
-    * `2` : SQL 파라미터, Plain Text와 같은 민감한 속성에 대한 암호화 전송
-    * `3` : 모든 항목에 대한 암호화 전송
-
-* **stat_ip_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `true`<br/>
-    [와탭 모니터링 서비스](https://service.whatap.io)의 ***프로젝트 메뉴***에서 ***통계/보고서*** → ***통계*** → ***클라이언트 IP*** 항목의 IP 통계 사용 여부를 활성화합니다.
-
-* **realtime_user_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `true`<br/>
-    [와탭 모니터링 서비스](https://service.whatap.io)의 ***대시보드*** → ***애플리케이션 대시보드*** 메뉴에서 확인할 수 있는 지표 중 ***동시접속 사용자*** 지표 수집 여부를 설정합니다.
-
-* **hook_direct_patch_classes**<span class='type'>ClassFile_FullPath</span><br/>
-    직접적으로 특정 클래스를 로딩 타임에 바꿔치기할 때 사용합니다. 클래스를 컴파일한 후에 별도 파일을 만들고 그 파일의 전체 경로를 설정합니다.
-
-* **active_stack_second**<span class='type'>Seconds</span><br/>
-    기본값 `10`<br/>
-    액티브 스택을 추적하는 간격을 설정합니다.
-:::caution
-주어진 기본값을 변경하지 않을 것을 권장합니다.
-:::
-
-* **boot_redefine_size**<span class='type'>Int</span><br/>
-    기본값 `100`<br/>
-    에이전트를 Attach 방식 또는 Watcher 방식으로 설치했을 경우 이미 로딩된 클래스의 추적을 위해 BCI를 새로 수행합니다. 이때 동시 redefine하는 클래스의 개수를 설정합니다.
-
-<!-- 담당자 확인 필요 -->
-* **trace_component_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `true`<br/>
-    [와탭 모니터링 서비스](https://service.whatap.io)의 ***프로젝트 메뉴***에서 ***애플리케이션*** → ***인스턴스 성능 분석*** 메뉴에서 ***라이브러리 버전*** 기능을 활성화합니다.
-
-* **realtime_user_thinktime_max**<span class='type'>MiliSeconds</span><br/>
-    기본값 `300000`<br/>
-    실시간 브라우저 사용자 수를 측정할 경우 동일 사용자로 인정되는 최대 호출 간격을 설정합니다.
-
-* **time_sync_interval_ms**<span class='type'>MiliSeconds</span><br/>
-    기본값 `300000`<br/>
-    에이전트와 서버 간 동기화하는 시간 간격을 설정합니다. 동기화하지 않을 경우 0으로 설정합니다.
-
-* **detect_deadlock_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `false`<br/>
-    Java 스레드의 교착 상태(DeadLock) 여부를 체크해 감지할 경우 이벤트를 발생합니다. 발생 간격은 5초 단위입니다. 같은 DeadLock 건에 대한 이벤트는 한 시간에 한 번만 발생합니다.
-
-* **text_reset**<span class='type'>Int</span><br/>
-    기본값 `0`<br/>
-    와탭 에이전트는 한번 보낸 텍스트 유형 데이터를 hash 처리하므로 다음 날까지 다시 전송하지 않습니다. 이전 설정 값과 다른 값을 입력하는 경우 다시 전송합니다.
-:::note
-트랜잭션 URL, SQL String 등이 텍스트 유형 데이터에 해당합니다.
-:::
+{@include: _java-control-function.mdx}
 
 ## CPU, 메모리, 디스크 사용량 수집
 
-CPU, 메모리, 디스크 사용량 수집 설정을 추가하지 않는 경우 Java의 jmx 라이브러리를 통해서 성능 지표를 수집합니다.
-
-* **linux_proc_stat_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `false`<br/>
-    CPU, 메모리, 디스크 사용량을 Linux의 *proc* 디렉터리에서 수집할지 여부를 설정합니다.
-
-* **oshi_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `false`<br/>
-    CPU, 메모리, 디스크 사용량을 측정할 때 oshi 라이브러리 사용 여부를 설정합니다.
-:::note
-whatap.agent.2.1.0 버전 이상만 지원합니다.
-:::
-
-* **sigar_enabled**<span class='type'>Boolean</span><br/>
-    CPU, 메모리, 디스크 사용량을 측정할 때 sigar 라이브러리 사용 여부를 설정합니다.
-:::note
-whatap.agent.2.1.0 버전 미만에서 기본값은 `true`이며, whatap.agent.2.1.0 버전 이상에서는 기본값이 `false`입니다.
-:::
+{@include: _java-usage.mdx}
 
 ## 통신
 
-* **whatap_server_host**<span class='type'>ip_address</span><br/>
-    기본값 `127.0.0.1,127.0.0.1`<br/>
-    에이전트가 수집한 데이터를 전송할 서버를 설정합니다. 수집 서버 이중화로 2개 이상의 IP 주소를 가진 경우 콤마(,)를 사용해 구분하세요. 설정한 IP 주소에는 수집 서버 proxy 데몬이 리스닝 상태로 서비스돼야 합니다.
-
-* **whatap_server_port**<span class='type'>tcp_port</span><br/>
-    기본값 `6600`<br/>
-    수집 서버 포트를 설정합니다. 포트는 하나만 설정할 수 있으므로 `whatap_server_host`에 설정한 수집 서버들은 동일 포트를 사용해야 합니다.
-
-* **tcp_so_timeout**<span class='type'>MiliSecond</span><br/>
-    기본값 `60000`<br/>
-    수집 서버와 통신하는 TCP 세션의 Socket Timeout 값을 설정합니다.
-
-* **tcp_connection_timeout**<span class='type'>MiliSecond</span><br/>
-    기본값 `5000`<br/>
-    수집 서버와 통신하는 TCP 세션의 Connection Timeout 값을 설정합니다.
-
-* **net_send_max_bytes**<span class='type'>Byte</span><br/>
-    기본값 `5242880`<br/>
-    수집 서버로 데이터를 전송할 때 한 번에 전송하는 최대 크기를 설정합니다.
-
-* **net_send_queue1_size**<span class='type'>Int</span><br/>
-    기본값 `256`<br/>
-    프로파일 정보와 액티브 스택을 제외한 나머지 데이터 전송에 사용할 Queue의 크기를 설정합니다. 설정한 크기가 10 이하인 경우 10으로 설정합니다.
-
-* **net_send_queue2_size**<span class='type'>Int</span><br/>
-    기본값 `512`<br/>
-    프로파일 정보와 액티브 스택 데이터 전송에 사용할 Queue의 크기를 설정합니다. 설정한 크기가 10 이하인 경우 10으로 설정합니다.
+{@include: _java-network.mdx}
 
 ## 에이전트 성능
 
-### whatap.agent.2.1.0 버전 미만
-
-* **whatap.tx_max_count**<span class='type'>Int</span><br/>
-    기본값 `5000`<br/>
-    트랜잭션을 최대 저장하는 개수입니다. 동시에 처리하는 트랜잭션이 많을 경우 해당 크기를 더 늘려주세요.
-
-* **whatap.tx_default_capacity**<span class='type'>Int</span><br/>
-    기본값 `101`<br/>
-    트랜잭션을 저장하는 버퍼의 시작 크기입니다.
+{@include: _java-agent-tx.mdx}
 
 ## 로그{#log}
 
@@ -198,125 +34,75 @@ whatap.agent.2.1.0 버전 미만에서 기본값은 `true`이며, whatap.agent.2
 
 ## 로그싱크(LogSink){#logsink}
 
-Java 애플리케이션 서버 로그를 통합 모니터링하는 기능입니다. 
-
-:::caution
-LogSink 옵션은 whatap.agent-2.1.0 버전 이상에서 사용 가능합니다.
-:::
-
-### 로그 모니터링 기능 활성화 
-
-* **logsink_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `false`<br/>
-    로그 모니터링 기능을 활성화합니다.
-
-* **logsink_stdout_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `logsink_enabled`<br/>
-    Java 애플리케이션에서 발생하는 System.out 로그 수집 여부를 설정합니다.
-
-* **logsink_stderr_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `logsink_enabled`<br/>
-    Java 애플리케이션에서 발생하는 System.err 로그 수집 여부를 설정합니다.
-
-* **logsink_logback_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `logsink_enabled`<br/>
-    logback 프레임워크 로그 수집 여부를 설정합니다.
-
-* **logsink_log4j_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `logsink_enabled`<br/>
-    log4j 프레임워크 로그 수집 여부를 설정합니다.
-
-* **logsink_tomcat_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `logsink_enabled`<br/>
-    Tomcat 로그 수집 여부를 설정합니다.
-
-* **logsink_custom_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `logsink_enabled`<br/>
-    사용자 정의 로그 수집 여부를 설정합니다.
-
-### 프레임워크 로그내용 수집
-
-프레임워크에서 수집하는 로그를 모니터링하려면 모듈에서 로그를 가로채기 위한 설정과 플러그인을 추가해야 합니다. 프레임워크에서 수집하는 로그의 기본 카테고리 이름을 'AppLog’로 설정합니다. 기본값은 `hooklog_enabled` 옵션의 설정과 동일 합니다.
-
-`hooklog_enabled` 값을 변경하면 재기동이 필요합니다. `hooklog_enabled` 기본값은 `logsink_enabled`입니다. 따라서 `logsink_enabled=true`로 설정하고 자바 애플리케이션을 재시작하면 `hooklog_enabled`는 `true`로 설정되고 `hooklog_logback_enabled`도 `true`로 설정됩니다.
-
-* **hooklog_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `logsink_enabled`<br/>
-    로그 추적 활성화 여부를 설정합니다.
-
-* **hooklog_logback_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `hooklog_enabled`<br/>
-    logback 프레임워크 수집 로그 추적 활성화 여부를 설정합니다.
-
-* **hooklog_log4j_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `hooklog_enabled`<br/>
-    log4j 프레임워크 수집 로그 추적 활성화 여부를 설정합니다.
-
-* **hooklog_tomcat_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `hooklog_enabled`<br/>
-    Tomcat 로그 추적 활성화 여부를 설정합니다.
-
-* **hooklog_custom_methods**<br/>
-    사용자 정의 로그를 등록합니다. 임의의 로그 프레임워크 내용을 전달합니다. 사이트에서 개별로 만든 로그 모듈의 로그를 추적할때 사용하세요.
-    ```ini title='예시'
-    hooklog_custom_methods=com.greatshop.common.Log.print
-    ```
-
-### 로그 전송 설정
-
-* **logsink_queue_size**<span class='type'>Int</span><br/>
-    기본값 `1000`<br/>
-    로그 전송 시 큐 사이즈 설정입니다.
-
-* **logsink_line_size**<span class='type'>Int</span><br/>
-    기본값 `512`<br/>
-    로그 전송 시 단일 라인의 최대 크기 설정입니다.
-
-### 로그 압축 전송
-
-* **logsink_zip_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `false`<br/>
-    값을 `true`로 설명하면 수집한 로그 데이터를 압축 전송할 수 있습니다.
-
-* **debug_logsink_zip_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `false`<br/>
-    로그 데이터를 압축해서 전송할 때 디버그 여부를 설정합니다. 관련 정보를 에이전트 로그에 표시합니다.
-
-* **logsink_zip_min_size**<span class='type'>Int</span><br/>
-    기본값 `100`<br/>
-    로그 압축 전송 최소 사이즈를 설정합니다. 전송 데이터가 100 bytes 이하인 경우 데이터를 압축하지 않습니다.
-
-* **logsink_max_buffer_size**<span class='type'>Int</span><br/>
-    기본값 `65536`<br/>
-    수집한 로그 데이터 크기가 설정한 값을 초과하면 데이터를 서버로 전송합니다.
-
-* **logsink_max_wait_time**<span class='type'>Int</span><br/>
-    기본값 `2000`<br/>
-    수집한 로그 데이터를 묶어서 전송하기 위해 대기하는 최대 시간을 설정합니다. 설정한 값을 초과하면 데이터를 서버로 전송합니다.
-
-* **logsink_zip_libpath**<span class='type'>String</span><br/>
-    로그 데이터를 압축 전송할 때 압축 알고리즘 변경이 가능합니다. 기본 알고리즘은 GZIP입니다.
-    ```ini title='예시'
-    logsink_zip_libpath=/whatap/whatap-logsink-lz4-1.7.0.jar
-    ```
+{@include: _java-logsink.mdx}
 
 ## GC(Garbage Collection) 로그 모니터링
 
-* **gclog_enabled**<span class='type'>Boolean</span><br/>
-    기본값 `false`<br/>
-    GC 로그 모니터링을 활성화합니다.
+{@include: _java-gc-monitoring.mdx}
 
-* **gclog_file**<span class='type'>String</span><br/>
-    GC 로그 파일 경로를 설정합니다.
-
-* **gclog_check_interval**<span class='type'>Int</span><br/>
-    기본값 `2000`<br/>
-    GC 로그를 감시하는 간격입니다. 매 간격으로 로그 파일에 기록이 추가됐는지 확인합니다.
-
-* **gclog_word**<span class='type'>String</span><br/>
-    기본값 `Full GC`<br/>
-    감시할 키워드를 등록합니다. 'Full GC'가 발생하면 정보를 서버에 전송하고 저장합니다.
-
-## 트랜잭션 프로파일링
+## 트랜잭션
 
 {@include: _java-transaction-profiling.mdx}
+
+{@include: _java-http-transaction.mdx}
+
+{@include: _java-non-http-transaction.mdx}
+
+{@include: _java-trace-transaction.mdx}
+
+## DB, SQL
+
+{@include: _java-db-sql.mdx}
+
+## HTTPC, API Call
+
+{@include: _java-httpc-api.mdx}
+
+## 플러그인(Plug-in)
+
+세션이나 혹은 다른 방식의 커스터마이징이 필요하면 플러그인을 사용하세요. 플러그인은 스크립트 형태로 콘솔에서 프로그램할 수 있으며 동적으로 변경하고 적용할 수 있습니다.
+
+스크립트 플러그인에 대한 자세한 내용은 [에이전트 플러그인 → 스크립트 플러그인](java-script-plugin)을 참조하세요.
+
+## 사용자 수
+
+{@include: _java-collect-user.mdx}
+
+## 부하량 제어
+
+{@include: _java-agent-throttring.mdx}
+
+## 에이전트 알림
+
+{@include: _java-agent-notice.mdx}
+
+## Apdex
+
+{@include: _java-apdex.mdx}
+
+## 통계
+
+{@include: _java-statistics.mdx}
+
+## 토폴로지 맵
+
+* **tx_caller_meter_enabled**<span class='type'>Boolean</span><br/>
+기본값 `false`<br/>
+토폴로지 맵에서 외부 호출 정보를 표현합니다. `mtrace_enabled`의 값이 `true`이면 동작합니다.
+
+sql_dbc_meter_enabled
+기본값 `false`<br/>
+Type : Boolean
+토폴로지 맵에서 SQL 호출 정보를 표현합니다.
+
+httpc_host_meter_enabled
+기본값 `false`<br/>
+Type : Boolean
+토폴로지 맵에서 httpc outbound 정보를 표현합니다.
+
+actx_meter_enabled
+기본값 `false`<br/>
+Type : Boolean
+토폴로지 맵에서 액티브 트랜잭션 상태를 표현합니다.
+
+## 공유 메모리

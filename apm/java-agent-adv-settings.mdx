@@ -1,12 +1,11 @@
 ---
 id: java-agent-adv-settings
-title: 부가 기능
+title: Java 부가 기능
 description: whatap.conf 파일로 설정할 수 있는 항목을 알아보세요.
-toc_max_heading_level: 2
 tags: [ Java, whatap.conf ]
 ---
 
-와탭 에이전트는 *whatap.conf* 파일에 다음과 같은 옵션을 설정해 다양한 기능을 수행할 수 있습니다.
+{@include: _agent-advanced-desc.mdx}
 
 ## 에이전트 이름 설정{#agentname}
 
@@ -22,7 +21,13 @@ tags: [ Java, whatap.conf ]
 
 ## 통신
 
-{@include: _java-network.mdx}
+{@include: _common-network.mdx}
+
+* **net_send_queue1_size**<span class='type'>Int</span><br/>
+기본값 `256`<br/>프로파일 정보와 액티브 스택을 제외한 나머지 데이터 전송에 사용할 Queue의 크기를 설정합니다. 설정한 크기가 10 이하인 경우 10으로 설정합니다.
+
+* **net_send_queue2_size**<span class='type'>Int</span><br/>
+기본값 `512`<br/>프로파일 정보와 액티브 스택 데이터 전송에 사용할 Queue의 크기를 설정합니다. 설정한 크기가 10 이하인 경우 10으로 설정합니다.
 
 ## 에이전트 성능
 
@@ -66,7 +71,14 @@ tags: [ Java, whatap.conf ]
 
 ## 사용자 수
 
-{@include: _java-collect-user.mdx}
+* **trace_user_enabled**<span class='type'>Boolean</span><br/>
+기본값 `true`<br/>
+실시간 사용자 집계 여부를 설정합니다. 사용자 추적 옵션이 중복 설정된 경우 동작 우선 순위는 다음과 같습니다.
+>   1. **trace_user_using_ip**
+>   1. **trace_user_using_jsession**
+>   1. **user_header_ticket**
+
+{@include: _common-collect-user.mdx}
 
 ## 부하량 제어
 
@@ -86,23 +98,4 @@ tags: [ Java, whatap.conf ]
 
 ## 토폴로지 맵
 
-* **tx_caller_meter_enabled**<span class='type'>Boolean</span><br/>
-기본값 `false`<br/>
-토폴로지 맵에서 외부 호출 정보를 표현합니다. `mtrace_enabled`의 값이 `true`이면 동작합니다.
-
-sql_dbc_meter_enabled
-기본값 `false`<br/>
-Type : Boolean
-토폴로지 맵에서 SQL 호출 정보를 표현합니다.
-
-httpc_host_meter_enabled
-기본값 `false`<br/>
-Type : Boolean
-토폴로지 맵에서 httpc outbound 정보를 표현합니다.
-
-actx_meter_enabled
-기본값 `false`<br/>
-Type : Boolean
-토폴로지 맵에서 액티브 트랜잭션 상태를 표현합니다.
-
-## 공유 메모리
+{@include: _common-topology-map.mdx}

@@ -13,7 +13,7 @@ Node.js 모니터링 서비스를 사용하려면 모니터링 대상 애플리�
 
 * 서비스 중인 Node.js 애플리케이션 디렉터리 경로에 와탭 에이전트 모듈을 설치하세요.
 
-* 와탭 라이센스 환경 설정(*whatap.conf*)을 작성하세요.
+* 와탭 라이선스 환경 설정(*whatap.conf*)을 작성하세요.
 
 * Node.js 서비스를 다시 실행합니다.
 
@@ -22,28 +22,6 @@ Node.js 모니터링 서비스를 사용하려면 모니터링 대상 애플리�
 {@include: ../getting-started/_accesskey.mdx}
 
 ## 와탭 에이전트 다운로드
-
-<details>
-<summary>Node.js 에이전트 구성 파일</summary>
-
-Node.js 모니터링 서비스를 구성하는 각 파일의 역할은 다음과 같습니다.
-
-* *whatap.conf*<br/>
-에이전트 설정 파일 샘플입니다. 해당 파일을 복사해서 프로젝트 액세스 키를 입력하세요.
-
-* *lib*<br/>
-에이전트, 트레이서 프로그램입니다.
-
-* *README.md*<br/>
-에이전트 설치에 관한 안내 문서입니다.
-
-* *package.json*<br/>
-npm 모듈 환경 구성 파일입니다.
-
-* *index.js*<br/>
-main export 선언 파일입니다.
-
-</details>
 
 1. 서비스 중인 Node.js 애플리케이션의 디렉터리 경로로 이동해 와탭 에이전트를 설치하세요.
 
@@ -65,6 +43,23 @@ main export 선언 파일입니다.
 1. *whatap.conf* 파일에 붙여넣기 하세요.
 
 호스트(`whatap.server.host`) 주소는 와탭 proxy를 설치한 서버의 주소입니다. 슬래시('/')를 구분자로 이용해 와탭 서버 중 proxy 서버가 실행 중인 서버의 모든 주소를 입력할 수 있습니다.
+
+<details>
+<summary>Node.js 에이전트 구성 파일</summary>
+
+Node.js 모니터링 서비스를 구성하는 각 파일의 역할은 다음과 같습니다.
+
+* *whatap.conf* : 에이전트 설정 파일 샘플입니다. 해당 파일을 복사해서 프로젝트 액세스 키를 입력하세요.
+
+* *lib* : 에이전트, 트레이서 프로그램입니다.
+
+* *README.md* : 에이전트 설치에 관한 안내 문서입니다.
+
+* *package.json* : npm 모듈 환경 구성 파일입니다.
+
+* *index.js* : main export 선언 파일입니다.
+
+</details>
 
 ## 활용
 
@@ -120,5 +115,5 @@ process.env.stat_domain_enabled=false;
 ```
 
 :::note
-Node.js에서 설정할 수 있는 옵션에 대한 자세한 내용은 ~~다음~~을 참고하세요.
+Node.js에서 설정할 수 있는 옵션에 대한 자세한 내용은 [다음 설명서](nodejs-set-agent-adv)를 참조하세요.
 :::

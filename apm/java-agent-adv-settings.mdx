@@ -23,10 +23,10 @@ tags: [ Java, whatap.conf ]
 
 {@include: _common-network.mdx}
 
-* **net_send_queue1_size**<span class='type'>Int</span><br/>
+* **net_send_queue1_size** <span class='type'>Int</span><br/>
 기본값 `256`<br/>프로파일 정보와 액티브 스택을 제외한 나머지 데이터 전송에 사용할 Queue의 크기를 설정합니다. 설정한 크기가 10 이하인 경우 10으로 설정합니다.
 
-* **net_send_queue2_size**<span class='type'>Int</span><br/>
+* **net_send_queue2_size** <span class='type'>Int</span><br/>
 기본값 `512`<br/>프로파일 정보와 액티브 스택 데이터 전송에 사용할 Queue의 크기를 설정합니다. 설정한 크기가 10 이하인 경우 10으로 설정합니다.
 
 ## 에이전트 성능
@@ -67,11 +67,11 @@ tags: [ Java, whatap.conf ]
 
 세션이나 혹은 다른 방식의 커스터마이징이 필요하면 플러그인을 사용하세요. 플러그인은 스크립트 형태로 콘솔에서 프로그램할 수 있으며 동적으로 변경하고 적용할 수 있습니다.
 
-스크립트 플러그인에 대한 자세한 내용은 [에이전트 플러그인 → 스크립트 플러그인](java-script-plugin)을 참조하세요.
+스크립트 플러그인에 대한 자세한 내용은 [다음 설명서](java-script-plugin)를 참조하세요.
 
 ## 사용자 수
 
-* **trace_user_enabled**<span class='type'>Boolean</span><br/>
+* **trace_user_enabled** <span class='type'>Boolean</span><br/>
 기본값 `true`<br/>
 실시간 사용자 집계 여부를 설정합니다. 사용자 추적 옵션이 중복 설정된 경우 동작 우선 순위는 다음과 같습니다.
 >   1. **trace_user_using_ip**

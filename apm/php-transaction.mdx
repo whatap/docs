@@ -38,13 +38,11 @@ tags:
 * **whatap.query_string_urls**<span class='type'>String</span><br/>
     트랜잭션에서 쿼리 스트링을 수집할 URL들을 등록합니다.
 
-* **wwhatap.whatap.profile_compile_file_enabled**<span class='type'>Boolean</span><br/>
+* **whatap.whatap.profile_compile_file_enabled**<span class='type'>Boolean</span><br/>
     기본값 `false`<br/>
     compile_file, compile_string 함수의 추적 여부를 설정합니다. PHP 내부 함수인 compile_file, compile_string 함수는 스크립트 실행 전에 컴파일하는 함수로 Main, include, require 및 autoload 스크립트의 컴파일 시점을 확인할 수 있습니다. 스크립트 파일 경로와 실행 시간을 확인할 수 있습니다.
 
-:::note
-Apache 및 PHP-FPM의 다시 시작 후 적용됩니다.
-:::
+{@include: _php-restart-apply.mdx}
 
 * **whatap.profile_compile_file_basetime**<span class='type'>Millisecond</span><br/>
     기본값 `200`<br/>
@@ -54,58 +52,44 @@ Apache 및 PHP-FPM의 다시 시작 후 적용됩니다.
 whatap.profile_compile_file_basetime을 너무 작게 설정할 경우 너무 많이 수집하게 되어 서버에 부하를 줄 수 있습니다.
 :::
 
-:::note
-Apache 및 PHP-FPM의 다시 시작 후 적용됩니다.
-:::
+{@include: _php-restart-apply.mdx}
 
 * **whatap.profile_method_enabled**<span class='type'>Boolean</span><br/>
     기본값 `true`<br/>
     실행 시간이 1초(whatap.profile_method_time)를 초과하는 사용자 함수의 정보를 트랜잭션 상세 정보에서 확인할 수 있습니다.
 
-:::note
-Apache 및 PHP-FPM의 다시 시작 후 적용됩니다.
-:::
+{@include: _php-restart-apply.mdx}
 
 * **whatap.profile_method_time**<span class='type'>Milliseconds</span><br/>
     기본값 `1000`<br/>
     whatap.profile_method_enabled 설정 수집되는 함수의 실행 시간을 설정할 수 있습니다. 
 
-:::note 
-Apache 및 PHP-FPM의 다시 시작 후 적용됩니다.
-:::
+{@include: _php-restart-apply.mdx}
 
 * **whatap.profile_method_stack_enabled**<span class='type'>Boolean</span><br/>
     기본값 `false`<br/>
     사용자 함수의 스택 정보를 트랜잭션 상세 정보에서 확인할 수 있습니다.
 
-:::note
-Apache 및 PHP-FPM의 다시 시작 후 적용됩니다.
-:::
+{@include: _php-restart-apply.mdx}
 
 * **whatap.profile_internal_method_enabled**<span class='type'>Boolean</span><br/>
     기본값 `true`<br/>
     PHP 내부 함수의 추적 여부를 설정합니다. 실행 시간의 기준을 설정합니다. 설정한 시간을 초과하여 실행되는 경우만 정보를 수집합니다.
 
-:::note
-Apache 및 PHP-FPM의 다시 시작 후 적용됩니다.
-:::
+{@include: _php-restart-apply.mdx}
 
 <!-- 두 개가 어떻게 다른지? -->
 * **whatap.profile_internal_method_time**<span class='type'>Milliseconds</span><br/>
     기본값 `1000`<br/>
     whatap.profile_method_enabled 설정 수집되는 함수의 실행 시간을 설정할 수 있습니다. 
 
-:::note 
-Apache 및 PHP-FPM의 다시 시작 후 적용됩니다.
-:::
+{@include: _php-restart-apply.mdx}
 
 * **whatap.profile_internal_method_param_enabled**<span class='type'>Milliseconds</span><br/>
     기본값 `1000`<br/>
     whatap.profile_method_enabled 설정 수집되는 함수의 실행 시간을 설정할 수 있습니다. 
     
-:::note 
-Apache 및 PHP-FPM의 다시 시작 후 적용됩니다.
-:::
+{@include: _php-restart-apply.mdx}
 
 * **whatap.net_udp_flush_start**<span class='type'>Boolean</span><br/>
     기본값 `true`<br/>
@@ -242,7 +226,7 @@ Apache 및 PHP-FPM의 다시 시작 후 적용됩니다.
     기본값 `x-wtap-tx`<br/>
     MTID 추적에 사용할 Callee Key Name을 정합니다.
 
-* **wwhatap.mtrace_send_url_length**<span class='type'>Int</span><br/>
+* **whatap.mtrace_send_url_length**<span class='type'>Int</span><br/>
     기본값 `80`<br/>
     Http Caller는 Callee에게 자신의 URL을 넘겨줍니다. 이때 URL 길이를 제한하고 있습니다. 이 길이를 지정합니다.
 

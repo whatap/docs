@@ -6,8 +6,24 @@ tags:
     - PHP
 ---
 
+## 에이전트 이름 식별
+{@include: php-agent-name.mdx} 
+
 ## 모니터링 대상 식별
 
 * **whatap.object_name** <span class='type'>String</span><br/>
     애플리케이션을 식별하는 에이전트 이름(ONAME) 체계입니다. ONAME을 토대로 OID가 생성됩니다. 
 
+{@include: _php-restart-whatap-service.mdx}
+
+|명칭|설명|
+|----|----|
+|{type}|whatap.app_name에 설정된 값을 사용합니다.|
+|{ip#}|IP를 나누었을 때 #번째 자리를 사용합니다.|
+|{process}|whatap.app_process_name에 설정된 값을 사용합니다.|
+|{hostname}|서버 호스트명을 사용합니다.|
+
+* **wwhatap.app_name**<span class='type'>String</span><br/>
+    애플리케이션을 식별하는 에이전트 이름(ONAME) 체계에 사용되는 애플리케이션 명으로 object_name의 {type}에 해당하는 값입니다.
+
+{@include: _php-restart-whatap-service.mdx}

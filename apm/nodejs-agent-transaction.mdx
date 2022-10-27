@@ -1,0 +1,75 @@
+---
+id: nodejs-agent-transaction
+title: 트랜잭션
+description: 에이전트에서 트랜잭션 성능을 추적해 설정할 수 있는 옵션을 제공합니다.
+tags: [ Node.js, 트랜잭션 ]
+---
+
+{@include: _transaction.mdx}
+
+에이전트에서 트랜잭션 성능을 추적해 설정할 수 있는 옵션을 다음과 같이 제공합니다.
+
+### 트랜잭션 프로파일링
+
+{@include: _transaction-profiling-common.mdx}
+
+{@include: _transaction-profile-active-color.mdx}
+
+* **hook_method_patterns** <span class='type'>String</span><br/>
+    응답시간을 측정할 메소드를 설정합니다. 마지막 마침표(.)를 구분자로 클래스 FullName과 메소드로 구분되며 별표(*)를 와일드 카드로 사용할 수 있습니다. 대상이 여러 개인 경우 쉼표(,)로 구분합니다.
+
+    ```ini title='예시'
+    hook_method_patterns=a.b.C1.*
+    ```
+
+* **hook_method_access_public_enabled** <span class='type'>Boolean</span><br/>
+기본값 `true`<br/>메소드 프로파일을 설정할 때 public 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
+
+* **hook_method_access_protected_enabled** <span class='type'>Boolean</span><br/>
+기본값 `true`<br/>메소드 프로파일을 설정할 때 protected 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
+
+* **hook_method_access_private_enabled** <span class='type'>Boolean</span><br/>
+기본값 `false`<br/>메소드 프로파일을 설정할 때 private 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
+
+* **hook_method_access_none_enabled** <span class='type'>Boolean</span><br/>
+기본값 `true`<br/>메소드 프로파일을 설정할 때 no access indicated 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
+
+* **hook_method_ignore_prefixes** <span class='type'>String</span><br/>
+기본값 `get,set`<br/>메소드 프로파일을 설정할 때 프로파일에서 제외하고 싶은 클랙스들을 prefix로 설정합니다.
+
+* **hook_method_ignore_classes** <span class='type'>String</span><br/>
+메소드 프로파일을 설정할 때 프로파일에서 제외하고 싶은 클래스들을 설정합니다.
+
+### HTTP 트랜잭션 추적
+
+{@include: _transaction-trace-common.mdx}
+
+{@include: _transaction-profile-http.mdx}
+
+* **trace_ignore_url_set** <span class='type'>String</span><br/>
+트랜잭션 추적에서 제외할 URL을 설정합니다.
+
+* **trace_ignore_url_prefix** <span class='type'>String</span><br/>
+트랜잭션 추적에서 제외할 URL prefix를 설정합니다.
+
+### NON HTTP 트랜잭션 추적
+
+* **hook_service_patterns** <span class='type'>String</span><br/>
+NON-Http 트랜잭션 추적을 위한 시작점 패턴을 설정합니다.
+
+
+* **trace_background_socket_enabled** <span class='type'>Boolean</span><br/>
+기본값 `true`<br/>소켓(TCP) 연결이 오픈될 때 트랜잭션을 시작한 상황에서만 오픈을 추적하는데 트랜잭션이 아닌 백그라운드 스레드에 의해 소켓이 오픈될 때도 추적합니다.
+
+### 트랜잭션 추적
+
+* **trace_service_port_enabled** <span class='type'>Boolean</span><br/>
+기본값 `fasle`<br/>트랜잭션의 이름에 포트 번호를 추가합니다.
+
+### 트랜잭션 연계 추적
+
+* **mtrace_rate** <span class='type'>Int</span><br/>
+기본값 `0`<br/>최초 트랜잭션이 발생할 때 발급하는 트랜잭션 연계 추적 기능(Multi Transaction ID, 이하 MTID)의 발급 비율을 설정하는 옵션입니다. `0`에서 `100`까지 설정할 수 있습니다. MTID를 추적하면 등록한 모든 애플리케이션 간의 호출을 확인할 수 있습니다. 같은 프로젝트에 속한 애플리케이션은 Caller & Callee 기능을 통해 트랜잭션의 프로파일을 바로 확인할 수 있습니다.
+
+* **mtrace_spec** <span class='type'>String</span><br/>
+기본값: `v1`<br/>현재 인스턴스의 애플리케이션 버전을 설정합니다. 임의의 문자열을 입력할 수 있습니다. 이 데이터는 호출 통계를 위해 이용합니다.

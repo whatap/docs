@@ -30,19 +30,47 @@ $ sudo service whatap-php restart
 $ service whatap_php restart
 ```
 
-## PHP 확장 모듈 및 whatap-php 서비스 등록
+## PHP 확장 모듈 설치 상태 확인하기
 
-PHP 확장 모듈(PHP Extension module) 및 whatap-php 서비스(Service)를 자동으로 설치할 경우에 아래와 같이 적용하세요.
+설치가 완료된 후 Apache 또는 PHP-FPM 서비스(Service)를 다시 시작하면 설정된 PHP 확장 모듈(PHP Extension module) *whatap.so* 파일이 로딩됩니다. PHP 확장 모듈이 잘 설치됐는지 다음의 방법으로 확인할 수 있습니다.
 
-``` javatitle=sh
-$ sudo /usr/whatap/php/install.sh
-Input license key
-xxxxxxxxxxxxxxxx                          # 발급된 라이센스 key 입력
+<!-- 설치가 완료된 후 Apache 또는 PHP-FPM 서비스(Service)를 다시 시작하면 설정된 PHP 확장 모듈(PHP Extension module) *whatap.so* 파일이 로딩됩니다.
 
-Input whatap.server.host
-192.x.x.x                                  # 발급된 서버 IP 입력
-```
+PHP 확장 모듈이 잘 설치됐는지 다음의 방법으로 확인할 수 있습니다. -->
 
-PHP 확장 모듈(PHP Extension module) 및 whatap-php 서비스(Service)를 자동으로 인식하지 못하면 아래와 같이 선택 설치를 진행해야 합니다.
+1. PHP 추가 INI 경로에 *whatap.ini* 생성되었는지 확인하세요.
 
-주로 Apache 명령어(`apachectl`, `httpd`, `apache2`) 및 PHP 명령어(CLI)가 기본 경로(*$PATH*)에 설정되어 있지 않거나, 여러 개의 PHP가 설치되어 PHP 명령어(CLI)가 여러 개일 경우(`php5`, `php70`, `php-zts`, `zts-php`…) 실제로 적용하고 있는 버전을 선택해 진행하세요.
+    ```javascript title=SH
+    $ find / | grep whatap.ini
+    ```
+
+1. PHP 확장 모듈(PHP Extension module) 경로에 *whatap.so* 파일이 생성되었는지 확인하세요.
+
+    ```javascript title=SH
+    $ find / | grep whatap.so
+    ```
+1. PHP 확장 모듈(PHP Extension module)이 실행되고 있는지 확인하세요.
+
+    ```javascript title=SH
+    $ sudo php -m
+
+    [PHP Modules]
+    bz2
+    calendar
+    Core
+    ctype
+    curl
+    date
+    …
+    whatap                  # whatap 모듈 실행 확인
+    …
+    [Zend Modules]
+    ```
+1. whatap-php 서비스(Service) 상태를 확인하세요.
+
+    ```javascript title=SH
+    $ service whatap-php status
+    ```
+1. 애플리케이션 서버 목록에서 설정된 서버가 추가되었는지 확인하세요. 
+
+ ![server_agents](https://img.whatap.io/media/agent_php/install/tinified/server_agents.png)

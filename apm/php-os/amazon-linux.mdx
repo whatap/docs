@@ -8,19 +8,25 @@ tags:
     - PHP
 ---
 
-와탭 저장소(Repository)를 등록하세요.
+1. 와탭 저장소(Repository)를 등록하세요.
 
-```bash
-$ sudo rpm --import http://repo.whatap.io/centos/release.gpg
-$ echo "[whatap]" | sudo tee /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "name=whatap packages for enterprise linux" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "baseurl=http://repo.whatap.io/centos/latest/\$basearch" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "enabled=1" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-```
+    ```bash
+    $ sudo rpm --import http://repo.whatap.io/centos/release.gpg
+    $ echo "[whatap]" | sudo tee /etc/yum.repos.d/whatap.repo > /dev/null
+    $ echo "name=whatap packages for enterprise linux" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+    $ echo "baseurl=http://repo.whatap.io/centos/latest/\$basearch" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+    $ echo "enabled=1" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+    $ echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+    ```
 
-다음 명령어를 통해 패키지를 설치하세요.
+1. 다음 명령어를 통해 패키지를 설치하세요.
 
-```bash
-$ sudo yum install whatap-php
-```
+    ```bash
+    $ sudo yum install whatap-php
+    ```
+
+1. `install.sh` 설정 스크립트를 실행하세요. 스크립트 실행으로 PHP 확장 모듈 설정과 whatap-php 서비스 데몬이 등록됩니다. 자세한 과정은 다음을 참고하세요.
+
+{@include: ../_php-extension-whatap.mdx} 
+
+{@include: ../_php-restart-apply.mdx} 

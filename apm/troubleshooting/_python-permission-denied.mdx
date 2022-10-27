@@ -1,0 +1,13 @@
+## Permission denied 에러
+
+와탭 Python 모니터링을 사용하기 위해서는 읽기 및 쓰기 권한이 필요합니다. 
+
+* 와탭 설정을 위한 *$WHATPA_HOME/whatap.conf* 파일
+
+* 와탭 로그를 위한 *$WHATPA_HOME/logs* 디렉터리와 하위 파일
+
+권한 문제가 발생하는 경우(Permission denied error), 다음과 같이 *$WHATPA_HOME*에 권한을 부여하세요.
+
+```javascript title=SH
+$ echo `sudo chmod -R 777 $WHATAP_HOME`
+```

@@ -14,11 +14,18 @@ tags:
 
 와탭이 애플리케이션 서버를 식별하기 위해 사용하는 기본 패턴은 다음과 같습니다.
 
-* default: {type}-{ip2}-{ip3}-{process}-{dockerid}-{ips}
+```javascript title='기본 패턴'
+{type}-{ip2}-{ip3}-{process}-{dockerid}-{ips}
+```
+<!-- * default: {type}-{ip2}-{ip3}-{process}-{dockerid}-{ips} -->
 
 기본 패턴 변경은 *whatap.ini*에서 설정 가능합니다.
-
-* object_name default: {type}-{ip2}-{ip3}-{process}-{dockerid}-{ips}
+<!--
+```javascript title='whatap.object_name'
+{type}-{ip2}-{ip3}-{process}-{dockerid}-{ips}
+```
+-->
+<!-- * object_name default: {type}-{ip2}-{ip3}-{process}-{dockerid}-{ips} -->
 
 |설정|설명|
 |----|----|

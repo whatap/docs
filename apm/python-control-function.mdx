@@ -1,0 +1,17 @@
+---
+id: python-control-function
+title: Python 에이전트 기능 제어
+description: 애플리케이션 서버의 기능을 제어하는 방법을 제공합니다.
+tags:
+    - Pyton
+    - 기능 제어
+    - 설정하기
+---
+
+* **enabled**<span class='type'>Boolean</span><br/>
+    기본값 `true`<br/>
+    전체 기능을 활성화합니다. `false`인 경우에도 서버와 최소한의 통신을 유지하기 위한 정보는 전송됩니다.
+
+* **counter_enabled**<span class='type'>Boolean</span><br/>
+    기본값 `true`<br/>
+    성능 카운터 추적을 활성화합니다. 성능 카운터는 액티브 트랜잭션, 사용자, CPU, Memory, SQL, 외부 HTTP 호출 등의 데이터를 포함합니다. 단, enable이 `false`면 무시됩니다.

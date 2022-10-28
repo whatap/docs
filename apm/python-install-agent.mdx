@@ -73,3 +73,100 @@ $ whatap-start-agent python manage.py runserver
 ```
 <!-- 응답 받은 후 더 진행 -->
 ### uWSGI
+
+#### 예제 1
+
+```javascript title=SH
+$ whatap-start-agent uwsgi --ini myapp.ini
+```
+
+#### 예제 2
+
+```javascript title=VI
+description "uWSGI application server handling myapp"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+exec whatap-start-agent [YOUR_APPLICATION_START_COMMAND]
+또는
+exec env WHATAP_HOME=[PATH] [절대 경로]/whatap-start-agent [YOUR_APPLICATION_START_COMMAND]
+```
+
+#### 예제 3
+
+```javascript title=SH 
+$ whatap-start-agent gunicorn myapp.wsgi
+```
+
+### Gunicorn
+
+#### 예제 1
+
+```javascript title=SH
+NAME="uwsgi"
+PATH=/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/local/bin/uwsgi
+
+########## WHATAP_AGENT_CONF ##########
+WHATAP_HOME=[PATH]
+WHATAP_AGENT=[절대 경로]/whatap-start-agent
+...
+do_start(){
+    env WHATAP_HOME=$WHATAP_HOME $WHATAP_AGENT [YOUR_APPLICATION_START_COMMAND]
+}
+```
+
+#### 예제 2
+
+```javascript title=SH
+description "Gunicorn application server handling myapp"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+exec whatap-start-agent [YOUR_APPLICATION_START_COMMAND]
+또는
+exec env WHATAP_HOME=[PATH] [절대 경로]/whatap-start-agent [YOUR_APPLICATION_START_COMMAND]
+```
+
+#### 예제 3
+
+```javascript title=SH
+NAME="gunicorn"
+PATH=/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/local/bin/gunicorn
+
+########## WHATAP_AGENT_CONF ##########
+WHATAP_HOME=[PATH]
+WHATAP_AGENT=[절대 경로]/whatap-start-agent
+...
+do_start(){
+    env WHATAP_HOME=$WHATAP_HOME $WHATAP_AGENT [YOUR_APPLICATION_START_COMMAND]
+}
+```
+
+### Supervisor
+
+```javascript title=SH
+[program:app-uwsgi]
+environment = WHATAP_HOME=[PATH]
+command = [절대 경로]/whatap-start-agent /usr/local/bin/uwsgi --ini /home/blog/backend/config/uwsgi.ini
+
+[program:nginx-app]
+command = /usr/sbin/nginx
+```
+
+### WSGI 애플리케이션 직접 구현
+
+```javascript title=PYTHON
+import whatap
+
+@whatap.register_app
+def simple_app(environ, start_response):
+    """Simplest possible application object"""
+    status = '200 OK'
+    response_headers = [('Content-type', 'text/plain')]
+    start_response(status, response_headers)
+    return ['Hello world!\n']
+```

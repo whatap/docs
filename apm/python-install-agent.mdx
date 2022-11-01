@@ -21,6 +21,38 @@ Python 모니터링 서비스를 사용하려면 대상 애플리케이션 서�
 
 **프로젝트 액세스 키**를 발급받은 다음 ***와탭 에이전트 다운로드*** 섹션으로 이동하세요. 해당하는 명령어를 복사해 에이전트를 설치하세요. 
 
+## 에이전트 설정
+
+1. **WHATAP_HOME 기본 경로 설정**  
+    로그와 설정 파일 경로를 위한 *$WHATAP_HOME* 경로를 지정해 주세요. whatap 디렉토리를 새로 생성하는 것을 권장합니다.
+
+    ```bash title=SH
+    $ export WHATAP_HOME=[PATH]
+    ```
+1. **프로젝트 액세스 키 및 수집서버 설정**  
+    다음 명령어를 실행하면 *$WHATAP_HOME*에 지정한 경로에 바로 *whatap.conf* 파일이 생성 및 설정됩니다.
+
+    ```bash title=SH
+    $ whatap-setting-config
+    --host [HOST_ADDR]
+    --license [LICENSE_KEY]
+    --app_name [APPLICATION_NAME]
+    --app_process_name [APP_PROCESS_NAME ex]uwsgi, gunicorn..]
+    ```
+1. **설정 확인**  
+    다음과 같이 설정 파일이 잘 생성되어 있는지 확인해 주세요.
+
+    ```bash title=SH
+    $ cat $WHATAP_HOME/whatap.conf
+    ```
+1. **애플리케이션 재시작**  
+    `WHATAP_AGENT` 시작 커맨드와 함께 애플리케이션 서버를 재시작해 주세요.
+
+    ```bash title=SH
+    $ whatap-start-agent [YOUR_APPLICATION_START_COMMAND]
+    ```
+
+
 <details>
 <summary>Python 에이전트 구성 파일</summary>
 
@@ -73,3 +105,100 @@ $ whatap-start-agent python manage.py runserver
 ```
 <!-- 응답 받은 후 더 진행 -->
 ### uWSGI
+
+#### 예제 1
+
+```javascript title=SH
+$ whatap-start-agent uwsgi --ini myapp.ini
+```
+
+#### 예제 2
+
+```javascript title=VI
+description "uWSGI application server handling myapp"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+exec whatap-start-agent [YOUR_APPLICATION_START_COMMAND]
+또는
+exec env WHATAP_HOME=[PATH] [절대 경로]/whatap-start-agent [YOUR_APPLICATION_START_COMMAND]
+```
+
+#### 예제 3
+
+```javascript title=SH 
+$ whatap-start-agent gunicorn myapp.wsgi
+```
+
+### Gunicorn
+
+#### 예제 1
+
+```javascript title=SH
+NAME="uwsgi"
+PATH=/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/local/bin/uwsgi
+
+########## WHATAP_AGENT_CONF ##########
+WHATAP_HOME=[PATH]
+WHATAP_AGENT=[절대 경로]/whatap-start-agent
+...
+do_start(){
+    env WHATAP_HOME=$WHATAP_HOME $WHATAP_AGENT [YOUR_APPLICATION_START_COMMAND]
+}
+```
+
+#### 예제 2
+
+```javascript title=SH
+description "Gunicorn application server handling myapp"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+exec whatap-start-agent [YOUR_APPLICATION_START_COMMAND]
+또는
+exec env WHATAP_HOME=[PATH] [절대 경로]/whatap-start-agent [YOUR_APPLICATION_START_COMMAND]
+```
+
+#### 예제 3
+
+```javascript title=SH
+NAME="gunicorn"
+PATH=/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/local/bin/gunicorn
+
+########## WHATAP_AGENT_CONF ##########
+WHATAP_HOME=[PATH]
+WHATAP_AGENT=[절대 경로]/whatap-start-agent
+...
+do_start(){
+    env WHATAP_HOME=$WHATAP_HOME $WHATAP_AGENT [YOUR_APPLICATION_START_COMMAND]
+}
+```
+
+### Supervisor
+
+```javascript title=SH
+[program:app-uwsgi]
+environment = WHATAP_HOME=[PATH]
+command = [절대 경로]/whatap-start-agent /usr/local/bin/uwsgi --ini /home/blog/backend/config/uwsgi.ini
+
+[program:nginx-app]
+command = /usr/sbin/nginx
+```
+
+### WSGI 애플리케이션 직접 구현
+
+```javascript title=PYTHON
+import whatap
+
+@whatap.register_app
+def simple_app(environ, start_response):
+    """Simplest possible application object"""
+    status = '200 OK'
+    response_headers = [('Content-type', 'text/plain')]
+    start_response(status, response_headers)
+    return ['Hello world!\n']
+```

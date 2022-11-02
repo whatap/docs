@@ -6,6 +6,51 @@
 
     ⓵ *requirements.txt*를 사용하는 경우 해당 파일에 `whatap-python`을 추가하세요.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+와탭 PHP 모니터링 에이전트를 설치하기 전에 지원 환경을 확인하세요.
+
+<!-- ## PHP 모니터링 에이전트 지원 환경 -->
+<Tabs>
+  <TabItem value="php-vs" label="PHP 버전" default>
+  <ul>
+        <li>PHP extension module</li>
+        <li>PHP 5.2, 5.3, 5.4, 5.5, 5.6, 7.0, 7.1</li>
+        <li>ZTS(Zend Thread Safe) 지원</li>
+  </ul>
+  </TabItem>
+  <TabItem value="os" label="운영체제">
+  <ul>
+        <li>CentOS/Red Hat 6.x (64bit) 이상</li>
+        <li>Debian/Ubuntu 12.04 (64bit) 이상</li>
+        <li>Alpine Linux (64bit) </li>
+        <li>FreeBSD 10.x (64bit) 이상</li>
+  </ul>
+  </TabItem>
+  <TabItem value="db" label="데이터베이스">
+  <ul>
+        <li>Oracle(OCI8)</li> 
+        <li>MySQL</li>
+        <li>SQL Server</li>
+        <li>PostgreSQL(psql)</li>
+  </ul>
+  </TabItem>
+  <TabItem value="library" label="라이브러리">
+  <ul>
+        <li>PDO</li>
+        <li>MySQLi</li>
+        <li>cURL</li>
+  </ul>
+  </TabItem>
+  <TabItem value="app-server" label="애플리케이션 서버">
+  <ul>
+        <li>Apache</li>
+        <li>PHP-FPM(Nginx)</li>
+  </ul>
+  </TabItem>
+</Tabs>    
+
 ## 에이전트 이름 식별
 {@include: php-agent-name.mdx} 
 

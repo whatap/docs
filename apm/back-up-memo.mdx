@@ -1,5 +1,131 @@
 <!-- 현재 백업 페이지로 사용 중 -->
 
+    ⓵ 옵션이 적용되면 SQL 파라미터를 암호화하여 수집합니다.
+
+    ⓶ 옵션이 적용되면 HTTP 쿼리 파라미터를 암호화하여 수집합니다.
+
+    ⓵ *requirements.txt*를 사용하는 경우 해당 파일에 `whatap-python`을 추가하세요.
+
+<!--
+            {
+              type: 'category',
+              label: '분석하기',
+              collapsible: true,
+              collapsed: true,
+              items: [
+                'analysis/cube',
+                {
+                  type: 'category',
+                  label: '보고서',
+                  collapsible: true,
+                  collapsed: true,
+                  link: {
+                    type: 'doc',
+                    id: 'analysis/report-intro'
+                  },
+                  items: [
+                    'analysis/report-apm',
+                    'analysis/intergrated-report',
+                  ]
+                },
+                'analysis/analysis-apm'
+              ]
+            },    
+-->            
+
+---
+
+#### 컴팩트한 액티브 스택 수집
+
+***액티브 스택***은 스레드 덤프를 정기적으로 수행하기 때문에 잘못 구현되면 에이전트에 오버헤드가 커질 수 있습니다. 와탭은 에이전트 부하를 최소화하면서 액티브 스택을 수집하기 위해 다양한 옵션들을 가지고 있습니다.
+
+:::note
+***서버*** > ***더보기*** > ***스레드 목록/덤프*** 메뉴에서 스레드 목록 중에 `WhaTap-ActiveStackDump` 스레드의 CPU Time을 확인하면 오버헤드를 판단할 수 있습니다.
+:::
+
+```java title='액티브 스택 예시'
+java.lang.StringBuffer.append(StringBuffer.java:309)
+java.util.regex.Matcher.appendReplacement(Matcher.java:839)
+java.util.regex.Matcher.replaceAll(Matcher.java:906)
+java.lang.String.replaceAll(String.java:2162)
+core.log.triggers.TriggerRegister.changeNotify(TriggerRegister.java:114)
+core.log.aop.handler.DaoInfo.log(DaoInfo.java:141)
+core.log.aop.handler.DaoInfo.doAround(DaoInfo.java:102)
+core.log.aop.reflection.profiler.AroundProfiler.invoke(AroundProfiler.java:19)
+com.sun.proxy.$Proxy39.getUpdateCount(Unknown Source)
+org.apache.ibatis.executor.resultset.DefaultResultSetHandler.getNextResultSet(DefaultResultSetHandler.java:256)
+org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleResultSets(DefaultResultSetHandler.java:193)
+org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+
+* * *
+
+sun.reflect.GeneratedMethodAccessor140.invoke(Unknown Source)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:606)
+org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
+org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:114)
+org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+```
+
+#### 최적화된 데이터 수집
+
+* 트랜잭션을 수행 중인 스레드에 대해서만 스택을 덤프합니다.
+
+* 액티브 스택 덤프 시간 간격을 조정할 수 있습니다. `active_stack_second=10`
+
+* 액티브 스택의 최대 라인에 제한되어 있습니다. Top 라인에서부터 기본 50라인을 수집합니다. `trace_active_callstack_depth=50`
+
+* 액티브 스택의 각 라인은 해쉬 처리되어 수집됩니다. text는 한 번만 수집됩니다.
+
+* 한 타임에 수집되는 최대 액티브 스택 개수도 제한되어 있습니다. `active_stack_count=100`
+
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+와탭 PHP 모니터링 에이전트를 설치하기 전에 지원 환경을 확인하세요.
+
+<!-- ## PHP 모니터링 에이전트 지원 환경 -->
+<Tabs>
+  <TabItem value="php-vs" label="PHP 버전" default>
+  <ul>
+        <li>PHP extension module</li>
+        <li>PHP 5.2, 5.3, 5.4, 5.5, 5.6, 7.0, 7.1</li>
+        <li>ZTS(Zend Thread Safe) 지원</li>
+  </ul>
+  </TabItem>
+  <TabItem value="os" label="운영체제">
+  <ul>
+        <li>CentOS/Red Hat 6.x (64bit) 이상</li>
+        <li>Debian/Ubuntu 12.04 (64bit) 이상</li>
+        <li>Alpine Linux (64bit) </li>
+        <li>FreeBSD 10.x (64bit) 이상</li>
+  </ul>
+  </TabItem>
+  <TabItem value="db" label="데이터베이스">
+  <ul>
+        <li>Oracle(OCI8)</li> 
+        <li>MySQL</li>
+        <li>SQL Server</li>
+        <li>PostgreSQL(psql)</li>
+  </ul>
+  </TabItem>
+  <TabItem value="library" label="라이브러리">
+  <ul>
+        <li>PDO</li>
+        <li>MySQLi</li>
+        <li>cURL</li>
+  </ul>
+  </TabItem>
+  <TabItem value="app-server" label="애플리케이션 서버">
+  <ul>
+        <li>Apache</li>
+        <li>PHP-FPM(Nginx)</li>
+  </ul>
+  </TabItem>
+</Tabs>    
+
 ## 에이전트 이름 식별
 {@include: php-agent-name.mdx} 
 

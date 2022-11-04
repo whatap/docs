@@ -79,7 +79,7 @@ tags: [ 메트릭스, 애플리케이션, 성능 카운터, UI ]
         * SOCKET - TCP 세션을 Connecting 중인 상태
 
 * **SQL**  
-    SQL 수행 현황을 카운팅 합니다..
+    SQL 수행 현황을 카운팅 합니다.
     * **건수**
     * **응답 시간**
     * **에러 건수**
@@ -210,3 +210,23 @@ jmx_threadpool_atter_queuesize=maxThreads
 JMX ThreadPool ObjectName 및 AttributeName 과 같은 Mbean 명은 JMX 모니터링 도구를 통해 확인하거나 각 WAS 별 Mbean 문서를 참고합니다.
 
 ## Apdex
+
+Apdex(Appliccation Performance Index)는 개방형 표준을 따르는 애플리케이션 성능지표입니다. Apdex는 응답시간에 기반하며 전체 요청 중 만족과 허용 건 비율로 수치화합니다. 대시보드에 Apdex 그래프가 추가되었습니다. 
+
+Apdex는 사용자 만족도에 대한 지표로 활용할 수 있으며, 0 ~ 1 사이의 값을 갖습니다.
+
+> (만족 횟수 + (허용 횟수 * 0.5)) / 전체 요청 수
+
+|상태|설명|
+|----|----|
+|만족 (Satisfied, **S**)|업무처리에 전혀 문제가 없음 ≤ 1.2초 (만족 **S** 기본값)|
+|허용 (Tolerating, **T**)|사용자가 지연을 느끼나 업무처리는 가능함 ≤ 4.8초 (만족 **S** * 4)|
+|불만 (Frustrated, **F**)|업무처리가 불가능함 > 4.8초 (허용 **T** 초과 및 오류)|
+
+* **whatap.apdex_time**<span class='type'>millisecond</span><br/>
+    기본값 `1200`  
+    만족 **S** 기본값은 에이전트 설정 메뉴에서 변경할 수 있습니다.
+
+<!-- {@include: ../apm/_java-apdex-desc.mdx} -->
+
+![](https://img.whatap.io/media/agent_php/data/tinified/apdex.png)

@@ -17,13 +17,10 @@
 
     ```bash
     async_thread_match=http*,abc*
-    ```
+    ```  
+    스레드 이름으로 스택 덤프 대상을 식별합니다. `,`를 사용하여 match를 여러 개 지정할 수 있습니다.
 
-:::tip
-스레드 이름으로 스택 덤프 대상을 식별합니다. `,`를 사용하여 match를 여러 개를 지정할 수 있습니다.
-:::
-
-* 스택의 Top 메소드가 async_thread_parking에 등록된 클래스/메소드일때 스레드가 파킹 상태에 있다고 판단하고 덤프를 생성하지 않습니다.
+* 스택의 Top 메소드가 async_thread_parking에 등록된 클래스/메소드일 때 스레드가 파킹 상태에 있다고 판단하고 덤프를 생성하지 않습니다.
 
     ```bash
     async_thread_parking_class=sun.misc.Unsafe

@@ -3,18 +3,18 @@ import TabItem from '@theme/TabItem';
 
 #### PHP 확장 모듈 및 whatap-php 서비스 등록
 
-PHP 확장 모듈(PHP Extension module) 및 whatap-php 서비스(Service)를 자동으로 설치할 경우 아래와 같이 적용하세요.
+PHP 확장 모듈 및 whatap-php 서비스를 자동으로 설치할 경우 아래와 같이 적용하세요.
 
 ``` javascript title=SH
 $ sudo /usr/whatap/php/install.sh
 Input license key
-xxxxxxxxxxxxxxxx                          # 발급된 라이센스 key 입력
+xxxxxxxxxxxxxxxx                          # 발급된 프로젝트 액세스 키 입력
 
 Input whatap.server.host
 192.x.x.x                                  # 발급된 서버 IP 입력
 ```
 
-PHP 확장 모듈(PHP Extension module) 및 whatap-php 서비스(Service)를 자동으로 인식하지 못하면 아래와 같이 선택 설치를 진행해야 합니다.
+PHP 확장 모듈 및 whatap-php 서비스를 자동으로 인식하지 못하면 아래와 같이 선택 설치를 진행해야 합니다.
 
 주로 Apache 명령어(`apachectl`, `httpd`, `apache2`) 및 PHP 명령어(CLI)가 기본 경로(*$PATH*)에 설정되어 있지 않거나, 여러 개의 PHP가 설치되어 PHP 명령어(CLI)가 여러 개일 경우(`php5`, `php70`, `php-zts`, `zts-php`…) 실제로 적용하고 있는 버전을 선택해 진행하세요.
 
@@ -22,7 +22,7 @@ PHP 확장 모듈(PHP Extension module) 및 whatap-php 서비스(Service)를 자
 $ sudo /usr/whatap/php/install.sh manual
 
 Input license key
-xxxxxxxxxxxxxxxx                            # 발급된 라이센스 key 입력
+xxxxxxxxxxxxxxxx                            # 발급된 프로젝트 액세스 키 입력
 
 Input whatap.server.host
 192.x.x.x                                    # 발급된 서버 IP 입력
@@ -74,7 +74,7 @@ Options
     발급된 서버 IP 입니다.
 
 * **php version**  
-    서버에 설치된 php 버전 정보 (5.2. 5.3, 5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0)
+    서버에 설치된 php 버전 정보(5.2. 5.3, 5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0)입니다.
 
 * **php config file**  
     서버에 설치된 php.ini의 전체 경로(*/etc/php.ini*) PHP Extension에 대한 설정을 진행합니다.

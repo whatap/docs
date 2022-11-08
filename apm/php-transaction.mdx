@@ -41,63 +41,52 @@ tags:
 * **whatap.whatap.profile_compile_file_enabled**<span class='type'>Boolean</span><br/>
     기본값 `false`<br/>
     compile_file, compile_string 함수의 추적 여부를 설정합니다. PHP 내부 함수인 compile_file, compile_string 함수는 스크립트 실행 전에 컴파일하는 함수로 Main, include, require 및 autoload 스크립트의 컴파일 시점을 확인할 수 있습니다. 스크립트 파일 경로와 실행 시간을 확인할 수 있습니다.
-
 {@include: _php-restart-apply.mdx}
 
 * **whatap.profile_compile_file_basetime**<span class='type'>Millisecond</span><br/>
     기본값 `200`<br/>
     실행 시간의 기준을 설정합니다. 설정한 시간을 초과하여 실행되는 경우만 정보를 수집합니다.
-
 :::caution
 whatap.profile_compile_file_basetime을 너무 작게 설정할 경우 너무 많이 수집하게 되어 서버에 부하를 줄 수 있습니다.
 :::
-
 {@include: _php-restart-apply.mdx}
 
 * **whatap.profile_method_enabled**<span class='type'>Boolean</span><br/>
     기본값 `true`<br/>
     실행 시간이 1초(whatap.profile_method_time)를 초과하는 사용자 함수의 정보를 트랜잭션 상세 정보에서 확인할 수 있습니다.
-
 {@include: _php-restart-apply.mdx}
 
 * **whatap.profile_method_time**<span class='type'>Milliseconds</span><br/>
     기본값 `1000`<br/>
     whatap.profile_method_enabled 설정 수집되는 함수의 실행 시간을 설정할 수 있습니다. 
-
 {@include: _php-restart-apply.mdx}
 
 * **whatap.profile_method_stack_enabled**<span class='type'>Boolean</span><br/>
     기본값 `false`<br/>
     사용자 함수의 스택 정보를 트랜잭션 상세 정보에서 확인할 수 있습니다.
-
 {@include: _php-restart-apply.mdx}
 
 * **whatap.profile_internal_method_enabled**<span class='type'>Boolean</span><br/>
     기본값 `true`<br/>
     PHP 내부 함수의 추적 여부를 설정합니다. 실행 시간의 기준을 설정합니다. 설정한 시간을 초과하여 실행되는 경우만 정보를 수집합니다.
-
 {@include: _php-restart-apply.mdx}
 
 <!-- 두 개가 어떻게 다른지? -->
 * **whatap.profile_internal_method_time**<span class='type'>Milliseconds</span><br/>
     기본값 `1000`<br/>
     whatap.profile_method_enabled 설정 수집되는 함수의 실행 시간을 설정할 수 있습니다. 
-
 {@include: _php-restart-apply.mdx}
 
 * **whatap.profile_internal_method_param_enabled**<span class='type'>Milliseconds</span><br/>
     기본값 `1000`<br/>
     whatap.profile_method_enabled 설정 수집되는 함수의 실행 시간을 설정할 수 있습니다. 
-    
 {@include: _php-restart-apply.mdx}
 
 * **whatap.net_udp_flush_start**<span class='type'>Boolean</span><br/>
     기본값 `true`<br/>
-    값이 `false`이면 트랜잭션 시작 시점을 수집하지 않습니다.
-
-:::note
-* 시작 시점을 수집하지 않아 진행 중인 트랜잭션 수를 계산하는 액티브 트랜잭션 정보에 조금 늦게 반영될 수 있습니다.
-* 액티브 스테이터스는 정상적으로 표기됩니다.
+    값이 `false`이면 트랜잭션 시작 시점을 수집하지 않습니다.  
+:::note  
+시작 시점을 수집하지 않아 진행 중인 트랜잭션 수를 계산하는 액티브 트랜잭션 정보에 조금 늦게 반영될 수 있습니다. 액티브 스테이터스는 정상적으로 표기됩니다.
 :::
 
 * **whatap.net_udp_profile_basetime_enabled**<span class='type'>Boolean</span><br/>
@@ -107,7 +96,6 @@ whatap.profile_compile_file_basetime을 너무 작게 설정할 경우 너무 �
 * **whatap.net_udp_profile_basetime**<span class='type'>Miliseconds</span><br/>
     기본값 `false`<br/>
     프로파일 정보 수집을 제외하는 트랜잭션의 응답시간을 설정합니다.
-
 :::note
 프로파일 정보를 수집하지 않기 때문에 SQL, HTTPC 등의 통계에는 반영되지 않습니다.
 :::
@@ -123,7 +111,6 @@ whatap.profile_compile_file_basetime을 너무 작게 설정할 경우 너무 �
 * **whatap.shm_tx_counter_enable**<span class='type'>Boolean</span><br/>
     기본값 `false`<br/>
     값이 `true`이면 whatap.net_udp_trace_ignoretime_enabled 설정으로 트랜잭션의 정보 수집이 제외되는 경우 TPS, 평균 응답시간, Apdex 지표를 공유 메모리에서 수집하면 제외된 트랜잭션의 정보가 통계에 반영됩니다.
-
 :::note
 수집이 안 된 트랜잭션의 경우 TPS, 평균 응답시간, Apdex 지표에는 정상적으로 반영되지만, 그 외 통계 데이터에는 반영되지 않습니다.
 :::

@@ -10,7 +10,7 @@ tags:
 
 1. {@include: _repository.mdx} 
 
-    ```bash
+    ```bash title=SH
     $ sudo rpm --import http://repo.whatap.io/centos/release.gpg
     $ echo "[whatap]" | sudo tee /etc/yum.repos.d/whatap.repo > /dev/null
     $ echo "name=whatap packages for enterprise linux" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
@@ -21,7 +21,7 @@ tags:
 
 1. {@include: _pcg-install.mdx} 
 
-    ```bash
+    ```bash title=SH
     $ sudo yum install whatap-php
     ```
 

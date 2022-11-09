@@ -10,8 +10,6 @@ tags:
 
 ## 트랜잭션 프로파일링
 
-트랜잭션 성능이 트랜잭션 시작과 종료 사이의 요약 지표들이나 속성들을 의미한다면 트랜잭션 프로파일은 트랜잭션이 수행되는 과정 중인 스텝들을 추적하는 것입니다.
-
 {@include: ../track-transactions/_transaction-profile-step.mdx}
 
 * **profile_step_normal_count**<span class='type'>Int</span><br/>
@@ -42,7 +40,7 @@ tags:
     트랜잭션에서 쿼리 스트링을 수집할 URL들을 등록합니다. 여러 개를 등록할 때는 콤마(*,*)를 사용합니다.  
 
 * **hook_method_patterns**<span class='type'>String</span><br/>
-    특정 메소드의 응답시간을 측정하고 싶을 때 사용합니다. [MODULE_NAME]:[CLASS_NAME].[FUNCTION_NAME] 혹은 [MODULE_NAME]:[FUNCTION_NAME] 형식으로 값을 사용합니다. 콤마(*,*) 구분자를 통하여 여러 메소드 패턴을 지정할 수 있으며 모듈에 대한 전체 클래스나, 클래스에 대한 전체 모듈은 asterisk(*)를 사용하여 추적이 가능합니다. 
+    특정 메소드의 응답시간을 측정하고 싶을 때 사용합니다. `[MODULE_NAME]:[CLASS_NAME].[FUNCTION_NAME]` 혹은 `[MODULE_NAME]:[FUNCTION_NAME]` 형식으로 값을 사용합니다. 콤마(,) 구분자를 통하여 여러 메소드 패턴을 지정할 수 있으며 모듈에 대한 전체 클래스나, 클래스에 대한 전체 모듈은 asterisk(*)를 사용하여 추적이 가능합니다. 
 :::note    
 전체 모듈 추적은 오버헤드가 발생할 수 있으니 가급적 정확한 모듈명과 메소드명에 대한 사용을 권장합니다.
 :::
@@ -90,7 +88,9 @@ tags:
 
 * **trace_normalize_urls**<span class='type'>String</span><br/>
     트랜잭션 URL을 파싱하여 정규화 합니다. 호출 URL패턴을 파싱하여 패스 파라미터를 제거합니다.  
-    예를 들어, /a/{v}/b라고 선언하면 /a/123/b → /a/{v}/b로 치환합니다. 여러 개를 등록할 때는 콤마(*,*)를 사용합니다. /a/*/b 로 사용하여 특정 형식의 패스 파라미터를 제거하여 수집할 수 있습니다.
+:::note    
+예시, **/a/{v}/b**라고 선언하면 **/a/123/b** → **/a/{v}/b**로 치환합니다. 여러 개를 등록할 때는 콤마(,)를 사용합니다. **/a/*/b** 로 사용하여 특정 형식의 패스 파라미터를 제거하여 수집할 수 있습니다.
+:::
 
 * **web_static_content_extensions(*)**<span class='type'>String</span><br/>
     기본값 `js, htm, html, gif, png, jpg, css, swf, ico`<br/>

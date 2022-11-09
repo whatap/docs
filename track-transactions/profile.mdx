@@ -9,13 +9,15 @@ tags: [ 트랜잭션, UI ]
 {@include: _transaction-profile-step.mdx} 
 
 ## 상세 분석
+<!-- 내용 재검토 및 최신화 필요 -->
+***분석*** > ***히트맵*** 메뉴를 선택하고 실시간 히트맵을 드래그하면 **상세 분석** 화면이 나타납니다. 화면 안내에 대한 자세한 내용은 [다음 설명서](trs-view#상세-분석)를 참조하세요. 
 
 와탭은 트랜잭션의 성능을 분석하기 위해 이름과 클라이언트 정보 등의 속성, 트랜잭션의 처리 성능 그리고 각 구간별 상세 수행이력을 수집하고 보여줍니다.
 
-![profile_apm](https://img.whatap.io/media/images/Screenshot_2020-12-15_W_JAVA_DEMO_5490_-_Application_Monitoring13.png)
+![profile_apm](/img/trs-hitmap-analysis.png)
 
 이 중 상단에 위치한 트랜잭션 속성과 성능 정보에 대한 설명은 다음과 같습니다.
-
+<!-- 이미지 최신화 진행 중 1109-->
 ![profile_apm_trs](https://img.whatap.io/media/images/Screenshot_2020-12-15_W_JAVA_DEMO_5490_-_Application_Monitoring14.png)
 
 #### 트랜잭션 속성 및 성능
@@ -23,10 +25,10 @@ tags: [ 트랜잭션, UI ]
 |속성|성능 정보|
 |----|----|
 |**프로젝트 코드**|와탭 모니터링 프로젝트 코드|
-|**Oid**|애플리케이션(에이전트) 오브젝트 아이디|
+|**OID**|애플리케이션(에이전트) 오브젝트 아이디|
 |**Oname**|애플리케이션 오브젝트 이름|
 |**Type**|애플리케이션 타입 - Java, Node.Js, PHP, Python 등|
-|**Tid**|트랜잭션 아이디|
+|**TID**|트랜잭션 아이디|
 |**UrlHash**|URL의 hash 값|
 |**UserToken**|사용자 토큰 - 와탭이 부여한 고유한 사용자 아이디|
 |**Method**|HTTP 메소드 - GET, POST, PUT, HEAD 등|
@@ -59,7 +61,7 @@ tags: [ 트랜잭션, UI ]
 :::info
 1. ***Show Stats***를 클릭하면 해당 URL의 통계 데이터를 조회할 수 있습니다
 1. ***MTID***를 클릭하면 연관 트랜잭션을 추가 조회 분석할 수 있습니다. 
-1. 에이전트 애플리케이션 타입이나 설정에 따라 표시되지 않는 항목이 있을 수 있습니다. 에이전트 매뉴얼을 참고 바랍니다.
+1. 에이전트 애플리케이션 타입이나 설정에 따라 표시되지 않는 항목이 있을 수 있습니다. 각 에이전트 설명서 안내를 참고 바랍니다.
 :::
 
 

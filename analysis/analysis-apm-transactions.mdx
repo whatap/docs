@@ -31,8 +31,8 @@ tags: [ 트랜잭션, 애플리케이션, 분석하기, UI ]
 |malloc_sum|메모리 사용량 SUM|u8|
 |cpu_sum|CPU사용량 SUM|u8|
 
-:::info
-`malloc_sum`은 `trace_malloc_enabled=true`로 변경해야 수집됩니다.(default: `false`)
+:::note
+`malloc_sum`은 `trace_malloc_enabled=true`로 변경해야 수집됩니다. 기본값은 `false`입니다.
 :::
 
 ## SQL 수행 통계
@@ -51,7 +51,7 @@ tags: [ 트랜잭션, 애플리케이션, 분석하기, UI ]
 |fetch_time|패치 시간의 합|u8|
 |service|SQL을 수행한 service 중 하나|u4|
 
-:::info
+:::note
 `service(URL)` hash는 5분 동안 해당 SQL을 호출한 URL 중 하나(마지막 호출 URL)를 분석 활용을 위해 수집합니다.
 :::
 

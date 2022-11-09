@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 
 PHP 확장 모듈 및 whatap-php 서비스를 자동으로 설치할 경우 아래와 같이 적용하세요.
 
-``` javascript title=SH
+``` bash title=SH
 $ sudo /usr/whatap/php/install.sh
 Input license key
 xxxxxxxxxxxxxxxx                          # 발급된 프로젝트 액세스 키 입력
@@ -18,7 +18,7 @@ PHP 확장 모듈 및 whatap-php 서비스를 자동으로 인식하지 못하�
 
 주로 Apache 명령어(`apachectl`, `httpd`, `apache2`) 및 PHP 명령어(CLI)가 기본 경로(*$PATH*)에 설정되어 있지 않거나, 여러 개의 PHP가 설치되어 PHP 명령어(CLI)가 여러 개일 경우(`php5`, `php70`, `php-zts`, `zts-php`…) 실제로 적용하고 있는 버전을 선택해 진행하세요.
 
-```javascript title=SH
+```bash title=SH
 $ sudo /usr/whatap/php/install.sh manual
 
 Input license key
@@ -36,7 +36,7 @@ Input : which php ex) /usr/bin/php, /usr/bin/php5, /usr/bin/php70 ...
 
 #### 설정 스트립트 install.sh
 
-```javascript title=SH
+```bash title=SH
 Usage: install.sh [ commands manual|remove ]
     install.sh -l <license> -s <server> -v <php version> -i <php config file> -p <process_name> [-z ]
     install.sh -l <license> -s <server> -e <php command> -p <process_name> [-z ]
@@ -108,14 +108,14 @@ $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -e /opt/php/bin/php-fpm
 <Tabs>
 <TabItem value="phpvs" label="PHP 버전 지정 설치" default>
 
-```javascript title=SH
+```bash title=SH
 $ /usr/whatap/php/install.sh -l [발급된 라이센스 key] -s [발급된 서버 IP] -v [PHP 버전 x.x] -i [php.ini의 전체 경로] -p [프로세스명]
 $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -v 7.0 -i /etc/php.ini -p httpd [-z]
 ```
 </TabItem>
 <TabItem value="phcli" label="PHP Cli 명령어 지정 설치">
 
-```javascript title=SH
+```bash title=SH
 $ /usr/whatap/php/install.sh -l [발급된 라이센스 key] -s [발급된 서버 IP] -e [PHP Cli] -p [프로세스명]
 $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -e /opt/php/bin/php -p apache2
 $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -e /opt/php/bin/php-fpm -p php-fpm

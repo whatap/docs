@@ -13,7 +13,7 @@ tags:
 
 1. *whatap-php.tar.gz*을 다운받고 */* 디렉터리 기준으로 압축을 해제하세요. */usr/whatap/php* 디렉터리에 모니터링 설치 파일이 생성됩니다.
 
-    ```bash
+    ```bash title=SH
     wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-php.tar.gz
     tar -xvzf whatap-php.tar.gz -C /
     ```
@@ -50,7 +50,7 @@ php 확장 모듈 내용
 
 1. `install.sh` 스크립트를 통해서 설치하세요.
 
-```bash title=SH
+```docker title=SH
 FROM alpine
 
 RUN apk update && apk upgrade
@@ -69,3 +69,7 @@ RUN /usr/whatap/php/install.sh -l <라이센스> -s <Whatap server Host> -e <php
 ```
 
 Docker의 entrypoint에 whatap-php 실행 명령어를 추가하여 container 실행 후에 whatap-php 데몬이 시작될 수 있도록 설정하세요.
+
+```bash title=SH
+/usr/whatap/php/whatap-php
+```

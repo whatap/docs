@@ -27,14 +27,12 @@ PHP 에이전트 설치 방식은 **리눅스 패키지 설치** 방식입니다
 
 1. whatap-php **리눅스 패키지**(yum, apt-get)를 설치하세요.
 
-1. **설정 스크립트**를 실행하세요.
+1. **설정 스크립트**를 실행하세요. 설정 스크립트를 통해서 트레이서는 **PHP 확장 모듈**로 등록되고, 에이전트는 **whatap-php 서비스**로 실행됩니다.
 
+    ![php](https://img.whatap.io/media/images/php.png)
 1. Apache 또는 PHP-FPM을 **다시 시작**하세요.
 
-<!-- 개요 페이지로 옮길지 고민 -->
-설정 스크립트를 통해서 트레이서는 **PHP 확장 모듈**로 등록되고, 에이전트는 **whatap-php 서비스**로 실행됩니다.
-
-![php](https://img.whatap.io/media/images/php.png)
+<!-- 상단 트레이서 등록 안내 개요 페이지로 옮길지 고민 -->
 
 :::note
 에이전트 파일 구성에 대한 자세한 설명은 PHP 파일 구성을 참조하세요.
@@ -43,10 +41,12 @@ PHP 에이전트 설치 방식은 **리눅스 패키지 설치** 방식입니다
 <details>
 <summary>PHP 에이전트 파일 구성</summary>
 
-PHP 에이전트 파일은 애플리케이션 모니터링에 필요한 정보를 추출하여 와탭 수집 서버로 전달하는 트레이서, 수집된 정보를 서버에 전송하기 위한 에이전트, 트레이서와 에이전트를 서버에 동적으로 적용하기 위한 설치 스크립트 파일로 구성됩니다.
+PHP 에이전트 파일은 애플리케이션 모니터링에 필요한 정보를 추출하여 와탭 수집 서버로 전달하는 트레이서, 수집된 정보를 서버에 전송하기 위한 에이전트, 트레이서와 에이전트를 서버에 동적으로 적용하기 위한 설치 스크립트 파일로 구성되어 있습니다.
 
-* *whatap_#_#.so*  
-    트레이서 PHP 확장 모듈(PHP Extension module)로 추가되어 정보를 수집하고 수집된 정보를 에이전트로 전송하는 라이브러리입니다.
+* *whatap_```X.Y.Z```.so*  
+    트레이서로 등록된 PHP 확장 모듈로 추가되어 정보를 수집하고 수집된 정보를 에이전트로 전송하는 라이브러리입니다.
+
+    PHP ZTS를 지원할 경우 파일 형식은 다음과 같습니다. *whatap_zts\_```X.Y.Z```.so* 
 
 * *whatap-php(whatap_php)*  
     에이전트, 트레이서에서 UDP로 전달된 정보를 수집 서버로 전송하는 프로그램입니다.
@@ -58,18 +58,20 @@ PHP 에이전트 파일은 애플리케이션 모니터링에 필요한 정보�
     서비스 실행파일입니다.
 
 * *whatap.ini*  
-    애플리케이션 서버의 데이터를 수집하는 PHP 확장 모듈(PHP Extension module)의 설정 정보, 수집 서버의 주소와 서버의 프로젝트 프로젝트 액세스 키가 입력되는 파일입니다.
+    애플리케이션 서버의 데이터를 수집하는 PHP 확장 모듈의 설정 정보, 수집 서버의 주소와 서버의 프로젝트 액세스 키가 입력되는 파일입니다.
 
-* *whatap-install-#.log*  
+* *whatap-install-```yyyymmdd```.log*  
     설치 과정에 대한 로그 파일입니다. (*/usr/whata/php/logs*)
 
-* *whatap-boot-#.log*
+* *whatap-boot-```yyyymmdd```.log*  
     에이전트 로그 파일입니다. (*/usr/whata/php/logs*)
 
-* *install.sh*
-    웹 애플리케이션 서버에 트레이서를 적용하기 위한 쉘 스크립트입니다.
+* *install.sh*  
+    웹 애플리케이션 서버에 트레이서를 적용하기 위한 쉘 스크립트입니다. 
+    
+    PHP 확장 모듈 설정, whatap.ini 설정, whatap-php 서비스 등록 등을 다룹니다. 자세한 내용은 [다음 설명서](../apm/php-extenstion-whatap)를 참조하세요.
 
-* *WhaTap.php (sample.php)*
+* *WhaTap.php (sample.php)*  
     PHP 소스코드에서 사용할 API 레퍼런스 클래스(*/usr/whatap/php/lib/WhaTap.php*) 및 예제 소스 파일(*sample.php*)입니다.
 
 </details> 

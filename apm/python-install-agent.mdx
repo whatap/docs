@@ -11,7 +11,7 @@ tags:
 
 {@youtube: MWDFeegF6mQ}
 
-Python 모니터링 서비스를 사용하려면 대상 애플리케이션 서버에 모니터링 에이전트를 설치해야 합니다. 설치는 whatap.io 사이트에서 압축된 에이전트 파일을 다운로드해 서버 임의의 위치에 압축을 풀어 실행하는 방식입니다.
+Python 모니터링 서비스를 사용하려면 대상 애플리케이션 서버에 모니터링 에이전트를 설치해야 합니다. 설치는 [와탭 사이트](https://service.whatap.io/)에서 압축된 에이전트 파일을 다운로드해 서버 임의의 위치에 압축을 풀어 실행하는 방식입니다.
 
 {@include: ../getting-started/_create-project.mdx}
 
@@ -21,18 +21,42 @@ Python 모니터링 서비스를 사용하려면 대상 애플리케이션 서�
 
 **프로젝트 액세스 키**를 발급받은 다음 ***와탭 에이전트 다운로드*** 섹션으로 이동하세요. 해당하는 명령어를 복사해 에이전트를 설치하세요. 
 
+:::note
+에이전트 파일 구성에 대한 자세한 설명은 Python 파일 구성을 참조하세요.
+:::
+
+<details>
+<summary>Python 에이전트 구성 파일</summary>
+Python 에이전트 파일은 애플리케이션 모니터링에 필요한 정보를 추출해 와탭 수집 서버로 전달하는 트레이서와 트레이서가 데이터를 보낼 수 있도록 돕는 요소로 구성되어 있습니다.
+
+* *whatap.conf*  
+    에이전트 설정 기본 필수 파일입니다. 에이전트와 관련된 옵션은 모두 *whatap.conf* 파일에서 설정 가능합니다.
+
+* *paramkey.txt*  
+    추적한 트랜잭션의 프로파일 정보로 수집한 HTTP와 SQL 데이터의 파라미터 정보를 확인할 때 사용합니다. 
+    
+    보안 키를 파일에 저장하고 실제 수집된 데이터를 브라우저에서 확인하고자 할 때 파일에 저장해 둔 보안 키를 입력해야 조회할 수 있습니다. 
+    
+    파일의 내용을 직접 변경하여 보안 키 수정이 가능합니다. 관련 옵션은 다음과 같습니다. 
+    * **profile_http_parameter_enabled** <span class='type'>Boolean</span><br/>
+        기본값 `false`
+    * **profile_sql_param_enabled** <span class='type'>Boolean</span><br/>
+        기본값 `false`
+
+</details>
+
 ## 에이전트 설정
 
 1. **WHATAP_HOME 기본 경로 설정**  
-    로그와 설정 파일 경로를 위한 *$WHATAP_HOME* 경로를 지정해 주세요. whatap 디렉토리를 새로 생성하는 것을 권장합니다.
+    로그와 설정 파일 경로를 위한 `$WHATAP_HOME` 경로를 지정하세요. whatap 디렉토리를 새로 생성하는 것을 권장합니다.
 
-    ```bash title=SH
+    ```bash
     $ export WHATAP_HOME=[PATH]
     ```
-1. **프로젝트 액세스 키 및 수집서버 설정**  
-    다음 명령어를 실행하면 *$WHATAP_HOME*에 지정한 경로에 바로 *whatap.conf* 파일이 생성 및 설정됩니다.
+1. **프로젝트 액세스 키 및 수집 서버 설정**  
+    다음 명령어를 실행하면 `$WHATAP_HOME`에 지정한 경로에 바로 *whatap.conf* 파일이 생성 및 설정됩니다.
 
-    ```bash title=SH
+    ```java
     $ whatap-setting-config
     --host [HOST_ADDR]
     --license [LICENSE_KEY]
@@ -40,33 +64,17 @@ Python 모니터링 서비스를 사용하려면 대상 애플리케이션 서�
     --app_process_name [APP_PROCESS_NAME ex]uwsgi, gunicorn..]
     ```
 1. **설정 확인**  
-    다음과 같이 설정 파일이 잘 생성되어 있는지 확인해 주세요.
+    다음과 같이 설정 파일이 잘 생성되었는지 확인하세요.
 
-    ```bash title=SH
+    ```bash
     $ cat $WHATAP_HOME/whatap.conf
     ```
-1. **애플리케이션 재시작**  
-    `WHATAP_AGENT` 시작 커맨드와 함께 애플리케이션 서버를 재시작해 주세요.
+1. **애플리케이션 서버 재시작**  
+    `WHATAP_AGENT` 시작 명령어로 애플리케이션 서버를 재시작하세요. 재시작 후 와탭 에이전트가 애플리케이션의 모니터링 정보를 수집합니다.
 
-    ```bash title=SH
+    ```bash
     $ whatap-start-agent [YOUR_APPLICATION_START_COMMAND]
     ```
-
-
-<details>
-<summary>Python 에이전트 구성 파일</summary>
-
-Python 모니터링 서비스를 구성하는 각 파일의 역할은 다음과 같습니다.
-
-* *whatap.conf* : 에이전트 설정 기본 필수 파일입니다. 에이전트와 관련된 옵션은 모두 *whatap.conf*에서 설정 가능합니다.
-
-* *paramkey.txt* : 추적한 트랜잭션의 프로파일 정보로 수집한 HTTP와 SQL 데이터의 파라미터 정보를 확인할 때 사용합니다. 보안 키를 파일에 저장하고 실제 수집된 데이터를 브라우저에서 확인하고자 할 때 파일에 저장해 둔 보안 키를 입력해야 조회할 수 있습니다. 파일의 내용을 직접 변경하여 보안 키 수정이 가능합니다. 관련 옵션은 다음과 같습니다. 
-
-    * `profile_http_parameter_enabled` (default: false)
-
-    * `profile_sql_param_enabled` (default: false)
-
-</details>
 
 ## Docker
 
@@ -74,35 +82,36 @@ Python 모니터링 서비스를 구성하는 각 파일의 역할은 다음과 
 
 1. Docker 컨테이너로 서비스되는 애플리케이션의 경우 다음 내용을 *DockerFile*에 추가하세요.
 
-    * Python 에이전트를 설치하세요.
+    * **Python 에이전트**를 설치하세요.
 
-        ```java title='Dockerfile' {3}
+        ```docker title='Dockerfile' {3}
         ENV WHATAP_HOME /whatap
         RUN mkdir -p /whatap
         RUN pip install whatap-python
         // requirements.txt를 사용하는 경우 해당 파일에 whatap-python 을 추가하세요.
         ```
 
-    * 프로젝트 액세스 키 및 서버 IP 설정을 등록하세요.
+    * **프로젝트 액세스 키** 및 **서버 IP** 설정을 등록하세요.
 
-        ```javascript title='Dockerfile'
+        ```docker title='Dockerfile'
         RUN touch /whatap/whatap.conf
-        RUN echo "license=[ 발급된 라이센스 key ]" > /whatap/whatap.conf
+        RUN echo "license=[ 발급된 프로젝트 액세스 키 ]" > /whatap/whatap.conf
         RUN echo "whatap.server.host=[ 수집서버 IP ]" >> /whatap/whatap.conf
         RUN echo "app_name=[ 애플리케이션 이름 ]" >> /whatap/whatap.conf
         RUN echo "app_process_name=[ 애플리케이션 프로세스 이름 예)uwsgi, gunicorn.. ]" >> /whatap/whatap.conf
         ```
 1. 기존 실행 커맨드 `python manage.py runserver`앞에 `whatap-start-agent`를 추가하세요.
 
-    ```javascript title='Dockerfile'
+    ```docker title='Dockerfile'
+    #ENTRYPOINT python manage.py runserver
     ENTRYPOINT whatap-start-agent python manage.py runserver
     ```
 
 ## 애플리케이션 서버 별 적용 절차
 
-기본은 절차는 다음과 같습니다.
+기본 절차는 다음과 같습니다.
 
-```javascript title='SH'
+```bash title=SH
 $ whatap-start-agent python manage.py runserver
 ```
 <!-- 응답 받은 후 더 진행 -->
@@ -110,13 +119,13 @@ $ whatap-start-agent python manage.py runserver
 
 #### 예제 1
 
-```javascript title=SH
+```bash title=SH
 $ whatap-start-agent uwsgi --ini myapp.ini
 ```
 
 #### 예제 2
 
-```javascript title=VI
+```bash title=VI
 description "uWSGI application server handling myapp"
 
 start on runlevel [2345]
@@ -129,7 +138,7 @@ exec env WHATAP_HOME=[PATH] [절대 경로]/whatap-start-agent [YOUR_APPLICATION
 
 #### 예제 3
 
-```javascript title=SH 
+```bash title=SH 
 $ whatap-start-agent gunicorn myapp.wsgi
 ```
 
@@ -137,7 +146,7 @@ $ whatap-start-agent gunicorn myapp.wsgi
 
 #### 예제 1
 
-```javascript title=SH
+```bash title=SH
 NAME="uwsgi"
 PATH=/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/local/bin/uwsgi
@@ -153,7 +162,7 @@ do_start(){
 
 #### 예제 2
 
-```javascript title=SH
+```bash title=SH
 description "Gunicorn application server handling myapp"
 
 start on runlevel [2345]
@@ -166,7 +175,7 @@ exec env WHATAP_HOME=[PATH] [절대 경로]/whatap-start-agent [YOUR_APPLICATION
 
 #### 예제 3
 
-```javascript title=SH
+```bash title=SH
 NAME="gunicorn"
 PATH=/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/local/bin/gunicorn
@@ -182,7 +191,7 @@ do_start(){
 
 ### Supervisor
 
-```javascript title=SH
+```bash title=SH
 [program:app-uwsgi]
 environment = WHATAP_HOME=[PATH]
 command = [절대 경로]/whatap-start-agent /usr/local/bin/uwsgi --ini /home/blog/backend/config/uwsgi.ini
@@ -193,7 +202,7 @@ command = /usr/sbin/nginx
 
 ### WSGI 애플리케이션 직접 구현
 
-```javascript title=PYTHON
+```python title=PYTHON
 import whatap
 
 @whatap.register_app

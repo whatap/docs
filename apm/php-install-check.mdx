@@ -1,6 +1,6 @@
 ---
 id: php-install-check
-title: 설치 점검
+title: PHP 에이전트 설치 점검
 description: PHP 에이전트 설치 점검에 대한 설명입니다.
 tags:
     - PHP
@@ -32,26 +32,26 @@ $ service whatap_php restart
 
 ## PHP 확장 모듈 설치 상태 확인하기
 
-설치가 완료된 후 Apache 또는 PHP-FPM 서비스(Service)를 다시 시작하면 설정된 PHP 확장 모듈(PHP Extension module) *whatap.so* 파일이 로딩됩니다. PHP 확장 모듈이 잘 설치됐는지 다음의 방법으로 확인할 수 있습니다.
+설치가 완료된 후 Apache 또는 PHP-FPM 서비스를 다시 시작하면 설정된 PHP 확장 모듈 *whatap.so* 파일이 로딩됩니다. PHP 확장 모듈이 잘 설치됐는지 다음의 방법으로 확인할 수 있습니다.
 
 <!-- 설치가 완료된 후 Apache 또는 PHP-FPM 서비스(Service)를 다시 시작하면 설정된 PHP 확장 모듈(PHP Extension module) *whatap.so* 파일이 로딩됩니다.
 
 PHP 확장 모듈이 잘 설치됐는지 다음의 방법으로 확인할 수 있습니다. -->
 
-1. PHP 추가 INI 경로에 *whatap.ini* 생성되었는지 확인하세요.
+1. PHP 추가 INI 경로에 *whatap.ini* 파일이 생성되었는지 확인하세요.
 
-    ```javascript title=SH
+    ```java title=SH
     $ find / | grep whatap.ini
     ```
 
-1. PHP 확장 모듈(PHP Extension module) 경로에 *whatap.so* 파일이 생성되었는지 확인하세요.
+1. PHP 확장 모듈 경로에 *whatap.so* 파일이 생성되었는지 확인하세요.
 
-    ```javascript title=SH
+    ```java title=SH
     $ find / | grep whatap.so
     ```
-1. PHP 확장 모듈(PHP Extension module)이 실행되고 있는지 확인하세요.
+1. PHP 확장 모듈이 실행되고 있는지 확인하세요.
 
-    ```javascript title=SH
+    ```java title=SH
     $ sudo php -m
 
     [PHP Modules]
@@ -66,7 +66,7 @@ PHP 확장 모듈이 잘 설치됐는지 다음의 방법으로 확인할 수 �
     …
     [Zend Modules]
     ```
-1. whatap-php 서비스(Service) 상태를 확인하세요.
+1. whatap-php 서비스 상태를 확인하세요.
 
     ```javascript title=SH
     $ service whatap-php status

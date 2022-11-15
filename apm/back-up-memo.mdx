@@ -6,6 +6,13 @@
 
     ⓵ *requirements.txt*를 사용하는 경우 해당 파일에 `whatap-python`을 추가하세요.
 
+웹 애플리케이션 서버에 트레이서를 적용하기 위한 쉘 스크립트입니다.
+PHP 확장 모듈 설정, whatap.ini 설정, whatap-php 서비스 등록 등을 다룹니다. 자세한 내용은 [다음 설명서](../apm/php-extenstion-whatap)를 참조하세요. 
+
+PHP ZTS를 지원할 경우 파일 형식은 다음과 같습니다. *whatap_zts\_```X.Y.Z```.so* 
+
+![number-s1](/img/number-01.png) 상단 옵션 영역에서 지정한 시간 범위의 데이터를 바탕으로 ![number-s3](/img/number-03.png) 영역에 차트를 생성합니다. 
+![metrics_app_counter_example_2](https://img.whatap.io/media/images/metrics_app_counter_example_2.png)
 <!--
             {
               type: 'category',
@@ -32,6 +39,104 @@
               ]
             },    
 -->            
+
+---
+
+<!-- 파이썬 트랜잭션 엔드포인트 지정 -->
+
+1. **메소드 프로파일 설정**  
+    메소드 프로파일을 설정하세요. 해당 클래스들이 잠재적인 트랜잭션 end point보다 확실하게 트랜잭션에서 호출되는 클래스를 지정해야 합니다. 그래서 DB를 사용하는 프로그램에서는 JDBC 드라이버가 일반적으로 유용합니다.
+
+    JDBC 드라이버에 프로파일을 설정하세요.
+    ```javascript title=whatap.conf
+    hook_method_patterns=jdbc.*.*
+    hook_method_access_public_enabled=true
+    hook_method_access_protected_enabled=true
+    hook_method_access_none_enabled=true
+    ```
+
+    어느 메소드이건 호출되면 트랜잭션을 시작시킵니다. 옵션과 트랜잭션이 시작할 때 스택을 덤프 하는 옵션을 켭니다.
+    ```javascript title=whatap.conf
+    trace_auto_transaction_enabled=true
+    trace_auto_transaction_backstack_enabled=true
+    ```
+1. **재시작 후 프로파일 분석**  
+    다시 시작하고 서비스를 호출하면 트랜잭션이 추적되는 것을 볼 수 있습니다. 트랜잭션들을 조회해 보면 모든 jdbc.*로 시작하는 클래스의 메소드를 이 트랜잭션으로 나타남을 알 수 있습니다. 트랜잭션 프로파일을 조회하면 **TRANSACTION BACKSTACK**이라는 메시지 스텝을 확인할 수 있습니다.
+
+    ```javascript title='TRANSACTION BACKSTACK'
+    jdbc.FakePreparedStatement.executeQuery(FakePreparedStatement.java),
+    com.virtual.dao.SelectDAO.execute2(SelectDAO.java:29),
+    com.virtual.web.SimulaNonHttp.execute(SimulaNonHttp.java:147),
+    com.virtual.web.SimulaNonHttp.process(SimulaNonHttp.java:76),
+    com.virtual.web.SimulaNonHttp.run(SimulaNonHttp.java:100)
+    ```
+
+ 1. **스택 내용 확인**  
+    이제 어떤 메소드로부터 출발하고 있는지 추정할 수 있습니다.
+
+    ```javascript title='예제'
+    com.virtual.web.SimulaNonHttp.execute(SimulaNonHttp.java:147),
+    com.virtual.web.SimulaNonHttp.process(SimulaNonHttp.java:76),
+    com.virtual.web.SimulaNonHttp.run(SimulaNonHttp.java:100)
+    ```
+
+    위 3개의 메소드 중에 하나를 트랜잭션 시작점으로 판단할 수 있습니다. 이런 상황에서는 역 컴파일을 수행해서 적절한 트랜잭션 end point를 결정해야 합니다.
+
+    :::note
+    로직을 간단히 보면 *SimulaNonHttp.run* 내에서 `while()`가 돌면서 `SimulaNonHttp.process()`을 호출하고 `SimulaNonHttp.execute()`가 수행됩니다. `process()`가 적당하다는 것을 알 수 있습니다. 이 부분은 소스를 보고 판단해야 합니다.
+    :::
+
+    :::note
+    **end point의 가장 중요한 기준은 종료되어야 한다는 것**입니다. 정상적인 상황에서 지연되지 않고 곧바로 종료되어야 성능적인 판단을 할 수 있습니다.
+    :::
+
+1. **트랜잭션 END POINT 지정하기**  
+    트랜잭션 시작 지점을 다음과 같이 설정하세요.
+
+    ```bash
+    hook_service_patterns=com.virtual.web.SimulaNonHttp.process
+    ```
+    다시 시작하면 `process()` 메소드가 새로운 트랜잭션의 end point가 됩니다.
+
+1. **트랜잭션 이름 추적하기**  
+    보통의 경우에는 메소드 명칭으로 충분히 트랜잭션을 구분할 수 있습니다.
+
+    ```javascript title=whatap.conf
+    ----
+    service_name_mode=[full,class,method,string,arg]
+    service_name_index=0
+    ----
+    service_name_mode::
+    full,class,method,string,arg
+    5가지 옵션을 지정할 수 있습니다.
+    - full : Full Class 이름 사용
+    - class : Class 이름 서비스 명으로 사용
+    - method : Method 이름을 서비스명으로 사용
+    - string : 문자열 중에서 첫 번째 파라미터를 서비스 명으로 사용
+    - arg : 파라미터중에서 **service_name_index**옵션에 지정한 인덱스를 파라미터를 서비스 명으로 사용
+    ```
+
+1. **에이전트 플러그인 사용하기**  
+
+    :::caution
+    플러그인 사용은 전문가 영역이기 때문에 충분히 이해한 경우에만 사용하길 권장합니다.
+    :::
+
+    *WHATAP_HOME* 디렉토리 아래에 plugin 디렉토리를 만드세요. 그리고 vi를 통해 *AppServiceStart.x* 파일을 만드세요.
+
+    ![](https://img.whatap.io/media/agent_python/data/app_start_plug.png)
+
+    `println(“test”);`라고 타이핑하고 저장하면 화면에 “test”라는 문자열이 출력되는 것을 확인할 수 있습니다. 그러면 파라미터에서 정보를 추출해 보세요. 
+    
+    본 예제는 파라미터에 HashMap에 전달되고 거기에 url 파라미터가 전달되고 있습니다.
+
+    ```javascript title=JAVA
+    Object url =((java.util.HashMap)$point.getArgs()[0]).get("url");
+    $ctx.service((String)url);
+    //println(“url=“+url);
+    ```
+
+    이렇게 플러그인을 만들면 트랜잭션 이름이 변경됩니다.
 
 ---
 

@@ -5,13 +5,19 @@ description: 데이터베이스 메트릭스 지표를 안내합니다.
 tags: [ 메트릭스, 데이터베이스 ]
 ---
 
+홈 화면 > 프로젝트 선택 > ***분석*** > ***메트릭스 차트***
+
+***메트릭스 차트*** 메뉴에서 검색할 수 있는 메트릭스 지표입니다.
+
+<!-- 추후 업데이트 필요 관련 지표 추가 및 필드 값으로 교체 -->
+
 ## MySQL
 
 <div class='metric'>
 
 | Metric                           | Description           |
 | -------------------------------- | --------------------- |
-| Innodb Buffer Pool Read Requests | 논리 read 요청 횟수<br/>Logical read + Physical read. Logical read의 값이 크므로 Logical read의 개념으로 사용합니다. |
+|Innodb Buffer Pool Read Requests | 논리 read 요청 횟수<br/>Logical read + Physical read. Logical read의 값이 크므로 Logical read의 개념으로 사용합니다. |
 |Innodb Buffer Pool Reads|물리적 read를 한 횟수<br/>Physical read |
 |Threads Connected|현재 접속되어 있는 세션 수 |
 |Threads Running|쿼리를 실행 중인 세션 수 |
@@ -38,8 +44,8 @@ tags: [ 메트릭스, 데이터베이스 ]
 
 | Metric | Description |
 |--|--|
-|Active Sessions |쿼리를 실행 중인 세션 수 |
-|Deadlock Count     |감지 된 deadlock의 수 |
+|Active Sessions|쿼리를 실행 중인 세션 수 |
+|Deadlock Count|감지 된 deadlock의 수 |
 |Commit Count|커밋 된 트랜잭션의 수 |
 |Rollback Count|롤백 된 트랜잭션의 수 |
 |DML Count|DML(insert, update, delete) 수행 횟수 |
@@ -93,14 +99,14 @@ tags: [ 메트릭스, 데이터베이스 ]
 
 | Metric             | Description              |
 | ------------------ | ------------------------ |
-| CPU                | cpu 사용률               |
-| Active Sessions    | 쿼리를 실행 중인 세션 수 |
-| Total Sessions     | 모든 세션 수             |
-| Lock Wait Sessions | lock을 wait 하는 세션 수 |
-| Page reads/sec     | page를 read 한 수        |
-| Page lookups/sec   | page를 lookup 한 수      |
-| Range Scans/sec    | range scan 횟수          |
-| Full Scans/sec     | full scan 횟수           |
-| Page writes/sec    | page write 횟수          |
+| CPU| cpu 사용률               |
+| Active Sessions| 쿼리를 실행 중인 세션 수 |
+| Total Sessions| 모든 세션 수             |
+| Lock Wait Sessions| lock을 wait 하는 세션 수 |
+| Page reads/sec| page를 read 한 수        |
+| Page lookups/sec| page를 lookup 한 수      |
+| Range Scans/sec| range scan 횟수          |
+| Full Scans/sec| full scan 횟수           |
+| Page writes/sec| page write 횟수          |
 
 </div>

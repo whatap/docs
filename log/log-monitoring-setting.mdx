@@ -118,6 +118,8 @@ tags: [ 로그 모니터링, 설정하기 ]
 2. **JSON 포맷 파서 패턴 등록**  
     로그 전체 혹은 일부가 JSON 형태로 출력되는 경우 JSON 포맷 파서를 통해 JSON으로 출력된 부분을 파싱할 수 있습니다.
 
+    로그 중 JSON 형태로 출력된 부분을 검출하기 위하여 prefix, postfix 옵션을 조합해 로그의 어느 부분을 JSON으로 인식해 파싱할 지 지정합니다. 
+
     |옵션|설명|
     |----|----|
     |prefix|JSON 문자열의 시작 부분 앞의 문자열을 지정합니다. 미지정 시 로그 출력문의 맨 앞부터 JSON 문자열로 식별합니다.|
@@ -137,13 +139,51 @@ tags: [ 로그 모니터링, 설정하기 ]
          > ”Request : “ 와 “Response” 사이의 문자열 *{"key1":"value1","key2":"value2",...}* 대상
 
          * Reponse 파싱용 패턴
+         > “Response : “ 부터 로그의 마지막 까지의 문자열({"key3":"value3","key4":"value4",...}) 대상
+    
+ 3. **JSON 커스텀 패턴 등록**  
+    로그 중 일부가 JSON 형태로 출력되는 경우 JSON으로 출력된 부분을 전용 커스텀 파서를 통해 파싱할 수 있습니다. 패턴을 다음과 같이 입력하세요.
+
+    ```java
+    io.whatap.logsink.parser.JsonFormatParser{}
+    ```
+    로그 중 JSON 형태로 출력된 부분을 검출하기 위해 prefix, postfix 옵션을 조합해 로그의 어느 부분을 JSON으로 인식하여 파싱할 지 지정하세요.
+
+    `JsonFormatParser{}`의 `{}` 에 옵션을 지정합니다.
+
+    * **등록 예시**  
+        
+        ```java title='로그 원문'
+        [2022-10-25 10:15:34:145]...(개행)
+        Request : {"key1":"value1","key2":"value2",...}(개행)
+        Response : {"key3":"value3","key4":"value4",...}
+        ```
+        예시처럼 유입되는 로그가 Request JSON, Response JSON을 모두 파싱하고자 하는 경우 다음의 2가지 패턴을 등록합니다.
+
+         * Request 파싱용 패턴  
          > ”Request : “ 와 “Response” 사이의 문자열 *{"key1":"value1","key2":"value2",...}* 대상
+            ```java
+            io.whatap.logsink.parser.JsonFormatParser {prefix:"Request : ",postfix:"Response"}
+            ```
+
+         * Reponse 파싱용 패턴
+         > “Response : “ 부터 로그의 마지막 까지의 문자열({"key3":"value3","key4":"value4",...}) 대상
+            ```java
+            io.whatap.logsink.parser.JsonFormatParser {prefix: "Response : "}
+            ```  
+    
 
 ### 파서 시뮬레이션
 :::note 시뮬레이션 지원
 현재 JSON 포맷 파서는 시뮬레이션 기능을 지원하지 않습니다.
 :::
 등록하려는 패턴으로 파싱에 성공하는지 확인하세요.
+
+<!--
+1117 
+json 커스텀 파서 추가 문의
+30일 이후 업데이트 예정인 패턴 체크
+-->
 <!--
 * **로그 파서 시뮬레이션 시작**
     ![](https://img.whatap.io/media/images/log_013_simulation_1101.png)

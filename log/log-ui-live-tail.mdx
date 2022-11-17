@@ -5,50 +5,32 @@ description: 로그 모니터링 라이브 Tail을 안내합니다.
 tags: [ 로그 모니터링, 라이브 Tail, UI ]
 ---
 
-***프로젝트 메뉴*** > ***로그*** > ***라이브 Tail***
+홈 화면 > 프로젝트 선택 > ***로그*** > ***라이브 Tail***
 
 와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 프로젝트 메뉴 하위에 ***로그*** > ***라이브 Tail*** 메뉴를 선택하세요.
 
 ![](/img/log-live-tail.png)
 
-***라이브 Tail*** 메뉴에서 복잡한 로그들도 손쉽게 접근 가능합니다. 필요에 따라 필터링 혹은 하이라이트 등의 기능을 활용해 실시간으로 조회할 수 있습니다. 로그 데이터 조회 주기는 2초입니다. 주요 용어는 다음과 같습니다.
-
-* **Category** : 로그의 수집 및 조회 단위입니다.
-* **Content** : 로그 메세지입니다.
-* **Search Key** : 로그 Parser 설정을 통해 생성합니다.
+***라이브 Tail*** 메뉴에서 복잡한 로그들도 손쉽게 접근 가능합니다. 필요에 따라 필터링 혹은 하이라이트 등의 기능을 활용해 실시간으로 조회할 수 있습니다. 로그 데이터 조회 주기는 2초입니다. {@include: _log-ui-main-term.mdx}
 
 ## ![](/img/number-01.png) 필터 영역
 
 * **필터 적용**   
-    필터를 적용하면 입력한 조건에 맞는 로그를 필터링합니다. 복수의 필터를 입력할 수 있습니다. 필터의 태그가 같은 경우 OR(`||`)로, 그렇지 않은 경우는 AND(`&&`)로 적용됩니다. 
+    필터를 {@include: _log-ui-filter-apply.mdx} 
     
     ![](https://img.whatap.io/media/images/livetail_003_filter.png)
-    입력창에 필터를 입력하고 ![아이콘](/img/ic-search-on-press.svg) ***검색*** 버튼을 클릭하세요. ![number-s3](/img/number-03.png) 영역에서 조회할 수 있습니다.
+    입력창에 {@include: _log-ui-filter-apply2.mdx} ![number-s3](/img/number-03.png) 영역에서 조회할 수 있습니다.
 
-* **필터 수정**  
-    필터에 값을 입력한 뒤 입력한 값을 클릭하면 해당 값을 수정할 수 있습니다.  
-    ![](https://img.whatap.io/media/images/livetail_005_filter_input.png)
-
-* **필터 수식**  
-    입력된 필터 값 아래에 있는 수식(expression)은 로그 데이터 조회 시 적용될 필터 수식 미리 보기입니다.  
-    ![](https://img.whatap.io/media/images/livetail_006_filter_expression.png)
+<!-- 필터 수정과 수식 -->
+{@include: _log-ui-filter-mod-exp.mdx}
 
 * **검색 키(Search Key)**  
     다음 이미지에서 파란색 박스 부분은 파싱(parsing)된 검색 키입니다.   
     ![](https://img.whatap.io/media/images/livetail_007_parsed_key.png)  
-:::note Search Key
-검색 키는 ***로그*** > ***설정***의 ***로그 Parser 설정***에서 파싱 로직을 등록해 설정할 수 있습니다.
-:::
+{@include: _log-ui-sk.mdx}
 
 * **필터 입력 문법**  
-    필터 입력 시 사용할 수 있는 문법 목록입니다. ***라이브 Tail***과 ***로그 검색기***는 동일한 문법을 사용합니다.
-
-    |문법|예시|설명|
-    |----|----|----|
-    |include(+)|+ote-gateway|ote-gateway를 포함한 것만 필터링|
-    |exclude(-)|-ote-gateway|ote-gateway를 제외한 것만 필터링|
-    |startWith(*)|ERROR*|ERROR로 시작하는 것만 필터링|
-    |endWith(*)|*ERROR|ERROR로 끝나는 것만 필터링|   
+{@include: _log-ui-filter-r.mdx}  
 
 ## ![](/img/number-02.png) 콘텐츠 필터 영역
 
@@ -77,10 +59,10 @@ tags: [ 로그 모니터링, 라이브 Tail, UI ]
     ![](https://img.whatap.io/media/images/livetail_012_contents_highlight_color.png)
     * ![아이콘](/img/ic-highlight.svg) ***하이라이트*** 버튼을 클릭하여 키워드를 입력하세요. 입력창 왼쪽 ***색상***을 클릭하면 선택할 수 있는 색상 메뉴가 나타납니다. 
     * 기본적으로 로그 레벨에 따른 하이라이팅(<span class='logwr'>WARN</span>, <span class='loger'>ERROR</span>, <span class='logft'>FATAL</span>)이 적용되어 있습니다.   
-    * 설정한 내용은 **프로젝트 단위**로 저장됩니다.
+    * 설정한 내용은 **프로젝트 단위**로 저장됩니다.  
 
-* **테이블 설정**    
-    ***테이블 설정*** 메뉴는 라이브 Tail, 로그 검색기, 로그 탐색기에서 사용할 수 있습니다. 
+* **테이블 설정**  
+    ***테이블 설정*** 메뉴는 ***라이브 Tail***, ***검색기***, ***탐색기***에서 사용할 수 있습니다. 
     
     ![](https://img.whatap.io/media/images/livetail_013_table_options.png)  
     ![number-s](/img/number-02.png) 영역 왼쪽의 ![아이콘](/img/ic-setting.svg) ***테이블 설정*** 버튼을 클릭하면 ***컬럼 추가***와 ***테이블 컨텐츠 설정*** 옵션 메뉴가 나타납니다. 

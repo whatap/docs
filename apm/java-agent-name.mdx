@@ -33,7 +33,7 @@ JVM 옵션으로 `whatap.onname` 설정이 없는 경우 에이전트 이름을 
 | 변수 | 설명 |
 | -- | -- |
 | 문자열 | 입력한 문자열을 사용합니다. |
-| {type} | 컨테이너 타입을 자동 식별해 부여합니다. <br/> 자동 식별 대상 : JAVA, TOMCAT, JBOSS, RESIN, SPRINGBOOT, JETTY, JEUS, WEBLOGIC, WEBSPHERE, UNDERTOW, PLAY |
+| {type} | 컨테이너 타입을 자동 식별해 부여합니다. <br/> 자동 식별 대상: JAVA, TOMCAT, JBOSS, RESIN, SPRINGBOOT, JETTY, JEUS, WEBLOGIC, WEBSPHERE, UNDERTOW, PLAY |
 | {ip0} | IPv4 주소 중 첫 번째 단위를 사용합니다. (예시, **10**.11.12.13 중 **10**) |
 | {ip1} | IPv4 주소 중 두 번째 단위를 사용합니다. (예시, 10.**11**.12.13 중 **11**) |
 | {ip2} | IPv4 주소 중 세 번째 단위를 사용합니다. (예시, 10.11.**12**.13 중 **12**) |
@@ -47,7 +47,7 @@ JVM 옵션으로 `whatap.onname` 설정이 없는 경우 에이전트 이름을 
 
 | 우선순위 | 옵션           | 설정 위치   | 설명                                                                         |
 | -------- | -------------- | ----------- | ---------------------------------------------------------------------------- |
-| 1        | -Dwhatap.name  | JVM Options | 애플리케이션 이름을 패턴으로 설정하세요.<br/>default : `{type}-{ip2}-{ip3}-{port}` |
+| 1        | -Dwhatap.name  | JVM Options | 애플리케이션 이름을 패턴으로 설정하세요.<br/>default: `{type}-{ip2}-{ip3}-{port}` |
 | 2        | -Dwhatap.oname | JVM Options | 애플리케이션 이름을 고정값으로 설정합니다.<br/>`-Dwhatap.oname=front-{ip3}-{port}` |
 
 :::info

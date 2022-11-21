@@ -1,6 +1,38 @@
 ---
-id: sever-agent-update
+id: server-agent-update
 title: 에이전트 업데이트
 description: 서버 에이전트 업데이트 방법에 대해 안내합니다.
 tags: [ 서버, 업데이트, 관리하기 ]
 ---
+
+:::note
+이전 버전을 설치하려면 support@whatap.io로 문의해 주세요.
+:::
+
+설치된 에이전트를 최신 버전으로 업데이트 하려면 다음 명령어를 실행하세요.
+
+* **Debian / Ubuntu**
+    ```bash title=SH
+    sudo apt-get update
+    sudo apt-get install whatap-infra
+    sudo service whatap-infra restart
+    ```
+    * 특정 버전을 설치하려면 설치 시 버전 정보를 다음과 같이 명시하세요.
+        ```bash
+        sudo apt-get install whatap-infra=<version>
+        ```
+* **CentOS / Amazon Linux / SUSE / XenServer**
+    ```bash title=SH
+    sudo yum update whatap-infra
+    sudo service whatap-infra restart
+    ```
+    * 특정 버전을 설치하려면 설치 시 버전 정보를 다음과 같이 명시하세요.
+        ```bash
+        sudo yum install whatap-infra-<version>
+        ```
+* **FreeBSD**
+    ```bash title=SH
+    wget http://repo.whatap.io/freebsd/10/whatap-infra.txz
+    pkg install whatap-infra.txz
+    ```
+

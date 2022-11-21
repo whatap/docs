@@ -1,55 +1,105 @@
 ---
-id: openapi-call-spot
-title: Spot 정보 조회
-tags: [ Open API, API, Spot 정보 조회 ]
+id: openapi-call-server-spot
+title: Spot 정보 조회(서버)
+tags: [ Open API, API, Spot 정보 조회, 서버, 서버 모니터링 ]
 ---
 
-## Active Agent
+## 활성화 상태의 에이전트 수
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/act_agent
+<span class='apitype'>GET</span> https://service.whatap.io/open/json/act_agent
 
 ```bash title='command'
-$ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/act_agent"
+$ curl -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://service.whatap.io/open/json/act_agent"
+```
+
+```json title='서버 모니터링 제품군 response'
+{
+  "pname": "LOCAL_INFRA",
+  "values": "57.0"
+}
+```
+
+## 비활성화 상태의 에이전트 수
+
+<span class='apitype'>GET</span> https://service.whatap.io/open/json/inact_agent
+
+```bash title='command'
+$ curl -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://service.whatap.io/open/json/inact_agent"
 ```
 
 ```json title='response'
-5 // 활성화 에이전트 개수
+{
+  "pname": "LOCAL_INFRA",
+  "values": "4.0"
+}
 ```
 
-## Inactive Agent
+## 호스트(HOST) 수
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/inact_agent
+<span class='apitype'>GET</span> https://service.whatap.io/open/json/host
 
 ```bash title='command'
-$ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/inact_agent"
+$ curl -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://service.whatap.io/open/json/host"
 ```
 
 ```json title='response'
-1 // 비활성화 에이전트 개수
+{
+  "pname": "LOCAL_INFRA",
+  "values":"57.0"
+}
 ```
 
-## HOST
+## 호스트의 CPU 코어 합
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/host
+<span class='apitype'>GET</span> https://service.whatap.io/open/json/cpucore
 
 ```bash title='command'
-$ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/host"
+$ curl -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://service.whatap.io/open/json/cpucore"
 ```
 
 ```json title='response'
-2 // HOST 개수
+{
+  "pname":"LOCAL_INFRA",
+  "values":"108.0"
+}
 ```
 
-## CPU Core
+## CPU 사용률
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/cpucore
+<span class='apitype'>GET</span> https://service.whatap.io/open/json/infra_cpu
 
 ```bash title='command'
-$ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/cpucore"
+$ curl -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/infra_cpu"
 ```
 
 ```json title='response'
-16 // CPU 코어 개수
+{
+  "pname": "LOCAL_INFRA",
+  "values": {
+    "s-p-gtw-03": 2.802803,
+    "t-a-yrd-01": 8.709015,
+    (...)
+  }
+}
+```
+
+## 디스크 IOPS 합계
+
+<span class='apitype'>GET</span> https://service.whatap.io/open/json/infra_disk_iops
+
+```bash title='command'
+$ curl -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://service.whatap.io/open/json/infra_disk_iops"
+```
+
+```json title='response'
+{
+  "pname": "LOCAL_INFRA",
+  "values": {
+    "s-p-gtw-03": 2.802803,
+    "t-a-yrd-01": 8.709015,
+    (...)
+  }
+}
 ```
 
 ## 트랜잭션 개수

@@ -52,6 +52,10 @@ $ curl -L -w "\n" -H "x-whatap-token: {{ACCOUNT API TOKEN}}" "https://api.whatap
 
 <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/projects
 
+:::note
+이 기능은 애플리케이션 모니터링 제품군에 해당합니다.
+:::
+
 ```bash title='command'
 $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/project"
 ```
@@ -59,10 +63,12 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 ```json title='response'
 {
   "platform": "JAVA",
-  "createTime": "Tue Sep 18 08:34:27 GMT 2018", "gatewayName": "Office-OTE",
+  "createTime": "Tue Sep 18 08:34:27 GMT 2018",
+  "gatewayName": "Office-OTE",
   "projectCode": 1**1,
   "status": "Subscribe",
-  "lastUpdatedTime": "Tue Sep 18 08:34:34 GMT 2018", "name": "SEO_APM",
+  "lastUpdatedTime": "Tue Sep 18 08:34:34 GMT 2018", 
+  "name": "SEO_APM",
   "productType": "APM"
 }
 ```
@@ -75,6 +81,58 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 | status          | <span class='api'>string</span> | 프로젝트 상태            |
 | lastUpdatedTime | <span class='api'>string</span> | 프로젝트 수정 날짜       |
 | productType     | <span class='api'>string</span> | 애플리케이션 서버 유형   |
+
+## 프로젝트 정보 및 상세 서버 조회
+
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/projects
+
+:::note
+이 기능은 서버 모니터링 제품군에 해당합니다.
+:::
+
+```bash title='command'
+$ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/project"
+```
+
+```json title='response'
+{
+  "pname":"LOCAL_PC",
+  "timezone":9,
+  "regionName":"LOCAL",
+  "values":{
+    "servers":[
+      {
+        "public_ip":"192.168.1.0",
+        "os_cpuvendor":"Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz",
+        "agent_created":"1572406071216",
+        "ip":"192.168.1.0",
+        "os_arch":"amd64",
+        "actTime":1572406264112,
+        "cpu_cores":"8",
+        "oid":-1030311093,
+        "isActive":true,
+        "okind":"",
+        "version":"1.2.4",
+        "tags":[
+          "network:169.254.0.0/16",
+          "network:192.168.1.0/24",
+          "java",
+          "OpenVpn",
+          "oracle",
+          "ftp"
+        ],
+        "inactTime":0,
+        "oname":"DESKTOP-KEIPLT5",
+        "os_name":"windows",
+        "startTime":1572406263602,
+        "os_memory":"17036419072",
+        "os_status":"warning"
+      },
+      (...)
+    ],
+  }
+}
+```
 
 ## 프로젝트 멤버 목록 조회
 

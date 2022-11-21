@@ -7,7 +7,7 @@ tags: [ MXQL, MXQL 문법 가이드 ]
 
 ## 형식
 
-MXQL은 각 라인마다 `명령어`와 `오퍼랜드`로 구성되며 띄어쓰기로 구분합니다.
+MXQL은 각 라인마다 **명령어**와 **오퍼랜드**로 구성되며 띄어쓰기로 구분합니다.
 
 ```sql
 <명령어> <오퍼랜드>
@@ -46,7 +46,7 @@ SELECT [ time, pcode ]
 FILTER { key : tx_count, value : 5}
 ```
 
-## 테스트 환경
+## 테스트 환경{#test-env}
 
 홈 화면 > 프로젝트 선택 > ***사이트맵*** > ***실험실*** > ***MXQL 데이터 조회*** 메뉴에서 MXQL 쿼리를 테스트할 수 있습니다.
 
@@ -58,11 +58,11 @@ FILTER { key : tx_count, value : 5}
 
 ## 단계별 구성
 
-MXQL은 단계별 구성을 가지고 있습니다. 각 단계별로 사용할 수 있는 `명령어`의 종류가 정해져 있으며 각 단계의 이름과 특징은 다음과 같습니다. 
+MXQL은 단계별 구성을 가지고 있습니다. 각 단계별로 사용할 수 있는 **명령어**의 종류가 정해져 있으며 각 단계의 이름과 특징은 다음과 같습니다. 
 
 1. **메트릭스 선택**: 어떤 에이전트에서 수집한 어떤 메트릭스를 사용할지 선택하세요.
 
-1. **메트릭스 로딩**: 이전 단계에서 설정한 값들을 사용해서 메트릭스를 불러옵니다. 대부분의 경우 `TAGLOAD`를 이용하며 ~~[특수한 경우]~~에만 `FLEXLOAD`를 이용하세요.
+1. **메트릭스 로딩**: 이전 단계에서 설정한 값들을 사용해서 메트릭스를 불러옵니다. 대부분의 경우 `TAGLOAD`를 이용하며, 특수한 경우에만 `FLEXLOAD`를 이용하세요. `FLEXLOAD`를 사용해야 하는 경우는 [다음 설명서](mxql-loading#flexload-items)를 참조하세요.
 
 1. **메트릭스 가공**: 이전 단계에서 불러온 메트릭스에 대해서 단계별로 가공을 수행합니다.
 
@@ -100,9 +100,9 @@ SELECT [ time, pcode ]
 FILTER { key : tx_count, value : 5}
 ```
 
-## MetricValue(복합값)
+## MetricValue(복합값) {#metric-value}
 
-MetricValue(복합값)은 메트릭스 가공 단계에서 자주 사용하는 연산을 편리하게 지원하는 MXQL의 자료 구조입니다. 메트릭스 가공 단계의 ~~[GROUP]~~, ~~[UPDATE]~~ 명령어는 메트릭스가 MetricValue 형태로 저장되어 있을 때만 사용할 수 있습니다.
+MetricValue(복합값)은 메트릭스 가공 단계에서 자주 사용하는 연산을 편리하게 지원하는 MXQL의 자료 구조입니다. 메트릭스 가공 단계의 [GROUP](mxql-calculate#group), [UPDATE](mxql-calculate#update) 명령어는 메트릭스가 MetricValue 형태로 저장되어 있을 때만 사용할 수 있습니다.
 
 예를 들어 다음과 같은 데이터가 있다고 가정해보겠습니다. 
 
@@ -115,7 +115,7 @@ MetricValue(복합값)은 메트릭스 가공 단계에서 자주 사용하는 �
 | 2021/06/24 13:40:40 | 5        |
 | 2021/06/24 13:40:50 | 6        |
 
-위 데이터를 30초 간격으로 ~~[GROUP]~~의 merge 옵션을 진행하면 다음과 같은 형태로 데이터를 변형할 수 있습니다.
+위 데이터를 30초 간격으로 [GROUP](mxql-calculate#group)의 merge 옵션을 진행하면 다음과 같은 형태로 데이터를 변형할 수 있습니다.
 
 | time                                      | tx_count                 |
 | ----------------------------------------- | ------------------------ |
@@ -133,15 +133,15 @@ MetricValue(복합값)은 메트릭스 가공 단계에서 자주 사용하는 �
 | avg  | MetricValue에 포함된 값의 평균을 구합니다.                |
 | cnt  | MetricValue에 포함된 값의 갯수를 구합니다.                |
 
-MetricValue 옵션은 ~~[UPDATE]~~ 명령어를 통해 이용할 수 있습니다.
+MetricValue 옵션은 [UPDATE](mxql-calculate#update) 명령어를 통해 이용할 수 있습니다.
 
 ```sql title='UPDATE'
 CATEGORY app_counter
 TAGLOAD
 SELECT [ time, okindName, okind, apdex_satisfied, apdex_tolerated, apdex_total]
--- GROUP <명령어>의 merge 옵션을 통해 MetricValue로 변환할 field를 설정
+-- GROUP 명령어의 merge 옵션을 통해 MetricValue로 변환할 field를 설정
 GROUP { timeunit:5000, pk:okind, last:okindName, merge:[apdex_satisfied, apdex_tolerated, apdex_total] }
--- UPDATE <명령어>를 통해 sum 옵션을 적용
+-- UPDATE 명령어를 통해 sum 옵션을 적용
 UPDATE { key:[apdex_satisfied, apdex_tolerated, apdex_total], value:sum }
 ```
 
@@ -153,9 +153,9 @@ UPDATE { key:[apdex_satisfied, apdex_tolerated, apdex_total], value:sum }
   CATEGORY app_counter
   TAGLOAD
   SELECT [ time, okindName, okind, apdex_satisfied, apdex_tolerated, apdex_total]
-  -- GROUP <명령어>의 merge 옵션을 통해 MetricValue로 변환할 field를 설정
+  -- GROUP 명령어의 merge 옵션을 통해 MetricValue로 변환할 field를 설정
   GROUP { timeunit:5000, pk:okind, last:okindName, merge:[apdex_satisfied, apdex_tolerated, apdex_total] }
-  -- UPDATE <명령어>를 통해 sum 옵션을 적용
+  -- UPDATE 명령어를 통해 sum 옵션을 적용
   UPDATE { key:[apdex_satisfied, apdex_tolerated, apdex_total], value:sum }
   ```
 
@@ -192,7 +192,7 @@ GROUP  {timeunit:5000, pk:pcode, last: pname, merge:tps}
 UPDATE {key:tps, value:avg}
 ```
 
-## 사전 정의 MXQL 쿼리문
+## 사전 정의 MXQL 쿼리문{#custom-mxql}
 
 MXQL 쿼리를 직접 작성하지 않고 사전에 정의된 MXQL 쿼리파일의 경로를 설정해 MXQL을 수행할 수 있습니다. 예를 들어 '에이전트별 액티브TX 건수', '<구간별> 건수', '최근 15초'를 구하는 MXQL 쿼리는 다음과 같습니다.
 
@@ -216,109 +216,108 @@ CREATE {key:_name_, from:oname}
 INJECT default
 ```
 
-만약 위 쿼리가 수집서버에 등록되어 있다면 다음과 같이 적는 것만으로 같은 데이터를 조회할 수 있습니다. 지정한 경로에 저장된 서버의 파일의 내용을 읽어서 호출해주는 방식입니다.
+만약 위 쿼리가 수집서버에 등록되어 있다면 다음과 같이 입력하는 것만으로 같은 데이터를 조회할 수 있습니다. 설정한 경로에 저장한 서버의 파일 내용을 읽어서 호출해주는 방식입니다.
 
-----
---  사전 정의된 파일의 path를 입력합니다. 
+```txt title='사전 정의한 파일의 경로를 입력합니다.''
 /app/act_tx/act_tx_oid
-----
+```
 
-link:./mxql_guide.html#_saas_서비스에서_제공하는_사전에_정의된_mxql_쿼리_목록[SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록]에서 사용 가능한 쿼리를 확인할 수 있습니다.
+[다음 설명서](#custom-query-saas)에서 사용 가능한 쿼리를 확인할 수 있습니다.
 
-== 참고자료
+## 참고자료
 
-=== 바인드 변수(파라미터)
+### 바인드 변수(파라미터){#bind-parameter}
 
-MXQL에서는 바인드 변수를 사용할 수있습니다. 바인드 변수는 '$'시작해야 합니다. 또한 value에 해당하는 부분만 사용할 수 있습니다. 
+MXQL에서는 바인드 변수를 사용할 수있습니다. 바인드 변수는 `$`로 시작합니다. 또한 value에 해당하는 부분만 사용할 수 있습니다. 
 
-----
+```sql
 SKIP $skip_value
-----
+```
 
-----
+```sql
 SKIP [$skip_value]
-----
+```
 
-----
+```sql
 SKIP {value:$skip_value}
-----
+```
 
-----
--- 불가능한 경우(key로 바인드 변수를 전달할 수 없습니다.)
+```sql title='불가능한 경우 : key로 바인드 변수를 전달할 수 없습니다.'
 SKIP {$option:10}
-----
+```
 
 쿼리에서 바인드 변수를 사용했으면 MXQL을 실행할 때 입력할 값을 전달해야 합니다.
 
-.바인드 변수 설정 예시
-image::https://img.whatap.io/media/images/mxql-1.png[]
+![바인드 변수 설정 예시](https://img.whatap.io/media/images/mxql-1.png)
 
-NOTE: 바인드 변수의 이름은 대소문자 알파멧만 가능합니다. 숫자 및 특수문자는 바인드 변수의 이름에 포함될 수 없습니다. 
+:::note
+바인드 변수의 이름은 대소문자 알파벳만 가능합니다. 숫자 및 특수문자는 바인드 변수의 이름에 포함할 수 없습니다. 
+:::
 
-=== 데이터 로딩방식
+### 데이터 로딩방식
 
-MXQL에서 조회할 수 있는 데이터는 link:../metrics/metrics_overview.html[메트릭스]의 형식에 따라서 크게 두 가지로 나눌 수 있습니다.
+MXQL에서 조회할 수 있는 데이터는 [메트릭스](../metrics/metrics-intro)의 형식에 따라서 크게 두 가지로 나눌 수 있습니다.
 
+* 메트릭스의 데이터가 태그와 필드에 나누어서 저장된 데이터 ([TAGLOAD](mxql-loading#tagload)를 사용해서 로드할 수 있는 데이터)
+* 메트릭스에 모든 데이터가 필드에 저장된 데이터 ([FLEXLOAD](mxql-loading#flexload)를 사용해서 로드할 수 있는 데이터)
 
+대부분의 카테고리는 `TAGLOAD`를 사용합니다. [다음 설명서](mxql-loading#flexload-items)에 포함된 카테고리의 데이터를 사용할 경우에만 `FLEXLOAD`를 사용합니다.
 
-1. 메트릭스의 데이터가 태그와 필드에 나누어서 저장된 데이터 ( link:./mxql_metrics_load.html#tagload[TAGLOAD]를 사용해서 로드할 수 있는 데이터)
-2. 메트릭스에 모든 데이터가 필드에 저장된 데이터 (link:./mxql_metrics_load.html#flexload[FLEXLOAD]를 사용해서 로드할 수 있는 데이터)
+## SaaS 서비스에서 제공하는 사전 정의된 MXQL 쿼리 목록{#custom-query-saas}
 
-대부분의 카테고리는 TAGLOAD를 사용합니다. <<FLEXLOAD를 사용해야하는 카테고리 목록>>에 포함된 카테고리의 데이터를 사용할 때에만 FLEXLOAD를 사용합니다.
+MXQL 쿼리를 직접 작성하지 않고 경로(path)로 설정할 수 있는 기능의 주된 목적은 복잡한 쿼리를 간편하게 호출하기 위함이 아니라, 관리자가 직접 본인의 의도대로 쿼리를 작성하고 이를 사용하는데 있습니다. 따라서 이미 Yard에 어떤 쿼리들이 포함되어 있는지 확인하고 사용하기보다 직접 쿼리를 등록하는 방향으로 활용해야 합니다. `JOIN` 명령어를 사용해야하는 경우는 MXQL 쿼리를 사용하는 경우 중에서도 특별한 경우이기 때문에 관리자가 직접 쿼리를 등록하고 해당 파일의 경로(path)를 사용하도록 되어 있습니다.
 
-== SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록
+:::note
+*yard.conf* 파일의 `mxql_root`에 설정한 경로 아래에 등록하고 싶은 쿼리를 파일로 저장할 수 있습니다. (default ./mxql)
+:::
 
-mxql 쿼리를 직접 작성하지 않고 path로 지정할 수 있는 기능의 주된 목적은, 복잡한 쿼리를 간편하게 호출하기 위함이 아니라, 관리자가 직접 본인의 의도대로 쿼리를 작성하고 이를 사용하는데 있습니다. 따라서 이미 Yard에 어떤 쿼리들이 포함되어 있는지 확인하고 사용하기보다 직접 쿼리를 등록하는 방향으로 활용해야 합니다.( JOIN <명령어>를 사용해야하는 경우는 mxql 쿼리를 사용하는 경우 중에서도 특별한 경우이기 때문에 관리자가 직접 쿼리를 등록하고 해당 파일의 path를 사용하도록 되어 있습니다. ) + 
+### 에이전트별 액티브TX 건수, 건수, 최근15초 
 
-NOTE : yard.conf의 mxql_root에 설정한 경로 아래에 등록하고 싶은 쿼리를 파일을 저장할 수 있습니다. (default ./mxql)
+* 경로 : */app/act_tx/act_tx_oid*
+* 쿼리 : 
 
-=== 에이전트별 액티브TX 건수, 건수, 최근15초 
+  ```sql
+  HEADER {  act0$:I, act3$:I, act8$:I, act$:I}
 
-- 경로 : /app/act_tx/act_tx_oid
-- 쿼리 : 
-+
-----
-HEADER {  act0$:I, act3$:I, act8$:I, act$:I}
+  TIME-RANGE {duration:15s, etime:$etime}
 
-TIME-RANGE {duration:15s, etime:$etime}
+  OIDSET {oid:$oid, okind:$okind, onode:$onode}
 
-OIDSET {oid:$oid, okind:$okind, onode:$onode}
+  CATEGORY app_counter
 
-CATEGORY app_counter
+  TAGLOAD {backward:true}
 
-TAGLOAD {backward:true}
+  SELECT [oid, oname, active_tx_0, active_tx_3, active_tx_8, active_tx_count]
+  FIRST-ONLY {key:oid}
+  RENAME {src:active_tx_0,  dst:act0}
+  RENAME {src:active_tx_3,  dst:act3}
+  RENAME {src:active_tx_8,  dst:act8}
+  RENAME {src:active_tx_count,  dst:act}
 
-SELECT [oid, oname, active_tx_0, active_tx_3, active_tx_8, active_tx_count]
-FIRST-ONLY {key:oid}
-RENAME {src:active_tx_0,  dst:act0}
-RENAME {src:active_tx_3,  dst:act3}
-RENAME {src:active_tx_8,  dst:act8}
-RENAME {src:active_tx_count,  dst:act}
+  CREATE {key:_id_, from:oid}
+  CREATE {key:_name_, from:oname}
+  ```
 
-CREATE {key:_id_, from:oid}
-CREATE {key:_name_, from:oname}
-----
+### 에이전트 별 상세정보 & 에이전트별 액티브TX 건수, 건수, 최근15초 
 
-=== 에이전트 별 상세정보 + 에이전트별 액티브TX 건수, 건수, 최근15초 
+* 경로 : */app/act_tx/agent_with_tx*
+* 쿼리 : 
 
-- 경로 : /app/act_tx/agent_with_tx
-- 쿼리 : 
-+
-----
-CATEGORY agent_list
+  ```sql
+  CATEGORY agent_list
 
-OIDSET {oid:$oid, okind:$okind, onode:$onode}
+  OIDSET {oid:$oid, okind:$okind, onode:$onode}
 
-FLEXLOAD
+  FLEXLOAD
 
-JOIN {query:'/app/act_tx/act_tx_oid', pk:oid, field:[act0,act3,act8, act] }
+  JOIN {query:'/app/act_tx/act_tx_oid', pk:oid, field:[act0,act3,act8, act] }
 
-UPDATE {key:act0, notnull:0}
-UPDATE {key:act3, notnull:0}
-UPDATE {key:act8, notnull:0}
-UPDATE {key:act, notnull:0}
+  UPDATE {key:act0, notnull:0}
+  UPDATE {key:act3, notnull:0}
+  UPDATE {key:act8, notnull:0}
+  UPDATE {key:act, notnull:0}
 
-RENAME {src:[act0, act3, act8, act],  dst:[normal, slow, verySlow, total]}
+  RENAME {src:[act0, act3, act8, act],  dst:[normal, slow, verySlow, total]}
 
-INJECT default
-----
+  INJECT default
+  ```

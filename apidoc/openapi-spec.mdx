@@ -69,8 +69,8 @@ Spot 정보 조회용 Open API로 호출할 수 있는 항목은 다음과 같�
 통계 정보 조회용 OpenAPI는 시간 범위를 설정해 호출하며 URL에 다음 항목을 포함할 경우 동작 방식은 다음과 같습니다.
 
 * 시간 범위 미지정 시 최근 5분간의 정보를 조회
-* `stime` : 조회 시작 시간 (UNIX epoch time, millisecond)
-* `etime` : 조회 종료 시간 (UNIX epoch time, millisecond)
+* `stime`: 조회 시작 시간 (UNIX epoch time, millisecond)
+* `etime`: 조회 종료 시간 (UNIX epoch time, millisecond)
 
 :::note
 `etime`은 `stime`을 기준으로 1일을 초과할 수 없습니다.
@@ -100,8 +100,8 @@ Spot 정보 조회용 Open API로 호출할 수 있는 항목은 다음과 같�
 
 장기 통계 조회용 Open API는 유형에 따라 시간 설정 범위를 가집니다. 시간 범위를 설정해 호출하며 URL에 다음 항목을 포함하면 동작 방식은 다음과 같습니다.
 
-* `stime` : 조회 시작 시간 (UNIX epoch time, millisecond)
-* `etime` : 조회 종료 시간 (UNIX epoch time, millisecond)
+* `stime`: 조회 시작 시간 (UNIX epoch time, millisecond)
+* `etime`: 조회 종료 시간 (UNIX epoch time, millisecond)
 
 :::note
 `etime`은 `stime`을 기준으로 1일을 초과할 수 없습니다.
@@ -115,9 +115,9 @@ Spot 정보 조회용 Open API로 호출할 수 있는 항목은 다음과 같�
 
 지정된 시간의 정보를 조회합니다. 시간을 설정하지 않을 경우 최근 데이터를 조회합니다. 프로젝트 단위로 조회하며 에이전트들의 데이터는 자동 병합됩니다. Query String(쿼리 문자열)을 사용합니다. 각 쿼리 문자열은 ‘&’ 기호와 함께 연결해 사용할 수 있으며 사용 가능한 쿼리 문자열은 다음과 같습니다.
 
-* `stime` : 조회 시작 시간 (UNIX epoch time, millisecond)
-* `etime` : 조회 종료 시간 (UNIX epoch time, millisecond)
-* `timeMerge` : 시간 병합 설정으로 `avg`, `min`, `max`, `sum`을 사용할 수 있습니다.
+* `stime`: 조회 시작 시간 (UNIX epoch time, millisecond)
+* `etime`: 조회 종료 시간 (UNIX epoch time, millisecond)
+* `timeMerge`: 시간 병합 설정으로 `avg`, `min`, `max`, `sum`을 사용할 수 있습니다.
 
 단기 조회용 Open API로 호출할 수 있는 항목은 다음과 같습니다. Open API 호출 사용법은 [다음 설명서](openapi-call-short-stat)를 참조하세요.
 

@@ -1,0 +1,113 @@
+---
+id: install-master-node-agent
+title: 마스터 및 노드 에이전트 설치
+description: 설치 안내 페이지에 따라 마스터 및 노드 에이전트 설치 과정을 진행하세요.
+tags: [ 쿠버네티스, 쿠버네티스 모니터링, 에이전트, 마스터, 노드, 에이전트 설치 ]
+---
+
+설치 안내 페이지에 따라 마스터 및 노드 에이전트 설치 과정을 진행하세요.
+
+## 사전 환경 점검 및 설정
+
+사용자의 쿠버네티스 환경에 따라 사전 환경 설정이 필요한 경우가 있습니다.
+
+### Istio 환경
+
+Istio 환경이라면 다음 명령을 실행해 Istio 모니터링에 필요한 자원을 생성하세요.
+
+```bash title='SH'
+kubectl create namespace whatap-monitoring
+kubectl label namespace whatap-monitoring istio-injection=enabled
+kubectl apply -f - <
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: whatap-external
+spec:
+  hosts:
+  - whatap-proxy1
+  - whatap-proxy2
+  addresses:
+  - 13.124.11.223
+  - 13.209.172.35
+  ports:
+  - name: proxy
+    number: 6600
+    protocol: tcp
+    location: MESH_EXTERNAL
+EOF
+```
+
+### GKE 환경
+
+Google Kubernetes Engine(GKE)의 경우 사용자 클러스터 생성 후 다음 명령을 통해 권한 설정을 수행하세요.
+
+```bash title='GKE 권한 설정'
+ACCOUNT=$(gcloud info --format='value(config.account)')
+kubectl create clusterrolebinding owner-cluster-admin-binding \
+  --clusterrole cluster-admin \
+  --user $ACCOUNT
+```
+
+:::note
+gcloud CLI 설치에 대한 자세한 내용은 [구글 클라우드 문서](https://cloud.google.com/sdk/docs/install)를 참조하세요.
+:::
+
+### OpenShift 환경
+
+![OpenShift](/img/kube-install-openshift.png)
+
+설치 안내 화면에서 ***OpenShift 환경일 경우 추가 설정*** 섹션을 열어 ***openshift_scc.yaml*** 버튼을 선택하세요. *openshift_scc.yaml* 파일을 다운로드 후 다음 명령을 통해 설치하세요.
+
+```bash title='SH'
+oc create -f whatap_openshift_scc.yaml
+```
+
+## 쿠버네티스 에이전트 생성(마스터 및 노드 에이전트 설치)
+
+사용자의 쿠버네티스 버전과 Container Runtime에 맞는 YAML 파일을 다운로드한 후 해당 YAML 파일을 이용하여 에이전트를 설치하는 단계입니다.
+
+1. 사용자 쿠버네티스 버전은 다음 명령어를 통해 확인할 수 있습니다.
+
+  ```bash title='SH'
+  kubectl version | grep Server
+  ```
+
+1. Amazon (EKS), Google (GKE), Azure (AKS), 또눈 설치형 쿠버네티스에서 Container Runtime을 별도로 지정하지 않은 경우 Docker YAML을 다운로드하세요. 사용 쿠버네티스 환경에 맞는 YAML 파일을 다운로드하세요.
+
+  ![마스터 및 노드 에이전트 YAML 파일 다운로드](https://img.whatap.io/media/user_guide_kubernetes/intro/24.png)
+
+1. 다운로드한 YAML 파일을 이용해 와탭 에이전트 Pod를 생성하세요. 
+
+  ```bash title='SH'
+  # whatap_kube.yaml 파일명을 실제 다운로드한 파일명으로 변경하세요.
+  kubectl -f whatap_kube.yaml apply
+  ```
+
+## 쿠버네티스 에이전트 설치 확인
+
+와탭 마스터 에이전트와 노드 에이전트 Pod를 정상적으로 생성했는지 확인하세요.
+
+```bash title='SH'
+kubectl get pods -n whatap-monitoring
+```
+
+```bash title='결과'
+NAME                                  READY   STATUS    RESTARTS   AGE
+whatap-master-agent-cb769958c-tclkl   2/2     Running   0          5d
+whatap-node-agent-8p8vk               2/2     Running   0          5d
+whatap-node-agent-cj8jb               2/2     Running   0          5d
+whatap-node-agent-d94fj               2/2     Running   0          5d
+whatap-node-agent-l42sf               2/2     Running   0          5d
+whatap-node-agent-mkppb               2/2     Running   0          5d
+whatap-node-agent-pdwlr               2/2     Running   0          5d
+whatap-node-agent-zf6bv               2/2     Running   0          5d
+```
+
+마스터 및 노드 에이전트의 설치를 완료하면 쿠버네티스 환경의 자원 모니터링을 시작합니다. ***대시보드*** 메뉴를 통해 자원 모니터링 여부를 확인하세요.
+
+:::tip
+`kubectl` 명령어 사용 시 `-n <네임스페이스>` 옵션을 사용하면 특정 네임스페이스를 대상으로 작업을 수행합니다. 와탭 에이전트는 기본적으로 `whatap-monitoring`이라는 네임스페이스에 설치되므로 `-n whatap-monitoring`이라는 옵션을 추가합니다.
+:::
+
+다음으로 애플리케이션 모니터링을 위한 에이전트 설치를 진행하세요.

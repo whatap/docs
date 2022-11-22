@@ -1,0 +1,40 @@
+---
+id: server-install-agent
+title: 설치하기
+description: 와탭 서버 모니터링 에이전트를 설치하는 방법을 제공합니다.
+tags: [ 서버, 설치하기 ]
+---
+
+import DocCardList from '@theme/DocCardList';
+
+와탭 서버 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+
+{@include: ../apm/_agent-signup-guide.mdx}
+
+{@youtube: ZLPbs0jnF9k}
+
+{@include: ../getting-started/_create-project.mdx}
+
+{@include: ../getting-started/_accesskey.mdx}
+
+## 환경별 에이전트 설치
+
+<details>
+<summary>서버 에이전트 파일 구성</summary>
+
+{@include: server-os/_sv-cpf.mdx} 
+{@include: server-os/_sv-lf-cpf.mdx} 
+{@include: server-os/_sv-w-cpf.mdx}                
+
+</details>
+
+프로젝트 생성과 프로젝트 액세스 키 확인은 공통 과정입니다. 
+
+사용하는 환경에 따른 설치 방법을 다음과 같이 제공합니다. 에이전트를 설치하고 적용하기 전에 [지원 환경](server-spec)을 먼저 확인하세요.
+
+<DocCardList/>
+
+<!--
+* *whatap.conf*  
+    모니터링 에이전트의 설정 정보, 프로젝트 액세스 키(또는 라이선스 키), 와탭 데이터 수집 서버의 IP 정보 등을 저장하는 설정 파일입니다. 자세한 내용은 [다음 설명서](../apm/java-set-agent#기본-설정)를 참조하세요.
+-->

@@ -27,6 +27,7 @@ import TabItem from '@theme/TabItem';
     export TARGET_PORT=80
     echo "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT" |sudo tee -a /usr/whatap/infra/conf/whatap.conf
     ```
+
     </TabItem>
     <TabItem value="wps" label="Windows Powershell">
 
@@ -37,6 +38,7 @@ import TabItem from '@theme/TabItem';
     $TARGET_PORT="80"
     Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT"
     ```
+    
     </TabItem>
     </Tabs>
 

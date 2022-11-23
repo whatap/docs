@@ -5,11 +5,13 @@ netstat 명령이 탑재된 경우 1분 간격으로 수집하여 ***카테고�
 ```bash title=SH
 echo "netstats.enabled=true" |sudo tee -a /usr/whatap/infra/conf/whatap.conf
 ```
+
 </TabItem>
 <TabItem value="wps" label="Windows Powershell">
 
 ```bash title=SH
 Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "netstats.enabled=true"
 ```
+
 </TabItem>
 </Tabs>

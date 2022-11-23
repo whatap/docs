@@ -24,6 +24,7 @@ import TabItem from '@theme/TabItem';
     sudo dpkg -i whatap-repo_1.0_all.deb
     sudo apt-get update
     ```
+
     </TabItem>
     <TabItem value="co" label="CentOS">
 
@@ -31,6 +32,7 @@ import TabItem from '@theme/TabItem';
     sudo rpm --import http://repo.whatap.io/centos/release.gpg
     sudo rpm -Uvh http://repo.whatap.io/centos/5/noarch/whatap-repo-1.0-1.noarch.rpm
     ```
+
     </TabItem>
     <TabItem value="al" label="Amazon Linux">
 
@@ -42,6 +44,7 @@ import TabItem from '@theme/TabItem';
     echo "enabled=1" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
     echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
     ```
+
     </TabItem>
     </Tabs>
     <Tabs>
@@ -56,12 +59,14 @@ import TabItem from '@theme/TabItem';
     echo "gpgcheck=1" | sudo tee -a /etc/zypp/repos.d/whatap.repo > /dev/null
     sudo zypper refresh
     ```
+
     </TabItem>
     <TabItem value="fb" label="FreeBSD">
 
     ```bash title=SH
     wget http://repo.whatap.io/freebsd/10/whatap-infra.txz
     ```
+
     </TabItem>
     <TabItem value="xs" label="XenServer">
 
@@ -69,6 +74,7 @@ import TabItem from '@theme/TabItem';
     sudo rpm --import http://repo.whatap.io/centos/release.gpg
     sudo rpm -Uvh http://repo.whatap.io/centos/python/5/noarch/whatap-repo-1.0-1.noarch.rpm
     ```
+
     </TabItem>
     </Tabs> 
 
@@ -81,18 +87,21 @@ import TabItem from '@theme/TabItem';
     ```bash title=SH
     sudo apt-get install whatap-infra
     ```
+
     </TabItem>
     <TabItem value="suse" label="SUSE">
 
     ```bash title=SH
     sudo zypper install whatap-infra
     ```
+
     </TabItem>
     <TabItem value="fb" label="FreeBSD">
 
     ```bash title=SH
     pkg install whatap-infra.txz
     ```
+
     </TabItem>
     </Tabs>
     <Tabs>
@@ -101,6 +110,7 @@ import TabItem from '@theme/TabItem';
     ```bash title=SH
     sudo yum install whatap-infra
     ```
+
     </TabItem>
     </Tabs> 
 

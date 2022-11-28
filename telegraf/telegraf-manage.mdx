@@ -15,11 +15,11 @@ Telegraf 에이전트 관리를 위해 *whatap.conf* 파일을 통해 설정할 
 <Tabs>
 <TabItem value="rc" label="Redhat/CentOS">
 
-1. 패키지 정보 갱신을 위해 캐시 정보를 삭제합니다.
+1. 패키지 정보 갱신을 위해 캐시 정보를 삭제하세요.
     ```bash title=SH
     $ yum clean all
     ```
-1. whatap-telegraf 패키지를 업데이트 합니다.
+1. whatap-telegraf 패키지를 업데이트 하세요.
     ```bash title=SH
     $ yum update whatap-telegraf
     ```
@@ -31,11 +31,11 @@ Telegraf 에이전트 관리를 위해 *whatap.conf* 파일을 통해 설정할 
 </TabItem>
 <TabItem value="du" label="Debian/Ubuntu">
 
-1. 패키지 정보 갱신을 위해 캐시 정보를 삭제합니다.
+1. 패키지 정보 갱신을 위해 캐시 정보를 삭제하세요.
     ```bash title=SH
     $ sudo apt-get update
     ```
-1. whatap-telegraf 패키지를 업데이트 합니다.
+1. whatap-telegraf 패키지를 업데이트 하세요.
     ```bash title=SH
     $ sudo apt-get install --only-upgrade whatap-telegraf
     ```
@@ -47,12 +47,12 @@ Telegraf 에이전트 관리를 위해 *whatap.conf* 파일을 통해 설정할 
 </TabItem>
 <TabItem value="fb" label="FreeBSD">
 
-1. 패키지를 다시 설치합니다.
+1. 패키지를 다시 설치하세요.
     ```bash title='SH'
     # wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/freebsd/10/whatap-telegraf-0.0.4.txz
     # pkg install whatap-telegraf-0.0.4.txz
     ```
-1. 특정 버전을 설치하기 위해서는 `<version>`에 버전 정보를 입력해 설치합니다.
+1. 특정 버전을 설치하기 위해서는 `<version>`에 버전 정보를 입력해 설치하세요.
     ```bash title='SH'
     # wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/freebsd/10/whatap-telegraf-<version>.txz
     # pkg install whatap-telegraf-<version>.txz
@@ -114,4 +114,4 @@ $ service whatap_telegraf stop
     </TabItem>
     </Tabs> 
 
-* 필요한 경우 */usr/whatap/telegraf* 아래 로그 파일 및 기타 파일을 삭제하세요.
+* 필요한 경우 */usr/whatap/telegraf* 하위의 로그 파일 및 기타 파일을 삭제하세요.

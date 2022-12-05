@@ -1,0 +1,61 @@
+---
+id: integ-amazon-ecs
+title: Amazon ECS
+description: Amazon ECS 아이템 설치를 안내합니다.
+tags: [ 인티그레이션, 설치하기, Amazon ECS ]
+---
+
+## Amazon ECS 모니터링이란? 
+
+{@include: _amazon-ecs-intro.mdx}
+
+## 필요 소프트웨어
+
+* **AWS CLI**  
+    설치 방법은 [다음 설명서](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-configure.html)를 참조하세요.
+* **Amazon ECS CLI**  
+    설치 방법은 [다음 설명서](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/Welcome.html)를 참조하세요.
+* **Python 2.x / 3.x**
+
+:::note
+설치에 쓰이는 와탭 이미지(*whatap/ecs_mon*)는 다운로드 후 사용자 레지스트리에 등록하고 사용하는 것을 권장합니다.
+:::
+
+## 모니터링 대상
+
+Amazon ECS 모니터링 대상은 Task, Service, Deployment, ContainerInstance입니다.
+
+* Amazon ECS Launch Type Fargate 모니터링 (Task, Service, Deployment)
+* Amazon ECS Launch Type EC2 모니터링 (Task, Service, Deployment, ContainerInstance)
+
+:::note
+다음의 모니터링 절차도 Launch Type Fargate 모니터링을 위한 절차와 Launch Type EC2 모니터링을 위한 절차로 구분되어 진행됩니다.
+:::
+
+## 모니터링 절차
+
+1. 사용자 와탭 콘솔에서 인티그레이션 프로젝트를 Amazon ECS 사용 상태로 생성합니다.
+1. 와탭 Amazon ECS 에이전트를 전용 Task 혹은 Sidecar 로 배포합니다.
+
+### Amazon ECS Launch Type Fargate 와탭 에이전트 Task 배포
+
+![ECS Fargate Sidecar](https://img.whatap.io/media/images/ecs_fargate_whatap_monitoring_S1OGECY.png)
+
+1. 와탭 ECS 모니터링 설정 클릭 후 ***Task 생성하기***에서 Launch Type Fargate를 선택합니다.
+1. 스크립트를 실행하여 AWS ECS API READONLY IAM ROLE을 만듭니다. 
+:::note
+와탭 Task가 ECS Service 를 조회하여 서비스 상태를 실시간 수집하는데 필요합니다.
+:::
+1. 실행하는데 필요한 항목은 다음과 같습니다.
+    * ACCESSKEY (와탭 프로젝트 Access Key)
+    * WHATAP_HOST (와탭 수집 리전 IP, 복수 IP는 `/` 로 연결)
+    * REGION (AWS Region)
+    * PROFILE (ECS Profile)
+    * CLUSTER (ECS Cluster)
+    * CLUSTER_CONFIG (ECS Cluster Config)
+    * TASK_EXECUTION_ROLE (와탭 에이전트 Task ECS Task 실행 역할)
+    * SUBNET_1 (와탭 에이전트 Task SUBNET#1)
+    * SUBNET_2 (와탭 에이전트 Task SUBNET#2)
+    * SGGRP (와탭 에이전트 Task Security Group)
+
+### Amazon ECS Launch Type EC2 와탭 에이전트 배포

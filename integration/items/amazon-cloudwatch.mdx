@@ -10,7 +10,7 @@ tags: [ 인티그레이션, 설치하기, Amazon Cloudwatch ]
 1. 사용자 와탭 콘솔에서 인티그레이션 프로젝트를 Amazon Cloudwatch 사용 상태로 생성하세요.
 1. Amazon 인증 정보를 입력하세요.
 1. Cloudwatch Namespace 및 수집 주기를 선택하세요.
-1. Region, Metric, Stats 선택하세요.
+1. Region, Metric, Stats 등을 선택하세요.
 
 :::note
 설치 후 사용량에 따라 와탭 요금과는 별개로 클라우드에서 추가 비용이 발생할 수 있습니다. 설치 전 사용 중인 클라우드 서비스의 가격 정책을 [다음 설명서](https://aws.amazon.com/ko/cloudwatch/pricing/)에서 확인하세요.
@@ -62,18 +62,13 @@ Amazon Cloudwatch 인증 방법은 다음 두 가지 방법 중 하나를 선택
 1. Maximum session duration 항목의 ***Edit***를 클릭하여 12시간으로 변경하고 저장하세요. 
 1. ***Role ARN*** 항목을 복사하세요.
 
-### Cloudwatch Namespace 및 수집 주기 선택
+### Namespace 및 수집 주기 선택
 
-Namespace와 데이터 수집 주기를 선택할 수 있습니다. 체크 후 ***저장*** 버튼을 클릭합니다.
+{@include: _namespace-collect.mdx}
 
-#### 수집주기
+#### 수집 주기
 
-* 5분
-* 10분
-* 15분
-* 30분
-* 60분
-* 180분
+{@include: _collecting-period.mdx}
 
 #### Namespace
 
@@ -182,8 +177,8 @@ Namespace와 데이터 수집 주기를 선택할 수 있습니다. 체크 후 *
 
 ![Amazon Cloudwatch - Namespace](https://img.whatap.io/media/images/amazon_cloudwatch_setup_dialog_1st.png)
 
-### Cloudwatch Region, Metric, Stats 선택
+### Region, Metric, Stats 선택
 
-수집 체크 된 Namespace의 우측 ***수정*** 버튼을 클릭하면 수집할 Region, Metric, Stats를 선택할 수 있습니다.
+{@include: _region-metric-stats.mdx}
 
 ![Amazon Cloudwatch - Region,Metric,Stats](https://img.whatap.io/media/images/amazon_cloudwatch_setup_dialog_2nd.png)

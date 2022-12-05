@@ -18,23 +18,23 @@ Istio 환경이라면 다음 명령을 실행해 Istio 모니터링에 필요한
 ```bash title='SH'
 kubectl create namespace whatap-monitoring
 kubectl label namespace whatap-monitoring istio-injection=enabled
-kubectl apply -f - <
+kubectl apply -f - <<EOF
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
-  name: whatap-external
+    name: whatap-external
 spec:
-  hosts:
-  - whatap-proxy1
-  - whatap-proxy2
-  addresses:
-  - 13.124.11.223
-  - 13.209.172.35
-  ports:
-  - name: proxy
-    number: 6600
-    protocol: tcp
-    location: MESH_EXTERNAL
+    hosts:
+    - whatap-proxy1
+    - whatap-proxy2
+    addresses:
+    - 13.124.11.223
+    - 13.209.172.35
+    ports:
+    - name: proxy
+      number: 6600
+      protocol: tcp
+      location: MESH_EXTERNAL
 EOF
 ```
 

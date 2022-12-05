@@ -42,11 +42,11 @@ Amazon ECS 모니터링 대상은 Task, Service, Deployment, ContainerInstance�
 ![ECS Fargate Sidecar](https://img.whatap.io/media/images/ecs_fargate_whatap_monitoring_S1OGECY.png)
 
 1. 와탭 ECS 모니터링 설정 클릭 후 ***Task 생성하기***에서 Launch Type Fargate를 선택합니다.
-1. 스크립트를 실행하여 AWS ECS API READONLY IAM ROLE을 만듭니다. 
+* 스크립트를 실행하여 AWS ECS API READONLY IAM ROLE을 만듭니다. 
 :::note
 와탭 Task가 ECS Service 를 조회하여 서비스 상태를 실시간 수집하는데 필요합니다.
 :::
-1. 실행하는데 필요한 항목은 다음과 같습니다.
+* 실행하는데 필요한 항목은 다음과 같습니다.
     * ACCESSKEY (와탭 프로젝트 Access Key)
     * WHATAP_HOST (와탭 수집 리전 IP, 복수 IP는 `/` 로 연결)
     * REGION (AWS Region)
@@ -57,5 +57,183 @@ Amazon ECS 모니터링 대상은 Task, Service, Deployment, ContainerInstance�
     * SUBNET_1 (와탭 에이전트 Task SUBNET#1)
     * SUBNET_2 (와탭 에이전트 Task SUBNET#2)
     * SGGRP (와탭 에이전트 Task Security Group)
+* 다음 예시를 참조하세요.
+    ```bash title='Linux'
+    #!/usr/bin/env bash
+    export REGION=xxxxx
+    export WHATAP_ECS_ROLE_READONLY=WhatapEcsReadonly
+    export WHATAP_ECS_POLICY_READONLY=WhatapEcsReadonly
+    cat >ecs_trust.json <<EOL
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "",
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "ecs-tasks.amazonaws.com"
+                },
+                "Action": "sts:AssumeRole"
+            }
+        ]
+    }
+    EOL
+    aws iam create-role --role-name $WHATAP_ECS_ROLE_READONLY --assume-role-policy-document file://ecs_trust.json
+    cat >ecs_readonly.json <<EOL
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ecs:Describe*",
+                    "ecs:List*"
+                ],
+                "Resource": [
+                    "*"
+                ]
+            }
+        ]
+    }
+    EOL
+    aws iam --region $REGION create-policy --policy-name $WHATAP_ECS_POLICY_READONLY \
+        --policy-document file://ecs_readonly.json | python -c 'import json,sys;print(json.load(sys.stdin)["Policy"]["Arn"])' > policy_arn.txt
+    export POLICY_ARN=$(cat policy_arn.txt)
+    aws iam --region $REGION attach-role-policy --role-name $WHATAP_ECS_ROLE_READONLY \
+        --policy-arn $POLICY_ARN | python -c 'import json,sys;print(json.load(sys.stdin)["Role"]["Arn"])' > role_arn.txt
+    ```
+2. 생성한 IAM ROLE을 탑재한 whatap-single 에이전트를 시작합니다. ECS API를 사용하여 Service 상태를 실시간 수집합니다. 
+    ```bash title='Linux'
+    #!/usr/bin/env bash
+    export ACCESSKEY=
+    export WHATAP_HOST=
+    export PROFILE=
+    export REGION=
+    export CLUSTER=
+    export CLUSTER_CONFIG=
+    export TASK_EXECUTION_ROLE=
+    export SUBNET_1=
+    export SUBNET_2=
+    export SGGRP=
+    export WHATAP_ECS_ROLE_READONLY=WhatapEcsReadonly
+    export PROJNAME=whatap-monitoring
+    export LAUNCH_TYPE=FARGATE
+    export WHATAP_ROLE_ARN=$(cat role_arn.txt)
+    cat >docker-compose.yml <<EOL
+    version: '3'
+    services:
+    whatap-ecs-agent:
+        image: whatap/ecs_mon
+        environment:
+        - ACCESSKEY=$ACCESSKEY
+        - WHATAP_HOST=$WHATAP_HOST
+        - FARGATE_HELPER=true
+    EOL
+    cat >ecs-params.yml <<EOL
+    version: 1
+    task_definition:
+    task_execution_role: $TASK_EXECUTION_ROLE
+    task_role_arn: "$WHATAP_ROLE_ARN"
+    ecs_network_mode: awsvpc
+    task_size:
+        mem_limit: 0.5GB
+        cpu_limit: 256
+    run_params:
+    network_configuration:
+        awsvpc_configuration:
+        subnets:
+            - "$SUBNET_1"
+            - "$SUBNET_2"
+        security_groups:
+            - "$SGGRP"
+        assign_public_ip: ENABLED
+    EOL
+    ecs-cli compose --project-name $PROJNAME service up \
+        --cluster-config $CLUSTER_CONFIG \
+        --ecs-profile $PROFILE --region $REGION
+    ```
+3. 다음과 같이 최종 사용자 Task에 와탭 sidecar 에이전트를 배포 합니다. ACCESSKEY 및 WHATAP_HOST를 환경변수로 추가하여 수집서버와 통신할 수 있도록 합니다.
+    ```bash title='Linux'
+    version: '3'
+    services:
+    xxxxx:
+        image: xxxx
+        ports:
+        - "xx:xx"
+        ...
+    whatap-ecs-agent:
+        image: whatap/ecs_mon
+        environment:
+        - ACCESSKEY=
+        - WHATAP_HOST=
+    ```
 
 ### Amazon ECS Launch Type EC2 와탭 에이전트 배포
+
+![EC2 DAEMON](https://img.whatap.io/media/images/ecs_ec2_whatap_monitoring.png)
+
+1. 와탭 ECS 모니터링 설정 클릭 후 2. Task 생성하기에서 Launch Type EC2를 선택합니다.
+1. 다음 스크립트를 실행하여 DAEMON 타입 Task를 생성 합니다. CLUSTER, REGION을 추가하고 ACCESSKEY 및 WHATAP_HOST를 설정하여 수집서버와 통신할 수 있도록 합니다.
+    ```bash title='Linux'
+    #!/usr/bin/env bash
+    export ACCESSKEY=
+    export WHATAP_HOST=
+    export CLUSTER=
+    export REGION=
+    export LAUNCH_TYPE=EC2
+    cat >whatap_ecs.json <<EOL
+    { "containerDefinitions": [ {
+        "name": "whatap-node-agent",
+        "image": "whatap/ecs_mon",
+        "cpu": 100,
+        "memory": 50,
+        "essential": true,
+        "mountPoints": [{
+            "containerPath": "/var/run/docker.sock",
+            "sourceVolume": "docker_sock",
+            "readOnly": true},{
+            "containerPath": "/rootfs",
+            "sourceVolume": "rootfs",
+            "readOnly": true}],
+        "environment": [{
+            "name": "ACCESSKEY",
+            "value": "$ACCESSKEY"
+        },{
+            "name": "WHATAP_HOST",
+            "value": "$WHATAP_HOST"}
+        ],
+        "linuxParameters": {
+            "capabilities": {
+                "add": [
+                "SYS_ADMIN",
+                "SYS_RESOURCE",
+                "SYS_PTRACE",
+                "NET_ADMIN",
+                "NET_BROADCAST",
+                "NET_RAW",
+                "IPC_LOCK",
+                "CHOWN"]
+            }}}],
+    "requiresCompatibilities": ["EC2"],
+    "volumes": [{
+        "host": {"sourcePath": "/var/run/docker.sock"},
+        "name": "docker_sock"},{
+        "host": {"sourcePath": "/"},
+        "name": "rootfs"}],
+    "family": "whatap-agent-task"}
+    EOL
+    aws ecs register-task-definition \
+    --cli-input-json file://$(pwd)/whatap_ecs.json \
+    --region $REGION
+    aws ecs create-service --cluster $CLUSTER \
+    --service-name whatap-node-agent \
+    --task-definition whatap-agent-task \
+    --scheduling-strategy DAEMON \
+    --launch-type $LAUNCH_TYPE \
+    --region $REGION
+    ```
+1. 실행하는데 필요한 항목은 다음과 같습니다.
+* ACCESSKEY (와탭 프로젝트 Access Key)
+* WHATAP_HOST (와탭 수집 리전 IP)
+* REGION (AWS Region)
+* CLUSTER (ECS Cluster)

@@ -1,0 +1,177 @@
+---
+id: aws-log-extension
+title: AWS Log Extension
+description: 와탭 AWS Log Extension에 대해 안내합니다.
+tags: [ AWS Log, AWS Log Extension ]
+---
+<!-- 확장툴? 설정하기+관리하기? -->
+<!-- 1207 데브 가이드 업데이트 예정 -->
+
+와탭 Extension은 AWS Lambda에서 생성되는 로그를 와탭 수집 서버로 전달할 수 있습니다.
+
+:::note
+와탭 AWS Log Extension은 버전이 계속해서 업데이트됩니다. 업데이트 시 해당 가이드의 업데이트 안내를 따라 진행하세요.
+:::
+
+## 와탭 Extension 설치
+
+와탭 Extension은 AWS Lambda의 Layer로 작동합니다.
+
+AWS Lambda가 이미 생성되어 있는 경우 다음 목록에 있는 방법으로 설치가 가능합니다.
+
+* 와탭 API
+* AWS CLI
+* AWS CONSOLE
+
+새롭게 AWS Lambda 함수를 만드는 경우 위의 언급된 방법 이외에도 다음 방법으로 설치가 가능합니다.
+
+* AWS SAM
+* AWS CloudFormation
+
+### 환경 변수
+
+와탭 Extension은 아래 목록에 있는 환경 변수를 필요로 합니다.
+
+* **WHATAP_ACCESS_KEY** : 와탭 프로젝트 생성 시 발급되는 프로젝트 액세스 키입니다.
+* **WHATAP_PCODE** : 와탭 프로젝트 번호입니다.
+* **WHATAP_HOST** : 와탭 Extension에서 데이터를 건네 받을 와탭 서버의 HOST입니다.
+* **WHATAP_PORT** : 와탭 Extension에서 데이터를 건네 받을 와탭 서버의 PORT입니다.
+
+### AWS Lambda가 이미 생성되어 있는 경우
+
+:::note
+와탭 API와 AWS CLI를 사용하는 경우 기존의 Layer가 손실됩니다. Layer가 존재하는 경우 AWS CONSOLE을 사용하세요.
+:::
+
+#### 와탭 API
+
+* **GET**  
+    https://3hha22khgc.execute-api.ap-northeast-2.amazonaws.com/whatap/addExtension
+    * Parameter
+        * aws_access_key (AWS ACCESS KEY)
+        * aws_secret_access_key (AWS SECRET ACCESS KEY)
+        * region (와탭 Extension 을 추가하고 싶은 Lambda Function의 Region)
+        * function_name (와탭 Extension 을 추가하고 싶은 Lambda Function Name)
+        * whatap_access_key 
+        * whatap_pcode 
+        * whatap_host 
+        * whatap_port
+
+#### AWS CLI
+<!-- 깨진 부분 있음 -->
+
+* ***구성*** > ***환경 변수*** > ***편집***  
+    WHATAP_ACCESSKEY, WHATAP_HOST, WHATAP_PORT, WHATAP_PCODE 입력
+
+### AWS Lambda를 새로 만드는 경우
+
+```yaml title='AWS SAM'
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  WhatapDemoFunction
+
+Parameters:
+  whatapAccessKey:
+    Type: String
+  whatapHost:
+    Type: String
+  whatapPort:
+    Type: String
+  whatapPcode:
+    Type: String
+Globals:
+  Function:
+    Timeout: 5
+
+  WhatapDemoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Tracing: Active
+      FunctionName: go-example-logs-api-extension-demo-function2
+      CodeUri: .    #소스코드 위치
+      Handler: demo.lambda_handler
+      Runtime: python3.8
+      Layers:
+        - arn:aws:lambda:ap-northeast-2:592247757306:layer:whatap-log-extension:{VersionNumber}
+      Environment:
+        Variables:
+          WHATAP_ACESS_KEY:
+            !Ref whatapAccessKey
+          WHATAP_HOST:
+            !Ref whatapHost
+          WHATAP_PORT:
+            !Ref whatapPort
+          WHATAP_PCODE:
+            !Ref whatapPcode
+
+```
+
+```yaml title='AWS CloudFormation'
+Parameters:
+  whatapAccessKey:
+    Type: String
+  whatapHost:
+    Type: String
+  whatapPort:
+    Type: String
+  whatapPcode:
+    Type: String
+Resources:
+  lambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        ZipFile: |
+          def handler(event,context):
+            return {
+              'body': 'Hello there {0}'.format(event['requestContext']['identity']['sourceIp']),
+              'headers': {
+                'Content-Type': 'text/plain'
+              },
+              'statusCode': 200
+            }
+      Description: Example Lambda function
+      FunctionName: !Ref lambdaFunctionName
+      MemorySize: 128
+      Environment:
+        Variables:
+          WHATAP_ACCESS_KEY:
+            Ref : wahtapAccessKey
+          WHATAP_HOST:
+            Ref : whatapHost
+          WHATAP_PORT:
+            Ref : whatapPort
+          WHATAP_PCODE:
+            Ref : whatapPcode
+      Layers:
+        - arn:aws:lambda:ap-northeast-2:592247757306:layer:whatap-log-extension:{VersionNumber}
+      Runtime: python3.8
+
+```
+
+## 업데이트
+
+와탭 Extension 업데이트는 기존에 설치되어 있는 AWS Lambda Function에 와탭 Extension을 설치하는 것과 동일한 방식으로 설치가 가능합니다.
+
+## 삭제
+
+와탭 Extension은 AWS CLI, 혹은 AWS CONSOLE 상에서 삭제가 가능합니다.
+
+:::note
+AWS CLI를 사용하면 기존의 Layer가 손실됩니다. Layer가 존재한다면 AWS CONSOLE을 사용하세요.
+:::
+
+#### AWS CLI
+
+```yaml
+aws lambda update-function-configuration
+--function-name {}
+--layers
+```
+
+#### AWS Console
+
+1. AWS > ***Lambda*** > ***함수*** > ***whatap***으로 이동하세요. 
+1. ***코드*** > ***계층*** 탭으로 이동하여 ***편집*** 버튼을 선택하세요.
+1. 삭제할 Layer를 선택해 제거하세요.

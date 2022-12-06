@@ -1,0 +1,50 @@
+---
+id: integ-ncloud-monitoring
+title: NCloud Monitoring
+description: NCloud 아이템 설치를 안내합니다.
+tags: [ 인티그레이션, 설치하기, NCloud Monitoring ]
+---
+
+## 모니터링 절차
+
+1. 사용자 와탭 콘솔에서 인티그레이션 프로젝트를 NCloud Monitoring 사용 상태로 생성하세요.
+1. NCloud 인증 정보를 입력하세요.
+1. NCloud Monitoring Namespace 및 수집 주기를 선택하세요.
+1. Region, Metric, Stats 등을 선택하세요.
+
+:::note
+설치 후 사용량에 따라 와탭 요금과는 별개로 클라우드에서 추가 비용이 발생할 수 있습니다. 설치 전 사용 중인 클라우드 서비스의 가격 정책을 [다음 설명서](https://www.ncloud.com/charge/price)에서 확인하세요.
+:::
+
+## 인증 정보 입력
+
+AccessKey 와 Secret을 와탭에 입력합니다.
+
+![NCloud Monitoring - Authentification](https://img.whatap.io/media/images/whatap_ncloud_auth_dialog.png)
+
+## Namespace 및 수집 주기 선택
+
+{@include: _namespace-collect.mdx}
+
+#### 수집 주기
+
+{@include: _collecting-period.mdx}
+
+#### Namespace
+
+* Ncloud VAutoScalingGroup Monitoring
+* Ncloud VCloudMongoDB Monitoring
+* Ncloud VCloudDBMSSQL Monitoring
+* Ncloud VCloudDBMySQL Monitoring
+* Ncloud VCloudDBRedis Monitoring
+* Ncloud VCloudHadoop Monitoring
+* Ncloud VCloudKubernetesMonitoring
+* Ncloud VLBTargetGroup Monitoring
+* Ncloud VLoadbalancer Monitoring
+* Ncloud VServer Monitoring
+
+## Region, Metric, Stats 선택
+
+{@include: _region-metric-stats.mdx}
+
+![Ncloud Monitoring - ResourceGroup, Metric, Stats](https://img.whatap.io/media/images/ncloud_region_dialog.png)

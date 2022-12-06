@@ -1,14 +1,14 @@
 ---
 id: install-tf-agent
 title: 에이전트 설치
-description: 와탭 Telegraf 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+description: 와탭 Telegraf 에이전트 이용을 위한 기본 설치 방법을 안내합니다.
 tags: [ Telegraf, 설치하기 ]
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-와탭 Telegraf 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+와탭 Telegraf 에이전트 이용을 위한 기본 설치 방법을 안내합니다.
 
 Telegraf에서 수집하는 메트릭스를 와탭 수집서버로 전달할 수 있습니다. 수집된 데이터는 whatap의 프로젝트 내부에서 확인 가능합니다.
 
@@ -16,7 +16,7 @@ Telegraf에서 수집하는 메트릭스를 와탭 수집서버로 전달할 수
 
 기존에 설치된 Telegraf의 `socket_writer output plugin`을 활성화하여 whatap-telegraf(Local TCP) 에이전트로 데이터를 전달합니다.
 
-와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다. 회원 가입에 관한 자세한 내용은 [다음 설명서](../account/account-manage)를 참조하세요.
+와탭 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다. 회원 가입에 관한 자세한 내용은 [다음 설명서](../account/account-manage)를 참조하세요.
 
 {@include: ../getting-started/_create-project.mdx}
 
@@ -144,7 +144,7 @@ Telegraf에서 수집하는 메트릭스를 와탭 수집서버로 전달할 수
 * address 항목에 tcp 연결을 설정합니다.
 * 데이터 유형은 json 형식으로 설정합니다.
 
-Telegraf 모니터링을 위한 에이전트 설치를 완료했습니다. [다음 문서](tf-troubleshooting)에서 설치 문제 해결 방법을 확인하세요.
+Telegraf 에이전트 설치를 완료했습니다. [다음 문서](tf-troubleshooting)에서 설치 문제 해결 방법을 확인하세요.
 
 <!--
 ## 참고 자료

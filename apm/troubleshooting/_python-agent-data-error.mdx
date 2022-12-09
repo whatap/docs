@@ -7,7 +7,6 @@
     * CONF READ ERROR: 설정 파일은 있으나 읽기 권한이 없습니다. 권한을 주세요.
     * LOG FILE ERROR: 로그 디렉토리 생성 권한이 없이 없습니다. 디렉터리를 만들어 주세요.
     * LOGGING ERROR: 로그 디렉토리는 있으나 쓰기 권한이 없습니다. 권한을 주세요.
-
 * *whatap-boot-```yyyymmdd```.log*
     * license or whatp.server.host error: 프로젝트 액세스 키 또는 수집 서버 주소가 잘못되었습니다.
 
@@ -20,7 +19,7 @@
 * **Apache HTTPD**  
     아파치로 웹 서버를 구동하는 경우 다음과 같이 환경 변수를 설정하세요.
 
-    ```java title=SH
+    ```bash title=SH
     <VirtualHost *:80>
         #ServerName
         #DocumentRoot
@@ -29,7 +28,6 @@
         # Directory
     </VirtualHost>
     ```
-
 * **환경 변수 수동 설정**  
     필요에 따라서는 다음과 같이 수동으로 환경 변수를 설정하세요.
 

@@ -129,7 +129,7 @@ tags: [ 메트릭스, 애플리케이션, 성능 카운터, UI ]
 * **Tomcat Thread Pool** (active, queueSize)  
     톰캣의 Executor 스레드 풀이 설정되었을 때 성능 정보를 수집합니다.
 
-    ```javascript title='XML'
+    ```xml title='XML'
        <Executor name="tomcatThreadPool" namePrefix="catalina-exec-"
         maxThreads="50" minSpareThreads="2" maxQueueSize="78"/>
     ```
@@ -198,7 +198,7 @@ ThreadPool 카운터는 JMX Mbean 정보를 통해 수집됩니다. Tomcat과 �
 
 수집을 위해서 추가 설정이 필요합니다. 관련 설정은 다음과 같습니다.
 
-```java title='whatap.conf' {1,3,5} showLineNumbers
+```cmd title='whatap.conf' {1,3,5} showLineNumbers
 jmx_threadpool_objectname=Catalina:type=ThreadPool,name="http-bio-8080"
 // JMX ThreadPool MBean 이름을 설정합니다.
 jmx_threadpool_atter_activecount=connectionCount
@@ -208,6 +208,27 @@ jmx_threadpool_atter_queuesize=maxThreads
 ```
 
 JMX ThreadPool ObjectName 및 AttributeName 과 같은 Mbean 명은 JMX 모니터링 도구를 통해 확인하거나 각 WAS 별 Mbean 문서를 참고합니다.
+
+:::note
+사용 중인 WAS, 프레임워크 관련 [문서](https://www.ibm.com/support/knowledgecenter/ko/SS7K4U_liberty/com.ibm.websphere.wlp.zseries.doc/ae/rwlp_mon_threadpool.html)를 참고해 Mbean 정보를 확인하세요.
+:::
+
+#### Jconsole 사용 시
+
+* **ObjectName** : Catalina  
+    **type** : ThreadPool  
+    **name** : "http-bio-8080"  
+    ![](https://img.whatap.io/media/agent_java/data/threadpool_jmx01.png)
+
+* **ActiveName** : connectionCount  
+    **QueueName** : maxThreads  
+    ![](https://img.whatap.io/media/agent_java/data/threadpool_jmx02.png)
+
+#### 결과 확인
+
+설정이 정상적으로 되면 카운터에서 다음과 같이 데이터를 조회할 수 있습니다.
+
+![성능 카운터 - 정상 상태](https://img.whatap.io/media/agent_java/data/threadpool_counter.png)
 
 ## Apdex
 
@@ -229,4 +250,4 @@ Apdex는 사용자 만족도에 대한 지표로 활용할 수 있으며, 0 ~ 1 
 
 <!-- {@include: ../apm/_java-apdex-desc.mdx} -->
 
-![](https://img.whatap.io/media/agent_php/data/tinified/apdex.png)
+![](https://img.whatap.io/media/agent_php/data/tinified/apdex.png) 

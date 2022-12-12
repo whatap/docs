@@ -210,7 +210,39 @@ PHP ZTS를 지원할 경우 파일 형식은 다음과 같습니다. *whatap_zts
 -->            
 
 ---
+<!-- 
+```docker title=Docker
+# WhaTap. Install Lib 
+RUN apt-get install wget -y
 
+# WhaTap. Link php-fpm
+RUN ln -s /opt/php/sbin/php-fpm /usr/bin/php-fpm
+
+# WhaTap. Install repository and whatap-php
+RUN wget http://repo.whatap.io/debian/release.gpg -O -| apt-key add -
+RUN wget http://repo.whatap.io/debian/whatap-repo_1.0_all.deb
+RUN dpkg -i whatap-repo_1.0_all.deb
+RUN apt-get update
+RUN apt-get install whatap-php
+
+# WhaTap. Configure PHP agent
+#RUN (echo "[ 발급된 라이센스 key ]"; echo "[ 발급된 서버 IP ]")|/usr/whatap/php/install.sh
+RUN (echo "xxxxxxxx"; echo "1.1.1.1/2.2.2.2")|/usr/whatap/php/install.sh
+
+# WhaTap. Add supervisor/conf.d/whatap.conf. Run whatap-php service
+RUN echo "[program:whatap-php]" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "command = /etc/init.d/whatap-php start" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "stdout_logfile = /dev/stdout" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "stdout_logfile_maxbytes=0" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "stderr_logfile = /dev/stderr" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "stderr_logfile_maxbytes=0" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "user = root" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "autostart = true" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "autorestart = true" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "priority = 10" >> /etc/supervisor/conf.d/whatap.conf
+```
+-->
+---
 <!-- 파이썬 트랜잭션 엔드포인트 지정 -->
 
 1. **메소드 프로파일 설정**  

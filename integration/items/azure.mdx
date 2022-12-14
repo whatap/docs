@@ -17,9 +17,9 @@ tags: [ 인티그레이션, 설치하기, Azure Monitor ]
 설치 후 사용량에 따라 와탭 요금과는 별개로 클라우드에서 추가 비용이 발생할 수 있습니다. 설치 전 사용 중인 클라우드 서비스의 가격 정책을 [다음 설명서](https://azure.microsoft.com/ko-kr/pricing/details/monitor/)에서 확인하세요.
 :::
 
-### Azure Registered App 추가
+## Azure Registered App 추가
 
-와탭 모니터링 용 [Registrated App](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)을 추가할 수 있습니다. Secret을 생성하고 Application ID, Tenant Id 와 Secret을 와탭에 입력합니다.
+와탭 모니터링 용 [Registered App](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)을 추가할 수 있습니다. Secret을 생성하고 Application ID, Tenant Id 와 Secret을 와탭에 입력합니다.
 
 ![Azure Active Directory](https://img.whatap.io/media/images/registeredapps.png)
 
@@ -27,13 +27,13 @@ tags: [ 인티그레이션, 설치하기, Azure Monitor ]
 와탭 모니터링을 위해서는 Monitor Reader, 독자, API Management 서비스 독자 권한이 필요합니다. Azure Portal에서 Subscript > 액세스 제어(IAM) 메뉴에서 추가 버튼을 통해 권한을 추가할 수 있습니다.
 :::
 
-### 인증 정보 입력
+## 인증 정보 입력
 
-Azure 인증 정보인 Application ID, Tenant Id 와 Secret을 와탭에 입력합니다.
+Azure 인증 정보인 Application ID, Tenant ID와 Secret을 와탭에 입력합니다.
 
 ![Azure Monitor - Authentification](https://img.whatap.io/media/images/whatap_azure_auth_dialog.png)
 
-### Namespace 및 수집 주기 선택
+## Namespace 및 수집 주기 선택
 
 {@include: _namespace-collect.mdx}
 
@@ -191,7 +191,7 @@ Azure 인증 정보인 Application ID, Tenant Id 와 Secret을 와탭에 입력�
 * Microsoft.Web sites slots
 * Microsoft.Web staticSites
 
-### ResourceGroup, Metric, Stats 선택
+## ResourceGroup, Metric, Stats 선택
 
 수집 체크된 Namespace의 우측 ***수정*** 버튼을 클릭하면 수집할 ResourceGroup, Metric, Stats를 선택할 수 있습니다.
 

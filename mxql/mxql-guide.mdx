@@ -62,7 +62,7 @@ MXQL은 단계별 구성을 가지고 있습니다. 각 단계별로 사용할 �
 
 1. **메트릭스 선택**: 어떤 에이전트에서 수집한 어떤 메트릭스를 사용할지 선택하세요.
 
-1. **메트릭스 로딩**: 이전 단계에서 설정한 값들을 사용해서 메트릭스를 불러옵니다. 대부분의 경우 `TAGLOAD`를 이용하며, 특수한 경우에만 `FLEXLOAD`를 이용하세요. `FLEXLOAD`를 사용해야 하는 경우는 [다음 설명서](mxql-loading#flexload-items)를 참조하세요.
+1. **메트릭스 로딩**: 이전 단계에서 설정한 값들을 사용해서 메트릭스를 불러옵니다. 대부분의 경우 `TAGLOAD`를 이용하며, 특수한 경우에만 `FLEXLOAD`를 이용하세요. `FLEXLOAD`를 사용해야 하는 경우는 [다음 문서](mxql-loading#flexload-items)를 참조하세요.
 
 1. **메트릭스 가공**: 이전 단계에서 불러온 메트릭스에 대해서 단계별로 가공을 수행합니다.
 
@@ -222,7 +222,7 @@ INJECT default
 /app/act_tx/act_tx_oid
 ```
 
-[다음 설명서](#custom-query-saas)에서 사용 가능한 쿼리를 확인할 수 있습니다.
+[다음 문서](#custom-query-saas)에서 사용 가능한 쿼리를 확인할 수 있습니다.
 
 ## 참고자료
 
@@ -261,7 +261,7 @@ MXQL에서 조회할 수 있는 데이터는 [메트릭스](../metrics/common-me
 * 메트릭스의 데이터가 태그와 필드에 나누어서 저장된 데이터 ([TAGLOAD](mxql-loading#tagload)를 사용해서 로드할 수 있는 데이터)
 * 메트릭스에 모든 데이터가 필드에 저장된 데이터 ([FLEXLOAD](mxql-loading#flexload)를 사용해서 로드할 수 있는 데이터)
 
-대부분의 카테고리는 `TAGLOAD`를 사용합니다. [다음 설명서](mxql-loading#flexload-items)에 포함된 카테고리의 데이터를 사용할 경우에만 `FLEXLOAD`를 사용합니다.
+대부분의 카테고리는 `TAGLOAD`를 사용합니다. [다음 문서](mxql-loading#flexload-items)에 포함된 카테고리의 데이터를 사용할 경우에만 `FLEXLOAD`를 사용합니다.
 
 ## SaaS 서비스에서 제공하는 사전 정의된 MXQL 쿼리 목록{#custom-query-saas}
 

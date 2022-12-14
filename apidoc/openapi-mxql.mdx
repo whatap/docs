@@ -8,7 +8,7 @@ tags: [ Open API, API, MXQL ]
 Open API를 이용해 MXQL 데이터를 조회하는 방법을 제공합니다.
 
 :::note
-MXQL에 대한 자세한 내용은 [다음 설명서](../mxql/mxql-overview)를 참조하세요.
+MXQL에 대한 자세한 내용은 [다음 문서](../mxql/mxql-overview)를 참조하세요.
 :::
 
 ## MXQL Open API 종류
@@ -16,14 +16,14 @@ MXQL에 대한 자세한 내용은 [다음 설명서](../mxql/mxql-overview)를 
 MXQL을 사용하는 방법은 다음과 같습니다.
 
 * 직접 MXQL 쿼리를 작성해서 데이터를 조죄하는 방법
-* [다음 설명서](../mxql/mxql-guide#custom-query-saas)에서와 같이 '**SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록**'으로 데이터를 조회하는 방법
+* [다음 문서](../mxql/mxql-guide#custom-query-saas)에서와 같이 '**SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록**'으로 데이터를 조회하는 방법
 
 따라서 각각의 경우에 사용하는 API의 path가 달라집니다. 
 
 | MXQL 활용 방법 | API |
 | -- | -- |
 | 직접 MXQL 쿼리를 작성하는 경우 | [MXQL text API](#text-api) |
-| '**SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록**'을 사용하는 경우([다음 설명서](../mxql/mxql-guide#custom-query-saas) 참조) | [MXQL path API](#path-api) |
+| '**SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록**'을 사용하는 경우([다음 문서](../mxql/mxql-guide#custom-query-saas) 참조) | [MXQL path API](#path-api) |
 
 ## MXQL Open API 제한사항
 
@@ -62,8 +62,8 @@ MXQL을 사용하는 방법은 다음과 같습니다.
 | mql | 직접 작성한 MXQL 쿼리 |
 | limit | 최대 데이터 조회 수 |
 | pageKey | 문자열 `mxql` 고정값 |
-| inject | <span class='api'>Optional</span> [다음 설명서](../mxql/mxql-calculate#inject) 참조<br/>예시, `{ "default": "ORDER {key : [oid],  sort : [desc] }"}` |
-| param | <span class='api'>Optional</span> [다음 설명서](../mxql/mxql-guide#bind-parameter) 참조<br/> 예시 : `{ "$oidFirst": "520111224", "$oidSecond": "1031483086" }` |
+| inject | <span class='api'>Optional</span> [다음 문서](../mxql/mxql-calculate#inject) 참조<br/>예시, `{ "default": "ORDER {key : [oid],  sort : [desc] }"}` |
+| param | <span class='api'>Optional</span> [다음 문서](../mxql/mxql-guide#bind-parameter) 참조<br/> 예시 : `{ "$oidFirst": "520111224", "$oidSecond": "1031483086" }` |
 
 * 조회된 데이터가 없는 경우
 
@@ -187,11 +187,11 @@ MXQL을 사용하는 방법은 다음과 같습니다.
 | -- | -- |
 | stime | 데이터 조회 시작 시간 |
 | etime | 데이터 조회 끝 시간 |
-| mql | [다음 설명서](../mxql/mxql-guide#custom-query-saas) 참조 |
+| mql | [다음 문서](../mxql/mxql-guide#custom-query-saas) 참조 |
 | limit | 최대 데이터 조회 수 |
 | pageKey | 문자열 `mxql` 고정값 |
-| inject | <span class='api'>Optional</span> [다음 설명서](../mxql/mxql-calculate#inject) 참조<br/>예시 : `{ "default": "ORDER {key : [oid],  sort : [desc] }" }` |
-| param | <span class='api'>Optional</span> [다음 설명서](../mxql/mxql-guide#bind-parameter) 참조<br/> 예시 : `{ "$oidFirst": "520111224", "$oidSecond": "1031483086" }` |
+| inject | <span class='api'>Optional</span> [다음 문서](../mxql/mxql-calculate#inject) 참조<br/>예시 : `{ "default": "ORDER {key : [oid],  sort : [desc] }" }` |
+| param | <span class='api'>Optional</span> [다음 문서](../mxql/mxql-guide#bind-parameter) 참조<br/> 예시 : `{ "$oidFirst": "520111224", "$oidSecond": "1031483086" }` |
 
 
 * 조회된 데이터가 없는 경우

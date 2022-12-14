@@ -12,13 +12,13 @@ Telegraf는 데이터베이스, 시스템 및 IoT 센서에서 메트릭 및 이
 * **IoT 센서** : IoT 센서 및 장치에서 중요한 상태 저장 데이터 (압력 수준, 온도 수준 등)를 수집합니다.
 -->
 
-Telegraf에 관한 자세한 내용은 [influxdata Telegraf documentation](https://docs.influxdata.com/telegraf/v1.24/)을 참조하세요.
+Telegraf에 관한 자세한 내용은 influxdata의 [Telegraf documentation](https://docs.influxdata.com/telegraf/v1.24/)을 참조하세요.
 
 ## SNMP
 
 SNMP input plugin을 사용하여 SNMP 성능 데이터를 실시간으로 수집 및 차트 표시 가능합니다. 수집된 데이터는 `telegraf_snmp`, `telegraf_interface` 카테고리로 검색하실 수 있습니다.
 
-```batch title='SH'
+```batch title='Linux Shell'
 cat >/etc/telegraf/telegraf.d/snmp_device.conf <<EOL
 [[inputs.snmp]]
   ## Agent addresses to retrieve values from.
@@ -120,7 +120,7 @@ service telegraf restart
 
 SNMP Trap input plugin을 사용하여 SNMP Trap 이벤트를 실시간으로 수집 및 이메일, 문자 메시지 및 메신저로 전파 가능합니다. 수집된 데이터는 `telegraf_snmp_trap` 카테고리로 검색하실 수 있습니다.
 
-```batch title='SH'
+```batch title='Linux Shell'
 cat >/etc/telegraf/telegraf.d/snmp_trap.conf <<EOL
 [[inputs.snmp_trap]]
   service_address = "udp://:162"

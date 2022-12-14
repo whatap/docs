@@ -13,7 +13,7 @@ multi db의 stat 정보 수집 처리 유무를 설정합니다. oracle(pluggabl
 * **long_run_session_sec** <span class='type'>Second</span><br/>기본값 `10`<br/>
 설정한 시간보다 길게 수행되고 있는 세션을 long run 세션으로 처리합니다. (단위: 초)
 
-* **deadlock_interval** <span class='type'>Int</span><br/>기본값 `1`<br/>
+* **deadlock_interval** <span class='type'>Int</span><br/>기본값 `60`<br/>
 mysql에서 deadlock 정보를 가져오는 간격을 설정합니다. (단위: 분) deadlock 정보는 설정 간격 동안 발생했던 가장 마지막의 deadlock 정보만을 가져옵니다.
 
 * **tables_hour** <span class='type'>Int</span><br/>기본값 `5`<br/>

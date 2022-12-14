@@ -158,40 +158,39 @@ Telegraf가 이미 설치되었으면 실행 파일만 교체해 whatap plugin�
 
 ### 사전 준비 사항
 
-* Golang SDK 구성
-* go dep 설치
-* 소스파일
-    * https://repo.whatap.io/telegraf/telegraf-release-1.12_whatap.tar.gz
-    * https://repo.whatap.io/telegraf/telegraf-release-1.13.2_whatap.tar.gz
-    * https://repo.whatap.io/telegraf/telegraf-release-1.14.5_whatap.tar.gz
-    * https://repo.whatap.io/telegraf/telegraf-release-1.15.4_whatap.tar.gz
-    * https://repo.whatap.io/telegraf/telegraf-release-1.16.0_whatap.tar.gz
-    :::note
-    Telegraf release 버전에 whatap plugin을 포함한 소스파일입니다.
-    :::
-
+* **Golang SDK 구성**
+* **go dep 설치**
+* **소스 파일**<br/>
 *${GOPATH}/src/github.com/influxdata/telegraf/* 디렉토리 밑에 압축을 해제하세요.
+:::note
+Telegraf release 버전에 whatap plugin을 포함한 소스 파일입니다. 
+:::
+  * https://repo.whatap.io/telegraf/telegraf-release-1.12_whatap.tar.gz
+  * https://repo.whatap.io/telegraf/telegraf-release-1.13.2_whatap.tar.gz
+  * https://repo.whatap.io/telegraf/telegraf-release-1.14.5_whatap.tar.gz
+  * https://repo.whatap.io/telegraf/telegraf-release-1.15.4_whatap.tar.gz
+  * https://repo.whatap.io/telegraf/telegraf-release-1.16.0_whatap.tar.gz
 
 ### 설치 과정
 
-*${GOPATH}/src/github.com/influxdata/telegraf* 이하 Makefile로 빌드를 진행합니다.
+:::note
+상세한 빌드 안내는 [Telegraf github](https://github.com/influxdata/telegraf) 페이지를 참조하세요.
+:::
 
-1. 의존성 설치를 진행합니다. 의존성 설치는 go dep을 사용하기 때문에 go dep이 먼저 설치되어야 합니다.
+*${GOPATH}/src/github.com/influxdata/telegraf* 이하 Makefile로 빌드를 진행하세요.
+
+1. 의존성 설치를 진행하세요. 의존성 설치는 go dep을 사용하기 때문에 go dep이 먼저 설치되어야 합니다.
     ```bash title=SH
     # make deps
     ```
-1. 실행 파일을 빌드합니다. *${GOPATH}/bin* 디렉토리에 실행 파일(telegraf)이 생성됩니다.
+1. 실행 파일을 빌드하세요. *${GOPATH}/bin* 디렉토리에 실행 파일(telegraf)이 생성됩니다.
     ```bash title=SH
     # make go-install
     ```
-1. 설치 패키지가 필요하면 `make package` 명령어로 생성할 수 있습니다. 크로스 컴파일을 진행하여 운영체제별로 패키지 파일을 생성합니다.
+1. 설치 패키지가 필요하면 `make package` 명령어로 생성할 수 있습니다. 크로스 컴파일을 진행하여 운영 체제별로 패키지 파일을 생성하세요.
     ```bash title=SH
     # make package
     ```
-
-:::note
-상세한 빌드 설명은 [Telegraf github](https://github.com/influxdata/telegraf) 내용을 참고해 주세요
-:::
 
 <!-- 
 ## 설정하기

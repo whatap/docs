@@ -9,114 +9,109 @@ import UI from '@site/src/components/UItext';
 
 배포일: 2022-12-14
 
-## 베타 - Fixed (버그 수정)
+* <Status>Fixed</Status> UDP 서버가 중지된 상태에서 CPU 사용량이 증가하는 현상 수정
 
-### UDP 서버가 중지된 상태에서 CPU 사용량이 증가하는 현상 수정
+  UDP 서버가 중지된 상태(whatap-agent 서비스가 중지)에서 Golang 모니터링을 적용한 애플리케이션의 CPU 부하가 증가합니다. UDP 서버 접속 및 종료 처리가 반복되면서 UDP 연결이 여러 개 유지되어 CPU 사용량이 증가하였습니다.
 
-UDP 서버가 중지된 상태(whatap-agent 서비스가 중지)에서 Golang 모니터링을 적용한 애플리케이션의 CPU 부하가 증가합니다. UDP 서버 접속 및 종료 처리가 반복되면서 UDP 연결이 여러 개 유지되어 CPU 사용량이 증가하였습니다.
+* <Status>New</Status> k8s.io/client-go/kubernetes 라이브러리 지원
 
-## 베타 - Changes (업데이트)
+  [참조 예제](https://github.com/whatap/go-api-example/tree/main/github.com/go-chi/chi)
 
-### k8s.io/client-go/kubernetes 라이브러리 지원
+  ```go title='golang'
+  import (
+    "k8s.io/client-go/rest"
+  )
 
-```go title='golang'
-import (
-  "k8s.io/client-go/rest"
-  "github.com/whatap/go-api/instrumentation/k8s.io/client-go/kubernetes/whatapkubernetes"
-)
+  func main() {
+    // Init whatap trace
+    config := make(map[string]string)
+    trace.Init(config)
+    defer trace.Shutdown()
 
-func main() {
-  // Init whatap trace
-  config := make(map[string]string)
-  trace.Init(config)
-  defer trace.Shutdown()
-  
-  ...
-
-  config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
-  if err != nil {
-    return nil, err
-  }
-  
-  // whatap roundTripper 함수를 설정합니다. 
-  config.WrapTransport = whatapkubernetes.WrapRoundTripper()
-
-  clientset, err := kubernetes.NewForConfig(config)
-  if err != nil {
-    return nil, err
-  }
-
-  deploymentsClient := clientset.AppsV1().Deployments(conf.Server.Namespace)
-
-  ...
-}
-```
-
-[참조 예제](https://github.com/whatap/go-api-example/tree/main/k8s.io/client-go/kubernetes)
-
-### github.com/gofiber/fiber/v2 라이브러리 지원
-
-```go title='golang'
-import (
-  "github.com/whatap/go-api/instrumentation/github.com/gofiber/fiber/v2/whatapfiber"
-)
-
-func main() {
-  // Init whatap trace
-  config := make(map[string]string)
-  trace.Init(config)
-  defer trace.Shutdown()
-
-  ...
-
-  r := fiber.New(fiber.Config{
-    StrictRouting: true,
-    Views:         engine,
-  })
-
-  r.Use(recover.New())
-
-  // whatapfiber의 middleware를 등록합니다.
-  r.Use(whatapfiber.Middleware())
-  
-  ...
-}
-```
-
-[참조 예제](https://github.com/whatap/go-api-example/tree/main/github.com/gofiber/fiber/v2/whatapfiber)
-
-
-### github.com/valyala/fasthttp 라이브러리 지원
-
-```go title='golang'
-import (
-  "github.com/whatap/go-api/instrumentation/github.com/valyala/fasthttp/whatapfasthttp"
-)
-
-func main() {
-  // Init whatap trace
-  config := make(map[string]string)
-  trace.Init(config)
-  defer trace.Shutdown()
-
-  ...
-    
-  r := fiber.New(fiber.Config{
-    StrictRouting: true,
-    Views:         engine,
-  })
-
-  r.Use(recover.New())
-
-  // 래퍼 (Wrapper) 함수 whatapfasthttp.Func을 사용합니다. 
-  r.GET("/", whatapfasthttp.Func(func(ctx *fasthttp.RequestCtx) {
     ...
-  }))
-  r.GET("/hello/{name}", whatapfasthttp.Func(func(ctx *fasthttp.RequestCtx) {
-    fmt.Fprintf(ctx, "Hello, %s!\n", ctx.UserValue("name"))
-    ctx.SetContentType("text/html;charset=utf8")
-  }))
-}
-````
 
-[참조 예제](https://github.com/whatap/go-api-example/tree/main/github.com/valyala/fasthttp/whatapfasthttp)
+    config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
+    if err != nil {
+      return nil, err
+    }
+
+    // whatap roundTripper 함수를 설정합니다. 
+    config.WrapTransport = wRT.WrapRoundTripper()
+
+    clientset, err := kubernetes.NewForConfig(config)
+    if err != nil {
+      return nil, err
+    }
+
+    deploymentsClient := clientset.AppsV1().Deployments(conf.Server.Namespace)
+
+    ...
+  }
+  ```
+
+* <Status>New</Status> github.com/gofiber/fiber/v2 라이브러리 지원
+
+  [참조 예제](https://github.com/whatap/go-api-example/tree/main/github.com/gofiber/fiber/v2/whatapfiber)
+
+  ```go title='golang'
+  import (
+    "github.com/whatap/go-api/instrumentation/github.com/gofiber/fiber/v2/whatapfiber"
+  )
+
+  func main() {
+    // Init whatap trace
+    config := make(map[string]string)
+    trace.Init(config)
+    defer trace.Shutdown()
+
+    ...
+
+    r := fiber.New(fiber.Config{
+      StrictRouting: true,
+      Views:         engine,
+    })
+
+    r.Use(recover.New())
+
+    // whatapfiber의 middleware를 등록합니다.
+    r.Use(whatapfiber.Middleware())
+    
+    ...
+  }
+  ```
+
+* <Status>New</Status> github.com/valyala/fasthttp 라이브러리 지원
+
+  [참조 예제](https://github.com/whatap/go-api-example/tree/main/github.com/valyala/fasthttp/whatapfasthttp)
+
+  ```go title='golang'
+  import (
+    "github.com/whatap/go-api/instrumentation/github.com/valyala/fasthttp/whatapfasthttp"
+  )
+
+  func main() {
+    // Init whatap trace
+    config := make(map[string]string)
+    trace.Init(config)
+    defer trace.Shutdown()
+
+    ...
+      
+    r := fiber.New(fiber.Config{
+      StrictRouting: true,
+      Views:         engine,
+    })
+
+    r.Use(recover.New())
+
+    // 래퍼 (Wrapper) 함수 whatapfasthttp.Func을 사용합니다. 
+    r.GET("/", whatapfasthttp.Func(func(ctx *fasthttp.RequestCtx) {
+      ...
+    }))
+    r.GET("/hello/{name}", whatapfasthttp.Func(func(ctx *fasthttp.RequestCtx) {
+      fmt.Fprintf(ctx, "Hello, %s!\n", ctx.UserValue("name"))
+      ctx.SetContentType("text/html;charset=utf8")
+    }))
+  }
+  ````
+  

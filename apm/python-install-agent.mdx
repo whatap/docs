@@ -17,9 +17,40 @@ Python 모니터링 서비스를 사용하려면 대상 애플리케이션 서�
 
 {@include: ../getting-started/_accesskey.mdx}
 
-## 에이전트 다운로드
+## 와탭 에이전트 다운로드
 
 **프로젝트 액세스 키**를 발급받은 다음 ***와탭 에이전트 다운로드*** 섹션으로 이동하세요. 해당하는 명령어를 복사해 에이전트를 설치하세요. 
+
+### Docker
+
+<!-- ⓵ requirements.txt를 사용하는 경우 해당 파일에 whatap-python을 추가하세요. -->
+
+1. Docker 컨테이너로 서비스되는 애플리케이션의 경우 다음 내용을 *DockerFile*에 추가하세요.
+
+    * **Python 에이전트**를 설치하세요.
+
+        ```docker title='Dockerfile' {3}
+        ENV WHATAP_HOME /whatap
+        RUN mkdir -p /whatap
+        RUN pip install whatap-python
+        // requirements.txt를 사용하는 경우 해당 파일에 whatap-python 을 추가하세요.
+        ```
+
+    * **프로젝트 액세스 키** 및 **서버 IP** 설정을 등록하세요.
+
+        ```docker title='Dockerfile'
+        RUN touch /whatap/whatap.conf
+        RUN echo "license=[ 발급된 프로젝트 액세스 키 ]" > /whatap/whatap.conf
+        RUN echo "whatap.server.host=[ 수집서버 IP ]" >> /whatap/whatap.conf
+        RUN echo "app_name=[ 애플리케이션 이름 ]" >> /whatap/whatap.conf
+        RUN echo "app_process_name=[ 애플리케이션 프로세스 이름 예)uwsgi, gunicorn.. ]" >> /whatap/whatap.conf
+        ```
+1. 기존 실행 커맨드 `python manage.py runserver`앞에 `whatap-start-agent`를 추가하세요.
+
+    ```docker title='Dockerfile'
+    #ENTRYPOINT python manage.py runserver
+    ENTRYPOINT whatap-start-agent python manage.py runserver
+    ```
 
 :::note
 에이전트 파일 구성에 대한 자세한 설명은 Python 파일 구성을 참조하세요.
@@ -69,47 +100,12 @@ Python 에이전트 파일은 애플리케이션 모니터링에 필요한 정�
     ```bash
     $ cat $WHATAP_HOME/whatap.conf
     ```
-1. **애플리케이션 서버 재시작**  
-    `WHATAP_AGENT` 시작 명령어로 애플리케이션 서버를 재시작하세요. 재시작 후 와탭 에이전트가 애플리케이션의 모니터링 정보를 수집합니다.
 
-    ```bash
-    $ whatap-start-agent [YOUR_APPLICATION_START_COMMAND]
-    ```
+## 애플리케이션 서버별 적용
 
-## Docker
+`WHATAP_AGENT` 시작 명령어로 애플리케이션 서버를 재시작하세요. 재시작 후 와탭 에이전트가 애플리케이션의 모니터링 정보를 수집합니다.
 
-<!-- ⓵ requirements.txt를 사용하는 경우 해당 파일에 whatap-python을 추가하세요. -->
-
-1. Docker 컨테이너로 서비스되는 애플리케이션의 경우 다음 내용을 *DockerFile*에 추가하세요.
-
-    * **Python 에이전트**를 설치하세요.
-
-        ```docker title='Dockerfile' {3}
-        ENV WHATAP_HOME /whatap
-        RUN mkdir -p /whatap
-        RUN pip install whatap-python
-        // requirements.txt를 사용하는 경우 해당 파일에 whatap-python 을 추가하세요.
-        ```
-
-    * **프로젝트 액세스 키** 및 **서버 IP** 설정을 등록하세요.
-
-        ```docker title='Dockerfile'
-        RUN touch /whatap/whatap.conf
-        RUN echo "license=[ 발급된 프로젝트 액세스 키 ]" > /whatap/whatap.conf
-        RUN echo "whatap.server.host=[ 수집서버 IP ]" >> /whatap/whatap.conf
-        RUN echo "app_name=[ 애플리케이션 이름 ]" >> /whatap/whatap.conf
-        RUN echo "app_process_name=[ 애플리케이션 프로세스 이름 예)uwsgi, gunicorn.. ]" >> /whatap/whatap.conf
-        ```
-1. 기존 실행 커맨드 `python manage.py runserver`앞에 `whatap-start-agent`를 추가하세요.
-
-    ```docker title='Dockerfile'
-    #ENTRYPOINT python manage.py runserver
-    ENTRYPOINT whatap-start-agent python manage.py runserver
-    ```
-
-## 애플리케이션 서버 별 적용 절차
-
-기본 절차는 다음과 같습니다.
+### Command
 
 ```bash title=SH
 $ whatap-start-agent python manage.py runserver
@@ -213,3 +209,20 @@ def simple_app(environ, start_response):
     start_response(status, response_headers)
     return ['Hello world!\n']
 ```
+
+## 에이전트 적용 및 서비스 실행 확인
+
+* **와탭 에이전트 적용**<br/>
+  가장 상단에 API를 직접 호출하는 코드를 다음과 같이 추가해 와탭 에이전트를 적용하세요.
+
+  ```bash
+  import whatap
+  whatap.agent
+  ```
+
+* **서비스 실행 확인**<br/>
+  다음 명령어를 실행해 와탭 Python 서비스가 정상적으로 실행되었는지 확인하세요.
+
+  ```bash
+  ps -ef | grep whatap_python
+  ```

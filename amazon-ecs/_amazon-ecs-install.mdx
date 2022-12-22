@@ -1,0 +1,39 @@
+<!-- 
+---
+id: amazon-ecs-install
+title: 설치하기
+description: Amazon ECS 아이템 설치를 안내합니다.
+tags: [ 인티그레이션, 설치하기, Amazon ECS ]
+---
+-->
+
+{@include: ../getting-started/_how-to-start-intro.mdx}
+
+## 프로젝트 생성
+
+{@include: ../getting-started/_create-project-aws.mdx}
+
+Amazon ECS의 launch type에 따라 인티그레이션 아이템이 구분됩니다. 
+
+* Amazon ECS - EC2 launch type
+* Amazon ECS - Fargate launch type
+
+프로젝트를 생성한 후 ***관리*** > ***인티그레이션 아이템*** 메뉴에서 아이템 설치가 가능합니다. 다음의 설치 안내를 참조해 진행하세요.
+
+:::note
+Amazon ECS launch types 에 대한 자세한 설명은 [다음 문서](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html)를 참조하세요.
+:::
+
+{@include: ../getting-started/_accesskey.mdx}
+
+:::note 프로젝트 액세스 키
+이미 **프로젝트 액세스 키**를 발급받았다면 버튼 대신 발급받은 키가 표시됩니다.
+:::
+
+## 사전 점검 사항
+
+1. [AWS CLI 구성](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-configure.html)
+1. [Amazon ECS CLI 설치](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/ECS_CLI_installation.html)
+1. 스크립트의 json 문서 분석을 위해 Python 2.x/3.x 설치가 필요합니다.
+1. 설치에 쓰이는 와탭 이미지(whatap/ecs_mon)는 다운로드 후 사용자 레지스트리에 등록 후 사용 하시는 것을 권장합니다.
+1. WhaTap Server 15.165.146.117로 데이터 전송을 위해 6600 포트가 열려 있어야 합니다. (TCP Outbound)

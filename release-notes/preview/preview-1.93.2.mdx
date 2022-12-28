@@ -19,7 +19,11 @@ import UI from '@site/src/components/UItext';
 
 - <Status>Change</Status> 메뉴 이름을 <UI>프로젝트 목록</UI>에서 <UI>상품 카탈로그</UI>로 변경
 
-- <Status>Change</Status> 프로젝트 생성 url 경로 및 화면 UI 변경
+- <Status>Change</Status> 프로젝트 생성 url 경로 변경(<em>/v2/account/project/list?add=project</em> → <em>/v2/account/project/create</em>) 변경
+
+- <Status>Change</Status> 프로젝트 생성 화면 UI 변경
+
+  ![](/img/create-project-new.png)
 
 #### 프로젝트 목록
 
@@ -55,7 +59,7 @@ import UI from '@site/src/components/UItext';
 
 #### Flex 보드
 
-- <Status>Fixed</Status> 애플리케이션 위젯의 제품군 지원 범위 수정
+- <Status>Fixed</Status> 쿠버네티스 프로젝트를 히트맵 위젯으로 확인할 수 없는 문제 수정
 
 - <Status>Feature</Status> 로그 카운트 수 위젯 카테고리 선택 옵션에 전체 카테고리 옵션 추가
 
@@ -63,10 +67,19 @@ import UI from '@site/src/components/UItext';
 
 #### 에이전트 / 서버 설정
 
-<Status>Feature</Status> 다음 메뉴 경로에서 비활성화 에이전트에 대해 <b>삭제</b> 버튼, <UI>모든 비활성화된 에이전트 삭제</UI> 버튼 추가
+* <Status>Feature</Status> 다음 메뉴 경로의 에이전트 목록에서 비활성화된 에이전트를 삭제할 수 있는 아이콘 버튼 추가
 
-* 애플리케이션, 쿠버네티스 프로젝트: ***관리*** > ***에이전트 설정***
-* 서버 프로젝트: ***서버 설정*** > ***서버 설정***
+  * 애플리케이션, 쿠버네티스 프로젝트: ***관리*** > ***에이전트 설정***
+  * 서버 프로젝트: ***서버 설정*** > ***서버 설정***
+
+* <Status>Feature</Status> 다음 메뉴 경로에서 <UI>모든 비활성화된 에이전트 삭제</UI> 버튼 추가
+  
+  * 애플리케이션, 쿠버네티스 프로젝트: ***관리*** > ***에이전트 설정***
+  * 서버 프로젝트: ***서버 설정*** > ***서버 설정***
+
+#### 통계/보고서 > 보고서
+
+<Status>Fixed</Status> 보고서 메일 발송 예약 시 이메일 주소 유효성 검사 추가 - 한자, 이모티콘을 제외한 특수기호는 마침표(.), 붙임표(-), 밑줄(_)만 허용하도록 수정
 
 ---
 
@@ -96,7 +109,7 @@ import UI from '@site/src/components/UItext';
 
 #### 서버 목록 > 서버 상세
 
-<Status>Fixed</Status> 목록에서 항목을 선택해 <UI>서버 상세</UI> 메뉴로 이동할 경우 oid를  undefined로 넘기는 현상 수정
+<Status>Fixed</Status> 실시간 알림 목록에서 일부 항목을 선택해 <UI>서버 상세</UI> 메뉴로 이동할 경우 화면에 차트를 제대로 표현하지 못하는 문제 수정
 
 ---
 
@@ -109,3 +122,15 @@ import UI from '@site/src/components/UItext';
 * <Status>Fixed</Status> 위젯 ‘상세 보기’에서 차트 데이터 간격을 1시간에서 5분으로 수정
 
 * <Status>Fixed</Status> 종료된 액티브 트랜잭션의 '프로파일 보기' 클릭 시 화면이 표시되지 않는 버그 수정
+
+#### 분석 > 큐브
+
+<Status>Change</Status> <UI>국가</UI> 위젯에서 지도를 확대/축소할 수 있도록 차트 변경
+
+---
+
+### MySQL RDS 제품 알파 출시
+
+<Status>New</Status> MySQL RDS 제품 알파 출시, 프로젝트 생성 화면에서 제품 선택 가능
+
+![](/img/create-project-new-mysqlrds.png)

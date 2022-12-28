@@ -5,6 +5,10 @@ description: Amazon ECS 아이템 설치를 안내합니다.
 tags: [ 설치하기, Amazon ECS ]
 ---
 
+와탭 Amazon ECS 모니터링은 META API 및 Cgroup 디렉터리를 통해 도커 컨테이너별 자원 사용량을 실시간으로 수집합니다. Amazon ECS API 연동 와탭 Task를 통해 Amazon ECS Service, Deployment, Container Instance의 상태를 조회 및 수집합니다.
+
+{@include: ../getting-started/_create-project-accesskey-item.mdx}
+
 ## 필요 소프트웨어
 
 * **AWS CLI**  
@@ -19,13 +23,14 @@ tags: [ 설치하기, Amazon ECS ]
 
 ## 모니터링 대상
 
-Amazon ECS 모니터링 대상은 Task, Service, Deployment, ContainerInstance입니다.
+Amazon ECS의 launch type에 따라 인티그레이션 아이템이 구분됩니다. 모니터링 대상은 Task, Service, Deployment, ContainerInstance입니다.
 
 * Amazon ECS Launch Type Fargate 모니터링 (Task, Service, Deployment)
 * Amazon ECS Launch Type EC2 모니터링 (Task, Service, Deployment, ContainerInstance)
 
 :::note
-다음의 모니터링 절차도 Launch Type Fargate 모니터링을 위한 절차와 Launch Type EC2 모니터링을 위한 절차로 구분되어 진행됩니다.
+* Amazon ECS launch types 에 대한 자세한 설명은 [다음 문서](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html)를 참조하세요.
+* 다음의 모니터링 절차도 Launch Type Fargate 모니터링을 위한 절차와 Launch Type EC2 모니터링을 위한 절차로 구분되어 진행됩니다.
 :::
 
 ## 모니터링 절차

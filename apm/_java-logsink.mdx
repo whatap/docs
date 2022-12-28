@@ -34,7 +34,7 @@ LogSink 옵션은 whatap.agent-2.1.0 버전 이상에서 사용 가능합니다.
 
 ### 프레임워크 로그내용 수집
 
-프레임워크에서 수집하는 로그를 모니터링하려면 모듈에서 로그를 가로채기 위한 설정과 플러그인을 추가해야 합니다. 프레임워크에서 수집하는 로그의 기본 카테고리 이름을 'AppLog’로 설정합니다. 기본값은 `hooklog_enabled` 옵션의 설정과 동일 합니다.
+프레임워크에서 수집하는 로그를 모니터링하려면 모듈에서 로그를 가로채기 위한 설정과 플러그인을 추가해야 합니다. 프레임워크에서 수집하는 로그의 기본 카테고리 이름을 'AppLog'로 설정합니다. 기본값은 `hooklog_enabled` 옵션의 설정과 동일 합니다.
 
 `hooklog_enabled` 값을 변경하면 재기동이 필요합니다. `hooklog_enabled` 기본값은 `logsink_enabled`입니다. 따라서 `logsink_enabled=true`로 설정하고 자바 애플리케이션을 재시작하면 `hooklog_enabled`는 `true`로 설정되고 `hooklog_logback_enabled`도 `true`로 설정됩니다.
 

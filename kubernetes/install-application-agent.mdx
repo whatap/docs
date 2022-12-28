@@ -83,7 +83,7 @@ Docker 컨테이너 기반으로 실행하는 Java 애플리케이션의 JVM Opt
       COPY whatap.conf /whatap
       COPY myApp.jar /app/
       # 애플리케이션 동작 명령어 추가
-      CMD ["java","-javaagent:/whatap/whatap.agent.kube.jar","-Dwhatap.micro.enabled=true",”-jar”,"/app/myApp.jar"]
+      CMD ["java","-javaagent:/whatap/whatap.agent.kube.jar","-Dwhatap.micro.enabled=true","-jar","/app/myApp.jar"]
       EXPOSE 8080
       ```
 

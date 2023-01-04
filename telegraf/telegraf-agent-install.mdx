@@ -23,7 +23,7 @@ Telegraf에서 수집하는 메트릭스를 와탭 수집서버로 전달할 수
 
 ## 설치 순서와 파일 구성
 
-1. 와탭 **저장소**를 설치하세요.
+1. 와탭 **리포지토리**를 설치하세요.
 1. whatap-telegraf **리눅스 패키지**(yum, apt-get)를 설치하세요.
 1. **프로젝트 액세스 키** 및 **와탭 서버 정보**를 설정하세요.
 1. Telegraf의 `socket_writer output plugin`을 설정하여 데이터를 연동하세요.
@@ -47,7 +47,7 @@ Telegraf에서 수집하는 메트릭스를 와탭 수집서버로 전달할 수
 <Tabs>
 <TabItem value="rc" label="Redhat/CentOS">
 
-1. 와탭 **저장소**를 설치하세요.
+1. 와탭 **리포지토리**를 설치하세요.
     ```bash title=SH
     $ sudo rpm -Uvh http://repo.whatap.io/centos/5/noarch/whatap-repo-1.0-1.noarch.rpm
     ```
@@ -65,7 +65,7 @@ Telegraf에서 수집하는 메트릭스를 와탭 수집서버로 전달할 수
 </TabItem>
 <TabItem value="du" label="Debian/Ubuntu">
 
-1. 와탭 **저장소**를 설치하세요.
+1. 와탭 **리포지토리**를 설치하세요.
     ```bash title=SH
     $ wget http://repo.whatap.io/debian/release.gpg -O -|sudo apt-key add -
     $ wget http://repo.whatap.io/debian/whatap-repo_1.0_all.deb
@@ -86,7 +86,7 @@ Telegraf에서 수집하는 메트릭스를 와탭 수집서버로 전달할 수
 </TabItem>
 <TabItem value="al" label="Amazon Linux">
 
-1. 와탭 **저장소**를 설치하세요.
+1. 와탭 **리포지토리**를 설치하세요.
     ```bash title=SH
     $ sudo rpm --import http://repo.whatap.io/centos/release.gpg
     $ echo "[whatap]" | sudo tee /etc/yum.repos.d/whatap.repo > /dev/null
@@ -109,7 +109,7 @@ Telegraf에서 수집하는 메트릭스를 와탭 수집서버로 전달할 수
 </TabItem>
 <TabItem value="fb" label="FreeBSD">
 
-1. 와탭 **저장소**를 설치하세요.
+1. 와탭 **리포지토리**를 설치하세요.
     ```bash title=SH
     $ wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/freebsd/10/whatap-telegraf-0.0.4.txz
     $ pkg install whatap-telegraf-0.0.4.txz

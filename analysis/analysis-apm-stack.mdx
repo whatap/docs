@@ -36,9 +36,7 @@ java.net.SocketInputStream.socketRead0(Native Method)
 
 ## ***탑 스택***
 
-Stack Trace 상의 각 Step 기준으로, Step과 Step 간의 호출 비율을 백분율로 분석한 정보를 제공합니다. 최상위 Step의 적체 빈도를 백분율로 산출하여 내림차순으로 정렬한 결과를 제시합니다.
-
-각 Step을 클릭하면 해당 Step을 호출하는 상위 Step을 호출 빈도 기준 백분율로 산출하여 제공합니다.
+Stack Trace 상의 각 Step 기준으로, Step과 Step 간의 호출 비율을 백분율로 분석한 정보를 제공합니다. 최상위 Step의 적체 빈도를 백분율로 산출하여 내림차순으로 정렬한 결과를 제시합니다. 각 Step을 클릭하면 해당 Step을 호출하는 상위 Step을 호출 빈도 기준 백분율로 산출하여 제공합니다.
 
 ***탑 스택*** 통계는 충분히 많은 데이터를 가지고 판단하는 것이 좋습니다. 수집한 스택의 개수가 10개 미만의 소수인 경우 통계 의미를 갖기에 부족합니다.
 
@@ -69,7 +67,6 @@ jdbc.Control.exec
 * ***퍼센트***  
     * 조회 기간 선택된 탑 스택의 비율 변화를 나타냅니다.  
     * 장애 시점 현황 파악, 개선 전/후 비교에 유용하게 사용됩니다.
-
 * ***건수***  
     * 수집되는 스택의 수는 액티브 트랜잭션 수에 비례합니다.  
     * 특정 구간에서 수집량이 증가했다면 서비스 지연이나 급격한 유입량 증가가 있었음을 알 수 있습니다.
@@ -111,7 +108,7 @@ Stack Trace 전체의 Hash 값 기준의 산출 결과로 전체 Step이 동일�
 액티브 트랜잭션에 관한 자세한 내용은 [다음 문서](../track-transactions/active-transactions)를 참조하세요.
 :::
 
-#{@include: ../track-transactions/_compact-active-stacks.mdx}
+#{@include: ../track-transactions/_compact-active-stacks.mdx} 
 
 #{@include: ../track-transactions/_background-thread.mdx} 
 

@@ -9,11 +9,9 @@ tags: [ 메트릭스, 애플리케이션, 성능 카운터, UI ]
 
 와탭 에이전트는 애플리케이션 성능과 관련된 다양한 정보를 수집합니다. 크게 3가지로 분류할 수 있습니다.
 
-* **User** : 실시간 사용자 혹은 방문 사용자
-
-* **Service** : 트랜잭션, SQL, 외부 호출 건수 및 응답, 에러율 등
-
-* **Resource** : 시스템, 프로세스 자원 사용량
+* **User**: 실시간 사용자 혹은 방문 사용자
+* **Service**: 트랜잭션, SQL, 외부 호출 건수 및 응답, 에러율 등
+* **Resource**: 시스템, 프로세스 자원 사용량
 
 ## User Counter
 
@@ -65,7 +63,6 @@ tags: [ 메트릭스, 애플리케이션, 성능 카운터, UI ]
     * **건수**
     * **응답 시간**
     * **에러 건수**  
-
 * **Active Transaction Counter**  
     진행 중인 트랜잭션의 수를 카운팅 합니다.  
     * **건수**
@@ -77,14 +74,12 @@ tags: [ 메트릭스, 애플리케이션, 성능 카운터, UI ]
         * HTTPC - 외부 Http Api(서비스)를 호출 중인 상태
         * DBC - DB 연결을 요청한 상태, 일반적으로 Pool에서 가져옴
         * SOCKET - TCP 세션을 Connecting 중인 상태
-
 * **SQL**  
     SQL 수행 현황을 카운팅 합니다.
     * **건수**
     * **응답 시간**
     * **에러 건수**
     * **패치 건수**
-
 * **HTTP Call**  
     외부 Http 호출에 대한 현황을 카운팅 합니다.
     * **건수**
@@ -210,7 +205,7 @@ jmx_threadpool_atter_queuesize=maxThreads
 JMX ThreadPool ObjectName 및 AttributeName 과 같은 Mbean 명은 JMX 모니터링 도구를 통해 확인하거나 각 WAS 별 Mbean 문서를 참고합니다.
 
 :::note
-사용 중인 WAS, 프레임워크 관련 [문서](https://www.ibm.com/support/knowledgecenter/ko/SS7K4U_liberty/com.ibm.websphere.wlp.zseries.doc/ae/rwlp_mon_threadpool.html)를 참고해 Mbean 정보를 확인하세요.
+사용 중인 WAS, 프레임워크 관련 [다음 문서](https://www.ibm.com/support/knowledgecenter/ko/SS7K4U_liberty/com.ibm.websphere.wlp.zseries.doc/ae/rwlp_mon_threadpool.html)를 참고해 Mbean 정보를 확인하세요.
 :::
 
 #### Jconsole 사용 시

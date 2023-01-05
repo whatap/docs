@@ -1,6 +1,6 @@
 ---
 id: server-2.3.0
-title: Server Agent 2.3.0
+title: Server Agent 2.3.0 🚀
 toc_max_heading_level: 2
 ---
 
@@ -9,17 +9,11 @@ import UI from '@site/src/components/UItext';
 
 ## 배포 내역
 
-### 리눅스 모니터링 에이전트 
-
 배포일: 2023-01-11
 
-<Status>New</Status> CentOS Stream 9 / Oracle Linux 9  - <code>systemctl</code> 지원을 추가했습니다.
+- <Status>Change</Status> TCP port check 기능을 비동기로 변경하여 접속 지연 시 성능 수집에 영향이 없도록 변경
 
-### 윈도우 모니터링 에이전트 02시경 자동 재시작 오류 수정
-
-배포일: 2022-12-14
-
-<Status>Fixed</Status> 2.2.8 버전의 코드 오류로 윈도우 모니터링 에이전트가 자동 재시작하는 오류가 있습니다. 오전 2시경 정지되고 Agent NoData 오탐이 발생할 수 있습니다. 2.2.8 버전을 사용하고 있을 경우 업데이트를 권장합니다.
+- <Status>Feature</Status> 로그 모니터링 플러그인에 파일 제외 옵션 추가
 
 ## 다운로드
 
@@ -29,26 +23,26 @@ import UI from '@site/src/components/UItext';
 
 * RPM (Red Hat/CentOS/Amazon linux)
   * 6Server / 6 
-    * x86_64 http://repo.whatap.io/centos/6/x86_64/whatap-infra-2.2-9.x86_64.rpm 
+    * x86_64 http://repo.whatap.io/centos/6/x86_64/whatap-infra-2.3-0.x86_64.rpm 
     * i386 http://repo.whatap.io/centos/6/i386/whatap-infra-1.2-4.i386.rpm
   * 7Server / 7 
-    * x86_64 http://repo.whatap.io/centos/7/x86_64/whatap-infra-2.2-9.x86_64.rpm 
-    * aarch64 http://repo.whatap.io/centos/7/aarch64/whatap-infra-2.2-9.aarch64.rpm
+    * x86_64 http://repo.whatap.io/centos/7/x86_64/whatap-infra-2.3-0.x86_64.rpm 
+    * aarch64 http://repo.whatap.io/centos/7/aarch64/whatap-infra-2.3-0.aarch64.rpm
   * 8Server / 8 
-    * x86_64 http://repo.whatap.io/centos/8/x86_64/whatap-infra-2.2-9.x86_64.rpm 
-    * aarch64 http://repo.whatap.io/centos/8/aarch64/whatap-infra-2.2-9.aarch64.rpm
+    * x86_64 http://repo.whatap.io/centos/8/x86_64/whatap-infra-2.3-0.x86_64.rpm 
+    * aarch64 http://repo.whatap.io/centos/8/aarch64/whatap-infra-2.3-0.aarch64.rpm
   * 9Server / 9 
-    * x86_64 http://repo.whatap.io/centos/9/x86_64/whatap-infra-2.2-9.x86_64.rpm 
-    * aarch64 http://repo.whatap.io/centos/9/aarch64/whatap-infra-2.2-9.aarch64.rpm
+    * x86_64 http://repo.whatap.io/centos/9/x86_64/whatap-infra-2.3-0.x86_64.rpm 
+    * aarch64 http://repo.whatap.io/centos/9/aarch64/whatap-infra-2.3-0.aarch64.rpm
   * Amazon Linux2
-    * x86_64 http://repo.whatap.io/centos/latest/x86_64/whatap-infra-2.2-9.x86_64.rpm 
-    * aarch64 http://repo.whatap.io/centos/latest/aarch64/whatap-infra-2.2-9.aarch64.rpm
+    * x86_64 http://repo.whatap.io/centos/latest/x86_64/whatap-infra-2.3-0.x86_64.rpm 
+    * aarch64 http://repo.whatap.io/centos/latest/aarch64/whatap-infra-2.3-0.aarch64.rpm
   * SUSE 12
-    * x86_64 http://repo.whatap.io/suse/12/x86_64/whatap-infra-2.2-9.x86_64.rpm
+    * x86_64 http://repo.whatap.io/suse/12/x86_64/whatap-infra-2.3-0.x86_64.rpm
 * DEB (Ubuntu/Debian)
   * Ubuntu 12 and above
-    * amd64 http://repo.whatap.io/debian/unstable/whatap-infra_2.2.9_amd64.deb
-    * arm64 http://repo.whatap.io/debian/unstable/whatap-infra_2.2.9_arm64.deb
+    * amd64 http://repo.whatap.io/debian/unstable/whatap-infra_2.3.0_amd64.deb
+    * arm64 http://repo.whatap.io/debian/unstable/whatap-infra_2.3.0_arm64.deb
 * TXZ (Freebsd)
   * Freebsd 10 and above
     * http://repo.whatap.io/freebsd/10/whatap-infra-1.1.2.txz

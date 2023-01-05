@@ -9,37 +9,36 @@ tags: [ 데이터베이스 모니터링, FAQ ]
 
 ---
 
-### Authentication plugin 'caching_sha2_password' cannot be loaded 에러
-
 <div class ='faq'>
 
-|**Q.** 에이전트 설치 후 DB 접속 시 *dbx.log*를 확인해보니 `Authentication plugin 'caching_sha2_password' cannot be loaded` 에러가 발생하면서 연결이 안 되는 것 같습니다. 어떻게 해야 하나요?|
+### Authentication plugin 'caching_sha2_password' cannot be loaded 에러
+
+|**Q.** 에이전트 설치 후 DB 접속 시 *dbx.log*를 확인하니 `Authentication plugin 'caching_sha2_password' cannot be loaded` 에러가 발생하면서 연결이 안 되는 것 같습니다. 어떻게 해야 하나요?|
 |---|
 
 > **A.** MySQL 8.0 을 사용할 때 발생할 수 있으며 MySql 8.0의 기본 인증 플러그인은 `caching_sha2_password`입니다.  `caching_sha2_password`를 사용하려면 SSL 보안 연결을 사용하거나 RSA 보안을 적용한 비암호 연결을 사용해야 합니다. 이 문제를 가장 쉽게 해결하는 방법은 패스워드 생성 시 다음과 같이 예전의 `mysql_native_password` 방식을 사용하는 것 입니다.
 >```sql
 >ALTER USER 'yourusername' IDENTIFIED WITH mysql_native_password BY 'youpassword';
 >```
+>:::note
+>MySql 8.0 이상 `caching_sha2_password` 플러그인 문제 해결에 대한 자세한 내용은 [다음 문서](https://kogle.tistory.com/87)를 참조하세요.
+>:::
 
-</div>
+<br/>
 
 ### DB 인스턴스에 데이터베이스 추가 생성 후 모니터링이 안될 경우
-
-<div class ='faq'>
 
 |Q. DB 인스턴스에 데이터베이스를 추가로 생성했는데 와탭에서 모니터링이 되지 않습니다. 어떻게 해야 하나요?|
 |---|
 
->A. 에이전트에서 db 정보를 기동할 때와 하루에 한 번 수집하고 있는데, 에이전트가 떠있는 상태에서 db를 추가 생성한 경우 반영이 안 될 수 있습니다. 이럴 경우 먼저 에이전트 재기동을 수행합니다. 그래도 안 되면, 적절한 권한이 없어서 안 나올 수도 있으므로 아래와 같이 권한을 부여합니다. 
+>A. 에이전트에서 db 정보를 기동할 때 하루에 한 번 수집합니다. 에이전트가 떠있는 상태에서 db를 추가 생성한 경우 반영이 안 될 수 있습니다. 이 경우 먼저 에이전트 재기동을 수행합니다. 그래도 안 되면 적절한 권한이 없어서일 수 있습니다. 다음과 같이 권한을 부여하세요. 
 >```sql
 >grant select on '추가한db' to whatap;
 >```
 
-</div>
+<br/>
 
 ### 인스턴스 목록 M, S, C 기준
-
-<div class ='faq'>
 
 |Q. 인스턴스 목록에서 ***M***, ***S***, ***C***의 기준은 무엇인가요?|
 |---|
@@ -58,13 +57,11 @@ tags: [ 데이터베이스 모니터링, FAQ ]
 >show slave status ;
 >```
 
-</div>
+<br/>
 
 ### 인스턴스 목록 M 미표시
 
-<div class ='faq'>
-
-|Q. 인스턴스 목록에서 Master인데 M 표시가 나타나지 않습니다. 이유가 무엇인가요?|
+|Q. 인스턴스 목록에서 Master인데 ***M*** 표시가 나타나지 않습니다. 이유가 무엇인가요?|
 |---|
 
 >A. Replication에 대한 권한이 없는 경우 정보 표시가 나타나지 않을 수 있습니다. 모니터링 계정 권한을 확인해 주세요. 
@@ -76,7 +73,5 @@ tags: [ 데이터베이스 모니터링, FAQ ]
 >grant REPLICATION SLAVE, REPLICATION CLIENT on *.* to whatap;
 >```
 
+
 </div>
-
-
-

@@ -16,7 +16,7 @@ Python Agent 1.2.2 버전부터 가능합니다. 업데이트 방법은 [다음 
 설정 파일 경로(*WHATAP_HOME*)를 포함한 명령어를 입력하면 로그 수집이 바로 시작됩니다.
 
 ```shell
-export LOGFILES={로그파일전체경로},...
+export LOGFILES={로그 파일전체경로},...
 echo "logsink_enabled=true" | sudo tee -a {설정파일경로}/whatap.conf
 echo "logsink.files=$LOGFILES" | sudo tee -a {설정파일경로}/whatap.conf
 ```

@@ -31,9 +31,7 @@ whatap.trace_user_using_ip=false
 
 ### whatap-php 서비스(Service) 환경 변수 설정
 
-`$WHATAP_CONFIG_HOME` 환경변수에 *whatap.ini* 경로를 설정하세요.
-
-PHP 추가 ini 경로를 확인 할 수 없는 경우 *whatap.ini*를 생성한 */usr/whatap/php* 경로를 설정하세요.
+`$WHATAP_CONFIG_HOME` 환경변수에 *whatap.ini* 경로를 설정하세요. PHP 추가 ini 경로를 확인 할 수 없는 경우 *whatap.ini*를 생성한 */usr/whatap/php* 경로를 설정하세요.
 
 ```bash
 $ sudo vi /etc/init.d/whatap-php
@@ -50,9 +48,7 @@ export WHATAP_CONFIG_HOME=      # whatap.ini 경로(/etc/php.d)
 <!-- 문제 해결 페이지의 수동 설정? -->
 <!-- 명령어 경로 확인 후 확장 모듈과 서비스 선택 설치가 진행되는 순서가 필요한지?-->
 
-PHP 명령어(CLI)를 찾지 못하는 경우 발생합니다. 
-
-[PHP 명령어(CLI)의 위치](#php-명령어cli-경로-확인)를 정확히 확인하고 [PHP 확장 모듈 및 whatap-php 서비스 선택 설치](#php-확장-모듈-및-whatap-php-서비스-수동-설정) 항목을 진행하세요.
+PHP 명령어(CLI)를 찾지 못하는 경우 발생합니다. [PHP 명령어(CLI)의 위치](#php-명령어cli-경로-확인)를 정확히 확인하고 [PHP 확장 모듈 및 whatap-php 서비스 선택 설치](#php-확장-모듈-및-whatap-php-서비스-수동-설정) 항목을 진행하세요.
 <!--
 * [PHP 명령어(CLI)의 위치](#php-명령어cli-경로-확인)를 정확히 확인하세요.
 * [PHP 확장 모듈 및 whatap-php 서비스 선택 설치](#php-확장-모듈-및-whatap-php-서비스-수동-설정) 항목을 진행하세요.

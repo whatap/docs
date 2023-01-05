@@ -107,8 +107,8 @@ $sqlquery="select some, columns from sometable"
 ```bash title=SH
 #매트릭 카테고리
 category=my_category
-#로그파일
-LOG_FILE=로그파일 경로
+#로그 파일
+LOG_FILE=로그 파일 경로
 #2개 이상의 로그 키워드를 입력할때 키워드 사이에 사용할 구분자
 LOG_KEYWORDS_SEPERATOR=,
 #로그 키워드를 ,로 연결하여 입력
@@ -127,8 +127,8 @@ LOG_KEYWORDS=keyword1,keyword2
 ```bash title='SH'
 #매트릭 카테고리
 $CATEGORY="my_category"
-#로그파일
-LOG_FILE=로그파일 경로
+#로그 파일
+LOG_FILE=로그 파일 경로
 #2개 이상의 로그 키워드를 입력할때 키워드 사이에 사용할 구분자
 LOG_KEYWORDS_SEPERATOR=,
 #로그 키워드를 구분자로 연결하여 입력
@@ -155,8 +155,8 @@ LOG_KEYWORDS=keyword1,keyword2
 ```bash title=SH
 #카테고리
 category=my_category
-#로그파일 wildcard(*), 날짜패턴(http://strftime.org) 포함 가능
-LOG_FILE=로그파일 경로
+#로그 파일 wildcard(*), 날짜패턴(http://strftime.org) 포함 가능
+LOG_FILE=로그 파일 경로
 ./focus -license $WHATAP_LICENSE \
     -category $category \
     -pcode $WHATAP_PCODE -server.host $WHATAP_HOST \
@@ -169,8 +169,8 @@ LOG_FILE=로그파일 경로
 ```bash title='SH'
 #카테고리
 $CATEGORY="my_category"
-#로그파일 wildcard(*), 날짜패턴(http://strftime.org) 포함 가능
-$LOG_FILE=로그파일 경로
+#로그 파일 wildcard(*), 날짜패턴(http://strftime.org) 포함 가능
+$LOG_FILE=로그 파일 경로
 .\focus.exe -license $WHATAP_LICENSE `
     -pcode $WHATAP_PCODE -server.host $WHATAP_HOST `
     -category $CATEGORY `

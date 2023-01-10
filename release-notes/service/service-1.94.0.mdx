@@ -33,7 +33,7 @@ import UI from '@site/src/components/UItext';
 
 #### 대시보드
 
-<UI>대시보드</UI> > <UI>Flex 보드</UI> 메뉴 또는 홈 화면 > <UI>Flex 보드</UI> 메뉴에서 다음의 기능 추가 및 수정합니다
+<UI>대시보드</UI> > <UI>Flex 보드</UI> 메뉴 또는 홈 화면 > <UI>Flex 보드</UI> 메뉴에서 다음의 기능을 추가 및 수정합니다
 
 * <Status>Feature</Status> 위젯 템플릿 추가
 
@@ -60,15 +60,31 @@ import UI from '@site/src/components/UItext';
 
 * <Status>Fixed</Status> 쿠버네티스 프로젝트를 히트맵 위젯으로 확인할 수 없는 문제 수정
 
+* <Status>Fixed</Status> 대시보드 생성, 수정 시 대시보드 제목 최대 100자로 제한
+
+* <Status>Fixed</Status> 대시보드 선택 후 <img src='/img/ico-filter.svg' alt='필터 아이콘'/> <UI>필터</UI> 기능 이용 시, <UI>저장된 필터</UI>의 항목을 수정할 때 나타나는 창의 중복되는 <img src='/img/ico-close.svg' alt='닫기 아이콘'/> 닫기 버튼 제거
+
+* <Status>Fixed</Status> 이퀄라이져 차트 클릭 시 액티브 트랜잭션 기능을 지원하는 제품에서만 상세 정보 창이 열리도록 수정
+
+* <Status>Fixed</Status> 액티브 트랜잭션 위젯을 클릭하면 나타나는 상세 정보 창의 로딩 레이아웃 개선
+
+* <Status>Fixed</Status> 시간 선택 UI 옵션의 애니메이션이 갱신되지 않는 현상 수정
+
 #### 분석
 
-* <Status>Feature</Status> <UI>메트릭스 차트</UI> 메뉴에서 위젯 차트의 Y축 최대값을 고정할 수 있도록 옵션 추가
+<UI>메트릭스 차트</UI> 메뉴에서 다음의 기능을 추가 및 수정합니다.
 
-* <Status>Change</Status> <UI>메트릭스 차트</UI> 메뉴에서 위젯에서 에이전트를 다중 선택 가능하도록 기능 수정
+* <Status>Feature</Status> 위젯 차트의 Y축 최대값을 고정할 수 있도록 옵션 추가
+
+* <Status>Change</Status> 위젯에서 에이전트를 다중 선택 가능하도록 기능 수정
     
-* <Status>Fixed</Status> <UI>메트릭스 차트</UI> 메뉴에서 위젯 '상세 보기'에서 차트 드래그 범위가 1분 이상인 경우에만 조회 기간을 변경하도록 수정
+* <Status>Fixed</Status> 위젯 '상세 보기'에서 차트 드래그 범위가 1분 이상인 경우에만 조회 기간을 변경하도록 수정
 
-* <Status>Fixed</Status> <UI>메트릭스 차트</UI> 메뉴에서 위젯 '상세 보기'에서 데이터 요청 로딩 중인 경우, 위젯의 조회 기간을 변경할 수 없도록 조회 버튼 비활성화
+* <Status>Fixed</Status> 위젯 '상세 보기'에서 데이터 요청 로딩 중인 경우, 위젯의 조회 기간을 변경할 수 없도록 조회 버튼 비활성화
+
+* <Status>Fixed</Status> 위젯에서 시간 변경시 에이전트를 전체 선택하는 버그 수정
+
+* <Status>Fixed</Status> <UI>애플리케이션 대시보드</UI>에서 <UI>메트릭스 차트</UI> 메뉴로 이동할 때 에이전트를 중복 선택하는 버그 수정
 
 #### 경고 알림
 
@@ -79,6 +95,16 @@ import UI from '@site/src/components/UItext';
 * <Status>Change</Status> <UI>이벤트 설정</UI> > <UI>메트릭스</UI> 탭에서 알림 목록을 제목 기준으로 정렬하도록 변경
 
 * <Status>Fixed</Status> 프로젝트 수정 권한이 없는 사용자가 <UI>이벤트 설정</UI> 메뉴에서 알림을 수정할 수 없는 버그 수정
+
+* <Status>Fixed</Status> <UI>이벤트 설정</UI> > <UI>복합 메트릭스</UI> > <UI>이벤트 추가</UI> 기능에서 제목과 메시지를 입력하지 않으면 저장할 수 없도록 수정
+
+* <Status>Fixed</Status> <UI>이벤트 설정</UI> > <UI>복합 메트릭스</UI> > <UI>이벤트 추가</UI> > <UI>차트로 생성하기</UI> > <UI>이벤트 조회</UI> > <UI>텍스트</UI> 모드에서 위젯 종류를 차트 또는 테이블로 변경 시 로딩이 계속되는 버그 수정
+
+* <Status>Fixed</Status> <UI>이벤트 설정</UI> 메뉴에서 <UI>이벤트 추가</UI> 창에서 <UI>프로젝트 이벤트 수신설정 메뉴</UI> 또는 <UI>프로젝트 이벤트 수신설정 메뉴 바로가기</UI> 버튼을 클릭하면 URL 경로가 애플리케이션 타입(<code>apm</code>)으로 변경되는 버그 수정
+
+* <Status>Fixed</Status> <UI>이벤트 수신 설정</UI> > <UI>사용자별 이벤트 수신 설정</UI>에서 수신 시간 선택 옵션의 <img src='/img/ico-close.svg' alt='닫기 아이콘'/> 버튼 클릭하면 유효하지 않은 시간 값으로 저장되는 버그 수정 및 <img src='/img/ico-close.svg' alt='닫기 아이콘'/> 버튼 삭제
+
+* <Status>Fixed</Status> <UI>이벤트 기록</UI> 메뉴를 처음 진입할 경우 설정된 필터에 따라 데이터가 테이블 목록에 반영되지 않는 버그 수정
 
 #### 로그
 
@@ -91,6 +117,12 @@ import UI from '@site/src/components/UItext';
 * <Status>Fixed</Status> <UI>라이브 Tail</UI> 메뉴에서 콘텐츠 보기 기능 오작동 수정
 
 * <Status>Fixed</Status> <UI>라이브 Tail</UI> 메뉴에서 콘텐츠 필터링(하이라이트) 기능 오작동 수정
+
+* <Status>Fixed</Status> <UI>라이브 Tail</UI> 메뉴에서 3초 주기의 Tail 데이터 호출이 밀리는 현상 수정
+
+#### 사용자 행위
+
+<Status>Fixed</Status> <UI>사이트맵</UI> > <UI>관리</UI> > <UI>사용자 행위</UI> 메뉴에서 테이블의 텍스트가 테이블 영역 밖으로 넘치는 현상 수정
 
 #### 통계/보고서
 
@@ -142,6 +174,16 @@ import UI from '@site/src/components/UItext';
   * 애플리케이션, 쿠버네티스 프로젝트: ***관리*** > ***에이전트 설정***
   * 서버 프로젝트: ***서버 설정*** > ***서버 설정***
 
+* <Status>Feature</Status> 에이전트 별칭 편집 기능 추가
+
+* <Status>Change</Status> 쿠버네티스 프로젝트에서 에이전트 목록을 마스터, 노드, 애플리케이션 단위로 구분
+
+* <Status>Fixed</Status> 일부 프로젝트에서 검색 필터 작동하지 않는 문제 수정
+
+* <Status>Fixed</Status> 에이전트 목록이 확장된 상태에서 기존에 선택한 에이전트가 클릭되지 않아 에이전트 목록을 접을 수 없는 문제 수정
+
+* <Status>Deprecate</Status> 서버 프로젝트, 쿠버네티스 프로젝트에서 <b>다중 적용</b> 기능 삭제
+
 #### 이용 내역, 사이트 관리
 
 * <UI>프로젝트 유료 전환</UI> 메뉴에서 다음의 기능 추가합니다.
@@ -161,13 +203,17 @@ import UI from '@site/src/components/UItext';
 
 * <Status>Change</Status> <UI>사이트 관리</UI> > <UI>결제 관리</UI> > <UI>청구서</UI> 메뉴에서 <UI>월간 사용 Session</UI> 컬럼 추가
 
-### 애플리케이션 프로젝트
+### `Application`
+
+#### 토폴로지
+
+<Status>Fixed</Status> <UI>사이트맵</UI> > <UI>통계/보고서</UI> > <UI>토폴로지</UI> > <UI>애플리케이션 통계 토폴로지</UI> 메뉴에서 에이전트를 선택하면 오류가 나는 현상 수정
 
 #### 분석
 
 <Status>Change</Status> <UI>큐브</UI> 메뉴에서 <UI>국가</UI> 위젯의 지도를 확대/축소할 수 있도록 차트 변경
 
-### 애플리케이션 및 쿠버네티스 프로젝트
+### `Application` `Container`
 
 #### 애플리케이션 대시보드
 
@@ -177,7 +223,7 @@ import UI from '@site/src/components/UItext';
 
 * <Status>Fixed</Status> 종료된 액티브 트랜잭션의 '프로파일 보기' 클릭 시 화면이 표시되지 않는 버그 수정
 
-### 서버 프로젝트
+### `Server`
 
 #### 서버 목록
 
@@ -187,7 +233,20 @@ import UI from '@site/src/components/UItext';
 
 * <Status>Fixed</Status> 실시간 알림 목록의 일부 항목을 선택해 <UI>서버 상세</UI> 메뉴로 이동할 경우 화면에 차트를 제대로 표현하지 못하는 문제 수정
 
-### 데이터베이스 프로젝트
+* <Status>Fixed</Status> <img src='/img/ico-agent-move.svg' alt='에이전트 이전 아이콘'/> <UI>에이전트 이전</UI> 창에서 비활성화된 에이전트를 선택할 수 있는 버그 수정
+
+* <Status>Fixed</Status> CSV 다운로드 시 빈 데이터가 있는 셀에 'undefined'로 표시되는 것을 공백으로 처리하도록 수정
+
+#### 분석
+
+<Status>Fixed</Status> <UI>큐브</UI> 메뉴에서 에이전트 선택 필터가 차트에 적용되지 않는 버그 수정
+
+#### 서버 설정
+
+<Status>Fixed</Status> <UI>원격 파일 뷰어</UI> 메뉴에서 화면 왼쪽의 메뉴 이름과 일치하도록 화면 위의 메뉴 이름 수정
+
+
+### `Database`
 
 #### 대시보드
 
@@ -210,7 +269,7 @@ import UI from '@site/src/components/UItext';
 * <Status>Change</Status> <UI>테이블 사이즈 증감</UI> 메뉴에서 상세 정보의 데이터 단위(MiB) 표시 추가, 테이블 헤더 클릭 시 정렬 기능 추가
 
 
-### 쿠버네티스 프로젝트 
+### `Container` 
 
 #### 컨테이너 맵
 
@@ -231,6 +290,12 @@ import UI from '@site/src/components/UItext';
 * <Status>Fixed</Status> <UI>Critical</UI> 입력창과 <UI>Warning</UI> 입력창에 동일한 값을 입력하면 입력 창 증가하는 버그 수정
 
 * <Status>Fixed</Status> <UI>로그</UI> 탭 진입하면 컨텐츠가 깜빡이는 현상 수정
+
+* <Status>Fixed</Status> 차트 지표(<UI>ConState (state)</UI>) 목록에서 일부 지표가 'undefined'로 표시되는 버그 수정
+
+* <Status>Fixed</Status> 화면 아래 정보 섹션에서 <img src='/img/ico-info.svg' alt='정보 아이콘'/> 아이콘에 마우스 오버 시 나타나는 툴팁 텍스트가 보이지 않는 버그 수정
+
+* <Status>Fixed</Status> <UI>필터</UI> 기능 이용 시 <UI>제외</UI> 또는 <UI>포함</UI> 옵션을 선택한 다음 키워드 입력란에서 선택할 수 있는 값과 선택한 값의 이름이 다르게 보이는 버그 수정
 
 #### 리소스
 
@@ -257,8 +322,27 @@ import UI from '@site/src/components/UItext';
 
 <Status>Fixed</Status> <UI>에이전트 설치</UI> > <UI>Application Agent</UI> 메뉴에서 Java 에이전트 설치 jar 파일명 변경(<em>whatap.agent-X.Y.Z.jar</em> → <em>whatap.agent.kube.jar</em>)
 
+
+### `AWS` `AZURE`
+
+#### 프로젝트 생성
+
+* <Status>Change</Status> Azure 프로젝트 생성 시 설치 안내 문구 추가
+
+* <Status>Change</Status> Amazon CloudWatch 프로젝트 생성 시 <UI>인증 유효 기간(시)</UI>을 필수로 입력하도록 변경
+
+
+### `URL`
+
+* <Status>Fixed</Status> <UI>URL 추가하기</UI> 기능 이용 시 <UI>가이드 바로 가기</UI>의 링크 오류 수정
+
+* <Status>Fixed</Status> <UI>URL 목록</UI>에서 차트를 클릭하면 나타나는 창에서 실시간 조회(<img src='/img/ico-play-time.svg' alt='실시간 조회 아이콘'/>) 버튼 삭제
+
+* <Status>Fixed</Status> <UI>URL 목록</UI>에서 차트를 클릭하면 나타나는 창에서 '1분' 단위 조회 시 차트에 표시 되지 않는 버그 수정
+
+
 ### 실험실
 
 #### 알림 메시지
 
-<Status>New</Status> Application, Container, DB, Server 제품군에 신규 메뉴 <UI>사이트 맵</UI> > <UI>실험실</UI> > <UI>알림 메시지</UI> 추가
+<Status>New</Status> <code>Application</code>, <code>Container</code>, <code>Database</code>, <code>Server</code> 제품군에 신규 메뉴 <UI>사이트 맵</UI> > <UI>실험실</UI> > <UI>알림 메시지</UI> 추가

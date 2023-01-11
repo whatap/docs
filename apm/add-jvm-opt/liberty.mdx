@@ -7,9 +7,6 @@ tags:
     - Liberty
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Liberty를 사용하는 애플리케이션 서버 환경에서 JVM 옵션을 추가하는 방법을 확인하세요. 
 
 *jvm.options* 파일에 에이전트 옵션을 추가하세요. 파일이 없는 경우 신규로 생성하세요.
@@ -18,3 +15,5 @@ Liberty를 사용하는 애플리케이션 서버 환경에서 JVM 옵션을 추
 -javaagent:/app/whatap/whatap.agent-2.1.1.jar
 -Dorg.osgi.framework.bootdelegation=whatap.* ## OSGI 프레임워크 설정을 위한 추가 옵션 ##
 ```
+
+{@include: ../java/_start-apm.mdx}

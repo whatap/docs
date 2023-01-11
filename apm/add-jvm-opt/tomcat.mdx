@@ -11,7 +11,7 @@ Tomcat을 사용하는 애플리케이션 서버 환경에서 JVM 옵션을 추�
 
 ### **Linux**
 
-*catalina.sh* 파일 상단에 ```JAVA_OPTS``` 환경 변수를 추가하세요.
+*catalina.sh* 파일 상단에 `JAVA_OPTS` 환경 변수를 추가하세요.
 
 ```bash title='{Tomcat 설치 경로}/bin/catalina.sh' showLineNumbers
 ########## WHATAP START ############
@@ -22,39 +22,51 @@ JAVA_OPTS="${JAVA_OPTS} -javaagent:${WHATAP_JAR} "
 ```
 
 :::info
-```ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1``` 항목은 향후 에이전트 업데이트를 진행할 경우 최신 와탭 에이전트를 적용하기 위해서입니다.
+`ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1` 항목은 향후 에이전트 업데이트를 진행할 경우 최신 와탭 에이전트를 적용하기 위해서입니다.
 :::
 
 ### **Windows**
 
 * *setup.bat* 파일을 통해 실행하는 경우
 
-  *catalina.bat* 파일 상단에 ```JAVA_OPT``` 환경 변수를 추가하세요.
+  *catalina.bat* 파일 상단에 `JAVA_OPT` 환경 변수를 추가하세요.
 
-  ```batch title='{Tomcat 설치 경로}/bin/catalina.bat' {2} showLineNumbers
-  rem ########## WHATAP ############
+  ```batch title='{Tomcat 설치 경로}/bin/catalina.bat' {3} showLineNumbers
+  rem ########## WHATAP START ############
   set WHATAP_HOME=C:\whatap
-  for /f %%f in ('dir /b /on %WHATAP_HOME%\whatap.agent-X.Y.Z.jar') do set last=%%f
+  for /f %%f in ('dir /b /on "%WHATAP_HOME%\whatap.agent-*.jar"') do set last=%%f
   set WHATAP_JAR=%last%
-  if x%JAVA_OPTS:whatap=%==x%JAVA_OPTS% (
-    set JAVA_OPTS=%JAVA_OPTS% -javaagent:%WHATAP_HOME%\%WHATAP_JAR%
-  )
-  rem ########## WHATAP ############
+  set WHATAP_OPTS=-javaagent:%WHATAP_HOME%\%WHATAP_JAR%
+
+  if "x%JAVA_OPTS%"=="x" goto setWhatap
+
+  set JAVA_OPTS_TMP=%JAVA_OPTS:"=%
+  if not "x%JAVA_OPTS_TMP:whatap=%"=="x%JAVA_OPTS_TMP%" goto endWhatap
+
+  :setWhatap
+  set JAVA_OPTS=%JAVA_OPTS% %WHATAP_OPTS%
+
+  :endWhatap
+  rem ########## WHATAP END ############
   ```
 
 * Tomcat을 Windows 인스톨러로 설치한 경우
 
-  1. ***시작*** > ***Apache Tomcat ```X.Y.Z.```*** > ***Configure Tomcat***을 선택하세요.
+  1. ***시작*** > ***Apache Tomcat `X.Y.Z.`*** > ***Configure Tomcat***을 선택하세요.
 
   1. ***Java*** 탭을 선택하세요.
 
-  1. ***Java Options*** 텍스트 박스에 ```-javaagent``` 옵션을 추가하세요.
+  1. ***Java Options*** 텍스트 박스에 `-javaagent` 옵션을 추가하세요.
 
   ```text
   -javaagent:{와탭 설치 경로}/whatap.agent-X.Y.Z.jar
   ```
 
   ![Apache Tomcat](https://img.whatap.io/media/images/tomcat-win.png)
+
+## Java 모니터링 시작하기
+
+{@include: ../java/_start-apm.mdx}
 
 ## Tomcat 호환성
 

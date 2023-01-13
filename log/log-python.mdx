@@ -11,7 +11,9 @@ Python 애플리케이션에서 로그를 수집하려면 다음을 확인하세
 
 Python Agent 1.2.2 버전부터 가능합니다. 업데이트 방법은 [다음 문서](../apm/python-pkg#패키지-업데이트)를 참조하세요.
 
-## 로그 수집 활성화
+## 에이전트 설정 확인
+
+### 로그 수집 활성화
 
 설정 파일 경로(*WHATAP_HOME*)를 포함한 명령어를 입력하면 로그 수집이 바로 시작됩니다.
 
@@ -21,7 +23,7 @@ echo "logsink_enabled=true" | sudo tee -a {설정파일경로}/whatap.conf
 echo "logsink.files=$LOGFILES" | sudo tee -a {설정파일경로}/whatap.conf
 ```
 
-## 로그와 웹 트랜잭션 연동
+### 로그와 웹 트랜잭션 연동
 
 트랜잭션 별로 발생한 로그를 별도로 조회 가능하도록 트랜잭션 아이디`{txid}`를 로그에 출력합니다. 와탭 모니터링에서는 Python LogRecord에 `{txid}`를 자동 주입하여 포매터 설정 시 로그 파일에 `{txid}`를 출력할 수 있도록 합니다.
 

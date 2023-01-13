@@ -32,7 +32,7 @@
 
 {@include: _log-java-start.mdx}
 
-## ![](/img/number-03.png) 로그 모니터링 설정
+## ![](/img/number-03.png) 로그 모니터링 데이터 설정
 
 ![number-s](/img/number-03.png) 상단에서 ***로그 사용량***을 확인할 수 있습니다. 또한 ***데이터 유지 기간*** 및 ***로그 조회 비밀번호*** 설정을 변경할 수 있습니다.
 
@@ -144,7 +144,7 @@ SEMANTIC에는 예약어 등이 사용되지 않도록 조합어 사용을 권�
 |ignore|JSON 출력부 중 키 추출을 제외할 필드를 지정합니다.|
 
 * **등록 예시**     
-    ```java title='로그 원문'
+    ```bash title='로그 원문'
     [2022-10-25 10:15:34:145]...(개행)
     Request : {"key1":"value1","key2":"value2",...}(개행)
     Response : {"key3":"value3","key4":"value4",...}
@@ -169,7 +169,7 @@ SEMANTIC에는 예약어 등이 사용되지 않도록 조합어 사용을 권�
     `JsonFormatParser{}`의 `{}` 에 옵션을 지정합니다.
 
     * **등록 예시**             
-        ```java title='로그 원문'
+        ```bash title='로그 원문'
         [2022-10-25 10:15:34:145]...(개행)
         Request : {"key1":"value1","key2":"value2",...}(개행)
         Response : {"key3":"value3","key4":"value4",...}

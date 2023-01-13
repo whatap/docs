@@ -1,0 +1,70 @@
+---
+id: preview-1.95.0
+title: Preview 1.95.0 🚀
+toc_max_heading_level: 3
+---
+
+import Status from '@site/src/components/Highlight';
+import UI from '@site/src/components/UItext';
+
+* [https://preview.whatap.io](https://preview.whatap.io)에서 다음 추가한 신기능과 수정한 내용을 미리 경험할 수 있습니다. 
+
+---
+
+배포일: 2023-01-16
+
+### 공통
+
+#### 로그 설정
+
+* <Status>Change</Status> <UI>카테고리별 데이터 유지기간</UI> 테이블에서 저장량 컬럼 삭제
+
+* <Status>Feature</Status> <UI>카테고리별 데이터 유지기간</UI> 테이블에서 <UI>금일 로그수</UI> 컬럼 추가 및 컬럼 별 도움말 추가
+
+* <Status>Feature</Status> <UI>로그 Parser 설정</UI> 섹션에서 상태 성공률 파서, 4xx, 5xx 파서 등록 시 동일한 카테고리에 파서를 중복 등록할 수 없도록 유효성 검사 추가
+
+#### 계정 정보 관리
+
+* <Status>Feature</Status> <UI>계정 정보</UI> 메뉴에서 멀티팩터 인증 활성화 시 최종 확인을 위한 메시지 창 추가
+
+
+### `Application`
+
+#### 트랜잭션 상세
+
+다음 메뉴 경로에서 추가 및 수정한 사항입니다.
+
+:::info
+* ***대시보드*** > ***애플리케이션 대시보드*** > ***액티브 트랜잭션*** 차트 클릭 > 종료된 트랜잭션 컬럼 선택 > ***트랜잭션 보기*** 클릭
+* ***대시보드*** > ***히트맵 트랜잭션*** >  TX 트레이스의 컬럼 클릭
+* ***대시보드*** > ***트랜잭션 맵*** > TX 트레이스의 컬럼 클릭
+* ***대시보드*** > ***액티브 트랜잭션*** > ***트랜잭션*** >  종료된 트랜잭션 컬럼 선택 > ***트랜잭션 보기*** 클릭
+* ***분석*** > ***히트맵*** > TX 트레이스의 컬럼 클릭
+
+수정 전<br/>
+![](/img/release/apm-transaction-detail-before.png)
+
+수정 후<br/>
+![](/img/release/apm-transaction-detail-after.png)
+:::
+
+* <Status>Feature</Status> <UI>메소드 분석</UI>, <UI>SQL 분석</UI> 탭 추가
+
+  * ***메소드 분석***: 트레이스 스탭 정보에서 중복 실행된 메소드에 대한 분석 정보를 제공합니다.
+  * ***SQL 분석***: 트레이스 스탭 정보에서 중복 실행된 SQL 문에 대한 분석 정보를 제공합니다.
+
+* <Status>Change</Status> 탭 메뉴의 명칭 수정
+
+  * ***프로파일*** → ***테이블 뷰***
+  * ***프로파일 트리*** → ***트리 뷰***
+  * ***로그*** → ***트랜잭션 로그***
+
+* <Status>Change</Status> 트랙잭션 차트 버튼의 명칭 수정: <UI>프로파일 다이어그램</UI> → <UI>다이어그램</UI>
+
+* <Status>Change</Status> <UI>테이블 뷰</UI>의 메소드 정보 텍스트에 서식 추가
+
+  수정 전<br/>
+  ![](/img/release/apm-transaction-list-before.png)
+
+  수정 후<br/>
+  ![](/img/release/apm-transaction-list-after.png)

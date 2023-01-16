@@ -53,18 +53,17 @@ import UI from '@site/src/components/UItext';
 * ***대시보드*** > ***트랜잭션 맵*** > ***트랜잭션*** 차트 드래그 > ***TX 트레이스*** 목록에서 가장 왼쪽의 ![자세히 보기 아이콘](/img/ico-detail-view.svg) 버튼 클릭
 * ***대시보드*** > ***액티브 트랜잭션*** > ***트랜잭션*** 탭에서 종료된 트랜잭션 컬럼 선택 > ***트랜잭션 보기*** 버튼 클릭
 * ***분석*** > ***히트맵*** > ***히트맵 트랙잭션*** 차트 드래그 > ***TX 트레이스*** 목록에서 항목 클릭
-
-수정 전<br/>
-![](/img/release/apm-transaction-detail-before.png)
-
-수정 후<br/>
-![](/img/release/apm-transaction-detail-after.png)
 :::
 
-* <Status>Feature</Status> <UI>메소드 분석</UI>, <UI>SQL 분석</UI> 탭 추가
+수정 전<br/>
+![](/img/release/apm-transaction-list-before.png)
 
-  * ***메소드 분석***: 트레이스 스탭 정보에서 중복 실행된 메소드에 대한 분석 정보를 제공합니다.
-  * ***SQL 분석***: 트레이스 스탭 정보에서 중복 실행된 SQL 문에 대한 분석 정보를 제공합니다.
+수정 후<br/>
+![](/img/release/apm-transaction-list-after.png)
+
+* <Status>Feature</Status> <UI>메소드 분석</UI>: 트레이스 스탭 정보에서 중복 실행된 메소드에 대한 분석 정보를 제공합니다.
+
+* <Status>Feature</Status> <UI>SQL 분석</UI>: 트레이스 스탭 정보에서 중복 실행된 SQL 문에 대한 분석 정보를 제공합니다.
 
 * <Status>Change</Status> 탭 메뉴의 명칭 수정
 
@@ -72,12 +71,22 @@ import UI from '@site/src/components/UItext';
   * ***프로파일 트리*** → ***트리 뷰***
   * ***로그*** → ***트랜잭션 로그***
 
-* <Status>Change</Status> 트랙잭션 차트에서 버튼 명칭 수정: <UI>프로파일 다이어그램</UI> → <UI>다이어그램</UI>
+* <Status>Change</Status> <UI>테이블 뷰</UI> 탭의 디자인 수정
 
-* <Status>Change</Status> <UI>테이블 뷰</UI>의 메소드 정보 텍스트에 서식 추가
+  * 메소드 정보 스텝(***스탭 내용*** 컬럼)의 텍스트 색상 표시
+  * 메소드 정보 스텝(***스탭 내용*** 컬럼)의 depth 정보를 들여쓰기로 표시
+  * 컬럼명 변경: ***누적 시간*** → ***구간 시간***
+
+* <Status>Change</Status> <UI>트리 뷰</UI> 탭의 디자인 변경
 
   수정 전<br/>
-  ![](/img/release/apm-transaction-list-before.png)
+  ![](/img/release/transaction-profile-trace-before.png)
 
   수정 후<br/>
-  ![](/img/release/apm-transaction-list-after.png)
+  ![](/img/release/transaction-profile-trace-after.png)
+
+  * 트레이스 타입에 따른 텍스트 색상 표시
+  * 데이터 구분 컬럼 추가(***상세 정보***, ***타입***, ***경과 시간***)
+  * 액티브 스택 항목을 클릭하면 **상세 정보** 확인 뷰 추가
+
+* <Status>Change</Status> 트랙잭션 차트에서 버튼 명칭 수정: <UI>프로파일 다이어그램</UI> → <UI>다이어그램</UI>

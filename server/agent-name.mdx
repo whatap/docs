@@ -1,13 +1,13 @@
 ---
-id: server-agent-naming
+id: agent-name
 title: 에이전트 이름 식별
 description: 모니터링 대상을 식별하기 위해 에이전트 이름 설정 방법을 제공합니다.
-tags: [ 서버, 에이전트, 이름 설정 ]
+tags: [ Server, 에이전트, 이름 설정 ]
 ---
 
 와탭은 모니터링 정보 수집 대상인 인프라 서버 식별을 위해 기본적으로 서버로부터 수집한 정보를 활용합니다. 기본값은 서버의 호스트 명(hostname)입니다.
 
-{@include: ../apm/_agent-name-warning.mdx}
+{@include: ../common-items/_agent-name-warning.mdx}
 
 사용자 친화적인 이름을 지정할 경우 다음과 같이 설정 파일에 지정 가능합니다.
 
@@ -27,4 +27,3 @@ tags: [ 서버, 에이전트, 이름 설정 ]
 
     Add-Content "C:\Program Files\WhatapInfra\whatap.conf" "oname=$WHATAP_SERVER_NAME"
     ```
-

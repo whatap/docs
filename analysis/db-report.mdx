@@ -5,6 +5,14 @@ description: 개별 프로젝트에 대해 서비스 이용 현황과 장애 발
 tags: [ 데이터베이스, 데이터베이스 모니터링, 보고서 ]
 ---
 
+import {Redirect} from '@docusaurus/router';
+
+export const Home = () => {
+  return <Redirect to="/mysql/report-intro" />;
+};
+
+<Home/>
+
 {@include: _report-intro.mdx}
 
 ## 일간 데이터베이스 보고서

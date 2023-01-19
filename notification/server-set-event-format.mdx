@@ -5,6 +5,15 @@ description: 서버 모니터링에서 제공하는 경고 알림의 이벤트 �
 tags: [ 경고 알림, 이벤트, 서버, 이벤트 수신 포맷 ]
 ---
 
+import {Redirect} from '@docusaurus/router';
+
+export const Home = () => {
+  return <Redirect to="/server/set-event-format" />;
+};
+
+<Home/>
+
+
 ## 서버 알림 템플릿
 
 서버 모니터링은 예외적으로 알림 템플릿이 다릅니다.

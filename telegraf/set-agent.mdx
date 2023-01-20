@@ -1,5 +1,5 @@
 ---
-id: tf-settings
+id: set-agent
 title: 설정하기
 description: Telegraf 에이전트 서버에 있는 whatap.conf 파일을 통해 설정할 수 있는 옵션에 대해 알아봅니다.
 tags: [ Telegraf, 설정하기 ]
@@ -11,7 +11,7 @@ tags: [ Telegraf, 설정하기 ]
 
 와탭은 모니터링 정보 수집 대상인 인프라 서버 식별을 위해 기본적으로 서버로부터 수집한 정보를 활용합니다. 
 
-{@include: ../apm/_agent-name-warning.mdx}
+{@include: ../common-items/_agent-name-warning.mdx}
 
 * **object_name** <span class='type'>String</span><br/>
 기본값 `{type}`-`{hostname}`-`{ip2}`-`{ip3}`-`{docker}`<br/>애플리케이션을 식별하는 에이전트 이름(ONAME) 체계입니다. ONAME을 토대로 OID가 생성됩니다.
@@ -25,7 +25,7 @@ tags: [ Telegraf, 설정하기 ]
 
 * **app_name** <span class='type'>String</span><br/>
     애플리케이션을 식별하는 에이전트 이름(ONAME) 체계에 사용되는 애플리케이션 명입니다.`object_name`의 `{type}`에 해당하는 값입니다.
-{@include: _restart-w-tf.mdx}
+{@include: ../common-items/_restart-w-tf.mdx}
 
 ## 에이전트 통신 설정
 
@@ -54,7 +54,7 @@ tags: [ Telegraf, 설정하기 ]
 
 * **telegraf_tcp_port** <span class='type'>tcp_port</span><br/>
 기본값 `6600`<br/>Telegraf socker_writer output plugin이 연결할 TCP Port입니다.
-{@include: _restart-w-tf.mdx}
+{@include: ../common-items/_restart-w-tf.mdx}
 
 * **telegraf_delta_fields** <span class='type'>String</span><br/>
 기본값 `1024`  

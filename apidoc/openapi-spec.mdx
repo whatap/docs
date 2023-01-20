@@ -145,12 +145,17 @@ Spot 정보 조회용 Open API로 호출할 수 있는 항목은 다음과 같�
 * `etime`: 조회 종료 시간 (UNIX epoch time, millisecond)
 
 :::note
-`etime`은 `stime`을 기준으로 1일을 초과할 수 없습니다.
+액티브 사용자는 1일 단위 그리고 1개월 단위로 집계됩니다. 
+* 액티브 사용자(1일 단위 ): `etime`은 `stime`을 기준으로 31일을 초과할 수 없습니다.
+* 액티브 사용자(1개월 단위): `etime`은 `stime`을 기준으로 365일을 초과할 수 없습니다.
 :::
 
-장기 통계 조회용 OpenAPI로 호출할 수 있는 항목은 다음과 같습니다. Open API 호출 사용법은 [다음 문서](openapi-call-long-stat)를 참조하세요.
+Open API 호출 사용법은 [다음 문서](openapi-call-long-stat)를 참조하세요.
 
-* Full GC 로그
+<!--
+1. 상기 full gc 로그 내용 폐기 요청
+2. 장기 통계 정보 기술 오류 수정 요청
+-->
 
 ### 단기 조회
 

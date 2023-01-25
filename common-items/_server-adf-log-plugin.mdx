@@ -1,6 +1,6 @@
 임의의 로그를 수집할 수 있습니다. 다음 설정은 에이전트 재시작이 필요합니다.
 
-```bash title='Linux Shell'
+```bash title='Linux Shell' showLineNumbers {9-11}
 cd /usr/whatap/infra
 sudo mkdir extension
 
@@ -9,6 +9,9 @@ sudo WHATAP_HOME=/usr/whatap/infra/conf ./whatap_infrad unlock-extension
 echo >extension/logsink.conf<<EOL
 [[inputs.logsink]]
   category = "serverlog"
+  stats_enabled = false ## 로그 발생량 통계 별도 데이터로 전송 여부
+  stats_category = "serverlog_stats" ## 로그 발생량 통계 카테고리
+  excludeNames = [ ".gz",".zip" ] ## 로그 파일 경로(path)에 별표(*)가 포함되어 제외할 로그 비대상 파일명 설정
   [[inputs.logsink.file]]
     path = "/some/path/to/*.log"
     disabled = false
@@ -22,3 +25,24 @@ EOL
 
 sudo service whatap restart
 ```
+
+* `stats_enabled`: 별도의 로그 수집 통계 데이터 발생 여부를 설정합니다. 기본값은 `false`입니다. 값을 `true`로 설정하면 `stats_category`에서 설정한 카테고리로 통계 데이터가 발생합니다.
+
+* `stats_category`: 별도의 로그 수집 통계 데이터를 저장할 메트릭스 카테고리를 설정합니다. 통계 데이터 필드는 다음과 같습니다.
+
+  * `file`
+  * `checkInterval`
+  * `encoding`
+  * `filepos`
+  * `checkedLocalTime`
+  * `lastupdatedLocalTime`
+  * `fileSize`
+  * `error`
+  * `firstCheck`
+  * `transferBytes`
+
+* `excludeNames`: 로그 파일 경로(path)에 별표(*)를 포함한 경우 로그 비대상 파일을 제외하도록 파일명을 설정할 수 있습니다. 쉼표(,)를 구분자로 이용해 복수 설정할 수 있습니다.
+
+  ```ini title='예시'
+  excludeNames = [ ".gz",".zip" ]
+  ```

@@ -5,176 +5,56 @@ description: Amazon ECS 아이템 설치를 안내합니다.
 tags: [ 설치하기, Amazon ECS ]
 ---
 
+import TR from '@site/src/components/TR';
+
 와탭 Amazon ECS 모니터링은 META API 및 Cgroup 디렉터리를 통해 도커 컨테이너별 자원 사용량을 실시간으로 수집합니다. Amazon ECS API 연동 와탭 Task를 통해 Amazon ECS Service, Deployment, Container Instance의 상태를 조회 및 수집합니다.
 
 {@include: ../getting-started/_create-project-accesskey-item.mdx} 
 
-## 필요 소프트웨어
+## 사전 점검 사항
 
 * **AWS CLI**  
-    설치 방법은 [다음 문서](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-configure.html)를 참조하세요.
+  설치 방법은 [다음 문서](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-configure.html)를 참조하세요.
 * **Amazon ECS CLI**  
-    설치 방법은 [다음 문서](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/Welcome.html)를 참조하세요.
-* **Python 2.x / 3.x**
+  설치 방법은 [다음 문서](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/Welcome.html)를 참조하세요.
+* **Python 2.x / 3.x**<br/>
+  스크립트의 json 문서 분석을 위해 설치가 필요합니다.
 
 :::note
-설치에 쓰이는 와탭 이미지(*whatap/ecs_mon*)는 다운로드 후 사용자 레지스트리에 등록하고 사용하는 것을 권장합니다.
+* 설치에 쓰이는 와탭 이미지(*whatap/ecs_mon*)는 다운로드 후 사용자 레지스트리에 등록하고 사용하는 것을 권장합니다.
+* 와탭 서버로 데이터 전송하기 위해 **6600** 포트가 열려 있어야 합니다.
 :::
 
 ## 모니터링 대상
 
-Amazon ECS의 launch type에 따라 아이템이 구분됩니다. 모니터링 대상은 Task, Service, Deployment, ContainerInstance입니다.
+Amazon ECS의 Launch Type에 따라 아이템이 구분됩니다. 모니터링 대상은 Task, Service, Deployment, Container Instance입니다.
 
-* Amazon ECS Launch Type Fargate 모니터링 (Task, Service, Deployment)
-* Amazon ECS Launch Type EC2 모니터링 (Task, Service, Deployment, ContainerInstance)
+* ***EC2 Launch Type***: Task, Service, Deployment, Container Instance
+![EC2 DAEMON](https://img.whatap.io/media/images/ecs_ec2_whatap_monitoring.png)
+
+* ***Fargate Launch Type***: Task, Service, Deployment
+![ECS Fargate Sidecar](https://img.whatap.io/media/images/ecs_fargate_whatap_monitoring_S1OGECY.png)
+
+다음의 모니터링 절차도 ***EC2 Launch Type*** 모니터링을 위한 절차와 ***Fargate Launch Type*** 모니터링을 위한 절차로 구분되어 진행됩니다.
 
 :::note
-* Amazon ECS launch types 에 대한 자세한 설명은 [다음 문서](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html)를 참조하세요.
-* 다음의 모니터링 절차도 Launch Type Fargate 모니터링을 위한 절차와 Launch Type EC2 모니터링을 위한 절차로 구분되어 진행됩니다.
+Amazon ECS launch types에 대한 자세한 설명은 [다음 문서](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html)를 참조하세요.
 :::
 
 ## 모니터링 절차
 
-1. 사용자 와탭 콘솔에서 인티그레이션 프로젝트를 Amazon ECS 사용 상태로 생성합니다.
-1. 와탭 Amazon ECS 에이전트를 전용 Task 혹은 Sidecar 로 배포합니다.
+![ecs install](/img/amazon-ecs-install.png)
 
-## Amazon ECS Launch Type Fargate 와탭 에이전트 Task 배포
+<!-- * ***상품 카탈로그*** 화면에서 Amazon ECS를 선택하고 프로젝트를 생성하세요. -->
 
-![ECS Fargate Sidecar](https://img.whatap.io/media/images/ecs_fargate_whatap_monitoring_S1OGECY.png)
+* 설치 안내 섹션 ![number-s](/img/number-01.png) 탭의 안내를 참조해 와탭 Amazon ECS 에이전트를 전용 Task 혹은 Sidecar로 배포하세요.
+* 설치 안내 섹션 ![number-s](/img/number-02.png) 탭의 안내를 참조해 모니터링 서비스를 활성화해 모니터링 서비스를 시작하세요.
 
-1. 와탭 ECS 모니터링 설정 클릭 후 ***Task 생성하기***에서 Launch Type Fargate를 선택합니다.
-* 스크립트를 실행하여 AWS ECS API READONLY IAM ROLE을 만듭니다. 
-:::note
-와탭 Task가 ECS Service 를 조회하여 서비스 상태를 실시간 수집하는데 필요합니다.
-:::
-* 실행하는데 필요한 항목은 다음과 같습니다.
-    * ACCESSKEY (와탭 프로젝트 Access Key)
-    * WHATAP_HOST (와탭 수집 리전 IP, 복수 IP는 `/` 로 연결)
-    * REGION (AWS Region)
-    * PROFILE (ECS Profile)
-    * CLUSTER (ECS Cluster)
-    * CLUSTER_CONFIG (ECS Cluster Config)
-    * TASK_EXECUTION_ROLE (와탭 에이전트 Task ECS Task 실행 역할)
-    * SUBNET_1 (와탭 에이전트 Task SUBNET#1)
-    * SUBNET_2 (와탭 에이전트 Task SUBNET#2)
-    * SGGRP (와탭 에이전트 Task Security Group)
-* 다음 예시를 참조하세요.
-    ```bash title='Linux'
-    #!/usr/bin/env bash
-    export REGION=xxxxx
-    export WHATAP_ECS_ROLE_READONLY=WhatapEcsReadonly
-    export WHATAP_ECS_POLICY_READONLY=WhatapEcsReadonly
-    cat >ecs_trust.json <<EOL
-    {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Sid": "",
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "ecs-tasks.amazonaws.com"
-                },
-                "Action": "sts:AssumeRole"
-            }
-        ]
-    }
-    EOL
-    aws iam create-role --role-name $WHATAP_ECS_ROLE_READONLY --assume-role-policy-document file://ecs_trust.json
-    cat >ecs_readonly.json <<EOL
-    {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "ecs:Describe*",
-                    "ecs:List*"
-                ],
-                "Resource": [
-                    "*"
-                ]
-            }
-        ]
-    }
-    EOL
-    aws iam --region $REGION create-policy --policy-name $WHATAP_ECS_POLICY_READONLY \
-        --policy-document file://ecs_readonly.json | python -c 'import json,sys;print(json.load(sys.stdin)["Policy"]["Arn"])' > policy_arn.txt
-    export POLICY_ARN=$(cat policy_arn.txt)
-    aws iam --region $REGION attach-role-policy --role-name $WHATAP_ECS_ROLE_READONLY \
-        --policy-arn $POLICY_ARN | python -c 'import json,sys;print(json.load(sys.stdin)["Role"]["Arn"])' > role_arn.txt
-    ```
-2. 생성한 IAM ROLE을 탑재한 whatap-single 에이전트를 시작합니다. ECS API를 사용하여 Service 상태를 실시간 수집합니다. 
-    ```bash title='Linux'
-    #!/usr/bin/env bash
-    export ACCESSKEY=
-    export WHATAP_HOST=
-    export PROFILE=
-    export REGION=
-    export CLUSTER=
-    export CLUSTER_CONFIG=
-    export TASK_EXECUTION_ROLE=
-    export SUBNET_1=
-    export SUBNET_2=
-    export SGGRP=
-    export WHATAP_ECS_ROLE_READONLY=WhatapEcsReadonly
-    export PROJNAME=whatap-monitoring
-    export LAUNCH_TYPE=FARGATE
-    export WHATAP_ROLE_ARN=$(cat role_arn.txt)
-    cat >docker-compose.yml <<EOL
-    version: '3'
-    services:
-    whatap-ecs-agent:
-        image: whatap/ecs_mon
-        environment:
-        - ACCESSKEY=$ACCESSKEY
-        - WHATAP_HOST=$WHATAP_HOST
-        - FARGATE_HELPER=true
-    EOL
-    cat >ecs-params.yml <<EOL
-    version: 1
-    task_definition:
-    task_execution_role: $TASK_EXECUTION_ROLE
-    task_role_arn: "$WHATAP_ROLE_ARN"
-    ecs_network_mode: awsvpc
-    task_size:
-        mem_limit: 0.5GB
-        cpu_limit: 256
-    run_params:
-    network_configuration:
-        awsvpc_configuration:
-        subnets:
-            - "$SUBNET_1"
-            - "$SUBNET_2"
-        security_groups:
-            - "$SGGRP"
-        assign_public_ip: ENABLED
-    EOL
-    ecs-cli compose --project-name $PROJNAME service up \
-        --cluster-config $CLUSTER_CONFIG \
-        --ecs-profile $PROFILE --region $REGION
-    ```
-3. 다음과 같이 최종 사용자 Task에 와탭 sidecar 에이전트를 배포 합니다. ACCESSKEY 및 WHATAP_HOST를 환경변수로 추가하여 수집서버와 통신할 수 있도록 합니다.
-    ```bash title='Linux'
-    version: '3'
-    services:
-    xxxxx:
-        image: xxxx
-        ports:
-        - "xx:xx"
-        ...
-    whatap-ecs-agent:
-        image: whatap/ecs_mon
-        environment:
-        - ACCESSKEY=
-        - WHATAP_HOST=
-    ```
+### EC2 Launch Type
 
-## Amazon ECS Launch Type EC2 와탭 에이전트 배포
-
-![EC2 DAEMON](https://img.whatap.io/media/images/ecs_ec2_whatap_monitoring.png)
-
-1. 와탭 ECS 모니터링 설정 클릭 후 ***Task 생성하기***에서 Launch Type EC2를 선택합니다.
-1. 다음 스크립트를 실행하여 DAEMON 타입 Task를 생성 합니다. CLUSTER, REGION을 추가하고 ACCESSKEY 및 WHATAP_HOST를 설정하여 수집서버와 통신할 수 있도록 합니다.
+1. 프로젝트를 생성하고 ***사전 점검 사항***을 확인했다면 ***관리*** > ***에이전트 설치***의 설치 안내 섹션으로 이동하세요. 
+1. ![number-s](/img/number-01.png) ***Task 생성하기*** 탭에서 ***EC2 Launch Type***을 선택하세요.
+1. 다음 스크립트를 실행해 DAEMON 타입 Task를 생성하세요. `CLUSTER`, `REGION`을 추가하고 `ACCESSKEY` 및 `WHATAP_HOST`를 설정해 수집서버와 통신할 수 있게 합니다.
     ```bash title='Linux'
     #!/usr/bin/env bash
     export ACCESSKEY=
@@ -233,8 +113,148 @@ Amazon ECS의 launch type에 따라 아이템이 구분됩니다. 모니터링 �
     --launch-type $LAUNCH_TYPE \
     --region $REGION
     ```
-1. 실행하는데 필요한 항목은 다음과 같습니다.
-* ACCESSKEY (와탭 프로젝트 Access Key)
-* WHATAP_HOST (와탭 수집 리전 IP)
-* REGION (AWS Region)
-* CLUSTER (ECS Cluster)
+* 실행에 필요한 항목은 다음과 같습니다.
+    * `ACCESSKEY` (와탭 프로젝트 Access Key)
+    * `WHATAP_HOST` (와탭 수집 리전 IP)
+    * `REGION` (AWS Region)
+    * `CLUSTER` (ECS Cluster)
+
+### Fargate Launch Type 
+
+1. 프로젝트를 생성하고 ***사전 점검 사항***을 확인했다면 ***관리*** > ***에이전트 설치***의 설치 안내 섹션으로 이동하세요. 
+2. ![number-s](/img/number-01.png) ***Task 생성하기*** 탭에서 ***Fargate Launch Type***을 선택하세요.
+  * 스크립트를 실행하여 AWS ECS API READONLY IAM ROLE을 만듭니다. 
+  :::note
+  와탭 Task가 ECS Service를 조회하여 서비스 상태를 실시간 수집하는데 필요합니다.
+  :::
+  * 실행에 필요한 항목은 다음과 같습니다.
+    * `ACCESSKEY` (와탭 프로젝트 Access Key)
+    * `WHATAP_HOST` (와탭 수집 리전 IP, 복수 IP는 `/` 로 연결)
+    * `REGION` (AWS Region)
+    * `PROFILE` (ECS Profile)
+    * `CLUSTER` (ECS Cluster)
+    * `CLUSTER_CONFIG` (ECS Cluster Config)
+    * `TASK_EXECUTION_ROLE` (와탭 에이전트 Task ECS Task 실행 역할)
+    * `SUBNET_1` (와탭 에이전트 Task SUBNET#1)
+    * `SUBNET_2` (와탭 에이전트 Task SUBNET#2)
+    * `SGGRP` (와탭 에이전트 Task Security Group)
+  * 다음 예시를 참조하세요.
+    ```bash title='Linux'
+    #!/usr/bin/env bash
+    export REGION=xxxxx
+    export WHATAP_ECS_ROLE_READONLY=WhatapEcsReadonly
+    export WHATAP_ECS_POLICY_READONLY=WhatapEcsReadonly
+    cat >ecs_trust.json <<EOL
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "",
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "ecs-tasks.amazonaws.com"
+                },
+                "Action": "sts:AssumeRole"
+            }
+        ]
+    }
+    EOL
+    aws iam create-role --role-name $WHATAP_ECS_ROLE_READONLY --assume-role-policy-document file://ecs_trust.json
+    cat >ecs_readonly.json <<EOL
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ecs:Describe*",
+                    "ecs:List*"
+                ],
+                "Resource": [
+                    "*"
+                ]
+            }
+        ]
+    }
+    EOL
+    aws iam --region $REGION create-policy --policy-name $WHATAP_ECS_POLICY_READONLY \
+        --policy-document file://ecs_readonly.json | python -c 'import json,sys;print(json.load(sys.stdin)["Policy"]["Arn"])' > policy_arn.txt
+    export POLICY_ARN=$(cat policy_arn.txt)
+    aws iam --region $REGION attach-role-policy --role-name $WHATAP_ECS_ROLE_READONLY \
+        --policy-arn $POLICY_ARN | python -c 'import json,sys;print(json.load(sys.stdin)["Role"]["Arn"])' > role_arn.txt
+    ```
+3. 생성한 IAM ROLE을 탑재한 Whatap-Single 에이전트를 시작하세요. ECS API를 사용하여 Service 상태를 실시간 수집합니다. 
+    ```bash title='Linux'
+    #!/usr/bin/env bash
+    export ACCESSKEY=
+    export WHATAP_HOST=
+    export PROFILE=
+    export REGION=
+    export CLUSTER=
+    export CLUSTER_CONFIG=
+    export TASK_EXECUTION_ROLE=
+    export SUBNET_1=
+    export SUBNET_2=
+    export SGGRP=
+    export WHATAP_ECS_ROLE_READONLY=WhatapEcsReadonly
+    export PROJNAME=whatap-monitoring
+    export LAUNCH_TYPE=FARGATE
+    export WHATAP_ROLE_ARN=$(cat role_arn.txt)
+    cat >docker-compose.yml <<EOL
+    version: '3'
+    services:
+    whatap-ecs-agent:
+        image: whatap/ecs_mon
+        environment:
+        - ACCESSKEY=$ACCESSKEY
+        - WHATAP_HOST=$WHATAP_HOST
+        - FARGATE_HELPER=true
+    EOL
+    cat >ecs-params.yml <<EOL
+    version: 1
+    task_definition:
+    task_execution_role: $TASK_EXECUTION_ROLE
+    task_role_arn: "$WHATAP_ROLE_ARN"
+    ecs_network_mode: awsvpc
+    task_size:
+        mem_limit: 0.5GB
+        cpu_limit: 256
+    run_params:
+    network_configuration:
+        awsvpc_configuration:
+        subnets:
+            - "$SUBNET_1"
+            - "$SUBNET_2"
+        security_groups:
+            - "$SGGRP"
+        assign_public_ip: ENABLED
+    EOL
+    ecs-cli compose --project-name $PROJNAME service up \
+        --cluster-config $CLUSTER_CONFIG \
+        --ecs-profile $PROFILE --region $REGION
+    ```
+4. 다음과 같이 최종 사용자 Task에 와탭 Sidecar 에이전트를 배포하세요. `ACCESSKEY` 및 `WHATAP_HOST`를 환경 변수로 추가해 수집 서버와 통신할 수 있도록 합니다.
+    ```bash title='Linux'
+    version: '3'
+    services:
+    xxxxx:
+        image: xxxx
+        ports:
+        - "xx:xx"
+        ...
+    whatap-ecs-agent:
+        image: whatap/ecs_mon
+        environment:
+        - ACCESSKEY=
+        - WHATAP_HOST=
+    ```
+
+### 모니터링 서비스 활성화
+
+![number-s](/img/number-02.png) ***모니터링 시작하기*** 탭에서 ***모니터링 서비스 활성화*** 버튼을 선택해 모니터링 서비스를 시작하세요.
+
+* 모니터링 서비스 활성화 가능<br/>
+![모니터링 활성화](/img/amazon-ecs-monitoring-on.png)
+
+* 모니터링 서비스 활성화 불가<br/>
+![모니터링 활성화 불가](/img/amazon-ecs-monitoring-off.png)

@@ -5,29 +5,15 @@ description: Amazon CloudWatch 아이템 설치를 안내합니다.
 tags: [ 설치하기, Amazon CloudWatch, 클라우드 ]
 ---
 
-와탭 Amazon CloudWatch 모니터링은 API 연동을 통해 metric을 주기적으로 수집합니다. 수집을 원하는 서비스에 해당하는 CloudWatch 네임스페이스를 5분 기간으로 원하는 stat을 취사선택해 수집합니다. 모니터링 시작 시 모든 리전의 사용자 자원을 검색하여 원클릭으로 모니터링을 시작할 수 있습니다. Role 방식 인증으로 안전하고 편리하게 사용할 수 있습니다. 
+import TR from '@site/src/components/TR';
 
-{@include: ../getting-started/_create-project-accesskey-item.mdx} 
+와탭 Amazon CloudWatch 모니터링은 API 연동을 통해 메트릭을 주기적으로 수집합니다. 수집을 원하는 서비스에 해당하는 CloudWatch 네임스페이스에서 5분 간격으로 원하는 스탯을 취사선택해 수집합니다. 모니터링 시작 시 모든 리전의 사용자 자원을 검색하여 원클릭으로 모니터링을 시작할 수 있습니다. Role 방식 인증으로 안전하고 편리하게 사용할 수 있습니다. 
 
-## 모니터링 절차
+{@include: ../getting-started/_create-project-accesskey-item.mdx}
 
-1. 사용자 와탭 콘솔에서 인티그레이션 프로젝트를 Amazon CloudWatch 사용 상태로 생성하세요.
-1. Amazon 인증 정보를 입력하세요.
-1. CloudWatch Namespace 및 수집 주기를 선택하세요.
-1. Region, Metric, Stats 등을 선택하세요.
+## 사전 점검 사항
 
-:::note
-설치 후 사용량에 따라 와탭 요금과는 별개로 클라우드에서 추가 비용이 발생할 수 있습니다. 설치 전 사용 중인 클라우드 서비스의 가격 정책을 [다음 문서](https://aws.amazon.com/ko/cloudwatch/pricing/)에서 확인하세요.
-:::
-
-## 인증 정보 입력
-
-Amazon CloudWatch 인증 방법은 다음 두 가지 방법 중 하나를 선택할 수 있습니다.
-
-* Accesskey
-* Role ARN
-
-## 필요 권한
+필요한 권한과 권장되는 정책을 확인하세요.
 
 |Resouce|권한 |
 |----|----|
@@ -42,7 +28,33 @@ Amazon CloudWatch 인증 방법은 다음 두 가지 방법 중 하나를 선택
 |RDS  |Read|
 
 * **권장 Policy**
-    * arn:aws:iam::aws:policy/ReadOnlyAccess
+  * arn:aws:iam::aws:policy/ReadOnlyAccess
+
+## 모니터링 절차
+
+<!-- 사용자 와탭 콘솔에서 인티그레이션 프로젝트를 Amazon CloudWatch 사용 상태로 생성하세요. -->
+
+1. Amazon 인증 정보를 입력하세요.
+1. CloudWatch 네임스페이스 및 ***수집 주기***를 선택하세요.
+1. ***리전***, ***메트릭스***, 스탯(***Average***, ***Maximum***, ***Medium***, ***Sum***) 등을 선택하세요.
+
+:::note
+설치 후 사용량에 따라 와탭 요금과는 별개로 클라우드에서 추가 비용이 발생할 수 있습니다. 설치 전 사용 중인 클라우드 서비스의 가격 정책을 [다음 문서](https://aws.amazon.com/ko/cloudwatch/pricing/)에서 확인하세요.
+:::
+
+<!-- 
+## 인증 정보 입력
+
+Role ARN을 이용한 설치 방법을 지원합니다. 
+
+Amazon CloudWatch 인증 방법은 다음 두 가지 방법 중 하나를 선택할 수 있습니다.
+
+* Accesskey
+* Role ARN
+
+-->
+
+<!-- 
 
 ### Access / Secret 정보 입력
 
@@ -50,9 +62,11 @@ Amazon CloudWatch 인증 방법은 다음 두 가지 방법 중 하나를 선택
 
 와탭 모니터링 용 Identity and Access Management(IAM) 사용자를 생성, 선정 하고 필요한 권한을 추가할 수 있습니다. 액세스 키를 생성하고 Access Key ID와 Secret을 와탭에 입력하세요.
 
-### Role 정보 입력
+-->
 
-와탭 AWS 계정(911937781722)이 직접 사용자 Role을 Assume하여 Cloudwatch 정보를 수집합니다. Role Assume은 액세스 키 발급이 불필요해 안전하고 편리합니다.
+### 인증 정보 입력 
+
+Role ARN을 이용한 설치 방법을 지원합니다. 와탭 AWS 계정(911937781722)이 직접 사용자 Role을 Assume하여 Cloudwatch 정보를 수집합니다. Role Assume은 액세스 키 발급이 불필요해 안전하고 편리합니다.
 
 #### 역할(Role) 생성
 
@@ -65,8 +79,9 @@ Amazon CloudWatch 인증 방법은 다음 두 가지 방법 중 하나를 선택
 1. Role의 이름과 설명을 입력하고 ***Create role*** 버튼을 클릭하여 Summary 화면으로 전환하세요.
 1. Maximum session duration 항목의 ***Edit***를 클릭하여 12시간으로 변경하고 저장하세요. 
 1. ***Role ARN*** 항목을 복사하세요.
+1. 다시 와탭 ***관리*** > ***에이전트 설치*** ***Role*** 아래 ***ARN*** 창에 복사한 Role ARN을 붙여넣기 하고 ***확인***을 선택하세요.
 
-### Namespace 및 수집 주기 선택
+### 네임스페이스 및 수집 주기 선택
 
 {@include: ../common-items/_namespace-collect.mdx}
 
@@ -74,7 +89,7 @@ Amazon CloudWatch 인증 방법은 다음 두 가지 방법 중 하나를 선택
 
 {@include: ../common-items/_collecting-period.mdx}
 
-#### Namespace
+#### 네임스페이스
 
 * AWS ACMPrivateCA
 * AWS AmazonMQ
@@ -181,7 +196,7 @@ Amazon CloudWatch 인증 방법은 다음 두 가지 방법 중 하나를 선택
 
 ![Amazon Cloudwatch - Namespace](https://img.whatap.io/media/images/amazon_cloudwatch_setup_dialog_1st.png)
 
-### Region, Metric, Stats 선택
+### 리전, 메트릭스, 스탯 선택
 
 {@include: ../common-items/_region-metric-stats.mdx}
 

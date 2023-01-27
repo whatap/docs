@@ -7,25 +7,36 @@ tags: [ 설치하기, Azure Monitor, 클라우드 ]
 
 import TR from '@site/src/components/TR';
 
-와탭 Azure Monitor 모니터링은 API 연동을 통해 metric을 주기적으로 수집합니다. 수집을 원하는 서비스에 해당하는 Azure Monitor 네임스페이스를 5분 기간으로 원하는 stat을 취사선택해 수집합니다.  모니터링 시작 시 모든 리전의 사용자 자원을 검색하여 원클릭으로 모니터링을 시작할 수 있습니다. Azure Registerd App을 지원하여 안전하고 편리하게 사용하실 수 있습니다. 
+와탭 Azure Monitor 모니터링은 API 연동을 통해 메트릭을 주기적으로 수집합니다. 수집을 원하는 서비스에 해당하는 Azure Monitor 네임스페이스를 5분 기간으로 원하는 스탯을 취사선택해 수집합니다. 모니터링 시작 시 모든 리전의 사용자 자원을 검색하여 원클릭으로 모니터링을 시작할 수 있습니다. 와탭은 안전하고 편리한 사용을 위해 Azure Registerd App을 지원합니다.
  
-{@include: ../getting-started/_create-project-accesskey-item.mdx}
+{@include: ../getting-started/_create-project-cloud.mdx}
 
 ## 모니터링 절차
 
+<!-- 
 1. 사용자 와탭 콘솔에서 인티그레이션 프로젝트를 Azure Monitor 사용 상태로 생성하세요.
+-->
+
 1. Azure Registered App을 추가하세요.
 1. Azure 인증 정보를 입력하세요.
-1. Azure Monitor Namespace 및 수집 주기를 선택하세요.
-1. ResourceGroup, Metric, Stats 등을 선택하세요.
+1. Azure Monitor 네임스페이스 및 수집 주기를 선택하세요.
+1. 리소스 그룹, 메트릭스, 스탯 등을 선택하세요.
 
 :::note
 설치 후 사용량에 따라 와탭 요금과는 별개로 클라우드에서 추가 비용이 발생할 수 있습니다. 설치 전 사용 중인 클라우드 서비스의 가격 정책을 [다음 문서](https://azure.microsoft.com/ko-kr/pricing/details/monitor/)에서 확인하세요.
 :::
 
-## Azure Registered App 추가
+### Azure Registered App 추가
 
-와탭 모니터링 용 [Registered App](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)을 추가할 수 있습니다. Secret을 생성하고 Application ID, Tenant Id 와 Secret을 와탭에 입력합니다.
+<!-- 
+와탭 모니터링용 [Registered App](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)을 추가할 수 있습니다. Secret을 생성하고 Application ID, Tenant Id 와 Secret을 와탭에 입력하세요.
+-->
+
+와탭 모니터링용 [Registered App](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)을 추가할 수 있습니다. Monitoring Reader 역할(Role)을 지정하고 ***설치하기*** 버튼을 클릭해 다음 3가지 접속 정보를 입력하세요.
+
+* 애플리케이션 ID(ApplicationId)
+* 테넌트 ID(TenantId)
+* 시크릿(Secret)
 
 ![Azure Active Directory](https://img.whatap.io/media/images/registeredapps.png)
 
@@ -33,21 +44,21 @@ import TR from '@site/src/components/TR';
 와탭 모니터링을 위해서는 Monitor Reader, 독자, API Management 서비스 독자 권한이 필요합니다. Azure Portal에서 Subscript > 액세스 제어(IAM) 메뉴에서 추가 버튼을 통해 권한을 추가할 수 있습니다.
 :::
 
-## 인증 정보 입력
+### 인증 정보 입력
 
 Azure 인증 정보인 Application ID, Tenant ID와 Secret을 와탭에 입력합니다.
 
 ![Azure Monitor - Authentification](https://img.whatap.io/media/images/whatap_azure_auth_dialog.png)
 
-## 네임스페이스 및 수집 주기 선택
+### 네임스페이스 및 수집 주기 선택
 
 {@include: ../common-items/_namespace-collect.mdx}
-
+ 
 #### 수집 주기
 
 {@include: ../common-items/_collecting-period.mdx}
 
-#### Namespace
+#### 네임스페이스
 
 * Microsoft.aadiam azureADMetrics
 * Microsoft.AnalysisServices servers
@@ -197,8 +208,8 @@ Azure 인증 정보인 Application ID, Tenant ID와 Secret을 와탭에 입력�
 * Microsoft.Web sites slots
 * Microsoft.Web staticSites
 
-## ResourceGroup, Metric, Stats 선택
+### 리소스 그룹, 메트릭스, 스탯 선택
 
-수집 체크된 Namespace의 우측 ***수정*** 버튼을 클릭하면 수집할 ResourceGroup, Metric, Stats를 선택할 수 있습니다.
+수집 체크된 네임스페이스의 우측 ![수정 아이콘](/img/ico-edit.svg)***수정*** 버튼을 누르면 수집할 리소스 그룹, 메트릭스, 스탯을 선택할 수 있습니다.
 
 ![Azure Monitor - ResourceGroup, Metric, Stats](https://img.whatap.io/media/images/whatap_azure_resourcegroup_dialog.png)

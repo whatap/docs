@@ -6,7 +6,7 @@ JBoss AS 7.0 버전 이상, JBoss EAP 6.0 버전 이상에서 Log Manager 관련
 * ```-Xbootclassloader``` 항목에 JBoss Log Manager JAR file을 설정하세요.
 
 ```apacheconf title='(JBoss 설치 경로)/bin/standalone.conf(domain.conf)' {4,12,13} showLineNumbers
-# Sepecify the exact Java VM executable to use.
+# Specify the exact Java VM executable to use.
 #
 if [ "x$JBOSS_MODULES_SYSTEM_PKGS" = "x" ]; then
     JBOSS_MODULES_SYSTEM_PKGS="org.jboss.byteman,org.jboss.logmanager,whatap"

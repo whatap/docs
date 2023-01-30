@@ -14,7 +14,7 @@ import TR from '@site/src/components/TR';
 ## 모니터링 절차
 
 <!-- 
-1. 사용자 와탭 콘솔에서 인티그레이션 프로젝트를 Azure Monitor 사용 상태로 생성하세요.
+1. 사용자 와탭 콘솔에서 인티그레이션 프로젝트를 Azure Monitor 사용 상태로 생성하세요. 
 -->
 
 1. Azure Registered App을 추가하세요.
@@ -32,7 +32,7 @@ import TR from '@site/src/components/TR';
 와탭 모니터링용 [Registered App](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)을 추가할 수 있습니다. Secret을 생성하고 Application ID, Tenant Id 와 Secret을 와탭에 입력하세요.
 -->
 
-와탭 모니터링용 [Registered App](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)을 추가할 수 있습니다. Monitoring Reader 역할(Role)을 지정하고 ***설치하기*** 버튼을 클릭해 다음 3가지 접속 정보를 입력하세요.
+와탭 모니터링용 [Registered App](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)을 추가할 수 있습니다. Monitoring Reader 역할(Role)을 지정하고 설치하기 버튼을 클릭해 다음 세 가지 접속 정보를 입력하세요.
 
 * 애플리케이션 ID(ApplicationId)
 * 테넌트 ID(TenantId)
@@ -46,7 +46,7 @@ import TR from '@site/src/components/TR';
 
 ### 인증 정보 입력
 
-Azure 인증 정보인 Application ID, Tenant ID와 Secret을 와탭에 입력합니다.
+Azure 인증 정보인 ***애플리케이션 ID***(ApplicationID), ***테넌트 ID***(TenantID)와 ***Azure 시크릿 키***(Secret)를 와탭에 입력합니다.
 
 ![Azure Monitor - Authentification](https://img.whatap.io/media/images/whatap_azure_auth_dialog.png)
 

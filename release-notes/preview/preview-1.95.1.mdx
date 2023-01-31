@@ -64,6 +64,15 @@ import UI from '@site/src/components/UItext';
 
 * <Status>Change</Status> <UI>SQL 통계</UI> 메뉴의 통계 테이블에서 <UI>sql_id</UI> 컬럼 추가
 
+* <Status>Fixed</Status> <UI>SQL 통계</UI> 메뉴에서 통계 테이블의 <code>sesstat</code>(세션 통계) 수집 방식을 쿼리 방식에서 tibero API를 이용한 방식으로 변경해 속도 및 부하 개선(최신 에이전트 업데이트 필요)<br/>
+  SQL 통계 테이블에 해당하는 컬럼 항목은 다음과 같습니다.
+
+  - ***logical_reads***
+  - ***physical_reads***
+  - ***block_updates***
+  - ***parse_count_total***
+  - ***parse_count_hard***
+
 
 ### `AWS`, `Azure`, `NCP`, `OCI`
 

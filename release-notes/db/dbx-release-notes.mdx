@@ -1,0 +1,32 @@
+---
+id: dbx-release-notes
+title: dbx Release Notes 🚀
+toc_max_heading_level: 2
+---
+
+import Status from '@site/src/components/Highlight';
+import UI from '@site/src/components/UItext';
+
+## DBX 1.6.6
+
+배포일: 2023-01-31
+
+<Status>Feature</Status> 세션 지표(<code>sesstat</code>) 수집 시 tibero API를 사용하는 방식을 추가해 속도 및 부하 개선 
+
+* 사용법
+
+  * DB 서버에 dbx 설치 및 *libTbmonXX.so* 셋업
+  * *whatap.conf* 파일에 `use_tbstat=1` 옵션 적용
+
+* 수집하는 세션 지표에 해당하는 컬럼 항목은 다음과 같습니다.
+
+  - ***logical_reads***
+  - ***physical_reads***
+  - ***block_updates***
+  - ***parse_count_total***
+  - ***parse_count_hard***
+
+* 다음 메뉴에서 확인할 수 있습니다.
+  
+  * ***대시보드***의 ***Active Sessions***
+  * ***통계/보고서*** > ***SQL 통계***

@@ -13,7 +13,8 @@
 <TabItem value="lxs" label="Linux Shell">
 
 ```bash title=SH
-sudo echo "체크할 웹 주소" | sudo tee -a /usr/whatap/infra/conf/webcheck.conf
+echo "체크할 웹 주소" | sudo tee -a /usr/whatap/infra/conf/webcheck.conf
+echo "webcheck.enabled=true" | sudo tee -a /usr/whatap/infra/conf/whatap.conf
 sudo service whatap-infra restart
 ```
 
@@ -22,6 +23,7 @@ sudo service whatap-infra restart
 
 ```bash title=SH
 Add-Content -Path "C:\Program Files\WhatapInfra\webcheck.conf" -Value "체크할 웹 주소"
+Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "webcheck.enabled=true"
 Restart-Service "Whatap Infra"
 ```
 

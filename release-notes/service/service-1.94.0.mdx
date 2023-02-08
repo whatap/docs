@@ -8,16 +8,46 @@ toc_max_heading_level: 3
 import Status from '@site/src/components/Highlight';
 import UI from '@site/src/components/UItext';
 
+## Hotfix: 2023-02-08
+
+### `공통`
+
+* ***관리*** > ***프로젝트 멤버*** 메뉴에서 다음의 기능을 추가합니다.
+
+  - <Status>Feature</Status> 멤버 목록의 <UI>소속</UI> 컬럼에서 소속 유형이 그룹인지 프로젝트인지 표기 추가
+
+  - <Status>Feature</Status> 멤버 삭제(<img src='/img/ico-trash.svg' alt='삭제 아이콘'/>) 버튼 비활성화 시 툴팁(삭제 불가능한 이유) 추가
+
+* ***이용 내역***, ***결제 관리*** 메뉴에서 다음의 기능을 수정합니다.
+
+  - <Status>Change</Status> <UI>청구서 미리보기</UI> / <UI>사용량</UI> 메뉴에서 로그 과금 기준 변경에 따른 로그 표시 단위 및 표현 단위 변경
+
+    - 로그 표시 단위 변경: LOGs ⇒ LOG UNITs
+    - 로그 표현 단위 변경: 합산된 로그 라인 수의 일 평균 표시로 변경
+    - <UI>청구서 미리보기</UI> 메뉴에서 <UI>과금 집계량</UI> 컬럼의 로그 사용량 표시 변경
+    - <UI>사용량</UI> 메뉴에서 사용량 상세의 미터링 요약 컬럼 변경
+
+<!--
+### `Database`
+
+#### 통계/보고서
+
+<Status>Feature</Status> <b>MySQL</b>, <b>Tibero</b> 상품의 <UI>보고서</UI> 메뉴에서 일간/주간/월간 사용자 정의 보고서 추가
+
+  - 성능 추이 차트 지표 선택 기능
+  - 테이블 사이즈 증감, 데이터베이스 사이즈 리스트
+-->
+
 ## Hotfix: 2023-02-02
 
-### 공통
+### `공통`
 
 <Status>Fixed</Status> <UI>관리</UI> > <UI>정비 계획</UI> 메뉴에서 등록한 정비 계획 항목이 삭제되지 않는 버그 수정
 
 
 ## Hotfix: 2023-01-18
 
-### 에이전트
+### `에이전트`
 
 <Status>Fixed</Status> Java, Python, Node.js 에이전트 설정 옵션 이름 수정
 
@@ -27,7 +57,7 @@ import UI from '@site/src/components/UItext';
 
 ## Official Release: 2023-01-11
 
-### 공통
+### `공통`
 
 #### 프로젝트 생성
 
@@ -353,7 +383,7 @@ import UI from '@site/src/components/UItext';
 * <Status>Fixed</Status> <UI>URL 목록</UI>에서 차트를 클릭하면 나타나는 창에서 '1분' 단위 조회 시 차트에 표시 되지 않는 버그 수정
 
 
-### 실험실
+### `실험실`
 
 #### 알림 메시지
 

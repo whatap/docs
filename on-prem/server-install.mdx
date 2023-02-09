@@ -149,24 +149,36 @@ Yard 서버의 경우 SSD 또는 고성능 스토리지가 필요합니다. 해�
 
 ### JDK 설치
 
-* `# yum list java*jdk`
-* `# yum install java-1.8.0-openjdk-devel.x86_64`
+```bash
+# yum list java*jdk
+# yum install java-1.8.0-openjdk-devel.x86_64
+```
 
 ### 유저 생성
 
 *	그룹 생성
-  `# groupadd whatap`
+  ```bash
+  # groupadd whatap
+  ```
 *	유저 생성
-  `# useradd -g whatap -d /whatap -m -s /bin/bash whatap`
+  ```bash
+  # useradd -g whatap -d /whatap -m -s /bin/bash whatap
+  ``` 
 *	패스워드 설정
-  `# passwd whatap`
+  ```bash
+  # passwd whatap
+  ```  
 
 ### 설치 디렉터리 생성 및 권한 
 
 * 설치 디렉터리 생성
-  `# mkdir /whatap`
+  ```bash
+  # mkdir /whatap
+  ```  
 * 설치 디렉터리 권한 부여
-  `# chown -R whatap:whatap /whatap`
+  ```bash
+  # chown -R whatap:whatap /whatap
+  ```  
 
 ## Whatap 서버 설치
 
@@ -179,15 +191,19 @@ $ tar -xvf whatap-muti-[yyyy.mm-version].tar
 
 ### 실행 스크립트 변경
 
-서버 실행 스크립트 *JAVA_HOME*을 변경하세요.
+* 서버 실행 스크립트 `JAVA_HOME`을 변경하세요.
+  ```bash
+  cd ${WHATAP_SERVER_HOME}/bin
+  $ vi front.sh eureka.sh account.sh keeper.sh yard.sh proxy.sh
 
-```bash
-cd ${WHATAP_SERVER_HOME}/bin
-$ vi front.sh eureka.sh account.sh keeper.sh yard.sh proxy.sh
-
-#JAVA_HOME=
-JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.352.b08-2.el7_9.x86_64
-```
+  #JAVA_HOME=
+  JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.352.b08-2.el7_9.x86_64
+  ```
+* `JAVA_OPTS`에서 Timezone 변경  
+  ```bash
+  JAVA_OPTS="${JAVA_OPTS} -Xmx1024m -Duser.timezone=GMT -Dfile.encoding=UTF-8"
+  JAVA_OPTS="${JAVA_OPTS} -Xmx1024m -Duser.timezone=GMT+09:00 -Dfile.encoding=UTF-8"
+  ```
 
 ### 서버 설정 파일 수정
 

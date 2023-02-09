@@ -39,27 +39,155 @@ tags: [ 운영 안내 ]
 
 ### Whatap 서버 상세
 
+|구분|서버명|프로토콜|포트|역할|비고|
+|---|---|---|---|---|---|
+|Front 서버|front|TCP|8080|화면 관리||
+|^|account|TCP|18080|계정 정보 관리||
+|^|eureka|TCP|6761|Front, account, gateway, notihub의 service discovery 담당|관리 화면|
+|^|notihub|TCP|6500|알림 연동(STMP, SMS)||
+|Yard 서버|keeper|TCP/UDP|6789|Yard의 service discovery 담당|관리 화면|
+|^|yard|TCP|7710|에이전트에서 온 성능 데이터 저장 및 가공||
+|^|^|^|6610|^|^|
+|^|proxy|TCP|6600|에이전트에서 수집한 데이터 송신||
+|^|gateway|TCP|8080|Front와 yard간의 통신 중계||
+
+
+### 수집 서버 사양
+
+* 서버(VM): 최소 2대 이상 권장
+* CPU: 4Core 이상 권장
+* Memory
+  * Front 서버: 8G 이상 권장
+  * Yard 서버: 16G 이상 권장
+* Disk
+  * Front 서버: 최소 5G 이상
+  * Yard 서버: 수집서버 Disk 산정 기준에 따름
+
+:::note
+Yard 서버의 경우 SSD 또는 고성능 스토리지가 필요합니다. 해당 사양은 OS 영역에서 사용하는 부분을 제외한 사양입니다.
+:::
+
+### 수집 서버 Disk 산정
+
+|구분|데이터 보존기간|Disk 용량|산출 근거(1 Agent 기준)|
+|---|---|---|---|
+|Server Monitoring|Raw Data : 37일|1G / 월|(1EA \* Raw Data 100M * 37일)|
+|^|5분 통계 : 1년|^|(통계 Data 20M * 365일)|
+|^|1시간 통계 : 2년|^|1 Agent 기준|
+|Application Monitoring||30G / 월|(1Gb * 30일)|
+|^|^|^|100 TPS 기준|
+|Database Monitoring||1.5G / 월|1 Agent 당 일 50Mb|
+|Kube Monitoring||AP포함 → 32G / 월|Application이 포함되어 있는 것과 없는 것에 차이가 있음.|
+|^|^|AP 미포함 → 2G / 월|^|
+
+<!-- 
+
 ### 서버 사양
+
+|구분|CPU|Memory|Disk|비고|
+|---|---|---|---|---|
+|Front 서버|2Core이상|8GB(최소 4GB)|2GB||
+|Yard 서버|4Core이상|16GB(최소 8GB)|Infra 8.2GB/년|1 Agent 기준|
+|^|^|^|^|-1EA \* Raw Data 100M *30일|
+|^|^|^|^|-Summary Data 14M *365일|
+|^|^|^|APM 30GB/월|100 TPS 기준|
+|^|^|^|^|-1Gb * 30일|
+
+:::note
+* Yard 서버의 경우 SSD 또는 고성능 스토리지가 필요합니다.
+* 해당 사양은 OS 영역에서 사용하는 부분을 제외한 사양입니다.
+:::
+
+-->
 
 ## 설치 전 사전 준비 사항
 
 ### Whatap 서버 다운로드
 
+1.	https://s3-support.whatap.io에 접속하세요.
+1.	다음과 같은 순서로 메뉴에서 이동하세요.
+  ***S3:whatap-package*** > directory : *LTS/* > directory : *package/* > directory : *[yyyy.mm]/* > directory : *[Version]* > *whatap_mutil-[yyyy.mm-version].tar* 다운로드
+1. ***복사하기*** 버튼을 선택해 복사 후 웹 브라우저에 붙여넣거나 터미널 상에서 `wget` 명령어로 다운로드할 수 있습니다.  
+  ![서버 다운로드 cht](/img/on-prem/server-download.png)
+
 ### 파일 디스크립터 설정 
+
+1. 시스템의 파일 디스크립터 설정을 상향 조정합니다.
+  ```bash title=/etc/sysctl.conf
+  $ sudo vi /etc/sysctl.conf
+    fs.file-max = 999999 
+  $ sysctl -p 
+  $ sysctl -a | grep fs.file-max = 999999 
+  ```
+    * *sysctl.conf* 파일 내용에 `fs.file-max = 999999` 설정을 추가합니다.
+    * 추가한 설정을 적용합니다.
+    * 추가한 설정을 확인합니다.
+
+1. 설치형 서버를 실행할 사용자에 대해 파일 디스크립터 설정을 상향 조정합니다.
+  ```bash title=/etc/security/limits.conf
+  $ sudo vi /etc/security/limits.conf 
+  {사용자 계정 또는 @그룹명} soft nofile 999999
+  {사용자 계정 또는 @그룹명} hard nofile 999999
+  ```
+    * */etc/security/limits.conf* 파일에 사용자 또는 그룹 이름으로 `soft`, `hard` 설정을 상향합니다.
+    * 사용자 계정은 그대로 사용하고 그룹은 앞에 `@`를 붙여서 설정합니다.
 
 ### 서버 시간 동기화 
 
+* 수집 서버의 시간을 동기화합니다. 서버 간 시간이 맞지 않으면 데이터 누락 및 통계 왜곡이 발생할 수 있으므로 반드시 시간 동기화 설정이 되어야 합니다.
+  ```bash title='ntpq 또는 rdate'
+  # ntpq
+  $ntpq -p
+  # rdate
+  $rdate -s time.bora.net
+  ```
+* TimeZone이 UTC로 설정되어 있을 경우 KST로 변경하세요.
+  ```bash
+  $ sudo ln -sf /usr/share/zoneinfo/Asia/Seoul/etc/localtime
+  $ date
+  ```
+
 ### JDK 설치
+
+* `# yum list java*jdk`
+* `# yum install java-1.8.0-openjdk-devel.x86_64`
 
 ### 유저 생성
 
-### 설치 디렉토리 생성 및 권한 
+*	그룹 생성
+  `# groupadd whatap`
+*	유저 생성
+  `# useradd -g whatap -d /whatap -m -s /bin/bash whatap`
+*	패스워드 설정
+  `# passwd whatap`
+
+### 설치 디렉터리 생성 및 권한 
+
+* 설치 디렉터리 생성
+  `# mkdir /whatap`
+* 설치 디렉터리 권한 부여
+  `# chown -R whatap:whatap /whatap`
 
 ## Whatap 서버 설치
 
 ### 압축 해제
 
+```bash
+$ cd /whatp
+$ tar -xvf whatap-muti-[yyyy.mm-version].tar
+```
+
 ### 실행 스크립트 변경
+
+서버 실행 스크립트 *JAVA_HOME*을 변경하세요.
+
+```bash
+cd ${WHATAP_SERVER_HOME}/bin
+$ vi front.sh eureka.sh account.sh keeper.sh yard.sh proxy.sh
+
+#JAVA_HOME=
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.352.b08-2.el7_9.x86_64
+```
 
 ### 서버 설정 파일 수정
 

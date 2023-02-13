@@ -1,0 +1,555 @@
+---
+id: server-ops
+title: 수집 서버 운영 가이드 
+description: 서버 관리자를 위한 수집 서버 운영 가이드를 제공합니다.
+tags: [ 운영 안내 ]
+keywords: [ 서버, 서버 모니터링, Server 모니터링, 운영 ]
+---
+
+## 개요
+
+와탭 서버의 수집 서버 세팅과 구동 및 관리 방법을 안내합니다. 이 안내 문서는 관리자 페이지를 이용한 운용 방안과 수집 서버 내 서버 구동 및 관리에 대해 설명합니다. 그리고 문제가 발생했을 때 체크해야 하는 지표에 대해 설명합니다.
+
+### 용어 정리
+
+|용어|의미|
+|---|---|
+|Region|데이터 수집 서버의 묶음|
+|Front|웹 UI 담당|
+|Yard|수집데이터를 저장, 가공 및 API를 통한 데이터를 제공하는 모듈|
+|Keeper|개별 서버들의 정보 관리|
+|Proxy|에이전트에서 수집한 데이터를 송신하는 모듈|
+|Gateway|개별 Region들에 속한 Keeper|
+|Eureka|전체 Region들을 관장(Middle-tier Load Balancer)|
+|NotiHub|알림 발생 및 알림 발송을 담당|
+|Account|계정정보를 관리|
+|Agent|호스트 서버/애플리케이션의 데이터 수집 및 와탭 서버로의 데이터 전송하는 애플리케이션|
+|M/L|머신 러닝을 통한 데이터 분석을 위한 서버|
+|Crane|AI/ML 관련 데이터 취합을 위한 서버 (Yard에서 데이터를 polling 하는 방식)|
+|Flexreport|여러 프로젝트의 보고서를 한 번에 취합해서 보는 통합 보고서 모듈|
+|Agency|클라우드 모니터링 및 JDBC 모니터링 등 외부 데이터 처리를 위한 모듈|
+
+### 아키텍처
+
+![아키텍처](/img/on-prem/sv-arch.png)
+
+* 필수 설치 모듈: Front, Account, Eureka, NotiHub, Gateway, Yard, Keeper, Proxy
+* FlexReport: 통합보고서 사용 시 설치 권장
+* Crane: AI/ML 히트맵 이상 패턴 감지 사용시 설치 권장
+* Agency: 클라우드 모니터링이나 JDBC 모니터링 사용시 설치 권장
+
+## 수집 서버 준비
+
+### ![](/img/number-01.png) 사전 준비 사항
+
+* JDK 1.8 버전 이상 설치(권장: 11버전)
+* 확장형 패키지: *whatap_multi-...\***.tar*
+* 라이선스 파일: 텍스트 파일로 별도 준비
+
+### ![](/img/number-02.png) 수집 서버
+
+* 서버(VM): 최소 2대 이상 권장
+* CPU: 4Core 이상 권장
+* Memory
+  * Front서버: 8G 이상 권장
+  * Yard서버: 16G 이상 권장
+* Disk
+  * Front서버: 최소 5G 이상
+  * Yard서버: 수집서버 Disk 산정 기준에 따름 (OS 영역 별도, SSD 또는 고성능 스토리지 필요)
+
+### ![](/img/number-03.png) 수집서버 Disk 산정
+
+|구분|데이터 보존기간|Disk 용량|산출 근거(1 Agent 기준)|
+|---|---|---|---|
+|Server Monitoring|Raw Data : 37일|1G / 월|(1EA \* Raw Data 100M * 37일)|
+|^|5분 통계 : 1년|^|(통계 Data 20M * 365일)|
+|^|1시간 통계 : 2년|^|1 Agent 기준|
+|Application Monitoring||30G / 월|(1Gb * 30일)|
+|^|^|^|100 TPS 기준|
+|Database Monitoring||1.5G / 월|1 Agent 당 일 50Mb|
+|Kube Monitoring||AP포함 → 32G / 월|Application이 포함되어 있는 것과 없는 것에 차이가 있음.|
+|^|^|AP 미포함 → 2G / 월|^|
+
+### ![](/img/number-04.png) 라이선스
+
+설치형 서버는 별도의 수집 서버 라이선스를 필요로 합니다. 일반 고객에게 직접 발급하지 않으며 기술 지원 파트너에게 발급합니다. 아래 정보들을 포함해 작성 후 license@whatap.io로 이메일 요청합니다.
+
+1. **설치 환경 정보**  
+  고객사와 사업명 정보를 기입합니다.
+1. **고객 담당자**  
+  최종 사용자의 이름, 전화번호, 이메일 정보를 기입합니다.
+1. **라이선스 시작/종료일**  
+  라이선스 시작/종료일을 기입합니다. 영구 발행인 경우 영구로 기입합니다.
+1. **서버 모니터링**  
+  대상 코어 수/에이전트 수
+1. **애플리케이션 모니터링**  
+  대상 코어 수/에이전트 수
+1. **DB 모니터링**  
+  대상 코어 수/에이전트 수
+1. **라이선스 신청 예시**  
+>ailto: license@whatap.io  
+mailfrom: whatap_engineer@partner.com  
+Tile: XXX주식회사 차세대시스템에 적용할 애플리케이션 모니터링 라이선스 요청 드립니다.  
+contents:  
+XXX주식회사 차세대시스템에 적용할 애플리케이션 모니터링 라이선스 요청 드리니 검토후 발급 부탁 드립니다.
+정보는 다음과 같습니다.  
+>* 설치 환경 정보: XXX주식회사 차세대시스템  
+>* 고객 담당자: 홍길동 과장 / 000-0000-0000 / gd.hong@xxxcompany.co.kr  
+>* 라이선스 시작/종료일: 2019-08-15 / 영구  
+>* 서버 모니터링: 0/0  
+>* 애플리케이션 모니터링: 128 / 32  
+>* DB 모니터링: 0/0  
+>  
+>감사합니다.
+1. **라이선스 만기**  
+수집 서버는 매 시 정각 라이선스 사용기간과 사용량을 체크합니다. 기간 만료나 수량을 초과한 경우 에이전트 데이터 수집은 정상적으로 이루어지나 모니터링 UI로 접속이 제한됩니다. 라이선스 연장 요청은 최초 발급 과정과 동일합니다. 추가로 연장임을 명시하여 요청합니다.
+
+### ![](/img/number-05.png) 방화벽 오픈
+
+|출발지|목적지|프로토콜|포트|
+|---|---|---|---|
+|Front|Yard 서버 (Notihub)|TCP|6500|
+|Front|Yard서버 (Gateway)|TCP|8800|
+|Yard|Front서버 (Eureka)|TCP|6761|
+|Yard|Front서버 (Account)|TCP|18080|
+
+### ![](/img/number-06.png) 파일 디스크립터 설정 상향
+
+1. 시스템의 파일 디스크립터 설정을 상향 조정합니다.
+  ```bash title=/etc/sysctl.conf
+  $ sudo vi /etc/sysctl.conf
+    fs.file-max = 999999 
+  $ sysctl -p 
+  $ sysctl -a | grep fs.file-max = 999999 
+  ```
+    * *sysctl.conf* 파일 내용에 `fs.file-max = 999999` 설정을 추가합니다.
+    * 추가한 설정을 적용합니다.
+    * 추가한 설정을 확인합니다.
+
+1. 설치형 서버를 실행할 사용자에 대해 파일 디스크립터 설정을 상향 조정합니다.
+  ```bash title=/etc/security/limits.conf
+  $ sudo vi /etc/security/limits.conf 
+  {사용자 계정 또는 @그룹명} soft nofile 999999
+  {사용자 계정 또는 @그룹명} hard nofile 999999
+  ```
+    * */etc/security/limits.conf* 파일에 사용자 또는 그룹 이름으로 `soft`, `hard` 설정을 상향합니다.
+    * 사용자 계정은 그대로 사용하고 그룹은 앞에 `@`를 붙여서 설정합니다.
+
+### ![](/img/ic-number-07.svg) 수집 서버 시간 동기화
+
+수집 서버의 시간을 동기화합니다. 서버 간 시간이 맞지 않으면 데이터 누락 및 통계 왜곡이 발생할 수 있으므로 반드시 시간 동기화 설정이 되어야 합니다.
+
+```bash title='ntpq 또는 rdate'
+# ntpq
+$ntpq -p
+# rdate
+$rdate -s time.bora.net
+```
+
+## 수집 서버 설치 및 확인
+
+### ![](/img/number-01.png) 설치 준비
+
+단일 서버에 구성하는 경우, 최소형 패키지를 활용하며 향후 확장성을 고려할 때 확장형 패키지를 활용하여 설치를 진행합니다. JDK 및 와탭 모니터링 패키지를 설치 대상 서버에 업로드 하고 압축을 해제합니다.
+* 설치 패키지: *whatap_multi-\*.\*.\*\.\***\*.tar*
+* 라이선스 파일: 텍스트 파일로 별도 준비
+
+와탭 모니터링 패키지를 압축 해제하면 *whatap_package*라는 디렉토리로 압축이 해제됩니다. 본 문서에서 이후 해당 경로를 *$WHATAP_PACKAGE*로 기술합니다.
+
+### ![](/img/number-02.png) 설치 위치
+
+*	경로: */data/whatap* → *${WHATAP_HOME}*
+*	계정: whatap
+
+### ![](/img/number-03.png) 로그 경로 변경
+실행 시 로그는 *$WHATAP_PACKAGE /logs/{server명}.log*로 출력됩니다. 로그를 외부 경로에 출력할 경우 다음과 같이 지정합니다.
+
+```bash title='로그 경로 변경'
+$ cd $WHATAP_PACKAGE
+$ rmdir logs
+$ ln -s {외부경로} logs
+$ cd javam/server
+$ ln -s {외부경로} logs
+```
+
+### ![](/img/number-04.png) 관련 설정 변경 
+
+|파일명|항목명|설정|
+|---|---|---|
+|*account.conf*|owner|ifconfig/ipconfig로 확인 가능한 account 서버 IP|
+|^|license|발급받은 서버 라이선스|
+|^|eureka.addr|eureka 서버 접근 정보|
+|^|eureka.hostname|eureka에 등록할 명칭(복수의 서버가 동일 명칭을 가질 수 있음)|
+|^|eureka_client_ip_address|gateway에서 접근 가능한 account 서버 IP|
+|^|region.id|첫 번째 리전의 ID|
+|^|region.name|리전명|
+|^|db_driver|Account 연결 DB 드라이버|
+|^|jdbc_url|JDBC URL|
+|^|db_username|DB 접속 계정|
+|^|db_password|DB 접속 패스워드 (암호화 필수)|
+|^|db_name|DB 접속명|
+|^|connection_pool_max_account|Connection Pool 세팅|
+|^|jpa_ddl_auto|update로 고정 처리해야 함.|
+|^|^|나중에 Upgrade 고려하여 ddl 변경에 따른 처리.|
+|^|admin.email|관리자 계정 Email (admin@whatap.io)|
+|*front.conf*|eureka.addr|eureka 서버 접근 정보|
+|^|eureka.hostname|eureka에 등록할 명칭(복수의 서버가 동일 명칭을 가질 수 있음)|
+|^|eureka_client_ip_address|front 서버 IP|
+|^|domain|도메인 주소를 입력|
+|^|region.name|리전명|
+|^|region.id|리전ID|
+|^|region.proxy.address|리전 관련 프록시 서버 IP|
+|^|admin.email|사이트 관리자 Email (초기값 : admin@whatap.io)|
+|^|admin.password|사이트 관리자 계정 패스워드 (초기값 : admin)|
+|*yard.conf*|keeper|yard에서 접근 가능한 keeper 서버 IP:Port|
+|^|server.name|keeper에 등록할 이름(서버 단위)|
+|^|net_noti_ip|yard에서 접근 가능한 noti 서버 IP|
+|*proxy.conf*|keeper|proxy에서 접근 가능한 keeper 서버 IP:Port|
+|^|server.name|keeper에 등록할 이름(서버 단위)|
+|*gateway.conf*|eureka.addr|eureka 서버 접근 정보|
+|^|eureka.hostname|eureka에 등록할 명칭(복수의 서버가 동일 명칭을 가질 수 있음)|
+|^|eureka_client_ip_address|account/front 에서 접근 가능한 gateway 서버 IP|
+|^|keeper|gateway에서 접근 가능한 keeper 서버 IP:Port|
+|^|region.name|region 명 첫 번째 region명은 account.conf에서 지정한 region.name과 일치해야 함|
+|^|^|두 번째 이후 region명은 사이트 관리자 페이지에서 지정한 region명과 일치해야 함|
+|*notihub.conf*|eureka.addr|eureka 서버 접근 정보|
+|^|eureka.hostname|eureka에 등록할 명칭(복수의 서버가 동일 명칭을 가질 수 있음)|
+|^|eureka_client_ip_address|noti 서버 IP|
+|^|keeper|noti에서 접근 가능한 keeper 서버 IP:Port|
+|^|mail.host|이벤트 알람 중 SMTP 통한 메일발송 기 적용 시|
+|^|mail.password|메일 발송 암호 (암호화 필수)|
+|^|mail.port|메일 발송 포트|
+|^|mail.sender|메일 Sender 계정|
+|^|mail.username|메일 발송 username|
+|^|db_driver_event|Notihub와 연결된 Event DB 드라이브 정보|
+|^|db_name_event|Event DB Name 정보|
+|^|db_password_event|Event DB 패스워드 정보 (암호화 필수)|
+|^|db_username_event|Event DB user 정보|
+
+### ![](/img/number-05.png) 기동 방법
+
+```bash
+$ cd ${WHATAP_HOME}/bin
+# 전체 기동
+$ ./control.sh all start
+# 부분 기동
+$ ./control.sh keeper start
+$ ./control.sh notihub start
+$ ./control.sh front start
+$ ./control.sh yard start
+$ ./control.sh proxy start
+$ ./control.sh eureka  start
+$ ./control.sh gateway start
+$ ./control.sh account start
+```
+<!-- 
+* cd ${WHATAP_HOME}/bin
+* **전체 기동**  
+  ./control.sh all start
+* **부분 기동**  
+  ./control.sh keeper start  
+  ./control.sh notihub start  
+  ./control.sh front start  
+  ./control.sh yard start  
+  ./control.sh proxy start  
+  ./control.sh eureka  start  
+  ./control.sh gateway start  
+  ./control.sh account start  
+-->
+
+### ![](/img/number-06.png) 프로세스 상태 확인
+
+```bash
+$ cd ${WHATAP_HOME}/bin
+```
+```bash title='./control.sh all status'
+$ ./control.sh all status
+logs directory exists.
+front is Running(7622)
+keeper is Running(21223)
+proxy is Running(21981)
+yard is Running(7747)
+notihub is Running(6812)
+billing Not Running
+eureka Not Running
+gateway Not Running
+account Not Running
+```
+
+### ![](/img/ic-number-07.svg) 프로세스 확인
+<!--
+* ps -ef | grep java
+* ps -ef | grep ${모듈명}
+-->
+```bash
+$ ps -ef | grep java
+$ ps -ef | grep ${모듈명}
+```
+```bash
+$ ps -ef | grep java
+whatap    6812  6797 33 09:58 pts/1    00:01:09 java -Djava.security.egd=/dev/./urandom -Dwhatap.server.home=${WHATAP_HOME} -Dwhatap.conf.path=${WHATAP_HOME}/conf -Xmx1024m -Duser.timezone=GMT -jar ${WHATAP_HOME}/lib/whatap.server.notihub-1.1.2.1832.jar
+
+whatap    7622  7607 72 09:59 pts/1    00:01:25 java -Djava.security.egd=/dev/./urandom -Dwhatap.server.home=${WHATAP_HOME} -Dwhatap.conf.path=${WHATAP_HOME}/conf -Xmx512m -Duser.timezone=GMT -jar ${WHATAP_HOME}/lib/whatap.server.front-1.1.2.1832.jar
+
+whatap    7747  7731 46 09:59 pts/1    00:00:52 java -Djava.security.egd=/dev/./urandom -Dwhatap.server.home=${WHATAP_HOME} -Dwhatap.conf.path=${WHATAP_HOME}/conf -Xmx2048m -Duser.timezone=GMT -XX:OnOutOfMemoryError=kill -9 %p -verbose:gc -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Xloggc:${WHATAP_HOME}/logs/gc.201806190959.log -jar ${WHATAP_HOME}/lib/whatap.server.yard-1.1.2.1832.jar
+
+whatap   21223 21208  0  6월14 ?      00:16:23 java -Djava.security.egd=/dev/./urandom -Dwhatap.server.home=${WHATAP_HOME} -Dwhatap.conf.path=${WHATAP_HOME}/conf -Xmx128m -Duser.timezone=GMT -jar ${WHATAP_HOME}/lib/whatap.server.keeper-1.1.2.1832.jar
+
+whatap   21981 21966  0  6월14 ?      00:10:04 java -Djava.security.egd=/dev/./urandom -Dwhatap.server.home=${WHATAP_HOME} -Dwhatap.conf.path=${WHATAP_HOME}/conf -Xmx256m -Duser.timezone=GMT -jar ${WHATAP_HOME}/lib/whatap.server.proxy-1.1.2.1832.jar
+```
+
+### ![](/img/ic-number-08.svg) 포트 리스닝 확인
+
+```bash
+#1
+$ netstat -na | grep {체크 대상 포트} | grep LISTEN
+#2
+$ nmap -n -PN -sT -sU -p- localhost
+#3
+$ lsof -i :{체크 대상 포트}
+```
+
+#### 예제
+
+* Keeper
+  ```bash title='Keeper'
+  netstat -na | grep LISTEN | grep 6789
+  ```
+* NotiHub
+  ```bash title='Notihub'
+  netstat -na | grep LISTEN | grep 6500
+  ```
+* Front
+  ```bash title='Front'
+  netstat -na | grep LISTEN | grep 8080
+  ```
+* Yard
+  ```bash title='Yard'
+  netstat -na | grep LISTEN | grep 6610
+  ```
+* Yard
+  ```bash title='Yard'
+  netstat -na | grep LISTEN | grep 7710
+  ```
+* Proxy
+  ```bash title='Proxy'
+  netstat -na | grep LISTEN | grep 6600
+  ```
+
+다음과 같이 확인할 수 있습니다.
+```bash
+$ netstat -na | grep LISTEN | grep 6789
+tcp6       0      0 :::6789                 :::*                    LISTEN
+
+$ netstat -na | grep LISTEN | grep 8080
+tcp6       0      0 :::8080                 :::*                    LISTEN
+
+$ netstat -na | grep LISTEN | grep 6610
+tcp6       0      0 :::6610                 :::*                    LISTEN
+
+$ netstat -na | grep LISTEN | grep 7710
+tcp6       0      0 :::7710                 :::*                    LISTEN
+
+$ netstat -na | grep LISTEN | grep 6600
+tcp6       0      0 :::6600                 :::*                    LISTEN
+
+$ netstat -na | grep LISTEN | grep 6500
+tcp6       0      0 :::6500                 :::*                    LISTEN
+```
+
+### ![](/img/ic-number-09.svg) 기동 로그 확인 방법
+
+실행 시 로그는 *$WHATAP_PACKAGE /logs* 하위에 출력되므로, 본 경로의 로그를 확인하여 이상 로그 출력 여부를 점검합니다. 서버 초기 기동 시의 상호 접속 실패로 인한 로그는 이상 로그로 간주하지 않습니다. 정상 확인 로그는 다음과 같습니다.
+
+* **Front 로그**
+  ```bash title='front.log'
+  [INFO ][io.whatap.server.front.App.logStarted(61)] Started App in 6.948 seconds (JVM running for 8.243)
+  [INFO ][io.undertow.servlet.log(382)] Initializing Spring DispatcherServlet 'dispatcherServlet'
+  ```
+* **Yard 로그**
+  ```bash title='yard.log'
+  [INFO ][org.jboss.threads.<clinit>(52)] JBoss Threads version 3.1.0.Final
+  [INFO ][io.whatap.yard.InternalMain.logStarted(61)] Started InternalMain in 10.297 seconds (JVM running for 23.58)
+  [INFO ][io.undertow.servlet.log(382)] Initializing Spring DispatcherServlet 'dispatcherServlet'
+  ```
+* **Eureka 로그**
+  ```bash title='eureka.log'
+  [INFO ][io.whatap.server.eureka.App.logStarted(61)] Started App in 21.133 seconds (JVM running for 22.702)
+  [INFO ][o.s.c.n.e.s.EurekaServerInitializerConfiguration.lambda$start$0(69)] Started Eureka Server
+  [INFO ][o.a.c.c.C.[Tomcat].[localhost].[/].log(173)] Initializing Spring DispatcherServlet 'dispatcherServlet'
+  [INFO ][o.s.web.servlet.DispatcherServlet.initServletBean(525)] Initializing Servlet 'dispatcherServlet'
+  [INFO ][o.s.web.servlet.DispatcherServlet.initServletBean(547)] Completed initialization in 1 ms
+  ```
+* **Flexreport 로그**
+  ```bash title='flexreport.log'
+  [INFO ][io.undertow.servlet.log(382)] Initializing Spring DispatcherServlet 'dispatcherServlet'
+  [INFO ][o.s.web.servlet.DispatcherServlet.initServletBean(525)] Initializing Servlet 'dispatcherServlet'
+  [INFO ][o.s.web.servlet.DispatcherServlet.initServletBean(547)] Completed initialization in 2 ms
+  ```
+* **Account 로그**
+  ```bash title='account.log'
+  [INFO ][i.w.account.web.DatabaseInitialize.initialize(191)] database initialized success(2)!
+  [c.netflix.discovery.DiscoveryClient.initScheduledTasks(1321)] Starting heartbeat executor: renew interval is: 5
+  [INFO ][c.n.discovery.InstanceInfoReplicator.<init>(60)] InstanceInfoReplicator onDemand update allowed rate per min is 17
+  [INFO ][c.netflix.discovery.DiscoveryClient.<init>(492)] Discovery Client initialized at timestamp 1661501331302 with initial instances count: 11
+  [INFO ][c.netflix.discovery.DiscoveryClient.register(873)] DiscoveryClient_ACCOUNT/dev-front-01.whatap.co.kr: registering service...
+  [INFO ][c.netflix.discovery.DiscoveryClient.register(882)] DiscoveryClient_ACCOUNT/dev-front-01.whatap.co.kr - registration status: 204
+  [INFO ][c.netflix.discovery.DiscoveryClient.notify(1352)] Saw local status change event StatusChangeEvent [timestamp=1661501331427, current=UP, previous=STARTING]
+  ```
+* **Gateway 로그**
+  ```bash title='gateway.log'
+  [INFO ][io.whatap.server.gateway.App.logStarted(61)] Started App in 11.818 seconds (JVM running for 25.896)
+  [INFO ][io.undertow.servlet.log(382)] Initializing Spring DispatcherServlet 'dispatcherServlet'
+  ```
+### ![](/img/ic-number-10.svg) 정지
+
+```bash
+$ cd ${WHATAP_HOME}/bin
+```
+```bash
+# 전체 정지
+$ ./control.sh all stop
+# 부분 정지
+$ ./control.sh keeper stop  
+$  ./control.sh notihub stop  
+$ ./control.sh front stop  
+$ ./control.sh yard stop  
+$ ./control.sh proxy stop  
+$ ./control.sh eureka  stop  
+$ ./control.sh gateway stop  
+$ ./control.sh account stop 
+```
+
+<!-- 
+* cd ${WHATAP_HOME}/bin
+* **전체 정지**  
+  ./control.sh all stop
+* **부분 정지**  
+  ./control.sh keeper stop  
+  ./control.sh notihub stop  
+  ./control.sh front stop  
+  ./control.sh yard stop  
+  ./control.sh proxy stop  
+  ./control.sh eureka  stop  
+  ./control.sh gateway stop  
+  ./control.sh account stop  
+-->
+
+### ![](/img/ic-number-11.svg) 계정
+
+프론트 서버가 정상적으로 기동되면 admin@whatap.io / admin 계정으로 로그인하세요. 이 계정은 와탭 수집 서버 관리용으로 사용되는 계정으로 수집 서버 관리용으로만 사용합니다. 수집 서버 관리 계정으로는 프로젝트를 생성하지 않습니다.
+
+* 수집 서버 관리계정: admin@whatap.io / admin
+
+
+### ![](/img/ic-number-12.svg) 디렉터리 구조
+
+#### Front 관련 서버 디렉터리
+
+* *apilog*: API호출 관련 디버깅용 로그 남김.
+* *attachments*: 첨부파일 저장 되는 디렉토리
+* *bin*: 설치 관련 파일 및 기동 쉘
+* *conf*: 모듈별 설정 관련 config 파일
+* *flexreport*:  통합보고서 관련 Jar 파일 위치
+* *reportCabinet*: 통합보고서 관련 보고서 파일 저장 위치
+  * *historyList*: 고객이 조회한 히스토리 정보 저장
+  * *historyLog*: 보고서 생성시 발생되는 로그 저장
+  * *historyStatus*: 비동기 보고서 관련 보고서의 상태 저장
+  * *reportCSV*: CSV형태의 데이터 저장 위치
+  * *reportHTML*: HTML형태의 데이터 저장 위치
+  * *reportJSON*: Json형태의 데이터 저장 위치
+  * *userAuth*: 사용자 권한 관련 파일 저장
+* *lib*: 모듈별 사용하는 라이브러리 위치
+* *logs*: 모듈별 로그파일 위치
+* *logos*: 화면에 보이는 로고 파일의 위치
+* *metering*: 미터링 관련 pcode별 데이터 저장 위치
+* *mxql*: 쿼리방식의 데이터 조회하는 파일들의 모음
+* *tagmeta*: TagMeta관련 파일 정보가 저장되는 위치
+* *update*: Front화면에서 사용되는 Agent관련 파일 다운로드 위치 
+* *widget*: Front에서 사용되는 대시보드 위젯 저장 위치
+
+#### YARD 관련 서버 디렉토리
+
+* *apilog*: API호출 관련 디버깅용 로그 남김.
+* *bin*: 설치 관련 파일 및 기동 쉘
+* *conf*: 모듈별 설정 관련 config 파일
+* *eventlog*: PCODE별 이벤트 관련 로그가 남는 위치
+* *migTools*: YARD 데이터를 마이그레이션 할 수 있는 라이브러리가 존재하는 곳
+* *lib*: 마이그레이션에 필요한 라이브러리 위치
+* *report*: 보고서 관련 라이브러리 위치
+* *logs* : 마이그레이션 관련 남는 로그 위치
+* *lib*: 모듈별 사용하는 라이브러리 위치
+* *logs*: 모듈별 로그파일 위치
+* *mxql*: 쿼리방식의 데이터 조회하는 파일들의 모음
+* *plugin*: YARD에서 사용하는 플러그인 소스가 위치한 곳
+* *tagmeta*: TagMeta관련 파일 정보가 저장되는 위치
+* *update*: YARD에서 연결된 Agent쪽으로 관련 라이브러리를 Update할 때 사용되는 파일의 위치
+* *yardbase*: YARD에 쌓이는 데이터의 위치 (PCODE별로 생성)
+* *PCODE*: 프로젝트별 데이터
+  * *20000101*: 프로젝트별 기초 데이터가 쌓이는 폴더 (중요)
+  * *0*: 프로젝트 관련 meta 데이터 저장소
+  * *config*: Meta성 데이터 저장소
+  * *keyval*: TagCount 알림 관련 정보 Setting
+  * *longTerm*: 장기보관 될 데이터 (Agent List) 저장소
+  * *mailconfig*: 보고서 메일 발송관련 config
+  * *reportCabinet*: 보고서 관련 캐시된 파일 저장소
+  * *stateful*: 상태 관리 알림에 대한 파일 저장소
+  * *Oid별 폴더*: Oid별로 기초 config 데이터 저장
+
+
+### ![](/img/ic-number-13.svg) 적용 옵션
+
+* **NotiHub 메일 발송 옵션**
+  ```bash
+  # Mail
+  mail.smtp.debug=true
+  mail.host=210.112.82.163
+  mail.username=
+  mail.password=
+  mail.smtp.protocol=smtp
+  mail.port=25
+  mail.smtp.auth=false
+  mail.smtp.ssl.enable=false
+  mail.smtp.starttls.enable=false
+  mail.smtp.starttls.required=false
+  mail.sender=jhbaek@settlebank.co.kr
+  mail_auth_mechanism_gssapi=true
+  ```
+<!-- 
+  * `mail.smtp.debug=true`
+  * `mail.host=210.112.82.163`
+  * `mail.username=`
+  * `mail.password=`
+  * `mail.smtp.protocol=smtp`
+  * `mail.port=25`
+  * `mail.smtp.auth=false`
+  * `mail.smtp.ssl.enable=false`
+  * `mail.smtp.starttls.enable=false`
+  * `mail.smtp.starttls.required=false`
+  * `mail.sender=jhbaek@settlebank.co.kr`
+  * `mail_auth_mechanism_gssapi=true`
+-->
+  특이사항으로 메일 발송 시 sendmail relay 시점에 대상 IP address가 확인 불가한 메일 도메인에 대하여 다음의 에러가 발생합니다. 이 에러를 해결하려면 sendmail 및 메일 발송 서버 단에서 해당 도메인에 대한 허용 설정을 추가하셔야 합니다.
+
+  ```bash title='에러'
+  javax.mail.SendFailedException: Invalid Addresses;
+    nested exception is:
+    com.sun.mail.smtp.SMTPAddressFailedException: 550 5.7.1 <yiseo@whatap.io>... Relaying denied. IP name lookup failed [61.74.181.33]
+
+    at com.sun.mail.smtp.SMTPTransport.rcptTo(SMTPTransport.java:1862)
+    at com.sun.mail.smtp.SMTPTransport.sendMessage(SMTPTransport.java:1118)
+    at javax.mail.Transport.send0(Transport.java:195)
+    at javax.mail.Transport.send(Transport.java:124)
+    at mail.MailTester.send(MailTester.java:30)
+    at mail.MailTester.main(MailTester.java:53)
+  Caused by: com.sun.mail.smtp.SMTPAddressFailedException: 550 5.7.1 <yiseo@whatap.io>... Relaying denied. IP name lookup failed [61.74.181.33]
+
+    at com.sun.mail.smtp.SMTPTransport.rcptTo(SMTPTransport.java:1715)
+    ... 5 more
+  ```
+* **NotiHub SMS 발송 옵션**
+  ```bash
+  # SMS
+  sms.server.url=http://10.23.32.43/
+  ```
+  SMS 발송 기능은 제공해 주신 API를 기반으로 Pulgin 형태로 구현되었습니다. API 및 Plugin은 *${WHATAP_HOME}/plugin* 경로 내에서 확인할 수 있습니다. 

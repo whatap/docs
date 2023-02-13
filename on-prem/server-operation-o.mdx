@@ -1,5 +1,5 @@
 ---
-id: server-operation
+id: server-operation-o
 title: 수집 서버 운영 가이드 
 description: 서버 관리자를 위한 수집 서버 운영 가이드를 제공합니다.
 tags: [ 운영 안내 ]
@@ -39,13 +39,13 @@ tags: [ 운영 안내 ]
 
 ## 수집 서버 준비
 
-### ![](/img/number-01.png) 사전 준비 사항
+### 사전 준비 사항
 
 * JDK 1.8 버전 이상 설치(권장: 11버전)
 * 확장형 패키지: *whatap_multi-...\***.tar*
 * 라이선스 파일: 텍스트 파일로 별도 준비
 
-### ![](/img/number-02.png) 수집 서버
+### 수집 서버
 
 * 서버(VM): 최소 2대 이상 권장
 * CPU: 4Core 이상 권장
@@ -56,7 +56,7 @@ tags: [ 운영 안내 ]
   * Front서버: 최소 5G 이상
   * Yard서버: 수집서버 Disk 산정 기준에 따름 (OS 영역 별도, SSD 또는 고성능 스토리지 필요)
 
-### ![](/img/number-03.png) 수집서버 Disk 산정
+### 수집서버 Disk 산정
 
 |구분|데이터 보존기간|Disk 용량|산출 근거(1 Agent 기준)|
 |---|---|---|---|
@@ -69,7 +69,7 @@ tags: [ 운영 안내 ]
 |Kube Monitoring||AP포함 → 32G / 월|Application이 포함되어 있는 것과 없는 것에 차이가 있음.|
 |^|^|AP 미포함 → 2G / 월|^|
 
-### ![](/img/number-04.png) 라이선스
+### 라이선스
 
 설치형 서버는 별도의 수집 서버 라이선스를 필요로 합니다. 일반 고객에게 직접 발급하지 않으며 기술 지원 파트너에게 발급합니다. 아래 정보들을 포함해 작성 후 license@whatap.io로 이메일 요청합니다.
 
@@ -103,7 +103,7 @@ XXX주식회사 차세대시스템에 적용할 애플리케이션 모니터링 
 1. **라이선스 만기**  
 수집 서버는 매 시 정각 라이선스 사용기간과 사용량을 체크합니다. 기간 만료나 수량을 초과한 경우 에이전트 데이터 수집은 정상적으로 이루어지나 모니터링 UI로 접속이 제한됩니다. 라이선스 연장 요청은 최초 발급 과정과 동일합니다. 추가로 연장임을 명시하여 요청합니다.
 
-### ![](/img/number-05.png) 방화벽 오픈
+### 방화벽 오픈
 
 |출발지|목적지|프로토콜|포트|
 |---|---|---|---|
@@ -112,7 +112,7 @@ XXX주식회사 차세대시스템에 적용할 애플리케이션 모니터링 
 |Yard|Front서버 (Eureka)|TCP|6761|
 |Yard|Front서버 (Account)|TCP|18080|
 
-### ![](/img/number-06.png) 파일 디스크립터 설정 상향
+### 파일 디스크립터 설정 상향
 
 1. 시스템의 파일 디스크립터 설정을 상향 조정합니다.
   ```bash title=/etc/sysctl.conf
@@ -134,7 +134,7 @@ XXX주식회사 차세대시스템에 적용할 애플리케이션 모니터링 
     * */etc/security/limits.conf* 파일에 사용자 또는 그룹 이름으로 `soft`, `hard` 설정을 상향합니다.
     * 사용자 계정은 그대로 사용하고 그룹은 앞에 `@`를 붙여서 설정합니다.
 
-### ![](/img/ic-number-07.svg) 수집 서버 시간 동기화
+### 수집 서버 시간 동기화
 
 수집 서버의 시간을 동기화합니다. 서버 간 시간이 맞지 않으면 데이터 누락 및 통계 왜곡이 발생할 수 있으므로 반드시 시간 동기화 설정이 되어야 합니다.
 
@@ -146,8 +146,7 @@ $rdate -s time.bora.net
 ```
 
 ## 수집 서버 설치 및 확인
-
-### ![](/img/number-01.png) 설치 준비
+### 설치 준비
 
 단일 서버에 구성하는 경우, 최소형 패키지를 활용하며 향후 확장성을 고려할 때 확장형 패키지를 활용하여 설치를 진행합니다. JDK 및 와탭 모니터링 패키지를 설치 대상 서버에 업로드 하고 압축을 해제합니다.
 * 설치 패키지: *whatap_multi-\*.\*.\*\.\***\*.tar*
@@ -155,12 +154,12 @@ $rdate -s time.bora.net
 
 와탭 모니터링 패키지를 압축 해제하면 *whatap_package*라는 디렉토리로 압축이 해제됩니다. 본 문서에서 이후 해당 경로를 *$WHATAP_PACKAGE*로 기술합니다.
 
-### ![](/img/number-02.png) 설치 위치
+### 설치 위치
 
 *	경로: */data/whatap* → *${WHATAP_HOME}*
 *	계정: whatap
 
-### ![](/img/number-03.png) 로그 경로 변경
+### 로그 경로 변경
 실행 시 로그는 *$WHATAP_PACKAGE /logs/{server명}.log*로 출력됩니다. 로그를 외부 경로에 출력할 경우 다음과 같이 지정합니다.
 
 ```bash title='로그 경로 변경'
@@ -171,7 +170,7 @@ $ cd javam/server
 $ ln -s {외부경로} logs
 ```
 
-### ![](/img/number-04.png) 관련 설정 변경 
+### 관련 설정 변경 
 
 |파일명|항목명|설정|
 |---|---|---|
@@ -225,7 +224,7 @@ $ ln -s {외부경로} logs
 |^|db_password_event|Event DB 패스워드 정보 (암호화 필수)|
 |^|db_username_event|Event DB user 정보|
 
-### ![](/img/number-05.png) 기동 방법
+### 기동 방법
 
 ```bash
 $ cd ${WHATAP_HOME}/bin
@@ -256,7 +255,7 @@ $ ./control.sh account start
   ./control.sh account start  
 -->
 
-### ![](/img/number-06.png) 프로세스 상태 확인
+### 프로세스 상태 확인
 
 ```bash
 $ cd ${WHATAP_HOME}/bin
@@ -275,7 +274,7 @@ gateway Not Running
 account Not Running
 ```
 
-### ![](/img/ic-number-07.svg) 프로세스 확인
+### 프로세스 확인
 <!--
 * ps -ef | grep java
 * ps -ef | grep ${모듈명}
@@ -297,7 +296,7 @@ whatap   21223 21208  0  6월14 ?      00:16:23 java -Djava.security.egd=/dev/./
 whatap   21981 21966  0  6월14 ?      00:10:04 java -Djava.security.egd=/dev/./urandom -Dwhatap.server.home=${WHATAP_HOME} -Dwhatap.conf.path=${WHATAP_HOME}/conf -Xmx256m -Duser.timezone=GMT -jar ${WHATAP_HOME}/lib/whatap.server.proxy-1.1.2.1832.jar
 ```
 
-### ![](/img/ic-number-08.svg) 포트 리스닝 확인
+### 포트 리스닝 확인
 
 ```bash
 #1
@@ -310,53 +309,34 @@ $ lsof -i :{체크 대상 포트}
 
 #### 예제
 
-* Keeper
-  ```bash title='Keeper'
-  netstat -na | grep LISTEN | grep 6789
+* Keeper: `netstat -na | grep LISTEN | grep 6789`
+* NotiHub: `netstat -na | grep LISTEN | grep 6500`
+* Front: `netstat -na | grep LISTEN | grep 8080`
+* Yard: `netstat -na | grep LISTEN | grep 6610`
+* Yard: `netstat -na | grep LISTEN | grep 7710`
+* Proxy: `netstat -na | grep LISTEN | grep 6600`
+
+  ```bash
+  $ netstat -na | grep LISTEN | grep 6789
+  tcp6       0      0 :::6789                 :::*                    LISTEN
+
+  $ netstat -na | grep LISTEN | grep 8080
+  tcp6       0      0 :::8080                 :::*                    LISTEN
+
+  $ netstat -na | grep LISTEN | grep 6610
+  tcp6       0      0 :::6610                 :::*                    LISTEN
+
+  $ netstat -na | grep LISTEN | grep 7710
+  tcp6       0      0 :::7710                 :::*                    LISTEN
+
+  $ netstat -na | grep LISTEN | grep 6600
+  tcp6       0      0 :::6600                 :::*                    LISTEN
+
+  $ netstat -na | grep LISTEN | grep 6500
+  tcp6       0      0 :::6500                 :::*                    LISTEN
   ```
-* NotiHub
-  ```bash title='Notihub'
-  netstat -na | grep LISTEN | grep 6500
-  ```
-* Front
-  ```bash title='Front'
-  netstat -na | grep LISTEN | grep 8080
-  ```
-* Yard
-  ```bash title='Yard'
-  netstat -na | grep LISTEN | grep 6610
-  ```
-* Yard
-  ```bash title='Yard'
-  netstat -na | grep LISTEN | grep 7710
-  ```
-* Proxy
-  ```bash title='Proxy'
-  netstat -na | grep LISTEN | grep 6600
-  ```
 
-다음과 같이 확인할 수 있습니다.
-```bash
-$ netstat -na | grep LISTEN | grep 6789
-tcp6       0      0 :::6789                 :::*                    LISTEN
-
-$ netstat -na | grep LISTEN | grep 8080
-tcp6       0      0 :::8080                 :::*                    LISTEN
-
-$ netstat -na | grep LISTEN | grep 6610
-tcp6       0      0 :::6610                 :::*                    LISTEN
-
-$ netstat -na | grep LISTEN | grep 7710
-tcp6       0      0 :::7710                 :::*                    LISTEN
-
-$ netstat -na | grep LISTEN | grep 6600
-tcp6       0      0 :::6600                 :::*                    LISTEN
-
-$ netstat -na | grep LISTEN | grep 6500
-tcp6       0      0 :::6500                 :::*                    LISTEN
-```
-
-### ![](/img/ic-number-09.svg) 기동 로그 확인 방법
+### 기동 로그 확인 방법
 
 실행 시 로그는 *$WHATAP_PACKAGE /logs* 하위에 출력되므로, 본 경로의 로그를 확인하여 이상 로그 출력 여부를 점검합니다. 서버 초기 기동 시의 상호 접속 실패로 인한 로그는 이상 로그로 간주하지 않습니다. 정상 확인 로그는 다음과 같습니다.
 
@@ -400,7 +380,7 @@ tcp6       0      0 :::6500                 :::*                    LISTEN
   [INFO ][io.whatap.server.gateway.App.logStarted(61)] Started App in 11.818 seconds (JVM running for 25.896)
   [INFO ][io.undertow.servlet.log(382)] Initializing Spring DispatcherServlet 'dispatcherServlet'
   ```
-### ![](/img/ic-number-10.svg) 정지
+### 정지
 
 ```bash
 $ cd ${WHATAP_HOME}/bin
@@ -434,14 +414,14 @@ $ ./control.sh account stop
   ./control.sh account stop  
 -->
 
-### ![](/img/ic-number-11.svg) 계정
+### 계정
 
 프론트 서버가 정상적으로 기동되면 admin@whatap.io / admin 계정으로 로그인하세요. 이 계정은 와탭 수집 서버 관리용으로 사용되는 계정으로 수집 서버 관리용으로만 사용합니다. 수집 서버 관리 계정으로는 프로젝트를 생성하지 않습니다.
 
 * 수집 서버 관리계정: admin@whatap.io / admin
 
 
-### ![](/img/ic-number-12.svg) 디렉터리 구조
+### 디렉터리 구조
 
 #### Front 관련 서버 디렉터리
 
@@ -496,7 +476,7 @@ $ ./control.sh account stop
   * *Oid별 폴더*: Oid별로 기초 config 데이터 저장
 
 
-### ![](/img/ic-number-13.svg) 적용 옵션
+### 적용 옵션
 
 * **NotiHub 메일 발송 옵션**
   ```bash
@@ -552,3 +532,4 @@ $ ./control.sh account stop
   sms.server.url=http://10.23.32.43/
   ```
   SMS 발송 기능은 제공해 주신 API를 기반으로 Pulgin 형태로 구현되었습니다. API 및 Plugin은 *${WHATAP_HOME}/plugin* 경로 내에서 확인할 수 있습니다. 
+ 

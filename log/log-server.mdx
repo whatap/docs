@@ -26,7 +26,7 @@ sudo mkdir extension
 
 echo >extension/logsink.conf<<EOL
 [[inputs.logsink]]
-  category = "serverlog"
+  category = "serverlog" 
   stats_enabled = false ## 로그 발생량 통계 별도 데이터로 전송 여부
   stats_category = "serverlog_stats" ## 로그 발생량 통계 카테고리
   excludeNames = [ ".gz",".zip" ] ## 로그 파일 경로(path)에 별표(*)가 포함되어 제외할 로그 비대상 파일명 설정
@@ -44,9 +44,9 @@ EOL
 sudo service whatap restart
 ```
 
-* `stats_enabled`: 별도의 로그 수집 통계 데이터 발생 여부를 설정합니다. 기본값은 `false`입니다. 값을 `true`로 설정하면 `stats_category`에서 설정한 카테고리로 통계 데이터가 발생합니다.
+* `stats_enabled`: 수집 현황 데이터의 수집 여부를 설정합니다. 기본값은 `false`입니다. 값을 `true`로 설정해야 합니다. `true`로 설정하면 다음 `stats_category`에서 설정한 카테고리(`logsink_stats`)로 통계 데이터가 발생합니다.
 
-* `stats_category`: 별도의 로그 수집 통계 데이터를 저장할 메트릭스 카테고리를 설정합니다. 통계 데이터 필드는 다음과 같습니다.
+* `stats_category`: 수집 현황 데이터를 저장할 메트릭스 카테고리를 설정합니다. 값을 `logsink_stats`로 설정해야 합니다. 통계 데이터 필드는 다음과 같습니다.
 
   * `file`
   * `checkInterval`
@@ -66,6 +66,9 @@ sudo service whatap restart
   ```
 
 <!-- 
+
+별도의 로그 수집 통계 데이터 발생 여부를 설정합니다.
+
 로그 모니터링을 원하는 파일 경로를 다음과 같이 지정하세요. 명령어를 입력하면 로그 모니터링이 시작됩니다.
 
 import Tabs from '@theme/Tabs';

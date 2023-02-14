@@ -24,9 +24,9 @@ EOL
 sudo service whatap restart
 ```
 
-* `stats_enabled`: 별도의 로그 수집 통계 데이터 발생 여부를 설정합니다. 기본값은 `false`입니다. 값을 `true`로 설정하면 `stats_category`에서 설정한 카테고리로 통계 데이터가 발생합니다.
+* `stats_enabled`: 수집 현황 데이터의 수집 여부를 설정합니다. 기본값은 `false`입니다. 값을 `true`로 설정해야 합니다. `true`로 설정하면 다음 `stats_category`에서 설정한 카테고리(`logsink_stats`)로 통계 데이터가 발생합니다.
 
-* `stats_category`: 별도의 로그 수집 통계 데이터를 저장할 메트릭스 카테고리를 설정합니다. 통계 데이터 필드는 다음과 같습니다.
+* `stats_category`: 수집 현황 데이터를 저장할 메트릭스 카테고리를 설정합니다. 값을 `logsink_stats`로 설정해야 합니다. 통계 데이터 필드는 다음과 같습니다.
 
   * `file`
   * `checkInterval`

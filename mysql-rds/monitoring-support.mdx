@@ -13,6 +13,13 @@ tags: [ MySQL RDS, 데이터베이스, 데이터베이스 모니터링 ]
 
 ![MySQL RDS](/img/mysql-rds-architecture.jpeg)
 
+
+## 보안
+
+와탭은 고객의 데이터를 보호하기 위해 두가지 측면의 보안을 강화했습니다. 수집 데이터 전송은 SSL 통신을 이용합니다. DB 접속 정보는 3rd-party 솔루션(Vault)을 적용해 와탭서버에 암호화하여 저장합니다.
+
+
+
 ## 데이터베이스 지원 버전
 
 - MySQL RDS 상품은 DBX 에이전트와 DB 구간 사이에 SSL 통신을 보장하는 AWS RDS DB에만 사용을 권장합니다.

@@ -62,34 +62,34 @@ import TabItem from '@theme/TabItem';
 DB 모니터링 적용 시 DB Metadata(Dictionary, performance_schema) 조회 권한이 있는 모니터링용 계정이 필요합니다.
 :::
 
-### 지원 기능
+### 지원 기능 비교{#compare-db}
 
 <div class='db-support-type'>
 
-| 카테고리| 데이터베이스 |Postgresql | Oracle | Mysql |Mssql|
-| ---------- | --------------------------- | :-------------------------------------: | :------------------------------------------: | :---: | :-------: |
-| Monitoring | Instance List| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Instance Monitoring| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Multi Database(tenant) 기능 | <span class='emoji-ok'>✅</span><br/>(일부 지표만 multi db stat 가능) | <span class='emoji-ok'>✅</span><br/>(12c 버전 이상, multi tenant 인 경우) | <span class='emoji-no'>❌</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Slow Query| <span class='emoji-ok'>✅</span> | <span class='emoji-no'>❌</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-no'>❌</span> |
-| Analysis| Trends | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Trends Compare | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Lock Tree | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Parallel Query Tree| <span class='emoji-no'>❌</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-no'>❌</span>| <span class='emoji-no'>❌</span> |
-| ^ | Dead Lock | <span class='emoji-no'>❌</span> | <span class='emoji-no'>❌</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-no'>❌</span> |
-| ^ | DB Parameter | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| Statistics | SQL Stat | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Table Size| 지원 예정 |지원 예정 | <span class='emoji-ok'>✅</span>| 지원 예정 |
-| ^ | Database(TableSpace) Size| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| 지원 예정 |
-| ^ | SGA Size | <span class='emoji-no'>❌</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-no'>❌</span>| <span class='emoji-no'>❌</span> |
-| Report | Daily/Weekly/Monthly Report | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| Event| Event List| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Event Stat| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Event Setting| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Notification | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| Management | Agent Setup | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Agent List| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
-| ^ | Project Management | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> |
+| 카테고리| 데이터베이스 |Postgresql | Oracle | Mysql | Mysql RDS | Mssql |
+| ---------- | --------------------------- | :-------------------------------------: | :------------------------------------------: | :---: | :---: | :-------: |
+| Monitoring | Instance List| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span>  | <span class='emoji-ok'>✅</span> |
+| ^ | Instance Monitoring| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| ^ | Multi Database(tenant) 기능 | <span class='emoji-ok'>✅</span><br/>(일부 지표만 multi db stat 가능) | <span class='emoji-ok'>✅</span><br/>(12c 버전 이상, multi tenant 인 경우) | <span class='emoji-no'>❌</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| ^ | Slow Query| <span class='emoji-ok'>✅</span> | <span class='emoji-no'>❌</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-no'>❌</span> | <span class='emoji-no'>❌</span> |
+| Analysis| Trends | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span><br/>(Instance Monitoring에 통합) | <span class='emoji-ok'>✅</span> |
+| ^ | Trends Compare | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-no'>❌</span> | <span class='emoji-ok'>✅</span> |
+| ^ | Lock Tree | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| ^ | Parallel Query Tree| <span class='emoji-no'>❌</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-no'>❌</span>| <span class='emoji-no'>❌</span> | <span class='emoji-no'>❌</span> |
+| ^ | Dead Lock | <span class='emoji-no'>❌</span> | <span class='emoji-no'>❌</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-no'>❌</span> |
+| ^ | DB Parameter | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| Statistics | SQL Stat | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| ^ | Table Size| 지원 예정 |지원 예정 | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | 지원 예정 |
+| ^ | Database(TableSpace) Size| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | 지원 예정 |
+| ^ | SGA Size | <span class='emoji-no'>❌</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-no'>❌</span>| <span class='emoji-no'>❌</span> | <span class='emoji-no'>❌</span> |
+| Report | Daily/Weekly/Monthly Report | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| Event| Event List| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| ^ | Event Stat| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| ^ | Event Setting| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| ^ | Notification | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| Management | Agent Setup | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| ^ | Agent List| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
+| ^ | Project Management | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span>| <span class='emoji-ok'>✅</span> | <span class='emoji-ok'>✅</span> |
 
 | 카테고리| 데이터베이스 | Tibero| CUBRID | Altibase | Redis | MongoDB |
 | ---------- | --------------------------- | :-------: | :----: | :------: | :---: | :-----: |

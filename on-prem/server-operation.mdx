@@ -173,6 +173,8 @@ $ ln -s {외부경로} logs
 
 ### ![](/img/number-04.png) 관련 설정 변경 
 
+<div class='server-op'>
+
 |파일명|항목명|설정|
 |---|---|---|
 |*account.conf*|owner|ifconfig/ipconfig로 확인 가능한 account 서버 IP|
@@ -224,6 +226,8 @@ $ ln -s {외부경로} logs
 |^|db_name_event|Event DB Name 정보|
 |^|db_password_event|Event DB 패스워드 정보 (암호화 필수)|
 |^|db_username_event|Event DB user 정보|
+
+</div>
 
 ### ![](/img/number-05.png) 기동 방법
 
@@ -280,11 +284,16 @@ account Not Running
 * ps -ef | grep java
 * ps -ef | grep ${모듈명}
 -->
+
 ```bash
+
 $ ps -ef | grep java
 $ ps -ef | grep ${모듈명}
+
 ```
+
 ```bash
+
 $ ps -ef | grep java
 whatap    6812  6797 33 09:58 pts/1    00:01:09 java -Djava.security.egd=/dev/./urandom -Dwhatap.server.home=${WHATAP_HOME} -Dwhatap.conf.path=${WHATAP_HOME}/conf -Xmx1024m -Duser.timezone=GMT -jar ${WHATAP_HOME}/lib/whatap.server.notihub-1.1.2.1832.jar
 
@@ -295,17 +304,20 @@ whatap    7747  7731 46 09:59 pts/1    00:00:52 java -Djava.security.egd=/dev/./
 whatap   21223 21208  0  6월14 ?      00:16:23 java -Djava.security.egd=/dev/./urandom -Dwhatap.server.home=${WHATAP_HOME} -Dwhatap.conf.path=${WHATAP_HOME}/conf -Xmx128m -Duser.timezone=GMT -jar ${WHATAP_HOME}/lib/whatap.server.keeper-1.1.2.1832.jar
 
 whatap   21981 21966  0  6월14 ?      00:10:04 java -Djava.security.egd=/dev/./urandom -Dwhatap.server.home=${WHATAP_HOME} -Dwhatap.conf.path=${WHATAP_HOME}/conf -Xmx256m -Duser.timezone=GMT -jar ${WHATAP_HOME}/lib/whatap.server.proxy-1.1.2.1832.jar
+
 ```
 
 ### ![](/img/ic-number-08.svg) 포트 리스닝 확인
 
 ```bash
+
 #1
 $ netstat -na | grep {체크 대상 포트} | grep LISTEN
 #2
 $ nmap -n -PN -sT -sU -p- localhost
 #3
 $ lsof -i :{체크 대상 포트}
+
 ```
 
 #### 예제

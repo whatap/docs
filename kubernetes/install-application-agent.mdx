@@ -51,7 +51,7 @@ Docker 컨테이너 기반으로 실행하는 Java 애플리케이션의 JVM Opt
 1. Dockerfile에 와탭 에이전트 설치용 이미지를 불러와 다운로드하는 명령어(절차)를 추가하세요.
 
   ```docker
-  # 와탭 에이전트용 디렉토리를 사용자 컨테이너에 생성
+  # 와탭 에이전트용 디렉터리를 사용자 컨테이너에 생성
   RUN mkdir -p /whatap
 
   # 와탭 Java 에이전트를 사용자 컨테이너에 복사
@@ -228,7 +228,7 @@ Docker 컨테이너 기반으로 실행하는 Python 애플리케이션에 와�
 :::note
 * 다음의 경우 권한 문제가 발생할 수 있습니다.
   - 와탭 설정을 위한 $WHATPA_HOME/whatap.conf 파일의 읽기 및 쓰기 권한
-  - 와탭 로그를 위한 $WHATPA_HOME/logs 디렉토리와 하위 파일의 읽기 및 쓰기 권한
+  - 와탭 로그를 위한 $WHATPA_HOME/logs 디렉터리와 하위 파일의 읽기 및 쓰기 권한
 * 권한 문제가 발생하는 경우 다음과 같이 `$WHATAP_HOME` 변수에 권한을 부여하세요.
     ```bash
     echo 'sudo chmod -R 777 $WHATAP_HOME'

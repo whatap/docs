@@ -7,7 +7,7 @@ tags:
     - Script plugin
 ---
 
-Java 에이전트에서 제공하는 플러그인을 활용해 프로파일 데이터에 부가 정보를 추가하거나, 메소드 수행 전/후로 원하는 코드를 주입하는 것과 같은 다양한 일을 할 수 있습니다.
+Java 에이전트에서 제공하는 플러그인을 활용해 트레이스 데이터에 부가 정보를 추가하거나, 메소드 수행 전/후로 원하는 코드를 주입하는 것과 같은 다양한 일을 할 수 있습니다.
 
 ## 플러그인 옵션
 
@@ -15,15 +15,15 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
 
 * `hook_trace_helper_start_patterns`
 
-  메소드 시작 부분에 프로파일 플러그인을 삽입할 지점(클래스, 메소드)을 설정합니다. 플러그인 코드는 *`$WHATAP_HOME`/plugin/TraceHelperStart.x* 파일에 작성하세요.
+  메소드 시작 부분에 트레이스 플러그인을 삽입할 지점(클래스, 메소드)을 설정합니다. 플러그인 코드는 *`$WHATAP_HOME`/plugin/TraceHelperStart.x* 파일에 작성하세요.
 
 * `hook_trace_helper_end_patterns`
 
-  메소드 종료 부분에 프로파일 플러그인을 삽입할 지점(클래스, 메소드)를 설정합니다. 플러그인 코드는 *`$WHATAP_HOME`/plugin/TraceHelperEnd.x* 파일에 작성하세요.
+  메소드 종료 부분에 트레이스 플러그인을 삽입할 지점(클래스, 메소드)를 설정합니다. 플러그인 코드는 *`$WHATAP_HOME`/plugin/TraceHelperEnd.x* 파일에 작성하세요.
 
 * `hook_trace_helper_patterns`
   
-  메소드 시작/종료 양쪽에 프로파일 플러그인을 삽입할 지점(클래스, 메소드)을 설정합니다. 플러그인 코드는 *`$WHATAP_HOME`/plugin/TraceHelperStart.x*, *`$WHATAP_HOME`/plugin/TraceHelperEnd.x* 파일에 각각 작성하세요.
+  메소드 시작/종료 양쪽에 트레이스 플러그인을 삽입할 지점(클래스, 메소드)을 설정합니다. 플러그인 코드는 *`$WHATAP_HOME`/plugin/TraceHelperStart.x*, *`$WHATAP_HOME`/plugin/TraceHelperEnd.x* 파일에 각각 작성하세요.
 
 * `custom_pool_classes`
   
@@ -68,7 +68,7 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
 
 대부분의 경우 오브젝트를 반환하므로 명시적 type casting 처리가 필요합니다. 다음은 플러그인 코드 작성 예시입니다.
 
-### 설정한 메소드 시작 시간을 프로파일에 기록하기
+### 설정한 메소드 시작 시간을 트레이스에 기록하기
 
 1. Java 에이전트 `hook_trace_helper_patterns` 옵션에 적용할 메소드를 *whatap.conf* 파일에 작성하세요.
 
@@ -81,17 +81,17 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
   ```java title='$WHATAP_HOME/plugin/TraceHelperStart.x'
   // String prefix에 클래스명, 메소드명을 대입하세요.
   String prefix = $point.class1 + "." + $point.method;
-  // 와탭 프로파일 속성 명칭을 `prefix` + "st" 로 현재 시간을 설정하세요.
+  // 와탭 트레이스 속성 명칭을 `prefix` + "st" 로 현재 시간을 설정하세요.
   $ctx.setAttribute(prefix + "st", new Long(System.currentTimeMillis()));
-  // 프로파일 정보에 현재 시간을 추가하세요.
+  // 트레이스 정보에 현재 시간을 추가하세요.
   $ctx.profile(prefix + " Start", new java.util.Date().toString()); 
   ```
 
-프로파일 내역에 메소드 시작시간을 다음과 같이 표시합니다.
+트레이스 내역에 메소드 시작시간을 다음과 같이 표시합니다.
 
-![시작 시간을 기록한 프로파일 내역](/img/java-script-plugin-1.png)
+![시작 시간을 기록한 트레이스 내역](/img/java-script-plugin-1.png)
 
-### 설정한 메소드 종료시간과 수행시간을 프로파일에 기록하기
+### 설정한 메소드 종료시간과 수행시간을 트레이스에 기록하기
 
 1. Java 에이전트 `hook_trace_helper_patterns` 옵션에 적용할 메소드를 *whatap.conf* 파일에 작성하세요.
 
@@ -103,18 +103,18 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
 
   ```java title='$WHATAP_HOME/plugin/TraceHelperEnd.x' {3,8} showLineNumbers
   String prefix = $point.class1 + "." + $point.method;
-  // TraceHelperStart.x 파일에서 추가한 프로파일 속성을 가져오세요.
+  // TraceHelperStart.x 파일에서 추가한 트레이스 속성을 가져오세요.
   long st = ((Long) $ctx.getAttribute(prefix + "st")).longValue(); 
   long gap = System.currentTimeMillis() - st;
   StringBuilder sb = new StringBuilder();
   sb.append(new java.util.Date().toString() + " (Gap:" + gap + " milliseconds)");
-  // 프로파일 정보에 시작 시간과의 현재 시간과의 Gap(수행시간)을 추가하세요.
+  // 트레이스 정보에 시작 시간과의 현재 시간과의 Gap(수행시간)을 추가하세요.
   $ctx.profile(prefix + " End", sb.toString()); 
   ```
 
-프로파일 내역에 메소드 종료시간과 수행시간을 다음과 같이 표시합니다.
+트레이스 내역에 메소드 종료시간과 수행시간을 다음과 같이 표시합니다.
 
-![종료 / 수행시간 까지 기록된 프로파일 내역](/img/java-script-plugin-2.png)
+![종료 / 수행시간 까지 기록된 트레이스 내역](/img/java-script-plugin-2.png)
 
 ## 플러그인 API
 
@@ -127,11 +127,11 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
 |   $ctx   | 속성관리                                                      |                                              |
 |    ^     | void setAttribute(String key, Object value)                   | Attribute를 설정합니다.                      |
 |    ^     | Object getAttribute(String key)                               | Attribute의 값을 가져옵니다.                 |
-|    ^     | >                                                             | 프로파일 데이터                              |
-|    ^     | void profile(String desc)                                     | 프로파일 메시지 기록                         |
-|    ^     | void profile(String name, String msg)                         | 프로파일 Step명, 메시지 기록                 |
-|    ^     | void profile(String name, String msg, int elapsed)            | 프로파일 Step명, 메시지, 수행시간 기록       |
-|    ^     | void profile(String name, String msg, int elapsed, int value) | 프로파일 Step명, 메시지, 수행시간, 순서 기록 |
+|    ^     | >                                                             | 트레이스 데이터                              |
+|    ^     | void profile(String desc)                                     | 트레이스 메시지 기록                         |
+|    ^     | void profile(String name, String msg)                         | 트레이스 Step명, 메시지 기록                 |
+|    ^     | void profile(String name, String msg, int elapsed)            | 트레이스 Step명, 메시지, 수행시간 기록       |
+|    ^     | void profile(String name, String msg, int elapsed, int value) | 트레이스 Step명, 메시지, 수행시간, 순서 기록 |
 |    ^     | >                                                             | HTTP Request                                 |
 |    ^     | String service()                                              | 서비스 이름 반환                             |
 |    ^     | void service(String name)                                     | 서비스 이름 설정                             |
@@ -267,7 +267,7 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
 
 ### Elasticsearch 엔진의 검색 요청 모니터링
 
-Elasticsearch(이하 ES) 엔진은 서블릿 엔진이 아니기 때문에 비정형 모니터링을 해야 합니다. 타상품이 지표 중심의 모니터링을 한다면 와탭의 플러그인을 활용해 ES의 요청 및 처리시간, 검색 키워드를 프로파일링할 수 있습니다.
+Elasticsearch(이하 ES) 엔진은 서블릿 엔진이 아니기 때문에 비정형 모니터링을 해야 합니다. 타상품이 지표 중심의 모니터링을 한다면 와탭의 플러그인을 활용해 ES의 요청 및 처리시간, 검색 키워드를 트레이싱할 수 있습니다.
 
 ```ini title='whatap.conf'
 # 트랜잭션 EndPoint로 org.elasticsearch.search.SearchService.executeQueryPhase를 설정합니다.
@@ -291,7 +291,7 @@ try {
         // org.elasticsearch.search.query.QueryPhase.execute(SearchContext searchContext)입니다.
         // 즉, SearchContext.query() 메소드를 invoke 한 결과를 String query에 저장합니다.
         String query = " " + method($point.args[0], "query");
-        // String query를 프로파일 정보로 출력
+        // String query를 트레이스 정보로 출력
         $ctx.profile(query);
     }
 } catch(Exception e) {
@@ -331,9 +331,9 @@ $result.active(total - avail);
 $result.idle(avail);
 ```
 
-### 프로파일에 Cookie 값 표현
+### 트레이스에 Cookie 값 표현
 
-쿠키값을 프로파일에서 확인할 수 있습니다.
+쿠키값을 트레이스에서 확인할 수 있습니다.
 
 ```java title='${WHATAP_HOME}/plugin/HttpServiceStart.x' {2} showLineNumbers
 // $req.getCookie() 파라미터로 확인하려는 Cookie를 설정하세요.

@@ -53,7 +53,7 @@ net_send_queue1_size=512
 net_send_queue2_size=1024
 ```
 
-**Queue1**에는 대부분의 성능 데이터 특히 정기적으로 전송하는 성능 데이터를 버퍼링하고 **Queue2**는 트랜잭션 프로파일(ProfilePack)과 액티브 스택(ActiveStackPack)만 별도 처리합니다.
+**Queue1**에는 대부분의 성능 데이터 특히 정기적으로 전송하는 성능 데이터를 버퍼링하고 **Queue2**는 트랜잭션 트레이스(ProfilePack)와 액티브 스택(ActiveStackPack)만 별도 처리합니다.
 
 에이전트는 큐를 기반으로 서버와 통신합니다. 서버가 다운되면 일정 부분은 에이전트가 메모리를 소비합니다. 그 이상의 문제는 발생하지 않습니다.
 
@@ -66,7 +66,7 @@ net_send_queue2_size=1024
 {@include: ../common-items/_common-network.mdx}
 
 * **net_send_queue1_size** <span class='type'>Int</span><br/>
-기본값 `512`<br/>프로파일 정보를 제외한 나머지 데이터 전송에 사용할 Queue의 크기를 설정합니다.
+기본값 `512`<br/>트레이스 정보를 제외한 나머지 데이터 전송에 사용할 Queue의 크기를 설정합니다.
 
 * **net_send_queue2_size** <span class='type'>Int</span><br/>
-기본값 `1024`<br/>프로파일 정보 전송에 사용할 Queue의 크기를 설정합니다.
+기본값 `1024`<br/>트레이스 정보 전송에 사용할 Queue의 크기를 설정합니다.

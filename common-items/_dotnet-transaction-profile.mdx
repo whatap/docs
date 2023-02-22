@@ -1,14 +1,14 @@
 * **whatap.profile_http_header_enabled** <span class='type'>Boolean</span><br/>기본값 `false`<br/>
-프로파일 내역에 http 헤더 정보를 기록하려면 `true`로 설정하세요.
+트레이스 내역에 http 헤더 정보를 기록하려면 `true`로 설정하세요.
 
 * **whatap.profile_http_parameter_enabled** <span class='type'>Boolean</span><br/>기본값 `false`<br/>
-    프로파일 내역에 http 파라미터 정보를 기록하려면 `true`로 설정하세요. 파라미터는 별도 보안키를 입력해야 조회할 수 있습니다.
+    트레이스 내역에 http 파라미터 정보를 기록하려면 `true`로 설정하세요. 파라미터는 별도 보안키를 입력해야 조회할 수 있습니다.
 :::note
 보안 키는 WAS 서버 *`%PROGRAMFILES%`\WhaTap .NET\paramkey.txt* 파일 내에 6자리로 설정합니다. *paramkey.txt* 파일이 존재하지 않는 경우 랜덤 값으로 자동 생성합니다.
 :::
 
 * **whatap.profile_http_parameter_url_prefix** <span class='type'>String</span><br/>
-프로파일 내역에 http 파라미터 정보를 기록할 대상 URL의 prefix를 정의할 때 사용합니다.
+트레이스 내역에 http 파라미터 정보를 기록할 대상 URL의 prefix를 정의할 때 사용합니다.
 
 * **whatap.profile_http_host_enabled** <span class='type'>Boolean</span><br/>기본값 `false`<br/>
 트랜잭션의 호스트 정보를 출력합니다. 값이 `false`이면 트랜잭션의 URL에 URI만 표기하고, `true`이면 /xxx.aaa.com/URL 형식으로 출력합니다.

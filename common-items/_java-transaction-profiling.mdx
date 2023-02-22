@@ -1,6 +1,6 @@
 * **profile_step_normal_count** <span class='type'>Int</span><br/>
     기본값 `1000`<br/>
-    트랜잭션 프로파일의 최대 스텝 수를 설정합니다.
+    트랜잭션 트레이스의 최대 스텝 수를 설정합니다.
 
 * **profile_step_heavy_count** <span class='type'>Int</span><br/>
     기본값 `1020`<br/>
@@ -57,19 +57,19 @@
 특정 인터페이스를 구현한 메소드의 응답시간을 측정하고자 할 때 Interface를 설정합니다. 인터페이스 FullName을 설정하며 대상이 여러 개인 경우 쉼표(,)로 구분합니다.
 
 * **hook_method_ignore_classes** <span class='type'>String</span><br/>
-메소드 프로파일을 설정할 때 프로파일에서 제외하고 싶은 클래스들을 설정합니다.
+메소드 트레이스를 설정할 때 프로파일에서 제외하고 싶은 클래스들을 설정합니다.
 
 * **hook_method_access_public_enabled** <span class='type'>Boolean</span><br/>
-기본값 `true`<br/>메소드 프로파일을 설정할 때 public 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
+기본값 `true`<br/>메소드 트레이스를 설정할 때 public 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
 
 * **hook_method_access_private_enabled** <span class='type'>Boolean</span><br/>
-기본값 `false`<br/>메소드 프로파일을 설정할 때 private 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
+기본값 `false`<br/>메소드 트레이스를 설정할 때 private 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
 
 * **hook_method_access_protected_enabled** <span class='type'>Boolean</span><br/>
-기본값 `true`<br/>메소드 프로파일을 설정할 때 protected 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
+기본값 `true`<br/>메소드 트레이스를 설정할 때 protected 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
 
 * **hook_method_access_none_enabled** <span class='type'>Boolean</span><br/>
-기본값 `true`<br/>메소드 프로파일을 설정할 때 no access indicated 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
+기본값 `true`<br/>메소드 트레이스를 설정할 때 no access indicated 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
 
 * **stacklog_socket_port** <span class='type'>TCP_PortNumber</span><br/>
     기본값 `0`<br/>

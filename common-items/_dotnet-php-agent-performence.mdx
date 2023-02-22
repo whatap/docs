@@ -40,13 +40,13 @@ UDP 데이터 수신에 Queue를 사용하는 경우 overflowed Queue 버퍼 크
 UDP 데이터를 처리하는 스레드의 개수를 설정합니다. 개수를 늘리면 UDP에서 읽은 데이터를 좀 더 빠르게 처리할 수 있습니다.
 
 * **whatap.queue_profile_enabled** <span class='type'>Boolean</span><br/>기본값 `false`<br/> 
-프로파일 정보 처리에 Channel을 대신해 별도의 Queue 를 사용합니다.
+트레이스 정보 처리에 Channel을 대신해 별도의 Queue 를 사용합니다.
 
 * **whatap.queue_profile_size** <span class='type'>Int</span><br/>기본값 `512`<br/> 
-프로파일 정보 처리를 위한 버퍼를 설정합니다.
+트레이스 정보 처리를 위한 버퍼를 설정합니다.
 
 * **whatap.queue_profile_process_thread_count** <span class='type'>Int</span><br/>기본값 `1`<br/> 
-프로파일 정보를 처리하는 스레드의 개수를 설정합니다. 개수를 늘리면 좀 더 빠르게 처리할 수 있습니다.
+트레이스 정보를 처리하는 스레드의 개수를 설정합니다. 개수를 늘리면 좀 더 빠르게 처리할 수 있습니다.
 
 * **whatap.queue_text_enabled** <span class='type'>Boolean</span><br/>기본값 `false`<br/> 
 텍스트 데이터 처리를 위해 Channel 대신에 Queue 를 사용합니다.

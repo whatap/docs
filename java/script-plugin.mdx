@@ -7,7 +7,7 @@ tags:
     - Script plugin
 ---
 
-Java 에이전트에서 제공하는 플러그인을 활용해 프로파일 데이터에 부가 정보를 추가하거나, 메소드 수행 전/후로 원하는 코드를 주입하는 것과 같은 다양한 일을 할 수 있습니다.
+Java 에이전트에서 제공하는 플러그인을 활용해 트레이스 데이터에 부가 정보를 추가하거나, 메소드 수행 전/후로 원하는 코드를 주입하는 것과 같은 다양한 일을 할 수 있습니다.
 
 ## 플러그인 옵션
 
@@ -83,7 +83,7 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
   String prefix = $point.class1 + "." + $point.method;
   // 와탭 프로파일 속성 명칭을 `prefix` + "st" 로 현재 시간을 설정하세요.
   $ctx.setAttribute(prefix + "st", new Long(System.currentTimeMillis()));
-  // 프로파일 정보에 현재 시간을 추가하세요.
+  // 트레이스 정보에 현재 시간을 추가하세요.
   $ctx.profile(prefix + " Start", new java.util.Date().toString()); 
   ```
 
@@ -108,7 +108,7 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
   long gap = System.currentTimeMillis() - st;
   StringBuilder sb = new StringBuilder();
   sb.append(new java.util.Date().toString() + " (Gap:" + gap + " milliseconds)");
-  // 프로파일 정보에 시작 시간과의 현재 시간과의 Gap(수행시간)을 추가하세요.
+  // 트레이스 정보에 시작 시간과의 현재 시간과의 Gap(수행시간)을 추가하세요.
   $ctx.profile(prefix + " End", sb.toString()); 
   ```
 
@@ -127,7 +127,7 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
 |   $ctx   | 속성관리                                                      |                                              |
 |    ^     | void setAttribute(String key, Object value)                   | Attribute를 설정합니다.                      |
 |    ^     | Object getAttribute(String key)                               | Attribute의 값을 가져옵니다.                 |
-|    ^     | >                                                             | 프로파일 데이터                              |
+|    ^     | >                                                             | 트레이스 데이터                              |
 |    ^     | void profile(String desc)                                     | 프로파일 메시지 기록                         |
 |    ^     | void profile(String name, String msg)                         | 프로파일 Step명, 메시지 기록                 |
 |    ^     | void profile(String name, String msg, int elapsed)            | 프로파일 Step명, 메시지, 수행시간 기록       |
@@ -267,7 +267,7 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
 
 ### Elasticsearch 엔진의 검색 요청 모니터링
 
-Elasticsearch(이하 ES) 엔진은 서블릿 엔진이 아니기 때문에 비정형 모니터링을 해야 합니다. 타상품이 지표 중심의 모니터링을 한다면 와탭의 플러그인을 활용해 ES의 요청 및 처리시간, 검색 키워드를 프로파일링할 수 있습니다.
+Elasticsearch(이하 ES) 엔진은 서블릿 엔진이 아니기 때문에 비정형 모니터링을 해야 합니다. 타상품이 지표 중심의 모니터링을 한다면 와탭의 플러그인을 활용해 ES의 요청 및 처리시간, 검색 키워드를 트레이싱할 수 있습니다.
 
 ```ini title='whatap.conf'
 # 트랜잭션 EndPoint로 org.elasticsearch.search.SearchService.executeQueryPhase를 설정합니다.
@@ -291,7 +291,7 @@ try {
         // org.elasticsearch.search.query.QueryPhase.execute(SearchContext searchContext)입니다.
         // 즉, SearchContext.query() 메소드를 invoke 한 결과를 String query에 저장합니다.
         String query = " " + method($point.args[0], "query");
-        // String query를 프로파일 정보로 출력
+        // String query를 트레이스 정보로 출력
         $ctx.profile(query);
     }
 } catch(Exception e) {

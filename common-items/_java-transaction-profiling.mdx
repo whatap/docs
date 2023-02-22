@@ -4,11 +4,11 @@
 
 * **profile_step_heavy_count** <span class='type'>Int</span><br/>
     기본값 `1020`<br/>
-    Heavy한 스텝의 경우 프로파일 기본 스텝 수를 초과하더라도 정해진 값만큼 기록합니다.
+    Heavy한 스텝의 경우 트레이스 기본 스텝 수를 초과하더라도 정해진 값만큼 기록합니다.
 
 * **profile_step_max_count**<span class='type'>Int</span><br/>
     기본값 `1024`<br/>
-    프로파일 스텝의 최대 수를 설정합니다. 수집된 프로파일 스텝 수가 이 값을 초과하면 이후 수집되는 스텝들은 모두 버려집니다. `profile_step_heavy_count`을 최대 1000으로 설정하면 `profile_step_max_count`만큼 액티브 스택이 수집됩니다.
+    트레이스 스텝의 최대 수를 설정합니다. 수집된 트레이스 스텝 수가 이 값을 초과하면 이후 수집되는 스텝들은 모두 버려집니다. `profile_step_heavy_count`을 최대 1000으로 설정하면 `profile_step_max_count`만큼 액티브 스택이 수집됩니다.
 
 * **profile_step_heavy_time** <span class='type'>MiliSecond</span><br/>
     기본값 `100`<br/>
@@ -20,7 +20,7 @@
 
 * **profile_method_resource_enabled** <span class='type'>Boolean</span><br/>
     기본값 `false`<br/>
-    프로파일에서 method 스텝을 수집할 때 해당 스텝에서 사용한 CPU와 메모리 사용량을 추적합니다.
+    트레이스에서 method 스텝을 수집할 때 해당 스텝에서 사용한 CPU와 메모리 사용량을 추적합니다.
 
 * **profile_position_method** <span class='type'>String</span><br/>
     설정한 메소드를 수행하는 시점의 StackTrace를 기록합니다.
@@ -57,7 +57,7 @@
 특정 인터페이스를 구현한 메소드의 응답시간을 측정하고자 할 때 Interface를 설정합니다. 인터페이스 FullName을 설정하며 대상이 여러 개인 경우 쉼표(,)로 구분합니다.
 
 * **hook_method_ignore_classes** <span class='type'>String</span><br/>
-메소드 트레이스를 설정할 때 프로파일에서 제외하고 싶은 클래스들을 설정합니다.
+메소드 트레이스를 설정할 때 트레이스에서 제외하고 싶은 클래스들을 설정합니다.
 
 * **hook_method_access_public_enabled** <span class='type'>Boolean</span><br/>
 기본값 `true`<br/>메소드 트레이스를 설정할 때 public 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
@@ -80,7 +80,7 @@ DB 연결 상태 추적 예시, `stacklog_socket_port=1521`
 :::
 
 * **biz_exceptions** <span class='type'>String</span><br/>
-비즈니스 Exception을 등록합니다. 등록한 비즈니스 Exception은 에러 통계에서 제외합니다. 프로파일 상세에서는 나타납니다.
+비즈니스 Exception을 등록합니다. 등록한 비즈니스 Exception은 에러 통계에서 제외합니다. 트레이스 상세에서는 나타납니다.
 
 * **ignore_exceptions** <span class='type'>String</span><br/>
 무시할 Exception을 등록합니다. 등록한 Exception의 에러 자체를 무시합니다.

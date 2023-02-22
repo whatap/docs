@@ -13,7 +13,7 @@
     trace_auto_transaction_enabled=true
     trace_auto_transaction_backstack_enabled=true
     ```
-1. **재시작 후 프로파일 분석**  
+1. **재시작 후 트레이스 분석**  
     다시 시작하세요. 이후 서비스를 호출하면 트랜잭션이 추적되는 것을 볼 수 있습니다. 
 
     트랜잭션을 조회하면 `jdbc.*`로 시작하는 모든 클래스의 메소드가 이 트랜잭션으로 나타나는 것을 알 수 있습니다. 트랜잭션 트레이스를 조회하면 **TRANSACTION BACKSTACK**라는 메시지 스텝을 확인할 수 있습니다.

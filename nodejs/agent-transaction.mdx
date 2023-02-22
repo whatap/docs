@@ -35,10 +35,10 @@ tags: [ Node.js, 트랜잭션 ]
 기본값 `true`<br/>메소드 트레이스를 설정할 때 no access indicated 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
 
 * **hook_method_ignore_prefixes** <span class='type'>String</span><br/>
-기본값 `get,set`<br/>메소드 트레이스를 설정할 때 프로파일에서 제외하고 싶은 클랙스들을 prefix로 설정합니다.
+기본값 `get,set`<br/>메소드 트레이스를 설정할 때 트레이스에서 제외하고 싶은 클랙스들을 prefix로 설정합니다.
 
 * **hook_method_ignore_classes** <span class='type'>String</span><br/>
-메소드 트레이스를 설정할 때 프로파일에서 제외하고 싶은 클래스들을 설정합니다.
+메소드 트레이스를 설정할 때 트레이스에서 제외하고 싶은 클래스들을 설정합니다.
 
 ### HTTP 트랜잭션 추적
 
@@ -81,13 +81,13 @@ NON-Http 트랜잭션 추적을 위한 시작점 패턴을 설정합니다.
 기본값 `x-wtap-tx`<br/>MTID 추적에 사용할 Callee Key Name을 정합니다.
 
 * **mtrace_callee_id_recv_enabled** <span class='type'>Boolean</span><br/>
-기본값 `false`<br/>MTID 추적 시 수신한 Callee ID를 프로파일에 표현합니다.
+기본값 `false`<br/>MTID 추적 시 수신한 Callee ID를 트레이스에 표현합니다.
 
 * **mtrace_alltx_enabled** <span class='type'>Boolean</span><br/>
 기본값 `false`<br/>log4j와 같은 로깅 시스템과 연계하기 위해서 모든 트랜잭션의 MTID를 추적할 수 있습니다.
 
 * **mtrace_basetime** <span class='type'>Miliseconds</span><br/>
-기본값 `100`<br/>`mtrace_alltx_enabled` 옵션의 값이 `true`이면 너무 많은 로그가 남을 수 있습니다. 이때는 프로파일 로깅량을 줄일 필요가 있습니다.
+기본값 `100`<br/>`mtrace_alltx_enabled` 옵션의 값이 `true`이면 너무 많은 로그가 남을 수 있습니다. 이때는 트레이스 로깅량을 줄일 필요가 있습니다.
 
 * **stat_mtrace_enabled** <span class='type'>Boolean</span><br/>
 기본값 `false`<br/>Caller와 Callee의 상관관계 통계를 수집합니다. Caller에 적용하면 Caller의 상세 정보를 보내주고 Callee에 적용하면 url 단위 Caller-Callee 호출 통계를 수집 서버로 전송합니다.

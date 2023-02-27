@@ -5,6 +5,7 @@ description: Server 애플리케이션에서 로그를 수집하는 방법을 �
 tags: [ 로그 모니터링, Server ]
 ---
 <!-- 안내 디테일 추가 필요 -->
+<!-- showLineNumbers {5-10} -->
 
 Server 애플리케이션에서 로그를 수집하려면 다음을 확인하세요.
 
@@ -22,18 +23,22 @@ Server Agent 2.1.2 버전부터 가능합니다. 업데이트 방법은 [다음 
 
 ### Linux Shell
 
-```bash title='Linux Shell' showLineNumbers {6-11}
+```bash title='Linux Shell'
 cd /usr/whatap/infra
 sudo mkdir extension
 
 echo >extension/logsink.conf<<EOL
 [[inputs.logsink]]
   category = "serverlog" 
-  stats_enabled = true ## 로그 발생량 통계 별도 데이터로 전송 여부
-  stats_category = "logsink_stats" ## 로그 발생량 통계 카테고리
-  excludeNames = [ ".gz",".zip" ] ## 로그 파일 경로(path)에 별표(*)가 포함되어 제외할 로그 비대상 파일명 설정
+  ## 로그 발생량 통계 별도 데이터로 전송 여부
+  stats_enabled = true 
+  ## 로그 발생량 통계 카테고리
+  stats_category = "logsink_stats"
+  ## 로그 파일 경로(path)에 별표(*)가 포함되어 제외할 로그 비대상 파일명 설정 
+  excludeNames = [ ".gz",".zip" ] 
   [[inputs.logsink.file]]
-    path = "/some/path/%Y-%m-%d/.log" ## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
+  ## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
+    path = "/some/path/%Y-%m-%d/.log" 
     disabled = false
     encoding = "euc-kr"
 
@@ -48,17 +53,21 @@ sudo service whatap restart
 
 ### Windows Powershell
 
-```bash title='Windows Powershell (관리자 권한)' showLineNumbers {5-10}
+```bash title='Windows Powershell (관리자 권한)'
 New-Item -type "Directory" -Path "C:\Program Files\WhatapInfra\extension"
 
 $contentToAdd = @"
 [[inputs.logsink]]
 category = "serverlog"
-stats_enabled = true ## 로그 발생량 통계 별도 데이터로 전송 여부
-stats_category = "logsink_stats" ## 로그 발생량 통계 카테고리
-excludeNames = [ ".gz",".zip" ] ## 로그 파일 경로(path)에 별표()가 포함되어 제외할 로그 비대상 파일명 설정
+## 로그 발생량 통계 별도 데이터로 전송 여부
+stats_enabled = true 
+## 로그 발생량 통계 카테고리
+stats_category = "logsink_stats"
+## 로그 파일 경로(path)에 별표()가 포함되어 제외할 로그 비대상 파일명 설정 
+excludeNames = [ ".gz",".zip" ] 
 [[inputs.logsink.file]]
-_path = "c:\whatap\logs%Y-%m-%d_.log" ## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
+## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
+_path = "c:\whatap\logs%Y-%m-%d_.log" 
 disabled = false
 encoding = "euc-kr"
 

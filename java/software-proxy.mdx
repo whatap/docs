@@ -22,11 +22,11 @@ tags: [ Java, 애플리케이션 모니터링, 소프트웨어 프록시 ]
 
 ## 에이전트 설치
 
-설치 과정은 에이전트의 설치 과정과 동일합니다. 사용하는 애플리케이션 서버 환경에 따른 [설치 가이드](install-agent#download-agent)를 참조하세요.
+설치 과정은 에이전트의 설치 과정과 동일합니다. **WhaTap Proxy**를 설치할 서버에 에이전트 파일을 다운 받아 압축을 해제하세요. 사용하는 애플리케이션 서버 환경에 따른 [설치 가이드](install-agent#download-agent)를 참조하세요.
 
 ## 에이전트 설정
 
-1. `$WHATAP_HOME` 하위의 *proxy.conf* 파일을 생성하세요.
+1. **WhaTap Proxy** 서버에서 `$WHATAP_HOME` 경로에 *proxy.conf* 파일을 생성하세요.
 
 1. *whatap.conf* 파일에서 `whatap.server.host` 항목을 복사하세요.
 
@@ -39,7 +39,7 @@ tags: [ Java, 애플리케이션 모니터링, 소프트웨어 프록시 ]
 
     ```
 
-1. 애플리케이션 서버에 탑재한 에이전트 설정을 수정해 **WhaTap Proxy**로 데이터를 전송할 수 있도록 *whatap.conf* 파일에서 호스트와 포트 설정을 변경하세요.
+1. 애플리케이션 서버에 탑재한 에이전트 설정을 수정해 **WhaTap Proxy** 서버로 데이터를 전송할 수 있도록 *whatap.conf* 파일에서 호스트와 포트 설정을 변경하세요.
 
     ```ini title='whatap.conf 예시'
 
@@ -48,7 +48,7 @@ tags: [ Java, 애플리케이션 모니터링, 소프트웨어 프록시 ]
 
     ```
 
-1. **WhaTap Proxy** 실행 스크립트를 생성하고 실행 권한을 부여하세요.
+1. **WhaTap Proxy** 서버에서 실행 스크립트를 생성하고 실행 권한을 부여하세요.
 
     ```bash title='proxy.sh 예시 (Windows: proxy.bat)'
 

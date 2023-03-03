@@ -1,0 +1,106 @@
+---
+id: software-proxy
+title: 소프트웨어 프록시
+description: 모니터링 대상 서버로부터 외부망에 직접적인 접근을 차단하고 단일 채널을 통해 외부 접속을 허용할 수 있습니다.
+tags: [ Java, 애플리케이션 모니터링, 소프트웨어 프록시 ]
+---
+
+모니터링 대상 서버로부터 외부망에 직접적인 접근을 차단하고 단일 채널을 통해 외부로의 접속을 허용하고자 하는 경우 TCP/UDP Proxy
+서버를 구성해 와탭 서버에 데이터를 전송할 수 있습니다.
+
+사용자가 직접 Proxy 서버를 구성하기 어려운 상황이라면 와탭이 제공하는 소프트웨어 기반의 **WhaTap Proxy**를 활용할 수 있습니다. 
+이를 통해 사용자는 다수의 서버가 외부망에 직접 접속하지 않고 **WhaTap Proxy**를 경유하도록 제어할 수 있습니다.
+
+![](/img/agent_proxy_01.png)
+
+행정망과 인터넷망이 분리된 서버에서 NIA 수집서버를 사용하기 위한 구조입니다. 위 그림은 Web Application Server(WAS)에서 직접 외부의 수집 서버(NIA 수집서버)로 연결할 수 없을 경우의 구성도입니다. 인터넷망으로 연결할 수 있는 서버에 소프트웨어 프록시 서버를 설치해 데이터를 중계합니다.
+
+![](/img/agent_proxy_02.png)
+
+* **WAS**에서 **Proxy(S/W)** 서버로 데이터 전송: Outbound 6600 port (Port 변경 가능)
+* **Proxy(S/W)** 서버에서 인터넷망을 통해 **수집 서버(NIA)**로 데이터 전송: Outbound 6600 Port
+
+## 에이전트 설치
+
+설치 과정은 에이전트의 설치 과정과 동일합니다. 사용하는 애플리케이션 서버 환경에 따른 [설치 가이드](install-agent#download-agent)를 참조하세요.
+
+## 에이전트 설정
+
+1. `$WHATAP_HOME` 하위의 *proxy.conf* 파일을 생성하세요.
+
+1. *whatap.conf* 파일에서 `whatap.server.host` 항목을 복사하세요.
+
+1. *proxy.conf* 파일에 리스닝 포트를 설정하세요.
+
+    ```ini title='proxy.conf 예시'
+
+    whatap.server.host=52.78.209.94/52.78.224.235 
+    listen_port=6600
+
+    ```
+
+1. 애플리케이션 서버에 탑재한 에이전트 설정을 수정해 **WhaTap Proxy**로 데이터를 전송할 수 있도록 *whatap.conf* 파일에서 호스트와 포트 설정을 변경하세요.
+
+    ```ini title='whatap.conf 예시'
+
+    whatap.server.host={WhaTap Proxy를 설치한 서버의 IP}  
+    listen_port=6600
+
+    ```
+
+1. **WhaTap Proxy** 실행 스크립트를 생성하고 실행 권한을 부여하세요.
+
+    ```bash title='proxy.sh 예시 (Windows: proxy.bat)'
+
+    #!/usr/bin/env bash EXE_JAR=`ls *.proxy* | sort | tail -1` ${JAVA_HOME}/bin/java ${JAVA_OPTS} -jar $EXE_JAR
+
+    ```
+
+    ```bash title='실행 권한 부여'
+
+    $ chmod +x proxy.sh
+
+    ```
+
+1. *proxy.sh*(*proxy.bat*) 파일을 실행하고 *{PID}.proxy.run* 파일이 생성되는 것을 확인하세요.
+
+    ```bash
+
+    ./proxy.sh &
+
+    ```
+
+1. $WHATAP_HOME/logs 경로에서 로그 파일을 확인하세요.
+
+    ```text
+
+    20161116 10:19:14 [WhaTap] LISTEN PORT: 6600
+
+    ```
+
+1. *{PID}.proxy.run* 파일을 삭제하세요.
+
+
+## 에이전트 핑(Ping)
+
+모니터링 기능을 적용하기 전에 에이전트와 서버 사이에 통신 문제가 없는지 확인하기 위한 기능을 제공합니다. 사용자는 *ping.sh*(*ping.bat*) 파일을 실행한 다음 에이전트를 통해 가상의 모니터링 정보를 서버로 송신할 수 있으며, [와탭 모니터링 서비스](https://service.whatap.io)에 송신되는지 확인할 수 있습니다.
+
+```bash title='ping.sh (Windows: ping.bat)'
+
+$ ./ping.sh JAVA_HOME=/jdk1.8.0_111 
+ _      ____       ______
+| | /| / / /  ___ /_  __/__ ____
+| |/ |/ / _ \/ _ `// / / _ `/ _ \
+|__/|__/_//_/\_,_//_/  \_,_/ .__/
+                         /_/
+Just Tap, Always Monitoring 
+WhaTap Agent version 0.4.5 
+20161207 20161208 09:02:25.003 SEND PING DATA 
+20161208 09:02:25.510 SEND PING DATA 
+...
+
+```
+
+## 에이전트 설치 확인
+
+에이전트를 설치한 서버와 수집 서버 사이에 연결됐다면 [와탭 모니터링 서비스](https://service.whatap.io)에서 확인할 수 있습니다. [다음 문서](install-check)를 확인하세요.

@@ -37,7 +37,7 @@ echo >extension/logsink.conf<<EOL
   ## 로그 파일 경로(path)에 별표(*)가 포함되어 제외할 로그 비대상 파일명 설정 
   excludeNames = [ ".gz",".zip" ] 
   [[inputs.logsink.file]]
-  ## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
+    ## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
     path = "/some/path/%Y-%m-%d/.log" 
     disabled = false
     encoding = "euc-kr"
@@ -97,7 +97,7 @@ Restart-Service "Whatap Infra"
   ```ini title='예시'
   excludeNames = [ ".gz",".zip" ]
   ```
-
+ 
 <!-- 
 
 별도의 로그 수집 통계 데이터 발생 여부를 설정합니다.

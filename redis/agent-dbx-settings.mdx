@@ -18,14 +18,17 @@ DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다.
 {@include: ../common-items/_db-agent-dbx-basic-02.mdx}
 
 
+## 데이터 수집
+
+* **idle_as_active** <span class='type'>Second</span>
+
+ 기본값 `1`
+
+ 해당 세션의 idle time(s)입니다. idle이 지정한 값보다 작거나 같으면 active session으로 처리합니다.
+
 ## 에이전트 이름 식별{#naming}
 
 {@include: ../common-items/_db-agent-dbx-naming.mdx}
-
-
-## 데이터 수집
-
-{@include: ../common-items/_db-agent-dbx-collect-data.mdx}
 
 <!-- AES 256 암호화 적용 -->
 {@include: ../common-items/_db-aes-256-encrypt.mdx} 

@@ -28,10 +28,8 @@ tags: [ Java, 애플리케이션 모니터링, 소프트웨어 프록시 ]
 *whatap.agent.proxy-`X.Y.Z`.jar* 파일을 적절한 경로에 복사했다면 와탭 수집 서버 IP와 포트를 설정하기 위한 *proxy.conf* 파일을 생성하세요. *whatap.agent.proxy-`X.Y.Z`.jar* 파일이 위치한 경로는 `$PROXY_HOME`입니다.
 
 ```ini title='$PROXY_HOME/proxy.conf'
-
 whatap.server.host=52.78.209.94/52.78.224.235 ## 와탭 애플리케이션 모니터링 수집 서버 주소
 listen_port=6600 ## Proxy가 Listen하는 포트
-
 ```
 
 #### 내부망(Private Subnet)
@@ -39,17 +37,13 @@ listen_port=6600 ## Proxy가 Listen하는 포트
 `$WHATAP_HOME`은 에이전트를 설치한 경로입니다. `$WHATAP_HOME`*/whatap.conf* 파일에서 `whatap.server.host` 항목을 **외부망(Public Subnet)** 서버의 IP로 변경하세요.
 
 ```ini title='$WHATAP_HOME/whatap.conf'
-
 whatap.server.host={외부망(Public Subnet) 프록시 서버 IP}
-
 ```
 
 안정성을 위해 **외부망(Public Subnet)**에 프록시를 여러 개 구성할 수 있습니다. 슬래시(/)를 구분자로 입력하세요.
 
 ```ini title='$WHATAP_HOME/whatap.conf'
-
 whatap.server.host={외부망(Public Subnet) 프록시 서버 IP #1}/{외부망(Public Subnet) 프록시 서버 IP #2} 
-
 ```
 
 ### 에이전트 실행
@@ -57,23 +51,17 @@ whatap.server.host={외부망(Public Subnet) 프록시 서버 IP #1}/{외부망(
 소프트웨어 프록시는 `java` 명령을 통해 실행하거나 *proxy.sh*(*proxy.bat*) 파일을 만들어 실행하세요.
 
 ```bash title='java 명령'
-
 java -jar whatap.agent.proxy-X.Y.Z.jar &
-
 ```
 
 ```bash title='proxy.sh (Windows: proxy.bat)'
-
 #!/usr/bin/env bash 
 EXE_JAR=`ls *.proxy* | sort | tail -1` 
 ${JAVA_HOME}/bin/java ${JAVA_OPTS} -jar $EXE_JAR
-
 ```
 
 ```bash
-
 sh proxy.sh &
-
 ```
 
 :::note
@@ -94,10 +82,8 @@ sh proxy.sh &
 ### 내부망(Private Subnet)
 
 ```ini title='$WHATAP_HOME/whatap.conf'
-
 license=<프로젝트 액세스 키>
 whatap.server.host=192.168.203.60 ## 프록시 서버의 IP
-
 ```
 
 ### 외부망(Public Subnet)
@@ -105,7 +91,6 @@ whatap.server.host=192.168.203.60 ## 프록시 서버의 IP
 다음을 참조해 *haproxy.cfg* 파일을 설정하세요.
 
 ```ini title='/etc/haproxy/haproxy.cfg'
-
 frontend proxy_in
   mode              tcp
   bind              *:6600
@@ -117,7 +102,6 @@ backend proxy_out
   mode      tcp
   server    server1 13.124.11.223:6600 maxconn 32 
   server    server2 13.209.172.35:6600 maxconn 32
-
 ```
 
 :::note
@@ -133,10 +117,8 @@ backend proxy_out
 ### 내부망(Private Subnet)
 
 ```ini title='$WHATAP_HOME/whatap.conf'
-
 license=<프로젝트 액세스 키>
 whatap.server.host=192.168.203.60 ## 프록시 서버의 IP
-
 ```
 
 ### 외부망(Public Subnet)
@@ -144,7 +126,6 @@ whatap.server.host=192.168.203.60 ## 프록시 서버의 IP
 다음을 참조해 *nginx.conf* 파일을 설정하세요.
 
 ```apacheconf title='/etc/nginx/nginx.conf'
-
 stream {
   upstream tcp_proxy {
     server 13.124.11.223:6600;
@@ -155,7 +136,6 @@ stream {
     proxy_pass tcp_proxy;
   }
 }
-
 ```
 
 :::note

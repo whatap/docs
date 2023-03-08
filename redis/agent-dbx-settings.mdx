@@ -15,16 +15,22 @@ DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다.
   
   `redis`
 
-{@include: ../common-items/_db-agent-dbx-basic-02.mdx}
+* **db_ip** <span class='type'>String</span>
+
+  모니터링할 데이터베이스 서버의 IP 주소를 설정합니다.
+
+* **db_port** <span class='type'>String</span>
+
+  데이터베이스가 통신에 사용하는 포트를 설정합니다.
 
 
 ## 데이터 수집
 
 * **idle_as_active** <span class='type'>Second</span>
 
- 기본값 `1`
+  기본값 `1`
 
- 해당 세션의 idle time(s)입니다. idle이 지정한 값보다 작거나 같으면 active session으로 처리합니다.
+  세션의 idle time(s)입니다. idle이 지정한 값보다 작거나 같으면 active session으로 처리합니다.
 
 ## 에이전트 이름 식별{#naming}
 

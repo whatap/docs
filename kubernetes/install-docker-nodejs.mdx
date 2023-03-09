@@ -42,6 +42,14 @@ whatap_micro_enabled=true
 WhatapAgent = require('whatap').NodeAgent;
 ```
 
+```javascript title='적용 예시' showLineNumbers {1}
+WhatapAgent.NodeAgent;
+import http from 'http';
+import setupApp from '../src/app';
+let server = null;
+const port = normalizePort(process.env.PORT || '3000');
+```
+
 ECMAScript(ES)를 활용한다면 다음 코드를 추가하세요.
 
 ```javascript

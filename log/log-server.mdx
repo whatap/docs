@@ -30,11 +30,11 @@ Server Agent 2.1.2 버전부터 가능합니다. 업데이트 방법은 [다음 
   ```
 
 * **카테고리와 함께 설치** 
-  ```bash title='Linux Shell'
+  ```bash title='Linux Shell' {7,9,11,14} showLineNumbers
   cd /usr/whatap/infra
   sudo mkdir extension
 
-  echo >extension/logsink.conf<<EOL
+  cat >extension/logsink.conf<<EOL
   [[inputs.logsink]]
     category = "serverlog" 
     ## 로그 발생량 통계 별도 데이터로 전송 여부
@@ -55,19 +55,19 @@ Server Agent 2.1.2 버전부터 가능합니다. 업데이트 방법은 [다음 
       encoding = "utf-8"
   EOL
 
-  sudo service whatap restart
+  sudo service whatap-infra restart
   ```
 
 ### Windows Powershell
 
 * **기본 설치**
-  ```bash title='Windows Powershell (관리자 권한)'
+  ```bash title='Windows Powershell (관리자 권한)' 
   $LOGFILES="/some/path/file1,/some/other/file2"
   Add-Content "c:Program FilesWhatapInfrawhatap.conf" -Value "logsink.files=$LOGFILES"
   ```
 
 * **카테고리와 함께 설치**
-  ```bash title='Windows Powershell (관리자 권한)'
+  ```bash title='Windows Powershell (관리자 권한)' {6,8,10,13} showLineNumbers
   New-Item -type "Directory" -Path "C:\Program Files\WhatapInfra\extension"
 
   $contentToAdd = @"
@@ -92,6 +92,8 @@ Server Agent 2.1.2 버전부터 가능합니다. 업데이트 방법은 [다음 
   Restart-Service "Whatap Infra"
   ```
 
+### 옵션 안내
+
 * `stats_enabled`: 수집 현황 데이터의 수집 여부를 설정합니다. 기본값은 `false`입니다. 값을 `true`로 설정해야 합니다. `true`로 설정하면 다음 `stats_category`에서 설정한 카테고리(`logsink_stats`)로 통계 데이터가 발생합니다.
 
 * `stats_category`: 수집 현황 데이터를 저장할 메트릭스 카테고리를 설정합니다. 값을 `logsink_stats`로 설정해야 합니다. 통계 데이터 필드는 다음과 같습니다.
@@ -111,7 +113,7 @@ Server Agent 2.1.2 버전부터 가능합니다. 업데이트 방법은 [다음 
   ```ini title='예시'
   excludeNames = [ ".gz",".zip" ]
   ```
- 
+
 <!-- 
 
 별도의 로그 수집 통계 데이터 발생 여부를 설정합니다.

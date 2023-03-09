@@ -6,7 +6,7 @@
 cd /usr/whatap/infra
 sudo mkdir extension
 
-echo >extension/logsink.conf<<EOL
+cat >extension/logsink.conf<<EOL
 [[inputs.logsink]]
   category = "serverlog"
   ## 로그 발생량 통계 별도 데이터로 전송 여부
@@ -27,7 +27,7 @@ echo >extension/logsink.conf<<EOL
     encoding = "utf-8"
 EOL
 
-sudo service whatap restart
+sudo service whatap-infra restart
 ```
 
 ### Windows Powershell

@@ -5,6 +5,15 @@ description: 통계 데이터 조회(Application)를 위한 Open API에 대한 �
 tags: [ Open API, API, 통계, 통계 데이터 조회, 애플리케이션, 애플리케이션 모니터링 ]
 ---
 
+## 파라미터 설정 안내
+
+| 파라미터 | 설명 |
+| -------- | ---- |
+| `stime` | 조회 시작 시간 UTC (UNIX epoch time, millisecond) |
+| `etime` | 조회 종료 시간 UTC (UNIX epoch time, millisecond) |
+| filter | 기본 `m5` 자동 설정, 시간 범위 내에 5분 통계를 가지고 올때 `m5`를 사용합니다.<br/>5초 통계는 `s5`, 1시간 통계는 `h1`을 사용합니다. |
+| `oid` | 특정 서버만 모니터링을 원할 경우 추가하세요. |
+
 ## Exception
 
 <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/exception/<code>stitme</code>/<code>etime</code>
@@ -201,6 +210,68 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
   "total": 1080
 }
 ```
+
+## Heap 사용량 조회
+
+heap 사용량에 대한 통계를 조회할 수 있습니다.
+
+:::note
+
+조회 시간(`stime`, `etime`)은 한 시간 이내로 제한하며, ms(millisecond) 단위 입니다.
+
+:::
+
+### 통계 평균값 요청
+
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/heap_use/<code>stitme</code>/<code>etime</code>/avg
+
+```bash title='command'
+curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/heap_use/{sitme}/{etime}/avg"
+```
+
+### 통계 최댓값 요청
+
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/heap_use/<code>stitme</code>/<code>etime</code>/max
+
+```bash title='command'
+curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/heap_use/{sitme}/{etime}/max"
+```
+
+```json title='response'
+{
+  "pcode": 5490,
+  "stime": 1677747600000,
+  "etime": 1677749594269,
+  "timeMerge": "avg",
+  "unit": "byte",
+  "data": [
+    {
+        "oid": -1143239575,
+        "oname": "demo-8101",
+        "heap_use": "36121554.72"
+    },
+    {
+        "oid": -857948929,
+        "oname": "demo-8105",
+        "heap_use": "37498925.139"
+    },
+    (...)
+  ]
+}
+```
+
+| Response Field | Field Type | 설명 |
+| -- | -- | -- |
+| `pcode` | <span class='api'>number</span> | 조회한 프로젝트 코드 |
+| `stime` | <span class='api'>number</span> | 통계 조회 시작 시간 |
+| `etime` | <span class='api'>number</span> | 통계 조회 종료 시간 |
+| `timeMerge` | <span class='api'>string</span> | 통계 조회 기간의 데이터 병합 전략 |
+| `unit` | <span class='api'>string</span> | 힙 사용량 단위 |
+| `data` | <span class='api'>array</span> | 통계 데이터 |
+| `oid` | <span class='api'>number</span> | 에이전트 ID |
+| `oname` | <span class='api'>string</span> | 에이전트 이름 |
+| `heap_use` | <span class='api'>string</span> | 힙 사용량 |
+
 
 ## 에이전트 데이터 조회
 

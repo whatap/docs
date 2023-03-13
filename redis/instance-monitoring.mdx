@@ -13,27 +13,37 @@ tags: [ Redis, 인스턴스, 대시보드, 데이터베이스 모니터링  ]
 
 ![인스턴스 모니터링](/img/db-redis-instance-monitoring.png)
 
-* ![숫자 1](/img/number-01.png) ***인스턴스***를 클릭한 다음 원하는 대상을 선택하면 수집 데이터가 ![숫자 2](/img/number-02.png) 그래프 차트와 ![숫자 3](/img/number-03.png) ***액티브 세션*** 테이블에 자동 반영됩니다.
+* ![숫자 1](/img/number-01.png) ***인스턴스***
 
-* ![숫자 2](/img/number-02.png) 그래프 차트 영역의 각 위젯에서 가로축은 시간, 세로축은 각 지표의 수치입니다. 각 위젯에서 특정 시간대를 선택하면 ***분석*** > ***카운트 추이*** 메뉴로 이동합니다.
+  데이터를 조회할 인스턴스를 선택할 수 있습니다. 선택한 인스턴스의 수집 데이터가 ![숫자 2](/img/number-02.png) 그래프 차트와 ![숫자 3](/img/number-03.png) ***액티브 세션*** 테이블에 자동 반영됩니다.
 
-  :::note
+* ![숫자 2](/img/number-02.png) 그래프 차트 영역
 
-  * ***카운트 추이***에 대한 자세한 내용은 [다음 문서](analysis-function)를 참조하세요.
-  * 각 지표에 대한 자세한 내용은 [다음 문서](metrics-data-list)를 참조하세요. 
+  각 위젯에서 가로축은 시간, 세로축은 각 지표의 수치입니다. 각 위젯에서 특정 시간대를 선택하면 ***분석*** > ***카운트 추이*** 메뉴로 이동합니다.
 
-  :::
+* ![숫자 3](/img/number-03.png) ***액티브 세션***
 
-* ![숫자 3](/img/number-03.png) ***액티브 세션***에서는 실시간 수행 중인 세션 정보를 조회할 수 있습니다.
+  실시간 수행 중인 세션 정보를 조회할 수 있습니다.
+
+:::note
+
+* ***카운트 추이***에 대한 자세한 내용은 [다음 문서](analysis-count-trend)를 참조하세요.
+* 각 지표에 대한 자세한 내용은 [다음 문서](metrics-data-list)를 참조하세요. 
+* 컬럼 항목에 대한 자세한 내용은 [다음 문서](#info-of-column)를 참조하세요.
+
+:::
 
 
 <!-- 지표 선택하기 -->
 {@include: ../common-items/_db-select-metric-data-widget.mdx}
 
 
-<!-- 레이아웃 설정 -->
-{@include: ../common-items/_db-set-layout.mdx}
+<!-- 레이아웃 설정하기 -->
+{@include: ../common-items/_db-set-layout.mdx}  
 
 
 <!-- 액티브 세션 영역 활용 -->
 {@include: ../common-items/_db-using-area-active-session.mdx}
+
+<!-- 컬럼 정보 안내 -->
+{@include: ../common-items/_db-redis-info-of-column.mdx}

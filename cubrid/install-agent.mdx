@@ -29,10 +29,10 @@ import TR from '@site/src/components/TR';
   license=프로젝트 액세스 키
   whatap.server.host=13.124.11.223/13.209.172.35 // 와탭 서버 정보
 
-  db = [databases.txt 의 db-name]
-  db_ip = [DB 서버 IP 주소]
-  db_port =  [cubrid_broker.conf 파일의 BROKER_PORT (default : 33000)]
-  cms_port = [CUBRID manager cm.conf 파일의 cm_port (default : 8001)]
+  db = {$CUBRID_HOME/databases/databases.txt 의 db-name}
+  db_ip = {DB 서버 IP 주소}
+  db_port = {$CUBRID_HOME/conf/cubrid_broker.conf 의 BROKER_PORT (default : 33000)}
+  cms_port = {$CUBRID_HOME/conf/cm.conf 의 cm_port (default : 8001)}
   ```
 
 1. 다음 디렉터리에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*

@@ -15,7 +15,7 @@ Docker 컨테이너 기반으로 실행하는 Java 애플리케이션의 JVM Opt
 <Tabs>
 <TabItem value="dockerinstall" label="Docker Install" default>
 
-{@include: _docker-build.mdx}
+{@include: _docker-build.mdx}  
 
 1. 와탭 에이전트를 설치한 Docker 이미지로 배포하세요.
 
@@ -62,15 +62,17 @@ ENTRYPOINT ["java", "-javaagent:/whatap/whatap.agent-X.Y.Z.jar", "-Dwhatap.micro
 ```
 
 :::note
+
 * *whatap-virtual-X.Y.Z.jar*: 모니터링 대상(샘플 애플리케이션)
 * *whatap.agent-X.Y.Z.jar*: 와탭 에이전트
 * JVM 옵션 추가에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/java/install-agent#addjvmopt)를 참조하세요.
+
 :::
 
 </TabItem>
 <TabItem value='eksfargate' label='EKS Fargate'>
 
-{@include: _docker-build.mdx}
+{@include: _docker-build.mdx}  
 
 {@include: _pod-sidecar.mdx}
 

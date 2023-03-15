@@ -1,28 +1,29 @@
-홈 화면 > 프로젝트 선택 > ***로그*** > ***라이브 Tail***
+홈 화면 > 프로젝트 선택 > ***로그*** > ***라이브 테일***
 
-와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 프로젝트 메뉴 하위에 ***로그*** > ***라이브 Tail*** 메뉴를 선택하세요.
+와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 프로젝트 메뉴 하위에 ***로그*** > ***라이브 테일*** 메뉴를 선택하세요. ***라이브 테일*** 메뉴에서 서버 콘솔에 접근 없이 모니터링 화면상에서 로그 데이터 스트림을 쉽게 확인할 수 있습니다. 대량의 로그 중 필요한 로그를 선별하고 하이라이트 기능을 통해 원하는 로그를 빠르게 인지할 수 있습니다. 
+ 
+![라이브 테일 sc](/img/log-live-tail.png)
 
-![](/img/log-live-tail.png)
-
-***라이브 Tail*** 메뉴에서 복잡한 로그들도 손쉽게 접근 가능합니다. 필요에 따라 필터링 혹은 하이라이트 등의 기능을 활용해 실시간으로 조회할 수 있습니다. 로그 데이터 조회 주기는 2초입니다. {@include: ../common-items/_log-ui-main-term.mdx}
+***라이브 테일*** 메뉴에서 복잡한 로그들도 손쉽게 접근 가능합니다. 필요에 따라 ***필터*** 혹은 ***하이라이트*** 등의 기능을 활용해 실시간으로 조회할 수 있습니다. 로그 데이터 조회 주기는 2초입니다. {@include: ../common-items/_log-ui-main-term.mdx}
 
 ## ![](/img/number-01.png) 필터 영역
 
 * **필터 적용**   
-    필터를 {@include: ../common-items/_log-ui-filter-apply.mdx} 
+    필터를 {@include: ../common-items/_log-ui-filter-apply.mdx}
     
     ![](https://img.whatap.io/media/images/livetail_003_filter.png)
     입력창에 {@include: ../common-items/_log-ui-filter-apply2.mdx} ![number-s3](/img/number-03.png) 영역에서 조회할 수 있습니다.
 
-<!-- 필터 수정과 수식 -->
-{@include: ../common-items/_log-ui-filter-mod-exp.mdx}
+<br/>
+
+{@include: ../common-items/_log-ui-filter-mod-exp.mdx} 
+
+<br/>
 
 * **검색 키(Search Key)**  
-    다음 이미지에서 파란색 박스 부분은 파싱(parsing)된 검색 키입니다.   
-    ![](https://img.whatap.io/media/images/livetail_007_parsed_key.png)  
-
-{@include: ../common-items/_log-ui-sk.mdx}
-
+    다음 이미지에서 파란색 박스 부분은 파싱(parsing)된 검색 키입니다. 검색 키는 ***로그*** > ***설정***의 ***로그 Parser 설정***에서 파싱 로직을 등록해 설정할 수 있습니다.  
+    ![](https://img.whatap.io/media/images/livetail_007_parsed_key.png)
+<br/>
 * **필터 입력 문법**  
 {@include: ../common-items/_log-ui-filter-r.mdx}  
 
@@ -56,7 +57,7 @@
     * 설정한 내용은 **프로젝트 단위**로 저장됩니다.  
 
 * **테이블 설정**  
-    ***테이블 설정*** 메뉴는 ***라이브 Tail***, ***검색기***, ***탐색기***에서 사용할 수 있습니다. 
+    ***테이블 설정*** 메뉴는 ***라이브 테일***, ***로그 검색***, ***로그 트렌드***에서 사용할 수 있습니다. 
     
     ![](https://img.whatap.io/media/images/livetail_013_table_options.png)  
     ![number-s](/img/number-02.png) 영역 왼쪽의 ![아이콘](/img/ic-setting.svg) ***테이블 설정*** 버튼을 클릭하면 ***컬럼 추가***와 ***테이블 컨텐츠 설정*** 옵션 메뉴가 나타납니다. 
@@ -66,10 +67,10 @@
     * ***컬럼 순서 설정***: 컬럼을 추가하면 컬럼 순서 설정에 해당 컬럼이 추가됩니다. 원하는 컬럼을 드래그하여 컬럼의 순서를 변경하세요.
 
     2. **테이블**  
-    ![](https://img.whatap.io/media/images/livetail_016_table_visibility.png)
+    ![로그 테이블 컨텐츠 설정](/img/log-table-contents.png)
     * ***컨텐츠 표시 여부***
-        * 체크된 항목은 테이블에 표시되지 않습니다. 기본으로 ***content***, ***tag*** 모두 체크가 되어있으며 두 가지 항목 모두 표시합니다.
-        * 다음과 같이 ***tag***를 해제할 경우, 테이블에서 로그의 ***tag***는 표시되지 않습니다.
+        * 체크된 항목은 테이블에 표시되지 않습니다. 기본으로 ***로그***, ***태그*** 모두 체크가 되어있으며 두 가지 항목 모두 표시합니다.
+        * 다음과 같이 ***태그***를 해제할 경우 테이블에서 로그의 ***태그***는 표시되지 않습니다.
         ![](https://img.whatap.io/media/images/livetail_017_table_column_visible.png)
     * ***태그 관리***
         * 태그 관리 목록에 태그를 추가하면 추가한 순서대로 로그의 태그가 나열됩니다. 태그의 순서는 드래그하여 변경할 수 있습니다.

@@ -5,4 +5,45 @@ description: 인스턴스 모니터링 메뉴에서는 데이터베이스 서버
 tags: [ MySQL, 인스턴스, 대시보드, 데이터베이스 모니터링  ]
 ---
 
-{@include: ../common-items/_db-instance-monitoring.mdx}
+import ProdImg from '@site/src/components/ChangeImgName.js';
+
+{@include: ../common-items/_db-instance-monitoring-desc.mdx}
+
+<ProdImg img='db-instance-monitoring' ext='.png' desc='인스턴스 모니터링' />
+
+<!-- 숫자1 인스턴스 -->
+{@include: ../common-items/_db-instance-monitoring-select-instance.mdx}
+
+<!-- 숫자2 그래프 차트 영역 -->
+{@include: ../common-items/_db-instance-monitoring-graph-area.mdx}
+
+* ![숫자 3](/img/number-03.png) ***액티브 세션*** | ***락 트리*** | ***프로세스 정보***
+
+  실시간 수행 중인 세션 및 락 트리, 프로세스 정보를 조회할 수 있습니다
+
+  * ***액티브 세션***
+
+    실시간 수행 중인 세션과 쿼리 내용을 조회할 수 있습니다. 테이블에서 가장 오른쪽에 ***query*** 컬럼의 항목을 선택하면 ***SQL 보기*** 창이 나타납니다. 선택한 쿼리(Query)에 대한 Full Text 및 Plan 정보를 확인할 수 있습니다. 테이블의 컬럼에 대한 자세한 내용은 [다음 문서](#column-info)를 참조하세요.
+
+  * ***락 트리***
+
+    락 세션에 대한 정보와 Holder, Waiter 정보를 실시간으로 조회할 수 있습니다. 테이블의 컬럼에 대한 자세한 내용은 [다음 문서](#column-info)를 참조하세요.
+
+  * ***프로세스 정보***
+
+    데이터베이스 서버의 자원 사용량을 실시간으로 조회할 수 있습니다.
+
+<!-- 노트 -->
+{@include: ../common-items/_db-instance-monitoring-common-notes.mdx}
+
+<!-- 지표 선택하기 -->
+{@include: ../common-items/_db-select-metric-data-widget.mdx}
+
+<!-- 레이아웃 설정하기 -->
+{@include: ../common-items/_db-set-layout.mdx}  
+
+<!-- 액티브 세션 영역 활용 -->
+{@include: ../common-items/_db-using-area-active-session.mdx}  
+
+<!-- 컬럼 정보 안내 -->
+{@include: ../common-items/_db_ats-lock-column.mdx}

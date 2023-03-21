@@ -19,18 +19,51 @@ tags: [ AWS Log, 설치하기 ]
 
 ## 사전 확인
 
-AWS Log를 수집하기 위해 사용자의 AWS 환경에서 출력되는 로그 정보를 입수 후 와탭 수집 서버로 전송할 수 있도록 부가적인 자원이 필요합니다. 와탭은 로그를 감지하고 전송하기 위해 **WhaTap Forwarder**를 AWS Lambda Function을 통해 제공합니다. AWS CloudFormation을 활용해 **WhaTap Forwarder**를 사용자의 AWS 환경에 구동합니다.
+<!-- 문장 수정 필요 -->
 
-**WhaTap Forwarder**는 AWS Lambda Function으로 구동됩니다. Lambda Function의 Lifecycle에 의존적이기에 동시성 제약을 극복하기 위한 제어 요소를 가집니다. 사용자 환경에 발생하는 로그량에 따라 다음과 같은 제어 요소를 조정해야 합니다.
-  
+AWS Log를 수집하기 위해서는 사용자의 AWS 환경에서 출력되는 로그 정보를 입수 후 와탭 수집 서버로 전송할 수 있도록 부가적인 자원이 필요합니다. 와탭은 로그를 감지하고 전송하기 위해 **WhaTap Forwarder**를 AWS Lambda Function을 통해 제공합니다. AWS CloudFormation을 활용해 **WhaTap Forwarder**를 사용자의 AWS 환경에 구동합니다.
+
+**WhaTap Forwarder**는 AWS Lambda Function의 Lifecycle에 의존적이기에 동시성 제약을 극복하기 위한 제어 요소를 가집니다. 사용자 환경에서 발생하는 로그량에 따라 다음과 같은 제어 요소를 조정해야 합니다.
+
+<!-- 
+
+와탭은 로그를 감지하고 전송하기 위해 와탭 포워더를 제공합니다.
+
+와탭 포워더는 로그를 감지하고 전송합니다. 와탭 포워더가 로그를 감지하고 전송합니다.
+
+와탭 포워더는 람다 펑션의 라이프사이클에 의존적이기에 동시성 제약 극복을 
+
+-->
+
 * `ReservedConcurrency`: 동시 실행 개수입니다.
 * `Timeout`: Lambda Function으로 로그 유입이 없는 경우 유지될 시간입니다.
 * `Memory`: Lambda Function에 할당될 메모리입니다.
-* `ConnectionTimeout`: 와탭 수집 서버로의 로그 전송 타임아웃입니다.
+* `ConnectionTimeout`: 와탭 수집 서버로 로그 전송 시 타임아웃입니다.
 
-## 프로젝트 생성
+<details>
+<summary>AWS Log가 지원하는 AWS Resource Log</summary>
 
-{@include: ../getting-started/_create-project-v2.mdx}  
+#### CloudWatch Log Group  
+
+* WAF
+* API Gateway: 로그 그룹의 이름을 ***api-gateway/gateway resource***로 설정해야 정상적인 수집이 가능합니다.
+* RDS
+* DocumentDB
+* REDIS
+* EKS
+* ECS
+
+#### S3
+
+* VPC: Log가 수집되는 S3 Bucket 이름을 ***VPC resource***로 설정해야 정상적인 수집이 가능합니다.
+* CloudFront: Log 설정 시 접두사를 ***cloudfront***로 설정해야 정상적인 수집이 가능합니다.
+* ELB
+
+</details>
+
+<!--  프로젝트 생성 -->
+
+{@include: ../getting-started/_create-project-v2.mdx}
 
 {@include: ../getting-started/_accesskey.mdx}
 
@@ -50,21 +83,21 @@ AWS Log를 수집하기 위해 사용자의 AWS 환경에서 출력되는 로그
 
 * **AWS Region** <br/>
   WhaTap Forwarder를 설치하게 될 AWS Region을 선택하세요. 수집 대상 자원과 동일한 Region이어야 합니다.
-* **CloudFormation Stack** 명<br/>
+* **CloudFormation Stack Name**<br/>
   WhaTap Forwarder의 설치 및 제거에 활용되는 CloudFormation Stack 이름을 지정합니다.
-* **ConnectionTimeOut**<br/>
+* **ConnectionTimeOut**<span class='type'>Second</span><br/>
   기본값 `10`<br/>
   WhaTap Forwarder가 와탭 수집 서버에 접속 시 타임아웃 시간(초)을 지정합니다.
-* **MemorySize**<br/>
+* **MemorySize**<span class='type'>Int</span><br/>
   기본값 `1024`<br/>
   WhaTap Forwarder 의 메모리 할당 사이즈(MB)를 지정합니다.
-* **Timeout**<br/>
+* **Timeout**<span class='type'>Second</span><br/>
   기본값 `150`<br/>
   WhaTap Forwarder 의 휴지 기간(초)를 지정합니다. 로그 전송 요청이 없을 때 Lambda Function이 제거되기까지의 시간을 지정합니다. 
-* **UseReservedConcurrency**<br/>
+* **UseReservedConcurrency**<span class='type'>Boolean</span><br/>
   기본값 `false`<br/>
   로그의 안정적인 전송을 위해 WhaTap Forwarder에 할당할 최대 Function 개수의 지정 여부를 설정합니다.
-* **ReservedConcurrency**<br/>
+* **ReservedConcurrency**<span class='type'>Second</span><br/>
   기본값 `10`<br/>
   `UseReservedConcurrency`의 값이 `true`일 때 WhaTap Forwarder에 할당할 Function의 개수를 지정합니다. AWS 계정 당 디폴트로 할당 가능한 Function 수는 1,000개 입니다. 사용자가 사용할 수 있는 Function의 총 개수는 계정 당 총 할당 Function 개수(1,000)에서 `ReservedConcurrency` 설정 값을 뺀 것으로 제한됩니다.
 
@@ -80,7 +113,7 @@ AWS Log를 수집하기 위해 사용자의 AWS 환경에서 출력되는 로그
 1. CloudFormation 실행 페이지에서 설치 옵션을 지정하세요. 기본 파라미터는 입력되어있습니다.
 1. 하단에서 ![number 4](/img/number-04.png) 승인 ***체크*** 후 ![number 5](/img/number-05.png) ***Create stack*** 버튼을 선택하세요. 설치에 약 2분이 소요됩니다.
 
-### WhaTap Forwarder의 ARN 확보
+### WhaTap Forwarder의 ARN 확보{#whatapforwarder-arn}
 
 ![WhaTap Forwarder arn1](/img/aws-log-whatap-forwarder-arn.png)
 
@@ -90,8 +123,9 @@ AWS Log를 수집하기 위해 사용자의 AWS 환경에서 출력되는 로그
   스택 설치의 최종 단계인 WhaTapAWSLog 생성이 진행 중이라면 **WhaTap Forwarder**의 **ARN**을 확보할 수 있습니다. 
 
   :::
-1. 하단 오른쪽의 ![number 2](/img/number-02.png) ***aws-log-demo-whatapforwarder-…*** 을 선택해 **WhaTap Forwarder**의 상세 화면으로 이동하세요.
-1. 상세 화면 오른쪽의 ***Description*** 영역에서 ![number 3](/img/number-03.png) ***Function ARN***을 복사하세요.
+1. Logical ID가 WhaTapAWSLOG로 지정된 자원의 ![number 2](/img/number-02.png) ***Pyhsical ID***를 선택해 **WhaTap Forwarder**의 상세 화면으로 이동하세요.
+1. 상세 화면 오른쪽의 ***Description*** 영역에서 ![number 3](/img/number-03.png) ***Function ARN***(**WhaTap Forwarder ARN**)을 확인할 수 있습니다.
+1. 다음 단계를 위해 복사하세요.
 
 ### 설치 실패 시 점검 사항
 
@@ -156,7 +190,7 @@ Stack {stack name} already exists
 
 WhaTap Forwarder가 사용자의 AWS 환경 자원 로그를 전송받으려면 ***IAM 정책***과 ***IAM 역할***이 필요합니다. 이전에 WhaTap Forwarder 설정용 IAM 정책과 IAM 역할을 생성한 적이 없다면 신규 생성하세요. 
 
-### IAM 정책 생성
+### IAM 정책 생성{#create-iam-policy}
 
 접근 대상 자원에 대한 허용 여부를 지정합니다. 와탭 ***에이전트 설치*** > ***설치 안내*** 섹션의 ***AWS IAM 정책 생성*** 탭을 참조해 진행하세요. 누락된 정책이 있으면 설정이 정상적으로 이루어지지 않습니다.
 
@@ -198,24 +232,34 @@ WhaTap Forwarder가 사용자의 AWS 환경 자원 로그를 전송받으려면 
 
 :::
 
-### IAM 역할 생성
+### IAM 역할 생성{#create-iam-role}
 
 <!-- 어떤 AWS 계정 ID로 생성된 자원에 대해 권한을 허용할지를 지정하고 직전에 생성한 IAM 정책을 매핑합니다. -->
 
 생성된 자원에 대한 권한을 어떤 AWS 계정에 허용할지 지정하고 직전에 생성한 IAM 정책을 매핑합니다. 와탭 ***에이전트 설치*** > ***설치 안내*** 섹션의 ***AWS IAM 역할 생성*** 탭을 참조해 진행하세요. 
 
-1. AWS Management Console에 로그인 후 IAM 콘솔을 여세요.
-1. 콘솔 탐색창에서 ***Roles***을 선택한 후 ***Create role*** 버튼을 선택하세요.
-1. ***Select type of trusted entity***에서 ***AWS account***를 선택하세요.
+<!-- 
+
+![IAM Role sc](/img/aws-log-iam-role-v.png) 
 1. ***Account ID***에 와탭 계정(**911937781722**)을 입력하세요.
-  ![IAM Role ARN](/img/aws-log-create-role-entity.png)
+
+-->
+
+1. AWS Management Console에 로그인 후 IAM 콘솔을 여세요.
+1. 콘솔 탐색창에서 ***Roles***을 선택한 후 ![number 1](/img/number-01.png) ***Create role*** 버튼을 선택하세요. <br/>
+  ![IAM Role 1](/img/aws-log-iam-role-create.png)
+1. ***Select type of trusted entity***에서 ![number 2](/img/number-02.png) ***AWS account***를 선택하고  ![number 3](/img/number-03.png) ***Account ID***에 와탭 계정(**911937781722**)을 입력하세요. <br/>
+  ![IAM Role 2](/img/aws-log-iam-role-account.png)
 1. 하단의 ***Next*** 버튼을 선택하세요.
-1. 기존 단계에서 생성한 **IAM 정책**을 선택하세요.
+1. [기존 단계](#create-iam-policy)에서 생성한 ![number 4](/img/number-04.png) **IAM 정책**을 선택하세요. <br/>
+  ![IAM Role 3](/img/aws-log-iam-role-policy.png)
 1. 하단의 ***Next*** 버튼을 선택하세요.
-1. IAM 역할의 이름과 설명을 입력하세요. 
+1. IAM 역할의 ![number 5](/img/number-05.png) 이름을 입력하세요. <br/>
+  ![IAM Role 4](/img/aws-log-iam-role-name.png)
 1. ***Create Role***을 버튼을 선택하세요.
-1. 생성된 ***IAM Role ARN***을 복사하세요.
-  ![IAM Role ARN](/img/aws-log-iam-role-arn.png)
+1. 정보 탭에서 생성된 ![number 6](/img/number-06.png) ***IAM Role ARN***을 확인할 수 있습니다. <br/>
+  ![IAM Role 5](/img/aws-log-iam-role-arn-c.png)
+1. 다음 단계를 위해 ***IAM Role ARN***을 복사하세요. 
 
 ## AWS Log 구독
 
@@ -227,11 +271,16 @@ CloudWatch Log와 S3에 탑재되는 Archive Log를 구독할 수 있습니다.
 
 ### AWS CloudWatch Log 조회 및 구독
 
-1. AWS Log가 설치된 ***AWS Region***을 선택하세요. 
-1. ***AWS IAM Role ARN***을 입력하세요.
-1. ***조회*** 버튼을 선택해 구독할 수 있는 AWS 자원을 조회하세요.
-1. 조회된 자원 중 구독할 대상을 선택하세요.
-1. 기존 단계에서 획득한 **WhaTap Forwarder ARN**을 복사 후 붙여넣기하세요.
+와탭 ***에이전트 설치*** > ***설치 안내*** 섹션의 ***AWS Resource Log 조회 및 구독*** 탭에서 상단의 ***AWS CloudWatch Log Group***을 선택해 진행하세요. 
+
+![AWS CloudWatch Log 조회 및 구독 sc](/img/aws-log-cloudwatch-subs.png)
+
+1. AWS Log가 설치된 ![number 1](/img/number-01.png) ***AWS Region***을 선택하세요. 
+1. ![number 2](/img/number-02.png) ***AWS IAM Role ARN***을 입력하세요.
+1. ![number 3](/img/number-03.png) ***조회*** 버튼을 선택해 구독할 수 있는 AWS 자원을 조회하세요.
+1. 조회된 자원 중 ![number 4](/img/number-04.png) 구독할 대상을 선택하세요.
+1. [기존 단계](#whatapforwarder-arn)에서 획득한 **WhaTap Forwarder ARN**을 복사 후 ![number 5](/img/number-05.png) 붙여넣기하세요.
+1. ![number 6](/img/number-06.png) ***등록*** 버튼을 선택하세요.
 
 :::note
 
@@ -244,144 +293,24 @@ CloudWatch Log와 S3에 탑재되는 Archive Log를 구독할 수 있습니다.
 
 ### AWS S3 Bucket 구독
 
+와탭 ***에이전트 설치*** > ***설치 안내*** 섹션의 ***AWS Resource Log 조회 및 구독*** 탭에서 상단의 ***AWS S3 Bucket***을 선택해 진행하세요. 
+
+![AWS S3 Bucket 조회 및 구독 sc](/img/aws-log-s3-subs.png)
+
+1. AWS Log가 설치된 ![number 1](/img/number-01.png) ***AWS Region***을 선택하세요. 
+1. ![number 2](/img/number-02.png) ***AWS IAM Role ARN***을 입력하세요.
+1. ![number 3](/img/number-03.png) ***조회*** 버튼을 선택해 구독할 수 있는 AWS 자원을 조회하세요.
+1. 조회된 자원 중 ![number 4](/img/number-04.png) 구독할 대상을 선택하세요.
+1. [기존 단계](#whatapforwarder-arn)에서 획득한 **WhaTap Forwarder ARN**을 복사 후 ![number 5](/img/number-05.png) 붙여넣기하세요.
+1. ![number 6](/img/number-06.png) ***등록*** 버튼을 선택하세요.
 
 ## 모니터링 시작하기
 
-설치를 완료한 뒤 ***관리*** > ***로그 설정*** 메뉴로 이동하세요. ***로그 모니터링 시작하기*** 섹션에서 ***로그 모니터링 서비스 활성화*** 토글 버튼을 선택해 AWS Log 모니터링을 시작하세요. 모니터링이 활성화되면 ***대시보드*** > ***라이브 테일*** 메뉴에서 유입되는 로그의 출력을 확인할 수 있습니다.
+![AWS Log 모니터링 시작하기](/img/aws-log-start.png)
 
----
+설치를 완료한 뒤 ***관리*** > ***로그 설정*** 메뉴로 이동하세요. ***로그 모니터링 시작하기*** 섹션에서 ***로그 모니터링 서비스 활성화*** 토글 버튼을 선택해 AWS Log 모니터링을 시작하세요. 
 
-## AWS Log 설치
+* ![아이콘](/img/ic-toggle-on.svg) 토글 버튼을 켜면 로그 모니터링이 활성화됩니다.
+* ![아이콘](/img/ic-toggle-off.svg) 토글 버튼을 끄면 로그 모니터링이 비활성화됩니다. 로그를 더 이상 저장하지 않습니다.
 
-<!-- 1. 설치 섹션에서 ***AWS Log 설치*** 탭을 선택하세요. -->
-
-1. AWS Log를 설치할 리전을 선택하세요. 선택된 리전이 있으면 ***설치*** 버튼이 활성화됩니다.
-
-1. ***설치*** 버튼을 클릭해 CloudFormation 페이지로 이동합니다. 기본 파라미터는 입력되어 있습니다. 페이지 하단으로 내려가 승인 ***체크*** 후 ***스택 생성*** 버튼을 클릭하세요.
-
-    ![](/img/aws-log-cloudformation.png)
-
-1. 설치가 완료되면 ***스택*** 메뉴 > ***출력***에서 AWS Log Function ARN을 확인할 수 있습니다.
-
-    ![](/img/aws-log-install-success.png)
-
-    :::note
-
-    **AWS Log Function ARN**
-
-    AWS Log Function ARN으로 구독할 리소스를 조회하고 등록할 수 있습니다.
-
-    :::
-
-    :::note
-
-    **설치 실패**
-
-    * 다음과 같은 에러 메시지가 발생한다면 권한 부여가 되어있는지 확인하세요.
-    * 다음과 같은 에러 메시지가 발생한다면 CloudFormation 스택 이름을 변경하세요.
-
-    :::
-
-1. 파라미터와 설치 IAM 권한에 대한 자세한 설명은 ***설치*** 버튼 아래 각 항목을 펼쳐 확인할 수 있습니다.
-
-* 설치 파라미터 
-  * Lambda 기본 설정
-
-    |파라미터|기본값|설명|
-    |---|---|---|
-    |MemorySize|1024 (MB)|Lambda(Forwarder)의 메모리 사이즈를 설정합니다.|
-    |TimeOut|150 (s)|Lambda(Forwarder)의 Timeout시간. 즉, 로그 이벤트가 추가적으로 오지 않았을 때, Lambda가 내려가는 시간을 설정합니다.|
-  * 장애 방지  
-
-    |파라미터|기본값|설명|
-    |---|---|---|
-    |ConnectionTimeout|10 (s)|Lambda (Forwarder)에서 WhaTap에 로그를 전송하기 위해 시도하는 시간을 제한합니다.|
-* 필요 AWS IAM 권한
-
-## IAM Role 생성
-
-사용자가 직접 AWS IAM 서비스로 들어가 Role을 생성해야 합니다.
-
-### IAM Role 정책 생성
-
-IAM > 정책 > 정책 생성 페이지에서 다음의 정책을 생성하세요.
-<!-- 임의로 dev guide 확인 후 삽입 ... 검토/수정 필요 -->
-
-```json
-{
-  "Version" : "2012-10-17",
-  "Statement" : {
-      "Effect" : "Allow",
-      "Action" : [
-          "s3:List*",
-          "s3:PutBucketNotification",
-          "logs:PutSubscriptionFilter",
-          "logs:DescribeLogGroups"
-      ],
-      "Resource" "*"
-    }
-}
-```
-  
-:::note
-누락된 정책이 있으면 설정이 정상적으로 이루어지지 않습니다.
-:::
-
-### IAM Role 생성
-
-1. AWS Management Console에 로그인 후 IAM 콘솔을 여세요.
-1. 콘솔 탐색창에서 역할을 선택한 후 역할 생성을 선택하세요.
-1. Select type of trusted entity에서 AWS 계정을 선택하세요.
-1. Account ID에 와탭 계정을 입력하고 ***다음***을 클릭하세요.
-1. 기존 단계에서 만들었던 정책을 선택하세요.
-1. Role의 이름과 설명을 입력하고 ***Create Role***을 선택하세요.
-1. 생성된 Role의 ARN을 복사합니다.
-
-## IAM Role ARN 및 리전 입력
-
-리소스 조회를 위해 IAM Role ARN과 AWS Log가 설치된 리전을 입력하세요. 중간에 페이지를 이탈하지 않은 경우 **AWS Log 설치** 단계에서 입력한 리전이 자동으로 선택되어 있습니다.
-
-1. IAM Role ARN을 입력하면 ***등록*** 버튼이 활성화됩니다. 버튼을 선택하면 구독할 수 있는 리소스 목록을 조회합니다.
-1. 조회 실패 시 다음과 같은 메시지가 나타납니다. ***확인*** 버튼을 선택하면 재시도할 수 있습니다.
-<!--등록 실패 메시지-->
-1. 조회 성공 시 성공 메시지가 나타나고, ***확인*** 버튼이 비활성화됩니다.
-<!--등록 성공 메시지-->
-<!-- ***등록*** 버튼을 다시 누르거나 이후 리소스 구독 단계에서 조회 목록 ***새로 고침***을 통해 재조회가 가능합니다. -->
-
-## Log Forwarder가 지원하는 AWS Resource Log 확인
-
-:::note
-현재 지원 중인 리소스 로그 확인을 위한 참고 단계로 설치 과정에 영향을 주지 않습니다.
-:::
-
-## AWS Resource Log 선택 및 Subscribing
-
-**IAM ROLE ARN 및 리전 입력** 단계에서 조회한 리소스 목록 중 구독할 리소스를 선택 및 등록하세요.
-
-AWS Region, AWS Role ARN은 이전 단계에서 선택한 값이 고정되어 있습니다. 해당 값은 이전 단계에서만 수정 가능하며 수정 시 조회된 리소스 목록은 초기화됩니다.
-
-
-1. 구독할 CloudWatch Log와 S3 bucket을 각각 선택하세요.
-
-    :::note
-
-    복수 선택이 가능합니다.
- 
-    :::
-
-1. 필드를 모두 입력하면 ***등록*** 버튼이 활성화됩니다. 버튼을 누르면 선택한 리소스를 구독 목록에 등록합니다. 
-
-1. 등록 성공 여부는 **IAM ROLE ARN 및 리전 입력** 단계와 같은 방식으로 표시됩니다.
-
-<!-- 등록 성공-등록 실패 이미지 -->
-
-<!--
-1. 리소스를 선택한 후 순서대로 IAM Role ARN과 AWS Log ARN을 입력하세요. 페이지를 이탈하지 않은 경우 이전 단계에서 입력한 IAM Role ARN이 자동으로 입력되어 있습니다.
-1. 두 ARN을 모두 입력하면 ***등록*** 버튼이 활성화 됩니다. 버튼을 누르면 선택한 리소스를 구독 목록에 등록합니다. 등록 성공 여부는 다음 이미지와 같이 메세지로 표시됩니다.
--->
-
-## 모니터링 활성화
-
-설치를 완료한 뒤 설치 페이지 하단에 ***모니터링 서비스 활성화*** 버튼을 클릭해 AWS Log 메뉴를 활성화하세요.
-
-***모니터링 서비스 활성화*** 버튼을 선택하면 다음과 같이 왼쪽 메뉴에 로그 메뉴가 활성화됩니다.
+모니터링이 활성화되면 ***대시보드*** > ***라이브 테일*** 메뉴에서 유입되는 로그의 출력을 확인할 수 있습니다.

@@ -45,27 +45,29 @@ Docker 컨테이너 기반으로 실행하는 Java 애플리케이션의 JVM Opt
 
 1. *paramkey.txt* 파일을 생성한 다음 6자리 영어, 숫자로 이루어진 비밀번호를 입력하세요.
 
-```bash title='Dockerfile 생성 예시'
-FROM openjdk:8-jdk-alpine
+1. 다음 예시를 참조해 Dockerfile을 생성하세요.
 
-# whatap
-RUN mkdir -p /whatap
+    ```bash title='Dockerfile 생성 예시'
+    FROM openjdk:8-jdk-alpine
 
-COPY ./whatap/whatap.conf /whatap/
-COPY ./whatap/paramkey.txt /whatap/
-COPY ./whatap/whatap-virtual-X.Y.Z.jar whatap-virtual-X.Y.Z.jar
-COPY ./whatap/whatap.agent-X.Y.Z.jar /whatap/
+    # whatap
+    RUN mkdir -p /whatap
 
-EXPOSE 8085
+    COPY ./whatap/whatap.conf /whatap/
+    COPY ./whatap/paramkey.txt /whatap/
+    COPY ./whatap/whatap-virtual-X.Y.Z.jar whatap-virtual-X.Y.Z.jar
+    COPY ./whatap/whatap.agent-X.Y.Z.jar /whatap/
 
-ENTRYPOINT ["java", "-javaagent:/whatap/whatap.agent-X.Y.Z.jar", "-Dwhatap.micro.enabled=true", "-cp", "whatap-virtual-X.Y.Z.jar", "-Dwhatap.port=8085", "-Duser.timezone=Asia/Seoul", "-Dfile.encoding=UTF-8", "com.virtual.App"]
-```
+    EXPOSE 8085
 
-:::tip
+    ENTRYPOINT ["java", "-javaagent:/whatap/whatap.agent-X.Y.Z.jar", "-Dwhatap.micro.enabled=true", "-cp", "whatap-virtual-X.Y.Z.jar", "-Dwhatap.port=8085", "-Duser.timezone=Asia/Seoul", "-Dfile.encoding=UTF-8", "com.virtual.App"]
+    ```
 
-Java 17버전 이상의 경우 reflection 관련한 `--add-opens=java.base/java.lang=ALL-UNNAMED` 옵션을 추가해야 합니다.
+    :::tip
 
-:::
+    Java 17버전 이상의 경우 reflection 관련한 `--add-opens=java.base/java.lang=ALL-UNNAMED` 옵션을 추가해야 합니다.
+
+    :::
 
 :::note
 

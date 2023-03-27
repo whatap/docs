@@ -6,6 +6,7 @@ tags: [ 설치하기, Naver Cloud Monitoring, 클라우드 ]
 ---
 
 import TR from '@site/src/components/TR';
+import ProdImg from '@site/src/components/ChangeImgName.js';
 
 와탭 Naver Cloud Monitoring은 API 연동을 통해 메트릭을 주기적으로 수집합니다. 수집을 원하는 서비스에 해당하는 Naver Cloud Monitoring 네임스페이스를 5분 기간으로 원하는 스탯을 취사선택해 수집합니다. 모니터링 시작 시 모든 리전의 사용자 자원을 검색하여 원클릭으로 모니터링을 시작할 수 있습니다. 
 
@@ -14,7 +15,7 @@ import TR from '@site/src/components/TR';
 ## 모니터링 절차
 
 <!-- 
-1. 사용자 와탭 콘솔에서 인티그레이션 프로젝트를 Naver Cloud Monitoring 사용 상태로 생성하세요.
+1. 사용자 와탭 콘솔에서 인티그레이션 프로젝트를 Naver Cloud Monitoring 사용 상태로 생성하세요. 
 -->
 
 1. Naver Cloud 인증 정보를 입력하세요.
@@ -32,10 +33,10 @@ AccessKey 와 Secret을 와탭에 입력합니다.
 ![NCloud Monitoring - Authentification](https://img.whatap.io/media/images/whatap_ncloud_auth_dialog.png)
 
 ### 네임스페이스 및 수집 주기 선택
-
+ 
 {@include: ../common-items/_namespace-collect.mdx}
 
-#### 수집 주기
+#### 와탭 수집 주기
 
 {@include: ../common-items/_collecting-period.mdx} 
 

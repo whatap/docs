@@ -6,6 +6,7 @@ tags: [ 설치하기, Amazon CloudWatch, 클라우드 ]
 ---
 
 import TR from '@site/src/components/TR';
+import ProdImg from '@site/src/components/ChangeImgName.js';
 
 와탭 Amazon CloudWatch 모니터링은 API 연동을 통해 메트릭을 주기적으로 수집합니다. 수집을 원하는 서비스에 해당하는 CloudWatch 네임스페이스에서 5분 간격으로 원하는 스탯을 취사선택해 수집합니다. 모니터링 시작 시 모든 리전의 사용자 자원을 검색하여 원클릭으로 모니터링을 시작할 수 있습니다. Role 방식 인증으로 안전하고 편리하게 사용할 수 있습니다. 
 
@@ -64,8 +65,8 @@ Amazon CloudWatch 인증 방법은 다음 두 가지 방법 중 하나를 선택
 
 ![Amazon Cloudwatch](https://img.whatap.io/media/images/amazon_cloudwatch_auth_dialog.png)
 
-와탭 모니터링 용 Identity and Access Management(IAM) 사용자를 생성, 선정 하고 필요한 권한을 추가할 수 있습니다. 액세스 키를 생성하고 Access Key ID와 Secret을 와탭에 입력하세요.
- 
+와탭 모니터링 용 Identity and Access Management(IAM) 사용자를 생성, 선정 하고 필요한 권한을 추가할 수 있습니다. 액세스 키를 생성하고 Access Key ID와 Secret을 와탭에 입력하세요. 
+
 -->
 
 ### 인증 정보 입력 
@@ -93,11 +94,11 @@ Role을 이용한 설정을 권장합니다. Access Key 활용은 기존 Access 
 
 {@include: ../common-items/_namespace-collect.mdx}
 
-![Amazon Cloudwatch - Namespace](https://img.whatap.io/media/images/amazon_cloudwatch_setup_dialog_1st.png)
+<!-- ![Amazon Cloudwatch - Namespace](https://img.whatap.io/media/images/amazon_cloudwatch_setup_dialog_1st.png) -->
 
-#### 수집 주기
+#### 와탭 수집 주기
 
-{@include: ../common-items/_collecting-period.mdx}
+{@include: ../common-items/_collecting-period.mdx} 
 
 #### 네임스페이스
 

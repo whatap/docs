@@ -4,22 +4,10 @@ title: 설치하기
 description: 와탭 AWS Log 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 tags: [ AWS Log, 설치하기 ]
 ---
-<!-- 
-***관리*** > ***인티레이션 아이템*** 메뉴
-프로젝트 생성 시 AWS Log 아이템을 설치하고 ***인티그레이션 아이템*** 메뉴에 진입하면 설치 화면이 나타납니다. 
--->
-<!--
-:::note
-**프로젝트 액세스 키**
-프로젝트 액세스 키가 없으면 설치 페이지로 이동할 수 없습니다. [프로젝트 액세스 키 확인](../aws-log/install-aws-log#check-accesskey) 단계로 돌아가 **프로젝트 액세스 키**를 발급받으세요.
-:::
--->
 
 {@include: ../getting-started/_how-to-start-intro.mdx}
 
 ## 사전 확인
-
-<!-- 문장 수정 필요 -->
 
 AWS Log를 수집하려면 부가적인 자원이 필요합니다. 사용자의 AWS 환경에서 출력되는 로그 정보를 입수 후 와탭 수집 서버로 전송할 수 있도록 와탭은 AWS Lambda Function을 통해 **WhaTap Forwarder**를 제공합니다. AWS CloudFormation을 활용해 **WhaTap Forwarder**를 사용자의 AWS 환경에 구동합니다.
 
@@ -77,11 +65,10 @@ AWS Log를 수집하기 위해서는 사용자의 AWS 환경에서 출력되는 
 
 :::
 
-<!-- 해당 설치 페이지 안내 이미지 삽입 예정 -->
 
 ## WhaTap Forwarder 설치
 
-로그 전송용 **WhaTap Forwarder**를 AWS Lambda Function으로 설치합니다. AWS CloudFormation에서 설치를 진행합니다. 와탭 ***에이전트 설치*** > ***설치 안내*** 섹션의 ***WhaTap Fowarder 설치*** 탭을 참조하세요. 다음의 설치 입력 정보가 필요합니다. 
+로그 전송용 **WhaTap Forwarder**를 AWS Lambda Function으로 설치합니다. AWS CloudFormation에서 설치를 진행합니다. 와탭 ***에이전트 설치*** > ***설치 안내*** 섹션의 ***WhaTap Forwarder 설치*** 탭을 참조하세요. 다음의 설치 입력 정보가 필요합니다. 
 
 * **AWS Region** <br/>
   WhaTap Forwarder를 설치하게 될 AWS Region을 선택하세요. 수집 대상 자원과 동일한 Region이어야 합니다.

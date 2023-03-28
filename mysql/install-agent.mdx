@@ -30,18 +30,18 @@ import TR from '@site/src/components/TR';
   whatap.server.host=13.124.11.223/13.209.172.35 // 와탭 서버 정보
 
   dbms=mysql
-  db_ip=데이터베이스 IP
-  db_port=데이터베이스 포트 
+  db_ip={DB 서버 IP 주소}
+  db_port={DB 서버 포트 번호}
   ```
 
 1. 다음 디렉터리에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
 
   데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요.
   
-**Mysql & MariaDB 5.5 버전 이상**
+  **Mysql & MariaDB 5.5 버전 이상**
 
-  * [Connector/J 8.0.11](https://dev.mysql.com/downloads/connector/j/)
-  * [Connector/J 5.1.46](https://dev.mysql.com/downloads/connector/j/5.1.html)
+    * [Connector/J 8.0.11](https://dev.mysql.com/downloads/connector/j/)
+    * [Connector/J 5.1.46](https://dev.mysql.com/downloads/connector/j/5.1.html)
 
 :::note
 */압축해제한 폴더/jdbc/README.md* 파일에서 각 데이터베이스별 JDBC 드라이버 설치 경로를 확인할 수도 있습니다.
@@ -51,23 +51,55 @@ import TR from '@site/src/components/TR';
 
 <!-- MySQL -->
 ```bash showLineNumbers
-create user whatap identified by 'DB_PASSWORD'; ## 원하는 password를 입력하세요.
+create user whatap identified by 'DB_PASSWORD'; # 원하는 password를 입력하세요.
 grant process on *.* to whatap;
 grant select on performance_schema.* to whatap;
 grant show databases on *.* to whatap;
  
-## 테이블 정보를 수집할 경우
-## table list를 가져올 db명.* 또는 *.* 지정해야 table 정보를 수집합니다.
+# 테이블 정보를 수집할 경우
+# table list를 가져올 db명.* 또는 *.* 지정해야 table 정보를 수집합니다.
 grant select on DB명.* 또는 *.* to whatap;
  
-## replication 사용시
+# replication 사용할 경우
 grant replication client on *.* to whatap;
 grant replication slave on *.* to whatap;
  
-## kill session 사용시
+# kill session 사용할 경우
 grant super on *.* to whatap;
 ```
 
 ## DB 유저 파일 생성{#create-db-user}
 
 {@include: ../common-items/_db-create-db-user-file.mdx}  
+
+
+## 에이전트 실행
+
+에이전트를 설치한 경로에서 쉘 스크립트(또는 배치 파일)를 실행하세요.
+
+<Tabs groupId='os'>
+
+<TabItem value="linux" label="Linux" default>
+
+```bash
+./start.sh
+```
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+```bash
+start.bat
+```
+
+</TabItem>
+</Tabs>
+
+
+데몬처럼 사용하고 싶은 경우에는 다음 명령어를 실행하세요. 단 **nohup**을 설치한 환경에서만 동작합니다.
+
+```bash
+./startd.sh
+```
+
+데이터베이스 모니터링을 위한 에이전트 설치를 완료했습니다. [다음 문서](after-install-agent)에서 설치 후 점검 사항을 확인하세요.

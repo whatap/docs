@@ -2,15 +2,10 @@
 id: delete-aws-resource
 title: AWS 자원 삭제하기
 description: 와탭 AWS Log 프로젝트에서 사용하는 AWS 자원 삭제 방법을 안내합니다.
+tags: [ AWS Log, 삭제하기 ]
 ---
 
-import {Redirect} from '@docusaurus/router';
-
-export const Home = () => {
-  return <Redirect to="/aws-log-p/delete-aws-resource" />;
-};
-
-<Home/>
+import TR from '@site/src/components/TR';
 
 AWS Log 프로젝트에서 사용하는 AWS 자원을 완전히 삭제하기 위해서는 다음 3가지 종류의 자원을 모두 삭제해야 합니다.
 
@@ -20,7 +15,7 @@ AWS Log 프로젝트에서 사용하는 AWS 자원을 완전히 삭제하기 위
 
 ## CloudFormation으로 생성된 AWS 자원 삭제
 
-![cloudformation 자원 삭제](/img/aws-log-p/aws-log-cloudformation-resource.png)
+![cloudformation 자원 삭제](/img/aws-log-cloudformation-resource.png)
 
 1. AWS 콘솔에서 ***CloudFormation***을 선택하세요.
 
@@ -32,7 +27,7 @@ AWS Log 프로젝트에서 사용하는 AWS 자원을 완전히 삭제하기 위
 
 ## CloudWatch LogGroup의 Subscription filters 삭제
 
-![subscription filters 삭제](/img/aws-log-p/aws-log-delete-subscription-filter.png)
+![subscription filters 삭제](/img/aws-log-delete-subscription-filter.png)
 
 1. AWS 콘솔에서 ***CloudWatch***를 선택하세요. 
 
@@ -46,7 +41,7 @@ AWS Log 프로젝트에서 사용하는 AWS 자원을 완전히 삭제하기 위
 
 ## S3 Bucket의 Event Notifications 삭제
 
-![event notifications 삭제](/img/aws-log-p/aws-log-delete-event-notification.png)
+![event notifications 삭제](/img/aws-log-delete-event-notification.png)
 
 1. AWS 콘솔에서 ***S3***를 선택하세요. 
 

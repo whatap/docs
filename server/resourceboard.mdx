@@ -5,11 +5,11 @@ description: 와탭 모니터링 리소스 보드는 프로젝트의 전체 현�
 tags: [ Server, 대시보드, 리소스 보드, UI ]
 ---
 
-***프로젝트 메뉴*** > ***대시보드*** > ***리소스 보드***
+홈 화면 > 프로젝트 선택 > ***대시보드*** > ***리소스 보드***
 
 와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 ***프로젝트 메뉴*** 하위에 ***대시보드*** > ***리소스 보드***를 선택하세요.
 
-![](/img/server-resourcebd.png)
+![](/img/server-resourceboard.png)
 
 ***리소스 보드***에서 하나의 프로젝트에 등록된 모든 서버를 모니터링할 수 있습니다. 
 
@@ -21,11 +21,18 @@ tags: [ Server, 대시보드, 리소스 보드, UI ]
 
 ## ![](/img/number-02.png) 인포 패널
 
+<!-- 인포 패널 기존 안내
+
+예외: 심각 경고 unknown
+정상: normal, pause
+
+ -->
+
 프로젝트에 등록된 전체 서버들에 대한 요약 지표들을 제공합니다. 10초 단위로 갱신됩니다.
 * **Servers**  
     전체 서버 수와 문제가 있는 서버의 수를 함께 제공합니다. 영역을 선택하면 ***서버 목록*** 페이지로 이동합니다.
-    * 예외 상태: 심각, 경고, unknown
-    * 정상 서버: normal, pause    
+    * 예외 상태: <span class='vslow'>위험</span>, <span class='slow'>경고</span>
+    * 정상 서버: <span class='snormal'>보통</span>, <span class='k8s-normal'>비활성</span>
 * **Total Cores**  
     전체 서버들의 코어(vCPU) 합입니다.
 * **Avg CPU**  

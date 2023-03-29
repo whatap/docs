@@ -38,13 +38,8 @@ import TR from '@site/src/components/TR';
 
   데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요. https://www.cdata.com/drivers/redis/jdbc/
 
-:::note
-
-* DB 구성에 따라 *whatap.conf* 파일에 추가 설정이 필요할 수 있습니다. 자세한 내용은 [다음 문서](agent-dbx-settings)를 참조하세요.
-* DB 서버의 자원을 추가로 모니터링하려면 XOS 에이전트를 이용해야 합니다. 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
-* */압축해제한 폴더/jdbc/README.md* 파일에서 각 데이터베이스별 JDBC 드라이버 설치 경로를 확인할 수도 있습니다.
-
-:::
+<!-- 공통 Notes -->
+{@include: ../common-items/_db-install-agent-common-notes.mdx}
 
 ## DB 유저 파일 생성{#create-db-user}
 
@@ -56,33 +51,6 @@ user와 password를 사용하지 않는 경우 (인증 없이 Redis에 접속 �
 
 {@include: ../common-items/_db-create-db-user-file.mdx}  
 
-## 에이전트 실행
 
-에이전트를 설치한 경로에서 쉘 스크립트(또는 배치 파일)를 실행하세요.
-
-<Tabs groupId='os'>
-
-<TabItem value="linux" label="Linux" default>
-
-```bash
-./start.sh
-```
-
-</TabItem>
-<TabItem value="windows" label="Windows">
-
-```bash
-start.bat
-```
-
-</TabItem>
-</Tabs>
-
-
-데몬처럼 사용하고 싶은 경우에는 다음 명령어를 실행하세요. 단 **nohup**을 설치한 환경에서만 동작합니다.
-
-```bash
-./startd.sh
-```
-
-데이터베이스 모니터링을 위한 에이전트 설치를 완료했습니다. [다음 문서](after-install-agent)에서 설치 후 점검 사항을 확인하세요.
+<!--## 에이전트 실행-->
+{@include: ../common-items/_db-run-agent.mdx}

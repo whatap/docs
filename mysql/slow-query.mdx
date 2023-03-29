@@ -5,4 +5,43 @@ description: 특정 시점에 진행중이었던 세션을 파악해 느렸던 �
 tags: [ MySQL, 인스턴스, 대시보드, 데이터베이스 모니터링, 슬로우 쿼리 ]
 ---
 
-{@include: ../common-items/_db-slow-query.mdx}
+<!-- 개요 -->
+{@include: ../common-items/_db-slow-query-desc.mdx} 
+
+## 사용 설정 안내
+
+***슬로우 쿼리*** 메뉴를 사용하려면 다음과 같이 파라미터 및 권한을 설정해야 합니다.
+
+### DB, 파라미터 및 권한 설정
+
+```ini
+slow_query_log = 1
+long_query_time = 3 # 예, 3초 이상 SQL 기록
+log_output=FILE # 또는 TABLE
+```
+
+:::note
+
+`log_output=TABLE`로 설정했다면 `mysql.slow_log`에 대해 권한과 용량 관리가 필요합니다. 다음 명령문을 실행하세요.
+
+```bash
+grant select on mysql.slow_log to whatap;
+```
+
+:::
+
+### whatap.conf 파일 설정
+
+```ini title='whatap.conf'
+slow_query_log=ON
+```
+
+:::note
+
+* DB 서버에 `log_output=FILE`로 설정했다면 xos 설치가 필요합니다. 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
+* RDS는 xos를 설치하는 대신 CloudWatch 사용을 위한 설정이 필요합니다. 자세한 내용은 [다음 문서](agent-dbx-settings#using-aws-rds)를 참조하세요.
+
+:::
+
+<!-- 기본 화면 안내 -->
+{@include: ../common-items/_db-slow-query-basic.mdx}

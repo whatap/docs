@@ -5,4 +5,65 @@ description: 프로젝트에 포함하는 멤버들의 경고 알림 수신과 �
 tags: [ 경고 알림, 이벤트 수신 태그, 서버 ]
 ---
 
-{@include: ../common-items/_set-receive-evnet.mdx}  
+{@include: ../common-items/_set-receive-event-description.mdx}
+
+![경고 알림 수신 설정](/img/alert_receving_setting-server.png)
+
+<!-- 수신 수단 선택하기 -->
+{@include: ../common-items/_set-receive-event-select-method.mdx}
+
+<!-- SMS 알림 수신 추가하기 -->
+{@include: ../common-items/_set-receive-event-sms.mdx}
+
+<!-- 모바일 알림 수신 추가하기 -->
+{@include: ../common-items/_set-receive-event-mobile.mdx}
+
+<!-- 수신 레벨 선택하기 -->
+{@include: ../common-items/_set-receive-event-level.mdx}
+
+<!-- 요일 및 시간별 알람 설정하기 -->
+{@include: ../common-items/_set-receive-event-day-time.mdx}
+
+![요일별, 시간별 알림 수신](/img/set-event-day-time-server.png)
+
+<!-- 경고 알림 반복 설정하기 -->
+## 경고 알림 반복 설정하기{#escalation}
+
+경고 알림 발생 시간으로부터 알림 발생 상황이 해소되지 않을 경우 최초 알림 발생 시각으로부터의 알림 반복 간격을 설정할 수 있습니다. 예를 들어, 경고 알림 발생 시간으로부터 0분(즉시), 1시간 후, 1일 후에 경고 알림을 반복하려면 '0,1H,1D'를 ***에스컬레이션*** 컬럼 항목에 입력하세요.
+
+![에스컬레이션](/img/server-notice-escalation.png)
+
+:::note
+
+* **M**: 분, **H**: 시간, **D**: 일, 단위를 생략하면 분 단위로 시간을 설정합니다.
+* ***저장*** 버튼을 선택하지 않으면 설정을 완료할 수 없습니다.
+* 숫자 또는 숫자+단위(**M**, **H**, **D**)로 입력하세요. 입력이 올바르지 않으면 메시지가 표시됩니다.
+
+:::
+
+<!-- 팀별, 사용자별 알림 설정하기 -->
+{@include: ../common-items/_set-receive-event-set-tag.mdx}
+
+<!-- 이벤트 수신 태그 추가하기 -->
+{@include: ../common-items/_set-receive-event-add-tag.mdx}
+
+<!-- 이벤트 수신 태그 해제하기 -->
+{@include: ../common-items/_set-receive-event-disable-tag.mdx}
+
+<!-- 이벤트 수신 태그 수정 및 삭제하기 -->
+{@include: ../common-items/_set-receive-event-modify-tag.mdx}
+
+<!-- 수신 태그 미설정 알림 -->
+{@include: ../common-items/_set-receive-event-notset-tag-noti.mdx}
+
+<!-- 3rd 파티 플러그인 알림 추가하기 -->
+{@include: ../common-items/_set-receive-event-3rdparty.mdx}
+
+<!-- 대량 알림 발생 방지 -->
+{@include: ../common-items/_set-receive-event-stop-mass-event.mdx}
+
+<!-- 경고 알림 사용자 설정하기 -->
+{@include: ../common-items/_set-receive-event-modify-profile.mdx}
+
+<!-- 경고 알림 언어 설정 -->
+{@include: ../common-items/_set-receive-event-change-language.mdx}

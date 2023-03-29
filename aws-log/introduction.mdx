@@ -6,7 +6,7 @@ tags: [ AWS Log ]
 ---
 <!-- displayed_sidebar: awslogSidebar
 hide_table_of_contents: false -->
-<!-- 개요 페이지 현재 공백 -->
+
 <!-- 임시
 와탭 AWS Log는 AWS Resource들의 로그를 수집하여 WhaTap 환경에 보냅니다.
 
@@ -16,6 +16,8 @@ hide_table_of_contents: false -->
 와탭 AWS Log는 AWS Resource들의 로그가 쌓이는 S3, CloudWatch Log Group을 구독해 로그 생성 시 WhaTap 환경으로 보내줍니다.
 :::
 -->
+
+import TR from '@site/src/components/TR';
 
 AWS 상에서 발생하는 리소스 로그는 CloudWatch Log를 통해 수집되는 로그 행 단위의 문자열 정보와 S3에 아카이브 된 형태로 저장되는 로그의 형태로 나뉩니다. 일반적으로 사용자는 다음과 같이 S3와 Log Group에 각각 들어가 리소스별로 확인하는 번거로운 과정을 거쳐야 합니다. 
 

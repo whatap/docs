@@ -5,37 +5,15 @@ description: whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내�
 tags: [ CUBRID, 데이터베이스 모니터링, DBX 에이전트 ]
 ---
 
+import Include from '@site/src/components/IncludeDoc.js';
+import Exclude from '@site/src/components/XcludeDoc.js';
+import CurProd from '@site/src/components/GetProductName.js';
+
 DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
 
 ## 기본 옵션
 
-* **license** <span class='type'>String</span>
-
-  에이전트를 설치할 때 서버로부터 부여받은 프로젝트 액세스 키를 설정합니다. 프로젝트 액세스 키는 에이전트가 속한 프로젝트와 보안 통신을 위한 암호 키를 포함하고 있습니다.
-
-* **whatap.server.host** <span class='type'>String</span>
-
-  기본값 `127.0.0.1,127.0.0.1`
-
-  에이전트가 수집한 데이터를 전송할 와탭 수집 서버의 IP 주소를 설정하세요. 수집 서버 이중화로 2개 이상의 IP를 가진 경우 쉼표(,)를 구분자로 사용하세요. 설정한 IP 주소에는 수집 서버 proxy 데몬이 리스닝 상태로 서비스돼야 합니다.
-
-* **whatap.server.port** <span class='type'>String</span>
-
-  기본값 `6600`
-
-  수집 서버 포트(port)를 설정합니다. 포트는 하나만 설정할 수 있으므로 `whatap_server_host`에 설정한 수집 서버들은 동일 포트를 사용해야 합니다.
-
-* **dbms** <span class='type'>String</span>
-  
-  `cubrid`
-
-* **db** <span class='type'>String</span>
-
-  모니터링할 db 이름을 설정하세요. *$CUBRID_DATABASES/databases.txt* 파일의 `db-name`과 같습니다.
-
-* **db_ip** <span class='type'>String</span>
-
-  모니터링할 데이터베이스 서버의 IP 주소를 설정합니다.
+{@include: ../common-items/_db-agent-dbx-basic-option.mdx}
 
 
 ## CUBRID 전용 옵션
@@ -72,58 +50,17 @@ DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다.
 
 ## 데이터 수집
 
-* **long_run_session_sec** <span class='type'>Second</span>
+{@include: ../common-items/_db-agent-setting-data-collection.mdx}
 
-  기본값 `10`
+## AWS RDS CloudWatch 적용{#using-aws-rds}
 
-  설정한 시간보다 길게 수행되고 있는 세션을 long run 세션으로 처리합니다. (단위: 초)
+{@include: ../common-items/_db-agent-aws.mdx}
 
-* **tables_hour** <span class='type'>Int</span>
-
-  기본값 `5`
-
-  테이블 정보를 저장하기 위해 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
-
-* **tables_min_row** <span class='type'>Int</span>
-
-  기본값 `10000`
-  
-  테이블 정보를 수집할 때 설정한 값보다 작은 row 수를 가진 테이블 정보는 수집하지 않습니다.
-
+<!-- AES 256 암호화 적용 -->
+{@include: ../common-items/_db-aes-256-encrypt.mdx}  
 
 ## 에이전트 이름 식별{#naming}
 
-* **object_name** <span class='type'>String</span>
+{@include: ../common-items/_db-setting-agent-name-details.mdx}
 
-  기본값 `{type}`-`{ip2}`-`{ip3}`-`{port}`<br/>데이터베이스 서버를 식별하는 에이전트 이름(ONAME)체계입니다. ONAME을 토대로 OID가 생성됩니다.
-
-  | 설정       | 설명                                                                      |
-  | ---------- | ------------------------------------------------------------------------- |
-  | {type}     | `whatap.app_name`에 설정된 값을 사용합니다                                  |
-  | {ip0}      | IPv4 주소 중 첫 번째 단위를 사용합니다. (예시, **10**.11.12.13 중 **10**) |
-  | {ip1}      | IPv4 주소 중 두 번째 단위를 사용합니다. (예시, 10.**11**.12.13 중 **11**) |
-  | {ip2}      | IPv4 주소 중 세 번째 단위를 사용합니다. (예시, 10.11.**12**.13 중 **12**) |
-  | {ip3}      | IPv4 주소 중 네 번째 단위를 사용합니다. (예시, 10.11.12.**13** 중 **13**) |
-  | {port}     | 데이터베이스 서버 포트                                                    |
-  | {hostname} | 호스트 명                                                                 |
-
-* **auto_oname_enabled** <span class='type'>Boolean</span>
-
-  기본값 `false`
-
-  서버에 등록할 에이전트 이름(oname)을 서버로부터 자동 부여받는 기능을 활성화합니다. 적용 시 `-Dwhatap.name`, `-Dwhatap.oname` 옵션은 무시합니다. 수집 서버와의 통신을 통해 `oname`을 부여받은 다음 에이전트의 일반적인 동작을 개시합니다.
-
-* **auto_oname_prefix** <span class='type'>String</span>
-
-  기본값 `agent`
-
-  에이전트 이름을 서버로부터 자동 부여할 때 에이전트 이름의 prefix, 보통 업무 명을 사용합니다. prefix 일련번호 1~)를 부여합니다.
-
-* **auto_oname_reset** <span class='type'>Int</span>
-
-  기본값 `0`
-
-  서버로부터 새로운 에이전트 이름을 부여받기 위해 수정합니다. 에이전트 이름을 자동 부여하면 `whatap.oname`이라는 시스템 환경 변수로 설정됩니다. 한번 정해진 시스템 환경 변수는 자바 인스턴스가 다시 시작할 때까지 유지합니다. 리셋을 원할 때 `auto_oname_reset` 값을 수정하세요. 현재 설정 값과 다른 값으로 변경하면 적용됩니다.
-
-<!-- AES 256 암호화 적용 -->
-{@include: ../common-items/_db-aes-256-encrypt.mdx} 
+{@include: ../common-items/_db-agent-dbx-naming.mdx}

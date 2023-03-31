@@ -5,19 +5,13 @@ description: 에이전트를 설치한 데이터베이스 서버들의 목록을
 tags: [ MySQL, 인스턴스, 대시보드, 데이터베이스 모니터링 ]
 ---
 
-{@include: ../common-items/_db-instance-list-desc.mdx}
-
-## 기본 화면 안내
-
+import Exclude from '@site/src/components/XcludeDoc.js';
 import ProdImg from '@site/src/components/ChangeImgName.js';
 
-<ProdImg img='db-instance-list' ext='.png' desc='인스턴트 목록' />
+{@include: ../common-items/_db-instance-list-desc.mdx}
 
-{@include: ../common-items/_db-instance-list-basic.mdx}  
-
-* ***인스턴스 목록***에서 ***서버명*** 컬럼에 표시된 <span class='mark master'>M</span>, <span class='mark instance'>S</span>, <span class='mark master'>C</span>는 각각 Master, Slave, Cluster를 의미합니다. Replication으로 구성한 DB일 경우 표시합니다.
-
-{@include: ../common-items/_db-instance-list-basic-common-ui.mdx}
+<!-- ## 기본 화면 안내 -->
+{@include: ../common-items/_db-instance-list-basic-usage.mdx}
 
 {@include: ../common-items/_db-comapre-instance-performance.mdx}
 

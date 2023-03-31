@@ -5,8 +5,17 @@ description: 데이터베이스 모니터링 분석을 위한 메트릭스 메�
 tags: [ CUBRID, 메트릭스, 데이터베이스, 데이터베이스 모니터링 ]
 ---
 
-홈 화면 > 프로젝트 선택 > ***분석*** > ***메트릭스 차트***
+<!-- 개요 -->
+{@include: ../common-items/_metrics-intro.desc.mdx}
 
-{@include: ../common-items/_metrics-intro.mdx} 
+<IntroExam category='db_cubrid_counter'/>
 
-<!-- _metrics-database.mdx 지표 추가 필요 -->
+<ProdImg img='metrics-example-00' ext='.png' desc=''/>
+
+<!-- 메트릭스 차트 조회하기 -->
+{@include: ../common-items/_metrics-intro-look-up-chart.mdx}
+
+<LookupchartDesc metric='Bytes_sent' category='db_mysql_counter' />
+
+<!-- 메트릭스 Raw Data 조회화기 -->
+{@include: ../common-items/_metrics-intro-look-up-raw-data.mdx}

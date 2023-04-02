@@ -1,9 +1,14 @@
 ---
 id: metrics-intro
-title: 메트릭스 차트
+title: 메트릭스
 description: 데이터베이스 모니터링 분석을 위한 메트릭스 메뉴에 대해 알아봅니다.
 tags: [ CUBRID, 메트릭스, 데이터베이스, 데이터베이스 모니터링 ]
 ---
+
+import ProdImg from '@site/src/components/ChangeImgName.js';
+import Variable from '@site/src/components/Variable.js';
+import IntroExam from '../common-items/_import_metrics-intro-exam.mdx';
+import LookupchartDesc from '../common-items/_import_metrics-chart-example-desc.mdx';
 
 <!-- 개요 -->
 {@include: ../common-items/_metrics-intro.desc.mdx}
@@ -15,7 +20,7 @@ tags: [ CUBRID, 메트릭스, 데이터베이스, 데이터베이스 모니터�
 <!-- 메트릭스 차트 조회하기 -->
 {@include: ../common-items/_metrics-intro-look-up-chart.mdx}
 
-<LookupchartDesc metric='Bytes_sent' category='db_mysql_counter' />
+<LookupchartDesc metric='Num_adaptive_flush_max_pages' category='db_cubrid_counter' />
 
 <!-- 메트릭스 Raw Data 조회화기 -->
 {@include: ../common-items/_metrics-intro-look-up-raw-data.mdx}

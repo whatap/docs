@@ -7,8 +7,8 @@ hide_table_of_contents: false
 tags: [ MySQL, 데이터베이스 모니터링, 데이터베이스, 모니터링, DBX ]
 ---
 
-import Include from '@site/src/components/IncludeDoc.js';
-import Exclude from '@site/src/components/XcludeDoc.js';
+import InDoc from '@site/src/components/InDoc.js';
+import Xclude from '@site/src/components/XcludeDoc.js';
 import RdsCont from '../common-items/_import_db-specification-rds.mdx';
 import CommonCont from '../common-items/_import_db-specification-common.mdx';
 
@@ -18,13 +18,13 @@ import CommonCont from '../common-items/_import_db-specification-common.mdx';
 
 ## MySQL 모니터링 특장점
 
-<Exclude exclude='mysql-rds'>
+<Xclude product='mysql-rds'>
   <CommonCont />
-</Exclude>
+</Xclude>
 
-<Include include='mysql-rds'>
+<InDoc product='mysql-rds'>
   <RdsCont/>
-</Include>
+</InDoc>
 
 {@include: ../common-items/_db-specification.mdx}
 

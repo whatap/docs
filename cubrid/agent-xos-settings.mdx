@@ -7,68 +7,8 @@ tags: [ CUBRID, 데이터베이스 모니터링, XOS 에이전트 ]
 
 데이터베이스 서버의 자원을 추가로 모니터링하려면 데이터베이스 서버에 별도의 XOS 에이전트를 실행해 데이터를 수집할 수 있습니다.
 
-## whatap.conf 파일 설정
+{@include: ../common-items/_db-xos-whatap-conf.mdx}
 
-XOS 에이전트를 실행하기 전에 *whatap.conf* 파일에 다음 옵션을 설정하세요.
+{@include: ../common-items/_db-xos-conf.mdx}
 
-* **xos** <span class='type'>Int</span>
-
-  기본값 `0`
-
-  XOS 에이전트 사용 여부를 설정하세요. 값이 `0`인 경우 데이터를 수집하지 않습니다. 값을 `1` 또는 XOS 에이전트의 IP 주소를 입력하세요. IP 주소를 설정하면 해당 XOS 에이전트로부터만 데이터를 수집합니다.
-
-* **xos_port** <span class='type'>String</span>
-
-  기본값 `3002`
-
-  XOS 에이전트와 통신할 포트를 설정하세요. XOS 에이전트와는 UDP로 통신합니다. 해당 포트에 방화벽을 설정했다면 UDP 통신을 위해 방화벽을 해제하세요.
-
-* **xos_cpu_iowait** <span class='type'>Int</span>
-
-  기본값 `1`
-
-  XOS 에이전트로부터 수집한 CPU 사용률에 iowait의 값을 포함할 수 있습니다. 값을 `1`로 설정하면 iowait를 포함하고, `0`으로 설정하면 iowait를 포함하지 않습니다.
-
-* **xos_mem_buffcache** <span class='type'>Int</span>
-
-  기본값 `0`
-  
-  XOS 에이전트로부터 수집한 메모리 사용률에 buffcache의 값을 포함할 수 있습니다. 값을 `1`로 설정하면 buffcache를 포함하고, `0`으로 설정하면 buffcache를 포함하지 않습니다.
-
-## xos.conf 파일 설정
-
-*xos* 디렉터리를 데이터베이스 서버로 복사한 다음, *xos.conf* 파일에 에이전트 서버 정보를 입력하고 추가 옵션을 설정하세요.
-
-- **dbx_ip** <span class='type'>String</span>
-
-  DBX 에이전트를 설치한 서버의 IP 주소를 입력하세요.
-    
-- **dbx_port** <span class='type'>String</span>
-
-  기본값 `3002`
-
-  DBX 에이전트와 통신할 포트를 설정하세요. DBX 에이전트와는 UDP로 통신합니다. 해당 포트에 방화벽을 설정했다면 UDP 통신을 위해 방화벽을 해제하세요.
-    
-- **cpu_limit** <span class='type'>Int</span>
-
-  기본값 `0`
-
-  limit 설정값보다 큰 값을 가진 프로세스 정보를 수집합니다. 1/100% 단위로 1.23%인 경우 `123`으로 설정하세요.
-    
-- **mem_limit** <span class='type'>Int</span>
-
-  기본값 `10240`
-
-  limit 설정값보다 큰 값을 가진 프로세스 정보를 수집합니다. K bytes 단위로 10240은 10M bytes입니다.
-
-## XOS 에이전트 실행
-
-데이터베이스 서버에서 다음 배치 파일을 실행하세요.
-
-```bash title='start.sh'
-$ ./start.sh
-```
-
-```bash title='백그라운드로 실행할 경우'
-$ ./startd.sh
-```
+{@include: ../common-items/_db-run-xos.mdx}  

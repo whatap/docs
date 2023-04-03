@@ -39,12 +39,9 @@ import TR from '@site/src/components/TR';
 
   데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요. https://www.cubrid.com/downloads
 
-:::note
+<!-- 공통 Notes -->
+{@include: ../common-items/_db-install-agent-common-notes.mdx}
 
-* DB 구성에 따라 *whatap.conf* 파일에 추가 설정이 필요할 수 있습니다. 자세한 내용은 [다음 문서](agent-dbx-settings)를 참조하세요.
-* */압축해제한 폴더/jdbc/README.md* 파일에서 각 데이터베이스별 JDBC 드라이버 설치 경로를 확인할 수도 있습니다.
-
-:::
 
 ## 모니터링을 위한 계정 생성하기
 
@@ -62,7 +59,7 @@ CUBRID를 모니터링하기 위해서는 DB 계정과 CUBRID Manager 계정이 
   ./uid.sh dba DB_PASSWORD
   ./cmsuid.sh admin ADMIN_PASSWORD
 
-  ## 또는
+  # 또는
 
   ./uid.bat "dba" "DB_PASSWORD"
   ./cmsuid.bat "admin" "ADMIN_PASSWORD"

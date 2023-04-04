@@ -5,32 +5,20 @@ description: whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내�
 tags: [ Redis, 데이터베이스 모니터링, DBX 에이전트 ]
 ---
 
+import InDoc from '@site/src/components/InDoc.js';
+import Xclude from '@site/src/components/XcludeDoc.js';
+import CurProd from '@site/src/components/GetProductName.js';
+
 DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
 
 ## 기본 옵션
 
-{@include: ../common-items/_db-agent-dbx-basic-01.mdx}
-
-* **dbms** <span class='type'>String</span>
-  
-  `redis`
-
-* **db_ip** <span class='type'>String</span>
-
-  모니터링할 데이터베이스 서버의 IP 주소를 설정합니다.
-
-* **db_port** <span class='type'>String</span>
-
-  데이터베이스가 통신에 사용하는 포트를 설정합니다.
+{@include: ../common-items/_db-agent-dbx-basic-option.mdx}
 
 
 ## 데이터 수집
 
-* **idle_as_active** <span class='type'>Second</span>
-
-  기본값 `1`
-
-  세션이 마지막 active 상태였던 이후로 idle 상태를 유지한 시간(초)이 설정값보다 작은 세션들을 active session으로 간주하는 옵션입니다. 예를 들어 설정값이 1이면, 1초 이내에 active였던 세션들이 액티브 세션 창에 나타납니다.
+{@include: ../common-items/_db-agent-setting-data-collection.mdx}
 
 <!-- AES 256 암호화 적용 -->
 {@include: ../common-items/_db-aes-256-encrypt.mdx} 

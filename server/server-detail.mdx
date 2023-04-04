@@ -30,19 +30,31 @@ tags: [ 서버 상세, 서버 목록, 분석하기, UI, Server ]
 
 ### 서버 선택
 
-***서버 선택*** 옵션을 통해 상세 내용을 조회할 서버를 지정할 수 있습니다. 선택창의 목록에서 조회할 서버를 선택하면 ![number 2](/img/number-02.png) 영역에서 서버 자원 현황과 실행 프로세스의 상세 정보를 확인할 수 있습니다.
+***서버 선택*** 옵션을 통해 상세 내용을 조회할 서버를 지정할 수 있습니다. 선택창의 목록에서 조회할 서버를 선택하면 다음 ![number 2](/img/number-02.png) 영역에서 서버 자원 현황과 실행 프로세스의 상세 정보 등을 확인할 수 있습니다.
 
 ## ![](/img/number-02.png) 서버 상세
 
 ### 서버 자원 현황
 
-![number 2](/img/number-02.png) 영역에서 CPU 및 메모리 사용률, 네트워크, 디스크 입출력 차트를 통해 서버 자원 현황을 확인할 수 있습니다.  
+![number 2](/img/number-02.png) 영역에서 ***CPU Usage***, ***Memory Usage***, ***Network***, ***Disk I/O*** 차트를 통해 해당 서버의 자원 현황을 확인할 수 있습니다.
 
 * ![csv 아이콘](/img/ic-csv-download.svg): ***CSV*** 아이콘을 선택하면 차트 기록을 CSV 파일로 저장할 수 있습니다.
 
 * ![카메라 아이콘](/img/ic-camera.svg): ***카메라*** 아이콘을 선택하면 이미지 형식으로 차트 화면을 저장할 수 있습니다.
 
-* ![상세 아이콘](/img/ic-zoom-in.svg): ***상세*** 아이콘을 선택하면 각각 CPU 사용률, 메모리 사용률, 네트워크, 디스크 입출력 ***상세***를 확인할 수 있습니다.
+* ![상세 아이콘](/img/ic-zoom-in.svg): ***상세*** 아이콘을 선택하면 CPU 사용률, 메모리 사용률, 네트워크, 디스크 입출력 각 상세 차트를 확인할 수 있습니다.
+
+  * CPU 사용률<br/> 
+  ***CPU Usage***, ***CPU Idle***, ***CPU Nice***, ***CPU I/O Wait***, ***CPU Steal***, ***CPU IRQ***, ***CPU Soft IRQ***, ***CPU Load***
+
+  * 메모리 사용률<br/> 
+  ***Memory Usage***, ***Memory Available***, ***Memory SReclaimable***, ***Memory SUnreclaim***, ***Memory Slab***, ***Memory Swap Used***,*** Memory Page Faults***
+
+  * 네트워크<br/> 
+  ***Traffic In/Out***. ***Packet In/Out***, ***Error In/Out***, ***Dropped In/Out***
+
+  * 디스크 입출력<br/> 
+  ***Disk I/O***, ***IOPS Read/Write***, ***Disk Bph Read/Write***, ***Used Space***, ***Queue Length***, ***Inode Used***, ***Free Space***
 
 ### 프로세스 목록
 
@@ -58,13 +70,19 @@ tags: [ 서버 상세, 서버 목록, 분석하기, UI, Server ]
 
 ### 서버 정보 패널
 
-***서버 정보 패널***에서 확인할 수 있는 내용은 다음과 같습니다. 
+***서버 정보*** 패널에서 확인할 수 있는 내용은 다음과 같습니다. ***디스플레이 이름***과 ***메모***의 경우 ***서버 정보*** 패널에서만 편집이 가능합니다.
 
 * ![알림 아이콘](/img/ic-alert.svg) ***서버 알림 목록*** <br/>
   ***서버 정보 패널*** 상단의 ![알림 아이콘](/img/ic-alert.svg) ***서버 알림 목록*** 버튼을 선택하면 현재 서버에 할당된 알림을 확인할 수 있습니다.
 
 * ***Display Name***/***ID*** <br/>
-  선택한 서버의 ***디스플레이 이름***(ONAME)과 ***서버 아이디***(OID)를 확인할 수 있습니다. ![수정 아이콘](/img/ic-edit.svg) ***수정*** 아이콘을 선택하면 ONAME을 수정할 수 있습니다.
+  선택한 서버의 ***디스플레이 이름***(ONAME 별칭)과 ***서버 아이디***(OID)를 확인할 수 있습니다. ![수정 아이콘](/img/ic-edit.svg) ***수정*** 아이콘을 선택하면 ***디스플레이 이름***을 수정할 수 있습니다. 
+
+  :::note
+
+  ONAME은 디폴트로 호스트 이름이 설정됩니다. 
+
+  :::
 
 * ***OS***<br/>
   선택한 서버의 ***OS 정보***를 확인할 수 있습니다.

@@ -1,0 +1,69 @@
+---
+id: metrics-data-list
+title: PostgreSQL 지표
+description: PostgreSQL 데이터베이스 지표를 안내합니다.
+tags: [ PostgreSQL, 메트릭스, 데이터베이스, 데이터베이스 모니터링 ]
+---
+
+와탭 PostgreSQL 모니터링에서 수집하는 주요 지표를 안내합니다. 그외 지표에 대한 자세한 내용은 [다음 링크](https://www.postgresql.org/docs/)를 참조하세요.
+
+<div class='db-metric'>
+
+| Metric | Description |
+| -- | -- |
+| `Active_sessions` | 쿼리를 실행 중인 세션 수 |
+| `Blk_read_time` | 해당 데이터베이스의 백엔드에서 데이터 파일 블록을 읽는 데 소요한 시간(milliseconds), `track_io_timing`이 활성화한 경우, 그렇지 않으면 `0` |
+| `Blk_write_tiem` | 해당 데이터베이스의 백엔드에서 데이터 파일 블록을 작성하는데 소요한 시간(milliseconds), `track_io_timing`이 활성화한 경우, 그렇지 않으면 `0` |
+| `Blks_hit` | 디스크 블록이 버퍼 캐시에서 이미 발견되어 읽기가 필요하지 않은 횟수(운영체제의 파일 시스템 캐시가 아닌 PostgreSQL 버퍼 캐시의 히트만 포함됨) |
+| `Blks_hit_ratio` | 버퍼 캐시 히트율<br/>sum(blks_hit)*100/sum(`blks_hit` + `blks_read`) |
+| `Blks_read` | 해당 데이터베이스에서 읽은 디스크 블록의 수 |
+| `Buffers_checkpoint` | 체크포인트(`CHECKPOINT`) 동안 기록된 버퍼 수 |
+| `Check_point` | `CHECKPOINT`는 모든 데이터 파일이 순차적인 트랜잭션 로그 가운데, 한 시점을 기준으로 모든 데이터 파일이 물리적으로 모두 쓰여진 한 시점을 의미. `CHECKPOINT`가 일어난 수 |
+| `Checkpoints_write_time` | 파일이 디스크에 기록되는 체크포인트 처리 부분에서 소요된 총 시간(milliseconds) |
+| `Checkpoints_tiemed` | 예약되어 수행된 체크포인트 수 |
+| `Commit_count` | 커밋된 트랜잭션의 수 |
+| `Conflicts` | 해당 데이터베이스에서 복구 중 충돌로 인해 취소된 쿼리 수 |
+| `Connect_error` | 서버 연결 실패 횟수 |
+| `Deadlock_count` | 해당 데이터베이스에서 감지된 교착 상태(deadlock) 수 |
+| `Dml_count` | DML(Data Manipulation Language) 문법(statement)이 수행된 횟수 |
+| `Fatal_count` | 치명적인 오류로 종료된 데이터베이스 세션 수 |
+| `Index_hit_ratio` | 캐시 내 인덱스 비율<br/>(sum(`idx_blks_hit`) - sum(`idx_blks_read`)) / sum(`idx_blks_hit`) * 100 |
+| `Lock_wait_sessions` | 현재 row lock을 획득하기 위해 대기중인 수 |
+| `Long_running_sessions` | 현재 데이터베이스에서 무기한으로 실행되는 쿼리의 수 |
+| `Max_connections` | 최대 동시 클라이언트 연결 수, 커넥션 수가 부족할 경우 **Too ManyConnection Error**가 발생할 수 있습니다. |
+| `Numbackends` | 해당 데이터베이스에 연결된 백엔드 수 또는 공유 개체의 경우 `NULL` |
+| `Rollback_count` | 해당 데이터베이스에서 롤백된 트랜잭션의 수 |
+| `Table_hit_ratio` | |
+| `Temp_bytes` | 해당 데이터베이스의 쿼리에 의해 임시 파일에 기록된 총 데이터 양 |
+| `Temp_files` | 해당 데이터베이스의 쿼리에 의해 생성된 임시 파일 수 |
+| `Total_runtime` | |
+| `Total_sessions` | |
+| `Tup_deleted` | |
+| `Tup_fetched` | |
+| `Tup_inserted` | |
+| `Tup_returned` | |
+| `Tup_updated` | |
+| `uptime` | |
+| `Vacuum_running_count` | |
+| `Wait_sessions` | |
+| `Warning_count` | |
+| `Cpu(xos)` | |
+| `Cpu_idle(xos)` | |
+| `Cpu_iowait(xos)` | |
+| `Cpu_sys(xos)` | |
+| `Cpu_user(xos)` | |
+| `Mem(xos)` | |
+| `Mem_available(xos)` | |
+| `Mem_buffcache(xos)` | |
+| `Mem_free(xos)` | |
+| `Mem_swapfree(xos)` | |
+| `Mem_swaptotal(xos)` | |
+| `Mem_total(xos)` | |
+| `Mem_used(xos)` | |
+| `Net_recv_bytes(xos)` | |
+| `Net_recv_packets(xos)` | |
+| `Net_send_bytes(xos)` | |
+| `Net_send_packets(xos)` | |
+
+
+</div>

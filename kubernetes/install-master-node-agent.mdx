@@ -153,38 +153,6 @@ kubectl describe pod {POD_NAME} -n whatap-monitoring
 
 </TabItem>
 
-<TabItem value='hk8s' label='HELM-KUBERNETES'>
-
-## 와탭 리포지토리 추가
-
-다음 명령어를 실행해 HELM 와탭 리포지토리를 추가하세요.
-
-```bash
-helm repo add whatap "http://repo.whatap.io/helm/"
-```
-
-## 쿠버네티스 에이전트 설치
-
-다음 명령어를 실행해 와탭 모니터링을 적용하세요.
-
-```bash
-helm install \
---namespace whatap-monitoring whatap/helm-kube-mon \
---set whatap_license=XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX \
---set whatap_host=13.124.11.223/13.209.172.35 \
---set whatap_port=6600  
-```
-
-:::note
-
-설정 파일을 저장하기 위해 기본 `StorageClass`가 필요합니다.
-
-:::
-
-{@include: _check-k8s-agent.mdx}
-
-</TabItem>
-
 <TabItem value='eksfragate' label='EKS Fargate'>
 
 ## 쿠버네티스 에이전트 생성

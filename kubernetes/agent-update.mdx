@@ -28,20 +28,6 @@ import TabItem from '@theme/TabItem';
 
 </TabItem>
 
-<TabItem value='hk8s' label='HELM-KUBERNETES'>
-
-```bash
-helm update repo 
-helm upgrade {release name} \
---namespace whatap-monitoring whatap/helm-kube-mon \
---set pvc.skip=true \
---set whatap_license=x2c0g1qgmodfq-z329gvfsifkitl-xirt32f8jr9gv \
---set whatap_host=15.165.146.117 \
---set whatap_port=6600
-```
-
-</TabItem>
-
 <TabItem value='eksfragate' label='EKS Fargate'>
 
 **마스터 에이전트**

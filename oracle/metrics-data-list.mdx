@@ -18,7 +18,7 @@ tags: [ Oracle, 메트릭스, 데이터베이스, 데이터베이스 모니터�
 | `active_sessions` | 쿼리를 실행 중인 세션 수 |
 | `cpu` | CPU 사용률 |
 | `cpu_cores` | CPU 코어 수 |
-| `db_block_changes` | 데이터베이스 내 모든 블록의 변경 횟수 |
+| `db_block_changes` | SGA의 블록에서 변경된 블록 수 |
 | `db_file_scattered_read_time_waited` | db file scattered read 이벤트를 대기한 총 시간 |
 | `db_file_scattered_read_total_timeouts` | db file scattered read 이벤트의 총 타임아웃 횟수 |
 | `db_file_scattered_read_total_waits` | db file scattered read 이벤트 대기 총 횟수 |
@@ -36,10 +36,10 @@ tags: [ Oracle, 메트릭스, 데이터베이스, 데이터베이스 모니터�
 | `opened_cursors_current` | 현재 열려있는 cursor의 개수 |
 | `parse_count_(hard)` | 총 구분 문석 호출 수(실제 구문 분석) |
 | `parse_count_(total)` | 총 구문 분석 호출 수(hard, soft, describe) |
-| `physical_reads` | 데이터를 물리 디스크에서 읽은 횟수 | 
-| `physical_writes` | 데이터를 물리 디스크에 작성한 횟수 |
-| `session_logical_reads` | 데이터를 버퍼 캐시 내에서 읽은 횟수 |
-| `sorts_(memory)` | 메모리에서 디스크에 기록하는 중 정렬(sort)한 시간 비율 |
+| `physical_reads` | 디스크에서 읽은 데이터 블록 수 | 
+| `physical_writes` | 데이터를 디스크에 기록한 블록 수, `physical writes direct`와 `physical writes from cache`의 합 |
+| `session_logical_reads` | 메모리에서 읽은 데이터 블록 수, `db block gets`과 `consistent gets`의 합 |
+| `sorts_(memory)` | 메모리에서 수행된 sort 작업 수 |
 | `sys_cpu` | session에 의해 사용된 cpu time의 합 |
 | `total_elapse_time` | 데이터베이스 인스턴스가 마지막으로 다시 시작된 이후 모든 요청의 누적 총 경과 시간입니다. |
 | `total_sessions` | 모든 세션 수 |

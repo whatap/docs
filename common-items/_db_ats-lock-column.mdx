@@ -10,8 +10,8 @@
 | command | 수행 중인 명령어 type(Query/Sleep/Daemon 등) |
 | time | 현재 COMMAND의 수행 시간(초) |
 | state | 스레드의 현재상태 (executing/updating/sending data 등) |
-| query | 실행되고 있는 statement. `Processlist.info`에서 리터럴 값을 분리한 SQL을 보여줍니다. |
-| query_param | query에서 분리한 리터럴 값 |
+| query | 실행되고 있는 statement, `Processlist.info`에서 리터럴 값을 분리한 SQL을 보여줍니다. |
+| query_param | `query`에서 분리한 리터럴 값 |
 | type | Thread 타입. FOREGROUND/BACKGROUND 등 |
 | connection_type | Connection을 맺는데 사용하는 protocol. TCP/IP, SSL/TLS |
 | query_hash | query의 해쉬값(와탭 내부 관리 값) |

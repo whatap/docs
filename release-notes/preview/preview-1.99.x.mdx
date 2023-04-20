@@ -15,7 +15,71 @@ import UI from '@site/src/components/UItext';
 
 [https://preview.whatap.io](https://preview.whatap.io)에서 다음 추가한 신기능과 수정한 내용을 미리 경험할 수 있습니다. 
 
-:::
+::: 
+
+## Preview-1.99.25
+
+2023년 4월 20일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### 관리
+
+* <Status>Fixed</Status> 계정 아이콘 선택 > <UI>계정 정보 관리</UI> > <UI>계정 정보</UI> 메뉴에서 회원 탈퇴 시 미납 금액 표현 및 경영 지원팀 전화번호 안내 수정
+
+#### Flex 보드
+
+* <Status>Fixed</Status> Series 위젯에서 3일 이상의 데이터를 조회하는 경우 X축에 날짜 표기하도록 수정 
+
+### `Application`
+
+* <Status>Fixed</Status> <UI>분석</UI> > <UI>멀티 트랜잭션 추적</UI> 메뉴에서 <UI>MTID / CUSTID</UI> 값 미입력 시 데이터가 검색되지 않는 버그 수정
+
+* <Status>Change</Status> <UI>분석</UI> > <UI>멀티 트랜잭션 추적</UI> 메뉴에서 <UI>MTID / CUSTID</UI> 검색 값 유효성 체크 로직 추가
+
+### `Browser`
+
+* <Status>Change</Status> <b>RUM</b>의 상품명을 <UI>Browser Monitoring</UI>으로 변경  
+
+</div>
+
+## Preview-1.99.24
+
+2023년 4월 20일
+
+<div class='indentTab'>
+
+### `공통`
+
+* <Status>Feature</Status> <UI>로그</UI> > <UI>로그 검색</UI> 메뉴에서 조회한 로그 개수 표시
+
+* <Status>Feature</Status> <UI>로그</UI> > <UI>로그 트렌드</UI> 메뉴에서 조회한 로그 개수 표시
+
+</div>
+
+<div class='indentTab'>
+
+### `OCI`, `클라우드 모니터링`
+
+* <Status>Fixed</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴에서 해당 OCI 프로젝트 수정 권한 없을 시 <b>RSA Public Key</b> 생성 버튼 비활성화
+
+* <Status>Fixed</Status> <UI>관리</UI> > <UI>클라우드 모니터링</UI> > <UI>Oracle Cloud Monitor</UI> 탭에서 <b>RSA Public Key</b> 생성 시 인증 정보 미등록 상태여도 등록 완료 상태로 구분되는 버그 수정
+
+</div>
+
+## Preview-1.99.23
+
+2023년 4월 19일
+
+<div class='indentTab'>
+
+### `Application`
+
+* <Status>Fixed</Status> <UI>통계/보고서</UI> > <UI>통계</UI> 메뉴에서 <UI>Caller</UI> 조회 시 <UI>Caller 에이전트 종류</UI> 및 <UI>Caller URL</UI> 컬럼 데이터 일부 누락 버그 수정
+
+</div>
 
 ## Preview-1.99.22
 
@@ -39,7 +103,7 @@ import UI from '@site/src/components/UItext';
 
 #### 사이트 관리
 
-* <Status>Change</Status> <UI>사이트 관리</UI> > <UI>비즈니스 보드</UI> 메뉴에서 <b>productType</b>을 <code>platformType</code>으로 변경
+* <Status>Change</Status> <UI>사이트 관리</UI> > <UI>비즈니스 보드</UI> 메뉴에서 <b>productType</b>을 <UI>platformType</UI>으로 변경
 
 * <Status>Change</Status> <UI>사이트 관리</UI> > <UI>결제 관리</UI> > <UI>사용량</UI> 메뉴에서 <b>상품 타입</b> 컬럼 제거
 

@@ -15,7 +15,160 @@ import UI from '@site/src/components/UItext';
 
 [https://preview.whatap.io](https://preview.whatap.io)에서 다음 추가한 신기능과 수정한 내용을 미리 경험할 수 있습니다. 
 
-:::
+::: 
+
+## Preview-1.99.26
+
+2023년 4월 24일
+
+<div class='indentTab'>
+
+### `AWS Log`
+
+* <Status>Feature</Status> <UI>에이전트 설치</UI> > <UI>WhaTap Forwarder 설치</UI> 메뉴에서 <UI>VPC 사용</UI> 옵션 추가
+
+</div>
+
+## Preview-1.99.25
+
+2023년 4월 20일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### 관리
+
+* <Status>Fixed</Status> 계정 아이콘 선택 > <UI>계정 정보 관리</UI> > <UI>계정 정보</UI> 메뉴에서 회원 탈퇴 시 미납 금액 표현 및 경영 지원팀 전화번호 안내 수정
+
+#### Flex 보드
+
+* <Status>Fixed</Status> Series 위젯에서 3일 이상의 데이터를 조회하는 경우 X축에 날짜 표기하도록 수정 
+
+### `Browser`
+
+* <Status>Change</Status> <b>RUM</b>의 상품명을 <UI>Browser Monitoring</UI>으로 변경  
+
+</div>
+
+## Preview-1.99.24
+
+2023년 4월 20일
+
+<div class='indentTab'>
+
+### `공통`
+
+* <Status>Feature</Status> <UI>로그</UI> > <UI>로그 검색</UI> 메뉴에서 조회한 로그 개수 표시
+
+* <Status>Feature</Status> <UI>로그</UI> > <UI>로그 트렌드</UI> 메뉴에서 조회한 로그 개수 표시
+
+</div>
+
+<div class='indentTab'>
+
+### `OCI`, `클라우드 모니터링`
+
+* <Status>Fixed</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴에서 해당 OCI 프로젝트 수정 권한 없을 시 <b>RSA Public Key</b> 생성 버튼 비활성화
+
+* <Status>Fixed</Status> <UI>관리</UI> > <UI>클라우드 모니터링</UI> > <UI>Oracle Cloud Monitor</UI> 탭에서 <b>RSA Public Key</b> 생성 시 인증 정보 미등록 상태여도 등록 완료 상태로 구분되는 버그 수정
+
+</div>
+
+## Preview-1.99.23
+
+2023년 4월 19일
+
+<div class='indentTab'>
+
+### `Application`
+
+* <Status>Fixed</Status> <UI>통계/보고서</UI> > <UI>통계</UI> 메뉴에서 <UI>Caller</UI> 조회 시 <UI>Caller 에이전트 종류</UI> 및 <UI>Caller URL</UI> 컬럼 데이터 일부 누락 버그 수정
+
+</div>
+
+## Preview-1.99.22
+
+2023년 4월 19일
+
+<div class='indentTab'>
+
+### `Go`
+
+* <Status>Feature</Status> <UI>로그</UI> > <UI>로그 설정</UI> 메뉴에서 <code>Go</code> 에이전트 설정 안내 추가
+
+</div>
+
+## Preview-1.99.21
+
+2023년 4월 18일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### 사이트 관리
+
+* <Status>Change</Status> <UI>사이트 관리</UI> > <UI>비즈니스 보드</UI> 메뉴에서 <b>productType</b>을 <UI>platformType</UI>으로 변경
+
+* <Status>Change</Status> <UI>사이트 관리</UI> > <UI>결제 관리</UI> > <UI>사용량</UI> 메뉴에서 <b>상품 타입</b> 컬럼 제거
+
+#### 이용 내역
+
+* <Status>Change</Status> <UI>이용 내역</UI> > <UI>청구 및 납부 내역</UI> 메뉴에서 <UI>청구 내역 상세 보기</UI> 목록에서 <b>상품 타입</b> 컬럼 제거
+
+</div>
+
+## Preview-1.99.20
+
+2023년 4월 18일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### 사이트 관리
+
+* <Status>Fixed</Status> <UI>사이트 관리</UI> > <UI>프로젝트</UI> 메뉴에서 <UI>내보내기</UI> 선택 시 영문 알림 창에 국문 안내 출력 버그 수정
+
+* <Status>Fixed</Status> <UI>사이트 관리</UI> > <UI>설정</UI> 메뉴에서 <UI>서버 제어</UI> 선택 시 영문 알림 창에 국문 안내 출력 버그 수정
+
+* <Status>Fixed</Status> <UI>사이트 관리</UI> > <UI>서버</UI> 메뉴에서 <UI>알림 중지</UI> 창이 깨지는 버그 수정
+
+* <Status>Fixed</Status> <UI>사이트 관리</UI> > <UI>서버</UI> > <UI>상세</UI> 정보 화면에서 언어 변경 시 화면이 로딩되지 않는 버그 수정
+
+### `Application`
+
+* <Status>Change</Status> <UI>분석</UI> > <UI>히트맵</UI> > <UI>Tx 트레이스 목록</UI>에서 트랜잭션을 선택해 <UI>통계</UI> 창에서 SQL 스텝 조회 시 하단에 SQL 쿼리 복사 버튼 추가 
+
+</div>
+
+## Preview-1.99.19
+
+2023년 4월 17일
+
+<div class='indentTab'>
+
+### `ECS`
+
+* <Status>Fixed</Status> <UI>이용 내역</UI> > <UI>프로젝트 유료 전환</UI> 메뉴에서 화이트 아웃 현상 버그 수정 
+
+</div>
+
+## Preview-1.99.18
+
+2023년 4월 14일
+
+<div class='indentTab'>
+
+### `공통`
+
+* <Status>Change</Status> <UI>사이드 바</UI> > <UI>검색</UI> 키워드 입력 후 엔터 입력으로 조회
+
+* <Status>Fixed</Status> <UI>사이드 바</UI> > <UI>검색</UI> > <UI>에이전트 검색</UI> 실행 시 화면 끊김 현상 수정 
+
+
+</div>
 
 
 ## Preview-1.99.17
@@ -24,13 +177,21 @@ import UI from '@site/src/components/UItext';
 
 <div class='indentTab'>
 
+### `공통`
+
+#### 사이트 관리
+
+* <Status>Change</Status> <UI>사이트 관리</UI> > <UI>설정</UI> > <b>서버 라이선스</b> 메뉴의 명칭을 <UI>라이선스</UI>로 변경 및 기타 UI 개선
+
+#### 보고서
+
+* <Status>Feature</Status> <UI>통합 보고서</UI> 메뉴에서 <UI>일간 Http Call 지연 보고서</UI> 생성 시 종료 시간을 다음 날로 선택할 수 있는 기능 추가 
+
+* <Status>Fixed</Status> <UI>통계/보고서</UI> > <UI>보고서</UI> 메뉴에서 사용자가 선택한 시작일 기준이 아니라 현재 기준으로만 에이전트 목록을 <UI>필터</UI> 옵션으로 가져오는 버그 수정
+
 ### `AWS Log`
 
 <p><Status>Change</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴에서 <UI>AWS IAM 정책 생성</UI> 순서의 IAM 정책 변경</p>
-
-### `공통`
-
-<p><Status>Change</Status> <UI>사이트 관리</UI> > <UI>설정</UI> > <b>서버 라이선스</b> 메뉴의 명칭을 <UI>라이선스</UI>로 변경 및 기타 UI 개선</p>
 
 ### `RUM`
 
@@ -82,7 +243,7 @@ import UI from '@site/src/components/UItext';
 
 ### `Application`
 
-<p><UI>Feature</UI> 분석 > 히트맵 메뉴에서 트랜잭션 목록을 클릭하면 표시되는 <UI>통계</UI> 팝업 창에 다음의 정보 추가</p>
+<p><Status>Feature</Status> <UI>분석</UI> > <UI>히트맵</UI> 메뉴에서 트랜잭션 목록을 클릭하면 표시되는 <UI>통계</UI> 팝업 창에 다음의 정보 추가</p>
 
 - `HttpCall` 타입의 트레이스의 경우 수집된 driver 정보가 있다면 **Http Call** 텍스트 대신 **driver 정보**를 표시
 - `SQL`, `DBC` 타입의 트레이스를 클릭하면 나타나는 상세 정보 창에 SID 값 추가 표시

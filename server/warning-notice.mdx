@@ -32,19 +32,6 @@ tags: [ 경고 알림, 서버, UI ]
     * ![수정 아이콘](/img/ico-edit.svg) 버튼을 선택해 저장된 이벤트 설정을 ***수정***할 수 있습니다. 
     * ![복제 아이콘](/img/ico-copy.svg) 버튼을 선택해 다른 인프라에 해당 이벤트를 ***복사***할 수 있습니다.    
 
-<details>
-<summary> 서버 이벤트 기본 설정 </summary>
-
-와탭 서버 모니터링 서비스는 에이전트 설치와 동시에 다음과 같이 기본 이벤트 설정을 제공합니다. 
-
-![서버 기본 알람 sc](/img/server-default-notice-setting.png)
-
-* ***재시작***: 활성화 상태입니다.
-
-* 
-
-</details>
-
 :::note
 
 * ***메트릭스*** 이벤트 추가는 [다음 문서](metric-warning-notice)를 참조하세요.
@@ -95,6 +82,53 @@ tags: [ 경고 알림, 서버, UI ]
 :::caution
 하나의 서버에 하나의 이벤트를 할당할 수 있습니다.
 :::
+
+<details>
+<summary> 서버 이벤트 기본 설정 </summary>
+
+와탭 서버 모니터링 서비스는 에이전트 설치와 동시에 다음과 같은 기본 이벤트 설정을 제공합니다. 
+
+![서버 기본 알람 sc](/img/server-default-notice-setting.png)
+
+* ***재시작***: 활성화
+
+* ***네트워크 IOPS***
+    * <span class='slow'>경고</span>: 45,000 pps / 지속 시간: 5분
+    * <span class='vslow'>위험</span>: 50,000 pps / 지속 시간: 5분
+
+* ***네트워크 BPS***
+    * <span class='slow'>경고</span>: 5000,000,000 bps / 지속 시간: 5분
+    * <span class='vslow'>위험</span>: 7000,000,000 bps / 지속 시간: 5분
+
+* ***디스크 I/O***
+    * <span class='slow'>경고</span>: 90% / 지속 시간: 5분
+    * <span class='vslow'>위험</span>: 95% / 지속 시간: 5분
+
+* ***디스크 사용량***
+    * <span class='slow'>경고</span>: 90% / 지속 시간: 5분
+    * <span class='vslow'>위험</span>: 95% / 지속 시간: 5분
+
+* ***inode***
+    * <span class='slow'>경고</span>: 90% / 지속 시간: 5분
+    * <span class='vslow'>위험</span>: 95% / 지속 시간: 5분
+
+* ***CPU***
+    * <span class='slow'>경고</span>: 70% / 지속 시간: 1분
+    * <span class='vslow'>위험</span>: 90% / 지속 시간: 1분
+
+* ***메모리***
+    * <span class='slow'>경고</span>: 70% / 지속 시간: 1분
+    * <span class='vslow'>위험</span>: 90% / 지속 시간: 1분
+
+* ***steal***
+    * <span class='slow'>경고</span>: 5% / 지속 시간: 1분
+    * <span class='vslow'>위험</span>: 10% / 지속 시간: 1분
+
+* ***스왑***
+    * <span class='slow'>경고</span>: 50% / 지속 시간: 1분
+    * <span class='vslow'>위험</span>: 90% / 지속 시간: 1분
+
+</details>
 
 ## 프로세스 이벤트 추가{#process-event}
 

@@ -35,7 +35,7 @@
 
 와탭 에이전트는 도메인별 트랜잭션 통계를 수집할 수 있습니다. 하나의 서버에 여러 개의 도메인을 분리하여 서비스하는 시스템에서는 도메인 별 분석이 필요할 수 있습니다. 다음 옵션을 설정하세요.
 
-```ini title='whatap.conf'
+```ini title='whatap.ini'
 whatap.stat_domain_enabled=true
 ```
 수집되는 데이터는 도메인별 URL의 처리 현황을 파악할 수 있습니다.
@@ -52,7 +52,8 @@ whatap.stat_domain_enabled=true
 
 멀티 서버가 rest 호출로 연결되면 **Caller**와 **Callee** 간의 연관 통계를 수집할 수 있습니다. 이 데이터를 수집하기 위해 다음의 옵션을 설정하세요.
 
-```ini title='whatap.conf'
+```ini title='whatap.ini'
+whatap.mtrace_enabled=true 
 whatap.mtrace_rate=100
 whatap.mtrace_spec=v1
 whatap.stat_mtrace_enabled=true
@@ -64,13 +65,13 @@ whatap.stat_mtrace_enabled=true
 
 하지만 **Caller** 쪽 서버에서 데이터를 전송해야 하므로 모든 서버에 적절한 설정이 들어가야 합니다.
 
-```ini title='whatap.conf of [front]'
+```ini title='whatap.ini of [front]'
 whatap.mtrace_rate=100
 whatap.mtrace_spec=v1
 whatap.stat_mtrace_enabled=true
 ```
 
-```ini title='whatap.conf of [api1] & [api2]'
+```ini title='whatap.ini of [api1] & [api2]'
 whatap.mtrace_spec=v1
 whatap.stat_mtrace_enabled=true
 ```
@@ -91,7 +92,7 @@ whatap.stat_mtrace_enabled=true
 
 와탭 에이전트는 Referer 별 트랜잭션 통계를 수집할 수 있습니다. 다음 옵션을 설정하세요.
 
-```ini title='whatap.conf'
+```ini title='whatap.ini'
 whatap.stat_referer_enabled=true
 ```
 수집되는 데이터는 Referer 정보를 통계로 확인할 수 있습니다.

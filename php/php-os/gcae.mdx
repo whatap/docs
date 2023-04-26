@@ -6,9 +6,7 @@ tags:
     - Google Cloud App Engine
     - PHP
 ---
-<!--
-구글 앱 엔진(Google Cloud App Engine)에 PHP 모니터링을 설치하기 위해서는 custom docker를 사용해야 합니다. 구글 앱 엔진 PHP의 기본형은 PHP 모니터링의 PHP Extension 및 Service (데몬)의 실행이 불가능합니다. Docker Container를 통해 설치하세요.
--->
+
 ## Custom Docker
 
 구글 앱 엔진(Google Cloud App Engine)에 PHP 모니터링 에이전트를 설치하기 위해서는 Custom docker를 이용해야 합니다. 
@@ -22,6 +20,7 @@ $ vi app.yaml
 env: flex
 runtime: custom
 ```
+
 <!-- 경로? flex/custom -->
 Custom Docker로 실행하기 위해서는 `flex` 환경과 `custom` 런타임으로 설정된 *app.yaml* 파일과 동일한 위치에 *Dockerfile*을 생성해야 합니다. 구글 앱 엔진의 기본 php Docker 이미지를 참조하세요.
 
@@ -29,7 +28,7 @@ Custom Docker로 실행하기 위해서는 `flex` 환경과 `custom` 런타임�
 # google-appengine php php56, php70, php71
 FROM gcr.io/google-appengine/php56
 ```
-<!-- 과정 설명 및 구분 등 수정 필요 -->
+
 ## PHP 모니터링 에이전트 설치
 
 PHP 모니터링 에이전트를 설치하세요.
@@ -51,13 +50,18 @@ PHP 모니터링 에이전트를 설치하세요.
   RUN apt-get install whatap-php
   ```
 1. PHP 확장 모듈 및 whatap-php 서비스를 설정하세요.
+
   ```docker
-  #RUN (echo "[ 발급된 프로젝트 액세스 키 ]"; echo "[ 발급된 서버 IP ]")|/usr/whatap/php/install.sh
+  #RUN (echo "[ 발급된 액세스 키 ]"; echo "[ 발급된 서버 IP ]")|/usr/whatap/php/install.sh
   RUN (echo "xxxxxxxx"; echo "1.1.1.1/2.2.2.2")|/usr/whatap/php/install.sh
   ```
+
   :::note
-  PHP 모니터링 프로젝트 생성 후 **프로젝트 액세스 키**와 서버 IP가 발급됩니다. */* 구분자로 여러 개의 IP 발급이 가능합니다.
+
+  PHP 모니터링 프로젝트 생성 후 **액세스 키**와 서버 IP가 발급됩니다. */* 구분자로 여러 개의 IP 발급이 가능합니다.
+  
   :::
+
 1. `supervisor`를 통해 whatap-php 서비스를 실행하세요.
   ```docker
   RUN echo "[program:whatap-php]" >> /etc/supervisor/conf.d/whatap.conf

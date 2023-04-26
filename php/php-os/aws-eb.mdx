@@ -43,11 +43,14 @@ tags:
       command: sudo yum install -y whatap-php
       ignoreErrors: true
     08_Install_whatap_php_install.sh:
-      command: (echo "[프로젝트 액세스 키 지정]"; echo "[서버 IP 지정(a.a.a.a/b.b.b.b)")| sudo /usr/whatap/php/install.sh
+      command: (echo "[액세스 키 지정]"; echo "[서버 IP 지정(a.a.a.a/b.b.b.b)")| sudo /usr/whatap/php/install.sh
       ignoreErrors: true
   ```
-:::note
-**프로젝트 액세스 키**와 **서버 IP**는 ***프로젝트 관리*** > ***에이전트 설치*** 페이지에서 발급받고 확인할 수 있습니다.
-:::
+
+  :::note
+
+  **액세스 키**와 **서버 IP**는 ***프로젝트 관리*** > ***에이전트 설치*** 페이지에서 발급받고 확인할 수 있습니다.
+
+  :::
 
 1. Beanstalk에 새로운 버전을 배포하세요. PHP 모니터링 에이전트가 설치됩니다.

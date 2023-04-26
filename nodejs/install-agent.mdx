@@ -21,11 +21,11 @@ Node.js 모니터링 서비스를 사용하려면 모니터링 대상 애플리�
 
 {@include: ../getting-started/_create-project-v2.mdx}
 
-{@include: ../getting-started/_accesskey.mdx}
+{@include: ../getting-started/_accesskey-v2.mdx}
 
-## 와탭 에이전트 다운로드
+## 에이전트 다운로드
 
-1. 서비스 중인 Node.js 애플리케이션의 디렉터리 경로로 이동해 와탭 에이전트를 설치하세요.
+1. 서비스 중인 Node.js 애플리케이션의 디렉터리 경로로 이동해 에이전트를 설치하세요.
 
     ```bash
     $ npm install --save whatap
@@ -35,11 +35,11 @@ Node.js 모니터링 서비스를 사용하려면 모니터링 대상 애플리�
 
 1. [와탭 모니터링 서비스](https://service.whatap.io) 화면으로 이동하세요.
 
-1. 생성한 프로젝트를 선택한 다음 ***설치 안내*** 섹션의 ***와탭 에이전트 다운로드*** 내용 중 다음 내용을 복사하세요.
+1. 생성한 프로젝트를 선택한 다음 ***설치 안내*** 섹션의 ***에이전트 다운로드*** 내용 중 다음 내용을 복사하세요.
 
     ```ini title='예시'
-    license=x46n3a26be1ah-z2rswcfcvlq2ph-z114c81gfhqpgg
-    whatap.server.host=52.78.209.94/52.78.224.235
+    license={액세스 키}
+    whatap.server.host={수집 서버 IP}
     ```
 
 1. *whatap.conf* 파일에 붙여넣기 하세요.
@@ -63,7 +63,7 @@ Node.js 모니터링 서비스를 구성하는 각 파일의 역할은 다음과
 
 </details>
 
-## 활용
+## 활용하기
 
 애플리케이션의 메인 모듈의 최상단에 다음 코드를 추가하세요. 예를 들어 express 모듈의 경우 *app.js* 파일입니다.
 
@@ -71,16 +71,70 @@ Node.js 모니터링 서비스를 구성하는 각 파일의 역할은 다음과
 var whatap = require('whatap').NodeAgent;
 ```
 
-```javascript title='ES(ECMAScript) 사용의 경우'
+ECMAScript(ES)를 활용한다면 다음 코드를 같이 추가하세요.
+
+```javascript title='ES'
 import WhatapAgent from 'whatap';
 WhatapAgent.NodeAgent;
 ```
 
+다음 적용 예시를 참조하세요.
+
+```javascript
+var WhatapAgent = require('whatap').NodeAgent;
+import http from 'http';
+import setupApp from '../src/app';
+let server = null;
+const port = normalizePort(process.env.PORT || '3000');
+```
+
 :::note
+
 에이전트 실행 코드는 node.js를 시작하고 가장 먼저 실행해야 하므로 처음 `import`보다 먼저 위치해야 합니다.
+
 :::
 
 설치를 모두 완료했다면 [다음 문서](install-check)를 확인해 문제가 없는지 확인하세요.
+
+### 환경 별로 whatap.conf 파일을 구분해 사용하기
+
+다음의 경우에 해당한다면 .conf를 제외한 파일명을 설정해 주세요.
+
+* 환경 별로 프로젝트를 구분한 경우
+
+* 에이전트 옵션을 다르게 설정할 경우
+
+* pm2에 의해 클러스터(Cluster) 모드로 기동할 경우
+
+```javascript
+process.env.WHATAP_CONF = 'whatapdev';
+process.env.WHATAP_NAME = 'NodeAgent-{ip2}-{ip3}-{cluster}';
+var WhatapAgent = require('whatap').NodeAgent;
+```
+
+:::note
+
+`WHATAP_NAME` 옵션으로 설정 가능한 인자는 다음과 같습니다.
+
+* **ipN**: ip0, ip1, ip2, ip3
+
+* **cluster**: cluster ID
+
+* **pid**: process ID
+
+* **hostname**: 호스트 이름
+
+:::
+
+### 에이전트 그룹 단위 기능 활용하기
+
+에이전트 그룹 단위 기능에는 그룹 토폴로지, 통합 토폴로지 등이 있으며, 다음 코드에서 `{그룹 식별자}` 부분을 에이전트 그룹명으로 대체하여 사용하세요.
+
+```javascript
+process.env.WHATAP_OKIND = '{그룹 식별자}';
+var WhatapAgent = require('whatap').NodeAgent;
+```
+
 
 ## PaaS 애플리케이션 환경
 
@@ -88,11 +142,11 @@ WhatapAgent.NodeAgent;
 
 PaaS 애플리케이션에서 에이전트를 설치하는 경우 모든 설정을 소스(*app.js*) 파일에서 설정해야 합니다. *whatap.conf* 파일을 사용할 수 없습니다.
 
-프로젝트 액세스 키(`WHATAP_LICENSE`)와 와탭 서버 호스트(`WHATAP_SERVER_HOST`)를 환경 변수로 설정하세요.
+액세스 키(`WHATAP_LICENSE`)와 수집 서버 IP(`WHATAP_SERVER_HOST`)를 환경 변수로 설정하세요.
 
 ```javascript title='app.js'
-process.env.WHATAP_LICENSE='x46n3226be1ah-z2rsecfcvlq2ph-z11bc81gfhqpgg';
-process.env.WHATAP_SERVER_HOST='52.78.209.94/52.78.224.235';
+process.env.WHATAP_LICENSE={액세스 키};
+process.env.WHATAP_SERVER_HOST={수집 서버 IP};
 var whatap=require('whatap').NodeAgent;
 ...
 ```
@@ -117,5 +171,12 @@ process.env.stat_domain_enabled=false;
 ```
 
 :::note
+
 Node.js에서 설정할 수 있는 옵션에 대한 자세한 내용은 [다음 문서](set-agent)를 참조하세요.
+
 :::
+
+
+## 모니터링 시작하기
+
+애플리케이션 서버를 다시 시작하면 에이전트가 정보 수집을 시작합니다.

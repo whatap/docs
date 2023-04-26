@@ -8,7 +8,7 @@ PHP 확장 모듈 및 whatap-php 서비스를 자동으로 설치할 경우 아�
 ```bash title=SH
 $ sudo /usr/whatap/php/install.sh
 Input license key
-xxxxxxxxxxxxxxxx                          # 발급된 프로젝트 액세스 키 입력
+xxxxxxxxxxxxxxxx                          # 발급된 액세스 키 입력
 
 Input whatap.server.host
 192.x.x.x                                  # 발급된 서버 IP 입력
@@ -22,7 +22,7 @@ PHP 확장 모듈 및 whatap-php 서비스를 자동으로 인식하지 못하�
 $ sudo /usr/whatap/php/install.sh manual
 
 Input license key
-xxxxxxxxxxxxxxxx                            # 발급된 프로젝트 액세스 키 입력
+xxxxxxxxxxxxxxxx                            # 발급된 액세스 키 입력
 
 Input whatap.server.host
 192.x.x.x                                    # 발급된 서버 IP 입력
@@ -68,7 +68,7 @@ Options
 ```
 
 * **license**  
-    발급된 프로젝트 액세스 키 입니다.
+    발급된 액세스 키 입니다.
 
 * **server**  
     발급된 서버 IP 입니다.
@@ -109,7 +109,7 @@ $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -e /opt/php/bin/php-fpm
 <TabItem value="phpvs" label="PHP 버전 지정 설치" default>
 
 ```bash title=SH
-$ /usr/whatap/php/install.sh -l [발급된 프로젝트 액세스 키] -s [발급된 서버 IP] -v [PHP 버전 x.x] -i [php.ini의 전체 경로] -p [프로세스명]
+$ /usr/whatap/php/install.sh -l [발급된 액세스 키] -s [발급된 서버 IP] -v [PHP 버전 x.x] -i [php.ini의 전체 경로] -p [프로세스명]
 $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -v 7.0 -i /etc/php.ini -p httpd [-z]
 ```
 
@@ -117,7 +117,7 @@ $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -v 7.0 -i /etc/php.ini 
 <TabItem value="phcli" label="PHP Cli 명령어 지정 설치">
 
 ```bash title=SH
-$ /usr/whatap/php/install.sh -l [발급된 프로젝트 액세스 키] -s [발급된 서버 IP] -e [PHP Cli] -p [프로세스명]
+$ /usr/whatap/php/install.sh -l [발급된 액세스 키] -s [발급된 서버 IP] -e [PHP Cli] -p [프로세스명]
 $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -e /opt/php/bin/php -p apache2
 $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -e /opt/php/bin/php-fpm -p php-fpm
 ```

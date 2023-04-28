@@ -4,8 +4,65 @@ title: Service 1.100.X
 toc_max_heading_level: 3
 ---
 
-import Status from '@site/src/components/Highlight';
-import UI from '@site/src/components/UItext';
+## Service 1.100.3
+
+2023년 4월 27일
+
+<div class='indentTab'>
+
+### `Application`
+
+<p><Status>Fixed</Status> <UI>분석</UI> > <UI>트랜잭션 검색</UI> 메뉴에서 필터 중 숫자만 입력해야 하는 옵션은 숫자 타입 검증 로직 적용</p>
+
+</div>
+
+## Service 1.100.2
+
+2023년 4월 27일
+
+<div class='indentTab'>
+
+### `공통`
+
+<p><Status>Fixed</Status> <UI>이용 내역</UI> > <UI>청구서 미리보기</UI> 메뉴에서 <b>Brwoser</b>, <b>Log</b>, <b>Cloud</b>, <b>Amazon ECS</b> 상품의 경우 호스트 컬럼 데이터를 표시하지 않도록 수정</p>
+
+---
+
+### `Application`
+
+<p><Status>Fixed</Status> <b>Java</b> 프로젝트의 <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴에서 에이전트 다운로드 명령어 오타 수정</p>
+
+---
+
+### `Database`
+
+#### DB 공통
+
+<p><Status>Change</Status> 사이드바에서 <UI>분석</UI> > <UI>메트릭스 이상 탐지</UI> 메뉴 숨김</p>
+
+#### POSTGRESQL
+
+- <Status>Change</Status> <UI>통계/보고서</UI> > <UI>PG_STAT_STATEMENT</UI> 메뉴 숨김
+
+- <Status>Fixed</Status> <UI>대시보드</UI> > <UI>슬로우 쿼리</UI> 메뉴에서 안내 문구 링크를 클릭하면 빈 페이지로 이동되는 문제 수정
+
+#### MYSQL
+
+<p><Status>Fixed</Status> <UI>대시보드</UI> > <UI>슬로우 쿼리</UI> 메뉴에서 안내 문구 링크를 클릭하면 빈 페이지로 이동되는 문제 수정</p>
+
+---
+
+### `Container`
+
+<p><Status>Fixed</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴에서 <UI>설치 전 유의사항</UI>에 수집 서버 IP 표기 오류 수정</p>
+
+---
+
+### `ECS`
+
+<p><Status>Fixed</Status> <UI>Flex 보드</UI>, <UI>Amazon ECS</UI> > <UI>Service</UI> 메뉴에서 <UI>ecs_service</UI> 위젯에 전체 서비스 중 1개의 서비스만 표시되는 문제 수정</p>
+
+</div>
 
 
 ## Service 1.100.1

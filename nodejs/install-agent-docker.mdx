@@ -1,0 +1,35 @@
+---
+id: install-agent-docker
+title: DockerFile
+description: description
+tags: [ Node.js, 에이전트, DockerFile ]
+---
+
+Docker 환경에서 DockerFile을 작성해 Node.js 에이전트를 설치한 다음 실행하는 방법을 안내합니다. 다음 안내에서 사용한 예제 파일은 [다음 링크](https://github.com/whatap/nodejs_sample_application/tree/main/simple_http)를 참조하세요.
+
+## 파일 구성
+
+Node.js 에이전트 샘플 파일은 다음과 같이 구성되어 있습니다.
+
+* *html*: 샘플 애플리케이션 폴더
+
+* *Dockerfile*: 도커 이미지 빌드를 위한 설정 파일
+
+* *http.js*: 샘플 애플리케이션 파일
+
+* *package.json*: 샘플 애플리케이션 정보와 의존성(dependency) 관리 문서
+
+* *whatap.conf*: 모니터링을 위한 옵션 설정 파일
+
+* *paramkey.txt*: 파라미터 암호화 키
+
+
+## 에이전트 설치하기
+
+*package.json* 파일에 Node.js 에이전트를 추가하거나 npm 설치 명령어를 실행하세요.
+
+```json title='package.json'
+"dependencies": {
+    "whatap": "^0.4.72"
+}
+```

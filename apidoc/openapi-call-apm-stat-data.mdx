@@ -536,8 +536,10 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_caller/<code>stitme</code>/<code>etime</code>/<code>oids</code>/filter/<code>filterkey</code>/<code>filterval</code>
 
 :::note
+
 * **filterkey**: 조회 조건 키 (`caller_pcode`, `caller_spec` (버전), `caller_url`, `spec` (버전), `url`)
 * **filterval**: 조회 조건 (`filterkey`가 `caller_url` 또는 `url`인 경우 base64로 인코딩)
+
 :::
 
 ## 도메인 호출 통계
@@ -548,6 +550,8 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_domain/<code>stitme</code>/<code>etime</code>/<code>oids</code>/filter/<code>filterkey</code>/<code>filterval</code>
 
 :::note
+
 * **filterkey**: 조회 조건 키 (`caller_pcode`, `caller_spec` (버전), `caller_url`, `spec` (버전), `url`)
 * **filterval**: 조회 조건 (`filterkey`가 `caller_url` 또는 `url`인 경우 base64로 인코딩)
+
 :::

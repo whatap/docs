@@ -11,11 +11,11 @@ import TR from '@site/src/components/TR';
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
-{@include: ../common-items/_agent-signup-guide.mdx}
+{@include: ../common-items/_agent-signup-guide.mdx}  
 
 {@youtube: Y66Siequ2S0}
 
-{@include: ../getting-started/_create-project-v2.mdx}
+{@include: ../getting-started/_create-project-v2.mdx} 
 
 {@include: ../getting-started/_accesskey.mdx}
 
@@ -42,7 +42,9 @@ import TR from '@site/src/components/TR';
 **Altibase JDBC Drivers**: http://support.altibase.com/kr/product
 
 :::note
+
 */압축해제한 폴더/jdbc/README.md* 파일에서 각 데이터베이스별 JDBC 드라이버 설치 경로를 확인할 수도 있습니다.
+
 :::
 
 {@include: ../common-items/_db-create-monitoring-account.mdx}
@@ -50,9 +52,6 @@ import TR from '@site/src/components/TR';
 ```bash
 create user whatap identified by '[DB_PASSWORD]'; ## 원하는 password를 입력하세요.
 ```
-
-<!-- 시스템 계정 사용 CUBRID -->
-<!-- {@include: ../common-items/_db-create-monitoring-account-using-system.mdx}-->
 
 ## DB 유저 파일 생성{#create-db-user}
 

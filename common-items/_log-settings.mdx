@@ -24,7 +24,7 @@
 
 ![number-s](/img/number-01.png) 영역의 ***가이드 보기*** 버튼과 ***요금제 보기*** 버튼을 선택하면 관련 안내 화면으로 이동합니다. 
 
-## ![](/img/number-02.png) 로그 모니터링 시작하기
+## ![](/img/number-02.png) 로그 모니터링 시작하기{#log-getting-started}
 
 ![number-s](/img/number-02.png) 영역의 ***로그 모니터링 활성화*** 토글 버튼으로 로그 모니터링 활성화 및 비활성화 여부를 설정하세요.
 
@@ -119,7 +119,7 @@
 
 :::
 
-## ![](/img/number-04.png) 로그 파서 설정
+## ![](/img/number-04.png) 로그 파서 설정{#log-setting-parser}
 
 수집된 로그를 검색할 수 있는 키를 만들기 위해 **파싱**(Parsing) **로직을 등록**할 수 있습니다. 파싱 로직을 등록하지 않은 경우 다음의 key들로만 검색이 가능합니다.
 
@@ -184,7 +184,7 @@
 
 :::
 
-### Grok 패턴 파서 등록
+### Grok 패턴 파서 등록{#log-pattern-grok}
 
 ![Grok 패턴 파서](https://img.whatap.io/media/images/log_011_grok_syntax.png)
 
@@ -204,7 +204,7 @@
 
   :::
 
-### JSON 포맷 파서 패턴 등록
+### JSON 포맷 파서 패턴 등록{#log-pattern-json}
 
 ![JSON 포맷 파서 패턴 등록](https://img.whatap.io/media/images/log_012_json_format_parser_1101.png)  
 
@@ -299,7 +299,7 @@ status가 이미 파싱된 경우 사용할 수 있는 파서입니다. 파싱�
   * ***max***: 조회 기간 데이터 중 최댓값입니다.
   * ***recently***: 조회 기간 데이터 중 마지막 값입니다.
 
-### 상태 코드 성공률 파서 패턴 등록 
+### 상태 코드 성공률 파서 패턴 등록{#log-pattern-status}
 
 ![상태 코드 성공률 파서](https://img.whatap.io/22/11/28/090004log_021_status_success_rate_parser.png)
 상태 코드 성공률 파서는 status가 이미 파싱된 경우 사용할 수 있는 파서입니다. status 파싱에 관한 내용은 [다음 문서](#4xx-5xx-status-parser)를 참조하세요. 
@@ -362,7 +362,7 @@ json 커스텀 파서 추가 문의
 
 파싱된 키는 ***라이브 테일***, ***로그 검색***, ***로그 트렌드***에서 확인할 수 있습니다.
 
-## ![](/img/number-05.png) 빠른 인덱스 설정
+## ![](/img/number-05.png) 빠른 인덱스 설정{#log-setting-index}
 
 대량의 로그를 수집할 경우 로그 검색 성능이 현저하게 저하될 수 있습니다. 자주 사용하는 검색 조건을 **인덱스**(index)로 생성하면 로그 검색 성능을 개선해 빠른 탐색이 가능합니다. 설정 항목은 다음과 같습니다.
 
@@ -374,7 +374,7 @@ json 커스텀 파서 추가 문의
 |규칙|필수|`*` 한 개 이상 포함 필수|
 |활성|필수|활성 또는 비활성 여부(기본값 `true`)|
 
-## ![](/img/number-06.png) 로그 장기 보관 통계 설정
+## ![](/img/number-06.png) 로그 장기 보관 통계 설정{#log-long-term-archive}
 
 로그 데이터는 용량이 매우 커서 장기간 보관하기가 어렵습니다. 따라서 로그 통계 데이터 설정 기능을 사용하여 **특정 조건을 만족하는 로그 데이터가 5분마다 몇 건씩 수집되었는지에 대한 정보를 저장**할 수 있습니다. 
 
@@ -400,7 +400,7 @@ json 커스텀 파서 추가 문의
 
 ![](https://img.whatap.io/22/11/28/090932log_023_long_period_stat_config.png)
 
-### 위젯 템플릿
+### 위젯 템플릿{#log-widget-statistics}
 
 1. ***Flex 보드***의 ***위젯 템플릿***에서 ***로그 장기 보관 통계***를 검색해 위젯을 생성하세요.
 

@@ -122,9 +122,13 @@ Spot 정보 조회용 Open API로 호출할 수 있는 항목은 다음과 같�
 프로젝트 통계 조회용 Open API는 하나의 프로젝트에서 여러 에이전트를 통해 수집하는 데이터를 병합하여 조회합니다. 시간 범위를 설정하여 호출할 수 있습니다.
 
 * 시간 범위를 설정하지 않으면 가장 최근의 데이터 조회
+
 * `stime`: 조회 시작 시간 (UNIX epoch time, millisecond)
-* `etime`: 조회 종료 시간 (UNIX epoch time, millisecond)<br/>
+
+* `etime`: 조회 종료 시간 (UNIX epoch time, millisecond)
+
   `etime` 값만 주어진 경우 `etime` 시간 기준 5초 전 데이터 조회
+
 * `timeMerge`: 조회 시작 & 종료 시간 설정 시 시간 데이터 병합 전략 (평균: `avg`, 최대값: `max`, 최소값: `min`)
 
 :::note
@@ -158,11 +162,6 @@ Spot 정보 조회용 Open API로 호출할 수 있는 항목은 다음과 같�
 :::
 
 Open API 호출 사용법은 [다음 문서](openapi-call-long-stat)를 참조하세요.
-
-<!--
-1. 상기 full gc 로그 내용 폐기 요청
-2. 장기 통계 정보 기술 오류 수정 요청
--->
 
 ### 단기 조회
 

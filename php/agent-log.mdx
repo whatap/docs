@@ -56,16 +56,20 @@ tags:
 
 ### 예시
 
-```ini title='기본 설정'
-whatap.logsink_enabled=true
-whatap.logsink_zip_enabled=true
-whatap.watchlog_enabled=true
-```
+* **기본 설정**
 
-```ini title='Apache error log 및 access log 설정'
-whatap.watchlog.apache_error_log.enabled=true
-whatap.watchlog.apache_error_log.file=/etc/httpd/logs/error_log
+  ```ini title='whatap.conf'
+  whatap.logsink_enabled=true
+  whatap.logsink_zip_enabled=true
+  whatap.watchlog_enabled=true
+  ```
 
-whatap.watchlog.apache_access_log.enabled=true
-whatap.watchlog.apache_access_log.file=/etc/httpd/logs/access_log
-```
+* **Apache error log 및 access log 설정**
+
+  ```ini title='whatap.conf'
+  whatap.watchlog.apache_error_log.enabled=true
+  whatap.watchlog.apache_error_log.file=/etc/httpd/logs/error_log
+
+  whatap.watchlog.apache_access_log.enabled=true
+  whatap.watchlog.apache_access_log.file=/etc/httpd/logs/access_log
+  ```

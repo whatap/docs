@@ -5,18 +5,42 @@ description: 데이터베이스 운용 추이를 확인하고 비교할 수 있�
 tags: [ PostgreSQL, 데이터베이스, 분석, 카운트 추이 ]
 ---
 
+:::note
+
+이 문서에서는 PostgreSQL 모니터링 V2를 기준으로 작성되었습니다. PostgreSQL 모니터링 V1 문서는 [다음 문서](../postgresql-v1/analysis-count-trend)를 참조하세요.
+
+:::
+
 import ProdImg from '@site/src/components/ChangeImgName.js';
 
-<!-- 카운트 추이 -->
-{@include: ../common-items/_db-count-trend-desc.mdx}  
+<!--카운트 추이 비교-->
+{@include: ../common-items/_db-compare-count-trend-v2.mdx}
 
-<!-- 카운트 추이 비교 -->
-{@include: ../common-items/_db-compare-count-trend-v2.mdx}  
+--- 
+
+## 카운트 추이 비교 
+
+홈 화면 > 프로젝트 선택 > ***분석*** > ***카운트 추이 비교***
+
+<ProdImg img='db-compare-count-trend.png' desc='카운트 추이' />
+
+서로 다른 날자의 카운트 추이를 비교할 수 있습니다.
+
+마우스를 차트위로 마우스 오버해 툴팁을 통해서 값을 비교할 수 있음
+지표를 추가 또는 변경 가능하고 위치 이동 가능
+액티브 세션 영역에서 보는 방법
+시간을 선택하고 세세하게 보는 방법, 드래그하거나
+
+:::note
+
+***액티브 세션*** 테이블 목록에 글자 색상은 검정색 → <span class='slow'>주황색</span> → <span class='vslow'>빨강색</span> 순으로 세션의 수행 속도가 느린 것을 의미합니다.
+
+:::
 
 
-<!-- 차트 및 액티브 세션 영역 활용하기 -->
+<!--차트 및 액티브 세션 영역 활용하기-->
 {@include: ../common-items/_db-using-chart-activesession-area.mdx}  
 
 
-<!-- 컬럼 정보 안내 -->
+<!--컬럼 정보 안내-->
 {@include: ../common-items/_db_postgresql-column.mdx}

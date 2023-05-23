@@ -11,11 +11,11 @@
 * **recursive_max** <span class='type'>Int</span>
 
   기본값 `1000000`
-  
+
   트랜잭션의 재귀 호출 여부 검출을 위한 옵션입니다. 단일 트랜잭션으로부터 파생되는 재귀 호출 횟수를 카운트하여 이벤트 알림을 발행하기 위한 기준을 설정합니다.
 
   :::note
-  
+
   HTTP URL 재귀 호출을 대상으로 합니다. jsp:forward를 통해 재호출하는 케이스도 카운트에 포함합니다.
   
   :::
@@ -27,7 +27,7 @@
 * **hook_jsp_patterns** <span class='type'>String</span>
 
   기본값 `org.apache.jasper.servlet.JspServlet.serviceJspFile`
-  
+
   JSP 파일을 로딩하는 메소드를 설정합니다. 트랜잭션 호출 결과로 반환하는 JSP 정보를 트레이스에 표시합니다. 이 옵션을 통해 추가한 설정에 기본값이 자동 추가됩니다.
 
 * **trace_ignore_url_set** <span class='type'>String</span>

@@ -1,22 +1,17 @@
 ---
-id: dbx-release-notes
-title: dbx Release Notes
+id: dbx-1.6.6
+title: DBX 1.6.6
 toc_max_heading_level: 2
 ---
 
-import Status from '@site/src/components/Highlight';
-import UI from '@site/src/components/UItext';
-
-## DBX 1.6.6
-
-### PostgreSQL
+## PostgreSQL
 
 * <Status>Feature</Status> <code>oldest_cur_xid</code>, <code>per_to_wraparound</code>, <code>per_to_emergency_autovac</code> 지표 추가 (2023-2-2)
 
 * <Status>Feature</Status> <code>replication_lag</code> 지표 추가 (2023-3-13)
 
 
-### Oracle
+## Oracle
 
 * <Status>Feature</Status> <UI>SQL 통계</UI> 메뉴에서 <code>sql_id</code> 추가 (2023-2-3)
 
@@ -27,19 +22,19 @@ import UI from '@site/src/components/UItext';
   lock=1 # on
   ```
 
-### MySQL
+## MySQL
 
 <Status>Fixed</Status> <code>active session</code> 수집 시 발생 에러 수정 (2023-3-28)
 
 
-### Redis
+## Redis
 
 * <Status>Fixed</Status> connection이 종료되지 않던 오류 수정 (2023-3-21)
 
 * <Status>Fixed</Status> 지표가 출력되지 않는 오류 수정 (2023-4-13)
 
 
-### Tibero
+## Tibero
 
 * <Status>Feature</Status> 세션 지표(<code>sesstat</code>) 수집 시 tibero API를 사용하는 방식을 추가해 속도 및 부하 개선 (2023-1-31)
 

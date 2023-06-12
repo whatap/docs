@@ -11,7 +11,6 @@ import TabItem from '@theme/TabItem';
 신규 생성한 서버 모니터링 프로젝트를 선택하면 ***에이전트 설치*** 화면이 나타납니다. 프로젝트 ***관리*** > ***에이전트 설치*** 메뉴를 통해서도 가능합니다.
 
 ![서버 모니터링 Linux Unix](/img/server-install-lx-unx.png)
-<!-- ![](/img/server-install.png) -->
  
 1. 와탭 **리포지토리**를 등록하세요.  
 
@@ -81,8 +80,9 @@ import TabItem from '@theme/TabItem';
     </TabItem>
     </Tabs> 
 
-1. 다음 명령어를 통해 **패키지**를 설치하세요.  
-    ![number-s](/img/number-03.png) ***와탭 서버 모니터링 패치 설치*** 탭에서 해당하는 명령어를 복사하여 입력합니다.
+1. 다음 명령어를 통해 **패키지**를 설치하세요.
+
+    ![number-s](/img/number-03.png) ***와탭 서버 모니터링 패치 설치*** 탭에서 해당하는 명령어를 복사해 입력합니다.
     
     <Tabs>
     <TabItem value="du" label="Debian / Ubuntu" default>
@@ -117,8 +117,9 @@ import TabItem from '@theme/TabItem';
 
     </Tabs>
 
-1. **설정 스크립트**를 실행하세요.  
-    ![number-s](/img/number-04.png) ***서버 모니터링 시작하기*** 탭으로 이동하여 명령어를 발급 받거나, 하단의 명령어에 프로젝트 액세스 키와 서버 IP를 추가하여 실행하세요.
+1. **설정 스크립트**를 실행하세요.
+
+    ![number-s](/img/number-04.png) ***서버 모니터링 시작하기*** 탭으로 이동해 명령어를 발급받거나, 하단의 명령어에 프로젝트 액세스 키와 서버 IP를 추가해 실행하세요.
 
     ```bash
     echo "license=[발급된 프로젝트 액세스 키]" |sudo tee /usr/whatap/infra/conf/whatap.conf
@@ -133,7 +134,7 @@ import TabItem from '@theme/TabItem';
 <details>
 <summary>서버 에이전트 파일 구성</summary>
 
-{@include: ../../common-items/_sv-cpf.mdx} 
+{@include: ../../common-items/_sv-cpf.mdx}
 
 {@include: ../../common-items/_sv-lf-cpf.mdx}
 
@@ -143,4 +144,4 @@ import TabItem from '@theme/TabItem';
     :::note
     에이전트에서 수집 서버로 **TCP 6600** 포트 접근이 가능해야 합니다.(TCP 아웃바운드)
     :::
--->    
+-->

@@ -19,17 +19,21 @@ import UI from '@site/src/components/UItext';
 
 #### 설정
 
-`trace_user_header_ticket`  
-#Default : ""#  
-#Type : string#
+* `trace_user_header_ticket`
 
-설정된 HTTP Header의 값을 고유한 사용자 정보로 선택합니다.
+  #Default : ""#
 
-`trace_user_cookie_keys`  
-#Default : ""#  
-#Type : string#
+  #Type : string#
 
-설정된 Cookie의 값을 고유한 사용자 정보로 선택합니다. 콤마(,) 구분으로 여러개의 이름을 설정할 수 있습니다. 설정된 순서대로 검색합니다.
+  설정된 HTTP Header의 값을 고유한 사용자 정보로 선택합니다.
+
+* `trace_user_cookie_keys`
+
+  #Default : ""#
+
+  #Type : string#
+
+  설정된 Cookie의 값을 고유한 사용자 정보로 선택합니다. 콤마(,) 구분으로 여러개의 이름을 설정할 수 있습니다. 설정된 순서대로 검색합니다.
 
 ### 액티브 스테이터스
 
@@ -90,7 +94,7 @@ http transport에 RoundTripper를 사용할 수 있도록 지원합니다. 패�
 
 전달하는 context는 `trace.Start()`를 통해서 whatap TraceCtx 정보가 있어야합니다.
 
-```go title='설치 안내 '
+```go title='Install guide '
 import (
   "github.com/whatap/go-api/instrumentation/net/http/whataphttp"
 )

@@ -8,7 +8,7 @@ PHP 확장 모듈 및 whatap-php 서비스를 자동으로 설치할 경우 아�
 ```bash title=SH
 $ sudo /usr/whatap/php/install.sh
 Input license key
-xxxxxxxxxxxxxxxx                          # 발급된 프로젝트 액세스 키 입력
+xxxxxxxxxxxxxxxx                          # 발급된 액세스 키 입력
 
 Input whatap.server.host
 192.x.x.x                                  # 발급된 서버 IP 입력
@@ -22,7 +22,7 @@ PHP 확장 모듈 및 whatap-php 서비스를 자동으로 인식하지 못하�
 $ sudo /usr/whatap/php/install.sh manual
 
 Input license key
-xxxxxxxxxxxxxxxx                            # 발급된 프로젝트 액세스 키 입력
+xxxxxxxxxxxxxxxx                            # 발급된 액세스 키 입력
 
 Input whatap.server.host
 192.x.x.x                                    # 발급된 서버 IP 입력
@@ -67,49 +67,39 @@ Options
                            --php-zts
 ```
 
-* **license**  
-    발급된 프로젝트 액세스 키 입니다.
+* **license**
 
-* **server**  
-    발급된 서버 IP 입니다.
+  발급된 액세스 키 입니다.
 
-* **php version**  
-    서버에 설치된 php 버전 정보(5.2. 5.3, 5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0)입니다.
+* **server**
 
-* **php config file**  
-    서버에 설치된 php.ini의 전체 경로(*/etc/php.ini*) PHP Extension에 대한 설정을 진행합니다.
+  발급된 서버 IP 입니다.
 
-* **php cli**  
-    커맨드 라인으로 실행 가능한 php 명령어의 전체 경로(*/usr/bin/php*) 해당 명령어로 PHP 기본 환경을 확인합니다.
+* **php version**
 
-* **process name**  
-    Apache 실행 프로세스명(`httpd`, `apache2`, `httpd.worker`…) 또는 PHP-FPM의 실행 프로세스명(`php-fpm`, `php5-fpm`)으로 사용 메모리 정보를 수집합니다.
+  서버에 설치된 php 버전 정보(5.2. 5.3, 5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0)입니다.
 
-* **zts**  
-    Zend Thread Safe 지원 여부를 설정합니다. 
+* **php config file**
 
-<!-- 
-**PHP 버전 지정 설치**
+  서버에 설치된 php.ini의 전체 경로(*/etc/php.ini*) PHP Extension에 대한 설정을 진행합니다.
 
-```javascript title=SH
-$ /usr/whatap/php/install.sh -l [발급된 라이센스 key] -s [발급된 서버 IP] -v [PHP 버전 x.x] -i [php.ini의 전체 경로] -p [프로세스명]
-$ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -v 7.0 -i /etc/php.ini -p httpd [-z]
-```
+* **php cli**
 
-**PHP Cli 명령어 지정 설치**
+  커맨드 라인으로 실행 가능한 php 명령어의 전체 경로(*/usr/bin/php*) 해당 명령어로 PHP 기본 환경을 확인합니다.
 
-```javascript title=SH
-$ /usr/whatap/php/install.sh -l [발급된 라이센스 key] -s [발급된 서버 IP] -e [PHP Cli] -p [프로세스명]
-$ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -e /opt/php/bin/php -p apache2
-$ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -e /opt/php/bin/php-fpm -p php-fpm
-```
--->
+* **process name**
+
+  Apache 실행 프로세스명(`httpd`, `apache2`, `httpd.worker`…) 또는 PHP-FPM의 실행 프로세스명(`php-fpm`, `php5-fpm`)으로 사용 메모리 정보를 수집합니다.
+
+* **zts**
+
+  Zend Thread Safe 지원 여부를 설정합니다. 
 
 <Tabs>
 <TabItem value="phpvs" label="PHP 버전 지정 설치" default>
 
 ```bash title=SH
-$ /usr/whatap/php/install.sh -l [발급된 프로젝트 액세스 키] -s [발급된 서버 IP] -v [PHP 버전 x.x] -i [php.ini의 전체 경로] -p [프로세스명]
+$ /usr/whatap/php/install.sh -l [발급된 액세스 키] -s [발급된 서버 IP] -v [PHP 버전 x.x] -i [php.ini의 전체 경로] -p [프로세스명]
 $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -v 7.0 -i /etc/php.ini -p httpd [-z]
 ```
 
@@ -117,7 +107,7 @@ $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -v 7.0 -i /etc/php.ini 
 <TabItem value="phcli" label="PHP Cli 명령어 지정 설치">
 
 ```bash title=SH
-$ /usr/whatap/php/install.sh -l [발급된 프로젝트 액세스 키] -s [발급된 서버 IP] -e [PHP Cli] -p [프로세스명]
+$ /usr/whatap/php/install.sh -l [발급된 액세스 키] -s [발급된 서버 IP] -e [PHP Cli] -p [프로세스명]
 $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -e /opt/php/bin/php -p apache2
 $ /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -e /opt/php/bin/php-fpm -p php-fpm
 ```

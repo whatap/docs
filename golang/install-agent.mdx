@@ -19,16 +19,13 @@ import TR from '@site/src/components/TR';
 
 와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다.
 
-{@include: ../getting-started/_create-project-v2.mdx} 
+{@include: ../getting-started/_create-project-v2.mdx}   
 
-{@include: ../getting-started/_accesskey.mdx}
+{@include: ../getting-started/_accesskey-v2.mdx} 
 
-## 와탭 에이전트 다운로드
+## 에이전트 다운로드
 
-**프로젝트 액세스 키**를 발급 받으면 다음 명령어를 이용해 에이전트를 다운로드하세요.
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+**액세스 키**를 발급 받으면 다음 명령어를 이용해 에이전트를 다운로드하세요.
 
 <Tabs groupId="golang">
 <TabItem value="redhat-centos" label="Red Hat/CentOS">
@@ -110,7 +107,7 @@ RUN tar -xvzf whatap-agent.tar.gz -C /
 
 * *whatap_agent*: 서비스 실행 파일입니다.
 
-* *whatap.conf*: 설정 정보 및 수집 서버 주소, 프로젝트 액세스 키를 입력하는 파일입니다.
+* *whatap.conf*: 설정 정보 및 수집 서버 IP, 액세스 키를 입력하는 파일입니다.
 
 * *whatap-boot-`yyyymmdd`.log*: 에이전트 로그 파일입니다. (경로: */usr/whata/agent/log*)
 
@@ -118,32 +115,32 @@ RUN tar -xvzf whatap-agent.tar.gz -C /
 
 ## 에이전트 설정
 
-다음 명령어를 차례로 실행해 *whatap.conf* 파일에 프로젝트 액세스 키와 수집 서버 정보 등을 설정하세요.
+다음 명령어를 차례로 실행해 *whatap.conf* 파일에 **액세스 키**와 **수집 서버 IP** 등을 설정하세요.
 
 ```bash title='SH'
-$ echo "license={프로젝트 액세스 키}" >> /usr/whatap/agent/whatap.conf
-$ echo "whatap.server.host={수집 서버 주소}" >> /usr/whatap/agent/whatap.conf
+$ echo "license={액세스 키}" >> /usr/whatap/agent/whatap.conf
+$ echo "whatap.server.host={수집 서버 IP}" >> /usr/whatap/agent/whatap.conf
 $ echo "app_name={애플리케이션 이름}" >> /usr/whatap/agent/whatap.conf
 $ echo "app_process_name={애플리케이션 프로세스 이름}" >> /usr/whatap/agent/whatap.conf
 ```
 
-* **license**: 프로젝트 액세스 키를 입력하세요.
-* **whatap.server.host**: 와탭 수집 서버 주소를 입력하세요.
+* **license**: **액세스 키**를 입력하세요.
+* **whatap.server.host**: **수집 서버 IP**를 입력하세요.
 * **app_name**: 애플리케이션 이름을 입력하세요. 문자열로 사용자 설정합니다.
 * **app_process_name**: 모니터링 대상 애플리케이션의 프로세스 이름을 입력하세요. 입력한 프로세스 이름으로 메모리 사용량을 측정합니다.
 
 ---
 
-Alpine Linux의 경우 다음과 같이 스크립트를 실행해 안내에 따라 프로젝트 액세스 키와 와탭 수집 서버 주소를 입력하세요.
+Alpine Linux의 경우 다음과 같이 스크립트를 실행해 안내에 따라 **액세스 키**와 **수집 서버 IP**를 입력하세요.
 
 ```bash title='SH'
 $ sudo /usr/whatap/php/install.sh
 
 Input project access key
-xxxxxxxxxxxxxxxx   # 발급한 프로젝트 액세스 키 입력
+xxxxxxxxxxxxxxxx   # 발급한 액세스 키 입력
 
 Input whatap.server.host
-192.x.x.x          # 와탭 수집 서버 IP 주소 입력
+192.x.x.x          # 와탭 수집 서버 IP 입력
 ```
 
 ## Golang 라이브러리 사용
@@ -190,3 +187,7 @@ func main(){
     ...
 }
 ```
+
+## 모니터링 시작하기
+
+애플리케이션 서버를 다시 시작하면 에이전트가 정보 수집을 시작합니다.

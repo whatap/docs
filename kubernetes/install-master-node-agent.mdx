@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 
 ## 사전 환경 점검 및 설정
 
-사용자의 쿠버네티스 환경에 따라 사전 환경 설정이 필요한 경우가 있습니다.
+사용자의 쿠버네티스 환경에 따라 사전 환경 설정이 필요한 경우가 있습니다. Istio, GKE, OpenShift 환경에 해당하지 않을 경우 다음 단계로 넘어가세요.
 
 <Tabs>
 
@@ -55,7 +55,7 @@ EOF
 
 Google Kubernetes Engine(GKE)의 경우 사용자 클러스터 생성 후 권한 설정을 위해 다음 명령을 실행하세요.
 
-```bash title='GKE 권한 설정'
+```bash
 ACCOUNT=$(gcloud info --format='value(config.account)')
 kubectl create clusterrolebinding owner-cluster-admin-binding \
   --clusterrole cluster-admin \
@@ -147,7 +147,7 @@ kubectl describe pod {POD_NAME} -n whatap-monitoring
 
 :::tip
 
-`kubectl` 명령어 사용 시 `-n <네임스페이스>` 옵션을 사용하면 특정 네임스페이스를 대상으로 작업을 수행합니다. 와탭 에이전트는 기본적으로 `whatap-monitoring`이라는 네임스페이스에 설치되므로 `-n whatap-monitoring`이라는 옵션을 추가합니다.
+`kubectl` 명령어 사용 시 `-n {네임스페이스}` 옵션을 사용하면 특정 네임스페이스를 대상으로 작업을 수행합니다. 와탭 에이전트는 기본적으로 `whatap-monitoring`이라는 네임스페이스에 설치되므로 `-n whatap-monitoring`이라는 옵션을 추가합니다.
 
 :::
 

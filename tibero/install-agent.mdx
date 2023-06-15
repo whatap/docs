@@ -5,9 +5,7 @@ description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 �
 tags: [ Tibero, 데이터베이스 모니터링, 에이전트 ]
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import TR from '@site/src/components/TR';
+import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
@@ -26,13 +24,13 @@ import TR from '@site/src/components/TR';
 1. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
 
     ```ini title='whatap.conf'
-    license=프로젝트 액세스 키
-    whatap.server.host=13.124.11.223/13.209.172.35 // 와탭 서버 정보
+    license={프로젝트 액세스 키}
+    whatap.server.host=13.124.11.223/13.209.172.35 # 와탭 서버 정보
 
     dbms=tibero
-    db=데이터베이스명(sid)
-    db_ip=데이터베이스 IP
-    db_port=데이터베이스 포트 
+    db={데이터베이스 이름(sid)}
+    db_ip={DB 서버 IP 주소}
+    db_port={DB 서버 포트 번호}
     ```
 
 1. 다음 디렉터리에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
@@ -47,6 +45,10 @@ import TR from '@site/src/components/TR';
 
     :::
 
+<!-- 공통 Notes-->
+{@include: ../common-items/_db-install-agent-common-notes.mdx}
+
+<!-- 모니터링용 계정 생성-->
 {@include: ../common-items/_db-create-monitoring-account.mdx}
 
 ```bash showLineNumbers
@@ -54,10 +56,15 @@ create user whatap identified by 'DB_PASSWORD'; ## 원하는 password를 입력�
 grant create session to whatap;
 grant select any dictionary to whatap;
  
-## kill session 사용시
+## kill session 사용할 경우
 grant alter system to whatap;
 ```
 
 ## DB 유저 파일 생성{#create-db-user}
 
-{@include: ../common-items/_db-create-db-user-file.mdx}  
+<DBuserDesc name='default'/>
+
+{@include: ../common-items/_db-create-db-user-file-body.mdx}
+
+<!--## 에이전트 실행-->
+{@include: ../common-items/_db-run-agent.mdx}

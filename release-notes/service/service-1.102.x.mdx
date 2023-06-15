@@ -4,6 +4,35 @@ title: Service 1.102.X
 toc_max_heading_level: 3
 ---
 
+## Service 1.102.15
+
+2023년 6월 15일
+
+<div class='indentTab'>
+
+### `Application`
+
+- <Status>Fixed</Status> <UI>분석</UI> > <UI>MSA 분석</UI> 메뉴에서 데이터를 조회하는 최대 범위를 1일 제한으로 수정
+
+- <Status>Fixed</Status> <UI>통계/보고서</UI> > <UI>통계</UI> > <UI>클라이언트 IP</UI> 메뉴에서 데이터를 조회하는 최대 범위를 7일 제한으로 수정
+
+- <Status>Fixed</Status> <UI>히트맵 트랜잭션</UI> > <UI>TX 트레이스</UI> 목록에서 <UI>통계</UI> 정보를 확인하는 경우 Trace 스텝 분석 및 메소드 팝업의 출력 데이터를 다음과 같이 수정
+    
+  - 각 데이터 제목 수정
+  
+    - 함수 → 메소드
+    - Parameter/Return → 파라미터/리턴 (다국어 적용)
+
+  - 모달 제목 수정: 함수 → 메소드
+
+  - 경과시간 단위 텍스트 수정: (ms) → ms
+  
+  - 일부 출력값 제거: 진입 CPU 시간, 메모리
+
+- <Status>Fixed</Status> <UI>히트맵 트랜잭션</UI> > <UI>TX 트레이스</UI> 목록에서 <UI>통계</UI> 정보를 확인하는 경우 SQL 문의 특정 키워드(content, long)가 강조되는 버그 수정
+
+</div>
+
 ## Service 1.102.14
 
 2023년 6월 13일

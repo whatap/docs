@@ -168,23 +168,18 @@ tags: [ Server, 메트릭스 ]
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
-|blksize|바이트|블록 사이즈|리눅스|
+|bandwidthOrder|정수|와탭 전용|-|
 |count|정수|와탭 전용|공통|
-|freePercent|퍼센트|파일 시스템 잔여율|리눅스|
-|freeSpace|바이트|파일 시스템 잔여량|리눅스|
-|ioPercent|퍼센트|IO 사용률 `일부 디스크 유형에서는 부정확한 값이 측정될 수 있습니다.`|리눅스|
-|ioutilOrder|정수|와탭 전용|리눅스|
-|queueLength|실수|Queue Length|공통|
-|totalInode|정수|Inode 전체 개수|리눅스|
-|totalSpace|바이트|파일 시스템 전체 크기|리눅스|
-|usedPercent|퍼센트|파일 시스템 사용률|리눅스|
-|usedInode|정수|Inode 사용 개수|리눅스|
-|usedInodePercent|퍼센트|Inode 사용률|리눅스|
-|userSpaceOrder|정수|와탭 전용|공통|
-|readBps|바이트|초당 읽은 바이트 수|공통|
-|writeBps|바이트|초당 쓴 바이트 수|공통|
-|readIops|소수|초당 읽은 수|공통|
-|writeIops|소수|초당 쓴 수|공통|
+|droppedIn|정수|인바운드 드랍|-|
+|droppedIn|정수|아웃바운드 드랍|-|
+|errorIn|정수|인바운드 에러|-|
+|errorOut|정수|아웃바운드 에러|-|
+|packetIn|pps|인바운드 패킷|-|
+|packetOut|pps|아웃바운드 패킷|-|
+|trafficIn|bps|인바운드 트래픽|-|
+|trafficInAcct|정수|와탭 전용|-|
+|trafficOut|bps|아웃바운드 트래픽|-|
+|trafficOutAcct|정수|와탭 전용|-|
 
 ## server_netstat
 ----

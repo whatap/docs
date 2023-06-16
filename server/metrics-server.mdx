@@ -168,19 +168,18 @@ tags: [ Server, 메트릭스 ]
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
-|bandwidthOrder|
+|bandwidthOrder|정수|와탭 전용|-|
 |count|정수|와탭 전용|공통|
-|droppedIn|
-|errorIn|
-|errorOut|
-|packetIn|
-|packetOut|
-|trafficIn|
-|trafficInAcct|
-|trafficOut|
-|trafficOutAcct|
-
-수정 중
+|droppedIn|정수|인바운드 드랍|-|
+|droppedIn|정수|아웃바운드 드랍|-|
+|errorIn|정수|인바운드 에러|-|
+|errorOut|정수|아웃바운드 에러|-|
+|packetIn|pps|인바운드 패킷|-|
+|packetOut|pps|아웃바운드 패킷|-|
+|trafficIn|bps|인바운드 트래픽|-|
+|trafficInAcct|정수|와탭 전용|-|
+|trafficOut|bps|아웃바운드 트래픽|-|
+|trafficOutAcct|정수|와탭 전용|-|
 
 ## server_netstat
 ----

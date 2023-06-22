@@ -14,6 +14,130 @@ toc_max_heading_level: 3
 
 :::
 
+
+## Preview 1.103.25
+
+2023년 6월 21일
+
+<div class='indentTab'>
+
+### `Application`
+
+#### Go
+
+***관리*** > ***에이전트 설치*** 메뉴에서 다음의 내용을 수정합니다.
+
+- <Status>Fixed</Status> 에이전트 설치를 위한 GO 지원 버전 변경 (1.14 → 1.17)
+
+- <Status>Fixed</Status> Amazon linux 운영체제에서 <b>에이전트 다운로드</b> 섹션의 스크립트 코드에 역슬래쉬(\)가 누락된 부분 수정
+
+- <Status>Fixed</Status> Alpine linux 운영체제에서 <b>Golang 라이브러리 사용</b> 섹션의 내용이 누락된 부분 수정
+
+- <Status>Fixed</Status> <b>Golang 라이브러리 사용</b> 섹션의 스크립트 코드 내용을 모든 운영체제에 동일하게 적용
+
+- <Status>Feature</Status> 모든 운영체제에서 <b>에이전트 설정</b> 섹션에 안내 문구 추가
+
+- <Status>Feature</Status> Alpine linux 운영체제에서 <b>모니터링 시작하기</b> 섹션에 안내 문구 추가
+
+#### PHP
+
+- <Status>Fixed</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴에서 <UI>Amazon linux</UI> 탭 > <b>에이전트 다운로드</b> 섹션 내용 중 스크립트 코드에 역슬래쉬가 누락된 부분 수정
+
+</div>
+
+
+## Preview 1.103.24
+
+2023년 6월 20일
+
+<div class='indentTab'>
+
+<p><Status>Fixed</Status> <UI>Flex 보드</UI> 메뉴에서 대시보드 목록 호출 시 조직 아이디가 반영되지 않는 오류 수정</p>
+
+</div>
+
+
+## Preview 1.103.23
+
+2023년 6월 20일
+
+<div class='indentTab'>
+
+### `Browser`
+
+<p><Status>Feature</Status> <UI>보고서</UI> > <UI>일간 브라우저 보고서</UI> 메뉴 추가</p>
+
+</div>
+
+## Preview 1.103.22
+
+2023년 6월 20일
+
+<div class='indentTab'>
+
+### `공통`
+
+<p><Status>Fixed</Status> <UI>통합 보고서</UI> > <UI>일간 보고서</UI> 메뉴에서 <UI>종료 시간</UI>을 금일로 선택 시 선택 시간 자동 교정 로직 제거</p>
+
+</div>
+
+## Preview 1.103.21
+
+2023년 6월 20일
+
+<div class='indentTab'>
+
+### `공통`
+
+* <Status>Fixed</Status> 상단 고정 메뉴의 가이드 문서 링크 선택 시 서비스에서 선택한 언어와 일치하는 가이드 문서로 이동하도록 수정
+
+* <Status>Deprecate</Status> 다국어 서비스 중 중국어 지원 중단으로 서비스 내 언어 선택지에서 중국어 제외
+
+* <Status>Change</Status> 사이드 바에서 <code>AWS Log</code> 프로젝트 아이콘 변경
+
+---
+
+### `Container`
+
+<p><Status>Fixed</Status> <UI>에이전트 설치</UI> 페이지에서 일본어 문구 수정</p>
+
+</div>
+
+## Preview 1.103.20
+
+2023년 6월 19일
+
+<div class='indentTab'>
+
+### `공통`
+
+<p><Status>Fixed</Status> <UI>관리</UI> > <UI>에이전트 설정</UI> 메뉴의 <UI>업무 디폴트</UI>, <UI>프로젝트 디폴트</UI> 탭에서 설정을 적용할 경우 요청을 성공해도 에러 메세지가 나오는 현상 수정</p>
+
+---
+
+### `Container`
+
+#### 리소스
+
+* <Status>Fixed</Status> <UI>컨테이너 목록</UI> 메뉴에서 다크 테마가 적용되지 않는 문제 수정
+
+* <Status>Fixed</Status> <UI>컨테이너 목록</UI> 메뉴에서 설치된 에이전트가 없을 경우 로딩 애니메이션이 아닌 설치된 에이전트가 없다는 안내 문구가 나오도록 수정
+
+---
+
+### `Database`
+
+#### Common
+
+<p><Status>Fixed</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴에서 에이전트를 설치하기 위한 Java 최소 버전 표기 및 xos 권한 설정 문구 변경</p>
+
+#### Oracle
+
+<p><Status>Fixed</Status> <UI>대시보드</UI> > <UI>인스턴스 모니터링</UI> 메뉴에서 화면 아래 <UI>액티브 세션</UI> 테이블의 <UI>SQL</UI> 항목을 선택하면 전달되는 해시값 수정</p>
+
+</div>
+
+
 ## Preview 1.103.19
 
 2023년 6월 15일
@@ -27,6 +151,8 @@ toc_max_heading_level: 3
 - **기존**: 종료 시간을 전일 23시 59분까지 선택 가능
 
 - **변경**: 종료 시간을 현재 시간 기준, 1시간 이전(현재 시간 - 1시간)까지 선택 가능
+
+---
 
 ### `Server`
 
@@ -85,6 +211,8 @@ toc_max_heading_level: 3
 ### `공통`
 
 <p><Status>Fixed</Status> <UI>계정 정보 관리</UI> > <UI>멀티팩터 인증</UI> > <UI>이메일로 OTP 키 보내기</UI> 버튼을 선택하면 OTP 키를 (재)생성 창이 뜨는 현상 수정</p>
+
+---
 
 ### `Container`
 

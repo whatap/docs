@@ -181,7 +181,7 @@ Amazon ECS launch types에 대한 자세한 설명은 [다음 문서](https://do
           ]
       }
       EOL
-      aws iam create-role --role-name $WHATAP_ECS_ROLE_READONLY --assume-role-policy-document file://ecs_trust.json
+      aws iam create-role --role-name $WHATAP_ECS_ROLE_READONLY --assume-role-policy-document file://ecs_trust.json | python -c 'import json,sys;print(json.load(sys.stdin)["Role"]["Arn"])' > role_arn.txt
       cat >ecs_readonly.json <<EOL
       {
           "Version": "2012-10-17",
@@ -203,7 +203,7 @@ Amazon ECS launch types에 대한 자세한 설명은 [다음 문서](https://do
           --policy-document file://ecs_readonly.json | python -c 'import json,sys;print(json.load(sys.stdin)["Policy"]["Arn"])' > policy_arn.txt
       export POLICY_ARN=$(cat policy_arn.txt)
       aws iam --region $REGION attach-role-policy --role-name $WHATAP_ECS_ROLE_READONLY \
-          --policy-arn $POLICY_ARN | python -c 'import json,sys;print(json.load(sys.stdin)["Role"]["Arn"])' > role_arn.txt
+        --policy-arn $POLICY_ARN
       ```
 
 3. 생성한 IAM ROLE을 탑재한 Whatap-Single 에이전트를 시작하세요. ECS API를 사용하여 Service 상태를 실시간 수집합니다. 

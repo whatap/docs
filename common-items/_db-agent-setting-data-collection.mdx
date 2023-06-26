@@ -1,4 +1,4 @@
-<Xclude product ='cubrid,redis'>
+<InDoc product ='mysql,mysql-v1'>
 
 * **deadlock_interval** <span class='type'>Int</span>
 
@@ -6,7 +6,7 @@
 
   deadlock 정보를 가져오는 간격(단위: 분)을 설정합니다. deadlock 정보는 설정한 간격 동안 발생했던 가장 마지막의 deadlock 정보만을 가져옵니다.
 
-</Xclude>
+</InDoc>
 
 <Xclude product ='redis'>
 
@@ -45,6 +45,10 @@
 * **replication_name** <span class='type'>String</span>
 
   replication 이름을 설정하면 동일한 `replication_name`을 갖는 DB 사이에 Master/Slave 관계가 있는 것으로 간주합니다.
+
+* **slave_ip** <span class='type'>string</span>
+
+  IP 주소 확인은 `select inet_server_addr();`로 합니다. 마스터 노드에서 `pg_stat_replication.client_addr`를 조회했을때 나오는 ip중 하나여야 합니다. (RDS의 경우 ip대신 pg_replication_slots.slot_name으로 master/slave관계가 셋팅되므로 slave_ip를 설정하지 않아도 됩니다)
 
 * **skip_whatap_session** <span class='type'>Int</span>
 

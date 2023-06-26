@@ -46,11 +46,15 @@
 
 </InDoc>
 
-<Xclude product ='cubrid,redis'>
+<Xclude product='cubrid,redis'>
 
 * **replication_name** <span class='type'>String</span>
 
   replication 이름을 설정하면 동일한 `replication_name`을 갖는 DB 사이에 Master/Slave 관계가 있는 것으로 간주합니다.
+
+</Xclude>
+
+<InDoc product='postgresql'>
 
 * **slave_ip** <span class='type'>string</span>
 
@@ -61,6 +65,10 @@
   RDS의 경우 IP 주소 대신 `pg_replication_slots.slot_name`으로 master/slave 관계가 셋팅되므로 `slave_ip` 옵션을 설정하지 않아도 됩니다.
   
   :::
+
+</InDoc>
+
+<Xclude product='cubrid,redis'>
 
 * **skip_whatap_session** <span class='type'>Int</span>
 

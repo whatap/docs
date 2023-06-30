@@ -150,7 +150,7 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
 |  $point  | String class1                                                 | 클래스명                                     |
 |    ^     | String method                                                 | 메소드명                                     |
 |    ^     | Object this1                                                  | Hooking 대상 클래스/메소드                   |
-|    ^     | Object\[\] args                                               | 인자                                         |
+|    ^     | Object[] args                                               | 인자                                         |
 |    ^     | Object return1                                                | 리턴                                         |
 
 ### 파라미터 미제공 - 공통 플러그인 파일
@@ -332,12 +332,12 @@ $result.active(total - avail);
 $result.idle(avail);
 ```
 
-### 트레이스에 Cookie 값 표현
+### 트레이스에 쿠키값 표현
 
 쿠키값을 트레이스에서 확인할 수 있습니다.
 
 ```java title='${WHATAP_HOME}/plugin/HttpServiceStart.x' {2} showLineNumbers
-// $req.getCookie() 파라미터로 확인하려는 Cookie를 설정하세요.
+// $req.getCookie() 파라미터로 확인하려는 쿠키를 설정하세요.
 String cookie = $req.getCookie("AWSALB");
 
 if ($ctx.ok()) {

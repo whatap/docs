@@ -11,13 +11,13 @@
 | `user` | SQL 수행 계정 |
 | `host` | 이 스레드가 연결된 hostname |
 | `db` | default database명, 없다면 NULL |
-| `command` | 수행 중인 명령어 type(Query/Sleep/Daemon 등) |
+| `command` | 수행 중인 명령어 type(Query\/Sleep\/Daemon 등) |
 | `time` | 현재 COMMAND의 수행 시간(초) |
 | `state` | 스레드의 현재상태 (executing/updating/sending data 등) |
 | `query` | 실행되고 있는 statement, `Processlist.info`에서 리터럴 값을 분리한 SQL을 보여줍니다. |
 | `query_param` | `query`에서 분리한 리터럴 값 |
-| `type` | Thread 타입. FOREGROUND/BACKGROUND 등 |
-| `connection_type` | Connection을 맺는데 사용하는 protocol. TCP/IP, SSL/TLS |
+| `type` | Thread 타입. FOREGROUND\/BACKGROUND 등 |
+| `connection_type` | Connection을 맺는데 사용하는 protocol. TCP/IP, SSL\/TLS |
 
 
 </TabItem>
@@ -27,12 +27,12 @@
 | 항목 | 설명 |
 | -- | -- |
 | `holder type` | holder 세션의 type |
-| `lock mode` | holder_mode |
+| `lock mode` | holder\_mode |
 | `waiter type` | waiter 세션의 type |
-| `lock request` | waiter_mode |
+| `lock request` | waiter\_mode |
 | `state` | 현재 프로세스가 진행 중인 단계입니다. |
-| `table` | holder_table/waiter_table |
-| `index` | holder_index/waiter_index |
+| `table` | holder\_table\/waiter_table |
+| `index` | holder\_index\/waiter_index |
 
 </TabItem>
 

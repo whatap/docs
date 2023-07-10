@@ -1,8 +1,8 @@
 ---
 id: install-agent
 title: 에이전트 설치
-description: Golang 환경의 애플리케이션 서버에 에이전트를 설치하는 방법을 제공합니다.
-tags: [ Golang, 에이전트 설치 ]
+description: Go 환경의 애플리케이션 서버에 에이전트를 설치하는 방법을 제공합니다.
+tags: [ Go, 에이전트 설치 ]
 ---
 
 import TR from '@site/src/components/TR';
@@ -15,7 +15,7 @@ import TR from '@site/src/components/TR';
 
 1. whatap-agent 서비스를 실행하세요.
 
-![Golang Monitoring](https://img.whatap.io/media/images/golang_system.png)
+![Go Monitoring](https://img.whatap.io/media/images/golang_system.png)
 
 와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다.
 
@@ -88,7 +88,7 @@ FROM alpine
 
 RUN apk update && apk upgrade
 
-# Install WhaTap Golang monitoring agent
+# Install WhaTap Go monitoring agent
 RUN wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz
 RUN tar -xvzf whatap-agent.tar.gz -C /
 ```
@@ -185,9 +185,9 @@ WHATAP_HOME=./whatap_home1 ./app
 ```
 
 
-## Golang 라이브러리 사용
+## Go 라이브러리 사용
 
-Golang 애플리케이션 소스 코드에 whatap/go-api를 추가, 배포합니다.
+Go 애플리케이션 소스 코드에 whatap/go-api를 추가, 배포합니다.
 
 <Tabs groupId="golang">
 <TabItem value="redhat-centos" label="Red Hat/CentOS">

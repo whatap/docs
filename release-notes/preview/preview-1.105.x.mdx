@@ -16,6 +16,52 @@ toc_max_heading_level: 2
 
 ## Preview 1.105.11
 
+2023년 7월 12일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### 경고 알림
+
+이벤트 수신 설정
+
+- <Status>Feature</Status> 3rd 파티 플러그인의 Webhook JSON 추가 양식에 <b>사용자 헤더</b>(<code>User-Heaer</code>) 기능 추가
+  
+  **사용자 헤더**: key, value 쌍으로 입력한 정보를 웹훅 수신 시 헤더에서 확인 할 수 있습니다. 다음은 사용자 헤더의 key, value를 `User-Header-Key`, `TestValue`로 입력한 경우 웹훅 수신 정보에 대한 예시입니다.
+        
+  ```http {8} title='example'
+  POST /test HTTP/1.1
+  Host: whatap.requestcatcher.com
+  Accept: text/plain, application/json, application/*+json, */*
+  Connection: keep-alive
+  Content-Length: 234
+  Content-Type: application/json
+  User-Agent: Java/17.0.7
+  User-Header-Key: Test-Value
+  ```
+
+- <Status>Fixed</Status> 3rd 파티 플러그인 추가 완료 후 창이 닫히지 않는 이슈 수정
+
+#### 대시보드
+
+- <Status>Fixed</Status> <UI>트랜잭션 분석</UI> 창에서 <UI>레코드 요약</UI> 탭의 트랜잭션 이름이 화면보다 긴 경우 정상 표시되도록 수정
+
+- <Status>Change</Status> <UI>트랜잭션 분석</UI> 창에서 <UI>트리 뷰</UI> 탭의 레이아웃 너비 수정
+
+#### Flex 보드
+
+- <Status>Fixed</Status> 대시보드 복사 버튼 클릭 시 메뉴가 나타나지 않는 현상 수정
+
+- <Status>Fixed</Status> 대시보드 복사 창의 누락된 다국어(영어) 수정
+
+- <Status>Change</Status> 대시보드 <UI>다른 사람에게 복사</UI> 기능 이용 시 대시보드 제목에 **copied_** prefix 추가
+
+</div>
+
+
+## Preview 1.105.11
+
 2023년 7월 11일
 
 <div class='indentTab'>

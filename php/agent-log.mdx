@@ -37,39 +37,25 @@ tags:
 
   값이 `true`이면 로그 데이터를 압축해서 전송합니다. 기본은 GZIP 입니다.
 
-* **whatap.watchlog_enabled** <span class='type'>Boolean</span>
-
-  기본값 `false`
-
-  값이 `true`이면 로그 파일을 지정해서 로그 데이터를 수집합니다.
-
 ### 로그 파일 설정
 
-* **whatap.watchlog.[로그파일 고유 아이디 지정].enabled** <span class='type'>Boolean</span>
+* **whatap.logsink.files** <span class='type'>String</span>
 
-  값이 `true`이면 로그파일의 고유 아이디를 임의로 지정하고, 해당 아이디로 로그 데이터를 수집합니다.
-
-
-* **whatap.watchlog.[로그파일 고유 아이디 지정].file** <span class='type'>String</span>
-
-  로그 파일의 고유 아이디를 임의로 지정하고, 파일 경로와 파일명을 설정합니다.
+  전체 파일 경로와 파일명을 설정합니다. 콤마(,)로 여러 파일을 지정할 수 있습니다. 
 
 ### 예시
 
 * **기본 설정**
 
-  ```ini title='whatap.conf'
+  ```ini title='whatap.ini'
   whatap.logsink_enabled=true
   whatap.logsink_zip_enabled=true
-  whatap.watchlog_enabled=true
   ```
 
 * **Apache error log 및 access log 설정**
 
-  ```ini title='whatap.conf'
-  whatap.watchlog.apache_error_log.enabled=true
-  whatap.watchlog.apache_error_log.file=/etc/httpd/logs/error_log
-
-  whatap.watchlog.apache_access_log.enabled=true
-  whatap.watchlog.apache_access_log.file=/etc/httpd/logs/access_log
+  ```ini title='whatap.ini'
+  whatap.logsink_enabled=true
+  whatap.logsink_zip_enabled=true
+  whatap.logsink.files=/etc/httpd/logs/error_log, /etc/httpd/logs/access_log
   ```

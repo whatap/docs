@@ -27,6 +27,12 @@ tags: [ Go, 트랜잭션 ]
 
   수집 가능한 트레이스 스텝의 최대 개수를 설정합니다. 수집된 트레이스 스텝 수가 이 값을 초과하면 이후 수집되는 스텝들은 모두 버려집니다.
 
+  :::caution
+
+  설정값을 너무 높이면 메모리 사용량이 증가합니다. 기본값을 변경하지 않을 것을 권장합니다. 
+
+  :::
+
 * **profile_step_heavy_count** <span class='type'>Int</span>
 
   기본값 `1000`
@@ -104,11 +110,13 @@ tags: [ Go, 트랜잭션 ]
 
   기본값 `false`
 
-  트레이스 내역에 http 파라미터 정보를 기록하고자 할 때 사용합니다. 파라미터는 별도 보안키를 입력해야 조회할 수 있습니다.
+  트레이스 내역에 http 파라미터 정보를 기록하고자 할 때 사용합니다. 파라미터는 별도 보안키를 입력해야 조회할 수 있습니다. Get, Post 파라미터 중 text 타입의 이름과 값을 수집합니다. 최대 40개(Get 20개, Post 20개) 를 수집하며 파라미터 이름과 값은 최대 256byte까지 수집됩니다.
 
-  Get, Post 파라메터 중 text 타입의 이름과 값을 수집합니다. 최대 40개(Get 20개, Post 20개) 를 수집하며 파라메터 이름과 값은 최대 256 byte 까지 수집됩니다.
+  :::note
 
-  파라메터 정보는 별도 암호화되어 전송되며, 해당 애플리케이션 서버의 */usr/whatap/php/paramkey.txt* 에 있는 키로 복호화하여 볼 수 있습니다.
+  보안 키는 *whatap.conf* 파일이 위치한 `WHATAP_HOME`*/paramkey.txt* 파일 내에 6자리로 설정합니다. *paramkey.txt* 파일이 존재하지 않는 경우 랜덤 값으로 자동 생성합니다.
+
+  :::
 
 * **profile_http_parameter_url_prefix** <span class='type'>String</span>
 
@@ -130,9 +138,20 @@ tags: [ Go, 트랜잭션 ]
 
 * **ignore_exceptions** <span class='type'>String</span>
 
-  무시할 Exception을 등록합니다. 여기에 등록되면 에러 자체가 무시됩니다. 
-  
-  Exception의 경우 Custom Exception Class가 정의되어 있지 않으면, 기본으로 Exception으로 수집됩니다. 특정 Exception을 구분하기 위해서는 Custom Exception Class를 정의하고 해당 이름을 지정하면 제외할 수 있습니다.
+  무시할 Exception을 등록합니다. 여기에 등록되면 에러 자체가 무시됩니다. 예외할 문자열은 프로파일의 에러 종류 또는 에러 통계와 관련한 클래스 항목의 문자열입니다.
+
+  Go에서는 발생하는 error의 Type을 문자열로 표기합니다.
+
+  ```go
+  thr.ErrorClassName = fmt.Sprintf("%T", err)
+  thr.ErrorMessage = err.Error()
+
+  # error Type 출력
+
+  *errors.errorString
+  *echo.HTTPError
+  *url.Error
+  ```
 
 
 ## 트랜잭션 추적

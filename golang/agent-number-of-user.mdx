@@ -7,29 +7,23 @@ tags: [ Go, 사용자 ]
 
 Go 웹 애플리케이션 서버에 연결한 사용자의 수를 집계합니다.
 
-:::note
-
-설정한 옵션을 적용하려면 애플리케이션을 재시작하세요
-
-:::
-
 * **trace_user_enabled** <span class='type'>Boolean</span>
 
   기본값 `true`
 
-  실시간 사용자 집계 여부를 설정합니다. 
+  실시간 사용자 집계 여부를 설정합니다. 값을 `true`로 설정하면 IP 주소 또는 쿠키를 기준으로 사용자를 추적합니다. 
 
 * **trace_user_using_ip** <span class='type'>Boolean</span>
 
   기본값 `false`
 
-  실시간 사용자를 IP 주소 기반으로 집계합니다. IP 주소가 아닌 쿠키를 기반으로 사용자를 구분하고 싶으면 값을 `false`로 변경하세요.
+  IP 주소로 실시간 사용자를 구분할 때 설정합니다. 이 데이터는 Real Time User에서 확인할 수 있습니다. 값이 `false`일 경우 `trace_user_cookie_keys` 옵션에 있는 쿠키 이름을 기준으로 사용자를 구분합니다.
 
 * **trace_user_cookie_keys** <span class='type'>String</span>
 
-  기본값 `PHPSESSID,ci_session, laravel_session`
+  기본값 `empty`
 
-  `session.name` 값을 지정하여 사용자를 식별할 수 있습니다. 기본 `PHPSESSID`를 쿠키의 키 이름으로 사용하지 않고, 다른 이름으로 사용할 때 설정합니다. 콤마(*,*)를 구분자로 여러 개의 값을 설정할 수 있습니다.
+  cookie key에 해당하는 값을 사용자 식별 값으로 사용합니다.  콤마(*,*)를 구분자로 여러 개의 값을 설정할 수 있습니다.
 
 * **trace_user_header_ticket** <span class='type'>Boolean</span>
 
@@ -47,7 +41,7 @@ Go 웹 애플리케이션 서버에 연결한 사용자의 수를 집계합니�
 
   기본값 `false`
 
-  사용자를 구분하기 위해 쿠키에 `WHATAP` 키 이름으로 사용자 구분 값을 설정합니다. `trace_user_header_ticket`이 설정되는 경우 header key를 찾지 못할 때 설정됩니다. HTTP 키를 찾지 못하는 경우 쿠키를 기준으로 사용자를 구분합니다.
+  사용자를 구분하기 위해 쿠키에 `WHATAP` 키 이름으로 사용자 구분 값을 설정합니다. `trace_user_header_ticket` 옵션이 설정된 상태에서 헤더 key를 찾지 못할 때 설정됩니다. HTTP 키를 찾지 못하는 경우 쿠키를 기준으로 사용자를 구분합니다. 
 
   :::note
 

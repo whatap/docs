@@ -5,53 +5,11 @@ description: Go 에이전트의 기본 설정 방법을 제공합니다.
 tags: [ Go, 설정하기 ]
 ---
 
-Go 환경의 애플리케이션 서버는 라이브러리를 이용해 환경을 설정합니다.
+와탭 에이전트는 에이전트 별 필요한 설정을 *whatap.conf* 파일에 작성합니다. 에이전트는 환경변수를 통해 설정 파일의 위치를 파악하고 로딩합니다.
 
-```go title='Download library'
-$ go get github.com/whatap/go-api
-```
+별도 설정이 없는 경우 에이전트는 자기 자신이 위치한 경로에서 *whatap.conf* 파일을 찾도록 구현했습니다. 5초에 한번씩 *whatap.conf* 파일의 변경 여부를 체크하고 리로딩합니다.
 
-## 초기 설정
-
-* main 함수 시작 시점에 `trace.Init` 함수를 이용해 모니터링 모듈을 시작하세요.
-
-* `defer trace.Shutdown()`으로 모니터링 종료를 보장합니다.
-
-```go title='GO'
-import "github.com/whatap/go-api/trace"
-
-func main(){
-    trace.Init(nil)
-    //It must be executed before closing the app.
-    defer trace.Shutdown()
-	...
-}
-```
-
-`map[string]string` 형식으로 선언하여 애플리케이션 초기에 설정할 수 있습니다.
-
-```go title='GO'
-func Init(m map[string]string)
-```
-
-에이전트의 접속 정보는 UDP 127.0.0.1:6600입니다. 내부에 UDP 6600 포트가 사용 중이면 다른 포트로 변경해야 합니다.
-
-```go title='GO'
-m := make(map[string]string)
-m["net_udp_port"] = "6601"
-
-trace.Init(m)
-```
-
-애플리케이션 실행 중 설정 변경은 *whatap.conf* 파일을 직접 수정하거나 와탭 모니터링 서비스 프로젝트 메뉴에서 변경할 수 있습니다.
-
-애플리케이션 종료 시 수집한 데이터를 마지막으로 모두 전달하고 UDP Connection을 종료합니다.
-
-```go title='GO'
-func Shutdown()
-```
-
-import ProdImg from '@site/src/components/ChangeImgName.js';
+사용자의 편의성을 위해 [와탭 모니터링 서비스](https://service.whatap.io/)에서도 에이전트 설정 기능을 제공하고 있습니다.
 
 <!--서비스 화면에서 에이전트 설정하기 start-->
 ## 서비스 화면에서 에이전트 설정하기

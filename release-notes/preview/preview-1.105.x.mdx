@@ -14,6 +14,56 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 1.105.14
+
+2023년 7월 17일
+
+<div class='indentTab'>
+
+### `공통`
+
+<p><Status>Fixed</Status> <UI>Flex 보드</UI> 메뉴에서 애플리케이션 모니터링 상품의 <code>app_user</code> 카테고리 내 <code>logbits</code> 필드 사용 시 MXQL 생성 로직에서 예외 처리 추가</p>
+
+---
+
+### `Application`
+
+#### 대시보드
+
+- <Status>Fixed</Status> 쿠버네티스 애플리케이션 프로젝트에서 <UI>트랜잭션 분석</UI> 창의 <UI>레코드 요약</UI> 탭 내용 중 <b>onode</b>를 표기를 <UI>에이전트 노드</UI>로 수정
+
+- <Status>Fixed</Status> <UI>트랜잭션 분석</UI> 창에서 통계 모달의 차트가 보이지 않는 버그 수정
+
+- <Status>Fixed</Status> <UI>트랜잭션 분석</UI> 창에서 <UI>SQL 요약</UI>, <UI>메소드 요약</UI>, <UI>HTTP Call 요약</UI> 탭의 조회된 데이터가 없을 경우 안내 메시지 추가
+
+#### 분석
+
+<p><Status>Fixed</Status> <UI>멀티 트랜잭션 추적</UI> 메뉴에서 <UI>MTID / CUSTID 조회</UI> 입력란에 숫자 외 문자가 입력되지 않는 버그 수정</p>
+
+---
+
+### `Database`
+
+<p><Status>Fixed</Status> <b>PostgreSQL V2</b>, <b>Mysql V2</b> 프로젝트에서 <UI>슬로우 쿼리</UI>, <UI>데이터베이스 사이즈</UI> 메뉴의 영어, 일본어 안내 지원</p>
+
+---
+
+### `Container`
+
+#### 대시보드
+
+- <Status>Fixed</Status> <UI>멀티 컨테이너 맵</UI> 메뉴에서 <UI>네임스페이스</UI> 메뉴로 이동할 수 없도록 수정
+
+  ![sample](/img/release/r-1_105_14-k8s-multi-container-map.png)
+
+- <Status>Change</Status> <UI>컨테이너 맵</UI> 메뉴의 상세 보기 패널에서 블록의 개수가 많은 경우 표기 방식 변경
+
+  ![sample](/img/release/r-1_105_14-k8s-container-map-details.png)
+
+
+</div>
+
+
 ## Preview 1.105.13
 
 2023년 7월 13일
@@ -111,7 +161,7 @@ toc_max_heading_level: 2
 
 - <Status>Fixed</Status> 대시보드 복사 창의 누락된 다국어(영어) 수정
 
-- <Status>Change</Status> 대시보드 <UI>다른 사람에게 복사</UI> 기능 이용 시 대시보드 제목에 **copied_** prefix 추가
+- <Status>Change</Status> 대시보드 <UI>다른 사람에게 복사</UI> 기능 이용 시 대시보드 제목에 <b>copied_</b> prefix 추가
 
 </div>
 

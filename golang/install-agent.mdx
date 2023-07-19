@@ -5,9 +5,13 @@ description: Go 환경의 애플리케이션 서버에 에이전트를 설치하
 tags: [ Go, 에이전트 설치 ]
 ---
 
-import TR from '@site/src/components/TR';
+모니터링 대상 애플리케이션 서버에서 TCP 통신으로 데이터를 전달하고, 와탭 수집 서버로 데이터를 전송하려면 같은 서버에 에이전트를 설치해야 합니다. 설치 방식은 패키지 설치로 가능합니다.
 
-모니터링 대상 애플리케이션 서버에서 UDP 통신으로 데이터를 전달하고, 와탭 수집 서버로 데이터를 전송하려면 같은 서버에 에이전트를 설치해야 합니다. 설치 방식은 패키지 설치로 가능합니다.
+:::note
+
+에이전트는 기본 **127.0.0.1:6600** TCP 서버로 작동합니다. Go 애플리케이션에서 데이터를 수신해서 와탭 수집 서버로 Outbound 6600 포트로 전달합니다.
+
+:::
 
 1. 와탭 저장소(Repository)를 설치하세요.
 
@@ -15,7 +19,7 @@ import TR from '@site/src/components/TR';
 
 1. whatap-agent 서비스를 실행하세요.
 
-![Go Monitoring](https://img.whatap.io/media/images/golang_system.png)
+![Go Monitoring](/img/golang_system.png)
 
 와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다.
 
@@ -185,50 +189,37 @@ WHATAP_HOME=./whatap_home1 ./app
 ```
 
 
-## Go 라이브러리 사용
+## Go 라이브러리 설정
 
-Go 애플리케이션 소스 코드에 whatap/go-api를 추가, 배포합니다.
-
-<Tabs groupId="golang">
-<TabItem value="redhat-centos" label="Red Hat/CentOS">
+Go 애플리케이션 소스 코드에 [github.com/whatap/go-api](https://github.com/whatap/go-api) 패키지를 추가하세요.
 
 ```bash
-$ go get github.com/whatap/go-api
+go get github.com/whatap/go-api
 ```
 
-</TabItem>
-<TabItem value="debian-ubuntu" label="Debian/Ubuntu">
+`trace.Init()`, `trace.Shutdown()` 함수로 초기화 및 종료를 설정하세요. `trace.Start()`, `trace.End()` 함수로 트랜잭션의 시작 종료를 설정하세요.
 
-```bash
-$ go get github.com/whatap/go-api/trace
-$ go get github.com/whatap/go-api/sql
-$ go get github.com/whatap/go-api/httpc
-$ go get github.com/whatap/go-api/method
-```
-
-</TabItem>
-<TabItem value="amazonlinux" label="Amazon Linux">
-
-```bash
-$ go get github.com/whatap/go-api/trace
-$ go get github.com/whatap/go-api/sql
-$ go get github.com/whatap/go-api/httpc
-$ go get github.com/whatap/go-api/method
-```
-
-</TabItem>
-</Tabs>
-
-```go title='GO'
+```go title='Go'
 import "github.com/whatap/go-api/trace"
 
 func main(){
     trace.Init(nil)
-    //It must be executed before closing the app.
-    defer trace.Shutdown()
+    //It must be executed before closing the app.    
+    defer trace.Shutdown()    
+
+    ctx, _ := trace.Start(context.Bacground(), "Start Tx")
+
     ...
+
+    trace.End(ctx, err)
 }
 ```
+
+:::note
+
+라이브러리 설정에 대한 자세한 내용은 [다음 문서](api-guide)를 참조하세요.
+
+:::
 
 ## 모니터링 시작하기
 

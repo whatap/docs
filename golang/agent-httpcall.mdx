@@ -1,35 +1,22 @@
 ---
 id: agent-httpcall
-title: HTTP Call 추적
-description: Go 에이전트의 HTTP Call 관련 옵션을 제공합니다.
-tags: [ Go, HTTP 추적 ]
+title: HTTPC, API Call
+description: PHP 에이전트 HTTPC, API Call 관련 옵션을 제공합니다.
+tags: [ Go, HTTPC, API Call ]
 ---
 
-```go title='GO'
-func main(){
-    trace.Init(nil)
-    //It must be executed before closing the app.
-    defer trace.Shutdown()
+* **trace_httpc_normalize_enabled** <span class='type'>Boolean</span>
 
-    ctx, _ := trace.Start(context.Background(), "Trace Http Call")
-    defer trace.End(ctx, nil)
+  기본값 `true`
 
-	httpcCtx, _ := httpc.Start(ctx, callUrl)
-    resp, err := http.Get(callUrl)
-    if err == nil {
-    	httpc.End(httpcCtx, resp.StatusCode, "", nil)
-    } else {
-    	httpc.End(httpcCtx, 0, "", err)
-    }
-}
-```
+  트랜잭션 내 HTTPC URL을 파싱하여 정규화하는 기능을 활성화합니다.
 
-**API**
+* **trace_httpc_normalize_urls** <span class='type'>String</span>
 
-```go title='GO'
-func Start(ctx context.Context, url string) (*HttpcCtx, error)
+  정규화 할 HTTPC URL 패턴을 정의합니다. 호출 URL 패턴을 파싱하여 패스 파라미터를 제거합니다.
 
-func End(httpcCtx *HttpcCtx, status int, reason string, err error) error
+  :::note
 
-func Trace(ctx context.Context, host string, port int, url string, elapsed int, status int, reason string, err error) error
-```
+  예시, **/a/{v}/b**라고 선언하면 **a/123/b** → **a/{v}/b**로 치환합니다. 여러 개를 등록할 때는 쉼표(,)를 구분자로 사용합니다. 치환 패턴 정리 후 보완이 필요합니다.
+  
+  :::

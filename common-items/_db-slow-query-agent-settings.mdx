@@ -2,6 +2,21 @@
 
 ***슬로우 쿼리*** 메뉴를 사용하려면 다음과 같이 파라미터 및 권한을 설정해야 합니다.
 
+<InDoc product='mysql,mysql-v1'>
+
+### whatap.conf 파일 설정
+
+```ini title='whatap.conf'
+slow_query_log=ON
+```
+
+:::note
+
+* DB 서버에 `log_output=FILE`로 설정했다면 xos 설치가 필요합니다. 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
+* RDS는 xos를 설치하는 대신 CloudWatch 사용을 위한 설정이 필요합니다. 자세한 내용은 [다음 문서](agent-dbx-settings#using-aws-rds)를 참조하세요.
+
+:::
+
 ### DB, 파라미터 및 권한 설정
 
 ```ini
@@ -20,15 +35,36 @@ grant select on mysql.slow_log to whatap;
 
 :::
 
-### whatap.conf 파일 설정
+</InDoc>
+
+<InDoc product='postgresql,postgresql-v1'>
+
+### DBX 에이전트 파일 설정
 
 ```ini title='whatap.conf'
 slow_query_log=ON
 ```
 
+### DB 파라미터 설정
+
+```ini title='postgresql.conf'
+log_min_duration_statement = 500 # 예: 500ms 이상 소요되는 SQL 기록
+```
+
+### DB 서버의 XOS 에이전트 설정
+
+Slow query의 수집 수기를 조정하려면 다음과 같이 설정하세요.
+
+```ini title='xos.conf'
+slow_query_interval = 30 # 기본값 30초
+```
+
 :::note
 
-* DB 서버에 `log_output=FILE`로 설정했다면 xos 설치가 필요합니다. 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
-* RDS는 xos를 설치하는 대신 CloudWatch 사용을 위한 설정이 필요합니다. 자세한 내용은 [다음 문서](agent-dbx-settings#using-aws-rds)를 참조하세요.
+* RDS postgreSQL의 slow query는 지원하지 않습니다.
+
+* 모니터링 대상 DB 서버에 XOS 에이전트를 설치해야 slow query를 모니터링할 수 있습니다. XOS 에이전트 설치에 대한 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
 
 :::
+
+</InDoc>

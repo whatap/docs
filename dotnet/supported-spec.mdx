@@ -33,7 +33,7 @@ tags: [ .NET ]
 
 ## 서버 지원 환경 분석 방법
 
-### 분석 도구 다운로드
+### 분석 도구 다운로드{#download-tools}
 
 에이전트를 설치할 서버의 지원 환경을 잘 모른다면 다음 링크를 통해 분석 도구를 다운로드하세요.
 
@@ -41,7 +41,7 @@ tags: [ .NET ]
 
 * [https://repo.whatap.io/windows/WhaTapDotnetScan.zip](https://repo.whatap.io/windows/WhaTapDotnetScan.zip)
 
-### 분석 도구 사용하기
+### 분석 도구 사용하기{#use-tools}
 
 1. 다운로드한 분석 도구를 실행하세요.
 
@@ -55,11 +55,17 @@ tags: [ .NET ]
 
     ![WhaTap System information scanner](/img/apm-dotnet-analystic-env-02.png)
 
+1. IIS에 설치된 사이트마다 **.NET Framework** 버전이 v4.0으로 표시되는지 확인하세요.
+
+    ![](/img/apm-dotnet-analystic-env-03.png)
+
+    ![숫자 5](/img/number-05.png)의 경우 지원 범위이지만 *web.config* 파일이 없습니다. 이러한 경우 대부분은 **.NET**을 사용하지 않는 ASP, PHP 등의 사이트로 에이전트가 동작하지 않습니다.
+
 :::note
 
 * **.NET Framework**는 4.8.1 버전까지 지원합니다.
 
-* **.NET Core** 버전은 개발 진행 중입니다.
+* **Core** 또는 **.NET 5** 버전 이상이면 지원하지 않습니다. **.NET Core** 버전은 개발 중입니다
 
 :::
 

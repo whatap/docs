@@ -4,6 +4,204 @@ title: Service 1.104.X
 toc_max_heading_level: 2
 ---
 
+## Service 1.104.20
+
+2023년 7월 20일
+
+<div class='indentTab'>
+
+<p><Status>Fixed</Status> <UI>경고 알림</UI> > <UI>이벤트 설정</UI> 메뉴의 메트릭스 이벤트에서 알림규칙 테스트 시간을 1일 이상으로 설정하면 화이트 아웃 발생 버그 수정</p>
+
+</div>
+
+
+## Service 1.104.19
+
+2023년 7월 21일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### 보고서
+
+- <Status>Fixed</Status> <UI>보고서</UI> 메뉴에서 타임아웃 발생 시 보고서 생성이 정상적으로 완료되지 않는 버그 수정 
+
+- <Status>Change</Status> <UI>보고서</UI> 메뉴에서 보고서 생성 시 UI 로딩 표시 형식 변경
+
+#### 이용내역
+
+<p><Status>Fixed</Status> 언어 설정이 영어일 때 <UI>결제 정보</UI> 메뉴에서 소문자로도 국가 검색이 가능하도록 수정</p>
+
+---
+
+### `Server`
+
+- <Status>Fixed</Status> <UI>경고 알림</UI> > <UI>이벤트 설정</UI> > <UI>메트릭스</UI> 이벤트 탭에서 알림 규칙 테스트 차트에 id 대신 name 관련 데이터 표시되도록 수정 
+
+- <Status>Fixed</Status> <UI>서버 목록</UI> > <UI>서버 상세</UI> 메뉴에서 시간 범위 조작 후 새로 고침 시 시간 초기화 버그 수정
+
+</div>
+
+
+## Service 1.104.18
+
+2023년 7월 20일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Feature</Status> 에이전트에서 throttle이 설정되어 API 요청 제한 시 안내 메시지 추가
+
+- <Status>Fixed</Status> 설치형 환경에서 <UI>프로젝트</UI>, <UI>그룹</UI>, <UI>조직</UI> 멤버 초대 시 존재하지 않는 계정인 경우 안내 메시지 수정
+
+</div>
+
+## Service 1.104.17
+
+2023년 7월 18일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### 이용 내역
+
+- <Status>Feature</Status> <UI>결제 정보</UI> 메뉴에서 결제 정보를 등록할 때 '해외 계좌 이체 고객 등록' 추가
+
+- <Status>Change</Status> <UI>결제 정보</UI> 메뉴에서 결제 정보를 등록할 때 국가 선택에 따라 결제 진행 과정 변경
+
+- <Status>Change</Status> <UI>결제 정보</UI> 메뉴에서 결제 정보를 등록할 때 국내 '역발행 계좌 이체 등록' 미노출 변경
+
+- <Status>Change</Status> <UI>결제 정보</UI> 메뉴에서 프로모션 배너 변경
+
+- <Status>Fixed</Status> <UI>결제 정보</UI> 메뉴에서 '해외 카드 등록'의 placeholder를 로케일 언어에 맞게 표시되도록 수정
+
+#### 보고서
+
+<p><Status>Fixed</Status> 일간 애플리케이션 사용자 정의 보고서의 <b>방문자</b> 항목 제거</p>
+
+---
+
+### `Application`
+
+#### GO, PHP
+
+- <Status>Fixed</Status> <UI>대시보드</UI> > <UI>애플리케이션 대시보드</UI> > 메모리 상세 창에서 다음의 내용을 수정합니다.
+
+  - **Heap 크기** → ***시스템 메모리***, **Heap 사용량** → ***프로세스 메모리***로 문구 변경
+
+  - 시스템 GC 버튼 제거
+
+#### 대시보드
+
+- <Status>Fixed</Status> <UI>대시보드</UI> > <UI>애플리케이션 대시보드</UI> > 메모리 상세 창에서 다음의 내용을 수정합니다.
+
+  - 이름 컬럼의 크기가 줄어들면 말줄임표와 함께 마우스 오버 시 툴팁이 활성화되도록 수정
+
+  - <UI>상세</UI> 버튼의 툴팁이 버튼 클릭 후에도 사라지지 않는 버그 수정
+
+- <Status>Fixed</Status> <UI>애플리케이션 대시보드</UI> > <UI>히트맵</UI> 위젯 드래그 > <UI>히트맵 트랜잭션</UI> > TX 트레이스 항목 선택 > <UI>통계</UI> 창에서 <UI>트랜잭션 로그</UI> 탭의 트랜잭션 로그가 미설정되었을 경우:
+
+  - 언어 설정이 일본어인 상태: 출력되는 안내 메시지의 줄바꿈 버그 수정
+
+  - 언어 설정이 한국어인 상태:  출력되는 안내 메시지의 스타일이 제대로 적용되도록 수정
+
+  - 출력되는 안내 메시지의 링크를 클릭할때 설정된 언어에 맞는 Docs 페이지로 이동하도록 수정
+
+#### 분석
+
+- <Status>Fixed</Status> MSA 분석 메뉴에서 데이터를 조회했을 때 결과가 없으면 '데이터 없음' 안내 메시지가 나오도록 수정
+
+---
+
+### `Browser`
+
+<p><Status>Change</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴에서 브라우저 에이전트 스크립트의 <code>config</code> 옵션으로 <code>proxyBaseUrl</code> 추가</p>
+
+</div>
+
+
+## Service 1.104.16
+
+2023년 7월 18일
+
+<div class='indentTab'>
+
+### `Application`
+
+#### 분석
+
+<p><Status>Fixed</Status> <UI>멀티 트랜잭션 추적</UI> 메뉴에서 <UI>MTID / CUSTID 조회</UI> 입력란에 입력 길이 제한 로직 제거</p>
+
+</div>
+
+## Service 1.104.15
+
+2023년 7월 17일
+
+<div class='indentTab'>
+
+### `Application`
+
+#### 분석
+
+<p><Status>Fixed</Status> <UI>멀티 트랜잭션 추적</UI> 메뉴에서 <UI>MTID / CUSTID 조회</UI> 입력란에 숫자 외 문자가 입력되지 않는 버그 수정</p>
+
+</div>
+
+
+## Service 1.104.14
+
+2023년 7월 13일
+
+<div class='indentTab'>
+
+### `공통`
+
+<p><Status>Fixed</Status> 언어 설정이 일본어인 경우 사이드바의 <UI>그룹 생성</UI>, <UI>프로젝트 생성</UI> 버튼의 텍스트를 영문으로 출력하도록 수정</p>
+
+---
+
+### `Container`
+
+<p><Status>Fixed</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴에서 다음과 같이 수정합니다.</p>
+
+- ***애플리케이션 에이전트 설치*** > ***Docker PHP***
+
+  - ***액세스키 확인*** 섹션에서 액세스 키 복사 영역 상단의 소제목 제거
+
+  - ***Kubernetes 환경변수 및 볼륨*** 섹션의 소제목 문구 제거
+
+- ***애플리케이션 에이전트 설치*** > 모든 설치 유형: ***액세스키 확인*** 섹션의 문구 통일 및 **채널 문의** 텍스트 왼쪽에 아이콘 추가
+
+- ***설치 안내*** 섹션에서 ***채널 문의*** 버튼의 아이콘을 채널 톡 아이콘과 통일
+
+- ***쿠버네티스 에이전트 설치*** > ***KUBERNETES*** > ***쿠버네티스 에이전트 생성*** 섹션에 OOM 발생 이슈 관련 안내 문구 추가
+
+</div>
+
+
+## Service 1.104.13
+
+2023년 7월 12일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### Flex 보드
+
+- <Status>Fixed</Status> 대시보드 복사 버튼 클릭 시 메뉴가 나타나지 않는 현상 수정
+
+- <Status>Fixed</Status> 대시보드 복사 창의 누락된 다국어(영어) 수정
+
+- <Status>Change</Status> 대시보드 <UI>다른 사람에게 복사</UI> 기능 이용 시 대시보드 제목에 <b>_copied</b> 접미어 추가
+
+</div>
+
+
 ## Service 1.104.12
 
 2023년 7월 11일
@@ -24,6 +222,18 @@ toc_max_heading_level: 2
   - 일본어: ステータス → 状態
 
 - <Status>Fixed</Status> <UI>서버 목록</UI> 메뉴에서 상단 옵션 버튼이 동시에 활성화되지 않도록 수정
+
+---
+
+### `Container`
+
+<p><Status>Fixed</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> > <UI>애플리케이션 에이전트 설치</UI> 메뉴에서 <UI>Docker PHP</UI> 탭 <UI>모니터링 시작하기</UI> 항목의 이미지가 다국어 설정에 따르지 않고 국문 대시보드 이미지를 출력하던 현상 수정</p>
+
+---
+
+### `실험실`
+
+<p><Status>New</Status> <UI>실험실</UI> 메뉴에서 <UI>통합 로그 검색기</UI> 추가</p>
 
 </div>
 

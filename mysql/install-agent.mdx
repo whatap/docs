@@ -26,23 +26,53 @@ import Note from '../common-items/_import_v2-note.mdx';
 
 1. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
 
-  ```ini title='whatap.conf'
-  license=프로젝트 액세스 키
-  whatap.server.host=13.124.11.223/13.209.172.35 # 와탭 서버 정보
+    ```ini title='whatap.conf'
+    license=프로젝트 액세스 키
+    whatap.server.host=13.124.11.223/13.209.172.35 # 와탭 서버 정보
 
-  dbms=mysql
-  db_ip={DB 서버 IP 주소}
-  db_port={DB 서버 포트 번호}
-  ```
+    dbms=mysql
+    db_ip={DB 서버 IP 주소}
+    db_port={DB 서버 포트 번호}
+    ```
+
+    :::info
+
+    **MySQL 서버와 에이전트가 localhost에 설치되는 경우 (default 3306 port)**
+    
+    ```ini title='whatap.conf'
+    dbms=mysql
+    db_ip=127.0.0.1
+    db_port=3306
+    ```
+
+    :::
 
 1. 다음 디렉터리에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
 
-  데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요.
-  
-  **Mysql & MariaDB 5.5 버전 이상**
+    데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요.
+    
+    **Mysql & MariaDB 5.5 버전 이상**
 
     * [Connector/J 8.0.11](https://dev.mysql.com/downloads/connector/j/)
     * [Connector/J 5.1.46](https://dev.mysql.com/downloads/connector/j/5.1.html)
+
+
+:::tip
+
+* JDBC 드라이버 8.x 버전 이상을 이용할 경우 접속 URL에 `serverTimezone` 설정이 필요하다면 다음과 같이 옵션을 설정하세요.
+
+  ```ini title='whatap.conf'
+  connect_option=?serverTimezone={SERVER_TIMEZONE}
+  # ex) connect_option=?serverTimezone=UTC
+  ```
+
+* SSL을 이용한다면 다음과 같이 옵션을 설정하세요.
+
+  ```ini title='whatap.conf'
+  connect_option=?useSSL=true&verifyServerCertificate=false
+  ```
+
+:::
 
 <!-- 공통 Notes-->
 {@include: ../common-items/_db-install-agent-common-notes.mdx}
@@ -56,15 +86,16 @@ create user whatap identified by 'DB_PASSWORD'; # 원하는 password를 입력�
 grant process on *.* to whatap;
 grant select on performance_schema.* to whatap;
 grant show databases on *.* to whatap;
- 
+
 # 테이블 정보를 수집할 경우
-# table list를 가져올 db명.* 또는 *.* 지정해야 table 정보를 수집합니다.
-grant select on DB명.* 또는 *.* to whatap;
- 
+grant select on *.* to whatap;
+# 특정 DB의 테이블만 모니터링하는 경우
+# grant select on {DB_NAME}.* to whatap;
+
 # replication 사용할 경우
 grant replication client on *.* to whatap;
 grant replication slave on *.* to whatap;
- 
+
 # kill session 사용할 경우
 grant super on *.* to whatap;
 ```

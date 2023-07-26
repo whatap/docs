@@ -35,11 +35,24 @@ import TR from '@site/src/components/TR';
     db_port=데이터베이스 포트 
     ```
 
+    :::note
+
+    **MS SQL 서버와 에이전트가 localhost에 설치되는 경우(default 1433 port)**
+    
+    ```ini title='whatap.conf'
+    dbms=mssql
+    db=master
+    db_ip=127.0.0.1
+    db_port=1433
+    ```
+
+    :::
+
 1. 다음 디렉터리에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
 
-  데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요.
-  
-  **MS SQL 2005 버전 이상**
+    데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요.
+    
+    **MS SQL 2005 버전 이상**
 
     * [Microsoft JDBC Driver 6.4 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=56615)
     * [Microsoft JDBC Driver 6.2 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=55539)

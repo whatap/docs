@@ -256,8 +256,7 @@
 | alloctable_memory            | 바이트    | 클러스터 전체 할당 가능한 메모리                                                   | 클러스터 프로젝트 Only |
 | alloctable_pods              | 정수      | 할당 가능한 Pod 수                                                                 | -                      |
 | available_pod                | 정수      | Phase가 Running 상태인 Pod의 수                                                    | -                      |
-| desired_pod                  | 정수      | `metadata.ownerReferences` 없이 배포된 Pod 수                                        | -                      |
-| ^                            | ^         | 쿠버네티스 오브젝트(ReplicaSet, Daemonset, StatefulSet)에 정의된 Desired Pod 의 수 | -                      |
+| desired_pod                  | 정수      | `metadata.ownerReferences` 없이 배포된 Pod 수와 쿠버네티스 오브젝트(ReplicaSet, Daemonset, StatefulSet)에 정의된 Desired Pod 수의 합| -                      |
 | ^                            | ^         | `kubectl get pods -A`로 조회한 Pod 수와 동일                                       | -                      |
 | nodes                        | 정수      | 노드 수                                                                            | -                      |
 | pod_phase_Pending            | 정수      | Pending 상태 Pod 수                                                                | -                      |
@@ -460,8 +459,7 @@
 | 필드명            | 단위      | 설명                                                                               | 비고 |
 | ----------------- | --------- | ---------------------------------------------------------------------------------- | ---- |
 | available_pod     | 정수      | Phase가 Running 상태인 Pod의 수                                                    | -    |
-| desired_pod       | 정수      | `metadata.ownerReferences` 없이 배포된 Pod 수                                      | -    |
-| ^                 | ^         | 쿠버네티스 오브젝트(ReplicaSet, Daemonset, StatefulSet)에 정의된 Desired Pod 의 수 | -    |
+| desired_pod       | 정수      | `metadata.ownerReferences` 없이 배포된 Pod 수와 쿠버네티스 오브젝트(ReplicaSet, Daemonset, StatefulSet)에 정의된 Desired Pod 수의 합| -    |
 | ^                 | ^         | `kubectl get pods -A`로 조회한 Pod 수와 동일                                       | -    |
 | limit_cpu         | 밀리 코어 | CPU Limit 사용량                                                                   | -    |
 | limit_memory      | 바이트    | Memory Limit 사용량                                                                | -    |

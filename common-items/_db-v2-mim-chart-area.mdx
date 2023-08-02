@@ -6,7 +6,18 @@
 
 * ***Memory Usage (%)***: 인스턴스별 메모리 사용률을 실시간으로 확인할 수 있습니다.
 
-* ***XOS Disk Usage***: 인스턴스별 디스크 사용률과 사용 가능 크기와 전체 크기 정보를 표시합니다. 위젯의 오른쪽 위에 ![아이콘](/img/ico-expander.svg) 버튼을 선택하면 새창으로 확인할 수 있습니다.
+* ***XOS Disk Usage***: 인스턴스별 디스크 사용률과 사용 가능 크기, 전체 크기 정보를 표시합니다. 위젯의 오른쪽 위에 ![아이콘](/img/ico-expander.svg) 버튼을 선택하면 새창으로 확인할 수 있습니다.
+
+  :::tip
+
+  데이터가 표시되지 않는다면 *xos.conf* 파일에 다음 설정을 추가하세요.
+
+  ```ini title='xos.conf'
+  # disk usage 0 이면 off, 단위: 초
+  disk_usage_interval=60
+  ```
+
+  :::
 
 * ***Active Sessions***: 쿼리를 실행 중인 세션 수를 실시간 차트로 표시합니다.
 

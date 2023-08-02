@@ -24,6 +24,12 @@
 
   limit 설정값보다 큰 값을 가진 프로세스 정보를 수집합니다. K bytes 단위로 10240은 10M bytes입니다.
 
+- **disk_usage_interval** <span class='type'>Second</span>
+
+  기본값 `60`
+
+  인스턴스별 디스크 사용률과 사용 가능 크기, 전체 크기 정보를 표시합니다. 값이 `0`이면 디스크 사용률을 수집하지 않습니다.
+
 <InDoc product='postgresql,mysql'>
 
 - **file** <span class='type'>String</span>

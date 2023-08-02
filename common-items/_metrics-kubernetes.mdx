@@ -457,17 +457,19 @@
 
 #### Fields
 
-| 필드명            | 단위      | 설명                  | 비고 |
-| ----------------- | --------- | --------------------- | ---- |
-| available_pod     | 정수      | Available Pod 수      | -    |
-| desired_pod       | 정수      | Desired Pod 수        | -    |
-| limit_cpu         | 밀리 코어 | CPU Limit 사용량      | -    |
-| limit_memory      | 바이트    | Memory Limit 사용량   | -    |
-| request_cpu       | 밀리 코어 | CPU Request 사용량    | -    |
-| request_memory    | 바이트    | Memory Request 사용량 | -    |
-| running_container | 정수      | Running Container 수  | -    |
-| stopped_container | 정수      | Stopped Container 수  | -    |
-| waiting_container | 정수      | Waiting Container 수  | -    |
+| 필드명            | 단위      | 설명                                                                               | 비고 |
+| ----------------- | --------- | ---------------------------------------------------------------------------------- | ---- |
+| available_pod     | 정수      | Phase가 Running 상태인 Pod의 수                                                    | -    |
+| desired_pod       | 정수      | `metadata.ownerReferences` 없이 배포된 Pod 수                                      | -    |
+| ^                 | ^         | 쿠버네티스 오브젝트(ReplicaSet, Daemonset, StatefulSet)에 정의된 Desired Pod 의 수 | -    |
+| ^                 | ^         | `kubectl get pods -A`로 조회한 Pod 수와 동일                                       | -    |
+| limit_cpu         | 밀리 코어 | CPU Limit 사용량                                                                   | -    |
+| limit_memory      | 바이트    | Memory Limit 사용량                                                                | -    |
+| request_cpu       | 밀리 코어 | CPU Request 사용량                                                                 | -    |
+| request_memory    | 바이트    | Memory Request 사용량                                                              | -    |
+| running_container | 정수      | Running Container 수                                                               | -    |
+| stopped_container | 정수      | Stopped Container 수                                                               | -    |
+| waiting_container | 정수      | Waiting Container 수                                                               | -    |
 
 ### 쿠버네티스 Horizontal Pod Autoscaler(HPA)(`kube_hpa_stat`) 지표
 

@@ -20,53 +20,53 @@ tags: [ AWS Log, 설치하기 ]
 
 1. ***Configuration*** 탭의 ***Permissions*** 메뉴에서 ***Execution role***을 확인 후 선택해 AWS IAM 콘솔로 이동하세요.
 
-  ![Lambda 실행 역할](/img/whatap-forwarder-vpc-lambda.png)
+    ![Lambda 실행 역할](/img/whatap-forwarder-vpc-lambda.png)
 
 1. IAM 콘솔 ***Permissions*** 탭의 ***Permissions policies*** 메뉴로 이동하세요. 
 
 1. 정책 목록에서 ***forwarderpolicy***를 선택해 정책 편집 화면으로 이동하세요.
 
-  ![IAM 콘솔](/img/whatap-forwarder-vpc-aws-iam.png)
+    ![IAM 콘솔](/img/whatap-forwarder-vpc-aws-iam.png)
 
 1. ***JSON*** 탭을 선택 후 다음 정책을 복사해 붙여넣기 하세요. 해당 정책은 *ENI*를 생성, 정의, 삭제합니다.
 
-  ```json title='IAM Policy'
+```json title='IAM Policy'
 
-  {
-      "Version": "2012-10-17",
-      "Statement": [
-          {
-              "Action": [
-                  "logs:CreateLogGroup",
-                  "logs:CreateLogStream",
-                  "logs:PutLogEvents"
-              ],
-              "Resource": "arn:aws:logs:{AWS REGION}:{AWS ACCOUNT ID}:log-group:/aws/lambda/*",
-              "Effect": "Allow"
-          },
-          
-              "Action": [
-                  "s3:Get*",
-                  "s3:List*",
-                  "s3-object-lambda:Get*",
-                  "s3-object-lambda:List*"
-              ],
-              "Resource": "*",
-              "Effect": "Allow"
-          },
-          {
-              "Action": [
-                  "ec2:CreateNetworkInterface",
-                  "ec2:DescribeNetworkInterfaces",
-                  "ec2:DeleteNetworkInterface"
-              ],
-              "Resource": "*",
-              "Effect": "Allow"
-          }
-      ]
-  }
-  
-  ```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:{AWS REGION}:{AWS ACCOUNT ID}:log-group:/aws/lambda/*",
+            "Effect": "Allow"
+        },
+        
+            "Action": [
+                "s3:Get*",
+                "s3:List*",
+                "s3-object-lambda:Get*",
+                "s3-object-lambda:List*"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "ec2:CreateNetworkInterface",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DeleteNetworkInterface"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        }
+    ]
+}
+
+```
 
 ## VPC 설정
 
@@ -76,15 +76,15 @@ tags: [ AWS Log, 설치하기 ]
 
 1. ***Configuration*** 탭의 ***VPC*** 메뉴에서 ***Edit*** 버튼을 선택해 VPC 편집 화면으로 이동하세요.
 
-  ![VPC 편집](/img/whatap-forwarder-vpc-edit.png)
+    ![VPC 편집](/img/whatap-forwarder-vpc-edit.png)
 
 1. 다음을 참조해 ***VPC***와 ***Subnets*** 및 ***Security groups*** 지정 후 ***Save*** 버튼을 선택해 저장하세요.
 
-  ![서브넷과 보안 그룹](/img/whatap-forwarder-vpc-sg.png)
+    ![서브넷과 보안 그룹](/img/whatap-forwarder-vpc-sg.png)
 
-  :::note
+    :::note
 
-  **Subnets**
+    **Subnets**
 
     * **NAT Gateway**의 **Public IP**로 **IGW**를 통해 인터넷에 접속하세요.
 
@@ -96,15 +96,15 @@ tags: [ AWS Log, 설치하기 ]
 
     ![서브넷 sc](/img/whatap-forwarder-subnet.png)
 
-  :::
+    :::
 
-  :::note
+    :::note
 
-  **Security groups**
+    **Security groups**
 
     * **아웃바운드**가 열려있는 보안 그룹이 필요합니다.
 
-  :::
+    :::
 
 </div>
 

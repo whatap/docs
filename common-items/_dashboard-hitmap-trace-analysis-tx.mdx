@@ -1,0 +1,75 @@
+트랜잭션 목록에서 상세 내용을 확인할 항목을 선택하세요. 화면 오른쪽에 선택한 트랜잭션에 대한 상세 분석 내용을 표시합니다. 이 상태에서 다른 트랜잭션 항목을 선택하면 선택한 트랜잭션 항목에 대한 상세 분석 내용으로 변경됩니다.
+
+와탭은 트랜잭션의 성능을 분석하기 위해 이름과 클라이언트 정보 등의 속성, 트랜잭션의 처리 성능 그리고 각 구간별 상세 수행 이력을 수집하고 보여줍니다.
+
+<Xclude product='php,nodejs,golang'>
+
+![트레이스 분석](/img/analysis-tx-table-view.png)
+
+</Xclude>
+
+<InDoc product='php,nodejs,golang'>
+
+![트레이스 분석](/img/analysis-tx-table-view-none-actx.png)
+
+</InDoc>
+
+* ![숫자 5](/img/number-05.png) 영역에서는 스텝 정보를 다양한 형식으로 확인할 수 있습니다. 원하는 형식의 탭을 선택하세요.
+
+* ![숫자 6](/img/number-06.png) 영역에서는 트랜잭션에 대한 기본 정보를 확인할 수 있습니다. 왼쪽 목록의 컬럼 항목과 일치하는 정보입니다.
+
+* ![숫자 7](/img/number-07.png) ![통계 아이콘](/img/ic-static.svg): 해당 URL 또는 각 수행 구간의 통계 데이터 창이 나타납니다. 통계 데이터 창에서 ***상세 >*** 버튼을 선택하면 ***통계/보고서*** > ***통계*** 메뉴로 이동합니다.
+
+  :::note
+
+  ***통계*** 메뉴에 대한 자세한 내용은 [다음 문서](analysis-apm-trs)를 참조하세요.
+
+  :::
+
+* ![숫자 8](/img/number-08.png) <LinkImage img='hitmap-lr-drag.svg' alt='좌우 드래그 아이콘' className='_drag' /> 왼쪽 또는 오른쪽으로 드래그해서 화면의 크기를 조절할 수 있습니다. 더 많은 정보를 보길 원할 때 이용하면 유용합니다.
+
+  :::note
+
+  <LinkImage img='ic-s-tx-left.svg' alt='왼쪽 화살표 아이콘' className='_txDrag' /> 또는 <LinkImage img='ic-s-tx-right.svg' alt='오른쪽 화살표 아이콘' className='_txDrag' /> 버튼을 클릭하면 트랜잭션 목록 또는 상세 분석 화면을 전체 크기로 변경할 수 있습니다.
+
+  :::
+
+수집하는 **스텝(Step)**의 종류는 다음과 같습니다. 다이어그램과 텍스트 색상을 구분해 표시합니다.
+
+* ***DB Connection*** 스텝 <span class='type'>START-END</span>
+
+  RDB에 대한 연결에 대한 성능을 포함합니다. 스텝 정보에는 이름, 응답시간, 에러를 포함합니다.
+
+* ***SQL*** 스텝 <span class='type'>START-END</span>
+
+  JDBC SQL에 대한 성능을 포함합니다. 스텝 정보에는 연결 정보, SQL문, 에러가 포함되어 있습니다.
+
+* ***HTTP Call*** 스텝 <span class='type'>START-END</span>
+
+  외부 http 서비스 호출에 대한 성능을 포함합니다. 스텝 정보에는 url, host, port, 응답시간, 에러가 포함됩니다.
+
+* ***Message*** 스텝 <span class='type'>ADD</span>
+
+  트레이스를 수집하는 과정에서 비정형적인 모든 구간에 대한 이력을 수집할 때 메시지 스텝을 사용합니다.  
+
+* ***Socket*** 스텝 <span class='type'>ADD</span>
+
+  Socket 오픈을 표현하는 스텝입니다.
+
+* ***Method*** 스텝 <span class='type'>START-END</span>
+
+  메소드 응답시간을 추적합니다.
+
+<Xclude product='php,nodejs,golang'>
+
+* ***Active Stack*** 스텝 <span class='type'>START-END</span>
+
+  액티브 스텝에 대한 정보를 포함합니다. 별도 스레드가 생성하여 트레이스에 추가하는 방식으로 수집합니다.
+
+</Xclude>
+
+:::note
+
+와탭 모니터링 서비스에서 **스텝(Step)**은 **스팬(Span)**과 같은 뜻으로 사용됩니다.
+
+:::

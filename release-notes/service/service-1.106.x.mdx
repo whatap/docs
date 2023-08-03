@@ -1,9 +1,82 @@
 ---
 id: service-1_106_x
 title: Service 1.106.X
-toc_max_heading_level: 3
+toc_max_heading_level: 2
 pagination_next: release-notes/service/service-1_104_x
 ---
+
+## Service 1.106.06
+
+2023년 8월 3일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### 대시보드
+
+***트랜잭션 분석*** 창에서 다음의 내용을 수정합니다.
+
+- <Status>Fixed</Status> <code>Container</code> 플랫폼의 마스터 프로젝트에서 진입 시 멀티 트랜잭션 정보 표시되지 않는 버그 수정
+
+- <Status>Fixed</Status> <UI>멀티 트랜잭션</UI> 탭 > <UI>차트 보기</UI>의 프로젝트 필터 기능 오작동 수정
+
+- <Status>Fixed</Status> 트랜잭션 목록의 트랜잭션 ID, 멀티 트랜잭션 ID 컬럼 정렬 오작동 수정
+
+- <Status>Fixed</Status> <UI>트리 뷰</UI> 탭의 버튼 설명 툴팁 번역 누락 수정
+
+  - **Display Time** → ***시간 표시***
+
+  - **Hide Time** → ***시간 숨기기***
+
+  - **Display Time Bar** → ***시간바 표시***
+
+- <Status>Change</Status> 트랜잭션 목록의 검색 기능 대상 변경
+
+    - 변경 전: 검색 대상 컬럼 지정이 필요
+
+    - 변경 후: 화면에 표시되는 컬럼
+
+---
+
+### `Application`
+
+#### 애플리케이션 대시보드
+
+<p><Status>Change</Status> <UI>트랜잭션 분석</UI> 기능 개편에 대한 가이드 추가</p>
+
+---
+
+### `Database`
+
+#### MySQL V2
+
+<p><Status>Fixed</Status> <UI>인스턴스 모니터링</UI> 메뉴의 <UI>Default(rds)</UI> 프리셋에 포함된 메모리 여유(Cloudwatch) 위젯의 메트릭스 변경(<code>FreeStorageSpace</code> → <code>FreeableMemory</code>)</p>
+
+</div>
+
+
+## Service 1.106.05
+
+2023년 8월 2일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Fixed</Status> 관리 > 프로젝트 멤버 메뉴에서 <b>멤버 권한 체계 개편 알림</b> 메시지 창 제거
+
+---
+
+### `Application`
+
+<p><UI>통계/보고서</UI> > <UI>통계</UI> > <UI>트랜잭션</UI> > <UI>T</UI> / <UI>U</UI> 버튼 선택 > <UI>탑 스택 URL</UI> / <UI>유니크 스택 URL</UI> 메뉴에서 다음의 기능을 수정합니다.</p>
+
+- <Status>Fixed</Status> <UI>시간 선택</UI> 옵션 기능을 최신 버전으로 수정
+
+- <Status>Fixed</Status> 데이터 조회 기간을 62일에서 3일로 수정
+
+</div>
 
 ## Service 1.106.04
 

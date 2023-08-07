@@ -2,12 +2,12 @@
 
 데이터베이스별 테이블의 사이즈를 집계하여 추이 정보를 차트로 제공합니다. 
 
+<InDoc product='mysql'>
+
 MySQL의 데이터베이스 사이즈 정보는 `information_schema.tables`에서 조회하며 모니터링 계정에게 테이블 조회 권한이 있어야 집계됩니다. 다음과 같이 권한 설정이 필요합니다.
 
 ```sql
-
 grant select on {DB_NAME}.* to whatap;
-
 ```
 
 :::note
@@ -18,6 +18,28 @@ grant select on {DB_NAME}.* to whatap;
 
 :::
 
+</InDoc>
+
+<InDoc product='postgresql'>
+
+전체 데이터베이스 사이즈는 `pg_database_size` 함수로 조회하며 모니터링 계정에 connect 권한 또는 `pg_read_all_stats` 권한이 있어야 합니다. `template data`는 수집에서 제외됩니다. 
+
+개별 테이블 사이즈는 `pg_relation_size`, `pg_indexes_size`, `pg_total_relation_size` 함수로 조회하며 해당 스키마의 조회 권한이 필요합니다.
+
+```sql
+grant pg_read_all_stats to whatap;
+grant usage on schema {schema_name} to whatap;
+```
+
+:::note
+
+* `pg_catalog`, `sys`, `information_schema`, `pg_toast` 스키마의 사이즈는 수집하지 않습니다.
+
+* 수집 주기는 1시간에 1번씩 수집합니다.
+
+:::
+
+</InDoc>
 
 ## 기본 화면 안내
 
@@ -49,7 +71,17 @@ grant select on {DB_NAME}.* to whatap;
 
 <ProdImg img='db-database-size-top50.png' desc='데이터베이스 사이즈'/>
 
+<InDoc product='mysql'>
+
 기본적으로 테이블별 **DATA SIZE**, **INDEX SIZE**, **ROWS**를 표시합니다. 이는 `information_schema.tables`의 정보로 실제 사이즈와 차이가 있을 수 있습니다. `information_schema.innodb_tablespaces`의 **FILE SIZE**를 함께 확인하려면 DBX 에이전트에 다음 옵션을 설정하세요. 이 사이즈는 실제 사이즈와 유사합니다.
+
+</InDoc>
+
+<InDoc product='postgresql'>
+
+테이블별 **DATA SIZE**, **INDEX SIZE**를 표시합니다. PostgreSQL은 테이블 사이즈 정보 수집을 위해 DBX 에이전트에 다음 옵션을 설정해야 합니다.
+
+</InDoc>
 
 ```ini title='whatap.conf'
 table_filesize=true

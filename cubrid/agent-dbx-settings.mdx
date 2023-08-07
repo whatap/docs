@@ -17,7 +17,7 @@ DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다.
 {@include: ../common-items/_db-agent-dbx-basic-option.mdx}
 
 
-## CUBRID 전용 옵션
+## CUBRID 전용 옵션{#cubrid}
 
 * **db_port** <span class='type'>Int</span>
 
@@ -35,7 +35,7 @@ DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다.
 
   사용자가 생성한 DB가 여러 개일 경우 와탭 에이전트도 DB 개수만큼 설치하고 셋팅해야 합니다. 이 경우 에이전트 간 토큰을 공유하기 위해 `cms_token_file` 경로가 필요합니다. *`{에이전트 설치 경로}`/cms_token*으로 설정하세요. 
   
-  예시, agent2를 설치했을 경우 agent1의 `cms_token_file` 경로를 공유하기 위해 다음과 같이 설정하세요.
+  예시) agent2를 설치했을 경우 agent1의 `cms_token_file` 경로를 공유하기 위해 다음과 같이 설정하세요.
   
   ```ini title='whtap.conf'
   

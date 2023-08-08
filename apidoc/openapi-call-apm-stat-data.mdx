@@ -477,7 +477,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 }
 ```
 
-## 액티브 사용자(5분  위)
+## 액티브 사용자(5분 단위)
 
 <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/visitor_5m/<code>stitme</code>/<code>etime</code>
 
@@ -504,6 +504,12 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
   "total": 59
 }
 ```
+
+:::note 
+
+와탭은 최근 5분 이내에 트랜잭션을 일으킨 사용자를 카운팅해 **동시 접속 사용자**를 측정합니다.
+
+:::
 
 ## 액티브 사용자(1시간 단위)
 

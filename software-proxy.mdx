@@ -19,6 +19,17 @@ tags: [ Java, 애플리케이션 모니터링, 소프트웨어 프록시 ]
 
 에이전트 설치 안내에 따라 설치를 진행하게 되면 *whatap.agent.java.tar.gz* 파일을 다운로드할 수 있습니다. 압축을 해제하면 *whatap.agent.proxy-`X.Y.Z`.jar* 파일을 와탭 수집 서버와 통신 가능한 서버 위치에 저장하세요. 이미 설치한 에이전트가 있다면 해당 위치의 파일을 이용할 수 있습니다.
 
+:::tip
+
+윈도우 환경에서 Server 에이전트를 설치할 때 프록시를 경유하도록 포트 번호를 설정하려면 다음 명령어를 실행하세요.
+
+```powershell
+whatap_infra.exe /SILENT /SERIAL={액세스 키} /PROXYIP={프록시 서버 IP} /PROXYPORT=6600
+```
+
+
+:::
+
 ### 에이전트 설정
 
 이 문서에서는 에이전트가 위치한 서버의 대역을 **내부망(Private Subnet)**, 소프트웨어 프록시가 위치한 서버의 대역을 **외부망(Public Subnet)**이라고 합니다.

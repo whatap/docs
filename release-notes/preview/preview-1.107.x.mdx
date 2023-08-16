@@ -14,6 +14,53 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 1.107.14
+
+2023년 8월 17일
+
+<div class='indentTab'>
+
+### `Database`
+
+#### 인스턴스 모니터링 V1
+
+<p><Status>Fixed</Status> 위젯 <UI>카운트 선택</UI> 모달의 차트 크기가 비정상적으로 나타나는 현상 수정</p>
+
+#### V2 공통
+
+- <Status>Change</Status> 테이블 컬럼 선택 모달 UI 변경
+
+- <Status>Change</Status> 프로젝트 멤버 중 <b>수정</b> 권한이 있는 멤버만 <UI>세션 킬</UI> 버튼이 노출되도록 변경
+
+- <Status>Feature</Status> 라인 차트에 데이터 최대값 표시 적용
+
+#### 멀티 인스턴스 모니터링 V2
+
+- <Status>Feature</Status> 위젯별 메트릭스 정보를 나타내는 인포 아이콘 추가
+
+- <Status>Feature</Status> 제품 환경별(RDS, XOS) 탭 분리
+
+- <Status>Change</Status> <UI>XOS Disk Usage</UI> 위젯 내 테이블의 컬럼 중 <code>Mount Source</code> → <code>Mount Point</code>로 변경(최신 에이전트 업데이트 필요)
+
+#### 데이터베이스 사이즈 V2
+
+<p><Status>Feature</Status> CSV 다운로드 추가</p>
+
+#### PG SQL 통계
+
+<p><Status>Feature</Status> 조회 기준 선택 옵션 추가(temp blocks read, temp blocks written)</p>
+
+---
+
+### `Log`
+
+- <Status>Fixed</Status> <UI>로그 검색기</UI> 메뉴에서 <code>pcode</code> 태그 클릭 시 드롭다운 메뉴를 노출하지 않도록 수정
+
+- <Status>Feature</Status> <UI>로그 설정</UI> 메뉴에서 카테고리 및 로그 검출 조건 선택 UI 개선
+
+</div>
+
+
 ## Preview 1.107.13
 
 2023년 8월 11일

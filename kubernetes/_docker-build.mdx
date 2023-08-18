@@ -74,25 +74,25 @@
 
 1. Docker를 빌드하세요.
 
-  ```docker
-  cd docker
-  docker build -t $Image_Name.
-  ```
+    ```docker
+    cd docker
+    docker build -t $Image_Name.
+    ```
 
 1. 사용자의 쿠버네티스 환경 내 컨테이너 환경 변수를 설정하세요. 애플리케이션 에이전트에 필요한 환경 변수 정보를 입력하세요.
 
-  `OKIND` 환경 변수는 파드(Pod)에 해당하는 애플리케이션들을 같은 그룹으로 설정하는 역할을 합니다. 만약 디플로이먼트(Deployment) 이름으로 설정하면 해당하는 파드(Pod)들을 그룹화합니다.
+    `OKIND` 환경 변수는 파드(Pod)에 해당하는 애플리케이션들을 같은 그룹으로 설정하는 역할을 합니다. 만약 디플로이먼트(Deployment) 이름으로 설정하면 해당하는 파드(Pod)들을 그룹화합니다.
 
-  ```bash showLineNumbers {8-9}
-  env:
-    - name: NODE_IP
-      valueFrom: {fieldRef: {fieldPath: status.hostIP}}
-    - name: NODE_NAME
-      valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
-    - name: POD_NAME
-      valueFrom: {fieldRef: {fieldPath: metadata.name}}
-    - name: OKIND
-      value: {업무 종류 이름 또는 Deployment 이름}
-    - name: license
-      value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX  
-  ```
+    ```bash showLineNumbers {8-9}
+    env:
+      - name: NODE_IP
+        valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+      - name: NODE_NAME
+        valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+      - name: POD_NAME
+        valueFrom: {fieldRef: {fieldPath: metadata.name}}
+      - name: OKIND
+        value: {업무 종류 이름 또는 Deployment 이름}
+      - name: license
+        value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX  
+    ```

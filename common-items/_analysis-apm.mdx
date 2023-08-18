@@ -11,6 +11,8 @@
 
 와탭은 10초(기본값) 간격으로 수집한 스레드 스택을 활용하여 메소드 레벨의 성능 지연 구간을 분석합니다.
 
+<InDoc product='java,python'>
+
 ![st1](https://img.whatap.io/media/user_guide_application/stack/st1.png)
 
 예시 스택에서 **탑 라인**은 `socketRead0` 입니다. 
@@ -19,13 +21,27 @@
 java.net.SocketInputStream.socketRead0(Native Method)
 ```
 
+</InDoc>
+
+<InDoc product='dotnet'>
+
+![dotnet active stack](/img/apm-analysis-stack-example-dotnet.png)
+
+예시 스택에서 **탑 라인**은 `IL_STUB_ReversePInvoke` 입니다. 
+
+```c
+DomainNeutralILStubClass.IL_STUB_ReversePInvoke(Int64,Int64,Int64,Int32)
+```
+
+</InDoc>
+
 **탑 라인**은 덤프를 수행할 스레드가 해당 메소드를 수행 중이라는 것을 의미합니다. 순간적으로 잡혔을 가능성도 있지만 확률적으로 해당 모듈 처리 시간의 합의 비율만큼 스택에 나타납니다. 이 **탑 라인** 메소드의 빈도를 계산하여 메소드 레벨의 성능을 판단할 수 있습니다. 와탭은 **탑 라인 빈도 통계**를 ***탑 스택***(Top Stack)이라고 합니다.
 
-![tline1](https://img.whatap.io/media/images/Screenshot_2020-12-15_W_JAVA_DEMO_5490_-_Application_Monitoring23.png)
+<ImgLang img='apm-analysis-apm-top-stack-01.png' desc='탑 스택' />
 
 ***탑 스택*** 분석을 통해 도출된 메소드를 어떤 메소드가 호출했는지에 대한 빈도를 분석할 수 있습니다.
 
-![tst1](https://img.whatap.io/media/images/Screenshot_2020-12-15_W_JAVA_DEMO_5490_-_Application_Monitoring24.png)
+<ImgLang img='apm-analysis-apm-top-stack-02.png' desc='탑 스택' />
 
 탑 스택 계층 분석에서는 원래 액티브 스택을 확인하기 어려웠습니다. 따라서 와탭은 ***액티브 스택***(Active Stack)을 조회할 수 있도록 동일 스택을 모아서 ***유니크 스택***(Unique Stack)이라는 조회 기능을 제공합니다.
 
@@ -45,21 +61,21 @@ Stack Trace 상의 각 Step 기준으로, Step과 Step 간의 호출 비율을 �
 
 애플리케이션 성능 개선을 위해 최상위 Step의 적체 비율이 높은 모듈의 병목 가능성을 검토해야 합니다. 적체 비율이 높은 모듈의 경우 작은 성능 개선도 애플리케이션 전체에 상당한 개선 효과를 가져올 수 있습니다.
 
-![tst2](https://img.whatap.io/media/images/Screenshot_2020-12-15_W_JAVA_DEMO_5490_-_Application_Monitoring25.png)
+<ImgLang img='apm-analysis-apm-top-stack-03.png' desc='탑 스택' />
 
 ```java {1,3}
 whatap.util.ThreadUtil.sleep
-// jdbc.Control.exec의 호출 비율은 87.10%
+// jdbc.Control.exec의 호출 비율은 40.02%
 jdbc.Control.exec 
-// jdbc.FakePreparedStatement.executeQuery의 호출 비율은 61.18%
+// jdbc.FakePreparedStatement.executeQuery의 호출 비율은 68.06%
 ```
-`whatap.util.ThreadUtil.sleep` ← `jdbc.Control.exec` ← `jdbc.FakePreparedStatement.executeQuery`의 호출 비율이 87.10% * 61.18%를 의미하지는 않습니다. `jdbc.Control.exec`에서 타 모듈의 호출 가능성이 존재하기 때문입니다.
+`whatap.util.ThreadUtil.sleep` ← `jdbc.Control.exec` ← `jdbc.FakePreparedStatement.executeQuery`의 호출 비율이 40.02% * 68.06%를 의미하지는 않습니다. `jdbc.Control.exec`에서 타 모듈의 호출 가능성이 존재하기 때문입니다.
 
 ***탑 스택***을 통해 호출 비율을 판단할 경우, 각 Step 간 호출 비율을 곱하여 전체 호출 관계 비율을 산출해서는 안 됩니다. Top Stack의 호출 비율은 Stack Trace 상에 노출된 정보의 Step 간 호출 비율의 산출 결과이기 때문에, Step 간 호출 비율로 전체 호출 비율을 도출할 경우 왜곡된 결과를 도출하게 됩니다.
 
 ***탑 스택*** 통계에서는 일정 기간을 기준으로 시간에 따른 비율 변화와 수집 건수에 대한 히스토리를 제공합니다.
 
-![tst3](https://img.whatap.io/media/images/Screenshot_2020-12-15_W_JAVA_DEMO_5490_-_Application_Monitoring27.png)
+<ImgLang img='apm-analysis-apm-top-stack-04.png' desc='탑 스택' />
 
 * ***퍼센트***
 
@@ -73,7 +89,7 @@ jdbc.Control.exec
 
 다음과 같은 다이어그램으로도 확인 가능합니다.
 
-![tst-dg](https://img.whatap.io/media/images/Screenshot_2020-12-15_W_JAVA_DEMO_5490_-_Application_Monitoring26.png)
+<ImgLang img='apm-analysis-apm-top-stack-05.png' desc='탑 스택' />
 
 * ***Stack Chart***
 
@@ -86,7 +102,7 @@ Stack Trace 전체의 Hash 값 기준의 산출 결과로 전체 Step이 동일�
 
 ***유니크 스택***은 Stack Trace 전체의 정확한 호출 정보를 기반으로 한 데이터를 제공합니다. 상세 호출 관계를 파악하는 데 유용한 정보를 제공합니다. 예를 들면 적체 비율이 높은 Stack Trace를 식별할 수 있습니다.
 
-![ust](https://img.whatap.io/media/images/Screenshot_2020-12-15_W_JAVA_DEMO_5490_-_Application_Monitoring27_Y8LaYJq.png)
+<ImgLang img='apm-analysis-apm-unique-stack.png' desc='유니크 스택' />
 
 상세 호출 Step 검토를 통한 호출 경로 상에 이상 모듈의 존재 여부를 파악할 수 있습니다.
 
@@ -105,7 +121,7 @@ Stack Trace 전체의 Hash 값 기준의 산출 결과로 전체 Step이 동일�
 
 막대를 클릭하면, 클릭한 시간대의 Active Transaction의 정보가 나오며, 그 정보를 클릭하면 해당 Transaction의 Active Stack을 볼 수 있습니다.
 
-![ast](https://img.whatap.io/media/images/Screenshot_2020-12-15_W_JAVA_DEMO_5490_-_Application_Monitoring29.png)
+<ImgLang img='apm-analysis-apm-active-stack.png' desc='액티브 스택' />
 
 :::note
 
@@ -113,9 +129,9 @@ Stack Trace 전체의 Hash 값 기준의 산출 결과로 전체 Step이 동일�
 
 :::
 
-#{@include: ../common-items/_compact-active-stacks.mdx} 
- 
-#{@include: ../common-items/_background-thread.mdx} 
+{@include: ../common-items/_compact-active-stacks.mdx}  
+
+{@include: ../common-items/_background-thread.mdx} 
 
 ## 활용 예시
 <!-- 스크린샷 수정 필요 -->

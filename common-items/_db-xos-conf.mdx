@@ -30,14 +30,26 @@
 
   인스턴스별 디스크 사용률과 사용 가능 크기, 전체 크기 정보를 표시합니다. 값이 `0`이면 디스크 사용률을 수집하지 않습니다.
 
-<InDoc product='postgresql,mysql'>
+<InDoc product='postgresql'>
 
 - **file** <span class='type'>String</span>
 
   ***로그*** 메뉴(***라이브 테일***, ***로그 트렌드***, ***로그 검색***, ***로그 설정***)를 이용하려면 `file` 옵션에 모니터링하려는 로그 파일명의 절대 경로로 입력하세요.
 
   ```ini title='xos.conf'
-  file = /opt/postgresql/logs/postgresql.log
+  file=/opt/postgresql/logs/postgresql.log
+  ```
+
+</InDoc>
+
+<InDoc product='mysql'>
+
+- **file** <span class='type'>String</span>
+
+  ***로그*** 메뉴(***라이브 테일***, ***로그 트렌드***, ***로그 검색***, ***로그 설정***)를 이용하려면 `file` 옵션에 모니터링하려는 로그 파일명의 절대 경로로 입력하세요.
+
+  ```ini title='xos.conf'
+  file=/var/log/mysqld.log
   ```
 
 </InDoc>

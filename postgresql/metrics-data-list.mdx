@@ -21,7 +21,7 @@ import Note from '../common-items/_import_v2-note.mdx';
 | `blk_read_time` | 해당 데이터베이스의 백엔드에서 데이터 파일 블록을 읽는 데 소요한 시간(milliseconds), `track_io_timing`이 활성화한 경우, 그렇지 않으면 `0` |
 | `blk_write_tiem` | 해당 데이터베이스의 백엔드에서 데이터 파일 블록을 작성하는데 소요한 시간(milliseconds), `track_io_timing`이 활성화한 경우, 그렇지 않으면 `0` |
 | `blks_hit` | 디스크 블록이 버퍼 캐시에서 이미 발견되어 읽기가 필요하지 않은 횟수(운영체제의 파일 시스템 캐시가 아닌 PostgreSQL 버퍼 캐시의 히트만 포함됨) |
-| `blks_hit_ratio` | 버퍼 캐시 히트율<br/>sum(blks_hit)*100/sum(`blks_hit` + `blks_read`) |
+| `blks_hit_ratio` | 버퍼 캐시 히트율<br/>sum(`blks_hit`)*100/sum(`blks_hit` + `blks_read`) |
 | `blks_read` | 해당 데이터베이스에서 읽은 디스크 블록의 수 |
 | `buffers_checkpoint` | 체크포인트(`check_point`) 동안 기록된 버퍼 수 |
 | `check_point` | `check_point`는 모든 데이터 파일이 순차적인 트랜잭션 로그 가운데, 한 시점을 기준으로 모든 데이터 파일이 물리적으로 모두 쓰여진 한 시점을 의미. `check_point`가 일어난 수 |

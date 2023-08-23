@@ -1,0 +1,108 @@
+---
+id: service-1_108_x
+title: Service 1.108.00
+toc_max_heading_level: 2
+pagination_next: release-notes/service/service-1_106_x
+---
+
+2023년 8월 23일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### Flex 보드
+
+- <Status>Fixed</Status> <UI>Flex 보드</UI> 메뉴에서 언어 설정이 한국어가 아닌 경우 Flex 보드 생성시 블로그 컨텐츠 숨기기
+
+- <Status>Fixed</Status> <UI>Flex 보드</UI> 메뉴의 Series 위젯 오브젝트 병합에서 최대, 최소치 작동하지 않는 현상 수정
+
+---
+
+### `Application`
+
+<p><Status>Fixed</Status> <UI>통계/보고서</UI> > <UI>통계</UI> > <UI>트랜잭션</UI> 메뉴에서 데이터 조회 범위가 5분 이하인 경우 조회되는 데이터의 검색 범위를 5초에서 5분으로 수정</p>
+
+---
+
+### `Database`
+
+#### 인스턴스 모니터링 V1
+
+<p><Status>Fixed</Status> 위젯 <UI>카운트 선택</UI> 모달의 차트 크기가 비정상적으로 나타나는 현상 수정</p>
+
+#### V2 공통
+
+- <Status>Change</Status> 테이블 컬럼 선택 모달 UI 변경
+
+- <Status>Change</Status> 프로젝트 멤버 중 <b>수정</b> 권한이 있는 멤버만 <UI>세션 킬</UI> 버튼이 노출되도록 변경
+
+- <Status>Feature</Status> 라인 차트에 데이터 최대값 표시 적용
+
+- <UI>대시보드</UI> > <UI>멀티 인스턴스 모니터링</UI> 메뉴에서 다음의 기능을 추가 및 수정합니다.
+
+  - <Status>Feature</Status> 위젯별 메트릭스 정보를 나타내는 인포 아이콘 추가
+
+  - <Status>Feature</Status> 제품 환경별(RDS, XOS) 탭 분리
+
+  - <Status>Change</Status> <UI>XOS Disk Usage</UI> 위젯 내 테이블의 컬럼 중 <code>Mount Source</code> → <code>Mount Point</code>로 변경(최신 에이전트 업데이트 필요)
+
+- <Status>Feature</Status> <UI>대시보드</UI> > <UI>데이터베이스 사이즈</UI> 메뉴에서 CSV 다운로드 추가
+
+#### PostgresSQL
+
+<p><Status>Feature</Status> <UI>PG SQL 통계</UI> 메뉴에서 조회 기준 선택 옵션 추가(temp blocks read, temp blocks written)</p>
+
+#### MySQL
+
+<p><Status>Change</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴의 <UI>와탭 데이터베이스 에이전트 다운로드</UI> 섹션에서 <em>whatap.conf</em> 파일의 작성 예시 추가</p>
+
+#### MS SQL Server
+
+- <Status>Change</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴의 와탭 <UI>데이터베이스 에이전트 다운로드</UI> 섹션에서 <em>whatap.conf</em> 설정 명령어 예시 추가
+
+---
+
+### `Container`
+
+- <Status>Feature</Status> <UI>대시보드</UI> > <UI>컨테이너 맵</UI> 메뉴에 필터 기능 강화를 위한 필터 교체
+
+- <Status>Change</Status> <UI>컨테이너 맵</UI> 메뉴의 요약 보기의 태그 항목을 <UI>대상 정보</UI> 탭으로 분리
+
+---
+
+### `Log`
+
+- <Status>Feature</Status> <UI>경고 알림</UI> > <UI>이벤트 설정</UI> > <UI>로그</UI> > <UI>복합 로그 이벤트</UI> 기능 개편 및 로그 이벤트 템플릿 추가
+
+- <Status>Feature</Status> <UI>경고 알림</UI> > <UI>로그</UI> 메뉴에서 <UI>복합 로그 이벤트</UI>로 템플릿 이벤트를 추가할 경우, 카테고리가 선택되지 않은 상태에서는 필터 항목을 비활성화하도록 처리
+
+- <Status>Change</Status> <UI>로그</UI> 하위 메뉴의 하이라이트 기능에서 선택 가능한 색상 변경 및 로그 본문 폰트 변경
+
+- <Status>Fixed</Status> <UI>로그 검색기</UI>, <UI>라이브테일</UI> 메뉴에서 필터 연산자 값을 <code>=</code>에서 <code>!=</code>로 수정
+
+- <Status>Fixed</Status> <UI>로그 검색기</UI>, <UI>라이브테일</UI> 메뉴에서 숫자 키워드 <code>.n</code>를 입력한 뒤 나타나는 검색 값이 <code>+>= 123</code>에서 <code>>= 123</code>처럼 <code>비교 연산자</code> <code>검색 값</code>으로 나오도록 수정
+
+- <Status>Feature</Status> 인접 로그에서 기준이 되는 로그에 스크롤 위치 이동 및 하이라이트 기능 추가
+
+- <Status>Change</Status> <UI>경고 알림</UI> > <UI>이벤트 설정</UI> > <UI>로그</UI> 메뉴에서 <UI>실시간 로그 이벤트</UI> 추가 생성 시 <UI>검색 키</UI>에서 <UI>전체</UI>(all) 항목 제거
+
+- <Status>Fixed</Status> <UI>로그 검색기</UI> 메뉴에서 <code>pcode</code> 태그 클릭 시 드롭다운 메뉴를 노출하지 않도록 수정
+
+- <Status>Feature</Status> <UI>로그 설정</UI> 메뉴에서 카테고리 및 로그 검출 조건 선택 UI 개선
+
+---
+
+### `Browser`
+
+#### 분석
+
+<p><UI>페이지 로드 히트맵</UI> 메뉴에서 다음의 내용을 수정합니다.</p>
+
+- <Status>Feature</Status> <UI>페이지 로드 상세</UI>에 브라우저 에러 데이터와 스탭 컬럼 추가
+
+- <Status>Feature</Status> <UI>페이지 목록</UI>에 브라우저 에러 데이터를 포함하고 있는 페이지 로드 이벤트의 경우 빨간색 폰트 컬러 표시
+
+- <Status>Feature</Status> 조회 시간을 최대 15일로 제한하고, 과거 30일 이전 데이터는 조회할 수 없도록 설정
+
+</div>

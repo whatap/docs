@@ -16,14 +16,14 @@ Tomcat을 사용하는 애플리케이션 서버 환경에서 JVM 옵션을 추�
 ```bash title='{Tomcat_PATH}/bin/catalina.sh' showLineNumbers
 ########## WHATAP START ############
 WHATAP_HOME=/whatap
-WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1`
+WHATAP_JAR=`ls ${WHATAP_HOME}/whatap.agent-*.jar | sort -V | tail -1`
 JAVA_OPTS="${JAVA_OPTS} -javaagent:${WHATAP_JAR} "
 ########## WHATAP END ############
 ```
 
 :::note
 
-`ls ${WHATAP_HOME}/whatap.agent-*.jar | sort | tail -1` 항목은 향후 에이전트 업데이트를 진행할 경우 최신 와탭 에이전트를 적용하기 위해서입니다.
+`ls ${WHATAP_HOME}/whatap.agent-*.jar | sort -V | tail -1` 항목은 향후 에이전트 업데이트를 진행할 경우 최신 와탭 에이전트를 적용하기 위해서입니다.
 
 :::
 

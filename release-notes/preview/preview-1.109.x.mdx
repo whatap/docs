@@ -14,6 +14,45 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 1.109.2
+
+2023년 8월 24일
+
+<div class='indentTab'>
+
+### `공통`
+
+<p><Status>Change</Status> 페이지 헤더 Beta 태그 UI 수정</p>
+
+---
+
+### `Database`
+
+#### 공통
+
+<p><Status>Fixed</Status> 일부 특수문자가 SQL 파라미터에 포함되는 경우 파라미터 바인드가 비정상적으로 동작하는 현상 수정</p>
+
+#### DB V2 공통
+
+<p><Status>Fixed</Status> 에이전트 업데이트를 완료한 프로젝트의 안내 모달 내용 수정</p>
+
+---
+
+### `Log`
+
+***로그 검색기***/***라이브 테일*** 메뉴에서 다음의 기능을 수정합니다.
+
+- <Status>Fixed</Status> 로그 필터에 검색값이 없거나 검색 값을 입력하지 않은 경우 안내 메시지 출력
+
+- <Status>Fixed</Status> 로그 필터에서 태그를 클릭하여 값을 수정할 경우 중복된 값이 존재하면 안내 메시지 출력
+
+- <Status>Fixed</Status> 로그 필터에서 중복된 값을 여러 개 입력하고 한 개를 수정할 경우 중복된 값 모두 수정되는 현상 수정
+
+- <Status>Fixed</Status> 로그 필터에서 .n 키를 입력하고 비교 연산자를 클릭하지 않고 <b>==100</b> 처럼 <code>비교 연산자 값</code>을 바로 입력하면 <b>+</b>, <b>-</b>가 앞에 붙는 현상 수정
+
+</div>
+
+
 ## Preview 1.109.1
 
 2023년 8월 24일
@@ -49,5 +88,15 @@ toc_max_heading_level: 2
 ### `Browser`
 
 <p><Status>Fixed</Status> <UI>대시보드</UI> > <UI>브라우저 에러</UI> 메뉴에서 <UI>에러 상세</UI> 창을 열었을 때 <UI>에러 로그 분석</UI> 탭 화면의 백화 현상 수정</p>
+
+</div>
+
+## Preview 1.109.0
+
+2023년 8월 24일
+
+<div class='indentTab'>
+
+<p><Status>Fixed</Status> 사용자들이 알아채지 못할 사소한 버그들을 수정하고 개선했습니다. 😉</p>
 
 </div>

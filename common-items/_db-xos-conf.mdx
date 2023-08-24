@@ -38,6 +38,10 @@
 
   ```ini title='xos.conf'
   file=/opt/postgresql/logs/postgresql.log
+
+  # 여러 개의 로그 파일을 설정할 경우
+  file1=opt/postgresql/logs/postgresql.log
+  file2=/usr/local/var/log/postgres.log
   ```
 
 </InDoc>
@@ -50,6 +54,11 @@
 
   ```ini title='xos.conf'
   file=/var/log/mysqld.log
+  
+  # 여러 개의 로그 파일을 설정할 경우
+  file1=/opt/postgresql/data/logs/pg10/postgresql-Sun.log
+  file2=/opt/postgresql/data/logs/pg10/postgresql-Mon.log
+  file3=/opt/postgresql/data/logs/pg10/postgresql-Tue.log
   ```
 
 </InDoc>

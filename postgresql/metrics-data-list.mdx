@@ -13,9 +13,11 @@ import Note from '../common-items/_import_v2-note.mdx';
 
 그외 지표에 대한 자세한 내용은 [다음 링크](https://www.postgresql.org/docs/)를 참조하세요.
 
+## Database
+
 <div class='db-metric'>
 
-| Metric | Description |
+| 지표 | 설명 |
 | -- | -- |
 | `active_sessions` | 쿼리를 실행 중인 세션 수 |
 | `blk_read_time` | 해당 데이터베이스의 백엔드에서 데이터 파일 블록을 읽는 데 소요한 시간(milliseconds), `track_io_timing`이 활성화한 경우, 그렇지 않으면 `0` |
@@ -53,22 +55,31 @@ import Note from '../common-items/_import_v2-note.mdx';
 | `vacuum_running_count` | 수행 중인 vacuum 기능의 수 |
 | `wait_sessions` | 대기 중인 세션 수 |
 | `warning_count` | 총 오류 및 경고, 참고 수 |
-| `cpu(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `cpu_idle(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `cpu_iowait(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `cpu_sys(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `cpu_user(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `mem(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `mem_available(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `mem_buffcache(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `mem_free(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `mem_swapfree(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `mem_swaptotal(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `mem_total(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `mem_used(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `net_recv_bytes(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `net_recv_packets(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `net_send_bytes(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `net_send_packets(xos)` | XOS 에이전트에서 수집하는 OS 지표|
 
 </div>
+
+## XOS
+
+| 카테고리 | 지표 | 단위 | 설명 | 수집 명령어 |
+| -- | -- | :--: | -- | -- |
+| CPU | `cpu(xos2)` | pct | cpu 사용율, `cpu_user` + `cpu_sys` + `cpu_iowait`의 합 | `top` 또는 `vmstat` |
+| ^ | `cpu_user(xos2)` | pct | cpu가 사용자 코드를 실행하는데 소요한 시간 | ^ |
+| ^ | `cpu_sys(xos2)` | pct | cpu가 kernel code를 수행한 시간 | ^ |
+| ^ | `cpu_iowait(xos2)` | pct | cpu가 IO를 대기한 시간 | ^ |
+| ^ | `cpu_idle(xos2)` | pct | cpu 프로세서 유휴 시간 | ^ |
+| MEMORY | `mem(xos)` | pct | 메모리 사용율 | `free -m` |
+| ^ | `mem_total(xos)` | MB | 전체 메모리양 | ^ |
+| ^ | `mem_free(xos)` | MB | 시스템에서 사용하고 있지 않은 메모리양 | ^ |
+| ^ | `mem_used(xos)` | MB | 시스템에서 사용하고 있는 메모리양 | ^ |
+| ^ | `mem_buffcache(xos)` | MB | buff/cache로 사용중인 메모리양 | ^ |
+| ^ | `mem_swaptotal(xos)` | MB | Swap 전체 사이즈, 물리메모리가 부족한 경우를 대비하여 설정합니다. | ^ |
+| ^ | `mem_swapfree(xos)` | MB | Swap의 사용하지 않은 영역, Swap 영역은 디스크 공간에 확보되기 때문에 Swap을 사용하고 있다면 시스템 성능이 급격하게 떨어질 수 있습니다. | ^ |
+| ^ | `mem_available(xos)` | MB | 메모리 가용영역 | ^ |
+| DISK I/O | `disk_reads(xos)` | block | 디스크로부터 읽은 데이터의 양 | `iostat` |
+| ^ | `disk_read_bytes(xos)` | byte | 디스크로부터 읽은 데이터의 양 | ^ |
+| ^ | `disk_writes(xos)` | block | 디스크로 쓰여진 데이터의 양 | ^ |
+| ^ | `disk_write_bytes(xos)` | byte | 디스크로 쓰여진 데이터의 양 | ^ |
+| NETWORK | `net_recv_bytes(xos)` | byte | 네트워크로 수신된 데이터의 양 | `/proc/net/dev` |
+| ^ | `net_recv_packets(xos)` | - | 네트워크로 수신된 데이터 패킷의 수 | ^ |
+| ^ | `net_send_bytes(xos)` | byte | 네트워크로 전송한 데이터의 양 | ^ |
+| ^ | `net_send_packets(xos)` | - | 네트워크로 전송한 데이터 패킷의 수 | ^ |

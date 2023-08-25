@@ -1,14 +1,32 @@
 {@include: ../common-items/_log-role-view.mdx}
 
-홈 화면 > 프로젝트 선택 > {@include: _search-path.mdx}
+<Xclude product='aws-log'>
 
-와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 프로젝트 메뉴 하위에 {@include: _search-path.mdx} 메뉴를 선택하세요. 
+홈 화면 > 프로젝트 선택 > ***로그*** > ***로그 검색***
+
+</Xclude>
+
+<InDoc product='aws-log'>
+
+홈 화면 > 프로젝트 선택 > ***대시보드*** > ***로그 검색***
+
+</InDoc>
 
 ***로그 검색*** 메뉴에서 통합 수집된 대량의 로그를 다양한 조건으로 검색하고 사용자가 원하는 로그를 특정할 수 있습니다. 복수의 검색 조건을 파싱된 키와 밸류로 지정할 수 있어 원하는 조건에 일치하는 로그 데이터만 추출합니다. 
 
 동적 페이지로 검색된 로그 데이터를 정해진 라인 단위로 가져오며, 스크롤 등에 의해 하단에 닿으면 자동으로 다음 데이터를 가져와 표시합니다. {@include: ../common-items/_log-ui-main-term.mdx}
 
+<Xclude product='postgresql,mysql'>
+
 ![로그 검색 sc](/img/log-search.png)
+
+</Xclude>
+
+<InDoc product='postgresql,mysql'>
+
+<ImgLang img='db-log-search.png' desc='' />
+
+</InDoc>
 
 ## 데이터 조회하기 
 
@@ -44,7 +62,7 @@
 
 왼쪽 ![number-s](/img/number-02.png) 영역에 있는 태그는 카테고리별로 파싱(parsing) 된 검색 키입니다. 태그를 선택하여 필터를 입력할 수 있습니다. <span class='logwr'>주황색</span> 태그는 카테고리, <span class='lowfg'>파란색</span> 태그는 검색 키입니다.
 
-<InDoc product='log'>
+<InDoc product='log,postgresql,mysql'>
 
 예를 들어 ![number-s](/img/number-02.png) 영역의 <span class='logwr'>AppLog</span>와 <span class='logwr'>AppStdOut</span>은 카테고리, 그 아래 <span class='lowfg'>oid</span>와 같은 태그는 파싱(parsing) 된 검색 키입니다. 검색 키는 ***로그*** > ***로그 설정***의 ***로그 Parser 설정***에서 파싱 로직을 등록해 설정할 수 있습니다. 
 

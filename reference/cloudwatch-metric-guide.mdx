@@ -1,0 +1,114 @@
+---
+id: cloudwatch-metric-guide
+title: RDS CloudWatch Metric 수집 권한 설정
+description: RDS CloudWatch를 모니터링하고 데이터를 수집하는 준비 단계를 안내합니다.
+tags: [ 데이터베이스, CloudWatch ]
+draft: true
+---
+
+이 문서에서는 데이터베이스 모니터링에서 RDS CloudWatch를 모니터링하고 데이터를 수집하기 위해 IAM Role 권한 설정 방법을 안내합니다.
+
+## AWS CloudFormation을 통한 설정
+
+와탭에서 제공하는 AWS CloudFormation 템플릿을 통해 AWS IAM Policy, Role, AWS EC2 Instance Profile을 자동 설치하는 방법입니다.
+
+1. 다음 링크를 클릭한 후 스택 생성을 통해 Instance Profile을 생성하세요.
+
+    <Link to='https://ap-northeast-2.console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/quickcreate?stackName=WhatapRdsMetricInstaceProfile&templateURL=https://whatapforwarder.s3.ap-northeast-2.amazonaws.com/whatapCloudMonitoring.yaml' target='_blank' className='ext-link'>RDS 권한 설치 페이지</Link>
+
+1. **EC2** > **Instances**에서 DB 에이전트가 설치된 인스턴스를 선택한 다음 **Actions** > **Security** > **Modify IAM role**을 차례로 선택하세요.
+
+  ![](/img/ec2-instances.png)
+
+1. **EC2** > **Instances** > **Modify IAM role**에서 앞서 생성한 **IAM Role** 또는 **Instance Profile Name**을 입력하세요.
+
+  ![](/img/ec2-instances-modify-iam-role.png)
+
+  기본값: Role(WhaTapRDSCloudWatchMetricRole), InstanceProfile(WhaTapRDSCloudWatchMetricProfile)
+
+
+## AWS Console을 통한 설정
+
+다음은 AWS Console을 통해 AWS IAM Policy, Role을 차례로 생성하는 방법입니다.
+
+### AWS IAM Policy 생성
+
+1. **IAM** > **Polices**로 진입한 다음 **Create Policy** 버튼을 선택하세요.
+
+    ![](/img/iam-polices-create-policy.png)
+
+1. 설정 방식을 JSON을 선택한 후 다음 내용을 입력하고 **Next**를 선택하세요.
+
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ec2:DescribeInstanceTypes",
+                    "elasticache:DescribeCacheClusters",
+                    "cloudwatch:GetMetricStatistics",
+                    "cloudwatch:ListMetrics"
+                ],
+                "Resource": "*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "rds:DownloadDBLogFilePortion",
+                    "rds:DescribeDBInstances",
+                    "rds:DescribeDBLogFiles",
+                    "rds:DescribeDBClusters"
+                ],
+                "Resource": [
+                    "arn:aws:rds:*:{AWS::ACCOUNT}:db:*",
+                    "arn:aws:rds:*:{AWS::ACCOUNT}:cluster:*"
+                ]
+            }
+        ]
+    }
+    ```
+
+1. 정책 이름(**Policy name**)을 설정한 다음 **Create Policy** 버튼을 선택하세요.
+
+    ![](/img/policy-name.png)
+
+
+### AWS IAM Role 생성
+
+1. **IAM** > **Roles**로 진입한 다음 **Create Role** 버튼을 선택하세요.
+
+    ![](/img/iam-roles-create-role.png)
+
+1. **Select trusted entity** 단계에서 신뢰할 수 있는 엔티티 타입으로 **AWS Service**, **EC2**를 차례로 선택하세요.
+
+    ![](/img/select-trusted-entity.png)
+
+1. **Add permissoins** 단계에서 앞서 생성한 Policy를 선택하세요.
+
+1. **Name, review, and create** 단계에서는 이름 및 설명을 작성한 다음 Create role 버튼을 선택하세요.
+
+
+### AWS IAM Role 수정
+
+1. **EC2** > **Instances**에서 DB 에이전트가 설치된 인스턴스를 선택한 다음 **Actions** > **Security** > **Modify IAM role**을 차례로 선택하세요.
+
+  ![](/img/ec2-instances.png)
+
+1. **EC2** > **Instances** > **Modify IAM role**에서 앞서 생성한 **IAM Role**을 입력하세요.
+
+  ![](/img/ec2-instances-modify-iam-role.png)
+
+
+## 에이전트 설정
+
+*whatap.conf* 파일에 어떤 지표를 조회할 것인지 옵션을 설정하세요. `arn`은 생략 가능합니다.
+
+```ini title='whatap.conf'
+cloud_watch=on
+#aws_region=ap-northeast-2
+#aws_arn=arn:aws:iam::649024405358:role/rds-monitoring-role
+cloud_watch_metrics=CPUUtilization,FreeableMemory,FreeStorageSpace,NetworkTransmitThroughput,NetworkReceiveThroughput
+cloud_watch_instance=mysql-rds
+```

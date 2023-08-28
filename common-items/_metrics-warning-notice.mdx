@@ -31,7 +31,7 @@
 
 ***경고 알림*** > ***이벤트 설정*** 메뉴에서 화면 위 ***메트릭스***를 선택하세요. 화면 오른쪽 위에 ***+ 이벤트 추가***를 선택하세요. ***메트릭스 이벤트*** 창이 나타납니다.
 
-![메트릭스 이벤트](/img/set-events-metrics.png)
+<ImgLang img='set-events-metrics.png' desc='메트릭스 이벤트' />
 
 ### 기본 정보 입력
 
@@ -43,7 +43,7 @@
 
 * ***카테고리***: 메트릭스 데이터를 구분하는 단위입니다. 메트릭스 이벤트 설정 시 필수 선택 값입니다.
   
-  ![메트릭스 이벤트 - 카테고리](/img/set-event-select-category.png)
+  <ImgLang img='set-event-select-category.png' desc='메트릭스 이벤트 - 카테고리' />
 
   * ***카테고리*** 선택 옵션에는 ![지시선 1](/img/number-01.png) ***이름***과 ![지시선 2](/img/number-02.png) 데이터 수집 간격, ![지시선 3](/img/number-03.png) ***키*** 정보를 표시합니다. 이벤트 설정 시 해당 카테고리의 키 값을 사용합니다.
 
@@ -63,15 +63,15 @@
 
 * ***이벤트 발생 조건***
 
-  ![이벤트 발생 조건](/img/set-event-condition.png)
+  <ImgLang img='set-event-condition.png' desc='이벤트 발생 조건' />
 
-  ![지시선 1](/img/number-01.png) 필드, ![지시선 2](/img/number-02.png) 연산자 선택, ![지시선 3](/img/number-03.png) 임계값을 입력해 이벤트 발생 조건을 설정하세요.
+  ![지시선 4](/img/number-04.png) 필드, ![지시선 5](/img/number-05.png) 연산자 선택, ![지시선 6](/img/number-06.png) 임계값을 입력해 이벤트 발생 조건을 설정하세요.
 
 * ***이벤트 대상 필터링***
 
-  ![이벤트 대상 필터링](/img/set-event-filtering.png)
+  <ImgLang img='set-event-filtering.png' desc='이벤트 대상 필터링' />
 
-  ![지시선 1](/img/number-01.png) 태그, ![지시선 2](/img/number-02.png) 연산자 선택, ![지시선 3](/img/number-03.png) 필터링값을 입력해 대상을 필터링합니다. 입력값이 없을 경우 전체 에이전트를 대상으로 경고 알림을 보냅니다.
+  ![지시선 7](/img/number-07.png) 태그, ![지시선 8](/img/number-08.png) 연산자 선택, ![지시선 9](/img/number-09.png) 필터링값을 입력해 대상을 필터링합니다. 입력값이 없을 경우 전체 에이전트를 대상으로 경고 알림을 보냅니다.
 
 :::note
 
@@ -85,7 +85,7 @@
 
 ### ***이벤트 수신 설정***
 
-![이벤트 수신 설정](/img/set-event-receive.png)
+<ImgLang img='set-event-receive.png' desc='이벤트 수신 설정' />
 
 * ***발생 횟수***: 선택한 시간 동안 ***이벤트 발생 조건***에서 설정한 이벤트가 입력 횟수만큼 발생하면 경고 알림을 보냅니다.
 
@@ -111,7 +111,7 @@
 
 ### ***알림 규칙 테스트***
 
-![경고 알림 테스트](/img/set-event-test.png)
+<ImgLang img='set-event-test.png' desc='경고 알림 테스트' />
 
 선택한 시간 동안 설정한 이벤트 조건을 실행해 몇 번의 경고 알림이 발생했는지 확인할 수 있습니다. 실행 버튼을 선택하면 알림 발생 건수 정보를 알 수 있으며, 이벤트 발생 조건에서 선택한 필드와 임계치를 차트상에 표시합니다.
 
@@ -149,7 +149,7 @@
 
 이벤트 설정 창이 나타납니다. 
 
-![복합 메트릭스 이벤트 설정](/img/set-event-cmetric.png)
+<ImgLang img='set-event-cmetric.png' desc='복합 메트릭스 이벤트 설정' />
 
 :::note
 
@@ -169,11 +169,11 @@ import TabItem from '@theme/TabItem';
 
 시계열 차트를 구성하는 옵션을 통해 이벤트 설정 시 사용할 **MXQL**을 자동완성할 수 있습니다.
 
-![이벤트 데이터 조회](/img/set-event-data-view.png)
+<ImgLang img='set-event-data-view.png' desc='이벤트 데이터 조회' />
 
 * ***필터***: 이벤트 조건 대상을 선택합니다. ![지시선 1](/img/number-01.png) 연산식, ![지시선 2](/img/number-02.png) 태그, ![지시선 3](/img/number-03.png) 필터링값을 입력해 필터링 조건을 생성합니다.
 
-  ![필터](/img/set-event-cmetric-filter.png)
+  <ImgLang img='set-event-cmetric-filter.png' desc='필터' />
 
 * ***그룹화***: 그룹화된 메트릭스 데이터를 선택합니다. 다중 선택할 수 있습니다.
 
@@ -186,7 +186,7 @@ import TabItem from '@theme/TabItem';
 
 **MXQL**을 평문 그대로 수정할 수 있는 편집창이 나타납니다.
 
-![메트릭스 이벤트 - 텍스트](/img/set-event-metrics-text.png)
+<ImgLang img='set-event-metrics-text.png' desc='메트릭스 이벤트 - 텍스트' />
 
 </TabItem>
 </Tabs>
@@ -235,7 +235,7 @@ import TabItem from '@theme/TabItem';
 
 ### ***이벤트 규칙 테스트***
 
-![이벤트 규칙 테스트](/img/set-event-cmetric-test.png)
+<ImgLang img='set-event-cmetric-test.png' desc='이벤트 규칙 테스트' />
 
 선택한 시간 동안 설정한 이벤트 조건을 실행해 몇 번의 경고 알림이 발생했는지 확인할 수 있습니다. 실행 버튼을 선택하면 알림 발생 건수 정보를 알 수 있으며, 이벤트 발생 조건에서 선택한 필드와 임계치를 차트상에 표시합니다.
 
@@ -404,7 +404,7 @@ isNotEmpty(Key)
 
 <Xclude product='browser,npm'>
 
-![복합 메트릭스 - 템플릿](/img/set-event-cmetric-template.png)
+다음과 같이 경고 알림 템플릿을 제공합니다.
 
 * 여러 에이전트에서 수신된 데이터에 대해서 종합적 이벤트 판정해야할 때
 

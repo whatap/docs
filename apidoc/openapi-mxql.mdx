@@ -27,11 +27,25 @@ MXQL을 사용하는 방법은 다음과 같습니다.
 | 직접 MXQL 쿼리를 작성하는 경우 | [MXQL text API](#text-api) |
 | '**SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록**'을 사용하는 경우([다음 문서](../mxql/mxql-guide#custom-query-saas) 참조) | [MXQL path API](#path-api) |
 
-## MXQL Open API 제한사항
+
+## MXQL Open API 호출하기
+
+Open API 호출 시 헤더에 포함하는 내용은 다음과 같습니다.
+
+| 구분 | 키  | 설정 값 | 비고 |
+| ---- | --- | ------- | ---- |
+| 헤더 | x-whatap-token | API 토큰 `{{PROJECT API TOKEN}}` |프로젝트 API토큰: 프로젝트 선택 > ***관리*** > ***프로젝트 관리*** > ***API토큰***|
+| ^ | x-whatap-pcode | 프로젝트 코드 `{{projectCode}}` | 프로젝트 코드: 프로젝트 선택 > ***관리*** > ***프로젝트 관리*** > ***프로젝트 코드*** |
+
+:::caution
+
+**MXQL Open API 제한사항**
 
 한 번의 요청으로 조회할 수 있는 기간은 최대 31일입니다.
 
-## MXQL text API{#text-api}
+:::
+
+### MXQL text API{#text-api}
 
 다음 이미지는 MXQL 실행 결과 예시입니다.
 
@@ -39,9 +53,12 @@ MXQL을 사용하는 방법은 다음과 같습니다.
 
 <span class='apitype'>POST</span> https://api.whatap.io/open/api/flush/mxql/text
 
-
-```json title='RequestBody example'
-{
+```bash title='Request'
+curl --location 'https://api.whatap.io/open/api/flush/mxql/text' \
+-H 'x-whatap-token: {{PROJECT API TOKEN}}' \
+-H 'x-whatap-pcode: {{projectCode}}' \
+-H 'Content-Type: application/json' \
+-d '{
   "stime": 1639016640000,
   "etime": 1639016940000,
   "mql": "CATEGORY app_counter\nOID [ $oidFirst, $oidSecond ]\nTAGLOAD\nSELECT\nINJECT sortByOidDesc",
@@ -54,7 +71,7 @@ MXQL을 사용하는 방법은 다음과 같습니다.
     "$oidFirst": "1499132250",
     "$oidSecond": "1670734023"
   }
-}
+}'
 ```
 
 | Key | Value |
@@ -66,6 +83,12 @@ MXQL을 사용하는 방법은 다음과 같습니다.
 | pageKey | 문자열 `mxql` 고정값 |
 | inject | <span class='api'>Optional</span> [다음 문서](../mxql/mxql-calculate#inject) 참조<br/>예시, `{ "default": "ORDER {key : [oid],  sort : [desc] }"}` |
 | param | <span class='api'>Optional</span> [다음 문서](../mxql/mxql-guide#bind-parameter) 참조<br/> 예시 : `{ "$oidFirst": "520111224", "$oidSecond": "1031483086" }` |
+
+:::note
+
+요청 본문에 `stime`, `etime`, `$oidFirst`, `$oidSecond` 항목은 사용자 환경에 맞는 시간, oid 값으로 적용해야 합니다.
+
+:::
 
 * 조회된 데이터가 없는 경우
 
@@ -166,13 +189,17 @@ MXQL을 사용하는 방법은 다음과 같습니다.
   ]
   ```
 
-## MXQL path API{#path-api}
+### MXQL path API{#path-api}
 
 <span class='apitype'>POST</span> https://api.whatap.io/open/api/flush/mxql/path
 
-```json title='Request Body example'
+```bash title='Request'
 # INJECT로 _pk_ 컬럼 추가, param은 사용하지 않음
-{
+curl --location 'https://api.whatap.io/open/api/flush/mxql/path' \
+-H 'x-whatap-token: {{PROJECT API TOKEN}}' \
+-H 'x-whatap-pcode: {{projectCode}}' \
+-H 'Content-Type: application/json' \
+-d '{
   "stime": 1639016640000,
   "etime": 1639016940000,
   "mql": "/app/act_tx/agent_with_tx",
@@ -183,7 +210,7 @@ MXQL을 사용하는 방법은 다음과 같습니다.
   },
   "param": {
   }
-}
+}'
 ```
 
 | Key | Value |
@@ -194,7 +221,12 @@ MXQL을 사용하는 방법은 다음과 같습니다.
 | limit | 최대 데이터 조회 수 |
 | pageKey | 문자열 `mxql` 고정값 |
 | inject | <span class='api'>Optional</span> [다음 문서](../mxql/mxql-calculate#inject) 참조<br/>예시 : `{ "default": "ORDER {key : [oid],  sort : [desc] }" }` |
-| param | <span class='api'>Optional</span> [다음 문서](../mxql/mxql-guide#bind-parameter) 참조<br/> 예시 : `{ "$oidFirst": "520111224", "$oidSecond": "1031483086" }` |
+
+:::note
+
+요청 본문에 `stime`, `etime` 항목은 사용자 환경에 맞는 시간으로 적용해야 합니다.
+
+:::
 
 
 * 조회된 데이터가 없는 경우

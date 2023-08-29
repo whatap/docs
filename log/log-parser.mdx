@@ -12,29 +12,23 @@ tags: [ 로그, 로그 모니터링, 설정하기, 로그 파서, 로그 파싱 
 
 * **JSON 파서**: JSON 형태로 수집되는 로그를 파싱합니다.
 
-:::caution
+:::note
 
-**로그 파싱 시 주의사항**
+**공통 주의사항**
 
 * 같은 카테고리에 여러 개의 파서가 등록되어 있는 경우 첫 번째로 매칭되는 파서만 적용됩니다.
-
-* `%{SYNTAX:SEMANTIC}` 패턴 사용 시 `SEMANTIC`을 반드시 입력해야합니다.
-
-* `%{SYNTAX:SEMANTIC}` 패턴 사용 시 `SEMANTIC`은 하나의 파서 안에서 unique 해야합니다.
-
-* `(?<SEMANTIC>REGX)` 패턴 사용 시 `SEMANTIC`은 문자(a-z, A-Z)와 숫자(0-9) 그리고 지정된 특수문자(`.`, `_`, `-`)만 올 수 있습니다.
-
-* `SEMANTIC`은 문자(a-z, A-Z)로 시작해야 합니다.
-
-* `SEMANTIC`은 문자(a-z, A-Z) 또는 숫자(0-9)로 끝나야 합니다.
 
 * **와탭은 와탭 서비스의 안정성에 영향을 줄 수 있는 파서를 비활성화할 수 있는 권한을 가집니다.**
 
 :::
 
-## GROK 파서
+## GROK 파서{#grok-parser-detail}
 
-로그가 불규칙한 형태로 수집되는 경우 GROK 파서를 사용해 로그를 파싱할 수 있습니다. GROK 문법은 named regular expressions을 제공해 정규 표현식을 보다 쉽고 편리하게 사용할 수 있는 문법을 제공합니다.
+로그가 불규칙한 형태로 수집되는 경우 GROK 파서를 사용해 로그를 파싱할 수 있습니다. GROK 문법은 named regular expressions을 제공해 정규 표현식을 보다 쉽고 편리하게 사용할 수 있는 문법을 제공합니다. 
+
+GROK 파서 패턴 등록에 관해 다음 동영상 가이드를 참조하세요.
+
+{@youtube: skgg5KOFGpI}
 
 ### GROK 시작하기
 
@@ -134,7 +128,7 @@ semantic한 단어 모두 정규 표현식으로 대체할 수 있습니다. GRO
 
 #### `(?<SEMANTIC>REGX)` 활용 예시{#semantic-regx}
 
-위의 [샘플 로그](#syntax-semantic-usage)에서 `%{SYNTAX:SEMANTIC}` 문법만으로 파싱되지 않는 영역이 있습니다. 
+named regular expressions로 매칭되지 않는 부분은 `(?<SEMANTIC>REGX)` 패턴을 사용해서 파싱할 수 있습니다. 위의 [샘플 로그](#syntax-semantic-usage)에서 `%{SYNTAX:SEMANTIC}` 문법만으로 파싱되지 않는 영역은 다음과 같습니다.
 
 ```javascript title='미파싱 영역'
 
@@ -254,6 +248,28 @@ projectCode logCategiry dexBuildStartTime {area=areaEnum, city=cityEnum} dexBuil
 
 :::
 
+:::note
+
+**GROK 파서 주의사항**
+
+* GROK 파서는 두 가지 패턴을 지원합니다.
+
+  * `%{SYNTAX:SEMANTIC}`
+
+  * `%{SYNTAX:SEMANTIC}`
+
+* `%{SYNTAX:SEMANTIC}` 패턴 사용 시 `SEMANTIC`을 반드시 입력해야합니다.
+
+* `%{SYNTAX:SEMANTIC}` 패턴 사용 시 `SEMANTIC`은 하나의 파서 안에서 unique 해야합니다.
+
+* `(?<SEMANTIC>REGX)` 패턴 사용 시 `SEMANTIC`은 문자(a-z, A-Z)와 숫자(0-9) 그리고 지정된 특수문자(`.`, `_`, `-`)만 올 수 있습니다.
+
+* `SEMANTIC`은 문자(a-z, A-Z)로 시작해야 합니다.
+
+* `SEMANTIC`은 문자(a-z, A-Z) 또는 숫자(0-9)로 끝나야 합니다.
+
+:::
+
 ### 시뮬레이션{#grok-simulation}
 
 ***파서 시뮬레이션*** 창에서 ***로그***와 ***패턴***을 입력해 파싱 결과를 미리 확인할 수 있습니다.
@@ -269,7 +285,8 @@ projectCode logCategiry dexBuildStartTime {area=areaEnum, city=cityEnum} dexBuil
 
   <ImgLang img='log-grok-parser-simulation.png' desc='GROK 파서 시뮬레이션'/>
 
-## JSON 파서
+
+## JSON 파서{#json-parser-detail}
 
 로그가 JSON 포맷으로 수집될 경우 JSON 파서를 사용해 쉽고 편리하게 파싱할 수 있습니다.
 
@@ -325,7 +342,7 @@ projectCode logCategiry dexBuildStartTime {area=areaEnum, city=cityEnum} dexBuil
 
 * 로그 파서 목록에서 해당 파서의 ***적용 순서***를 변경하거나 ***활성화*** 및 ***수정***, ***삭제***할 수 있습니다. 
 
-* 파서를 등록하기 전에 ***시뮬레이션***을 통해 등록하려는 패턴이 정상적인지 확인할 수 있습니다. GROK 시뮬레이션 과정과 동일합니다. [다음 문서](#grok-simulation)를 참조하세요.
+* 파서를 등록하기 전에 ***시뮬레이션***을 통해 등록하려는 패턴이 정상적인지 확인할 수 있습니다. GROK 파서 등록 시뮬레이션 과정과 동일합니다. [다음 문서](#grok-simulation)를 참조하세요.
 
 :::
 

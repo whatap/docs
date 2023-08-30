@@ -18,7 +18,7 @@
 
 <Xclude product='postgresql,mysql'>
 
-![로그 검색 sc](/img/log-search.png)
+<ImgLang img='log-search.png' desc='로그 검색 sc' />
 
 </Xclude>
 
@@ -40,7 +40,7 @@
 
 {@include: ../common-items/_log-ui-log-content.mdx}
 
-* ![number-s](/img/number-03.png) 로그 테이블의 행(로그)마다 ![아이콘](/img/ic-caret-right.svg)***더보기*** 버튼이 있습니다. ![아이콘](/img/ic-caret-right.svg)***더보기*** 버튼을 선택하면 ![number-s](/img/number-04.png)처럼 해당 로그의 전체 content를 확인할 수 있습니다.
+* ![number-s](/img/number-03.png) 로그 테이블의 행(로그)마다 ![아이콘](/img/ic-caret-right.svg)***더보기*** 버튼이 있습니다. ![아이콘](/img/ic-caret-right.svg)***더보기*** 버튼을 선택하면 ![number-s](/img/number-04.png)처럼 해당 로그의 전체 Content를 확인할 수 있습니다.
 
 * 로그의 태그를 선택하면 ***복사***, ***검색***, ***제외 검색***, ***인접 로그 검색***을 할 수 있는 드롭다운 메뉴가 나타납니다.
 
@@ -50,13 +50,17 @@
 
 ![number-s](/img/number-01.png) 왼쪽 ***시간 선택창***에서 시간 범위를 지정할 수 있습니다. 오른쪽에서 {@include: ../common-items/_log-filter-apply.mdx} 
 
+:::note
+
+**필터 수식**
+
+입력된 필터 값 아래에 있는 수식(expression)은 로그 데이터 조회 시 적용될 필터 수식 미리 보기입니다. 
+
+:::
+
 #### 필터 수정
 
 {@include: ../common-items/_log-filter-modify.mdx}
-
-#### 필터 수식
-
-{@include: ../common-items/_log-filter-expression.mdx}
 
 #### 검색 키(Search Key)
 

@@ -24,7 +24,7 @@ tags: [ 로그, 로그 모니터링, 설정하기, 로그 파서, 로그 파싱 
 
 ## GROK 파서{#grok-parser-detail}
 
-로그가 불규칙한 형태로 수집되는 경우 GROK 파서를 사용해 로그를 파싱할 수 있습니다. GROK 문법은 named regular expressions을 제공해 정규 표현식을 보다 쉽고 편리하게 사용할 수 있는 문법을 제공합니다. 
+로그가 불규칙한 형태로 수집되는 경우 GROK 파서를 사용해 로그를 파싱할 수 있습니다. GROK 문법은 named regular expressions를 제공해 정규 표현식을 보다 쉽고 편리하게 사용할 수 있습니다. 
 
 GROK 파서 패턴 등록에 관해 다음 동영상 가이드를 참조하세요.
 
@@ -252,11 +252,7 @@ projectCode logCategiry dexBuildStartTime {area=areaEnum, city=cityEnum} dexBuil
 
 **GROK 파서 주의사항**
 
-* GROK 파서는 두 가지 패턴을 지원합니다.
-
-  * `%{SYNTAX:SEMANTIC}`
-
-  * `%{SYNTAX:SEMANTIC}`
+* GROK 파서는 `%{SYNTAX:SEMANTIC}`, `%{SYNTAX:SEMANTIC}` 두 가지 패턴을 지원합니다.
 
 * `%{SYNTAX:SEMANTIC}` 패턴 사용 시 `SEMANTIC`을 반드시 입력해야합니다.
 

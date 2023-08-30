@@ -50,7 +50,7 @@ FILTER { key : tx_count, value : 5}
 
 홈 화면 > 프로젝트 선택 > ***사이트맵*** > ***실험실*** > ***MXQL 데이터 조회*** 메뉴에서 MXQL 쿼리를 테스트할 수 있습니다.
 
-![MXQL 데이터 조회](https://img.whatap.io/media/images/mxql-7.png)
+<ImgLang img='mxql-7.png' desc='MXQL 데이터 조회' />
 
 :::note
 
@@ -84,7 +84,7 @@ FILTER {expr : "tx_error < 3"}        -- 데이터 10개 중 3개만 통과
 
 다음은 메트릭스 가공 단계를 모두 통과한 메트릭스 예시입니다.
 
-![예시](https://img.whatap.io/media/images/mxql_metrics_calculate_example.png)
+<ImgLang img='mxql_metrics_calculate_example.png' desc='예시' />
 
 ## 주석
 
@@ -163,7 +163,7 @@ UPDATE { key:[apdex_satisfied, apdex_tolerated, apdex_total], value:sum }
 
 * 수집서버에 데이터를 저장할 때부터 모든 필드에는 MetricValue 형식으로 저장된 카테고리가 있습니다. ***사이트맵*** > ***분석*** > ***메트릭스 조회*** > ***카테고리*** 옵션에는 ***기본***, ***5분***, ***1시간*** 단위로 선택할 수 있는 카테고리를 확인할 수 있습니다. 여기서 ***5분*** 또는 ***1시간***을 선택할 수 있는 카테고리가 MetricValue 형식으로 저장된 카테고리입니다.
 
-  ![MetricValue 형식으로 설정할 수 있는 카테고리 목록](https://img.whatap.io/media/images/mxql-3.png)
+  <ImgLang img='mxql-3.png' desc='MetricValue 형식으로 설정할 수 있는 카테고리 목록' />
 
   ***5분*** 또는 ***1시간***을 선택할 수 있는 카테고리의 이름에 `{m5}` 또는 `{h1}`을 조합하면 `GROUP` 명령어의 merge 옵션을 적용하지 않고 바로 `UPDATE` 명령어의 `sum` 옵션을 적용할 수 있습니다. 
 
@@ -256,7 +256,7 @@ SKIP {$option:10}
 
 쿼리에서 바인드 변수를 사용했으면 MXQL을 실행할 때 입력할 값을 전달해야 합니다.
 
-![바인드 변수 설정 예시](https://img.whatap.io/media/images/mxql-1.png)
+<ImgLang img='mxql-1.png' desc='바인드 변수 설정 예시' />
 
 :::note
 

@@ -265,3 +265,42 @@ $ curl -L -w "\n" -H "x-whatap-token: {{ACCOUNT API TOKEN}}" "https://api.whatap
 | productType     | <span class='api'>string</span> | 프로젝트에 사용된 상품 |
 | platform        | <span class='api'>string</span> | 프로젝트에 사용된 상품의 플랫폼 |
 | gatewayName     | <span class='api'>string</span> | 데이터 서버 지역 |
+
+
+## oid 목록 호출
+
+사용자가 조회를 원하는 시간 동안 활성화된 에이전트 정보를 조회할 수 있습니다.
+
+<span class='apitype'>POST</span> https://api.whatap.io/open/api/v2/agent/list
+
+```bash title='request'
+curl --location 'https://api.whatap.io/open/api/v2/agent/list' -H 'x-whatap-token: {{PROJECT API TOKEN}}
+' -H 'x-whatap-pcode: {{projectCode}}' -d '{"stime":1690850183000,"etime":1693321200000}'
+```
+
+```json title='response'
+{
+    "stime": 1690850183000,
+    "etime": 1693321200000,
+    "timestamp": 1693388196965,
+    "data": [
+        {
+            "oid": 757639646,
+            "oname": "DBX-0-107-3306",
+            "alias": "",
+            "initial": "",
+            "otype": "database",
+            "subtype": "0",
+            "active": false,
+            "okind": 0,
+            "okindName": "",
+            "onode": 0,
+            "onodeName": "",
+            "ip": "",
+            "agent.version": "",
+            "cpuCores": 0
+        },
+      ...
+    ]
+}
+```

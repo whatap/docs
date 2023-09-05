@@ -52,6 +52,18 @@ trace_sql_error_stack=trace_exception_stack
 trace_sql_error_depth=trace_exception_depth
 ```
 
+### HTTP Call
+
+```ini title='whatap.conf'
+# http call 에러 스택 표시 여부
+# trace_exception_stack 값을 따라가며 별도로 true/false 값으로 기능을 켜거나 끌 수 있습니다.
+trace_httpc_error_stack=trace_exception_stack
+
+# http call 에러 스택 길이
+# trace_exception_depth 값을 따라가며 별도로 설정할 수 있습니다.
+trace_httpc_error_depth=trace_exception_depth
+```
+
 ### SOCKET
 
 ```ini title='whatap.conf'
@@ -61,7 +73,7 @@ trace_socket_error_stack=trace_exception_stack
 
 # socket 에러 스택 길이
 # trace_exception_depth 값을 따라가며 별도로 설정할 수 있습니다.
-trace_httpc_error_depth=trace_exception_depth
+trace_socket_error_depth=trace_exception_depth
 ```
 
 ### 트랜잭션

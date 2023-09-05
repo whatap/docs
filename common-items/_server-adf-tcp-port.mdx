@@ -13,24 +13,24 @@
     <Tabs>
     <TabItem value="lxst" label="Linux Shell">
 
-        ```bash title=SH
-        #아래 변수에 모니터링 대상 아이피를 지정합니다.
-        export TARGET_IP=127.0.0.1
-        #아래 변수에 모니터링 대상 포트를 지정합니다.
-        export TARGET_PORT=80
-        echo "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT" |sudo tee -a /usr/whatap/infra/conf/whatap.conf
-        ```
+    ```bash title=SH
+    #아래 변수에 모니터링 대상 아이피를 지정합니다.
+    export TARGET_IP=127.0.0.1
+    #아래 변수에 모니터링 대상 포트를 지정합니다.
+    export TARGET_PORT=80
+    echo "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT" |sudo tee -a /usr/whatap/infra/conf/whatap.conf
+    ```
 
     </TabItem>
     <TabItem value="wpst" label="Windows Powershell">
 
-        ```bash title=SH
-        #아래 변수에 모니터링 대상 아이피를 지정합니다.
-        $TARGET_IP="127.0.0.1"
-        #아래 변수에 모니터링 대상 포트를 지정합니다.
-        $TARGET_PORT="80"
-        Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT"
-        ```
+    ```bash title=SH
+    #아래 변수에 모니터링 대상 아이피를 지정합니다.
+    $TARGET_IP="127.0.0.1"
+    #아래 변수에 모니터링 대상 포트를 지정합니다.
+    $TARGET_PORT="80"
+    Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT"
+    ```
     
     </TabItem>
     </Tabs>

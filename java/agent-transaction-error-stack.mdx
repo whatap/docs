@@ -1,0 +1,89 @@
+---
+id: agent-transaction-error-stack
+title: 트랜잭션 에러 스택
+description: 에이전트 설정을 통해 트랜잭션 에러를 감지하고 에러 스택을 표시할 수 있는 옵션을 안내합니다.
+tags: [ Java, 에이전트 설정, 트랜잭션, 에러 스택 ]
+---
+
+에이전트 설정을 통해 트랜잭션 에러를 감지하고 에러 스택을 표시할 수 있는 옵션을 안내합니다. 에이전트 설정에 따라 에러를 트랜잭션, 메소드, SQL 호출, HTTP 호출, SOCKET 호출에서 표시할 수 있습니다. 호출 서비스의 `status_code`와는 무관하며, 여러 개의 에러 발생 시 에러 스택은 첫번째 에러 스택만 표시합니다.
+
+:::note
+
+이 문서에서 안내하는 에이전트 설정은 **Java 에이전트 2.2.15** 버전 이상에서 지원합니다.
+
+:::
+
+## 에이전트 설정
+
+### 전체 설정
+
+```ini title='whatap.conf'
+# 에러 스택 표시 여부
+trace_exception_stack=false
+
+# 에러 스택 길이의 기본값
+trace_exception_depth=50
+
+# 에러 스택 메시지 제목의 길이
+trace_exception_title_len=128
+```
+
+### 메소드
+
+```ini title='whatap.conf'
+# 메소드 에러 스택 표시 여부
+# trace_exception_stack 값을 따라가며 별도로 true/false 값으로 기능을 켜거나 끌 수 있습니다.
+trace_method_error_stack=trace_exception_stack
+
+# 메소드 에러 스택 길이
+# trace_exception_depth 값을 따라가며 별도로 설정할 수 있습니다.
+trace_method_error_depth=trace_exception_depth
+```
+
+### SQL
+
+```ini title='whatap.conf'
+# SQL 에러 스택 표시 여부
+# trace_exception_stack 값을 따라가며 별도로 true/false 값으로 기능을 켜거나 끌 수 있습니다.
+trace_sql_error_stack=trace_exception_stack
+
+# sql 에러 스택 길이
+# trace_exception_depth 값을 따라가며 별도로 설정할 수 있습니다.
+trace_sql_error_depth=trace_exception_depth
+```
+
+### HTTP Call
+
+```ini title='whatap.conf'
+# http call 에러 스택 표시 여부
+# trace_exception_stack 값을 따라가며 별도로 true/false 값으로 기능을 켜거나 끌 수 있습니다.
+trace_httpc_error_stack=trace_exception_stack
+
+# http call 에러 스택 길이
+# trace_exception_depth 값을 따라가며 별도로 설정할 수 있습니다.
+trace_httpc_error_depth=trace_exception_depth
+```
+
+### SOCKET
+
+```ini title='whatap.conf'
+# socket 에러 스택 표시 여부
+# trace_exception_stack 값을 따라가며 별도로 true/false 값으로 기능을 켜거나 끌 수 있습니다.
+trace_socket_error_stack=trace_exception_stack
+
+# socket 에러 스택 길이
+# trace_exception_depth 값을 따라가며 별도로 설정할 수 있습니다.
+trace_socket_error_depth=trace_exception_depth
+```
+
+### 트랜잭션
+
+```ini title='whatap.conf'
+# 트랜잭션 에러 스택 표시 여부
+# trace_exception_stack 값을 따라가며 별도로 true/false값으로 기능을 켜거나 끌 수 있습니다.
+trace_endtx_error_stack=trace_exception_stack
+
+# 트랜잭션 에러 스택 길이
+# trace_exception_depth 값을 따라가며 별도로 설정할 수 있습니다.
+trace_endtx_error_depth=trace_exception_depth
+```

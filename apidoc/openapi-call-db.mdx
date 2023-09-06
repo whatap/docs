@@ -9,9 +9,15 @@ tags: [ Open API, Database ]
 
 :::note
 
-이 문서에서 작성된 샘플 코드 중 `stime`, `etime`, `oid` 등 파라미터 값은 사용자 환경에 맞게 변경해 이용하세요.
+* 이 문서에서 작성된 샘플 코드 중 `stime`, `etime`, `oid` 등 파라미터 값은 사용자 환경에 맞게 변경해 이용하세요. 파라미터 값은 다양한 포맷으로 요청할 수 있습니다.
 
-<!--* 조회 시간(`stime`, `etime`)은 한 시간 이내로 제한하며, ms(millisecond) 단위 입니다.-->
+  * 1693475430087 (unix timestamp)
+  * `yyyyMMddHHmmss`
+  * `yyyyMMddHHmm`
+  * `MMddHHmmss`
+  * `MMddHHmm`
+
+* 조회 시간(`stime`, `etime`)은 하루로 제한하며, ms(millisecond) 단위 입니다.
 
 :::
 

@@ -46,7 +46,7 @@
 
 ## 필터
 
-#### 필터 적용
+### 필터 적용
 
 ![number-s](/img/number-01.png) 왼쪽 ***시간 선택창***에서 시간 범위를 지정할 수 있습니다. 오른쪽에서 {@include: ../common-items/_log-filter-apply.mdx} 
 
@@ -58,11 +58,11 @@
 
 :::
 
-#### 필터 수정
+### 필터 수정
 
 {@include: ../common-items/_log-filter-modify.mdx}
 
-#### 검색 키(Search Key)
+### 검색 키(Search Key)
 
 왼쪽 ![number-s](/img/number-02.png) 영역에 있는 태그는 카테고리별로 파싱(parsing) 된 검색 키입니다. 태그를 선택하여 필터를 입력할 수 있습니다. <span class='logwr'>주황색</span> 태그는 카테고리, <span class='lowfg'>파란색</span> 태그는 검색 키입니다.
 
@@ -78,10 +78,34 @@
 
 </InDoc>
 
-#### 필터 입력 문법
+### 필터 입력 문법{#filter-expressions}
 
-{@include: ../common-items/_log-filter-rule.mdx} 
- 
+{@include: ../common-items/_log-filter-expressions.mdx} 
+
+## 로그 태그 옵션
+
+로그 태그 선택 시 다음과 같이 드롭다운 메뉴가 나타납니다. ***검색***, ***제외 검색***, ***인접 로그*** 옵션을 확인할 수 있습니다.
+
+<ImgLang img='log-search-tag.png' desc='로그 태그 드롭다운 메뉴'/>
+
+* **검색**
+
+  ***검색*** 옵션을 선택하면 ***필터***에 해당 태그가 다음과 같이 포함('+') 조건으로 입력됩니다.
+
+  <ImgLang img='log-search-tag-se.png' desc='로그 태그 검색'/>
+
+* **제외 검색**
+
+  ***제외 검색*** 옵션을 선택하면 ***필터***에 해당 태그가 다음과 같이 제외('-') 조건으로 입력됩니다.
+
+  <ImgLang img='log-search-tag-ese.png' desc='로그 태그 제외 검색'/>
+
+* **인접 로그**
+
+  ***인접 로그*** 옵션을 선택하면 ***인접 로그*** 상세 창이 나타납니다. 선택한 로그의 서버를 대상으로 선택한 로그와 인접한 시간대의 로그를 조회합니다. ***시간 선택*** 버튼을 클릭해 인접한 시간대의 로그를 조회할 수 있습니다. 기준 로그는 파란색 바탕으로 표시됩니다.
+
+  <ImgLang img='log-search-adjacent-log.png' desc='로그 태그 인접 로그'/>
+
 ## 하이라이트
 
 {@include: ../common-items/_log-highlight.mdx}

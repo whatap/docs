@@ -20,7 +20,7 @@
 
 ## ![](/img/number-01.png) 필터 영역 
 
-#### 필터 적용
+### 필터 적용
 
 {@include: ../common-items/_log-filter-apply.mdx}
 
@@ -32,23 +32,23 @@
 
 :::
 
-#### 필터 수정
+### 필터 수정
 
 {@include: ../common-items/_log-filter-modify.mdx}
 
-#### 검색 키(Search Key)
+### 검색 키(Search Key)
 
 다음 이미지에서 파란색 박스 부분은 파싱(parsing)된 검색 키입니다. 검색 키는 ***로그 설정***의 ***로그 파서 설정***탭에서 파싱 로직을 등록해 설정할 수 있습니다.
 
 ![검색 키](https://img.whatap.io/media/images/livetail_007_parsed_key.png)
 
-#### 필터 입력 문법
+### 필터 입력 문법{#filter-expressions}
 
-{@include: ../common-items/_log-filter-rule.mdx} 
+{@include: ../common-items/_log-filter-expressions.mdx}
 
 ## ![](/img/number-02.png) 콘텐츠 필터 영역
 
-#### Content 필터  
+### Content 필터  
 
 로그의 콘텐츠 중 해당 키워드를 포함한 로그만 필터링 합니다. 
 
@@ -60,7 +60,7 @@
 
 * 단일 또는 복수 키워드로 필터를 걸 수 있습니다.
 
-#### Content 필터 조건
+### Content 필터 조건
 
 복수 키워드로 필터를 할 경우 다음과 같이 작성합니다.
 
@@ -70,7 +70,7 @@
 |`"Whatap is good."`|띄어쓰기를 키워드에 포함하고 싶은 경우 `''` 또는 `""`로 감쌉니다.|Whatap is good.|
 |`"Whatap\\ is good."`|""로 감싸진 키워드에서 `\`를 포함할 경우, `\\`로 입력해야합니다.|Whatap\ is good.|
 
-#### 하이라이트
+### 하이라이트
 
 원하는 키워드를 손쉽게 식별하기 위해서 하이라이트 기능을 제공합니다.
 
@@ -84,7 +84,7 @@
 
 * 설정한 내용은 **프로젝트 단위**로 저장됩니다.  
 
-#### 테이블 설정
+### 테이블 설정
 
 * ![number-s](/img/number-02.png) 영역 오른쪽 {@include: ../common-items/_log-ui-table-setting.mdx}
 

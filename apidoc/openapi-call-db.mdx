@@ -7,20 +7,6 @@ tags: [ Open API, Database ]
 
 데이터베이스 모니터링 프로젝트의 에이전트 정보 및 파라미터 변동 사항, 통계 정보를 조회를 위한 API를 제공합니다.
 
-:::note
-
-* 이 문서에서 작성된 샘플 코드 중 `stime`, `etime`, `oid` 등 파라미터 값은 사용자 환경에 맞게 변경해 이용하세요. 파라미터 값은 다양한 포맷으로 요청할 수 있습니다.
-
-  * 1693475430087 (unix timestamp)
-  * `yyyyMMddHHmmss`
-  * `yyyyMMddHHmm`
-  * `MMddHHmmss`
-  * `MMddHHmm`
-
-* 조회 시간(`stime`, `etime`)은 하루로 제한하며, ms(millisecond) 단위 입니다.
-
-:::
-
 ## 데이터베이스 파라미터 조회
 
 데이버베이스의 파라미터의 변경 사항을 조회할 수 있습니다.
@@ -34,8 +20,8 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 | Request Field  |           Field Type            | Description                |
 | -------------- | :-----------------------------: | -------------------------- |
 | `oid`            | <span class='api'>number</span> · <span class='require'>필수</span> | 에이전트 ID                |
-| `baseTime`       | <span class='api'>number</span> · <span class='require'>필수</span> | 기준 시간, `yyyyMMdd` 형식 |
-| `comparisontime` | <span class='api'>number</span> · <span class='require'>필수</span> | 비교 시간, `yyyyMMdd` 형식 |
+| `baseTime`       | <span class='api'>string</span> · <span class='require'>필수</span> | 기준 시간, `yyyyMMdd` 형식 |
+| `comparisontime` | <span class='api'>string</span> · <span class='require'>필수</span> | 비교 시간, `yyyyMMdd` 형식 |
 
 ```json title='response'
 {

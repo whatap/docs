@@ -5,6 +5,45 @@ toc_max_heading_level: 2
 pagination_next: release-notes/service/service-1_106_x
 ---
 
+## Service 1.108.14
+
+2023년 9월 7일
+
+<div class='indentTab'>
+
+### `공통`
+
+* <Status>Feature</Status> <UI>인터벌</UI> 선택 옵션에서 <UI>기본</UI> 항목을 선택한 경우 기본 인터벌 값을 표시하는 기능 추가
+
+  <div class='.release-compare'>
+
+  | 변경 전 | 변경 후 |
+  | :-: | :-: |
+  | ![](/img/release/interval-option-before.png) | ![](/img/release/interval-option-after.png) |
+
+  </div>
+
+* <Status>Changed</Status> <UI>시간</UI> 조회 구간이 변경될 때 <UI>인터벌</UI> 선택 옵션에서 <UI>기본</UI> 항목을 선택하도록 로직 수정
+
+  조회 구간을 변경할 때 ***인터벌*** 옵션이 ***기본*** 항목이 선택되는 경우는 다음과 같습니다.
+
+  - ***인터벌*** 옵션에서 이전 선택 항목이 ***기본***인 경우
+
+  - ***인터벌*** 옵션에서 이전 선택 항목이 ***기본***이 아니면서 변경된 ***인터벌*** 옵션 목록에 없는 경우
+
+  - ***인터벌*** 옵션에서 이전 선택 항목이 ***기본***이 아니면서 선택한 ***인터벌*** 옵션 값이 조회 기간의 절반 이하인 경우
+
+* <Status>Fixed</Status> 일부 상황에서 <UI>컬럼 설정</UI> 팝업의 <UI>확인</UI> 버튼을 눌렀을 때 불명의 오류 메시지를 표시하며 작동하지 않는 오류 수정
+
+---
+
+### `Application`
+
+<p><Status>Changed</Status> 자바 프로젝트의 <UI>관리</UI> > <UI>에이전트 설정</UI> 메뉴에서 <code>biz_exceptions</code>와 <code>ignore_exceptions</code> 옵션의 카테고리를 <UI>알림 옵션</UI> > <UI>HTTP outbound 호출</UI>에서 <UI>Exception</UI> 하위로 변경</p>
+
+</div>
+
+
 ## Service 1.108.13
 
 2023년 9월 4일

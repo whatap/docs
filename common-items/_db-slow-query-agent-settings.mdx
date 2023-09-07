@@ -20,11 +20,13 @@ log_output=FILE # 또는 TABLE
 
 :::note
 
-* DB 서버에 `log_output=FILE`로 설정했다면 xos 설치가 필요합니다. 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
+* DB 서버에 `log_output=FILE` 옵션을 설정했다면 xos 설치가 필요합니다. 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
 
-* RDS는 xos를 설치하는 대신 CloudWatch 사용을 위한 설정이 필요합니다. 자세한 내용은 [다음 문서](agent-dbx-settings#using-aws-rds)를 참조하세요.
+* AWS RDS를 사용하고 `log_output=FILE` 옵션을 설정한 사용자는 xos를 설치하는 대신 CloudWatch 사용을 위한 설정이 필요합니다. 자세한 내용은 [다음 문서](agent-dbx-settings#using-aws-rds)를 참조하세요.
 
-* `log_output=TABLE`로 설정했다면 `mysql.slow_log`에 대해 권한과 용량 관리가 필요합니다. 다음 명령문을 실행하세요.
+* 다른 클라우드를 사용하는 사용자의 경우 ***슬로우 쿼리*** 메뉴를 이용하려면 `log_output=TABLE` 옵션을 설정하세요. 단, 슬로우 쿼리가 많이 발생하는 환경이라면 mysql.slow_log 조회 시 DB 성능이 저하될 수 있어 주의가 필요합니다.
+
+* `log_output=TABLE` 옵션을 설정했다면 모니터링 계정에 조회 권한을 부여해야 합니다. 다음 명령을 실행하세요.
 
   ```bash
   grant select on mysql.slow_log to whatap;

@@ -35,11 +35,21 @@ pagination_next: release-notes/service/service-1_106_x
 
 * <Status>Fixed</Status> 일부 상황에서 <UI>컬럼 설정</UI> 팝업의 <UI>확인</UI> 버튼을 눌렀을 때 불명의 오류 메시지를 표시하며 작동하지 않는 오류 수정
 
+* <Status>Fixed</Status> 초기 화면 <UI>프로젝트 목록</UI>의 카드 뷰 화면에서 <UI>애플리케이션</UI> 항목의 카운트가 0으로 출력되는 버그 수정
+
 ---
 
 ### `Application`
 
-<p><Status>Changed</Status> 자바 프로젝트의 <UI>관리</UI> > <UI>에이전트 설정</UI> 메뉴에서 <code>biz_exceptions</code>와 <code>ignore_exceptions</code> 옵션의 카테고리를 <UI>알림 옵션</UI> > <UI>HTTP outbound 호출</UI>에서 <UI>Exception</UI> 하위로 변경</p>
+- <Status>Changed</Status> 자바 프로젝트의 <UI>관리</UI> > <UI>에이전트 설정</UI> 메뉴에서 <code>biz_exceptions</code>와 <code>ignore_exceptions</code> 옵션의 카테고리를 <UI>알림 옵션</UI> > <UI>HTTP outbound 호출</UI>에서 <UI>Exception</UI> 하위로 변경
+
+- <Status>Fixed</Status> <UI>트레이스 분석</UI> 창의 <UI>트랜잭션 로그</UI> 탭에서 로그 조회 비밀번호가 설정된 경우 레이아웃이 깨지는 현상 수정
+
+---
+
+### `Server`
+
+<p><Status>Fixed</Status> <UI>서버 목록</UI> > <UI>서버 목록</UI> 메뉴에서 서버별 상태가 변경됐을 때 테이블 행의 색상이 변경되지 않는 버그 수정</p>
 
 ---
 

@@ -161,3 +161,69 @@
   수집이 안 된 트랜잭션의 경우 TPS, 평균 응답시간, Apdex 지표에는 정상적으로 반영되지만, 그 외 통계 데이터에는 반영되지 않습니다.
   
   :::
+
+* **whatap.split_profile_enabled** <span class='type'>Boolean</span>
+    
+  기본값 `false`
+  
+  정량의 프로파일을 압축 및 분할 전송하여 메모리 증가 없이 더 많은 프로파일 정보를 수집할 수 있습니다.
+
+  :::note
+
+  동시에 설정된 경우 우선 순위는 다음과 같습니다. 
+
+  1. split
+
+  1. large
+
+  1. circular
+
+  :::
+
+* **whatap.large_profile_enabled** <span class='type'>Boolean</span>
+    
+  기본값 `false`
+  
+  일정량의 프로파일을 압축 및 분할 전송해 메모리 증가 없이 더 많은 프로파일 정보를 수집할 수 있습니다.
+
+  :::note
+
+  동시에 설정된 경우 우선 순위는 다음과 같습니다. 
+
+  1. split
+
+  1. large
+
+  1. circular
+
+  :::
+
+  :::note
+
+  약 만 건 이하의 프로파일 정보(스탭 정보) 수집이 가능합니다. 더 많은 양은 `whatap.split_profile_enabled` 옵션을 사용하는 것을 권장합니다.  
+
+  :::
+
+* **whatap.circular_profile_enabled** <span class='type'>Boolean</span>
+    
+  기본값 `false`
+  
+  마지막 1024개의 프로파일링 정보를 수집합니다. 
+
+  :::note
+
+  동시에 설정된 경우 우선 순위는 다음과 같습니다. 
+
+  1. split
+
+  1. large
+
+  1. circular
+
+  :::
+
+* **whatap.profile_zip_enabled** <span class='type'>Boolean</span>
+    
+  기본값 `true`
+  
+  프로파일 정보를 압축 전송합니다. 기본값은 `true`로 설정되어 있습니다. 

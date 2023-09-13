@@ -13,7 +13,7 @@ tags: [ Go, 트랜잭션 ]
 
 :::
 
-## 트랜잭션 트레이싱
+## 트랜잭션 트레이싱{#trs-trc}
 
 * **profile_step_normal_count** <span class='type'>Int</span>
 
@@ -55,14 +55,76 @@ tags: [ Go, 트랜잭션 ]
 
   기본값 `false`
 
-  트랜잭션 URL의 쿼리 스트링을 함께 수집하는 기능을 활성화합니다. `whatap.query_string_urls`에 등록된 URL만 적용됩니다.
+  트랜잭션 URL의 쿼리 스트링을 함께 수집하는 기능을 활성화합니다. `query_string_urls`에 등록된 URL만 적용됩니다.
 
 * **query_string_urls** <span class='type'>String</span>
 
   트랜잭션에서 쿼리 스트링을 수집할 URL들을 등록합니다.
 
+* **split_profile_enabled** <span class='type'>Boolean</span>
 
-## HTTP 트랜잭션 추적
+  기본값 `false`
+  
+  일정량의 프로파일을 가상 트랜잭션으로 분리해 더 많은 프로파일 정보를 수집합니다. 여러 개의 트랜잭션 목록으로 분할 표기됩니다.
+
+  :::note
+
+  동시에 설정된 경우 우선 순위는 다음과 같습니다. 
+
+  1. split
+
+  1. large
+
+  1. circular
+
+  :::
+
+* **large_profile_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+  
+  일정량의 프로파일을 압축 및 분할 전송해 메모리 증가 없이 더 많은 프로파일 정보를 수집할 수 있습니다.
+
+  :::note
+
+  * 약 만 건 이하의 프로파일(스탭) 정보를 수집할 수 있습니다. 더 많은 양은 `split_profile_enabled` 옵션 사용을 권장합니다.
+
+  * 동시에 설정된 경우 우선 순위는 다음과 같습니다. 
+
+    1. split
+
+    1. large
+
+    1. circular
+
+  :::
+
+* **circular_profile_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+  
+  마지막 1024개의 프로파일링 정보를 수집합니다. 
+
+  :::note
+
+  동시에 설정된 경우 우선 순위는 다음과 같습니다. 
+
+  1. split
+
+  1. large
+
+  1. circular
+
+  :::
+
+* **profile_zip_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+  
+  프로파일 정보를 압축 전송합니다. 기본값은 `true`로 설정되어 있습니다.
+
+
+## HTTP 트랜잭션 추적{#track-http-trs}
 
 * **trace_normalize_enabled** <span class='type'>Boolean</span>
 
@@ -129,6 +191,22 @@ tags: [ Go, 트랜잭션 ]
   기본값 `false`
 
   트랜잭션의 Host 정보를 출력합니다. 값이 `false`일 경우 트랜잭션의 URL에 URI만 표기하고, `true`일 경우 `/xxx.aaa.com/URL` 형식으로 출력됩니다.
+
+* **ignore_http_method** <span class='type'>String</span>
+
+  기본값 `Empty`
+
+  지정된 HTTP Method로 요청된 트랜잭션 정보는 수집하지 않습니다. 여러 개를 지정할 때는 콤마(,)로 구분합니다.
+
+  :::note 
+
+  다음과 같이 `OPTIONS`와 `HEAD` 두 값을 지정할 경우 콤마(,)로 구분합니다.
+
+  ```ini title='whatap.conf'
+  ignore_http_method=OPTIONS, HEAD
+  ```
+
+  :::
 
 * **biz_exceptions** <span class='type'>String</span>
 

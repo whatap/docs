@@ -97,6 +97,7 @@ grant replication slave on *.* to whatap;
 
 # kill session 사용할 경우
 grant super on *.* to whatap;
+grant execute on procedure mysql.rds_kill to whatap;  # AWS RDS 사용 시
 ```
 
 ## DB 유저 파일 생성{#create-db-user}

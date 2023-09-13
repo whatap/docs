@@ -60,6 +60,7 @@ alter user whatap with superuser;
  
 # kill session 사용 시
 alter user whatap with superuser;
+grant rds_superuser to whatap; # AWS RDS 사용 시
 
 # wal_count 수집 시
 grant execute on function pg_ls_dir(text) to whatap;  #EDB 사용 시

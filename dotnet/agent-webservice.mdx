@@ -42,3 +42,9 @@ tags: [ .NET ]
   설정한 값을 적용하려면 IIS를 다시 시작하세요.
 
   :::
+
+* **webservice_method_timeout** <span class='type'>millisecond</span>
+
+  기본값 `30000`
+
+  Windows Communication Foundation(WCF)과 웹 서비스 내에서 Exception 핸들링이 되지 않은 경우 트랜잭션 종료 시점을 알 수가 없습니다. 이런 경우를 대비해 WCF와 웹 서비스는 기본적으로 30초가 지나면 타임아웃 처리됩니다. 해당 옵션 값을 변경하면 타임아웃 시간을 조절할 수 있습니다.

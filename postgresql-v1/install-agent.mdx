@@ -48,7 +48,7 @@ import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
 <!-- 모니터링용 계정 생성 -->
 {@include: ../common-items/_db-create-monitoring-account.mdx}
 
-<!-- PostgreSQL -->
+<!-- PostgreSQL-->
 ```bash showLineNumbers
 # 10 버전 이상
 create user whatap with password 'DB Password'; # 원하는 password를 입력하세요.
@@ -60,6 +60,7 @@ alter user whatap with superuser;
  
 # kill session 사용시
 alter user whatap with superuser;
+grant rds_superuser to whatap; # AWS RDS 사용 시
 ```
 
 ## DB 유저 파일 생성{#create-db-user}

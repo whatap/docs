@@ -14,6 +14,91 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 1.109.18
+
+2023년 9월 13일
+
+<div class='indentTab'>
+
+### `공통`
+
+<p><Status>Feature</Status> 서비스 공지사항 기능 추가</p>
+
+---
+
+### `Server`
+
+- <Status>Fixed</Status> <UI>대시보드</UI> > <UI>리소스보드</UI> / <UI>CPU 리소스맵</UI> 메뉴의 레이아웃이 Safari 브라우저에서 제대로 표시되지 않는 문제 수정
+
+- <Status>Fixed</Status> <UI>경고 알림</UI> > <UI>이벤트 설정</UI> 메뉴의 <UI>이벤트 추가</UI> 창에서 <UI>이벤트 발행 조건</UI>의 지표 텍스트가 너비에 맞게 줄바꿈 되도록 수정
+
+- <Status>Fixed</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴에서 Windows 설치 파일 옵션 중 <UI>Silent Install</UI> 버튼 제거
+
+- <Status>Fixed</Status> <UI>로그</UI> > <UI>로그 설정</UI> 메뉴에서 윈도우 명령어 코드의 디렉토리 경로 수정
+
+---
+
+### `Container`
+
+<p><Status>Fixed</Status> <UI>대시보드</UI> > <UI>컨테이너 맵</UI> 메뉴에서 필터에 유효하지 않는 값을 입력하면 적용되지 않도록 수정</p>
+
+</div>
+
+
+## Preview 1.109.17
+
+2023년 9월 12일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Feature</Status> <UI>분석</UI> > <UI>메트릭스 차트</UI> 메뉴에서 활성화된 모든 위젯을 닫을 수 있는 버튼 추가
+
+- <Status>Changed</Status> <UI>관리</UI> > <UI>에이전트 설정</UI> 메뉴에서 사용자 편의성을 위해 옵션 목록 간소화
+
+  <UI>옵션 작성</UI> 섹션의 왼쪽 목록에서 적용된 옵션의 상위 카테고리 분류를 제거하고 최종 옵션 항목만 보이도록 수정
+
+---
+
+### `Application`
+
+<p><Status>Fixed</Status> <UI>경고 알림</UI> > <UI>이벤트 설정</UI> 메뉴의 <UI>애플리케이션</UI> 탭의 <UI>저장</UI> 버튼 활성화 오작동 수정</p>
+
+---
+
+### `Database`
+
+<p><Status>Fixed</Status> <UI>대시보드</UI> > <UI>슬로우 쿼리</UI> 메뉴에서 플랜 조회가 되지 않는 현상 수정</p>
+
+---
+
+### `Container`
+
+<p><Status>Fixed</Status> <UI>분석</UI> > <UI>POD 초기화 성능</UI> 메뉴에서 데이터 호출 시 로딩 표시 추가</p>
+
+</div>
+
+
+## Preview 1.109.16
+
+2023년 9월 11일
+
+<div class='indentTab'>
+
+### `공통`
+
+<p><Status>Feature</Status> 와탭의 서비스 버전과 상품 목록을 확인할 수 있는 <UI>와탭 모니터링 정보</UI> 메뉴 추가</p>
+
+![example](/img/release/release-note-whatap-info.png)
+
+### `Container`
+
+<p><Status>Fixed</Status> <UI>대시보드</UI> > <UI>컨테이너 맵</UI> 메뉴에서 로그 비활성화 시 <UI>로그 검색</UI>, <UI>이벤트</UI> 탭에서 출력되는 안내 메시지 수정</p>
+
+</div>
+
+
 ## Preview 1.109.15
 
 2023년 9월 8일
@@ -46,11 +131,21 @@ toc_max_heading_level: 2
 
 * <Status>Fixed</Status> <UI>계정 정보 관리</UI> 메뉴에서 WhatsApp으로 전화번호 입력 시 국가 코드 번호가 빈 값으로 기본 설정되는 오류 수정
 
+* <Status>Fixed</Status> 초기 화면 <UI>프로젝트 목록</UI>의 카드 뷰 화면에서 <UI>애플리케이션</UI> 항목의 카운트가 0으로 출력되는 버그 수정
+
 ---
 
 ### `Application`
 
-<p><Status>Changed</Status> 자바 프로젝트의 <UI>관리</UI> > <UI>에이전트 설정</UI> 메뉴에서 <code>biz_exceptions</code>와 <code>ignore_exceptions</code> 옵션의 카테고리를 <UI>알림 옵션</UI> > <UI>HTTP outbound 호출</UI>에서 <UI>Exception</UI> 하위로 변경</p>
+- <Status>Changed</Status> 자바 프로젝트의 <UI>관리</UI> > <UI>에이전트 설정</UI> 메뉴에서 <code>biz_exceptions</code>와 <code>ignore_exceptions</code> 옵션의 카테고리를 <UI>알림 옵션</UI> > <UI>HTTP outbound 호출</UI>에서 <UI>Exception</UI> 하위로 변경
+
+- <Status>Fixed</Status> <UI>트레이스 분석</UI> 창의 <UI>트랜잭션 로그</UI> 탭에서 로그 조회 비밀번호가 설정된 경우 레이아웃이 깨지는 현상 수정
+
+---
+
+### `Server`
+
+<p><Status>Fixed</Status> <UI>서버 목록</UI> > <UI>서버 목록</UI> 메뉴에서 서버별 상태가 변경됐을 때 테이블 행의 색상이 변경되지 않는 버그 수정</p>
 
 ---
 

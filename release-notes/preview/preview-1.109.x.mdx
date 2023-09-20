@@ -14,6 +14,59 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 1.109.22
+
+2023년 9월 20일
+
+<div class='indentTab'>
+
+### `Application`
+
+- <Status>Feature</Status> <UI>애플리케이션 대시보드</UI> 메뉴를 다음과 같이 개편했습니다.
+
+  - 시간 선택자 옵션을 추가하고 과거 데이터를 조회할 수 있도록 개선했습니다.
+
+    | 실시간 모드 |
+    | :--: |
+    | ![](/img/release/realtime-mode.png) |
+    | **비실시간 모드** |
+    | ![](/img/release/none-realtime-mode.png) |
+
+  - 사용자가 원하는 위치에 위젯을 추가하거나 삭제할 수 있습니다. 또한 원하는 크기로 조절할 수도 있습니다.
+
+    ![](/img/release/apm-dashboad-editable-widget.png)
+
+  - 사용자가 편집한 위젯의 위치와 크기, 레이아웃을 저장해 불러올 수 있는 프리셋 기능을 추가했습니다.
+
+    ![](/img/release/apm-dashboard-preset-feature.png)
+
+- 대시보드의 <UI>트레이스 분석</UI> 창에서 다음 기능을 추가 및 수정했습니다.
+
+  - <Status>Feature</Status> <UI>멀티 트랜잭션</UI> 탭의 <UI>테이블</UI> 뷰, <UI>트리</UI> 뷰 모드에서 프로젝트 필터 기능 추가
+
+  - <Status>Fixed</Status> <UI>멀티 트랜잭션</UI> 탭의 <UI>차트</UI> 뷰 모드에서 트랜잭션 노드를 클릭하면 <UI>테이블</UI> 뷰로 전환되는 오류 수정
+
+  - <Status>Feature</Status> <UI>트랜잭션 로그</UI> 탭에서 데이터가 없는 경우 다음 상황에 맞는 메시지를 출력하도록 기능 추가
+
+    - 실제 로그 데이터가 없는 경우
+    - 에이전트 미설정으로 로그를 수집하지 못하는 경우
+    - 로그 활성화가 안된 경우
+
+---
+
+### `Container`
+
+<p><Status>Feature</Status> <UI>관리</UI> > <UI>에이전트 설치</UI> 메뉴에서 쿠버네티스 에이전트 설치 정상 여부 확인 메시지 표시 기능 추가</p>
+
+---
+
+### `Browser`
+
+<p><Status>Fixed</Status> 리소스 테이블 위젯의 전체 화면 모드에서 컬럼 설정이 안되는 문제 수정</p>
+
+</div>
+
+
 ## Preview 1.109.21
 
 2023년 9월 19일

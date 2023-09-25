@@ -29,6 +29,28 @@ echo "logsink.files=$LOGFILES" | sudo tee -a {설정파일경로}/whatap.conf
 
 ### 로그와 웹 트랜잭션 연동
 
+#### 1.3.6 이후 버전
+
+1.3.6 버전부터 다음의 방법으로 트랜잭션과 로그 연동을 설정할 수 있습니다. 현재 와탭은 Python의 logging, loguru 라이브러리를 지원하고 있습니다. 사용하는 Python Log 라이브러리에 따라 *whatap.conf*를 구성하세요.
+
+* logging 모듈
+
+    ```shell title='logging'
+
+    echo "trace_logging_enabled=true" | sudo tee -a {설정파일경로}/whatap.conf
+
+    ```
+
+* loguru 모듈
+
+    ```shell title='loguru'
+
+    echo "trace_loguru_enabled=true" | sudo tee -a {설정파일경로}/whatap.conf
+
+    ```
+
+#### 1.3.6 미만 버전
+
 트랜잭션 별로 발생한 로그를 별도로 조회 가능하도록 트랜잭션 아이디`{txid}`를 로그에 출력합니다. 와탭 모니터링에서는 Python LogRecord에 `{txid}`를 자동 주입하여 포매터 설정 시 로그 파일에 `{txid}`를 출력할 수 있도록 합니다.
 
 ```shell

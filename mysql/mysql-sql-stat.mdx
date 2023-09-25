@@ -1,0 +1,142 @@
+---
+id: mysql-sql-stat
+title: MySQL SQL 통계
+description: performance_schema의 events_statements_summary_by_digest 내용을 1시간에 한번씩 수집하여 통계 데이터를 제공합니다.액티브세션을 기반으로 하는 기존 'SQL통계' 메뉴와 함께 SQL분석에 활용하세요.
+tags: [ MySQL, 데이터베이스, 데이터베이스 모니터링, 통계 ]
+---
+
+홈 화면 > 프로젝트 선택 > ***통계/보고서*** > ***MySQL SQL 통계***
+
+MySQL의 `performance_schema`에서 제공하는 SQL 통계 데이터(수행 횟수, 실행 시간, Row 수 등)로 `performance_schema.events_statements_summary_by_digest` 뷰를 통해 수집합니다. 
+
+:::note
+
+* 이 기능은 DBX 에이전트 1.6.10 버전 이상에서 지원합니다.
+
+* `events_statements_summary_by_digest` 뷰에 대한 자세한 내용은 [다음 링크](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html)를 참조하세요.
+
+:::
+
+## 설정하기
+
+***MySQL SQL 통계*** 메뉴를 사용하기 위해서는 모니터링 대상 DB에서 다음과 같은 설정이 필요합니다.
+
+1. 데이터베이스 설정(*my.cnf*)에서 **Performance Schema**를 활성화하세요.
+
+    ```ini title='my.cnf'
+    performance_schema = on
+    ```
+
+1. 모니터링 계정에서 해당 데이터를 읽을 수 있도록 조회 권한을 설정하세요.
+
+    ```bash
+    grant select on performance_schema.* to whatap;
+    ```
+
+1. DBX 에이전트에 옵션을 설정하세요.
+    
+    ```ini title='whatap.conf'
+    statements=true
+    ```
+
+:::note
+
+1시간 간격으로 `events_statements_summary_by_digest`로부터 델타값을 계산하여 수집합니다. 따라서 설정 후 1시간 뒤부터 수집을 시작합니다.
+
+:::
+
+## 기본 화면 안내
+
+<ImgLang img='db-mysql-sql-stat.png' desc='MySQL SQL 통계' />
+
+1. 시간에서 데이터를 조회할 시간과 날짜를 선택하세요. 녹색 버튼을 선택해 조회 시간을 선택할 수도 있습니다.
+
+1. 인스턴스에서 데이터를 조회할 대상을 선택하세요. 여러 개의 인스턴스를 선택할 수 있으며 모든 인스턴스를 선택하려면 ***전체 선택***을 클릭하세요.
+
+1. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+상위 50건의 내용을 테이블에 표시합니다.
+
+:::note
+
+* 임의의 날짜와 시간을 조회하려면 시계 표시 부분을 선택하세요. 날짜와 시간 텍스트 영역을 클릭하면 날짜와 시간을 선택할 수 있는 옵션이 나타납니다.
+
+* 테이블 헤더의 각 컬럼을 클릭하면 선택한 컬럼을 기준으로 목록을 정렬할 수 있습니다.
+
+* ***조회 기준***에서 선택한 항목 따라 조회 결과를 정렬할 수 있습니다. 원하는 항목을 선택한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요. 
+
+* ***조회 건 수***에서 테이블에 표시할 건 수를 설정할 수 있습니다. 설정을 완료한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요. 
+
+* 조회한 내용을 csv 형식의 파일로 다운받으려면 ![Download icon](/img/ico-download.svg) 버튼을 선택하세요.
+
+* 조회된 결과 목록에서 ***query*** 항목을 선택하면 ***SQL 상세*** 창이 나타납니다. 자세한 내용은 [다음 문서](#query-details)를 참조하세요.
+
+:::
+
+## 컬럼 정보 안내
+
+| 필드명 | 설명 |
+| -- | -- |
+| `digest_text` | SQL 문 |
+| `digest` | `digest_text`의 해시값 |
+| `schema_name` | 스키마 명 |
+| `count_star` | 실행 횟수 |
+| `timer_wait` | 전체 수행시간(초) |
+| `lock_time` | 테이블락으로 인한 대기 시간(초) |
+| `rows_affected` | 영향받은 row 수(insert, update, replace 구문) |
+| `rows_sent` | 리턴된 row 수 |
+| `rows_examined` | server layer에서 검토된 row 수 |
+| `created_tmp_disk_tables` | 명령문을 실행하는 동안 서버가 작성한 디스크 임시 테이블 수의 합, 횟수가 높으면 sort 메모리 크기 증설을 고려하세요. |
+| `created_tmp_tables` | 명령문을 실행하는 동안 서버가 작성한 내부 임시 테이블 수의 합 |
+| `select_full_join` | 인덱스를 사용하지 않은 table scan 수, 0이 아니라면 인덱스 확인이 필요합니다. |
+| `select_full_range_join` | 참조 테이블에서 range 검색을 사용한 조인(join) 수 |
+| `select_range` | 첫 번째 테이블에서 range를 사용한 조인(join) 수 |
+| `select_range_check` | key가 없이 조인(join)이 발생한 수, 0이 아니라면 확인이 필요합니다. |
+| `select_scan` | Driving 테이블을 full 스캔한 수 |
+| `sort_merge_passes` | sort merge로 sort된 수 |
+| `sort_range` | range로 sort된 수 |
+| `sort_rows` | sort 수행된 row 수 |
+| `sort_scan` | 스캔으로 sort된 수 |
+| `no_index_used` | 쿼리에서 어떤 인덱스도 사용하지 않은 횟수, 인덱스 생성에 대한 고려가 필요합니다. |
+| `no_good_index_used` | 서버에 존재하는 기존 인덱스 중 사용할 어떤 인덱스도 찾지 못한 횟수, 횟수가 증가하면 인덱스 점검이 필요합니다. |
+
+
+## 쿼리 자세히 보기{#query-details}
+
+<ImgLang img='db-mysql-sql-stat-details.png' desc='SQL 상세' />
+
+조회된 결과 목록에서 ***digest_text*** 항목을 선택하면 ***SQL 상세*** 창이 나타납니다. 
+
+* ***플랜 보기***: DB Name, User Name, Password를 입력하면 ***Plan*** 정보를 확인할 수 있습니다.
+
+* ***파라미터***: 쿼리 문장에서 변수로 설정된 부분을 ***default*** 값으로 바인딩할 수 있습니다. ***clear*** 버튼을 선택하면 바인딩된 값을 해제합니다.
+
+* ***Formatting***: 토글 버튼을 선택하면 SQL 문장을 들여쓰기 및 포맷팅하여 가독성을 높일 수 있습니다.
+
+* ***연관 애플리케이션***: 해당 쿼리와 연관된 애플리케이션 프로젝트로 이동할 수 있습니다. 목록에서 프로젝트를 선택한 다음 ![arrow icon](/img/ic-arrow-right.svg) 버튼을 클릭하세요. 선택한 프로젝트의 ***통계/보고서*** > ***통계*** 메뉴로 이동합니다.
+
+## 조회 결과 필터링하기
+
+<ImgLang img='db-sql-stat-add-filter-mysql.png' desc='Filtering' />
+
+조회된 결과를 SQL의 파라미터 값을 기준으로 필터링할 수 있습니다.
+
+1. ***필터 추가*** 버튼을 선택하세요. 
+
+1. ***조건 입력*** 텍스트 상자에 원하는 값을 입력한 다음 ***저장***을 선택하세요. 
+
+1. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+입력한 SQL 파라미터 값을 포함하는 결과만 목록에 표시됩니다.
+
+:::note
+
+필터를 해제하려면 ***필터***에서 ![삭제 아이콘](/img/ico-remove-white.svg) 버튼을 선택하세요.
+
+<ImgLang img='db-sql-stat-disable-filter-mysql.png' desc='필터 해제하기' />
+
+:::
+
+## 테이블 컬럼 설정하기{#change-column}
+
+{@include: ../common-items/_db-v2-data-edit-column.mdx} 

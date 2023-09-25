@@ -1,0 +1,36 @@
+---
+id: analysis-wait-events
+title: Wait 분석
+description: 수행 중인 세션이 어떤 대기 이벤트로 대기 중인지, 빈번하게 발생하는 대기 이벤트들은 무엇인지 확인할 수 있습니다.
+tags: [ PostgreSQL, 데이터베이스, 분석, Wait 분석 ]
+---
+
+홈 화면 > 프로젝트 선택 > ***분석*** > ***Wait 분석***
+
+수행 중인 세션이 어떤 대기 이벤트로 대기 중인지, 빈번하게 발생하는 대기(Wait) 이벤트들은 무엇인지 확인할 수 있습니다. 5초마다 수집한 액티브 세션을 wait 관점으로 분석할 수 있습니다. 
+
+:::info
+
+* 이 기능은 DBX 에이전트 1.6.10 버전 이상에서 지원합니다.
+
+* 수집한 wait 정보는 `pg_stat_activity` 뷰의 `wait_event`와 `wait_event_type`입니다. 해당 지표에 대한 설명은 [다음 문서](https://www.postgresql.org/docs/current/monitoring-stats.html#WAIT-EVENT-TABLE)를 참고하세요.
+
+:::
+
+## 기본 화면 안내
+
+<ImgLang img='db-analysis-wait.png' desc='Wait 분석' />
+
+조회를 원하는 ***시간***과 ***인스턴스***를 선택하세요. 설정한 시간과 인스턴스에 해당하는 Wait 정보를 확인할 수 있습니다. 조회 기간 동안 대기(지연)가 자주 발생한 액티브 세션들이 있다면 어떤 종류의 Wait 이벤트가 발생했는지 분석하는데 활용할 수 있습니다.
+
+![Wait Event Top 5](/img/db-analysis-wait-top5.png)
+
+***Wait Event Top 5***에서 가장 많이 발생한 대기 이벤트를 확인할 수 있습니다. 위 이미지를 예시로 가장 많이 발생하는 대기 이벤트의 종류는 **Lock**입니다. 그래프 차트에서 ![숫자1](/img/number-01.png)상세 시간을 선택하면 해당 시간의 액티브 세션을 조회할 수 있고 Wait 이벤트가 발생한 SQL 문을 확인할 수 있습니다.
+
+## 테이블 데이터 필터링하기
+
+{@include: ../common-items/_db-table-data-filtering.mdx} 
+
+## 테이블 컬럼 설정하기{#change-column}
+
+{@include: ../common-items/_db-v2-data-edit-column.mdx}

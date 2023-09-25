@@ -129,15 +129,19 @@ oc create -f whatap_openshift_scc.yaml
 
 ## 쿠버네티스 에이전트 설치 확인
 
-다음 명령어를 실행해 마스터 에이전트와 노드 에이전트의 상태를 확인하세요.
+* 쿠버네티스 에이전트 설치가 정상적으로 완료되었을 경우 다음과 같이 설치 완료 메시지를 확인할 수 있습니다.
 
-```bash
-kubectl get pod -n whatap-monitoring
-```
+  <ImgLang img='k8s-agent-install-check.png' desc='쿠버네티스 에이전트 설치 확인' /> 
 
-![](/img/k8s-check-running-agent-monitoring.svg)
+* 다음 명령어를 실행해 마스터 에이전트와 노드 에이전트의 상태를 확인할 수 있습니다.
 
-**STATUS** 항목이 **Running**이라면 설치를 완료한 상태입니다. 마스터 및 노드 에이전트의 설치를 완료하면 쿠버네티스 환경의 자원 모니터링을 시작합니다. [와탭 모니터링 서비스](https://service.whatap.io)로 이동한 다음 ***프로젝트 목록***과 ***대시보드*** > ***컨테이너 맵*** 메뉴에서 성능 정보를 수집하는 것을 확인하세요.
+  ```bash
+  kubectl get pod -n whatap-monitoring
+  ```
+
+  ![](/img/k8s-check-running-agent-monitoring.svg)
+
+  **STATUS** 항목이 **Running**이라면 설치를 완료한 상태입니다. 마스터 및 노드 에이전트의 설치를 완료하면 쿠버네티스 환경의 자원 모니터링을 시작합니다. [와탭 모니터링 서비스](https://service.whatap.io)로 이동한 다음 ***프로젝트 목록***과 ***대시보드*** > ***컨테이너 맵*** 메뉴에서 성능 정보를 수집하는 것을 확인하세요. 
 
 #### Running 상태가 아닌 경우
 

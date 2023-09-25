@@ -14,6 +14,8 @@ tags: [ UI, 사용자 인터페이스, 애플리케이션, 애플리케이션 �
 
 * **메뉴**: 왼쪽에는 사용자가 진입한 메뉴 경로를 표시합니다.
 
+* ![공지사항 아이콘](/img/ic-notice.svg) **공지사항**: 와탭 모니터링 서비스의 공지사항을 확인할 수 있습니다.
+
 * ![현재 페이지 테마 아이콘](/img/ico-theme.svg) **테마**: 현재 페이지의 테마를 변경할 수 있습니다. 기본값은 ***Light*** 모드입니다.
 
   * ***Light***: 기본 적용된 테마입니다.
@@ -36,6 +38,12 @@ tags: [ UI, 사용자 인터페이스, 애플리케이션, 애플리케이션 �
 ## ![](/img/number-02.png) 프로젝트 검색 영역
 
 * ***프로젝트 명 / PCODE***(텍스트 입력란): 프로젝트 이름 또는 프로젝트 코드를 입력해 원하는 프로젝트를 검색할 수 있습니다.
+
+  :::note
+
+  프로젝트 코드(***PCODE***)는 해당 프로젝트의 ***관리*** > ***프로젝트 관리*** 메뉴의 ***프로젝트 코드*** 항목에서 확인할 수 있습니다.
+  
+  :::
 
 * ![즐겨찾기 아이콘](/img/ico-favorite.svg) ***즐겨찾기***: 즐겨찾기 설정한 프로젝트만 목록에 나타납니다. 프로젝트를 즐겨찾기 설정을 하려면 프로젝트 목록에 나타난 프로젝트 카드뷰 왼쪽 상단에 ![즐겨찾기 아이콘](/img/ico-favorite.svg)을 선택하세요. 즐겨찾기 설정을 해제하려면 다시 ![즐겨찾기 아이콘](/img/ico-favorite-set.svg)을 선택하세요.
 
@@ -98,10 +106,6 @@ tags: [ UI, 사용자 인터페이스, 애플리케이션, 애플리케이션 �
 
   </details>
 
-* ***통합 대시보드***: 사용자가 권한을 보유한 모든 프로젝트의 데이터를 조회할 수 있는 대시보드를 생성할 수 있습니다. 자세한 내용은 [다음 문서](navigation/int-dashboard)를 참조하세요.
-
-* ***통합 메트릭스 보드***: 사용자가 권한을 보유한 모든 프로젝트의 메트릭스 데이터를 조회할 수 있는 대시보드를 생성할 수 있습니다. 자세한 내용은 [다음 문서](navigation/int-metrics-board)를 참조하세요.
-
 * ***통합 보고서***: 여러 프로젝트에 대한 보고서를 간편하게 생성할 수 있습니다. 자세한 내용은 [다음 문서](report/integrated-report)를 참조하세요.
 
 * ***통합 APP.그룹 토폴로지***: ***토폴로지*** 기능을 지원하는 여러 프로젝트들을 일괄 선택해 단일 토폴로지로 확인할 수 있습니다. 자세한 내용은 [다음 문서](java/topology-type#int-topology)를 참조하세요.
@@ -110,7 +114,7 @@ tags: [ UI, 사용자 인터페이스, 애플리케이션, 애플리케이션 �
 
 * ***관리***: 전체 그룹 및 멤버를 관리할 수 있습니다. 자세한 내용은 [다음 문서](project/integrated-manage)를 참조하세요.
 
-## 프로젝트 검색하기{#search-project}
+### 프로젝트 검색하기{#search-project}
 
 1. 화면 왼쪽 위에서 ![검색 아이콘](/img/ico-search.svg) 버튼을 선택하면 프로젝트 ***검색*** 창이 나타납니다.
 
@@ -127,3 +131,30 @@ tags: [ UI, 사용자 인터페이스, 애플리케이션, 애플리케이션 �
 ***검색*** 창에서 에이전트 기준으로 프로젝트를 검색하려면 ***Group/Project***를 클릭한 다음 드랍다운 목록에서 ***Agent***를 선택하세요.
 
 :::
+
+## ![](/img/number-05.png) 프로젝트 목록
+
+사용자가 멤버로 등록된 프로젝트 목록을 확인할 수 있습니다.
+
+## ![](/img/number-06.png) 하단 메뉴 영역
+
+* ***이용 내역***: 결제 정보, 이용 요금 등과 관련한 메뉴를 이용할 수 있습니다. 자세한 내용은 [다음 문서](management/billing)를 참조하세요.
+
+* ![메뉴 Fold 아이콘](/img/ic-menu-fold.svg): 사이드 메뉴를 감추거나 표시할 수 있습니다. 사이드 메뉴가 감춰진 상태에서 ![메뉴 Expand 아이콘](/img/ic-menu-expand.svg) 버튼을 선택하면 사이드 메뉴를 표시합니다.
+
+* ![전체 화면 아이콘](/img/ic-fullscreen.svg): 와탭 모니터링 서비스 화면을 전체 화면 크기로 이용할 수 있습니다. 전체 화면을 종료하려면 ESC 키를 선택하세요.
+
+## ![](/img/number-07.png) 상품 소개 메뉴
+
+사이드 메뉴의 가장 왼쪽의 아이콘 버튼을 선택하면 상품 소개 페이지로 이동할 수 있습니다. 상품별 카테고리로 분류되어 있으며, 소개 페이지로 이동한 다음 원하는 상품에서 ***시작하기*** 버튼을 선택하세요. 프로젝트 생성 메뉴로 이동합니다.
+
+| 상품 분류 | 설명 |
+| :--: | -- |
+| <LinkImage img='shortcut-application.svg' className='shortcutIcon' /> | [Java](/java/introduction), [Node.js](/nodejs/introduction), [PHP](/php/introduction), [Python](/python/introduction), [.NET](/dotnet/introduction), [Go](/golang/introduction) 상품의 애플리케이션 모니터링을 위한 프로젝트를 생성할 수 있습니다. |
+| <LinkImage img='shortcut-server.svg' className='shortcutIcon' /> | [Server 모니터링](/server/introduction)을 위한 프로젝트를 생성할 수 있습니다. |
+| <LinkImage img='shortcut-kuber.svg' className='shortcutIcon' /> | [Kubernetes 모니터링](/kubernetes/introduction)을 위한 프로젝트를 생성할 수 있습니다. |
+| <LinkImage img='shortcut-database.svg' className='shortcutIcon' /> | [MySQL](/mysql/monitoring-intro), [MS SQL Server](/mssql/monitoring-intro), [Oracle](/oracle/monitoring-intro), [PostgreSQL](/postgresql/monitoring-intro), [Redis](/redis/monitoring-intro), [MongoDB](/mongodb/monitoring-intro), [CUBRID](/cubrid/monitoring-intro), [Tibero](/tibero/monitoring-intro), [Altibase](/altibase/monitoring-intro) 상품의 데이터베이스 모니터링을 위한 프로젝트를 생성할 수 있습니다. |
+| <LinkImage img='shortcut-url.svg' className='shortcutIcon' /> | [URL 모니터링](/url/url-intro)을 위한 프로젝트를 생성할 수 있습니다. |
+| <LinkImage img='shortcut-cloud.svg' className='shortcutIcon' /> | [Amazon CloudWatch](/amazon-cloudwatch/install-agent), [Amazon ECS](/amazon-ecs/introduction), [Azure Monitor](/azure/install-agent), [Oracle Cloud Monitor](/oracle-cloud/install-agent), [Naver Cloud Monitoring](/ncloud/install-agent) 상품의 클라우드 모니터링을 위한 프로젝트를 생성할 수 있습니다. |
+| <LinkImage img='shortcut-log.svg' className='shortcutIcon' /> | [Log 모니터링](/log/introduction)을 위한 프로젝트를 생성할 수 있습니다. |
+| <LinkImage img='shortcut-browser.svg' className='shortcutIcon' /> | [Browser 모니터링](/log/introduction)을 위한 프로젝트를 생성할 수 있습니다. |

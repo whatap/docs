@@ -23,7 +23,7 @@ pagination_next: release-notes/java/java-2_2_17
 - <Status>Feature</Status> Oracle 데이터베이스 추적 설정 추가, 옵션 적용 후 재기동 필요하며, 기본값은 `true`입니다.
 
   ```ini title='whatap.conf'
-  # Default true
+  # Default: true
   # Will require a restart of the agent to take effect.
   hook_oracle_enabled=true
   ```
@@ -34,4 +34,4 @@ pagination_next: release-notes/java/java-2_2_17
 
 - <Status>Fixed</Status> Redis의 lettuce 드라이버(<b>lettuce-5.1</b>, <b>lettuce-6.2</b>) 추적 시 이후의 SQL이 표시되지 않는 현상 수정
 
-- <Status>Deprecated</Status> HTTP 서비스 추적 시 `org.apache.catalina.filters.FilterBase` 클래스를 기본 추적에서 제외
+- <Status>Deprecated</Status> HTTP 서비스 추적 시 <code>org.apache.catalina.filters.FilterBase</code> 클래스를 기본 추적에서 제외

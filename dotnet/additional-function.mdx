@@ -1,0 +1,41 @@
+---
+id: additional-function
+title: 부가 기능
+description: 에이전트를 통해 추가로 수집할 수 있는 기능을 안내합니다.
+tags: [ .NET, 애플리케이션, 부가 기능 ]
+---
+
+에이전트를 통해 데이터를 추가로 수집할 수 있는 기능을 안내합니다.
+
+## 사용자 로그 추적 기능
+
+트레이스 내역에 사용자가 직접 로그 메시지를 남길 수 있는 기능입니다. 로그를 남기기 위해서는 다음의 단계를 진행하세요.
+
+* 로그를 남기려는 프로젝트에 cs 파일을 추가하고 코드를 작성하세요.
+
+  ```csharp
+  using System;
+
+  namespace Whatap.UserLog
+  {
+      public static class Tracer
+      {
+          public static void Trace(string message)
+          {
+              // 컴파일러 최적화로 인해서 메소드 호출이 취소되는 것을 방지
+              // 이 메소드 안의 코드는 Whatap 에이전트에 의해서 무시되기 때문에 실행되지 않습니다.
+              Console.WriteLine(message);
+          }
+      }
+  }
+  ```
+
+* 로그를 남기고 싶은 위치에서 `Tracer.Trace("로그 문자열")`와 같은 형식으로 코드를 추가하세요.
+
+  ```csharp
+  public string UserFunction(int value)
+  {
+      Tracer.Trace($"started... {value}");
+      ...
+  }
+  ```

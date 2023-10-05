@@ -46,6 +46,22 @@ tags: [ 로그 모니터링, Java ]
   
   :::
 
+* **hooklog_custom_methods**
+
+  사용자 정의 로그를 등록합니다. 임의의 로그 프레임워크 내용을 전달합니다. 사이트에서 개별로 만든 로그 모듈의 로그를 추적할때 사용하세요.
+  
+  ```java title='Java'
+  package io.home.test;
+
+  public class MyLog {  
+    public void customLog(String log) { ... }
+  }
+  ```
+
+  ```ini title='whatap.conf'
+  hooklog_custom_methods=io.home.test.MyLog.customLog
+  ```
+
 * **logsink_enabled** <span class='type'>Boolean</span>
 
   기본값 `false`
@@ -57,12 +73,6 @@ tags: [ 로그 모니터링, Java ]
   애플리케이션 실행 전에 *whatap.conf*에 `hooklog_enabled` 옵션이 설정되어 있으면 본 옵션을 통해 로그 모니터링의 On/Off를 동적으로 제어할 수 있습니다.
   
   :::
-
-* **logsink_zip_enabled** <span class='type'>Boolean</span>
-
-  기본값 `true`
-
-  Log 데이터 전송 데이터 압축 여부를 설정합니다. 
 
 * **logsink_trace_enabled** <span class='type'>Boolean</span>
 

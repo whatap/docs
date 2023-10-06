@@ -75,14 +75,6 @@ grant usage on schema {schema_name} to whatap;
 
 기본적으로 테이블별 **DATA SIZE**, **INDEX SIZE**, **ROWS**를 표시합니다. 이는 `information_schema.tables`의 정보로 실제 사이즈와 차이가 있을 수 있습니다. `information_schema.innodb_tablespaces`의 **FILE SIZE**를 함께 확인하려면 DBX 에이전트에 다음 옵션을 설정하세요. 이 사이즈는 실제 사이즈와 유사합니다.
 
-</InDoc>
-
-<InDoc product='postgresql'>
-
-테이블별 **DATA SIZE**, **INDEX SIZE**를 표시합니다. PostgreSQL은 테이블 사이즈 정보 수집을 위해 DBX 에이전트에 다음 옵션을 설정해야 합니다.
-
-</InDoc>
-
 ```ini title='whatap.conf'
 table_filesize=true
 ```
@@ -92,6 +84,14 @@ table_filesize=true
 모니터링 계정에 조회 권한이 있는 테이블을 대상으로 합니다. 모니터링용 계정 생성에 대한 자세한 내용은 [다음 문서](install-agent#uid)를 참조하세요.
 
 :::
+
+</InDoc>
+
+<InDoc product='postgresql'>
+
+테이블별 **DATA SIZE**, **INDEX SIZE**를 표시합니다.
+
+</InDoc>
 
 ## 조회 데이터 다운로드하기
 

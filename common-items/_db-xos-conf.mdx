@@ -32,15 +32,21 @@
 
 - **process** <span class='type'>String</span>
 
-  프로세스의 실행 상태를 모니터링할 수 있습니다. 옵션값으로 프로세스 이름을 입력하세요.
+  프로세스의 실행 상태를 모니터링할 수 있습니다. 옵션값으로 프로세스 이름을 입력하세요. 쉼표(,)를 구분자로 이용해 여러 개를 등록할 수 있습니다.
 
-   ```ini title='xos.conf'
+  ```ini title='xos.conf'
   process={process_name}
+  ```
+
+  예를 들어, top과 lock.sh 프로세스를 감시 대상으로 설정하려면 다음과 같이 옵션을 설정하세요.
+
+  ```ini title='xos.conf'
+  process=top,lock.sh
   ```
 
 - **iplist_interval** <span class='type'>Second</span>
 
-  데이터베이스 서버의 IP 목록을 수집할 수 있습니다. 1부터 초 단위로 시간 간격(interval)을 설정해야 수집합니다.
+  데이터베이스 서버의 IP 목록을 수집할 수 있습니다. 초 단위(최소 3초)로 시간 간격(interval)을 설정해야 수집할 수 있습니다.
 
 <InDoc product='postgresql'>
 

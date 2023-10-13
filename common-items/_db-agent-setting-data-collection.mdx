@@ -99,3 +99,22 @@
   세션이 마지막 active 상태였던 이후로 idle 상태를 유지한 시간(초)이 설정값보다 작은 세션들을 active session으로 간주하는 옵션입니다. 예를 들어 설정값이 1이면, 1초 이내에 active였던 세션들이 액티브 세션 창에 나타납니다.
 
 </InDoc>
+
+<InDoc product='oracle'>
+
+* **ora_ratio** <span class='type'>Boolean</span>
+
+  기본값 `false`
+  
+  각종 ratio 지표를 추가로 수집할 수 있습니다. 수집하는 지표는 다음과 같습니다.
+
+  * `buffer cache hit ratio`
+  * `soft parse ratio`
+  * `hard parse ratio`
+  * `library cache hit ratio`
+  * `library cache pin hit ratio`
+  * `library cache get hit ratio`
+  * `latch hit ratio`
+  * `shared pool free mem ratio`
+
+</InDoc>

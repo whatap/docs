@@ -1,0 +1,27 @@
+## 템플릿{#template}
+
+다음과 같이 경고 알림 템플릿을 제공합니다.
+
+* 여러 에이전트에서 수신된 데이터에 대해서 종합적 이벤트 판정해야할 때
+
+  * ***Inactive agents has been found.***
+  * ***Very slow active transactions detected.***
+
+* 과거 데이터와 현재 데이터를 비교해서 이벤트를 판정해야할 때 
+  
+  ***TPS has changed by more than 30% compared to the previous week.***
+
+* ***Inactive agents has been found.***
+
+  * 프로젝트에 포함된 모든 에이전트 중 정상 상태의 에이전트 수가 6개 미만으로 떨어지는 이벤트가 발생하면 경고 알림을 보냅니다.
+  * 조건: `num_of_current_agents` < 6
+
+* ***Very slow active transactions detected.***
+
+  * 프로젝트에 포함된 특정 `okind`에 속한 에이전트에서 8초 이상 소요되는 트랜잭션의 수의 합이 10개 초과 발생하면 경고 알림을 보냅니다.
+  * 조건: `very_slow_tx_cnt_m5_avg` > 10
+
+* ***TPS has changed by more than 30% compared to the previous week.***
+
+  * 프로젝트에 포함된 특정 `okind`에 속한 에이전트들의 TPS합이 7일 전과 비교했을 때 30% 초과 달라지면 경고 알림을 보냅니다.
+  * 조건: `one_week_diff_abs` > `current_tps` * 0.3

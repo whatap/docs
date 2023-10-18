@@ -44,6 +44,12 @@
   process=top,lock.sh
   ```
 
+  :::note
+
+  `process` 옵션을 이용해 데이터베이스에서 실행 중인 프로세스가 종료될 경우 경고 알림을 보낼 수 있습니다. 자세한 내용은 [다음 문서](../best-practice-guides/set-db-metric-warning-notice)를 참조하세요.
+
+  :::
+
 - **iplist_interval** <span class='type'>Second</span>
 
   데이터베이스 서버의 IP 목록을 수집할 수 있습니다. 초 단위(최소 3초)로 시간 간격(interval)을 설정해야 수집할 수 있습니다.

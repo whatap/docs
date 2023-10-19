@@ -3,6 +3,43 @@ id: metric-warning-notice
 title: 메트릭스 경고 알림
 description: 구체적이고 복잡한 이벤트를 설정하려면 메트릭스 이벤트 설정을 사용하세요.
 tags: [ 경고 알림, 메트릭스 이벤트, 서버 ]
+toc_max_heading_level: 3
 ---
 
-{@include: ../common-items/_metrics-warning-notice.mdx} 
+{@include: ../common-items/_metrics-warning-notice.mdx}
+
+## 복합 메트릭스 이벤트 템플릿
+
+CPU, Disk I/O, Network I/O 지표 임계치 초과 시 알림을 발생시키는 템플릿을 제공합니다. 
+
+### CPU
+
+:::note 
+
+CPU 관련 지표는 다음과 같습니다. `CPU`, `User_CPU`, `System_CPU`
+
+:::
+
+#### ***CPU % is too high***
+
+최근 1분 동안 가장 높게 측정된 CPU 지표가 n% 이상일 경우 알림이 발생합니다. 해당 알림은 에이전트(oid)별로 발생합니다.
+
+> CPU utilization rate of the ${oname} in the last minute > ${rule} %
+
+#### ***CPU User % is too high***
+
+#### ***The number of agents with high CPU SYS % is too large***
+
+### Disk
+
+#### The Disk I/O is too high
+
+#### The Disk Used % is too high
+
+### Network
+
+#### Network Traffic I/O is too high
+
+#### Network Packet I/O is too high
+
+#### Network Error I/O is too high

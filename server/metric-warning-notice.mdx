@@ -8,38 +8,68 @@ toc_max_heading_level: 3
 
 {@include: ../common-items/_metrics-warning-notice.mdx}
 
-## 복합 메트릭스 이벤트 템플릿
+## 복합 메트릭스 이벤트 템플릿{#composite-metrics-template}
 
-CPU, Disk I/O, Network I/O 지표 임계치 초과 시 알림을 발생시키는 템플릿을 제공합니다. 
+복합 메트릭스 이벤트 추가 시 ***+*** <cmdname sid="create_new_composite_mxql_event" className="uitext" /> 외 템플릿을 선택해 사용할 수 있습니다. CPU, Disk I/O, Network I/O 지표 임계치 초과 시 알림을 발생시키는 템플릿을 제공합니다. 
+
+<ImgLang img='server-composite-metrics-template.png' desc='서버 복합 메트릭스 이벤트 템플릿' />
 
 ### CPU
 
 :::note 
 
-CPU 관련 지표는 다음과 같습니다. `CPU`, `User_CPU`, `System_CPU`
+CPU 관련 지표는 다음과 같습니다. `cpu`, `user_cpu`, `system_cpu`
 
 :::
 
 #### ***CPU % is too high***
 
-최근 1분 동안 가장 높게 측정된 CPU 지표가 n% 이상일 경우 알림이 발생합니다. 해당 알림은 에이전트(oid)별로 발생합니다.
+최근 1분 동안 가장 높게 측정된 CPU 관련 지표가 기준치(`${_rule_}`) 초과 시 알림이 발생합니다. 해당 알림은 에이전트(oid)별로 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
-> CPU utilization rate of the ${oname} in the last minute > ${rule} %
+> CPU utilization rate of the `${oname}` in the last minute > `${_rule_}` %
 
 #### ***CPU User % is too high***
 
+최근 1분 동안 가장 높게 측정된 `user_cpu` 지표가 기준치(`${_rule_}`) 초과 시 알림이 발생합니다. 해당 알림은 에이전트(oid)별로 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> CPU User utilization rate of the `${oname}` in the last minute > `${_rule_} `%
+
 #### ***The number of agents with high CPU SYS % is too large***
+
+`system_cpu` 지표가 70% 이상인 서버의 개수가 기준치(`${_rule_}`) 초과 시 알림이 발생합니다. 해당 알림은 에이전트(oid)별로 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다. 
+
+> The number of agents with a CPU SYS of 70% or more in the last minute > `${_rule_}`
 
 ### Disk
 
-#### The Disk I/O is too high
+#### ***The Disk I/O is too high***
 
-#### The Disk Used % is too high
+최근 1분 동안 가장 높게 측정된 Disk I/O가 기준치(`${_rule_}`) 초과 시 알림이 발생합니다. 해당 알림은 에이전트(oid)별로 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> In the last minute, `${oname}`'s Disk I/O > `${_rule_}` %
+
+#### ***The Disk Used % is too high***
+
+최근 1분 동안 가장 높게 측정된 Disk User I/O가 기준치(`${_rule_}`) 초과 시 알림이 발생합니다. 해당 알림은 에이전트(oid)별로 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> In the last minute,`${oname}`'s Disk Used > `${_rule_}` %
 
 ### Network
 
-#### Network Traffic I/O is too high
+#### ***Network Traffic I/O is too high***
 
-#### Network Packet I/O is too high
+최근 1분 동안 가장 높게 측정된 Network I/O 지표가 기준치(`${_rule_}`) 초과 시 알림이 발생합니다. 해당 알림은 에이전트(oid)별로 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
-#### Network Error I/O is too high
+> In the last minute, `${oname}`'s Network Traffic I/O > `${_rule_}` %
+
+#### ***Network Packet I/O is too high***
+
+최근 1분 동안 가장 높게 측정된 Network Packet I/O 지표가 기준치(`${_rule_}`) 초과 시 알림이 발생합니다. 해당 알림은 에이전트(oid)별로 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> In the last minute, `${oname}`'s Network Packet I/O > `${_rule_}` %
+
+#### ***Network Error I/O is too high***
+
+최근 1분 동안 가장 높게 측정된 Network Error I/O 지표가 기준치(`${_rule_}`) 초과 시 알림이 발생합니다. 해당 알림은 에이전트(oid)별로 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+>  In the last minute, The maximum value of the `${oname}`'s Network Error I/O > `${_rule_}` %

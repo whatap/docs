@@ -1,0 +1,82 @@
+---
+id: analyze-ajax-hitmap
+title: AJAX 히트맵
+description: AJAX 이벤트를 히트맵 차트 형태로 제공하고 각 이벤트에 대한 상세 정보를 확인할 수 있습니다.
+tags: [ Browser, AJAX 히트맵 ]
+---
+
+홈 화면 > 프로젝트 선택 > <cmdname sid="analysis" className="uitext" /> > <cmdname sid="ajaxAnalytics" className="uitext" />
+
+**Asynchronous JavaScript and XML(AJAX)**는 비동기 방식으로 데이터를 교환하며 웹 페이지를 업데이트하는 기술입니다. **AJAX**는 전체 페이지를 다시 로드하지 않고 페이지 일부만 업데이트하는 좀 더 복잡한 웹페이지를 만들 수 있게 해줍니다. 또한 **AJAX**를 사용하면 웹페이지 일부를 다시 불러들이는 동안에도 코드가 계속 실행되어, 비동기식으로 작업할 수 있습니다. 
+
+**AJAX**는 사용자 경험을 개선하고 서버로의 요청을 줄이는 등의 장점을 가지고 있습니다. 그러나 **AJAX**는 브라우저에서 실행되는 JavaScript 코드로 구현되기 때문에 다음과 같은 이유에서 모니터링이 필요합니다.
+
+* **AJAX** 요청이 제대로 처리되는지 확인해야 합니다.
+
+* **AJAX** 요청으로 인한 성능 저하를 파악해야 합니다.
+
+* 네트워크 지연, 다운로드 시간 등을 포함해 사용자 체감 성능을 파악해야 합니다.
+
+Browser 모니터링에서 제공하는 <cmdname sid="ajaxAnalytics" className="uitext" /> 메뉴에서는 시간에 따른 **AJAX** 이벤트의 응답 시간을 히트맵 차트로 확인할 수 있습니다. 또한 각 이벤트에 대한 상세 정보를 조회할 수 있습니다. 제공하는 정보는 다음과 같습니다.
+
+* **AJAX** 이벤트 구간별 세부 시간 정보
+
+* **AJAX** 요청 URL 및 호출 페이지 정보 등
+
+* 에러 메시지 및 상태 코드
+
+
+## 기본 화면 안내
+
+<ImgLang img='browser-analysis-ajax-hitmap.png' desc='AJAX Hitmap' />
+
+### ![](/img/number-01.png) <cmdname sid="ajaxAnalytics" className="uitext" /> 
+
+시간에 따른 **AJAX** 이벤트의 응답 시간을 분포도 차트로 표현하는 위젯입니다. 
+
+* 가로축은 **AJAX** 이벤트의 종료 시간입니다.
+
+* 세로축은 **AJAX** 이벤트의 경과 시간입니다.
+
+* <span class='lowfg'>하늘색</span> → <span class='normal'>파란색</span> → <span class='highfg'>남색</span> 순으로 정상 <b>AJAX</b> 이벤트를 표현합니다.
+
+* <span class='logwr'>노란색</span> → <span class='slow'>주황색</span> → <span class='vslow'>빨간색</span> 순으로 에러 발생 <b>
+AJAX</b> 이벤트를 표현합니다. 에러 <b>AJAX</b> 이벤트는 상태 코드가 <code>0</code>이거나 <code>400</code> 이상인 경우입니다. 상태 코드가 <code>0</code>이면 브라우저에서 서버 쪽으로 요청이 전달되지 않은 경우입니다.
+
+### ![](/img/number-02.png) <cmdname sid="ajax" className="uitext" /> <cmdname sid="list" className="uitext" />
+
+히트맵 차트의 ![숫자 3](/img/number-03.png) 일부 영역을 드래그하면, 드래그한 영역의 **AJAX** 이벤트를 ![숫자 2](/img/number-02.png) <cmdname sid="ajax" className="uitext" /> <cmdname sid="list" className="uitext" />으로 불러옵니다. 
+
+다음은 테이블의 컬럼 항목에 대한 설명입니다.
+
+* <cmdname sid="ajax_request_url" className="uitext" />: AJAX 이벤트 URL
+
+* <cmdname sid="start_time" className="uitext" />: AJAX 요청을 시작한 시간
+
+* <cmdname sid="elapsed" className="uitext" />: AJAX 이벤트 완료까지의 소요 시간
+
+* <cmdname sid="page_url" className="uitext" />: AJAX 이벤트를 호출한 페이지의 URL
+
+* <cmdname sid="status_code" className="uitext" />: AJAX 이벤트의 응답 상태 코드
+
+* <cmdname sid="errMessage" className="uitext" />: 상태 코드가 <code>0</code> 또는 <code>400</code> 이상인 경우 AJAX 응답값(<code>statusText</code>)
+
+  :::note
+
+  상태 코드가 `0` 또는 `400`인 AJAX 이벤트는 목록에서 <span class='vslow'>빨간색</span>으로 표시됩니다.
+
+  :::
+
+* <cmdname sid="browser" className="uitext" />: 최종 사용자가 사용한 브라우저의 종류
+
+:::note
+
+<cmdname sid="add_a_column" className="uitext" /> 버튼을 이용해 추가할 수 있는 컬럼 항목에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+:::
+
+
+## AJAX 이벤트 상세 정보 확인하기
+
+<cmdname sid="ajax" className="uitext" /> <cmdname sid="list" className="uitext" />에서 각 항목을 선택하면 상세 내용을 조회할 수 있는 <cmdname sid="ajax" className="uitext" /> <cmdname sid="info" className="uitext" /> 창이 나타납니다.
+

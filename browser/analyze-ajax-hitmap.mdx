@@ -17,7 +17,7 @@ AJAX는 사용자 경험을 개선하고 서버로의 요청을 줄이는 등의
 
 * 네트워크 지연, 다운로드 시간 등을 포함해 사용자 체감 성능을 파악해야 합니다.
 
-Browser 모니터링에서 제공하는 <cmdname sid="ajaxAnalytics" className="uitext" /> 메뉴에서는 시간에 따른 AJAX 이벤트의 응답 시간을 히트맵 차트로 확인할 수 있습니다. 또한 각 이벤트에 대한 상세 정보를 조회할 수 있습니다. 제공하는 정보는 다음과 같습니다.
+**브라우저 모니터링**에서 제공하는 <cmdname sid="ajaxAnalytics" className="uitext" /> 메뉴에서는 시간에 따른 AJAX 이벤트의 응답 시간을 히트맵 차트로 확인할 수 있습니다. 또한 각 이벤트에 대한 상세 정보를 조회할 수 있습니다. 제공하는 정보는 다음과 같습니다.
 
 * AJAX 이벤트 구간별 세부 시간 정보
 
@@ -63,7 +63,7 @@ AJAX</b> 이벤트를 표현합니다. 에러 <b>AJAX</b> 이벤트는 상태 �
 
   :::note
 
-  상태 코드가 `0` 또는 `400`인 AJAX 이벤트는 목록에서 <span class='vslow'>빨간색</span>으로 표시됩니다.
+  상태 코드가 `0` 또는 `400` 이상인 AJAX 이벤트는 목록에서 <span class='vslow'>빨간색</span>으로 표시됩니다.
 
   :::
 
@@ -71,7 +71,7 @@ AJAX</b> 이벤트를 표현합니다. 에러 <b>AJAX</b> 이벤트는 상태 �
 
 :::note
 
-<cmdname sid="add_a_column" className="uitext" /> 버튼을 이용해 추가할 수 있는 컬럼 항목에 대한 자세한 내용은 다음 문서를 참조하세요.
+<cmdname sid="add_a_column" className="uitext" /> 버튼을 이용해 추가할 수 있는 컬럼 항목에 대한 자세한 내용은 <Link to="#add-column">다음 문서</Link>를 참조하세요.
 
 :::
 
@@ -136,9 +136,32 @@ AJAX 목록을 대상으로 검색어를 입력하고 일치하는 대상을 필
 
 :::
 
-### 컬럼 추가하기
+### 컬럼 추가하기{#add-column}
 
-![숫자 1](/img/number-01.png) 목록에서 테이블 헤더 컬럼으로 추가할 항목을 선택하세요. 모든 항목을 추가하려면 ***전체 선택***을 선택하세요.
+![숫자 1](/img/number-01.png) 목록에서 테이블 헤더 컬럼으로 추가할 항목을 선택하세요. 모든 항목을 추가하려면 ***전체 선택***을 선택하세요. 추가할 수 있는 컬럼 항목은 다음과 같습니다.
+
+| 컬럼 이름 | 설명 |
+| -- | -- |
+| <cmdname sid="client_ip" className="uitext" /> | 최종 사용자가 사용한 기기의 IP 주소 |
+| <cmdname sid="TTL07104" className="uitext" /> | 브라우저 레벨에서 AJAX 요청을 중단한 경우 `true`로 표시 |
+| <cmdname sid="user_agent" className="uitext" /> | 브라우저 에이전트가 수집한 최종 사용자의 유저 에이전트 문자열 |
+| <cmdname sid="size" className="uitext" /> | AJAX 응답값에 대한 용량, 압축이 해제된 실제 용량을 의미 |
+| <cmdname sid="country" className="uitext" /> | 최종 사용자가 위치한 국가 코드 |
+| <cmdname sid="city" className="uitext" /> |  최종 사용자가 위치한 도시 이름 |
+| <cmdname sid="download_time" className="uitext" /> | 브라우저가 서버로부터 AJAX 응답 값을 다운로드하는 데 소요한 시간 |
+| <cmdname sid="device" className="uitext" /> | 최종 사용자가 사용한 기기의 종류 |
+| <cmdname sid="redirect_time" className="uitext" /> | 브라우저가 AJAX 요청 시 리다이렉션에 소요한 시간 |
+| <cmdname sid="user_id" className="uitext" /> | 임의로 부여한 최종 사용자의 ID |
+| <cmdname sid="session_id" className="uitext" /> | 최종 사용자의 세션 ID |
+| <cmdname sid="connect_time" className="uitext" /> | AJAX 요청 대상 서버와 TCP 연결을 설정하는데 소요된 시간 |
+| <cmdname sid="wait_time" className="uitext" /> | 브라우저의 HTTP 요청 시작 시간부터 서버가 요청을 수신하고 응답을 시작하는 시간까지 소요된 시간 |
+| <cmdname sid="browser" className="uitext" /> | 최종 사용자가 사용한 브라우저의 종류 |
+| <cmdname sid="os" className="uitext" /> | 최종 사용자가 사용한 기기의 운영체제 종류 |
+| <cmdname sid="end_time" className="uitext" /> | AJAX 이벤트 종료 시간 |
+| <cmdname sid="cache_time" className="uitext" /> | 브라우저가 캐시된 AJAX 리소스를 검색하는 데 소요한 시간 |
+| <cmdname sid="page_title" className="uitext" /> | 브라우저로 접속한 HTML 페이지의 제목(title) |
+| <cmdname sid="TTL06193" className="uitext" /> | 브라우저가 AJAX 요청 도메인을 조회하는데 소요한 시간 |
+| <cmdname sid="ssl_time" className="uitext" /> | SSL/TLS 핸드셰이크를 완료하는 데 소요된 시간 |
 
 ### 컬럼 삭제하기
 

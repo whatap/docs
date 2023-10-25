@@ -63,6 +63,26 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 컨테이너 맵 ]
 * ![리셋 아이콘](/img/ico-reset.svg) ***리셋***: 사용자가 설정한 화면 보기를 초기화합니다.
 
 
+#### 지표 선택 및 임계치 설정
+
+![컨테이너 맵 차트 지표 및 임계치 설정](/img/k8s-container-map-thresholds.png)
+
+차트 지표 선택 및 임계치 설정은 컨테이너 맵의 상태 표현을 결정합니다. 선택한 지표의 단위가 숫자인 경우 임계치를 설정할 수 있습니다. 설정한 임계치는 다음 범주에 따라 색상으로 표현됩니다. 
+
+* 0 이상 <span class='slow'>Warning</span> 이하: <span class='normal'>파란색</span>
+
+* <span class='slow'>Warning</span> 초과 <span class='vslow'>Critical</span> 이하: <span class='slow'>주황색</span>
+
+* <span class='vslow'>Critical</span> 초과: <span class='vslow'>빨간색</span>
+
+:::note
+
+* 수치형 지표 단위로는 ***pct***, ***bps***, ***millicore*** 등이 있습니다. ***pct#***는 100% 이상의 값이 나올 수 있는 지표 단위입니다. 
+
+* 차트 지표 선택과 임계치 설정에 대한 자세한 내용은 [다음 문서](container-status)를 참조하세요.
+
+:::
+
 #### 라벨 옵션{#label}
 
 * ***없음***: 블럭에 라벨을 표시하지 않습니다.
@@ -73,7 +93,7 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 컨테이너 맵 ]
 
 * ***선택된 지표***: ***ConState(state)*** 항목에서 선택한 차트 지표를 표시합니다.
 
-#### 실시간 조회 및 과거 조회
+#### 실시간 조회 및 과거 조회{#time-seletor}
 
 컨테이너 맵은 기본적으로 실시간 조회 기반이지만 여러 시점에 따른 조회 기능을 제공합니다. 실시간 조회 변경은 화면 상단 왼쪽의 시간 선택자를 이용하세요.
 

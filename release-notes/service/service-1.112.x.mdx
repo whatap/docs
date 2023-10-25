@@ -64,6 +64,8 @@ pagination_next: release-notes/service/service-1_110_x
 
 #### 공통
 
+- <Status>Feature</Status> <cmdname sid="dashboard" className="uitext" /> > <cmdname sid="instance_monitoring" className="uitext" /> 메뉴에서 비실시간 모드 상태가 되면 해당 시간의 <cmdname sid="TTL06468" className="uitext" /> 메뉴로 이동할 수 있는 버튼 추가
+
 - <Status>Changed</Status> <cmdname sid="dashboard" className="uitext" /> > <cmdname sid="instance_list" className="uitext" /> 메뉴에서 테이블이 브라우저 크기에 맞춰 채워지도록 변경
 
 - <Status>Changed</Status> <cmdname sid="reportStat" className="uitext" /> > <cmdname sid="TTL06468" className="uitext" /> 메뉴의 사용자 편의성을 위한 UI 개선
@@ -74,7 +76,7 @@ pagination_next: release-notes/service/service-1_110_x
   
   - 테이블 서브 차트에 ChartIndex 추가
 
-- <Status>Feature</Status> <cmdname sid="dashboard" className="uitext" /> > <cmdname sid="instance_monitoring" className="uitext" /> 메뉴에서 비실시간 모드 상태가 되면 해당 시간의 <cmdname sid="TTL06468" className="uitext" /> 메뉴로 이동할 수 있는 버튼 추가
+- <Status>Changed</Status> <cmdname sid="analysis" className="uitext" /> > <cmdname sid="db_parameter" className="uitext" /> 메뉴의 테이블 스크롤이 테이블 내부에서 생성되도록 변경
 
 #### DB V2
 
@@ -88,10 +90,6 @@ pagination_next: release-notes/service/service-1_110_x
 
 <p><Status>Changed</Status> 선택한 위젯의 메트릭스를 변경, 추가, 삭제할 경우 위젯의 제목을 비워 변경된 메트릭스로 자동 완성된 문자열이 placeholder로 입력되도록 변경</p>
 
-#### MySQL
-
-<p><Status>Changed</Status> <cmdname sid="analysis" className="uitext" /> > <cmdname sid="db_parameter" className="uitext" /> 메뉴의 테이블 스크롤이 테이블 내부에서 생성되도록 변경</p>
-
 #### PostgreSQL
 
 <p><Status>Fixed</Status> <cmdname sid="analysis" className="uitext" /> > <cmdname sid="TTL06993" className="uitext" /> 메뉴에서 액티브 세션의 상세 정보 창을 통해 <cmdname sid="TTL06721" className="uitext" /> 메뉴로 이동할 경우, <cmdname sid="TTL06993" className="uitext" /> 메뉴의 시간으로 세션 히스토리를 조회하도록 수정</p>
@@ -102,7 +100,7 @@ pagination_next: release-notes/service/service-1_110_x
 
 ---
 
-### `Container`
+### `Kubernetes`
 
 - <Status>Fixed</Status> <cmdname sid="dashboard" className="uitext" /> > <cmdname sid="containerMap" className="uitext" /> 메뉴의 <b>요약</b> 또는 <b>상세 보기</b>에서 <cmdname sid="logs" className="uitext" />/<cmdname sid="event" className="uitext" /> 탭의 조회 가능 여부에 따른 안내 메시지 수정
 

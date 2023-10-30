@@ -7,20 +7,64 @@ tags: [ 경고 알림, 메트릭스 이벤트, 쿠버네티스 모니터링 ]
 
 {@include: ../common-items/_metrics-warning-notice.mdx}
 
-<!-- >
-
 ## 메트릭스 이벤트 템플릿
+
+:::note 
+
+쿠버네티스 이벤트의 `reason` 필드 정보는 [쿠버네티스 공식 문서](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/events/event.go#L27)를 참조하세요. 
+
+:::
 
 #### ***BackOff***
 
-Kubernetes 이벤트의 `reason` 필드 정보 중 `BackOff`가 0회 이상 찍힌 경우 알림이 발생합니다. ***메시지*** 예시는 다음과 같습니다.
+Kubernetes 이벤트의 `reason` 필드 정보 중 `BackOff`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다. 
 
-> Kube Event `${message}`
+> 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
 
 #### ***Evicted***
 
-Kubernetes 이벤트의 `reason` 필드 정보 중 `Evicted`가 0회 이상 찍힌 경우 알림이 발생합니다. ***메시지*** 예시는 다음과 같습니다.
+Kubernetes 이벤트의 `reason` 필드 정보 중 `Evicted`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
-> Kube Event `${message}`
+> 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
 
--->
+#### ***FailedCreatePodSandBox***
+
+Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedCreatePodSandBox`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
+
+#### ***FailedMount***
+
+Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedMount`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
+
+#### ***FailedScheduling***
+
+Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedScheduling`이 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
+
+#### ***FailedSync***
+
+Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedSync`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
+
+#### ***NodeNotReady***
+
+Kubernetes 이벤트의 `reason` 필드 정보 중 `NodeNotReady`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
+
+#### ***Unhealthy***
+
+Kubernetes 이벤트의 `reason` 필드 정보 중 `Unhealthy`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
+
+#### ***컨테이너 CPU 할당량 기준 사용률***
+
+컨테이이너의 CPU Limit 기준 CPU 전체 사용량이 70% 이상일 때 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> ${okindName}의 ${oname} 컨테이너의 CPU 사용률이 ${cpu_per_quota}% >= 70%로 높습니다.

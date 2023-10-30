@@ -65,6 +65,30 @@ Kubernetes 이벤트의 `reason` 필드 정보 중 `Unhealthy`가 0회 이상 �
 
 #### ***컨테이너 CPU 할당량 기준 사용률***
 
-컨테이이너의 CPU Limit 기준 CPU 전체 사용량이 70% 이상일 때 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+컨테이너의 CPU Limit 기준 CPU 전체 사용량이 70% 이상인 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
-> ${okindName}의 ${oname} 컨테이너의 CPU 사용률이 ${cpu_per_quota}% >= 70%로 높습니다.
+> `${okindName}`의 `${oname}` 컨테이너의 CPU 사용률이 `${cpu_per_quota}`% >= 70%로 높습니다.
+
+#### ***컨테이너 메모리 Fail Count***
+
+컨테이너 메모리 Limit 도달 건수가 1회 이상인 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> `${okindName}`의 `${oname}` 컨테이너가 limit을 초과하여 `${failcnt}`가 증가였습니다.
+
+#### ***컨테이너 메모리 사용률***
+
+컨테이너 메모리 Limit 기준 사용량이 90% 이상이 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> `${okindName}`의 `${oname}` 컨테이너 메모리 사용률이 `${container.mem_percent}`% >= 90% 입니다.
+
+#### ***HPA CPU 사용률 알림***
+
+현재 실행 중인 Pod의 수가 리소스 내 최대 Pod 수와 같고 CPU 사용률이 70% 이상일 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> HPA POD 생성 최대치에 도달하였고 CPU 사용률이 >= 70% 상태 입니다.
+
+#### ***마스터 POD수 알림***
+
+노드에 할당 가능한 Pod가 존재하지 않을 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> 마스터에 할당 가능한 POD 개수는 0입니다.

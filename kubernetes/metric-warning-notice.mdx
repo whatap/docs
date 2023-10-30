@@ -6,3 +6,21 @@ tags: [ 경고 알림, 메트릭스 이벤트, 쿠버네티스 모니터링 ]
 ---
 
 {@include: ../common-items/_metrics-warning-notice.mdx}
+
+<!-- >
+
+## 메트릭스 이벤트 템플릿
+
+#### ***BackOff***
+
+Kubernetes 이벤트의 `reason` 필드 정보 중 `BackOff`가 0회 이상 찍힌 경우 알림이 발생합니다. ***메시지*** 예시는 다음과 같습니다.
+
+> Kube Event `${message}`
+
+#### ***Evicted***
+
+Kubernetes 이벤트의 `reason` 필드 정보 중 `Evicted`가 0회 이상 찍힌 경우 알림이 발생합니다. ***메시지*** 예시는 다음과 같습니다.
+
+> Kube Event `${message}`
+
+-->

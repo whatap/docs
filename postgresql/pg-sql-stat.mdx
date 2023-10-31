@@ -11,7 +11,9 @@ PostgreSQL에서 제공하는 SQL 통계(수행 횟수, 실행 시간, Row 수 �
 
 :::note
 
-`pg_stat_statements` 모듈에 대한 자세한 내용은 [다음 링크](https://www.postgresql.org/docs/current/pgstatstatements.html)를 참조하세요.
+* 1시간 간격으로 `pg_stat_statements`로부터 델타값을 계산해 수집하기 때문에, 설정 후 1시간 뒤부터 수집을 시작합니다.
+
+* `pg_stat_statements` 모듈에 대한 자세한 내용은 [다음 링크](https://www.postgresql.org/docs/current/pgstatstatements.html)를 참조하세요.
 
 :::
 

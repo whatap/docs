@@ -7,7 +7,7 @@ tags: [ 경고 알림, 메트릭스 이벤트, 쿠버네티스 모니터링 ]
 
 {@include: ../common-items/_metrics-warning-notice.mdx}
 
-## 메트릭스 이벤트 템플릿
+## 메트릭스 이벤트 템플릿{#k8s-metrics-event-template}
 
 :::note 
 
@@ -65,7 +65,7 @@ Kubernetes 이벤트의 `reason` 필드 정보 중 `Unhealthy`가 0회 이상 �
 
 #### ***컨테이너 CPU 할당량 기준 사용률***
 
-컨테이너의 CPU Limit 기준 CPU 전체 사용량이 70% 이상인 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+컨테이너의 CPU Limit 기준 CPU 전체 사용량(`${cpu_per_quota}`)이 70% 이상인 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > `${okindName}`의 `${oname}` 컨테이너의 CPU 사용률이 `${cpu_per_quota}`% >= 70%로 높습니다.
 
@@ -77,7 +77,7 @@ Kubernetes 이벤트의 `reason` 필드 정보 중 `Unhealthy`가 0회 이상 �
 
 #### ***컨테이너 메모리 사용률***
 
-컨테이너 메모리 Limit 기준 사용량이 90% 이상이 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+컨테이너 메모리 Limit 기준 사용량(`${container.mem_percent}`)이 90% 이상이 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > `${okindName}`의 `${oname}` 컨테이너 메모리 사용률이 `${container.mem_percent}`% >= 90% 입니다.
 
@@ -92,3 +92,25 @@ Kubernetes 이벤트의 `reason` 필드 정보 중 `Unhealthy`가 0회 이상 �
 노드에 할당 가능한 Pod가 존재하지 않을 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > 마스터에 할당 가능한 POD 개수는 0입니다.
+
+
+#### ***노드 CPU 사용률 알림***
+
+노드의 CPU 사용률(`${cpu}`)이 70% 이상일 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> `${oname}`의 CPU 사용률이 `${cpu}`% >= 70% 입니다.
+
+#### ***노드 메모리 사용률 알림***
+
+노드의 메모리 사용률(`${memory_pused}`)이 90% 이상일 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> `${oname}`의 메모리 사용률이 `${memory_pused}`% >= 90% 입니다.
+
+#### ***APDEX***
+
+트랜잭션이 존재하면서 APDEX 점수가 0.7점보다 낮을 경우 해당 알림이 발생합니다.  <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+노드에 할당 가능한 Pod 수가 0개 이하일 경우 해당 알림이 발생합니다.  <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> APDEX가 0.7 보다 작습니다 (`${oname}`)
+

@@ -14,6 +14,73 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 1.113.2
+
+2023년 11월 01일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Fixed</Status> 채널톡 좌측 <cmdname sid="pcode" className="uitext" /> 버튼 위치가 채팅창 뒤에 위치해 보이지 않는 현상 수정
+
+- <Status>Fixed</Status> <cmdname sid="platform_catalog" className="uitext" /> 메뉴에서 배너 영역이 웹 브라워저에 따라 스타일이 깨지는 현상 수정
+
+- <Status>Fixed</Status> <cmdname sid="manage_account_info" className="uitext" /> 메뉴에서 멀티 팩터 인증 시 브라우저 크기가 특정 픽셀 이하일 경우 QR 코드 영역의 스타일이 깨지는 현상 수정
+
+---
+
+### `Application`
+
+#### 대시보드
+
+<p><Status>Fixed</Status> <cmdname sid="TTL06209" className="uitext" /> 창의 <cmdname sid="TTL06126" className="uitext" /> 탭에서 에러 정보 문자열이 잘려보이는 현상 수정</p>
+
+#### 에이전트 설치
+
+<p><Status>Fixed</Status> Java 에이전트의 설치 문구 수정</p>
+
+- <cmdname sid="JAVA-agent-setup-1-subject" className="uitext" /> 섹션에 에이전트 버전별 내용 추가
+
+- JVM 옵션 관련해 SpringBoot, Java 17 버전 대응한 내용 추가
+
+- 기타 중복 문구 제거
+
+---
+
+### `Server`
+
+- <Status>Fixed</Status> <cmdname sid="dashboard" className="uitext" /> > <cmdname sid="sms_resource_board" className="uitext" /> 메뉴에서 <cmdname sid="sms_alert_status" className="uitext" /> 메뉴를 표시한 경우 일부 차트의 레이아웃이 틀어지는 현상 수정
+
+- <Status>Fixed</Status> <cmdname sid="sms_server_list" className="uitext" /> > <cmdname sid="serverDetail" className="uitext" /> 메뉴에서 시계열 차트의 x축 표시 단위가 '일(day)'이면 'HH:MM' 형식이 아닌 날짜(MM/DD) 형식으로 표시하도록 수정
+
+---
+
+### `Kubernetes`
+
+- <Status>Feature</Status> <cmdname sid="ITM01408" className="uitext" /> > <cmdname sid="node_detail" className="uitext" /> 메뉴에서 <cmdname sid="product_type_cpm" className="uitext" /> 테이블에 <cmdname sid="state" className="uitext" /> 컬럼 추가
+
+- <Status>Fixed</Status> <cmdname sid="ITM01408" className="uitext" /> > <cmdname sid="node_list" className="uitext" /> 메뉴에서 수집하지 않는 데이터에 해당하는 컬럼 제거(<cmdname sid="network_ip" />, <cmdname sid="open_filedescriptors" />, <cmdname sid="TTL06822" />)
+
+- <Status>Changed</Status> <cmdname sid="dashboard" className="uitext" /> > <cmdname sid="serviceDashboard" className="uitext" /> 메뉴를 개선된 대시보드로 교체, 변경 사항은 <Link to='../service/service-1_110_x#application-5' target='_blank'>다음 문서</Link>를 참조하세요.
+
+---
+
+### `Database`
+
+- <Status>Changed</Status> <cmdname sid="dashboard" className="uitext" /> > <cmdname sid="instance_list" className="uitext" /> 메뉴에서 테이블 헤더에 전체 인스턴스를 선택할 수 있는 버튼 추가
+
+- <Status>Fixed</Status> MySQL V2 프로젝트의 <cmdname sid="instance_list" className="uitext" /> 메뉴에서 <cmdname sid="multi_view" className="uitext" /> 버튼을 선택하면 V1 버전의 <cmdname sid="instance_monitoring" className="uitext" /> 메뉴로 이동하는 버그 수정
+
+---
+
+### `Network`
+
+<p><Status>Fixed</Status> <cmdname sid="dashboard" className="uitext" /> > <cmdname sid="MNU06848" className="uitext" /> 메뉴에서 필터 선택 항목이 간헐적으로 해제되는 현상 수정</p>
+
+</div>
+
+
 ## Preview 1.113.1
 
 2023년 10월 27일

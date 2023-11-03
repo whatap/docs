@@ -465,7 +465,7 @@ C3p 컨텍션 풀 사이즈 추적 코드의 버그를 수정했습니다.
 
 ### Silent Shutdown 지시파일 명변경
 
-`WHATAP_HOME`에 *{pid}.shutdown* 파일이 생성되면 와탭 에이전트는 서버에 자신이 1분 이내에 정상 종료 할 것임을 전달합니다. 이번 버전에서는 이 파일을 자동으로 삭제하도록 처리하였습니다. 그러면서 파일 명을 *whatap_{pid}.shutdown*으로 변경하였습니다. 
+`WHATAP_HOME`에 *`{pid}`.shutdown* 파일이 생성되면 와탭 에이전트는 서버에 자신이 1분 이내에 정상 종료 할 것임을 전달합니다. 이번 버전에서는 이 파일을 자동으로 삭제하도록 처리하였습니다. 그러면서 파일 명을 *whatap_`{pid}`.shutdown*으로 변경하였습니다. 
 
 ### 사용자 추적 ID를 mtid로 바인딩
 
@@ -496,7 +496,7 @@ trace_user_cookie_limit=2048
 hook_dump_enabled=true
 ```
 
-`hook_dump_enabled=true`를 설정하면 와탭 에이전트에 의해 변경되는 클래스는 모든 덤프합니다. *${WHATAP_HOME}/classes*에 수정된 파일이 모두 덤프됩니다. 
+`hook_dump_enabled=true`를 설정하면 와탭 에이전트에 의해 변경되는 클래스는 모든 덤프합니다. *`${WHATAP_HOME}`/classes*에 수정된 파일이 모두 덤프됩니다. 
 
 :::note
 

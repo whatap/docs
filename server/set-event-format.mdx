@@ -91,34 +91,34 @@ Stateful : true
 |----|----|----|----|
 |재시작|Critical|System Rebooted"|미지원|
 | 미수신 | Warning | Agent No Data" | 미지원|
-| 포트 | Warning | Port ${port} is down" | "Port ${port} is up"|
-| 포트(IP를 알 수 있는 경우) | Warning | IP ${ip} Port ${port} is down" | "IP ${ip} Port ${port} is up"|
-| 네트워크 IOPS | Warning or Critical | NETWORK ${deviceId} pps > ${value} pps" | -|
-| 네트워크 BPS | Warning or Critical | NETWORK ${deviceId} bps > ${value} ps" | -|
-| 디스크 I/O | Warning or Critical | Disk ${mountPoint} IO Usage > ${value} %" | -|
-| 디스크 사용량 | Warning or Critical | Disk ${mountPoint} Used > ${value} %" | -|
-| inode | Warning or Critical | Disk ${mountPoint} inode usage > ${value} %" | -|
-| CPU | Warning or Critical | CPU Used > ${value} %" | -|
-| 메모리  | Warning or Critical | Memory Used > ${value} %" | -|
-| steal | Warning or Critical | CPU Steal > ${value} %" | -|
-| 스왑  | Warning or Critical | Swap Used > ${value} %" | -|
+| 포트 | Warning | Port $\{port} is down" | "Port $\{port} is up"|
+| 포트(IP를 알 수 있는 경우) | Warning | IP $\{ip} Port $\{port} is down" | "IP $\{ip} Port $\{port} is up"|
+| 네트워크 IOPS | Warning or Critical | NETWORK $\{deviceId} pps > $\{value} pps" | -|
+| 네트워크 BPS | Warning or Critical | NETWORK $\{deviceId} bps > $\{value} ps" | -|
+| 디스크 I/O | Warning or Critical | Disk $\{mountPoint} IO Usage > $\{value} %" | -|
+| 디스크 사용량 | Warning or Critical | Disk $\{mountPoint} Used > $\{value} %" | -|
+| inode | Warning or Critical | Disk $\{mountPoint} inode usage > $\{value} %" | -|
+| CPU | Warning or Critical | CPU Used > $\{value} %" | -|
+| 메모리  | Warning or Critical | Memory Used > $\{value} %" | -|
+| steal | Warning or Critical | CPU Steal > $\{value} %" | -|
+| 스왑  | Warning or Critical | Swap Used > $\{value} %" | -|
 
 ### 프로세스 알림
 
 |Event Type|Event Level|Event Message|Event Off Message|
 |----|----|----|----|
-| 프로세스 수 경고  | Warning or Critical | Process ${processName} Count >= ${value}" | "Process ${groupName} Count < ${value}" |
-| 프로세스 수 위험  | Warning or Critical | Process ${processName} Count < ${value}" | "Process ${groupName} Count >= ${value}"
-| 프로세스 CPU | Warning or Critical | Process ${processName} CPU > ${value}" | -|
-| 프로세스 메모리 | Warning or Critical | Process ${processName} Memory > ${value}" | -|
+| 프로세스 수 경고  | Warning or Critical | Process $\{processName} Count >= $\{value}" | "Process $\{groupName} Count \< $\{value}" |
+| 프로세스 수 위험  | Warning or Critical | Process $\{processName} Count < $\{value}" | "Process $\{groupName} Count >= $\{value}"
+| 프로세스 CPU | Warning or Critical | Process $\{processName} CPU > $\{value}" | -|
+| 프로세스 메모리 | Warning or Critical | Process $\{processName} Memory > $\{value}" | -|
 
 ### 로그 파일과 윈도우 이벤트
 
 |Event Type|Event Level|Event Message|Event Off Message|
 |----|----|----|----|
 | Event Type | Event Level | Event Message | Event Off Message |
-| LOG_DEFAULT  | Warning or Critical | LOG ${logContent}" | -|
-| LOG_FILE  | Warning or Critical | LOG File: ${filePath}, Keyword : ${keyword}, [Event] ${logContent}" | -|
-| LOG_WINDOW_EVENT  | Warning or Critical | LOG ${logContent}" | -|
-| LOG_AUDIT  | Warning or Critical | AUDIT ${logContent}" | -|
-| LOG_SCRIPT  | Warning or Critical | SCRIPT ${logContent}" | -|
+| LOG_DEFAULT  | Warning or Critical | LOG $\{logContent}" | -|
+| LOG_FILE  | Warning or Critical | LOG File: $\{filePath}, Keyword : $\{keyword}, [Event] $\{logContent}" | -|
+| LOG_WINDOW_EVENT  | Warning or Critical | LOG $\{logContent}" | -|
+| LOG_AUDIT  | Warning or Critical | AUDIT $\{logContent}" | -|
+| LOG_SCRIPT  | Warning or Critical | SCRIPT $\{logContent}" | -|

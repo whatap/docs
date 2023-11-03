@@ -213,7 +213,7 @@ Telegraf release 버전을 기준으로 whatap plugin을 추가하여 미리 생
 
 * **소스 파일**
 
-  *${GOPATH}/src/github.com/influxdata/telegraf/* 디렉터리 밑에 압축을 해제하세요.
+  *`${GOPATH}`/src/github.com/influxdata/telegraf/* 디렉터리 밑에 압축을 해제하세요.
 
   :::note
 
@@ -235,7 +235,7 @@ Telegraf release 버전을 기준으로 whatap plugin을 추가하여 미리 생
 
 :::
 
-*${GOPATH}/src/github.com/influxdata/telegraf* 이하 Makefile로 빌드를 진행하세요.
+*`${GOPATH}`/src/github.com/influxdata/telegraf* 이하 Makefile로 빌드를 진행하세요.
 
 1. 의존성 설치를 진행하세요. 의존성 설치는 go dep을 사용하기 때문에 go dep이 먼저 설치되어야 합니다.
 
@@ -243,7 +243,7 @@ Telegraf release 버전을 기준으로 whatap plugin을 추가하여 미리 생
     # make deps
     ```
 
-1. 실행 파일을 빌드하세요. *${GOPATH}/bin* 디렉터리에 실행 파일(telegraf)이 생성됩니다.
+1. 실행 파일을 빌드하세요. *`${GOPATH}`/bin* 디렉터리에 실행 파일(telegraf)이 생성됩니다.
 
     ```bash title=SH
     # make go-install

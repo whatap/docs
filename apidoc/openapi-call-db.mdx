@@ -81,7 +81,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 | `oids` | <span class='api'>array</span> · <span class='require'>필수</span> | - | 에이전트 ID, 쉼표(,)를 구분자로 복수 입력 가능 | - |
 | `period` | <span class='api'>string</span> · <span class='require'>필수</span> | `day`, `week` | 조회 기간 | - |
 | `date` | <span class='type'>string</span> · <span class='require'>필수</span> | `yyyyMMdd` 형식 | 기준 시간  | - |
-| `topN` | <span class='type'>number</span> | 1 ~ 1000 | 상위 건수 | 10 |
+| `topN` | <span class='type'>number</span> | 1 \~ 1000 | 상위 건수 | 10 |
 | `order` | <span class='type'>string</span> | `sql_execute_cnt`<br/>`sql_elapse`<br/>`sql_elapse_max` | 정렬 순서 | `sql_execute_cnt` |
 | `category` | <span class='type'>string</span> | `ALL`<br/>`DB`<br/>`HOST`<br/>`USER` | 카테고리, `USER`를 선택하면 사용자 기준으로 SQL 통계 데이터 응답 | `ALL` |
 | `nameInCategory` | <span class='type'>string</span> | - | `category` 선택 시 입력 | - |

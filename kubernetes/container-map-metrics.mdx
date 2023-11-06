@@ -5,7 +5,7 @@ description: 쿠버네티스의 리소스 사용량을 확인하고, 사용량�
 tags: [ 쿠버네티스, 쿠버네티스 모니터링, Metrics, 메트릭스 ]
 ---
 
-홈 화면 > 프로젝트 선택 > ***대시보드*** > ***컨테이너 맵*** > 대상 선택 후 **상세 보기** 화면 진입 > ***메트릭스***
+홈 화면 > 프로젝트 선택 > <cmdname sid="dashboard" className="uitext" /> > <cmdname sid="containerMap" className="uitext" /> > 대상 선택 후 **상세 보기** 화면 진입 > <cmdname sid="metrics" className="uitext" />
 
 ## 쿠버네티스 메트릭스
 
@@ -57,7 +57,7 @@ spec:
 
 다양한 컨테이너의 리소스 설정 정보 및 현재 사용량을 쉽게 파악하기란 쉽지 않습니다. 그래서 와탭 쿠버네티스 모니터링 서비스는 특정 단일 컨테이너, 사용자가 선택한 복수의 컨테이너들, 또는 Deployment 전체를 대상으로 리소스 설정 및 현재 사용량을 쉽게 확인할 수 있는 기능을 제공합니다.
 
-* **상세보기** 화면 > ***메트릭스*** - 리소스 사용량 모니터링 및 분석
+* **상세보기** 화면 > <cmdname sid="metrics" className="uitext" /> - 리소스 사용량 모니터링 및 분석
 
   <ImgLang img='whatap_kubernetes_container_map_resource_example.png' desc='리소스 사용량 모니터링 및 분석' />
 
@@ -69,25 +69,20 @@ spec:
 
 Memory는 Request 128MiB, Limit 256MiB로 설정되어 있습니다. 그런데 현재 Memory 사용량은 184MiB입니다. 우측의 Memory 관련 추이 그래프를 봐도 계속 Request 기준으로 100%를 초과하였고 Limit 기준으로도 70% 이상을 사용하고 있습니다.
 
-<!-- 
->
-컨테이너 예시가 특정적이라 기존 화면 잘라서 사용
--->
-
 CPU, Memory 관련 주요 와탭 메트릭은 다음과 같습니다. 
 
 | 대상 리소스 | Shortname      | Name                                              | 설명                                           |
 | ----------- | -------------- | ------------------------------------------------- | ---------------------------------------------- |
-| CPU         | CpuTotUsage    | ***Container CPU Usage (millicore)***             | 컨테이너 CPU 사용률                            |
-| ^           | CpuByRequest   | ***Container CPU Usage by Request (%)***          | 컨테이너 CPU 요청 대비 사용률                  |
-| ^           | CpuByLimit     | ***Container CPU Usage by Limit (%)***            | CPU Limit 기준 CPU 전체 사용률                 |
-| Memory      | MemWs          | ***Container Memory Working Set (byte)***         | 컨테이너 메모리 working set                    |
-| ^           | MemWsByRequest | ***Container Memory Working Set by Request (%)*** | 컨테이너 메모리 요청량 기준 working set 사용량 |
-| ^           | MemWsByLimit   | ***Container Memory Working Set by Limit (%)***   | 컨테이너 메모리 할당량 기준 working set 사용량 |
+| CPU         | CpuTotUsage    | <span class="uitext">Container CPU Usage (millicore)</span>             | 컨테이너 CPU 사용률                            |
+| ^           | CpuByRequest   | <span class="uitext">Container CPU Usage by Request (%)</span>          | 컨테이너 CPU 요청 대비 사용률                  |
+| ^           | CpuByLimit     | <span class="uitext">Container CPU Usage by Limit (%)</span>            | CPU Limit 기준 CPU 전체 사용률                 |
+| Memory      | MemWs          | <span class="uitext">Container Memory Working Set (byte)</span>         | 컨테이너 메모리 working set                    |
+| ^           | MemWsByRequest | <span class="uitext">Container Memory Working Set by Request (%)</span> | 컨테이너 메모리 요청량 기준 working set 사용량 |
+| ^           | MemWsByLimit   | <span class="uitext">Container Memory Working Set by Limit (%)</span>   | 컨테이너 메모리 할당량 기준 working set 사용량 |
 
 :::note
 
-Pod가 실행 중인 노드에 사용 가능한 리소스가 충분하면 컨테이너에 설정된 Request 이상의 리소스를 사용할 수 있습니다. 와탭 메트릭 중 ***Container CPU Usage by Request (%)***, ***Container Memory Working Set by Request (%)***의 값이 100%를 넘어설 수 있는 이유입니다.
+Pod가 실행 중인 노드에 사용 가능한 리소스가 충분하면 컨테이너에 설정된 Request 이상의 리소스를 사용할 수 있습니다. 와탭 메트릭 중 <span class="uitext">Container CPU Usage by Request (%)</span>, <span class="uitext">Container Memory Working Set by Request (%)</span>의 값이 100%를 넘어설 수 있는 이유입니다.
 
 예를 들어, 컨테이너의 Memory Request를 128MiB로 설정했다고 가정하겠습니다. 컨테이너(Pod)가 실행 중인 노드의 총 메모리가 4GiB이고, 해당 노드에 다른 Pod가 없는 경우 이 컨테이너는 128MiB이상의 메모리를 사용할 수 있습니다.
 
@@ -97,12 +92,12 @@ Pod가 실행 중인 노드에 사용 가능한 리소스가 충분하면 컨테
 
 와탭은 CPU, Memory 외에도 다양한 메트릭을 제공합니다.
 
-* ***Container Block I/O Read Byte*** (IoReadBytes)
+* <span class="uitext">Container Block I/O Read Byte</span> (IoReadBytes)
 
-* ***Container Block I/O Write Byte*** (IoWriteBytes)
+* <span class="uitext">Container Block I/O Write Byte</span> (IoWriteBytes)
 
-* ***Container Network Receive Byte*** (NetRxBytes)
+* <span class="uitext">Container Network Receive Byte</span> (NetRxBytes)
 
-* ***Container Network Transmit Byte*** (NetTxByes)
+* <span class="uitext">Container Network Transmit Byte</span> (NetTxByes)
 
 와탭 쿠버네티스 메트릭스에 대한 자세한 내용은 [다음 문서](metrics-intro)를 참조하세요.

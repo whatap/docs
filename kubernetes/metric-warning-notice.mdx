@@ -17,100 +17,100 @@ tags: [ 경고 알림, 메트릭스 이벤트, 쿠버네티스 모니터링 ]
 
 #### ***BackOff***
 
-Kubernetes 이벤트의 `reason` 필드 정보 중 `BackOff`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다. 
+Kubernetes 이벤트의 `reason` 필드 정보 중 `BackOff`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다. 
 
 > 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
 
 #### ***Evicted***
 
-Kubernetes 이벤트의 `reason` 필드 정보 중 `Evicted`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+Kubernetes 이벤트의 `reason` 필드 정보 중 `Evicted`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
 
 #### ***FailedCreatePodSandBox***
 
-Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedCreatePodSandBox`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedCreatePodSandBox`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
 
 #### ***FailedMount***
 
-Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedMount`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedMount`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
 
 #### ***FailedScheduling***
 
-Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedScheduling`이 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedScheduling`이 0회 이상 찍힌 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
 
 #### ***FailedSync***
 
-Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedSync`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+Kubernetes 이벤트의 `reason` 필드 정보 중 `FailedSync`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
 
 #### ***NodeNotReady***
 
-Kubernetes 이벤트의 `reason` 필드 정보 중 `NodeNotReady`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+Kubernetes 이벤트의 `reason` 필드 정보 중 `NodeNotReady`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
 
 #### ***Unhealthy***
 
-Kubernetes 이벤트의 `reason` 필드 정보 중 `Unhealthy`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+Kubernetes 이벤트의 `reason` 필드 정보 중 `Unhealthy`가 0회 이상 찍힌 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > 쿠버네티스 이벤트 메시지(Kube Event `${message}`)
 
 #### ***컨테이너 CPU 할당량 기준 사용률***
 
-컨테이너의 CPU Limit 기준 CPU 전체 사용량(`${cpu_per_quota}`)이 70% 이상인 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+컨테이너의 CPU Limit 기준 CPU 전체 사용량(`${cpu_per_quota}`)이 70% 이상인 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > `${okindName}`의 `${oname}` 컨테이너의 CPU 사용률이 `${cpu_per_quota}`% >= 70%로 높습니다.
 
 #### ***컨테이너 메모리 Fail Count***
 
-컨테이너 메모리 Limit 도달 건수가 1회 이상인 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+컨테이너 메모리 Limit 도달 건수가 1회 이상인 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > `${okindName}`의 `${oname}` 컨테이너가 limit을 초과하여 `${mem_failcnt}`가 증가였습니다.
 
 #### ***컨테이너 메모리 사용률***
 
-컨테이너 메모리 Limit 기준 사용량(`${container.mem_percent}`)이 90% 이상이 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+컨테이너 메모리 Limit 기준 사용량(`${container.mem_percent}`)이 90% 이상이 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > `${okindName}`의 `${oname}` 컨테이너 메모리 사용률이 `${container.mem_percent}`% >= 90% 입니다.
 
 #### ***HPA CPU 사용률 알림***
 
-현재 실행 중인 Pod의 수가 리소스 내 최대 Pod 수와 같고 CPU 사용률이 70% 이상일 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+현재 실행 중인 Pod의 수가 리소스 내 최대 Pod 수와 같고 CPU 사용률이 70% 이상일 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > HPA POD 생성 최대치에 도달하였고 CPU 사용률이 >= 70% 상태 입니다.
 
 #### ***마스터 POD수 알림***
 
-노드에 할당 가능한 Pod가 존재하지 않을 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+노드에 할당 가능한 Pod가 존재하지 않을 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > 마스터에 할당 가능한 POD 개수는 0입니다.
 
 
 #### ***노드 CPU 사용률 알림***
 
-노드의 CPU 사용률(`${cpu}`)이 70% 이상일 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+노드의 CPU 사용률(`${cpu}`)이 70% 이상일 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > `${oname}`의 CPU 사용률이 `${cpu}`% >= 70% 입니다.
 
 #### ***노드 메모리 사용률 알림***
 
-노드의 메모리 사용률(`${memory_pused}`)이 90% 이상일 경우 해당 알림이 발생합니다. <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+노드의 메모리 사용률(`${memory_pused}`)이 90% 이상일 경우 해당 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > `${oname}`의 메모리 사용률이 `${memory_pused}`% >= 90% 입니다.
 
 #### ***APDEX***
 
-트랜잭션이 존재하면서 APDEX 점수가 0.7점보다 낮을 경우 해당 알림이 발생합니다.  <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+트랜잭션이 존재하면서 APDEX 점수가 0.7점보다 낮을 경우 해당 알림이 발생합니다.  <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
-노드에 할당 가능한 Pod 수가 0개 이하일 경우 해당 알림이 발생합니다.  <cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+노드에 할당 가능한 Pod 수가 0개 이하일 경우 해당 알림이 발생합니다.  <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
 
 > APDEX가 0.7 보다 작습니다 (`${oname}`)
 

@@ -43,7 +43,7 @@ http://www.whatap.io/hr/kim/apply.do
 trace_normalize_urls=/hr/{name}/apply.do
 ```
 
-위와 같이 설정하면 트랜잭션 이름이 */hr/kim/apply.do* → */hello/\:name/apply.do*로 치환되어 수집됩니다. 만약 대상 URL 설정은 그대로 두고 기능만 off 하고자 한다면 다음과 같이 옵션을 지정할 수 있습니다. 기본값은 `true`입니다.
+위와 같이 설정하면 트랜잭션 이름이 */hr/kim/apply.do* → */hello/:name/apply.do*로 치환되어 수집됩니다. 만약 대상 URL 설정은 그대로 두고 기능만 off 하고자 한다면 다음과 같이 옵션을 지정할 수 있습니다. 기본값은 `true`입니다.
 
 ```bash title='whatap.conf'
 trace_normalize_enabled=false

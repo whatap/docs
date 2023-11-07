@@ -36,7 +36,7 @@ tags: [ Redis, 메트릭스, 데이터베이스, 데이터베이스 모니터링
 | `AOF_ENABLED` | *redis.conf*에 appendonly 모드가 yes이면 1, no면 0 입니다. yes일 때는 레디스 서버 시작 시 *appendonly.aof*을 읽고, no이면 *dump.rdb* 파일을 읽습니다. | PERSISTENCE |
 | `AOF_LAST_REWRITE_TIME_SEC` | 마지막 AOF rewrite 소요 시간(초) | PERSISTENCE |
 | `AOF_REWRITE_IN_PROGRESS` | 현재 AOF 파일을 백그라운드로 저장 중이면 1로 표시됩니다. | PERSISTENCE |
-| `AOF_REWRITE_SCHEDULED` | AOF rewrite를 할 것으로 예정되어 있으면 1. RDB 파일을 저장 중이면 동시에 AOF 파일을 저장할 수 없으므로 예정(scheduled\:1)해놓고, 저장이 완료되면 AOF rewrite를 시작합니다. | PERSISTENCE |
+| `AOF_REWRITE_SCHEDULED` | AOF rewrite를 할 것으로 예정되어 있으면 1. RDB 파일을 저장 중이면 동시에 AOF 파일을 저장할 수 없으므로 예정(scheduled:1)해놓고, 저장이 완료되면 AOF rewrite를 시작합니다. | PERSISTENCE |
 | `RDB_BGSAVE_IN_PROGRESS` | RDB 파일 background save가 진행중일때 1로 표시됩니다. | PERSISTENCE |
 | `RDB_CHANGES_SINCE_LAST_SAVE` | RDB 파일을 마지막으로 저정한 이후로 입력된 데이터 건수 | PERSISTENCE |
 | `RDB_CURRENT_BGSAVE_TIME_SEC` | 현재 백그라운드로 RDB 파일을 저장중이라면 저장 시작부터 현재까지 소요된 시간 | PERSISTENCE |

@@ -1,14 +1,58 @@
 ---
 id: pod-init-perform
-title: POD 초기화 성능
-description: POD 초기화 성능 기능을 활용하면 Pod 시작시 피크 사용량과 초기화 시간을 분석하여 최적의 Initial Delay 설정에 도움을 받을 수 있습니다.
-tags: [ 쿠버네티스, 쿠버네티스 모니터링, POD, 초기화 ]
+title: Pod 초기화 성능
+description: Pod 초기화 성능 기능을 활용하면 Pod 시작시 피크 사용량과 초기화 시간을 분석하여 최적의 Initial Delay 설정에 도움을 받을 수 있습니다.
+tags: [ 쿠버네티스, 쿠버네티스 모니터링, Pod, 초기화 ]
 ---
 
-홈 화면 > 프로젝트 선택 > ***분석*** > ***POD 초기화 성능***
+홈 화면 > 프로젝트 선택 > ***분석*** > ***Pod 초기화 성능***
 
-Springboot를 포함한 JVM 기반 애플리케이션은 초기화 시점에 많은 자원을 사용해 Liveness 체크에 실패하는 경우가 있습니다. 만약 일정 횟수 이상 Liveness 체크에 실패하는 경우 해당 POD가 삭제되고 무한 재시작 현상이 발생하여 배포 실패로 이어질 수 있습니다.
+Springboot를 포함한 JVM 기반 애플리케이션은 초기화 시점에 많은 자원을 사용해 Liveness 체크에 실패하는 경우가 있습니다. 만약 일정 횟수 이상 Liveness 체크에 실패하는 경우 해당 Pod가 삭제되고 무한 재시작 현상이 발생하여 배포 실패로 이어질 수 있습니다.
 
-와탭 쿠버네티스의 ***POD 초기화 성능*** 기능을 활용하면 POD 시작 시 피크 사용량과 초기화 시간을 분석하여 최적의 Initial Delay(Liveness 체크 면제 시간) 설정에 도움을 받을 수 있습니다.
+와탭 쿠버네티스의 ***Pod 초기화 성능*** 기능을 활용하면 Pod 시작 시 피크 사용량과 초기화 시간을 분석하여 최적의 Initial Delay(Liveness 체크 면제 시간) 설정에 도움을 받을 수 있습니다.
 
-<ImgLang img='k8s-pod-init-perform.png' desc='POD 초기화 성능' />
+## 기본 화면 안내
+
+<ImgLang img='k8s-pod-init-perform.png' desc='Pod 초기화 성능' />
+
+* ![number 01](/img/number-01.png) 영역 좌측 상단에서 상태별 Pod 개수를 확인할 수 있습니다.
+
+* ![number 01](/img/number-01.png) 영역 우측 상단에서 새로 고침 아이콘을 선택해 새로 고침할 수 있습니다.
+
+* ![number 01](/img/number-01.png) 영역 좌측에서 컬럼 아이콘을 선택해 컬럼을 선택할 수 있습니다. 
+
+* ![number 01](/img/number-01.png) 영역 우측 입력창에서 Pod 이름 또는 QoS 클래스를 검색할 수 있습니다.
+
+* ![number 02](/img/number-02.png) 영역에서 원하는 컬럼을 선택 시 해당 컬럼 기준으로 목록을 정렬해 조회할 수 있습니다. 
+
+## 컬럼 안내 
+
+<ImgLang img='k8s-pod-init-perform-cl.png' desc='Pod 초기화 성능 컬럼' />
+
+***Pod 초기화 성능*** 목록은 다음과 같이 Pod 정보와 Pod 초기화 타임라인에 따라 컬럼을 분류할 수 있습니다.
+
+### Pod 정보
+
+Pod의 ***이름***과 ***상태***, ***QoS 클래스***, ***시작 시간***에 대한 정보를 확인할 수 있습니다.
+
+* 상태: Pod의 라이프 사이클을 의미합니다. 
+
+  * ![일시정지 아이콘](/img/ico-pause.svg) Pending: 쿠버네티스 클러스터 내부에서 Pod 시작이 승인되었지만 컨테이너가 생성되지 않은 상태를 의미합니다.
+
+  * ![정상 아이콘](/img/ic-check-circle-filled.svg) Running: Pod가 노드에 바인딩되고 모든 컨테이너가 생성되고 하나 이상의 컨테이너가 아직 실행 중이거나 시작 또는 재시작 중에 있는 상태를 의미합니다.
+
+  * ![성공 아이콘](/img/ic-check-circle-filled.svg) Succeeded: Pod의 모든 컨테이너가 성공적으로 종료되었으며 재시작되지 않은 상태를 의미합니다.
+
+  * 
+
+  * 
+
+* QoS
+
+### 초기화 시작
+
+
+
+### 초기화 중
+
+### 초기화 완료

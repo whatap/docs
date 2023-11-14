@@ -14,6 +14,80 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 1.113.9
+
+2023년 11월 13일
+
+<div class='indentTab'>
+
+### `Log`
+
+- <Status>Feature</Status> <Cmdname sid="log_setting" className="uitext" /> 메뉴에서 <Cmdname sid="log_parser_setting_primary" className="uitext" />, <Cmdname sid="log_parser_setting_secondary" className="uitext" />의 내용을 JSON으로 내보내거나 가져오는 기능 추가
+
+- <Status>Feature</Status> <Cmdname sid="log_setting" className="uitext" /> 메뉴에서 <Cmdname sid="TTL06266" className="uitext" />의 설정 내용을 JSON으로 내보내거나 가져오는 기능 추가
+
+</div>
+
+## Preview 1.113.8
+
+2023년 11월 13일
+
+<div class='indentTab'>
+
+### `Application`
+
+<p><Status>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="tx_search" className="uitext" /> 메뉴에서 검색 결과에 트랜잭션ID, 멀티 트랜잭션 ID가 포함될 경우 조회 결과 하단에 페이지네이션이 안보이도록 처리</p>
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="statistics_sql" className="uitext" /> 메뉴에서 막대 그래프를 클릭하면 5분 동안의 상세 통계 정보 창을 표시하는 기능 추가
+
+- <Status>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 메트릭스 이벤트 추가 시 선택할 수 있는 이벤트 템플릿 추가
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" />, <Cmdname sid="multi_instance_monitoring" className="uitext" /> 메뉴의 화면 아래에 테이블 탭을 클릭했을 때 데이터를 바로 조회하도록 수정
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="multi_instance_monitoring" className="uitext" /> 메뉴에서 이퀄라이저 차트에 표시되는 인스턴스 순서가 화면 위에 옵션바의 인스턴스 태그와 일치하도록 수정
+
+#### PostgreSQL V2
+
+- <Status>Feature</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="dbObjectInfo" className="uitext" />, 신규 메뉴 추가
+
+- <Status>Fixed</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="pg_stat" className="uitext" /> 메뉴에서 설치 안내 문구가 표시되지 않는 문제 수정
+
+#### MySQL V2
+
+<p><Status>Fixed</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="TTL06865" className="uitext" /> 메뉴에서 설치 안내 문구가 표시되지 않는 문제 수정</p>
+
+</div>
+
+
+## Preview 1.113.7
+
+2023년 11월 10일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Fixed</Status> <Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="payment_information" className="uitext" /> 메뉴에서 <Cmdname sid="billing_reception_info" className="uitext" /> 항목 수정 시 연락처 입력란 제거(<Cmdname sid="payment_method" className="uitext" />의 연락처 입력과 중복됨)
+
+- <Status>Feature</Status> <Cmdname sid="flexboard" className="uitext" />의 Apdex 위젯에서 선택할 수 있는 차트 종류 추가
+
+- <Status>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_history" className="uitext" /> 메뉴에서 제목 외에도 메시지 필드에 대한 검색 기능 지원
+
+---
+
+### `Database`
+
+<p><Status>Fixed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="TTL06549" className="uitext" /> 메뉴에서 에이전트가 비활성 상태이면 <Cmdname sid="active_inactive" className="uitext" /> 컬럼의 날짜 데이터가 나오지 않는 현상 수정</p>
+
+</div>
+
+
 ## Preview 1.113.6
 
 2023년 11월 08일

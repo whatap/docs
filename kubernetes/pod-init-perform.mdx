@@ -71,34 +71,35 @@ Pod의 <Cmdname sid="name" className="uitext" />과 <Cmdname sid="phase" classNa
 
 <Cmdname sid="ITM07179" className="uitext" />은 최초 메트릭스 데이터가 수집된 시점을 의미합니다.
 
-* <Cmdname sid="ITM07171" className="uitext" />: 초기화 시작 시 컨테이너에서 CPU 제한을 초과하는 사용 시도 발생 시 증가하는 값을 의미합니다.
+* <Cmdname sid="ITM07175" className="uitext" />: 초기화가 시작된 시점에 대한 데이터로 첫 데이터 수집 시간을 의미합니다.
 
 * <Cmdname sid="ITM07170" className="uitext" />: 초기화 시작 시 CPU limit을 의미합니다.
 
 * <Cmdname sid="ITM07169" className="uitext" />: 초기화 시작 시 CPU request를 의미합니다.  
 
-* <Cmdname sid="ITM07174" className="uitext" />: 초기화 시작 시 컨테이너에서 메모리 제한을 초과하는 사용 시도 발생 시 증가하는 값을 의미합니다.
+* <Cmdname sid="ITM07171" className="uitext" />: 초기화 시작 시 컨테이너에서 CPU 제한을 초과하는 사용 시도 발생 시 증가하는 값을 의미합니다.
 
 * <Cmdname sid="ITM07173" className="uitext" />: 초기화 시작 시 설정한 메모리 limit을 의미합니다.
 
 * <Cmdname sid="ITM07172" className="uitext" />: 초기화 시작 시 요청한 메모리 request를 의미합니다. 
 
+* <Cmdname sid="ITM07174" className="uitext" />: 초기화 시작 시 컨테이너에서 메모리 제한을 초과하는 사용 시도 발생 시 증가하는 값을 의미합니다.
+
 * <Cmdname sid="ITM07168" className="uitext" />: Pod에 존재하는 컨테이너의 재시작 수의 합을 의미합니다. 
 
-* <Cmdname sid="ITM07175" className="uitext" />: 초기화가 시작된 시점에 대한 데이터로 첫 데이터 수집 시간을 의미합니다. 
 
 
 ### <Cmdname sid="ITM07178" className="b600" />
 
 <Cmdname sid="ITM07178" className="uitext" />은 초기화 시작 후 5분간 데이터의 CpuByLimit 평균 값보다 낮은 CpuByLimit 값의 데이터가 발생한 이전 시점을 의미합니다. 
 
-* <Cmdname sid="ITM07162" className="uitext" />: 초기화 중 사용한 CpuByLimit의 평균 값을 의미합니다. 
-
-* <Cmdname sid="ITM07163" className="uitext" />: 초기화 중 해당 컨테이너에서 사용한 메모리 최대 사용량을 의미합니다. 
-
 * <Cmdname sid="ITM07164" className="uitext" />: Pod 초기화에 소요된 시간을 의미합니다. 
 
   > 초기화 시작 시 5분간의 데이터 중 CpuByLimit의 평균 값보다 낮은 CpuByLimit 값이 수집된 시간 - 첫 데이터 수집 시간
+
+* <Cmdname sid="ITM07162" className="uitext" />: 초기화 중 사용한 CpuByLimit의 평균 값을 의미합니다. 
+
+* <Cmdname sid="ITM07163" className="uitext" />: 초기화 중 해당 컨테이너에서 사용한 메모리 최대 사용량을 의미합니다. 
 
 :::note
 
@@ -110,10 +111,10 @@ CpuByLimit(`cpu_per_quota`)은 CPU Limit 기준 CPU 전체 사용률을 의미�
 
 <Cmdname sid="ITM07177" className="uitext" />는 초기화 시작 후 5분간 데이터의 CpuByLimit 평균 값보다 낮은 CpuByLimit 값의 데이터가 발생한 시점을 의미합니다.
 
+* <Cmdname sid="ITM07176" className="uitext" />: 초기화 완료 시점을 의미합니다. 
+
 * <Cmdname sid="ITM07165" className="uitext" />: 초기화 완료 후 사용한 CpuByLimit의 평균 값을 의미합니다.
 
 * <Cmdname sid="ITM07166" className="uitext" />: 초기화 완료 후 해당 컨테이너에서 사용한 메모리 최대 사용량을 의미합니다. 
 
 * <Cmdname sid="ITM07167" className="uitext" />: 초기화 완료 후 5분 동안의 밀리초 단위 시간을 의미합니다. 
-
-* <Cmdname sid="ITM07176" className="uitext" />: 초기화 완료 시점을 의미합니다. 

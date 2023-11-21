@@ -1,6 +1,8 @@
 ## whatap.conf 파일 설정하기
 
-압축을 푼 `$WHATAP_HOME` 경로로 이동하세요. *$WHATAP_HOME/whatap.conf* 파일 내용에 액세스 키와 데이터 수집 서버 주소가 정상적으로 들어가 있는지 확인하세요. 값이 없다면 [와탭 모니터링 서비스](https://service.whatap.io) 화면으로 이동해 <Cmdname sid="agent-setup-guide" className="uitext" /> 섹션에서 **액세스 키** 값을 복사한 다음 붙여넣기하세요.
+### 기본 정보 입력하기
+
+압축을 푼 `$WHATAP_HOME` 경로로 이동하세요. *$WHATAP_HOME/whatap.conf* 파일에 액세스 키와 데이터 수집 서버 IP 주소를 입력하세요. [와탭 모니터링 서비스](https://service.whatap.io) 화면으로 이동해 <Cmdname sid="agent-setup-guide" className="uitext" /> 섹션의 <Cmdname sid="JAVA-agent-setup-1-subject" className="uitext" /> 항목에서 **액세스 키**, **수집 서버 IP 주소** 값을 복사한 다음 붙여넣기하세요.
 
 ```ini title=$WHATAP_HOME/whatap.conf
 license={액세스 키}
@@ -9,10 +11,48 @@ whatap.server.host={수집 서버 IP}
 
 :::note
 
-* <Cmdname sid="download" className="uitext" /> 버튼을 선택해 에이전트를 다운로드했다면 *whatap.conf*에 설정 값이 입력되어 있습니다. 
+*whantap.conf* 파일에 대한 자세한 내용은 [다음 문서](set-agent)를 참조하세요.
 
-* 서버에서 직접 다운로드했다면 **액세스 키**와 **수집 서버 IP**를 직접 입력하세요.
+:::
 
-* *whantap.conf* 파일에 대한 자세한 내용은 [다음 문서](set-agent)를 참조하세요.
+### 보안키 설정하기{#security}
+
+SQL 변수, HTTP 쿼리를 조회하거나 Thread 중지 기능 이용하려면 보안키를 설정하세요.
+
+* Java 에이전트 2.2.2 버전 이상
+
+  `$WHATAP_HOME` 경로에 *security.conf* 파일을 생성한 후 다음과 같이 6자리 영어, 숫자로 구성된 암호를 입력하세요.
+
+  ```ini title='security.conf'
+  paramkey=ABCDEF # SQL 변수 및 HTTP 쿼리 조회
+  threadkill=ABCDEF # Thread 중지 기능
+  ```
+
+* Java 에이전트 2.2.2 버전 미만
+
+  `$WHATAP_HOME` 경로에 *paramkey.txt* 파일을 생성한 후 다음과 같이 6자리 영어, 숫자로 구성된 암호를 입력하세요.
+
+  ```ini title='paramkey.txt'
+  ABCDEF # SQL 변수 및 HTTP 쿼리 조회, Thread 중지 기능
+  ```
+
+:::tip
+
+Java 에이전트 2.2.2 버전 미만에서 2.2.2 버전으로 업데이트하는 경우 기존 *paramkey.txt* 파일의 키값은 *seuciry.conf* 파일의 키값으로 자동 적용됩니다. 예를 들어, *paramkey.txt*에 `FEDCBA`를 사용한 상태에서 2.2.2 버전으로 업데이트했다면, *security.conf* 파일에는 다음과 같이 적용됩니다.
+
+```ini
+paramkey=FEDCBA
+threadkill=FEDCBA
+```
+
+*paramkey.txt* 파일이 존재하지 않을 경우 *security.conf* 파일의 키값은 **WHATAP**이라는 키값으로 자동 생성됩니다.
+
+:::
+
+:::note
+
+* SQL 파라미터 정보 기록과 관련한 에이전트 설정은 [다음 문서](agent-dbsql#profile-sql-param)를 참조하세요.
+
+* HTTP 파라미터 정보 기록과 관련한 에이전트 설정은 [다음 문서](agent-transaction#profile_http_parameter)를 참조하세요.
 
 :::

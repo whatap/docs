@@ -27,36 +27,6 @@ import TR from '@site/src/components/TR';
 
   모니터링 에이전트의 설정 정보, 액세스 키, 와탭 데이터 수집 서버의 IP 정보 등을 저장하는 설정 파일입니다. 자세한 내용은 [다음 문서](set-agent)를 참조하세요.
 
-* *security.conf* `Java 에이전트 2.2.2 버전 이후`
-
-  thread 중지와 화면 상에서 각종 변수를 확인하기 위한 암호(6자리 영어, 숫자로 구성)를 입력하세요.
-
-  ```ini title='security.conf'
-  paramkey=ABCDEF # SQL 변수 및 HTTP 쿼리 조회
-  threadkill=ABCDEF # Thread 중지 기능
-  ```
-
-* *paramkey.txt* `Java 에이전트 2.2.2 버전 이전`
-
-  화면 상에서 각종 변수를 확인하기 위한 암호(6자리 영어, 숫자로 구성)를 입력하세요.
-
-  ```ini title='paramkey.txt'
-  ABCDEF # SQL 변수 및 HTTP 쿼리 조회
-  ```
-
-  :::note
-  
-  Java 에이전트 2.2.2 버전 이전에서 2.2.2 버전으로 업데이트하는 경우 기존 *paramkey.txt* 파일의 키값이 *seuciry.conf* 파일의 키값으로 자동 적용됩니다. 예를 들어, *paramkey.txt*에 `FEDCBA`를 사용했다면 2.2.2 버전으로 업데이트했을 경우 *security.conf* 파일에는 다음과 같이 적용됩니다.
-  
-  ```ini
-  paramkey=FEDCBA
-  threadkill=FEDCBA
-  ```
-  
-  *paramkey.txt* 파일이 존재하지 않을 경우 *security.conf* 파일의 키값은 **WHATAP**이라는 키값으로 자동 생성합니다.
-  
-  :::
-
 * *ping.sh(bat)*
 
   현재 설정한 액세스 키, 와탭 데이터 수집 서버로 통신을 시도해 설정이나 네트워크 이슈가 있는지 확인하기 위한 스크립트(배치) 파일입니다.
@@ -81,12 +51,7 @@ import TR from '@site/src/components/TR';
 
   애플리케이션 서버가 동작하는 서버에서 WhaTap 측 수집 서버에 직접 연결이 불가한 경우, 그 사이의 Proxy 서버(경유 서버)에서 경유 역할을 하는 애플리케이션입니다.
 
-* *logs/whatap-`yyyymmdd`.log*
-
-  모니터링 에이전트에서 출력하는 로그 파일입니다.
-
-
-{@include: ../common-items/_whatap_conf.mdx} 
+{@include: ../common-items/_whatap_conf.mdx}
 
 ## JVM 옵션 추가{#addjvmopt}
 

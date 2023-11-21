@@ -32,7 +32,7 @@ tags: [ Go, 에이전트 설치 ]
 **액세스 키**를 발급 받으면 다음 명령어를 이용해 에이전트를 다운로드하세요.
 
 <Tabs groupId="golang">
-<TabItem value="redhat-centos" label="Red Hat/CentOS">
+<TabItem value="rc" label="Red Hat/CentOS">
 
 ```bash title='SH'
 ## 패키지 리포지토리 등록
@@ -43,7 +43,7 @@ $ sudo yum install whatap-agent
 ```
 
 </TabItem>
-<TabItem value="debian-ubuntu" label="Debian/Ubuntu">
+<TabItem value="du" label="Debian/Ubuntu">
 
 ```bash title='SH'
 ## 패키지 저장소 등록
@@ -57,7 +57,7 @@ $ sudo apt-get install whatap-agent
 ```
 
 </TabItem>
-<TabItem value="amazonlinux" label="Amazon Linux">
+<TabItem value="al" label="Amazon Linux">
 
 ```bash title='SH'
 ## 패키지 저장소 등록
@@ -73,7 +73,7 @@ $ sudo yum install whatap-agent
 ```
 
 </TabItem>
-<TabItem value="alpinelinux" label="Alpine Linux">
+<TabItem value="apl" label="Alpine Linux">
 
 [whatap-agent.tar.gz](https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz) 파일을 다운받고 '/' 디렉터리 기준으로 압축을 해제하세요. */usr/whatap/agent* 경로에 모니터링 파일을 생성합니다.
 
@@ -194,53 +194,24 @@ WHATAP_HOME=./whatap_home1 ./app
 
 ```
 
+<!--Go 라이브러리 설정하기-->
+{@include: ../common-items/_go-docker-setting-library.mdx}
 
-## Go 라이브러리 설정
-
-Go 애플리케이션 소스 코드에 [github.com/whatap/go-api](https://github.com/whatap/go-api) 패키지를 추가하세요.
-
-```bash
-go get github.com/whatap/go-api
-```
-
-`trace.Init()`, `trace.Shutdown()` 함수로 초기화 및 종료를 설정하세요. `trace.Start()`, `trace.End()` 함수로 트랜잭션의 시작 종료를 설정하세요.
-
-```go title='Go'
-import "github.com/whatap/go-api/trace"
-
-func main(){
-    trace.Init(nil)
-    //It must be executed before closing the app.    
-    defer trace.Shutdown()    
-
-    ctx, _ := trace.Start(context.Bacground(), "Start Tx")
-
-    ...
-
-    trace.End(ctx, err)
-}
-```
-
-:::note
-
-라이브러리 설정에 대한 자세한 내용은 [다음 문서](api-guide)를 참조하세요.
-
-:::
 
 ## 모니터링 시작하기
 
 <Tabs groupId="golang">
-<TabItem value="redhat-centos" label="Red Hat/CentOS">
+<TabItem value="rc" label="Red Hat/CentOS">
 
 애플리케이션 서버를 다시 시작하면 에이전트가 정보 수집을 시작합니다.
 
 </TabItem>
-<TabItem value="debian-ubuntu" label="Debian/Ubuntu">
+<TabItem value="du" label="Debian/Ubuntu">
 
 애플리케이션 서버를 다시 시작하면 에이전트가 정보 수집을 시작합니다.
 
 </TabItem>
-<TabItem value="amazonlinux" label="Amazon Linux">
+<TabItem value="al" label="Amazon Linux">
 
 1. 다음 명령어를 실행해 와탭 에이전트 데몬을 실행하세요.
 

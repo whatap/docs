@@ -4,6 +4,8 @@
 
 <ImgLang img='sql-parameter-query.png' desc='SQL' />
 
+<Xclude product='java'>
+
 * ***비밀번호***: 복호화된 파라미터 값을 확인할 수 있습니다. 비밀번호는 *`WHATAP_HOME`/paramkey.txt* 파일 내 6자리 문자열입니다. 다른 문자열로 변경 가능합니다.
 
   :::note
@@ -11,6 +13,20 @@
   *paramkey.txt* 내 키는 SQL 변수 조회, HTTP 쿼리 조회, Thread 중지에 필요합니다.
 
   :::
+
+</Xclude>
+
+<InDoc product='java'>
+
+* ***비밀번호***: 복호화된 파라미터 값을 확인할 수 있습니다. 비밀번호는 *`WHATAP_HOME`/security.conf*(*paramkey.txt*) 파일 내 6자리 문자열입니다. 다른 문자열로 변경 가능합니다.
+
+  :::note
+
+  ***비밀번호***는 SQL 변수 조회, HTTP 쿼리 조회, Thread 중지에 필요합니다. 자세한 내용은 [다음 문서](install-agent#security)를 참조하세요.
+
+  :::
+
+</InDoc>
 
 * ***SQL 포맷팅***: SQL 문장을 들여쓰기 및 포맷팅하여 가독성을 높일 수 있습니다.
 
@@ -22,7 +38,11 @@
 
 :::tip
 
-SQL 변수와 HTTP 쿼리를 조회하려면 다음 옵션을 에이전트 설정에 추가하세요. DB, SQL과 관련한 에이전트 설정에 대한 자세한 내용은 [다음 문서](agent-dbsql)를 참조하세요.
+SQL 변수와 HTTP 쿼리를 조회하려면 다음 옵션을 에이전트 설정에 추가하세요.
+
+* SQL 파라미터 정보 기록과 관련한 에이전트 설정은 [다음 문서](agent-dbsql#profile-sql-param)를 참조하세요.
+
+* HTTP 파라미터 정보 기록과 관련한 에이전트 설정은 [다음 문서](agent-transaction#profile_http_parameter)를 참조하세요.
 
 ```ini title='whatap.conf'
 # SQL 파라미터 조회 옵션: 옵션이 적용되면 SQL 파라미터를 암호화하여 수집합니다.
@@ -31,6 +51,7 @@ profile_sql_param_enabled=true
 # HTTP 파라미터 조회 옵션: 옵션이 적용되면 HTTP 쿼리 파라미터를 암호화하여 수집합니다.
 profile_http_parameter_enabled=true 
 ```
+
 :::
 
 </Xclude>

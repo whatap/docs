@@ -7,6 +7,12 @@ tags: [ Node.js, DB, SQL ]
 
 Node.js 에이전트의 DB, SQL 관련 옵션을 제공합니다.
 
+* **profile_sql_param_enabled** <span class='type'>Boolean</span><ScrollToLink anchor='profile-sql-param' />
+
+  기본값 `false`
+
+  SQL 파라미터를 수집을 활성화합니다. 단 파라미터는 별도 보안 키를 입력해야 조회할 수 있습니다. 보안 키는 에이전트 설치 경로의 *paramkey.txt* 파일에 6자리로 지정합니다. *paramkey.txt*가 존재하지 않는 경우 자동 생성되며 random 키가 설정됩니다.
+
 * **profile_connection_open_enabled** <span class='type'>Boolean</span>
 
   기본값 `true`

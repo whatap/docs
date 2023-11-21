@@ -1,0 +1,68 @@
+---
+id: install-docker-go
+title: Docker Go 설치
+description: 컨테이너 내 Go 애플리케이션을 모니터링하기 위한 에이전트 설치 단계입니다.
+tags: [ 쿠버네티스, 쿠버네티스 모니터링, 애플리케이션 설치, Go ]
+---
+
+<!--에이전트 다운로드-->
+{@include: ../common-items/_go-docker-download-agent.mdx}
+
+<!--에이전트 설정-->
+{@include: ../common-items/_go-docker-setting-agent.mdx}
+
+<!--Go 라이브러리 설정하기-->
+{@include: ../common-items/_go-docker-setting-library.mdx}
+
+## Kubernetes 환경변수 및 볼륨
+
+<Tabs>
+<TabItem value='basic' label='기본' default>
+
+트랜잭션에서 Node 및 Pod 정보를 수집하기 위해 `NODE_IP`, `NODE_NAME`, `POD_NAME` 환경변수를 설정하세요. 와탭 설정 파일 및 로그 파일용 휘발성 볼륨을 탑재합니다.
+
+```ini
+env:
+  - name: NODE_IP
+    valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+  - name: NODE_NAME
+    valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+  - name: POD_NAME
+    valueFrom: {fieldRef: {fieldPath: metadata.name}}
+```
+</TabItem>
+<TabItem value='eksfragate' label='EKS Fargate(지원 예정)'>
+
+1. 디플로이먼트(Deployment) 또는 레플리카셋(ReplicaSet)의 *.spec* 내 필드에 사용자 파드(Pod) 자원 관측을 위한 `shareProcessNamespace`, `serviceAccount`를 추가하세요.
+
+    ```ini
+    apiVersion: apps/v1
+    kind: Deployment
+    ...
+    spec:
+    ...
+        spec:
+          shareProcessNamespace: true
+          serviceAccount: whatap
+    ...
+    ```
+
+1. 트랜잭션에서 Node 및 Pod 정보를 수집하기 위해 `NODE_IP`, `NODE_NAME`, `POD_NAME` 환경변수를 설정하세요. 와탭 설정 파일 및 로그 파일용 휘발성 볼륨을 탑재합니다.
+
+    ```ini
+    env:
+      - name: NODE_IP
+        valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+      - name: NODE_NAME
+        valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+      - name: POD_NAME
+        valueFrom: {fieldRef: {fieldPath: metadata.name}}
+    ```
+
+{@include: _pod-sidecar.mdx}
+
+</TabItem>
+</Tabs>
+
+<!--모니터링 시작하기-->
+{@include: ../common-items/_go-docker-start-monitoring.mdx}

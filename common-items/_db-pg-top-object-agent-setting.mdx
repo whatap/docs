@@ -1,0 +1,41 @@
+* **pg_object** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  Top 오브젝트의 정보 수집 여부를 설정합니다. 정보를 수집하려면 `true`로 변경하세요.
+
+* **pg_object_hour** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  Top 오브젝트의 정보를 수집 시각을 설정합니다. 기본값은 `5`이며 새벽 5시에 수집을 시작합니다.
+
+* **table_bloat_ratio** <span class='type'>Percentage</span>
+
+  기본값 `50`
+
+  테이블 bloating ratio 값이 설정값 이상인 경우 정보를 수집합니다. 기본값은 50%입니다.
+
+* **table_bloat_bytes** <span class='type'>Byte</span>
+
+  기본값 `10485760`
+
+  테이블 bloating bytes 값이 설정값 이상인 경우 정보를 수집합니다. 기본값은 10MB입니다.
+
+* **index_bloat_ratio** <span class='type'>Percentage</span>
+
+  기본값 `50`
+
+  인덱스 bloating ratio 값이 설정값 이상인 경우 정보를 수집합니다. 기본값은 50%입니다.
+
+* **index_bloat_bytes** <span class='type'>Byte</span>
+
+  기본값 `10485760`
+
+  인덱스 bloating bytes 값이 설정값 이상인 경우 정보를 수집합니다. 기본값은 10MB입니다.
+
+* **autovacuum_list_limit**  <span class='type'>Int</span>
+
+  기본값 `50`
+
+  가장 오래된 age(`relfrozenxid`) 순으로 설정값만큼 테이블 정보를 수집합니다. 기본값은 50개입니다.

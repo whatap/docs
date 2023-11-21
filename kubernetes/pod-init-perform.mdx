@@ -1,14 +1,123 @@
 ---
 id: pod-init-perform
-title: POD 초기화 성능
-description: POD 초기화 성능 기능을 활용하면 Pod 시작시 피크 사용량과 초기화 시간을 분석하여 최적의 Initial Delay 설정에 도움을 받을 수 있습니다.
-tags: [ 쿠버네티스, 쿠버네티스 모니터링, POD, 초기화 ]
+title: Pod 초기화 성능
+description: Pod 초기화 성능 기능을 활용하면 Pod 시작시 피크 사용량과 초기화 시간을 분석하여 최적의 Initial Delay 설정에 도움을 받을 수 있습니다.
+tags: [ 쿠버네티스, 쿠버네티스 모니터링, Pod, 초기화 ]
 ---
 
-홈 화면 > 프로젝트 선택 > ***분석*** > ***POD 초기화 성능***
+:::note
 
-Springboot를 포함한 JVM 기반 애플리케이션은 초기화 시점에 많은 자원을 사용해 Liveness 체크에 실패하는 경우가 있습니다. 만약 일정 횟수 이상 Liveness 체크에 실패하는 경우 해당 POD가 삭제되고 무한 재시작 현상이 발생하여 배포 실패로 이어질 수 있습니다.
+***Pod 초기화 성능*** 메뉴는 클러스터 프로젝트인 경우만 접근할 수 있습니다.
 
-와탭 쿠버네티스의 ***POD 초기화 성능*** 기능을 활용하면 POD 시작 시 피크 사용량과 초기화 시간을 분석하여 최적의 Initial Delay(Liveness 체크 면제 시간) 설정에 도움을 받을 수 있습니다.
+:::
 
-<ImgLang img='k8s-pod-init-perform.png' desc='POD 초기화 성능' />
+홈 화면 > 프로젝트 선택 > ***분석*** > ***Pod 초기화 성능***
+
+Springboot를 포함한 JVM 기반 애플리케이션은 초기화 시점에 많은 자원을 사용해 Liveness 체크에 실패하는 경우가 있습니다. 만약 일정 횟수 이상 Liveness 체크에 실패하는 경우 해당 Pod가 삭제되고 무한 재시작 현상이 발생하여 배포 실패로 이어질 수 있습니다.
+
+와탭 쿠버네티스의 ***Pod 초기화 성능*** 기능을 활용하면 Pod 시작 시 피크 사용량과 초기화 시간을 분석하여 최적의 Initial Delay(Liveness 체크 면제 시간) 설정에 도움을 받을 수 있습니다.
+
+## 기본 화면 안내
+
+<ImgLang img='k8s-pod-init-perform.png' desc='Pod 초기화 성능' />
+
+* ![number 01](/img/number-01.png) 영역 좌측 상단에서 상태별 Pod 개수를 확인할 수 있습니다.
+
+* ![number 01](/img/number-01.png) 영역 우측 상단에서 ![새로고침 아이콘](/img/ico-refresh.svg) ***새로 고침*** 아이콘을 선택해 새로 고침할 수 있습니다.
+
+* ![number 01](/img/number-01.png) 영역 좌측에서 ![컬럼 선택 아이콘](/img/ic-k8s-filter.svg) ***컬럼 선택*** 아이콘을 선택해 컬럼을 선택할 수 있습니다. 
+
+* ![number 01](/img/number-01.png) 영역 우측 입력창에서 Pod <Cmdname sid="name" className="uitext" /> 또는 <Cmdname sid="qosClass" className="uitext" />를 검색할 수 있습니다.
+
+* ![number 02](/img/number-02.png) 영역에서 원하는 컬럼을 선택 시 해당 컬럼 기준으로 목록을 정렬해 조회할 수 있습니다. 
+
+## 컬럼 안내 
+
+<ImgLang img='k8s-pod-init-perform-cl.png' desc='Pod 초기화 성능 컬럼' />
+
+***Pod 초기화 성능*** 목록은 다음과 같이 <Cmdname sid="pod_info" className="uitext" />와 Pod 초기화 타임라인에 따라 컬럼을 분류할 수 있습니다.
+
+### <Cmdname sid="pod_info" className="b600" />
+
+Pod의 <Cmdname sid="name" className="uitext" />과 <Cmdname sid="phase" className="uitext" />, <Cmdname sid="qosClass" className="uitext" />, <Cmdname sid="startTime" className="uitext" />에 대한 정보를 확인할 수 있습니다.
+
+* <Cmdname sid="phase" className="uitext" />: Pod의 라이프 사이클을 의미합니다. 
+
+  * ![일시정지 아이콘](/img/ico-pause.svg) Pending: 쿠버네티스 클러스터 내부에서 Pod 시작이 승인되었지만 컨테이너가 생성되지 않은 상태를 의미합니다.
+
+  * ![정상 아이콘](/img/ic-check-circle-filled.svg) Running: Pod가 노드에 바인딩되고 모든 컨테이너가 생성되고 하나 이상의 컨테이너가 아직 실행 중이거나 시작 또는 재시작 중에 있는 상태를 의미합니다.
+
+  * ![성공 아이콘](/img/ic-check-circle-filled-bl.svg) Succeeded: Pod의 모든 컨테이너가 성공적으로 종료되었으며 재시작되지 않은 상태를 의미합니다.
+
+  * ![위험 아이콘](/img/ic-warning-critical.svg) Failed: Pod의 컨테이너 중 하나 이상의 컨테이너가 실패해 종료된 상태를 의미합니다.
+
+  * ![미지 아이콘](/img/ic-question-circle.svg) Unknown: 어떤 이유로 Pod와 통신할 수 없는 상태를 의미합니다.
+
+* <Cmdname sid="qosClass" className="uitext" />: Pod의 Quality of Service를 의미합니다. QoS 클래스는 리소스 부족 시 Pod의 우선 순위를 결정합니다. 우선 순위가 높은 Pod가 우선 순위가 낮은 Pod보다 먼저 종료됩니다.
+
+  * Guaranteed: 노드에서 사용 가능한 리소스를 보장받고 다른 Pod보다 우선적으로 할당합니다. 가장 마지막에 종료됩니다.
+
+    * Pod의 모든 컨테이너가 CPU 및 메모리 request를 가지고 있는 경우입니다.
+
+    * Pod의 모든 컨테이너가 CPU 및 메모리 limit을 가지고 있으며 해당 값이 request와 동일한 경우입니다.
+
+  * Burstable: Pod는 노드 리소스가 부족한 경우에는 일부 리소스를 할당합니다.
+
+    * Guaranteed 클래스의 조건을 충족하지 못하는 경우입니다.
+
+    * Pod의 컨테이너 중 하나라도 CPU 및 메모리에 대한 request 또는 limit이 설정된 경우입니다.
+
+  * BestEffort: 리소스 request나 limit이 없기에 다른 Pod보다 우선 순위가 낮습니다. 가장 먼저 종료됩니다.
+
+    * Pod의 모든 컨테이너가 CPU및 메모리에 대한 request와 limit이 없는 경우입니다.
+
+* <Cmdname sid="startTime" className="uitext" />: Pod가 시작된 시간 또는 생성된 시간을 의미합니다. 
+
+### <Cmdname sid="ITM07179" className="b600" />
+
+<Cmdname sid="ITM07179" className="uitext" />은 최초 메트릭스 데이터가 수집된 시점을 의미합니다.
+
+* <Cmdname sid="ITM07175" className="uitext" />: 초기화가 시작된 시점에 대한 데이터로 첫 데이터 수집 시간을 의미합니다.
+
+* <Cmdname sid="ITM07170" className="uitext" />: 초기화 시작 시 CPU limit을 의미합니다.
+
+* <Cmdname sid="ITM07169" className="uitext" />: 초기화 시작 시 CPU request를 의미합니다.  
+
+* <Cmdname sid="ITM07171" className="uitext" />: 초기화 시작 시 컨테이너에서 CPU 제한을 초과하는 사용 시도 발생 시 증가하는 값을 의미합니다.
+
+* <Cmdname sid="ITM07173" className="uitext" />: 초기화 시작 시 설정한 메모리 limit을 의미합니다.
+
+* <Cmdname sid="ITM07172" className="uitext" />: 초기화 시작 시 요청한 메모리 request를 의미합니다. 
+
+* <Cmdname sid="ITM07174" className="uitext" />: 초기화 시작 시 컨테이너에서 메모리 제한을 초과하는 사용 시도 발생 시 증가하는 값을 의미합니다.
+
+
+### <Cmdname sid="ITM07178" className="b600" />
+
+<Cmdname sid="ITM07178" className="uitext" />은 초기화 시작 후 5분간 데이터의 CpuByLimit 평균 값보다 낮은 CpuByLimit 값의 데이터가 발생한 이전 시점을 의미합니다. 
+
+* <Cmdname sid="ITM07164" className="uitext" />: Pod 초기화에 소요된 시간을 의미합니다. 
+
+  > 초기화 시작 시 5분간의 데이터 중 CpuByLimit의 평균 값보다 낮은 CpuByLimit 값이 수집된 시간 - 첫 데이터 수집 시간
+
+* <Cmdname sid="ITM07162" className="uitext" />: 초기화 중 사용한 CpuByLimit의 평균 값을 의미합니다. 
+
+* <Cmdname sid="ITM07163" className="uitext" />: 초기화 중 해당 컨테이너에서 사용한 메모리 최대 사용량을 의미합니다. 
+
+:::note
+
+CpuByLimit(`cpu_per_quota`)은 CPU Limit 기준 CPU 전체 사용률을 의미합니다. 
+
+:::
+
+### <Cmdname sid="ITM07177" className="b600" />
+
+<Cmdname sid="ITM07177" className="uitext" />는 초기화 시작 후 5분간 데이터의 CpuByLimit 평균 값보다 낮은 CpuByLimit 값의 데이터가 발생한 시점을 의미합니다.
+
+* <Cmdname sid="ITM07176" className="uitext" />: 초기화 완료 시점을 의미합니다. 
+
+* <Cmdname sid="ITM07165" className="uitext" />: 초기화 완료 후 사용한 CpuByLimit의 평균 값을 의미합니다.
+
+* <Cmdname sid="ITM07166" className="uitext" />: 초기화 완료 후 해당 컨테이너에서 사용한 메모리 최대 사용량을 의미합니다. 
+
+* <Cmdname sid="ITM07167" className="uitext" />: 초기화 완료 후 5분 동안의 밀리초 단위 시간을 의미합니다. 

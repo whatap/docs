@@ -36,7 +36,7 @@ pagination_next: release-notes/service/service-1_112_x
 
 :::info
 
-신규 정비 계획에 대한 자세한 내용은 [다음 문서](../../management/maintenance#maintenance-v2)를 참조하세요.
+신규 정비 계획에 대한 자세한 내용은 <Link to="../../management/maintenance#maintenance-v2" target="_blank">다음 문서</Link>를 참조하세요.
 
 :::
 
@@ -76,6 +76,8 @@ pagination_next: release-notes/service/service-1_112_x
 - <Status>Changed</Status> 에이전트 선택 목록을 이름 순으로 정렬하도록 변경
 
 - <Status>Changed</Status> 에이전트 선택 옵션에서 <Cmdname sid="ITM06006" className="uitext" /> 또는 <Cmdname sid="ITM06007" className="uitext" />을 선택하면 표시되는 목록의 각 항목을 클릭했을 때의 색상 변경
+
+- <Status>Changed</Status> 대시보드 안내 모달 이미지 변경
 
 
 #### <Cmdname sid="analysis" />
@@ -120,17 +122,29 @@ pagination_next: release-notes/service/service-1_112_x
 
 - <Status>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="statistics_sql" className="uitext" /> 메뉴에서 막대 그래프를 클릭하면 5분 동안의 상세 통계 정보 창을 표시하는 기능 추가
 
-- <Status>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" />, <Cmdname sid="multi_instance_monitoring" className="uitext" /> 메뉴에서 <Cmdname sid="active_sessions" className="uitext" /> 테이블 접는(folding) 버튼 추가
+  :::info
+
+  상세 통계 정보 창에 대한 자세한 내용은 <Link to="../../postgresql/stat#session-details-info" target="_blank">다음 문서</Link>를 참조하세요.
+
+  :::
+
+- <Status>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" />, <Cmdname sid="multi_instance_monitoring" className="uitext" /> 메뉴에서 <Cmdname sid="active_sessions" className="uitext" /> 테이블 접는(folding) 버튼 추가, 이제 그래프 차트 영역을 더 넓은 화면에서 확인할 수 있습니다.
 
 - <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" />, <Cmdname sid="multi_instance_monitoring" className="uitext" /> 메뉴의 화면 아래에 테이블 탭을 클릭했을 때 데이터를 바로 조회하도록 수정
 
 - <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="multi_instance_monitoring" className="uitext" /> 메뉴에서 이퀄라이저 차트에 표시되는 인스턴스 순서가 화면 위에 옵션바의 인스턴스 태그와 일치하도록 수정
 
-- <Status>Feature</Status> 사용자 편의성을 위한 UI 개선
+- <Status>Feature</Status> 사용자 편의성을 위한 <Cmdname sid="TTL06224" className="uitext" /> 화면의 UI 개선
 
   - 쿼리 조회 영역과 Plan 조회 영역을 상/하, 좌/우로 배치를 변경할 수 있도록 개선
 
   - Parameter 바인드를 기본 수행하도록 변경
+
+  :::info
+
+  자세한 내용은 <Link to="../../postgresql/instance-monitoring#query-details" target="_blank">다음 문서</Link>를 참조하세요.
+
+  :::
 
 #### PostgreSQL
 
@@ -138,7 +152,19 @@ pagination_next: release-notes/service/service-1_112_x
 
 - <Status>Feature</Status> <code class="my">V2</code> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="dbObjectInfo" className="uitext" />, 신규 메뉴 추가
 
+  :::info
+
+  <Cmdname sid="dbObjectInfo" className="uitext" /> 메뉴에 대한 자세한 내용은 <Link to="../../postgresql/analysis-top-object" target="_blank">다음 문서</Link>를 참조하세요.
+
+  :::
+
 - <Status>Feature</Status> <code class="my">V2</code> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 메트릭스/복합 메트릭스 이벤트의 템플릿 추가
+
+  :::info
+
+  추가된 템플릿에 대한 자세한 내용은 <Link to="../../postgresql/metric-warning-notice#template" target="_blank">다음 문서</Link>를 참조하세요.
+
+  :::
 
 - <Status>Changed</Status> <code class="my">V2</code> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" />, <Cmdname sid="multi_instance_monitoring" className="uitext" /> 메뉴에서 Default 프리셋에 저장된 <Cmdname sid="active_sessions" className="uitext" /> 테이블의 컬럼 순서 변경
 
@@ -174,7 +200,7 @@ pagination_next: release-notes/service/service-1_112_x
 
   :::info
 
-  클러스터와 관련된 정보를 요약해 제공합니다. 클러스터 프로젝트 뿐만 아니라 네임스페이스 프로젝트로 분리된 정보까지 통합해 확인할 수 있습니다.
+  클러스터와 관련된 정보를 요약해 제공합니다. 클러스터 프로젝트 뿐만 아니라 네임스페이스 프로젝트로 분리된 정보까지 통합해 확인할 수 있습니다. 자세한 내용은 <Link to="../../kubernetes/cluster-summary" target="_blank">다음 문서</Link>를 참조하세요.
 
   :::
 
@@ -241,6 +267,12 @@ pagination_next: release-notes/service/service-1_112_x
 - <Cmdname sid="rumDashboard" className="uitext" /> &gt; <Cmdname sid="ajaxAnalytics" className="uitext" /> 위젯
 
 - <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="ajaxAnalytics" className="uitext" /> 
+
+:::info
+
+<Cmdname sid="ajaxAnalytics" className="uitext" /> 메뉴에 대한 자세한 내용은 <Link to="../../browser/analyze-ajax-hitmap" target="_blank">다음 문서</Link>를 참조하세요.
+
+:::
 
 ---
 

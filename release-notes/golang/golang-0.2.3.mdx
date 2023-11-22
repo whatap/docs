@@ -7,27 +7,6 @@ pagination_next: release-notes/golang/golang-0_2_2
 
 2023년 9월 13일
 
-:::info
-
-**다운로드**
-
-* go-api(import library)
-
-  ```bash
-  go get github.com/whatap/go-api@latest
-  ```
-
-* 서비스 에이전트
-
-  | OS | 아키텍처 | 파일 형식 | 다운로드 |
-  | - | :-: | :-: | :-: |
-  | Red Hat / CentOS / Amazon linux | x86 x64 | RPM | [다운로드](http://repo.whatap.io/centos/6/x86_64/whatap-agent-0.2-3.x86_64.rpm) |
-  | Ubuntu 12 and above / Debian | amd64 | DEB | [다운로드](http://repo.whatap.io/debian/unstable/whatap-agent_0.2.3_amd64.deb) |
-  | Freebsd 10 and above | x86 x64 | TXZ | [다운로드](http://repo.whatap.io/freebsd/10/whatap-php-2.6.2.txz) |
-  | Alpine linux | x86 x64 | tar gzip | [다운로드](http://repo.whatap.io/alpine/x86_64/whatap-agent-0.2.3.tar.gz) |
-
-:::
-
 * <Status>Feature</Status> 대용량 프로파일 처리 옵션 추가
 
   - 기존 프로파일은 최대 1024개의 프로파일 정보를 수집했습니다. 설정으로 최댓값을 늘릴 수 있지만, 메모리 증가는 필수적으로 발생했습니다.
@@ -69,3 +48,23 @@ pagination_next: release-notes/golang/golang-0_2_2
   * 위 옵션과 관련한 에이전트 설정에 대한 자세한 내용은 [다음 문서](../../golang/agent-transaction#track-http-trs)를 참조하세요.
 
   :::
+
+:::info
+
+**다운로드**
+
+* go-api(import library)
+
+  ```bash
+  go get github.com/whatap/go-api@latest
+  ```
+
+* 서비스 에이전트
+
+  | OS | 아키텍처 | 파일 형식 | 다운로드 |
+  | - | :-: | :-: | :-: |
+  | Red Hat / CentOS / Amazon linux | x86 x64 | RPM | [다운로드](http://repo.whatap.io/centos/6/x86_64/whatap-agent-0.2-3.x86_64.rpm) |
+  | Ubuntu 12 and above / Debian | amd64 | DEB | [다운로드](http://repo.whatap.io/debian/unstable/whatap-agent_0.2.3_amd64.deb) |
+    | Alpine linux | x86 x64 | tar gzip | [다운로드](http://repo.whatap.io/alpine/x86_64/whatap-agent-0.2.3.tar.gz) |
+
+:::

@@ -106,23 +106,24 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 리소스, 노드 목록 
 
 * 상단 차트
 
-  * ***CPU Usage***
+  * ***CPU Usage***: 노드의 CPU 사용량을 확인할 수 있습니다.
 
-  * ***Memory Usage***
+  * ***Memory Usage***: 노드의 메모리 사용량을 확인할 수 있습니다.
 
-  * ***Network***
+  * ***Network***: 노드의 네트워크 인터페이스의 입출력 트래픽과 오류 패킷을 확인할 수 있습니다.
   
-  * ***Disk Usage***
+  * ***Disk Usage***: 노드의 Disk 사용량을 확인할 수 있습니다. 
 
 * 컨테이너 정보
 
   | 항목             | 설명                                              |
   | ---------------- | ------------------------------------------------- |
   | 상태             | 컨테이너 상태                                     |
-  | 이미지           | 컨테이너 이미지 정보                              |
-  | Pod              | Pod 이름                                          |
   | 컨테이너         | Container ID                                      |
+  | 이미지           | 컨테이너 이미지 정보                              |
   | 커맨드           | 컨테이너 실행 명령                                |
+  | 애플리케이션     | 컨테이너에 설치된 와탭 APM 에이전트의 이름        |
+  | Pod              | Pod 이름                                          |
   | CpuByLimit       | CPU Limit 기준 CPU 전체 사용률                    |
   | MemoryWsByLimit  | 컨테이너 메모리 Limit 기준 working set 사용량     |
   | CpuThrottledCnt  | 컨테이너 CPU Throttled 건수                       |
@@ -138,7 +139,7 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 리소스, 노드 목록 
   | NetRxDropped     | 컨테이너 네트워크 수신 dropped 건수               |
   | NetRxError       | 컨테이너 네트워크 수신 에러 건수                  |
   | NetRxIops        | 컨테이너 네트워크 수신 건수                       |
-  | NetTxByes        | 컨테이너 네트워크 송신 데이터 크기                |
+  | NetTxBytes        | 컨테이너 네트워크 송신 데이터 크기                |
   | NetTxDropped     | 컨테이너 네트워크 송신 dropped 건수               |
   | NetTxError       | 컨테이너 네트워크 송신 에러 건수                  |
   | NetTxIops        | 컨테이너 네트워크 송신 건수                       |

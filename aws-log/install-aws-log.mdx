@@ -100,6 +100,12 @@ AWS Log를 수집하려면 부가적인 자원이 필요합니다. 사용자의 
 
   <!-- 사용자는 AWS 계정 당 할당 가능한 총 Function 개수에서 `ReservedConcurrency` 설정 값을 뺀 만큼 Function을 사용할 수 있습니다. -->
 
+* **cloudfrontPrefix** <span class='type'>String</span>
+
+  기본값 `cloudfront`
+
+  CloudFront에서 S3로 Log를 보낼 때 설정하는 접두사 값을 의미합니다.
+
 ### CloudFormation Stack 설치
 
 <ImgLang img='aws-log-whatap-forwarder-install.png' desc='WhaTap Forwarder'/>

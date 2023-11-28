@@ -1,0 +1,17 @@
+## 컬럼 정보 안내
+
+다음은 <Cmdname sid="active_sessions" className="uitext" /> 섹션의 테이블에 표시되는 컬럼 정보입니다. `currentOp` 명령으로 수집된 데이터입니다.
+
+| 항목 | 설명 |
+| -- | -- |
+| `opid` | operation의 고유 식별자(identifier) |
+| `type` | 값이 `op`인 경우 `op` 필드에서 작업 유형 확인 가능 |
+| `host` | 서버 이름 |
+| `desc` | `connectionId`를 포함한 클라이언트 설명 |
+| `active` | 작업이 시작되면 `true`, idle이면 `false` |
+| `currentOpTime` | operation의 시작 시간 |
+| `op` | operation 유형(`none`, `update`, `insert`, `query`, `command`, `getmore`, `remove` 등) |
+| `ns` | 네임스페이스 이름으로 `Database`.`Collection` 으로 표시 |
+| `numYields` | 작업이 수행된 수 |
+| `waitingForLock` | 락(lock)을 대기하고 있으면 `true`, 락(lock)을 획득하였으면 `false` |
+| `waitingForFlowControl` | `flowcontrol`을 대기하고 있으면 `true` |

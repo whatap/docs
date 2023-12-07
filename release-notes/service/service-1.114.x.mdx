@@ -13,15 +13,19 @@ pagination_next: release-notes/service/service-1_112_x
 
 ### `Kubernetes`
 
-<p><Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="performance_summary" className="uitext" /> 메뉴에서 다음 위젯의 데이터 오류 수정</p>
+- <Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="performance_summary" className="uitext" /> 메뉴에서 다음 위젯의 데이터 오류 수정
 
-- ***Total Container CPU Request***: 프로젝트 내부의 모든 컨테이너의 CPU Request(`cpu_request`) 값의 합산
+  - ***Total Container CPU Request***: 프로젝트 내부의 모든 컨테이너의 CPU Request(`cpu_request`) 값의 합산
+  - ***Total Container CPU Usage***: 프로젝트 내부의 모든 컨테이너의 CPU Usage(`cpu_total_milli`) 값의 합산
+  - ***Total Container Memory Request***: 프로젝트 내부의 모든 컨테이너의 Memory Request(`mem_request`) 값의 합산
+  - ***Total Container Memory Usage***: 프로젝트 내부의 모든 컨테이너의 Memory Usage(`mem_working_set`) 값의 합산
 
-- ***Total Container CPU Usage***: 프로젝트 내부의 모든 컨테이너의 CPU Usage(`cpu_total_milli`) 값의 합산
+- <Status>Fixed</Status> 다음 메뉴에서 프로젝트 조회 권한이 없는 네임스페이스 프로젝트로 이동 가능한 버그 수정
 
-- ***Total Container Memory Request***: 프로젝트 내부의 모든 컨테이너의 Memory Request(`mem_request`) 값의 합산
+  - <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="namespace_status" className="uitext" />
+  - <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="namespace_management" className="uitext" />
 
-- ***Total Container Memory Usage***: 프로젝트 내부의 모든 컨테이너의 Memory Usage(`mem_working_set`) 값의 합산
+- <Status>Changed</Status> <Cmdname sid="app_upper" className="uitext" /> &gt; <Cmdname sid="multi_hitmap" className="uitext" /> 메뉴에서 위젯을 이동할 수 없도록 고정 레이아웃으로 변경
 
 ---
 
@@ -30,6 +34,18 @@ pagination_next: release-notes/service/service-1_112_x
 - <Status>Fixed</Status> <Cmdname sid="log_search" className="uitext" /> 메뉴에서 필터 기능 오작동 수정
 
 - <Status>Fixed</Status> <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="log" className="uitext" /> 메뉴에서 <Cmdname sid="realtime_log_event" className="uitext" /> 추가 시 <Cmdname sid="alert_object_filtering" className="uitext" /> 항목을 <Cmdname sid="metrics_rule_direct" className="uitext" />에서 <Cmdname sid="metrics_rule_select" className="uitext" />으로 변경하면 기존에 입력한 값을 초기화하도록 수정
+
+---
+
+### `Browser`
+
+<p><Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="rumDashboard" className="uitext" /> 메뉴에서 발생하는 화이트 아웃, 브라우저 멈춤 문제 수정</p>
+
+:::note
+
+이 현상은 사용자의 브라우저에서 다른 탭으로 전환 후 일정 시간(약 1시간)이 지나 현재 탭(<Cmdname sid="rumDashboard" className="uitext" />)으로 돌아올 경우 발생합니다.
+
+:::
 
 </div>
 

@@ -49,7 +49,7 @@ import TR from '@site/src/components/TR';
 
   데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요. https://www.cubrid.com/downloads
 
-<!-- 공통 Notes -->
+<!-- 공통 Notes-->
 {@include: ../common-items/_db-install-agent-common-notes.mdx}
 
 
@@ -84,6 +84,9 @@ CUBRID를 모니터링하기 위해서는 DB 계정과 CUBRID Manager 계정이 
 
   ```bash title='Example'
   ./uid.sh whatap whatap\!pwd
+  
+  # 특수문자가 2개 이상일 경우 각각 이스케이프 문자 추가
+  ./uid.sh whatap whatap\!\@pwd
   ```
 
 :::

@@ -21,6 +21,8 @@ tags: [ Java, Transaction, 트랜잭션 ]
 
 ## 트레이스 데이터 샘플링
 
+<code class="my">Java Agent v2.2.4 or later</code>
+
 * **trace_sampling_enabled** <span class='api'>Boolean</span>
 
   기본값 `false`
@@ -48,6 +50,8 @@ tags: [ Java, Transaction, 트랜잭션 ]
 
 ## 트레이스 URL 이름 수정하기
 
+<code class="my">Java Agent v2.2.4 or later</code>
+
 특정 URL 및 특정 메소드(method)를 호출 시 트레이스 URL의 이름을 수정할 수 있습니다. 예를 들어 `io.home.test.TestController.test1`에 등록한 URL 호출 시 `test100000()` 메소드를 호출하는 경우, 서비스 화면에서 `/api/100000+test1+test100000`으로 확인할 수 있습니다.
 
 `hook_tx_name_mode` 옵션을 통해 **class**, **method**, **string**, **return** 중 하나를 선택할 수 있습니다.
@@ -62,6 +66,8 @@ hook_tx_name_mode=method
 
 
 ## 특정 exception 무시하기
+
+<code class="my">Java Agent v2.2.4 or later</code>
 
 특정 서비스에서 특정 exception을 무시할 수 있도록 설정할 수 있습니다. 여러 개를 등록할 때는 쉼표(,)를 구분자로 이용하세요.
 
@@ -78,19 +84,19 @@ ignore_exception_tx_pattern=exception:service_url
 
   `HttpURLConnection` 클래스의 메소드를 추적하기 위한 옵션입니다.
 
-* **hook_HttpURLConnection_startup_enabled** <span class='type'>Boolean</span>
+* **hook_HttpURLConnection_startup_enabled** <span class='type'>Boolean</span> <code class="my">Java Agent v2.2.4 or later</code>
 
   기본값 `false`
 
   `HttpURLConnection` 클래스의 메소드를 최초 호출 시에도 추적할 수 있도록 설정할 수 있습니다.
 
-* **HttpURLConnection_weblogic** <span class='type'>Boolean</span>
+* **HttpURLConnection_weblogic** <span class='type'>Boolean</span> <code class="my">Java Agent v2.2.4 or later</code>
 
   기본값 `true`
 
   Weblogic에서 `HttpURLConnection`으로 http 호출을 하는 경우 `weblogic.net.http.HttpURLConnection` 클래스의 메소드를 추적하기 위한 옵션입니다.
 
-* **hook_HttpURLConnection_weblogic_startup_enabled** <span class='type'>Boolean</span>
+* **hook_HttpURLConnection_weblogic_startup_enabled** <span class='type'>Boolean</span> <code class="my">Java Agent v2.2.4 or later</code>
 
   기본값 `false`
 

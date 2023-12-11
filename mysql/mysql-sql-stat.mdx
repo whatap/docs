@@ -79,18 +79,26 @@ MySQL의 `performance_schema`에서 제공하는 SQL 통계 데이터(수행 횟
 | `no_good_index_used` | 서버에 존재하는 기존 인덱스 중 사용할 어떤 인덱스도 찾지 못한 횟수, 횟수가 증가하면 인덱스 점검이 필요합니다. |
 
 
-## 쿼리 자세히 보기{#query-details}
+## 통계 메뉴 옵션 이용하기
+
+### 쿼리 미리보기
+
+![쿼리문 미리보기](/img/db-sql-preview.png)
+
+조회된 결과 목록에서 마우스 포인터를 ***sql*** 컬럼 항목으로 가져가면 쿼리문을 미리볼 수 있습니다.
+
+### 쿼리 자세히 보기{#query-details}
 
 <ImgLang img='db-sql-details-common.png' desc='SQL 상세' />
 
 {@include: ../common-items/_db-product-sql-stat-query-details.mdx} 
 
-## 조회 결과 필터링하기
+### 조회 결과 필터링하기
 
 <ImgLang img='db-sql-stat-add-filter-mysql.png' desc='Filtering' />
 
 {@include: ../common-items/_db-product-sql-stat-filtering-result.mdx}
 
-## 테이블 컬럼 설정하기{#change-column}
+### 테이블 컬럼 설정하기{#change-column}
 
 {@include: ../common-items/_db-v2-data-edit-column.mdx} 

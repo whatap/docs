@@ -7,6 +7,8 @@ tags:
     - Docker
 ---
 
+## 에이전트 적용하기
+
 기존 Docker 이미지를 바탕으로 와탭 에이전트 설정을 추가한 이미지를 빌드하세요.
 
 :::note
@@ -81,3 +83,9 @@ java -cp whatap.agent-X.Y.Z.jar whatap.agent.setup.Rename -from whatap.agent-X.Y
 ```
 
 :::
+
+{@include: _set-heap-memory.mdx}
+
+## 모니터링 시작하기
+
+{@include: ../../common-items/_start-apm.mdx} 

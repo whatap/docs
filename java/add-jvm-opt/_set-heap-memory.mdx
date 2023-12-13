@@ -1,0 +1,32 @@
+## Heap 메모리 조회
+
+와탭의 Java 모니터링에서는 JVM 메모리에 올라가 있는 Heap 점유 객체 현황(힙 메모리상의 객체별 사이즈)을 조회할 수 있는 기능을 기본으로 제공합니다. <Cmdname sid="app_upper" className="uitext" /> &gt; <Cmdname sid="instance_performance_analysis" className="uitext" /> 메뉴에서 <Cmdname sid="heap_histogram" className="uitext" /> 탭을 선택하세요.
+
+Java 6 ~ 8 버전에서는 JVM 옵션 없이 기본 지원하지만, 일부 Java 버전에 따라 다음과 같이 JVM 옵션을 적용해야 합니다.
+
+* Java 9 ~ Java 15 버전
+
+  ```bash
+  -Djdk.attach.allowAttachSelf=true
+  ```
+
+  ```bash title="example"
+  java -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true -jar {application.jar}
+  ```
+
+* Java 16 버전 이상
+
+  ```bash
+  -Djdk.attach.allowAttachSelf=true
+  --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED
+  ```
+
+  ```bash title="example"
+  java -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED -jar {application.jar}
+  ```
+
+:::note
+
+Java 5 버전 이하, IBM Java는 지원하지 않습니다.
+
+:::

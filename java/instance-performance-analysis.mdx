@@ -12,4 +12,42 @@ displayed_sidebar: javaSidebar
 
 <ProdImg img="ipa-main.png" desc="인스턴스 성능 분석" />
 
-* application_agents
+## 에이전트 목록
+
+<Cmdname sid="application_agents" className="uitext" />에서는 프로젝트에 할당된 에이전트 목록을 확인할 수 있습니다. 개별 에이전트 항목을 선택하면 오른쪽 화면에 설정된 환경 변수 및 에이전트 설정, 성능과 관련한 정보를 조회할 수 있습니다.
+
+* ![컬럼 아이콘](/img/ico-column.svg): 에이전트 목록 테이블의 컬럼을 추가하거나 삭제할 수 있습니다.
+
+* ![새로 고침 아이콘](/img/ico-refresh.svg): 에이전트 목록을 갱신할 수 있습니다. 비활성화된 에이전트를 재기동한 다음 목록에 자동으로 표시되지 않는다면 버튼을 눌러 갱신하세요.
+
+* ![확장 아이콘](/img/ic-s-arrows-alt.svg): 오른쪽 화면을 감추고 에이전트 목록을 확장해 에이전트와 관련한 추가 정보를 확인할 수 있습니다.
+
+  <ImgLang img='ipa-agent-list.png' desc='에이전트 목록' />
+
+* <Cmdname sid="inactive_agent_deletion_time" className="uitext" />: 설정한 시간 동안 에이전트가 비활성화되면 목록에서 삭제됩니다.
+
+## 에이전트 및 애플리케이션 상세 정보
+
+화면 오른쪽에서는 에이전트 및 애플리케이션과 관련한 상세 정보를 확인할 수 있습니다. 
+
+* 오른쪽 위에 텍스트 입력란을 통해 원하는 항목을 필터링할 수 있습니다. 
+
+* 모니터링 대상 서버에 위치한 에이전트 및 애플리케이션의 변경 사항이 자동 반영되지 않는다면 ![새로 고침 아이콘](/img/ico-refresh.png) 버튼을 선택하세요.
+
+### 에이전트 설정 조회
+
+* <Cmdname sid="runtime_boot_env" className="uitext" />
+
+  에이전트 실행과 관련한 환경 변수를 조회할 수 있습니다. 에이전트 버전 및 설치 경로, 이름, IP 주소 등을 확인할 수 있습니다.
+
+* <Cmdname sid="agent_configuration" className="uitext" />
+
+  모니터링 대상 서버에 위치한 *whatap.conf* 파일을 직접 수정하지 않고 에이전트 설정 옵션을 추가하거나 수정, 삭제할 수 있습니다.
+
+  :::info
+
+  에이전트 설정 기능은 사용성을 위해 UI를 개선한 <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_configuration" className="uitext" /> 메뉴를 이용할 것을 권장합니다.
+
+  set-agent#set-agent-service
+
+  :::

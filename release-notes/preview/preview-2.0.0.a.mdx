@@ -40,6 +40,15 @@ toc_max_heading_level: 2
 
 ---
 
+### `Server`
+
+- <Status>Changed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_configuration" className="uitext" /> 메뉴에서 메트릭스 이벤트 추가 시 <Cmdname sid="alert_test" className="uitext" /> 기능 실행을 위한 필수 입력 조건 변경
+
+  - 기존: <Cmdname sid="category" className="uitext" />
+  - 변경: <Cmdname sid="event_name" className="uitext" />, <Cmdname sid="category" className="uitext" />, <Cmdname sid="level" className="uitext" />, <Cmdname sid="message" className="uitext" /> 
+
+---
+
 ### `Database`
 
 #### DB <code class="my">V2</code>
@@ -48,7 +57,9 @@ toc_max_heading_level: 2
 
 #### PostgreSQL <code class="my">V2</code> / MySQL <code class="my">V2</code>
 
-<p><Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="multi_instance_monitoring" className="uitext" /> 메뉴에서 인스턴스 목록에 실행 중인 에이전트만 노출되도록 수정</p>
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="multi_instance_monitoring" className="uitext" /> 메뉴에서 인스턴스 목록에 실행 중인 에이전트만 노출되도록 수정
+
+- <Status>Changed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="multi_instance_monitoring" className="uitext" /> 및 <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 <span class="uitext">SQL Elapse Map</span> 위젯을 통해 <span class="uitext">Query List</span> 창을 열었을 때, 테이블의 컬럼 순서 변경
 
 ---
 

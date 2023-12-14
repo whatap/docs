@@ -26,6 +26,11 @@ toc_max_heading_level: 2
 
 - <Status>Changed</Status> <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 TopN 위젯의 순위 갱신 시 그래프 차트가 이어지지 않도록 변경
 
+- <Status>Changed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_configuration" className="uitext" /> 메뉴에서 메트릭스 이벤트 추가 시 <Cmdname sid="alert_test" className="uitext" /> 기능 실행을 위한 필수 입력 조건 변경
+
+  - 기존: <Cmdname sid="category" className="uitext" />
+  - 변경: <Cmdname sid="event_name" className="uitext" />, <Cmdname sid="category" className="uitext" />, <Cmdname sid="level" className="uitext" />, <Cmdname sid="message" className="uitext" /> 
+
 - <Status>Fixed</Status> <Cmdname sid="my_usage" className="uitext" /> 메뉴에서 사용량 집계 시 시간당 코어 수 집계 기준 수정(컨테이너의 경우 소수점 이하로 코어 수를 할당하기 위함)
 
 ---
@@ -37,15 +42,6 @@ toc_max_heading_level: 2
 - <Status>Fixed</Status> <Cmdname sid="activestack" className="uitext" /> 조회 시 필터링 결과 데이터가 없는 경우 빈데이터로 갱신되지 않는 문제 수정
 
 - <Status>Fixed</Status> <Cmdname sid="activestack" className="uitext" /> 조회 시 결과가 출력되기 전에 '<Cmdname sid="no_data" className="b500" />' 문구가 먼저 표시되는 문제 수정
-
----
-
-### `Server`
-
-- <Status>Changed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_configuration" className="uitext" /> 메뉴에서 메트릭스 이벤트 추가 시 <Cmdname sid="alert_test" className="uitext" /> 기능 실행을 위한 필수 입력 조건 변경
-
-  - 기존: <Cmdname sid="category" className="uitext" />
-  - 변경: <Cmdname sid="event_name" className="uitext" />, <Cmdname sid="category" className="uitext" />, <Cmdname sid="level" className="uitext" />, <Cmdname sid="message" className="uitext" /> 
 
 ---
 

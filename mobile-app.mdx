@@ -47,7 +47,7 @@ displayed_sidebar: indexSidebar
 
 앱을 처음 사용하는 사용자는 로그인해야 합니다. [와탭 모니터링 서비스](https://service.whatap.io)에서 가입한 이메일과 비밀번호를 입력한 다음 <span class="uitext">Get Started</span> 버튼을 탭하세요.
 
-<ImgLang img='mobile/mobile-app-login.png' desc='로그인' className="mobile-c" />
+<ImgLang img='mobile/mobile-app-login.png' desc='로그인' className="mobile" />
 
 :::note
 
@@ -60,13 +60,13 @@ displayed_sidebar: indexSidebar
 
 로그인을 완료했거나 앱을 처음 실행했다면 사용자가 소속된 프로젝트 목록을 확인할 수 있습니다.
 
-<ImgLang img='mobile/mobile-app-home.png' desc='초기 화면' className="mobile-c" />
+<ImgLang img='mobile/mobile-app-home.png' desc='초기 화면' className="mobile" />
 
 ### 주요 메뉴 알아보기
 
 모바일 앱은 다음의 주요 메뉴로 구성되어 있습니다. 화면 아래에 메뉴를 탭하면 각 메뉴의 주요 기능을 이용할 수 있습니다.
 
-<ImgLang img='mobile/mobile-app-main-tab.png' desc='주요 메뉴' className="mobile-c" />
+<ImgLang img='mobile/mobile-app-main-tab.png' desc='주요 메뉴' className="mobile" />
 
 * <Appname sid="projects" className="uitext" />: 사용자가 소속되어 있거나 관리 중인 프로젝트 목록을 확인할 수 있습니다. 개별 프로젝트의 상세 정보를 확인하고, 주요 지표를 조회할 수 있습니다. 조직 단위로 프로젝트 목록을 분류할 수 있으며, 검색을 통해 원하는 프로젝트를 필터링할 수 있습니다.
 
@@ -83,6 +83,34 @@ displayed_sidebar: indexSidebar
 공지사항 이전 화면으로 돌아가려면 화면 오른쪽 위, 모서리에 ![닫기 아이콘](/img/ico-close.svg) 버튼을 탭하세요.
 
 :::
+
+### 상품 종류별 확인하기
+
+프로젝트 목록을 상품 종류별로 확인할 수 있습니다. 
+
+1. 화면 왼쪽 위, 모서리에 ![카테고리 아이콘](/img/mobile/mobile-app-category.png) 버튼을 탭하세요.
+
+1. 상품 목록이 나타나면 원하는 항목을 선택하세요.
+
+    <ImgLang img='mobile/mobile-app-category-list.png' desc='카테고리 목록' className='mobile-l' />
+
+선택한 상품 항목에 해당하는 프로젝트만 목록에 표시됩니다.
+
+### 프로젝트 현황 확인하기
+
+전체 프로젝트를 상품별로 분류한 목록을 확인할 수 있습니다. 초기 화면 위에 ![아이콘](/img/mobile/mobile-app-status-icon.png) 버튼을 탭하세요. 각 상품에 해당하는 프로젝트 목록을 확인할 수 있고, <Appname sid="learn_more" className="uitext" /> 버튼을 탭하면 상품 소개 페이지로 이동합니다.
+
+<ImgLang img='mobile/mobile-app-project-all-status.png' desc='프로젝트 현황' className='mobile' />
+
+### 프로젝트 검색하기
+
+프로젝트 목록이 많아 프로젝트를 찾기 어렵다면 검색을 통해서 원하는 프로젝트를 찾을 수 있습니다. <Appname sid="search" className="uitext" /> 입력란에 찾으려는 프로젝트 이름 또는 프로젝트 코드를 입력한 다음 키보드의 **완료**를 탭하세요.
+
+### 조직별 확인하기
+
+조직별로 설정된 프로젝트 목록을 확인하려면 <Appname sid="org" className="uitext" />에서 <Appname sid="none_org" className="uitext" />을 탭한 다음 원하는 조직을 탭하세요. 선택한 조직에 해당하는 프로젝트 목록만 표시됩니다.
+
+<ImgLang img='mobile/mobile-app-org.png' desc='조직 선택' className='mobile' />
 
 
 ## 프로젝트 
@@ -108,7 +136,7 @@ displayed_sidebar: indexSidebar
 
 하나의 프로젝트는 다음과 같이 카드 뷰 형태로 표시되며, 프로젝트의 주요 지표, 기본 정보 등으로 구성되어 있습니다.
 
-<ImgLang img='mobile/mobile-app-project-card.png' desc='프로젝트 카드' className="mobile-c" />
+<ImgLang img='mobile/mobile-app-project-card.png' desc='프로젝트 카드' className="mobile" />
 
 * 프로젝트의 가장 위에는 프로젝트의 이름을 표시합니다. <Appname sid="detail" className="uitext" /> 버튼을 탭하면 더 많은 지표를 확인할 수 있습니다.
 
@@ -133,7 +161,7 @@ displayed_sidebar: indexSidebar
 
 프로젝트 목록에서 각 프로젝트의 <Appname sid="detail" className="uitext" /> 버튼을 탭하면 <Appname sid="dashboard" className="uitext" /> 화면으로 이동할 수 있습니다. 
 
-<ImgLang img='mobile/mobile-app-project-dashboard.png' desc='대시보드' className='mobile-c' />
+<ImgLang img='mobile/mobile-app-project-dashboard.png' desc='대시보드' className='mobile' />
 
 * 화면 오른쪽 위, 모서리에서 프로젝트 코드 정보를 확인할 수 있습니다.
 
@@ -141,64 +169,183 @@ displayed_sidebar: indexSidebar
 
 * <Appname sid="standard_time" className="uitext" />에 표시된 시간 기준으로 10분, 30분, 1시간 동안의 지표를 조회할 수 있습니다. <Appname sid="latest" className="uitext" /> 항목에서 <span class="uitext">10 Min</span>, <span class="uitext">30 Min</span>, <span class="uitext">1 Hour</span> 버튼을 탭하세요.
 
-* 그 외 각 상품별 대표되는 주요 지표들이 배치되어 있습니다.
+* 그 외 각 상품별 대표되는 주요 지표들이 배치되어 있습니다. 다음 목록에서 확인할 수 있습니다.
+
+  <details>
+
+  <summary><b>Appication</b></summary>
+
+  * <Appname sid="active_status" className="uitext" />
+
+  * <Appname sid="active_transaction" className="uitext" />
+
+  * <span class="uitext">Hitmap</span><br/>
+
+    <span class="uitext">TX trace</span> 버튼을 탭하면 트랜잭션 목록을 확인할 수 있는 <Appname sid="transaction_list" className="uitext" /> 화면으로 이동합니다. 에러가 발생한 트랜잭션 목록을 확인하려면 <span class="uitext">All</span> 버튼을 탭하세요.
+
+  * <span class="uitext">Apdex</span>
+
+  * <span class="uitext">TPS</span>
+
+  * <Appname sid="average_res_time" className="uitext" />
+
+  * <Appname sid="system_cpu" className="uitext" />
+
+  </details>
+
+  <details>
+
+  <summary><b>Server</b></summary>
+
+  * <span class="uitext">CPU Resource Map</span>
+
+  * <span class="uitext">CPU Top 5</span>
+
+  * <span class="uitext">Memory Top 5</span>
+
+  * <span class="uitext">Disk Top 5</span>
+
+  </details>
+
+  <details>
+
+  <summary><b>Database</b></summary>
+
+  * <span class="uitext">Thread Running</span>
+
+  * <span class="uitext">Thread Connected</span>
+
+  * <span class="uitext">Active Sessions</span>
+
+  :::info
+
+  **Database** 상품의 경우 화면 아래에 <Appname sid="list" className="uitext" /> 메뉴를 탭하면 인스턴스별 지표를 확인할 수 있습니다.
+
+  :::
+
+  </details>
+
+  <details>
+
+  <summary><b>Kubernetes</b></summary>
+
+  * <span class="uitext">Pod 수 Chart</span>
+
+  * <span class="uitext">Node CPU</span>
+
+  * <span class="uitext">Node Memory</span>
+
+  :::note
+
+  **Kubernetes** 상품의 경우 화면 아래에 <Appname sid="list" className="uitext" /> 메뉴를 탭하면 컨테이너 목록을 확인할 수 있습니다. 개별 컨테이너에 대한 상세 정보를 조회할 수 있습니다.
+
+  :::
+
+  </details>
+
+  <details>
+
+  <summary><b>URL</b></summary>
+
+  사용자가 등록한 URL 목록과 각 URL의 HTTP 상태 코드를 확인할 수 있습니다.
+
+  </details>
+
+  <details>
+
+  <summary><b>Browser</b></summary>
+
+  * <Cmdname sid="page_load" className="uitext" /> <Cmdname sid="timeline" className="uitext" />
+
+  * <span class="uitext">Pageload Hitmap</span>
+
+  * <span class="uitext">AJAX Hitmap</span>
+
+  * <Cmdname sid="TTL06188" className="uitext" />
+
+  * <Cmdname sid="TTL06189" className="uitext" />
+
+  </details>
 
 
-#### Appication
+### 프로젝트별 알림 확인하기
 
-애플리케이션 상품에서 조회할 수 있는 주요 지표는 다음과 같습니다.
+개별 프로젝트에서 설정한 이벤트로 전송된 알림 목록을 확인할 수 있습니다. 화면 아래에 <Appname sid="alert" className="uitext" /> 메뉴를 탭하세요.
 
-* <Appname sid="active_status" className="uitext" />
+<ImgLang img='mobile/mobile-app-project-alert.png' desc='알림' className='mobile' />
 
-* <Appname sid="active_transaction" className="uitext" />
 
-* <span class="uitext">Hitmap</span>
+## 통합 알림
 
-  <span class="uitext">TX trace</span> 버튼을 탭하면 트랜잭션 목록을 확인할 수 있는 <Appname sid="transaction_list" className="uitext" /> 화면으로 이동합니다. 에러가 발생한 트랜잭션 목록을 확인하려면 <span class="uitext">All</span> 버튼을 탭하세요.
+모든 프로젝트의 알림을 확인하려면 모바일 앱 초기 화면에서 <Appname sid="alerts" className="uitext" /> 메뉴를 탭하세요.
 
-* <span class="uitext">Apdex</span>
+<ImgLang img='mobile/mobile-app-alerts.png' desc='알림' className='mobile' />
 
-* <span class="uitext">TPS</span>
+* 모든 프로젝트의 알림을 최신 순으로 확인할 수 있습니다.
 
-* <Appname sid="average_res_time" className="uitext" />
-
-* <Appname sid="system_cpu" className="uitext" />
-
-#### Server
-
-* <span class="uitext">CPU Resource Map</span>
-
-* <span class="uitext">CPU Top 5</span>
-
-* <span class="uitext">Memory Top 5</span>
-
-* <span class="uitext">Disk Top 5</span>
-
-#### Database
-
-* <span class="uitext">Thread Running</span>
-
-* <span class="uitext">Thread Connected</span>
-
-* <span class="uitext">Active Sessions</span>
-
-#### Kubernetes
-
-* <span class="uitext">Pod 수 Chart</span>
-
-* <span class="uitext">Node CPU</span>
-
-* <span class="uitext">Node Memory</span>
+* 각 알림의 프로젝트 이름을 탭하면 해당 프로젝트로 이동할 수 있습니다.
 
 :::note
 
-Kubernetes 상품의 경우 화면 아래에 <Appname sid="list" className="uitext" /> 메뉴를 탭하면 컨테이너 목록을 확인할 수 있습니다. 개별 컨테이너에 대한 상세 정보를 조회할 수 있습니다.
+최대 7일 동안의 알림 내역을 조회할 수 있습니다. 향후 업데이트를 통해 조회 범위를 확대할 예정입니다.
 
 :::
 
-#### URL
 
-사용자가 등록한 URL 목록을 확인할 수 있습니다.
+## 계정 설정
 
-#### Browser
+모바일 앱 초기 화면에서 <Appname sid="account" className="uitext" /> 메뉴를 탭하세요.
 
+<ImgLang img='mobile/mobile-app-account.png' desc='계정' className='mobile' />
+
+<Appname sid="account" className="uitext" /> 메뉴에서 제공하는 기능은 다음과 같습니다.
+
+* 사용자 계정 정보 확인, 언어 및 조직 설정
+
+* 알림 수신 설정
+
+* OTP 인증 기능
+
+### 앱 기본 언어 변경하기
+
+모바일 앱의 기본 언어를 변경하려면 <Appname sid="lang" className="uitext" /> 항목에서 선호하는 언어를 탭하세요.
+
+### 기본 조직 설정하기
+
+<Appname sid="projects" className="uitext" /> 메뉴에서 표시되는 프로젝트 목록을 조직에 해당하는 프로젝트 목록으로 기본 설정할 수 있습니다. <Appname sid="org" className="uitext" /> 항목에서 선호하는 조직을 선택하세요.
+
+### 알림 수신 설정하기
+
+모바일 앱을 통해 알림을 수신하거나 수신 설정을 해제할 수 있습니다. <Appname sid="setup_alarm" className="uitext" /> 섹션에서 <Appname sid="porject" className="uitext" /> 항목을 탭하여 원하는 설정을 적용하세요.
+
+### OTP 인증하기{#mobileotp}
+
+와탭 모바일 앱을 통해 OTP 인증을 설정하고 웹 서비스에서 로그인 시 입력할 수 있는 OTP 인증키를 제공합니다.
+
+1. [와탭 모니터링 서비스](https://service.whatap.io)로 로그인하세요.
+
+1. 화면 오른쪽 위에 프로필 아이콘을 선택하세요.
+
+1. 드롭다운 메뉴가 나타나면 <Cmdname sid="manage_account_info" className="uitext" /> 메뉴를 선택하세요.
+
+1. <Cmdname sid="my_profile" className="uitext" /> 메뉴로 이동하면 페이지를 아래로 스크롤하여 <Cmdname sid="two_factor_auth" className="uitext" /> 섹션으로 이동하세요.
+
+1. <Cmdname sid="create_otp_key" className="uitext" /> 버튼을 선택하면 QR 코드가 표시됩니다.
+
+1. 와탭 모바일 앱에서 <Appname sid="account" className="uitext" /> 메뉴로 이동하세요.
+
+1. <span class="uitext">OTP</span> 섹션에서 <span class="uitext">QR</span> 버튼을 탭하세요.
+
+1. 카메라가 실행되면 웹 페이지에 표시된 QR 코드를 스캔하세요.
+
+1. 와탭 모바일 앱에 OTP 키가 표시됩니다.
+
+1. OTP 키를 웹 페이지에 입력하고 <Cmdname sid="validate_otp_token" className="uitext" /> 버튼을 선택하세요.
+
+OTP 인증 과정을 완료합니다. 이후 [와탭 모니터링 서비스](https://service.whatap.io)로 로그인한 다음 OTP 인증키를 요구하면 모바일 앱에서 제공하는 OTP 키를 입력하세요.
+
+:::note
+
+멀티팩터 인증에 대한 자세한 내용은 [다음 문서](account/mfa#otp)를 참조하세요.
+
+:::

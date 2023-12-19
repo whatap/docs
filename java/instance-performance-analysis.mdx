@@ -47,7 +47,7 @@ tags: [ Java, 애플리케이션, 인스턴스 성능 분석 ]
 | <Cmdname sid="status" className="uitext" /> | `threadstate` | <span class='api'>String</span> | 스레드 상태 |
 | <Cmdname sid="blocked_time" className="uitext" /> | `blockedTime` | <span class='api'>Long</span> | 스레드가 `BLOCKED` 상태가 된 후 경과 시간(밀리초), 스레드 경합 모니터링이 비활성화된 경우 `-1` 반환 |
 | <Cmdname sid="thread_name" className="uitext" /> | `threadName` | <span class='api'>String</span> | 스레드 고유 이름 |
-| <Cmdname sid="lock_name" className="uitext" /> | `lockName` | <span class='api'>String</span> | 스레드 진입이 차단되었거나 알림을 기다리는 모니터(Monitor) 잠금을 표시하는 문자열 |
+| <Cmdname sid="lock_name" className="uitext" /> | `lockName` | <span class='api'>String</span> | 스레드의 입력이 차단되거나 `Object.wait` 메소드를 통해 통지를 기다리는 모니터 잠금을 표시한 문자열 |
 | <Cmdname sid="lock_owner_name" className="uitext" /> | `lockOwnerName` | <span class='api'>String</span> | 스레드가 차단되는 객체의 모니터 잠금을 수용하는 스레드 이름 |
 | <Cmdname sid="thread_user_time" className="uitext" /> | `threadUserTime` | <span class='api'>Long</span> | 스레드가 사용자 모드에서 실행한 CPU 시간(나노초) |
 

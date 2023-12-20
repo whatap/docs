@@ -24,7 +24,7 @@ Resin을 사용하는 애플리케이션 서버 환경에서 JVM 옵션을 추�
 
 :::
 
-### Java 6 ~ 8
+### Java 6 ~ 8 버전
 
 ```properties title="resin.properties"
 jvm_args : -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar
@@ -34,7 +34,7 @@ jvm_args : -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar
 <jvm-arg>-javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar</jvm-arg>
 ```
 
-### Java 9 ~ 15
+### Java 9 ~ 15 버전
 
 ```properties title="resin.properties"
 jvm_args : -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true
@@ -45,7 +45,7 @@ jvm_args : -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAtt
 <jvm-arg>-Djdk.attach.allowAttachSelf=true</jvm-arg>
 ```
 
-### Java 16 이상
+### Java 16 버전 이상
 
 ```properties title="resin.properties"
 jvm_args : -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED

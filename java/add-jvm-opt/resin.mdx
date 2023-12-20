@@ -30,7 +30,7 @@ Resin을 사용하는 애플리케이션 서버 환경에서 JVM 옵션을 추�
 jvm_args : -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar
 ```
 
-```xml title="resin.conf | conf/resin.xml"
+```xml title="resin.conf | resin.xml"
 <jvm-arg>-javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar</jvm-arg>
 ```
 
@@ -40,7 +40,7 @@ jvm_args : -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar
 jvm_args : -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true
 ```
 
-```xml title="resin.conf | conf/resin.xml"
+```xml title="resin.conf | resin.xml"
 <jvm-arg>-javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar</jvm-arg>
 <jvm-arg>-Djdk.attach.allowAttachSelf=true</jvm-arg>
 ```
@@ -51,7 +51,7 @@ jvm_args : -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAtt
 jvm_args : -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED
 ```
 
-```xml title="resin.conf | conf/resin.xml"
+```xml title="resin.conf | resin.xml"
 <jvm-arg>-javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar</jvm-arg>
 <jvm-arg>-Djdk.attach.allowAttachSelf=true</jvm-arg>
 <jvm-arg>--add-opens=java.base/java.lang=ALL-UNNAMED</jvm-arg> <!-- Java 17 or later -->

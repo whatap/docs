@@ -12,25 +12,81 @@ tags: [ UI, 사용자 인터페이스, 모니터링 ]
 
 ## 프로젝트 목록
 
-사용자가 멤버로 포함되어 있거나 관리 중인 프로젝트로 구성되어 있습니다. 목록에 펼쳐진 개별 프로젝트를 선택하면 해당 프로젝트의 <Cmdname sid="dashboard" className="uitext" /> 메뉴로 이동합니다.
+사용자가 멤버로 포함되어 있거나 관리 중인 프로젝트를 확인할 수 있는 메뉴입니다. 목록에 펼쳐진 개별 프로젝트를 선택하면 해당 프로젝트의 <Cmdname sid="dashboard" className="uitext" /> 메뉴로 이동합니다.
+
+프로젝트 목록의 개별 프로젝트에서 제공하는 정보와 기능은 다음과 같습니다.
+
+* **프로젝트 이름**: 프로젝트를 새로 생성하거나 프로젝트의 <Cmdname sid="management" className="uitext" /> 메뉴에서 설정할 수 있습니다.
+
+* 프로젝트의 주요 지표에 대한 차트와 에이전트 상태, 현황 등을 확인할 수 있습니다. 상품에 따라 제공되는 차트의 종류와 정보는 다를 수 있습니다.
+
+* 프로젝트의 상품 이름과 그룹 이름, 프로젝트 코드를 확인할 수 있습니다. 만약 무료 체험 중이거나 구독 만료된 경우 프로젝트 상품 이름 옆에 같이 표시됩니다.
+
+* ![즐겨찾기 아이콘](/img/ico-favorite.svg) 버튼을 선택한 다음 화면 위에 ![즐겨찾기 아이콘](/img/ico-favorite.svg) <Cmdname sid="project_favorite" className="uitext" /> 모드를 선택하면 즐겨찾기 설정된(![즐겨찾기 아이콘](/img/ico-favorite-set.svg)) 프로젝트만 목록에 표시됩니다.
+
+* ![설정 아이콘](/img/ico-setting.svg) 버튼을 선택하면 다음 기능을 이용할 수 있습니다.
+
+  * <Cmdname sid="project_management" className="uitext" />: 프로젝트의 관리 메뉴로 이동합니다. 프로젝트의 이름 및 설명, 액세스 키 등의 정보를 확인하고 수정할 수 있습니다. 자세한 내용은 <Link to="project/project-manage#management">다음 문서</Link>를 참조하세요.
+
+  * <Cmdname sid="edit_project_name" className="uitext" />: 프로젝트의 이름을 수정할 수 있습니다.
+
+  * <Cmdname sid="delete_project" className="uitext" />: 프로젝트를 삭제할 수 있습니다.
+
+    :::caution
+
+    프로젝트를 삭제하면 사용자 목록 정보 및 수집 데이터가 모두 삭제되며 복구할 수 없습니다.
+
+    :::
+
+  * <Cmdname sid="add_to_group" className="uitext" /> / <Cmdname sid="delete_from_group" className="uitext" />: 프로젝트를 그룹에 추가하거나 그룹에서 삭제할 수 있습니다.
+
+  :::note
+
+  사용자에게 설정된 권한에 따라 제공되는 기능은 다를 수 있습니다. 멤버 권한 체계에 대한 자세한 내용은 [다음 문서](project/project-structure#project-auth)를 참조하세요.
+
+  :::
 
 ### 프로젝트 뷰
 
-다음의 세 가지 뷰 모드로 프로젝트 목록을 확인할 수 있습니다. 
+다음의 세 가지 뷰 모드로 프로젝트 목록을 확인할 수 있습니다. 화면 위에서 원하는 뷰 모드 아이콘을 선택하세요.
+
+<ImgLang img='ui-home/main-project-select-view.png' desc='뷰 선택하기' />
 
 #### <LinkImage img="ico-extend-card-view.svg" className="ico" /> <Cmdname sid="wide_card_view" />
 
-기본 설정된 뷰 모드입니다. 프로젝트의 주요 지표와 속성 등을 각 카드에 표시합니다. 이를 통해 프로젝트의 성능 현황을 빠르게 파악할 수 있습니다.
-
 <ImgLang img='ui-home/main-project-extend-card-view.png' desc='확장 카드 뷰' />
+
+기본 설정된 뷰 모드입니다. 프로젝트의 에이전트에서 수집 중인 주요 지표와 속성 등을 각 카드에 표시합니다. 이를 통해 프로젝트의 성능 현황을 빠르게 파악할 수 있습니다.
 
 #### <LinkImage img="ico-reduction-view.svg" className="ico" /> <Cmdname sid="compact_card_view" />
 
+<ImgLang img='ui-home/main-project-compact-card-view.png' desc='확장 카드 뷰' />
+
+<Cmdname sid="wide_card_view" className="uitext" /> 보다는 개별 프로젝트에서 적은 정보를 제공하지만 더 많은 프로젝트 목록을 확인할 수 있습니다. 
+
 #### <LinkImage img="ico-list-view.svg" className="ico" /> <Cmdname sid="project_list_view" />
+
+<ImgLang img='ui-home/main-project-list-card-view.png' desc='리스트 뷰' />
+
+상품의 종류에 따라 프로젝트를 분류하여 목록 형식으로 표시합니다. 상품의 종류에 따라 제공하는 정보는 다를 수 있습니다. 목록의 가장 오른쪽에는 프로젝트 관리(![설정 아이콘](/img/ico-setting.svg))와 삭제(![삭제 아이콘](/img/ico-trash.svg)) 기능을 제공합니다.
+
+### 즐겨찾는 프로젝트 목록 보기
+
+앞서 세 가지 뷰 모드에서 ![즐겨찾기 아이콘](/img/ico-favorite-set.svg) 아이콘으로 설정된 프로젝트만 목록에 표시할 수 있습니다.
+
+1. 프로젝트에서 ![즐겨찾기 아이콘](/img/ico-favorite.svg) 버튼을 선택해 즐겨찾기를 설정하세요.
+
+    <ImgLang img='ui-home/main-project-set-favorite.png' desc='즐겨찾기 설정하기' />
+
+1. 화면 위에서 원하는 뷰 모드를 선택하세요.
+
+1. ![즐겨찾기 아이콘](/img/ico-favorite.svg) 모드를 선택하세요.
+
+    <ImgLang img='ui-home/main-project-favorite-list.png' desc='즐겨찾기' />
 
 ### 프로젝트 검색하기
 
-### 즐겨찾기 
+
 
 ## 사이드 메뉴
 

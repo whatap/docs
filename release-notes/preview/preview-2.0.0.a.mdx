@@ -31,12 +31,6 @@ toc_max_heading_level: 2
 
 ---
 
-### `Browser`
-
-<p><Status>Changed</Status> 프로젝트의 사이드바 일본어 메뉴명 수정</p>
-
----
-
 ### `Application`
 
 <p><Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="transaction_map" className="uitext" /> 메뉴에서 실시간 모드 이용 시, 사용자의 PC 시간이 서버 시간보다 과거로 설정된 경우 차트가 그려지지 않는 버그 수정</p>
@@ -46,6 +40,27 @@ toc_max_heading_level: 2
 서버 시간과 사용자의 PC 시간 사이에 5분 이상 차이가 날 경우 보정 불가능할 수 있습니다.
 
 :::
+
+---
+
+### `Browser`
+
+- <Status>Changed</Status> 프로젝트의 사이드바 일본어 메뉴명 수정
+
+- <Status>Fixed</Status> <Cmdname sid="rumDashboard" className="uitext" /> 메뉴에서 시간 선택자를 일시 정지 후 다시 실시간 모드를 실행하면 실시간 30분으로 조회되는 문제 수정
+
+- <Status>Deprecated</Status> <Cmdname sid="rumDashboard" className="uitext" /> 메뉴에서 시간 선택자의 시간 선택 옵션 중 다음 항목 삭제
+
+  - <Cmdname sid="time_action_live" className="uitext" replace="noSpace" /><Cmdname sid="30_minute" className="uitext" />
+
+  - <Cmdname sid="time_action_live" className="uitext" replace="noSpace" /><span class="uitext">1</span><Cmdname sid="time_action_hour" className="uitext" replace="noSpace" />
+
+  - <Cmdname sid="time_action_recent" className="uitext" replace="noSpace" /><span class="uitext">1</span><Cmdname sid="time_action_week" className="uitext" replace="noSpace" />
+
+  - <Cmdname sid="time_action_recent" className="uitext" replace="noSpace" /><span class="uitext">2</span><Cmdname sid="time_action_week" className="uitext" replace="noSpace" />
+
+  - <Cmdname sid="time_action_recent" className="uitext" replace="noSpace" /><span class="uitext">3</span><Cmdname sid="time_action_week" className="uitext" replace="noSpace" />
+
 
 </div>
 

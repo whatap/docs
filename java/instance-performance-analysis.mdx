@@ -36,20 +36,20 @@ tags: [ Java, 애플리케이션, 인스턴스 성능 분석 ]
 
 #### <Cmdname sid="stack" />
 
-| 항목 | 속성 | 유형(Type) | 설명 |
-| -- | -- | :--: | -- |
-| <Cmdname sid="thread_id" className="uitext" /> | `threadId` | <span class='api'>Long</span> | 스레드에 할당된 고유 ID |
-| <Cmdname sid="lock_owner_id" className="uitext" /> | `lockOwnerId` | <span class='api'>Long</span> | 스레드가 차단된 개체의 모니터(Monitor) 잠금을 유지하는 스레드 ID |
-| <Cmdname sid="waited_count" className="uitext" /> | `waitedCount` | <span class='api'>Long</span> | 스레드가 `WAITING` 또는 `TIMED_WAITING` 상태가 된 총 횟수 |
-| <Cmdname sid="blocked_count" className="uitext" /> | `blockedCount` | <span class='api'>Long</span> | 스레드가 `BLOCKED` 상태가 된 총 횟수 |
-| <Cmdname sid="waited_time" className="uitext" /> | `waitedTime` | <span class='api'>Long</span> | 스레드가 `WAITING` 상태를 지속한 경과 시간(밀리초), 스레드 경합 모니터링이 비활성화된 경우 `-1` 반환 |
-| <Cmdname sid="thread_cpu_time" className="uitext" /> | `threadCpuTime` | <span class='api'>Long</span> | 스레드의 CPU 시간 합계(나노초)를 밀리초로 계산하여 표시, CPU 시간 측정을 비활성화한 경우 `-1` 반환 |
-| <Cmdname sid="status" className="uitext" /> | `threadstate` | <span class='api'>String</span> | 스레드 상태 |
-| <Cmdname sid="blocked_time" className="uitext" /> | `blockedTime` | <span class='api'>Long</span> | 스레드가 `BLOCKED` 상태가 된 후 경과 시간(밀리초), 스레드 경합 모니터링이 비활성화된 경우 `-1` 반환 |
-| <Cmdname sid="thread_name" className="uitext" /> | `threadName` | <span class='api'>String</span> | 스레드 고유 이름 |
-| <Cmdname sid="lock_name" className="uitext" /> | `lockName` | <span class='api'>String</span> | 스레드의 입력이 차단되거나 `Object.wait` 메소드를 통해 통지를 기다리는 모니터 잠금을 표시한 문자열 |
-| <Cmdname sid="lock_owner_name" className="uitext" /> | `lockOwnerName` | <span class='api'>String</span> | 스레드가 차단되는 객체의 모니터 잠금을 수용하는 스레드 이름 |
-| <Cmdname sid="thread_user_time" className="uitext" /> | `threadUserTime` | <span class='api'>Long</span> | 스레드가 사용자 모드에서 실행한 CPU 시간(나노초)을 밀리초로 계산하여 표시 |
+| 항목 | 속성 | 설명 |
+| -- | -- | -- |
+| <Cmdname sid="thread_id" className="uitext" /> | `threadId` | 스레드에 할당된 고유 ID |
+| <Cmdname sid="lock_owner_id" className="uitext" /> | `lockOwnerId` | 스레드가 차단된 개체의 모니터(Monitor) 잠금을 유지하는 스레드 ID |
+| <Cmdname sid="waited_count" className="uitext" /> | `waitedCount` | 스레드가 `WAITING` 또는 `TIMED_WAITING` 상태가 된 총 횟수 |
+| <Cmdname sid="blocked_count" className="uitext" /> | `blockedCount` | 스레드가 `BLOCKED` 상태가 된 총 횟수 |
+| <Cmdname sid="waited_time" className="uitext" /> | `waitedTime` | 스레드가 `WAITING` 상태를 지속한 경과 시간(밀리초), 스레드 경합 모니터링이 비활성화된 경우 `-1` 반환 |
+| <Cmdname sid="thread_cpu_time" className="uitext" /> | `threadCpuTime` | 스레드의 CPU 시간 합계(나노초)를 밀리초로 계산하여 표시, CPU 시간 측정을 비활성화한 경우 `-1` 반환 |
+| <Cmdname sid="status" className="uitext" /> | `threadstate` | 스레드 상태 |
+| <Cmdname sid="blocked_time" className="uitext" /> | `blockedTime` | 스레드가 `BLOCKED` 상태가 된 후 경과 시간(밀리초), 스레드 경합 모니터링이 비활성화된 경우 `-1` 반환 |
+| <Cmdname sid="thread_name" className="uitext" /> | `threadName` | 스레드 고유 이름 |
+| <Cmdname sid="lock_name" className="uitext" /> | `lockName` | 스레드의 입력이 차단되거나 `Object.wait` 메소드를 통해 통지를 기다리는 모니터 잠금을 표시한 문자열 |
+| <Cmdname sid="lock_owner_name" className="uitext" /> | `lockOwnerName` | 스레드가 차단되는 객체의 모니터 잠금을 수용하는 스레드 이름 |
+| <Cmdname sid="thread_user_time" className="uitext" /> | `threadUserTime` | 스레드가 사용자 모드에서 실행한 CPU 시간(나노초)을 밀리초로 계산하여 표시 |
 
 :::note
 

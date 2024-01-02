@@ -1,0 +1,27 @@
+---
+id: eksfargete
+title: 임시
+description: 임시
+draft: true
+---
+
+<TabItem value='eksfragate' label='EKS Fargate(지원 예정)'>
+
+## 쿠버네티스 에이전트 생성
+
+1. 쿠버네티스 모니터링을 위한 설치 파일을 다운로드 하세요. ***whatap_kube_fargate*** 버튼을 선택하세요.
+
+1. 다운로드한 *YAML* 파일을 이용해 에이전트를 생성하세요.
+
+    ```bash
+    kubectl -f whatap_kube_fargate.yaml apply
+    ```
+
+{@include: _check-k8s-agent.mdx}
+
+## 클러스터 네임스페이스 확인
+
+에이전트 설치를 완료하고 2\~3분 후 [와탭 모니터링 서비스](https://service.whatap.io) 화면 왼쪽의 메뉴에서 프로젝트 이름을 선택하세요. 사용 중인 네임스페이스 목록을 확인 후 + 버튼을 선택해 와탭 프로젝트를 신규 생성하세요.
+
+
+</TabItem>

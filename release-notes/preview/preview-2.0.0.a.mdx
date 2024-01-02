@@ -14,6 +14,66 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.0.0.a6
+
+2024년 01월 04일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### <Cmdname sid="my_usage" />
+
+- <Status>Fixed</Status> <Cmdname sid="payment_information" className="uitext" /> 메뉴에서 결제 정보 입력 또는 수정 시 <Cmdname sid="phone" className="uitext" /> 항목을 변경하면 <Cmdname sid="TTL06080" className="uitext" /> 항목도 함께 변경되도록 수정
+
+#### <Cmdname sid="integrated_report" />
+
+- <Status>Changed</Status> 신규 보고서 생성 또는 보고서 중복 생성 시 출력되는 메시지 수정
+
+- <Status>Fixed</Status> 이미 생성된 보고서를 중복 생성하는 경우 왼쪽 목록에서 포커스가 이동하지 않는 버그 수정
+
+#### User Interface
+
+- <Status>Changed</Status> 다크 테마를 더 많은 메뉴에서 이용할 수 있도록 확장 적용했습니다.
+
+---
+
+### `Database`
+
+#### DB <code class="my">V2</code>
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" /> 메뉴에서 일부 위젯의 이름 수정(사용율 → <b>사용률</b>)
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" /> 메뉴에서 <Cmdname sid="active_sessions" className="uitext" /> 테이블을 새창으로 볼 때 데이터가 조회되지 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" /> 메뉴에서 <Cmdname sid="active_sessions" className="uitext" />, <Cmdname sid="lock_tree" className="uitext" />, <Cmdname sid="process_info" className="uitext" /> 탭을 선택하면 화면이 깜박이는 현상 개선
+
+---
+
+### `Kubernetes`
+
+- <Status>Feature</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="clusterOverview" className="uitext" /> 메뉴에 <b>Service</b>, <b>Ingress</b>, <b>Job</b>, <b>CronJob</b> 오브젝트 목록 추가
+
+- <Status>Feature</Status> <Cmdname sid="log" className="uitext" /> &gt; <Cmdname sid="whatapEventList" className="uitext" />: <code>#WhatapEvent</code> 카테고리의 로그 데이터 조회 기능 추가
+
+- <Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="performance_summary" className="uitext" /> 메뉴에 <Cmdname sid="TTL07432" className="uitext" />와 <Cmdname sid="TTL07433" className="uitext" />, <Cmdname sid="TTL07434" className="uitext" /> 위젯 추가
+
+- <Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="clusterOverview" className="uitext" /> 메뉴에 <span class="uitext">Total Capacity CPU</span>(노드 총 CPU), <span class="uitext">Total Capacity Memory</span>(노드 총 Memory) 위젯 추가
+
+---
+
+### `Log`
+
+- <Status>Feature</Status> 에이전트 옵션이 설정된 경우 로그 레벨을 표시하는 색상 표시 기능 추가
+
+  ```ini title="whatap.conf"
+  # requires agent restart
+  weaving=log4j-2.17,logback-1.2.8
+  ```
+
+</div>
+
+
 ## Preview 2.0.0.a5
 
 2023년 12월 28일

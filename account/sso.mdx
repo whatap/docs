@@ -1,0 +1,188 @@
+---
+id: sso
+title: SSO 계정 연동
+description: SSO 계정 연동을 통해서 하나의 아이디와 비밀번호를 이용해 간편하게 계정을 관리하세요.
+tags: [ SSO, 계정, 보안 ]
+---
+
+클라우드 기반의 사용자 계정 관리 및 접근 권한 관리 솔루션인 **Okta**와 와탭 모니터링을 연동할 수 있습니다. **Okta**는 높은 수준의 보안 환경에서 수많은 애플리케이션을 하나의 계정으로 로그인할 수 있는 솔루션입니다. 조직 내에서 사용 중인 **Okta** 계정으로 와탭 서비스에 로그인하고 주어진 권한 내에서 서비스를 이용할 수 있습니다.
+
+:::tip
+
+**Single Sign-On(SSO)이란?**
+
+**Single Sign-On**(SSO)은 한 번의 사용자 인증으로 다수의 애플리케이션 및 웹사이트에 대한 사용자 로그인을 허용하는 인증 솔루션입니다. SSO 솔루션은 한 번 자격 증명이 검증된 사용자에게 반복되는 로그인 없이 모든 암호 보호 리소스에 액세스하여 보안과 사용자 경험을 모두 충족할 수 있습니다.
+
+:::
+
+:::note
+
+와탭 로그인 연동을 위해 사용자는 **Okta** 계정을 가지고 있어야 합니다.
+
+:::
+
+## Okta 연동하기 {#integrateokta}
+
+다음 안내에 따라 와탭 모니터링 서비스에 Okta 연동을 설정하세요.
+
+### 와탭에서 SSO 키 발급하기 {#generatessokey}
+
+1. [와탭 모니터링 서비스](https://service.whatap.io)에 로그인하세요.
+
+1. 화면 오른쪽 위에 프로필 아이콘을 선택하세요.
+
+1. 팝업 메뉴가 나타나면 <Cmdname sid="MNU07360" className="uitext" />를 선택하세요.
+
+1. 화면 왼쪽 메뉴에서 ***SSO 연동***을 선택하세요.
+
+1. ***Service provider ID (WhaTap)*** 섹션의 ***SSO 키 발급***에서 Key Name을 입력하세요.
+
+    Key Name은 사용자가 임의로 입력할 수 있습니다.
+
+    <ImgLang img='sso-service-key.png' desc='Service provider ID' />
+
+1. ***SSO 키 발급*** 버튼을 선택하세요.
+
+1. ***SSO 정보 확인***에서 ***EntityID***와 ***Sign-On URL*** 항목의 값을 확인하고 복사하세요.
+
+    <ImgLang img='sso-check-sso-info.png' desc='sso-info' />
+
+
+:::note
+
+* SSO 키는 최대 5개까지 발급할 수 있으며 각각 고유의 인증 정보 값을 가지고 있습니다. 
+
+* ***SSO 키 추가 발급*** 버튼을 선택해 SSO 키를 추가하고 이후의 과정을 진행하세요. 
+
+* 추가된 SSO 정보는 ***Key Name*** 항목에서 목록 상자를 선택해 확인할 수 있습니다.
+
+:::
+
+### Okta 인증 설정하기 {#settingokta}
+
+1. **Okta 관리자 페이지**로 접속하세요.
+
+1. **Applcations** &gt; **Applications** 메뉴로 이동하세요.
+
+1. **Create App Integration** 버튼을 선택하세요.
+
+1. **Create a new app integration** 팝업 창이 나타나면 **SAML 2.0** 항목을 클릭한 다음 **Next** 버튼을 선택하세요.
+
+1. **App name** 항목을 입력한 다음 **Next** 버튼을 선택하세요.
+
+1. **SAML Settings** 섹션의 **General** 항목들을 차례로 입력하세요.
+
+    ![Okta - SAML Settings](/img/okta-samil-settings-general.png)
+
+    * **Single sign-on URL**: 와탭에서 발급 받은 SSO 정보 중 ***Sign-On URL*** 값을 입력하세요.
+
+    * **Audience URI (SP Entity ID)**: 와탭에서 발급 받은 SSO 정보 중 ***EntityID*** 값을 입력하세요.
+
+    * **Application username** 목록에서 **Email**을 선택하세요.
+
+1. **Attribute Statements (optional)**에서 **Name** 항목에는 'email'을 입력한 다음, **Value** 항목에서는 **user.email**을 선택하세요.
+
+    ![Okta - Attribute Statements](/img/okta-attribute-statements.png)
+
+1. **Next** 버튼을 선택하세요.
+
+1. 다음 화면에서 **I'm an Okta customer adding an internal app** 항목을 선택한 다음 **Finish** 버튼을 선택하세요.
+
+1. **Assignments** 탭을 클릭한 다음 **Assign** &gt; **Assign to People**을 선택하세요.
+
+1. 사용자를 할당(**Assign**)하고 **Save and Go Back** 버튼을 선택하세요.
+
+1. 모든 과정을 완료한 다음 **Done** 버튼을 선택하세요.
+
+
+### Okta 메타데이터 복사하기 {#copymetadata}
+
+1. **Okta 관리자 페이지**로 접속하세요.
+
+1. **Applcations** &gt; **Applications** 메뉴로 이동하세요.
+
+1. **Sign On** 탭을 선택하세요.
+
+1. **Metadata URL** 항목에서 **Copy** 버튼을 선택하세요.
+
+    ![Metadata URL](/img/okta-sign-on.png)
+
+1. 복사한 값을 등록하기 위해 와탭의 ***SSO 연동*** 메뉴로 이동하세요.
+
+
+### 와탭에서 External IdP 정보 등록하기 {#registerexternalidp}
+
+1. 와탭 모니터링 서비스에서 **SSO 연동** 메뉴로 이동하세요.
+
+1. ***인증 정보*** 섹션에서 ***External IdP 등록*** 버튼을 선택하세요.
+
+    <ImgLang img='sso-externalidp-button.png' desc='External IdP' />
+
+1. ***External Idp 등록*** 창이 나타나면 **Okta**에서 복사한 **Metadata URL** 값을 ***Metadata*** 항목에 붙여넣기하세요.
+
+1. 인증 데이터를 자동 변환하기 위해 ***Metadata 등록*** 버튼을 선택하세요.
+
+1. <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+SSO 연동을 완료했습니다.
+
+
+## SSO 연동 확인하기 {#checksso}
+
+1. **Okta 관리자 페이지**로 접속하세요.
+
+1. **Applcations** &gt; **Applications** 메뉴로 이동하세요.
+
+1. 목록에서 앞서 추가한 애플리케이션을 선택하세요.
+
+1. ***General*** 탭을 선택하세요.
+
+1. 화면 아래로 스크롤하여 ***App Embed Link***로 이동하세요.
+
+    ![Okta - App Embed Link](/img/okta-app-embed-link.png)
+
+1. ***Embed Link*** 항목에 url을 복사하세요.
+
+1. 웹 브라우저에서 복사한 url로 이동하세요.
+
+와탭 모니터링 서비스 화면으로 로그인되면 정상 연동된 것입니다.
+
+:::note
+
+* 최초 SSO 연동 시 와탭에 해당 이메일 계정이 있을 경우 비밀번호 인증을 통한 연계 정보 등록(자동) 절차가 필요합니다.
+
+* 이메일이 없을 경우 필수 정보 입력 후 와탭 회원 가입 및 연계 정보 등록이 자동으로 처리됩니다.
+
+:::
+
+
+## SSO 키 삭제하기
+
+1. 와탭 모니터링 서비스에서 **SSO 연동** 메뉴로 이동하세요.
+
+1. ***Service provider ID (WhaTap)*** 섹션의 ***SSO 정보 확인***에서 삭제하려는 ***Key Name***을 선택하세요.
+
+    <ImgLang img='sso-delete-sso-key.png' desc='Delete SSO Key' />
+
+1. ***SSO 키 삭제*** 버튼을 선택하세요.
+
+1. 삭제 확인 창이 나타나면 ***SSO 키 삭제*** 버튼을 선택하세요.
+
+
+## External Idp 정보 수정/삭제하기
+
+1. 와탭 모니터링 서비스에서 **SSO 연동** 메뉴로 이동하세요.
+
+1. ***인증정보*** 섹션에서 ***External Idp 수정/삭제*** 버튼을 선택하세요.
+
+1. ***External IdP 수정/삭제*** 창이 나타나면 ***Meatadata*** 항목에 Okta 메타데이터를 붙여넣기하세요.
+
+1. 인증 데이터를 자동 변환하기 위한 ***Metadata 등록*** 버튼을 선택하세요.
+
+1. <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+:::tip
+
+**External Idp** 정보를 삭제하려면 ***External Idp 수정/삭제*** 버튼을 선택한 다음 팝업 창에서 <Cmdname sid="delete" className="uitext" /> 버튼을 선택하세요.
+
+:::

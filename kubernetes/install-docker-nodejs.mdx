@@ -12,7 +12,9 @@ Docker 컨테이너 기반으로 실행하는 Node.js 애플리케이션에 와�
 
 :::note 
 
-Node.js 애플리케이션 연동 과정에 대한 이해를 돕고자 Git 예시 코드를 제공합니다. [다음 문서](https://github.com/whatap/kuber-apm-boilerplate/tree/main/nodejs/express)를 참조하세요.
+* EKS Fargate는 지원 예정입니다. 
+
+* Node.js 애플리케이션 연동 과정에 대한 이해를 돕고자 Git 예시 코드를 제공합니다. [다음 문서](https://github.com/whatap/kuber-apm-boilerplate/tree/main/nodejs/express)를 참조하세요.
 
 :::
 
@@ -63,9 +65,6 @@ WhatapAgent.NodeAgent;
 
 ## 환경변수
 
-<Tabs>
-<TabItem value='basic' label='기본' default>
-
 ```ini
 env:
   - name: NODE_IP
@@ -75,77 +74,5 @@ env:
   - name: POD_NAME
     valueFrom: {fieldRef: {fieldPath: metadata.name}}
 ```
-</TabItem>
-<TabItem value='eksfragate' label='EKS Fargate(지원 예정)'>
-
-1. 디플로이먼트(Deployment) 또는 레플리카셋(ReplicaSet)의 *.spec* 내 필드에 사용자 파드(Pod) 자원 관측을 위한 `shareProcessNamespace`, `serviceAccount`를 추가하세요.
-
-    ```ini
-    apiVersion: apps/v1
-    kind: Deployment
-    ...
-    spec:
-    ...
-        spec:
-          shareProcessNamespace: true
-          serviceAccount: whatap
-    ...
-    ```
-
-1. 사용자의 쿠버네티스 환경 내 컨테이너 환경 변수를 설정하세요. 애플리케이션 에이전트에 필요한 환경 변수 정보를 입력하세요.
-
-    `OKIND` 환경 변수는 파드(Pod)에 해당하는 애플리케이션들을 같은 그룹으로 설정하는 역할을 합니다.
-
-    ```ini showLineNumbers {8}
-    env:
-      - name: NODE_IP
-        valueFrom: {fieldRef: {fieldPath: status.hostIP}}
-      - name: NODE_NAME
-        valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
-      - name: POD_NAME
-        valueFrom: {fieldRef: {fieldPath: metadata.name}}
-      # whatap.conf 파일을 사용하지 않을 경우 설정을 추가하세요.
-      - name: license
-        value: "XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX"
-      - name: whatap_server_host
-        value: "15.165.146.117"
-      - name: whatap_micro_enabled
-        value: "true"
-    ```
-
-1. 사용자 파드(Pod) 자원 사용량을 수집하는 whatap-node-agent sidecar 컨테이너를 추가하세요.
-
-    ```ini
-    ...
-      - name: whatap-node-agent
-        image: whatap/kube_mon_sidecar
-        resources:
-          requests:
-            memory: 20Mi
-            cpu: 10m
-          limits:
-            memory: 40Mi
-            cpu: 20m
-        ports:
-          - name: nodeport
-            containerPort: 6600
-        env:
-          - name: NODE_IP
-            valueFrom:
-              fieldRef:
-                fieldPath: status.hostIP
-          - name: NODE_NAME
-            valueFrom:
-              fieldRef:
-                fieldPath: spec.nodeName
-            envFrom:
-            - configMapRef:
-                name: node-license
-    volumes:
-    ...
-    ```
-
-</TabItem>
-</Tabs>
 
 {@include: _check-install-agent.mdx}

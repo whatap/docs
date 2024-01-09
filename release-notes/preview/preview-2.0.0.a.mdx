@@ -14,6 +14,205 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.0.0.a7
+
+2024년 01월 02일
+
+<div class='indentTab'>
+
+### `Kubernetes`
+
+<p><Status>Feature</Status> <Cmdname sid="log" className="uitext" /> &gt; <Cmdname sid="whatapEventList" className="uitext" />: <code>#WhatapEvent</code> 카테고리의 로그 데이터 조회 기능 추가</p>
+
+</div>
+
+
+## Preview 2.0.0.a6
+
+2024년 01월 02일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### <Cmdname sid="my_usage" />
+
+<p><Status>Fixed</Status> <Cmdname sid="payment_information" className="uitext" /> 메뉴에서 결제 정보 입력 또는 수정 시 <Cmdname sid="phone" className="uitext" /> 항목을 변경하면 <Cmdname sid="TTL06080" className="uitext" /> 항목도 함께 변경되도록 수정</p>
+
+#### <Cmdname sid="integrated_report" />
+
+- <Status>Changed</Status> 신규 보고서 생성 또는 보고서 중복 생성 시 출력되는 메시지 수정
+
+- <Status>Fixed</Status> 이미 생성된 보고서를 중복 생성하는 경우 왼쪽 목록에서 포커스가 이동하지 않는 버그 수정
+
+#### User Interface
+
+<p><Status>Changed</Status> 다크 테마를 더 많은 메뉴에서 이용할 수 있도록 확장 적용했습니다.</p>
+
+---
+
+### `Database`
+
+#### DB <code class="my">V2</code>
+
+<p><Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" /> 메뉴에서 다음의 내용을 수정합니다.</p>
+
+- <Status>Fixed</Status> 일부 위젯의 이름 수정(사용율 → <b>사용률</b>)
+
+- <Status>Fixed</Status> <Cmdname sid="active_sessions" className="uitext" /> 테이블을 새창으로 볼 때 데이터가 조회되지 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="active_sessions" className="uitext" />, <Cmdname sid="lock_tree" className="uitext" />, <Cmdname sid="process_info" className="uitext" /> 탭을 선택하면 화면이 깜박이는 현상 개선
+
+- <Status>Fixed</Status> SQL 쿼리를 선택하면 나타나는 <Cmdname sid="TTL06224" className="uitext" /> 창에서 쿼리에 주석이 포함될 경우 같은 쿼리가 반복되어 표현되는 문제 수정
+
+---
+
+### `Kubernetes`
+
+- <Status>Feature</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="clusterOverview" className="uitext" /> 메뉴에 <b>Service</b>, <b>Ingress</b>, <b>Job</b>, <b>CronJob</b> 오브젝트 목록 추가
+
+- <Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="performance_summary" className="uitext" /> 메뉴에 <Cmdname sid="TTL07432" className="uitext" />와 <Cmdname sid="TTL07433" className="uitext" />, <Cmdname sid="TTL07434" className="uitext" /> 위젯 추가
+
+- <Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="clusterOverview" className="uitext" /> 메뉴에 <span class="uitext">Total Capacity CPU</span>(노드 총 CPU), <span class="uitext">Total Capacity Memory</span>(노드 총 Memory) 위젯 추가
+
+---
+
+### `Log`
+
+<p><Status>Feature</Status> 에이전트 옵션이 설정된 경우 로그 레벨을 표시하는 색상 표시 기능 추가</p>
+
+```ini title="whatap.conf"
+# requires agent restart
+weaving=log4j-2.17,logback-1.2.8
+```
+
+</div>
+
+
+## Preview 2.0.0.a5
+
+2023년 12월 28일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### <Cmdname sid="dashboard" />
+
+- <Status>Fixed</Status> <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 <Cmdname sid="group_widget" className="uitext" /> 안에 위젯을 추가할 경우 전체 위젯 목록이 보이지 않고 일부만 표시되는 문제 수정
+
+- <Status>Feature</Status> <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 보조 차트의 소수 자릿수 길이 조정 기능 추가
+
+---
+
+### `Application`
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="transaction_map" className="uitext" /> 메뉴에서 실시간 모드 이용 시, 사용자의 PC 시간이 서버 시간보다 과거로 설정된 경우 차트가 그려지지 않는 버그 수정
+
+  :::note
+
+  서버 시간과 사용자의 PC 시간 사이에 5분 이상 차이가 날 경우 보정 불가능할 수 있습니다.
+
+  :::
+
+- <Status>Fixed</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="statistics" className="uitext" /> 메뉴의 <Cmdname sid="httpc" className="uitext" /> 탭에서 <Cmdname sid="transaction" className="uitext" /> 탭으로 이동할 경우 <span class="uitext">T</span>/<span class="uitext">U</span> 버튼이 동작하지 않는 문제 수정
+
+---
+
+### `Kubernetes`
+
+<p><Status>Feature</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="container_list" className="uitext" /> 메뉴에서 <span class="uitext">Node</span> 컬럼 항목을 선택하면 해당 노드 목록이 필터링된 <Cmdname sid="node_list" className="uitext" /> 메뉴로 이동하는 기능 추가</p>
+
+---
+
+### `Browser`
+
+- <Status>Changed</Status> 프로젝트의 사이드바 일본어 메뉴명 수정
+
+- <Status>Fixed</Status> <Cmdname sid="rumDashboard" className="uitext" /> 메뉴에서 시간 선택자를 일시 정지 후 다시 실시간 모드를 실행하면 실시간 30분으로 조회되는 문제 수정
+
+- <Status>Deprecated</Status> <Cmdname sid="rumDashboard" className="uitext" /> 메뉴에서 시간 선택자의 시간 선택 옵션 중 다음 항목 삭제
+
+  - <Cmdname sid="time_action_live" className="uitext" replace="noSpace" /><Cmdname sid="30_minute" className="uitext" />
+
+  - <Cmdname sid="time_action_live" className="uitext" replace="noSpace" /><span class="uitext">1</span><Cmdname sid="time_action_hour" className="uitext" replace="noSpace" />
+
+  - <Cmdname sid="time_action_recent" className="uitext" replace="noSpace" /><span class="uitext">1</span><Cmdname sid="time_action_week" className="uitext" replace="noSpace" />
+
+  - <Cmdname sid="time_action_recent" className="uitext" replace="noSpace" /><span class="uitext">2</span><Cmdname sid="time_action_week" className="uitext" replace="noSpace" />
+
+  - <Cmdname sid="time_action_recent" className="uitext" replace="noSpace" /><span class="uitext">3</span><Cmdname sid="time_action_week" className="uitext" replace="noSpace" />
+
+</div>
+
+
+## Preview 2.0.0.a4
+
+2023년 12월 21일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### <Cmdname sid="dashboard" />
+
+<p><Status>Fixed</Status> <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 <Cmdname sid="event_list" className="uitext" /> 위젯의 대시보드 필터가 정상 적용되도록 수정</p>
+
+#### <Cmdname sid="my_usage" />
+
+- <Status>Fixed</Status> <Cmdname sid="payment_information" className="uitext" /> 메뉴에서 <b>Service 1.104.17</b>(국가 선택, 청구 통화 선택 기능 추가) 릴리스 이전에 <Cmdname sid="credit_card_iamport" className="uitext" /> 결제 수단을 선택한 고객에게 USD 통화가 고정되는 문제 수정
+
+- <Status>Changed</Status> <Cmdname sid="usage" className="uitext" /> 메뉴에서 UTC 기준 날짜로 사용량 표시
+
+- <Status>Feature</Status> AWS Marketplace 계정 사용자에게 <Cmdname sid="payment_information" className="uitext" /> 메뉴를 보여주도록 결제 정보 추가
+
+#### User Interface
+
+- <Status>Changed</Status> 프로젝트 생성 과정에서 상품 선택 시 모든 제품을 의미하는 <b>All Platform</b> 문구를 <b>All Category</b>로 변경
+
+- <Status>Changed</Status> 다크 테마를 더 많은 메뉴에서 이용할 수 있도록 확장 적용했습니다.
+
+---
+
+### `Database`
+
+#### DB <code class="my">V2</code>
+
+- <Status>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="trends_compare" className="uitext" /> 메뉴에서 테이블 옵션이 정상 표시되지 않는 문제 수정
+
+- <Status>Changed</Status> 프로젝트 V2 전환 기간을 2024년 2월 29일까지 연장하며 관련 메뉴에서 날짜 수정
+
+#### PostgreSQL / MySQL
+
+- <Status>Changed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_list" className="uitext" /> 메뉴에서 에이전트 업데이트 안내 문구 변경
+
+- <Status>Feature</Status> 프로젝트에서 <code class="my">V2</code>를 지원하지 않는 에이전트 버전이 설치되어 있으면 에이전트 업데이트 안내 문구를 헤더에 표시하는 기능 추가
+
+---
+
+### `Kubernetes`
+
+#### <Cmdname sid="resource" />
+
+- <Status>Fixed</Status> <Cmdname sid="node_list" className="uitext" /> 메뉴에서 <Cmdname sid="equal" className="uitext" /> 조건으로 필터 설정 시 하나의 값만 선택할 수 있도록 수정
+
+- <Status>Fixed</Status> <Cmdname sid="performance_summary" className="uitext" /> 메뉴에서 실시간 모드를 일시 정지(<LinkImage img="ico-pause.svg" className="ico" />) 후 재시작(<LinkImage img="ico-play-time.svg" className="ico" />) 버튼을 선택하면 시간 선택자의 표기가 5분에서 30분으로 바뀌는 버그 수정
+
+---
+
+### `Log`
+
+- <Status>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 실시간 로그 이벤트를 추가 또는 수정하면서 API 요청을 실패할 경우, 실패 원인을 메시지로 노출하도록 개선
+
+---
+
+### `Browser`
+
+- <Status>Changed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="rumDashboard" className="uitext" /> 메뉴에서 조회 시간 기준, 페이지 로드 수가 가장 많은 국가를 지도 위젯에 기본 표시하도록 수정
+
+</div>
+
+
 ## Preview 2.0.0.a3
 
 2023년 12월 13일

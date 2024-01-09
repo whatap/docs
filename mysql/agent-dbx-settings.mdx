@@ -20,7 +20,34 @@ DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다.
 
 ## 데이터 수집
 
-{@include: ../common-items/_db-agent-setting-data-collection.mdx} 
+{@include: ../common-items/_db-agent-setting-data-collection.mdx}
+
+* **trx_rseg_history_len** <span class='type'>Boolean</span> <code class="my">MySQL 5.7 or later</code> <code class="my">DBX agent v1.6.15 or later</code>
+
+  기본값 `false`
+
+  `trx_rseg_history_len` 지표를 수집 여부를 설정합니다. `true`로 설정하면 `db_mysql_counter` 카테고리에서 확인할 수 있습니다.
+
+* **active_transactions** <span class='type'>Boolean</span> <code class="my">MySQL 5.5 or later</code> <code class="my">DBX agent v1.6.15 or later</code>
+
+  기본값 `false`
+
+  `active_transactions` 지표를 수집 여부를 설정합니다. `true`로 설정하면 `db_mysql_counter` 카테고리에서 확인할 수 있습니다.
+
+* **collect_variables_metric** <span class='type'>Boolean</span> <code class="my">DBX agent v1.6.15 or later</code>
+
+  기본값 `false`
+
+  DB 파라미터를 실시간으로 수집할 수 있습니다. `variables_metric` 옵션에 설정한 파라미터를 수집합니다.
+
+* **variables_metric** <span class='type'>String</span> <code class="my">DBX agent v1.6.15 or later</code>
+
+  `uptime`, `version`, `read_only`와 같이 DB 파라미터 이름을 설정하세요. 2개 이상의 값을 설정하려면 쉼표(,)를 구분자로 이용하세요. `collect_variables_metric` 옵션을 `true`로 설정한 다음 DB 파라미터 이름을 설정하면, `db_mysql_variables` 카테고리에서 확인할 수 있습니다.
+
+  ```ini title="whatap.conf"
+  collect_variables_metric=true
+  variables_metric=uptime,version
+  ```
 
 
 ## AWS RDS CloudWatch 적용{#using-aws-rds}

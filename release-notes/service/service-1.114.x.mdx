@@ -5,6 +5,164 @@ toc_max_heading_level: 2
 pagination_next: release-notes/service/service-1_112_x
 ---
 
+## Service 1.114.12
+
+2023년 12월 21일
+
+<div class='indentTab'>
+
+### `Application`
+
+<p><Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="transaction_map" className="uitext" /> 메뉴에서 실시간 모드 이용 시, 사용자의 PC 시간이 서버 시간보다 과거로 설정된 경우 차트가 그려지지 않는 버그 수정</p>
+
+:::note
+
+서버 시간과 사용자의 PC 시간 사이에 5분 이상 차이가 날 경우 보정 불가능할 수 있습니다.
+
+:::
+
+---
+
+### `Database`
+
+#### DB <code class="my">V2</code>
+
+<p><Status>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="trends_compare" className="uitext" /> 메뉴에서 테이블 옵션이 정상 표시되지 않는 문제 수정</p>
+
+</div>
+
+
+## Service 1.114.11
+
+2023년 12월 19일
+
+<div class='indentTab'>
+
+<p><Status>Fixed</Status> <Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="payment_information" className="uitext" /> 메뉴에서 <b>Service 1.104.17</b>(국가 선택, 청구 통화 선택 기능 추가) 릴리스 이전에 <Cmdname sid="credit_card_iamport" className="uitext" /> 결제 수단을 선택한 고객에게 USD 통화가 고정되는 문제 수정</p>
+
+</div>
+
+
+## Service 1.114.10
+
+2023년 12월 18일
+
+<div class='indentTab'>
+
+### `Application`
+
+<p><Status>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="application_dashboard" className="uitext" /> 메뉴에서 프리셋 저장 시 에이전트 선택 상태까지 저장할 수 있는 옵션 추가</p>
+
+</div>
+
+
+## Service 1.114.9
+
+2023년 12월 12일
+
+<div class='indentTab'>
+
+### `Database`
+
+#### DB <code class="my">V2</code>
+
+<p><Status>Changed</Status> 프로젝트 V2 전환 기간을 2024년 2월 29일까지 연장하며 관련 메뉴에서 날짜 수정</p>
+
+</div>
+
+
+## Service 1.114.8
+
+2023년 12월 12일
+
+<div class='indentTab'>
+
+### `공통`
+
+<p><Status>Fixed</Status> <Cmdname sid="my_usage" className="uitext" /> 메뉴에서 사용량 집계 시 시간당 코어 수 집계 기준 수정(컨테이너의 경우 소수점 이하로 코어 수를 할당하기 위함)</p>
+
+---
+
+### `URL`
+
+<p><Status>Fixed</Status> <Cmdname sid="url_list" className="uitext" /> 메뉴에서 <Cmdname sid="card_view" className="uitext" /> 모드일 때 상태에 따른 필터링이 적용되지 않는 문제 수정</p>
+
+</div>
+
+
+## Service 1.114.7
+
+2023년 12월 08일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### <Cmdname sid="dashboard" />
+
+<p><Status>Fixed</Status> 브라우저 화면의 크기가 작아졌다가 커질 경우 <Cmdname sid="AA001" className="uitext" /> 위젯의 차트가 표시되지 않는 문제 수정</p>
+
+#### <Cmdname sid="my_usage" />
+
+<p><Status>Fixed</Status> <Cmdname sid="payment_information" className="uitext" /> 메뉴에서 <Cmdname sid="billing_reception_info" className="uitext" /> 항목을 설정하면 사업자 등록 번호가 초기화되는 문제 수정</p>
+
+---
+
+### `Database`
+
+#### DB <code class="my">V2</code>
+
+<p><Status>Changed</Status> <span class="uitext">SQL Elapsed Map</span> 위젯의 데이터 조회 범위를 1시간으로 제한하도록 변경</p>
+
+
+</div>
+
+
+## Service 1.114.6
+
+2023년 12월 07일
+
+<div class='indentTab'>
+
+### `Kubernetes`
+
+- <Status>Fixed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="performance_summary" className="uitext" /> 메뉴에서 다음 위젯의 데이터 오류 수정
+
+  - ***Total Container CPU Request***: 프로젝트 내부의 모든 컨테이너의 CPU Request(`cpu_request`) 값의 합산
+  - ***Total Container CPU Usage***: 프로젝트 내부의 모든 컨테이너의 CPU Usage(`cpu_total_milli`) 값의 합산
+  - ***Total Container Memory Request***: 프로젝트 내부의 모든 컨테이너의 Memory Request(`mem_request`) 값의 합산
+  - ***Total Container Memory Usage***: 프로젝트 내부의 모든 컨테이너의 Memory Usage(`mem_working_set`) 값의 합산
+
+- <Status>Fixed</Status> 다음 메뉴에서 프로젝트 조회 권한이 없는 네임스페이스 프로젝트로 이동 가능한 버그 수정
+
+  - <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="namespace_status" className="uitext" />
+  - <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="namespace_management" className="uitext" />
+
+- <Status>Changed</Status> <Cmdname sid="app_upper" className="uitext" /> &gt; <Cmdname sid="multi_hitmap" className="uitext" /> 메뉴에서 위젯을 이동할 수 없도록 고정 레이아웃으로 변경
+
+---
+
+### `Browser`
+
+<p><Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="rumDashboard" className="uitext" /> 메뉴에서 발생하는 화이트 아웃, 브라우저 멈춤 문제 수정</p>
+
+:::note
+
+이 현상은 사용자의 브라우저에서 다른 탭으로 전환 후 일정 시간(약 1시간)이 지나 현재 탭(<Cmdname sid="rumDashboard" className="uitext" />)으로 돌아올 경우 발생합니다.
+
+:::
+
+---
+
+### `Log`
+
+- <Status>Fixed</Status> <Cmdname sid="log_search" className="uitext" /> 메뉴에서 필터 기능 오작동 수정
+
+- <Status>Fixed</Status> <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="log" className="uitext" /> 메뉴에서 <Cmdname sid="realtime_log_event" className="uitext" /> 추가 시 <Cmdname sid="alert_object_filtering" className="uitext" /> 항목을 <Cmdname sid="metrics_rule_direct" className="uitext" />에서 <Cmdname sid="metrics_rule_select" className="uitext" />으로 변경하면 기존에 입력한 값을 초기화하도록 수정
+
+</div>
+
+
 ## Service 1.114.5
 
 2023년 12월 05일

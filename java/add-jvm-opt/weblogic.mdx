@@ -5,8 +5,7 @@ description: WebLogic 애플리케이션 서버 환경에서 JVM 옵션 추가 �
 tags: [ Java, WebLogic ]
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+## JVM 옵션 추가
 
 WebLogic을 사용하는 애플리케이션 서버 환경에서 JVM 옵션을 추가하는 방법을 확인하세요. 
 
@@ -53,5 +52,9 @@ JAVA_OPTS="${JAVA_OPTS} -javaagent:${WHATAP_JAR} "
 {@include: _java-17.mdx} 
 
 :::
+
+{@include: _set-heap-memory.mdx} 
+
+## 모니터링 시작하기
 
 {@include: ../../common-items/_start-apm.mdx} 

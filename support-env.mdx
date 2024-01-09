@@ -15,6 +15,8 @@ import TabItem from '@theme/TabItem';
 
 ## 애플리케이션 모니터링
 
+<div class="c2-3-7">
+
 |환경|지원 환경|
 |----|----|
 |Java|Java 6 이상\~Java 20 이하|
@@ -24,9 +26,13 @@ import TabItem from '@theme/TabItem';
 |.NET|.NET Framework 4.5 이상|
 |Go|Go 1.14 버전 이상|
 
+</div>
+
 ----
 
 ## 서버 모니터링
+
+<div class="c2-3-7">
 
 |환경|지원 환경|
 |----|----|
@@ -41,11 +47,15 @@ import TabItem from '@theme/TabItem';
 |Windows|Windows 2008 R2 이상
 |^|Windows 7 SP1 버전 이상|
 
+</div>
+
 ----
 
 ## DB 모니터링
 
 ### 데이터베이스 종류별 지원 버전
+
+<div class="c2-3-7">
 
 |환경|지원 환경|
 |----|----|
@@ -56,9 +66,11 @@ import TabItem from '@theme/TabItem';
 |MySQL|MySQL 5.5 이상|
 |MariaDB|MariaDB 5.5 이상|
 |Altibase|Altibase 6 이상|
-|Redis|Redis 6.0.5 이상|
+|Redis|Redis 3.2 이상|
 |MongoDB|MongoDB 4.2 이상|
-|PostgeSQL|EBD 9.2 이상|
+|PostgeSQL|PostgreSQL 계열(EDB 등) 9.2 이상|
+
+</div>
 
 :::note
 
@@ -128,6 +140,8 @@ import TabItem from '@theme/TabItem';
 
 ## 쿠버네티스 모니터링
 
+<div class="c2-3-7">
+
 |환경|지원 환경|
 |----|----|
 |EKS|Amazon Elastic Kubernetes Service 1.16 \~ 1.23|
@@ -139,6 +153,8 @@ import TabItem from '@theme/TabItem';
 |Accordion|Accordion 1.16 \~ 1.23|
 |PaaS-TA |PaaS-TA 1.16 \~ 1.23|
 |plugins 항목|istio, GPU|
+
+</div>
 
 ----
 
@@ -260,12 +276,16 @@ import TabItem from '@theme/TabItem';
 
 Java, PHP, Python, Server 애플리케이션에서 로그 수집이 가능합니다. 에이전트 지원 버전은 다음을 확인하세요.
 
+<div class="c2-3-7">
+
 |환경|지원 버전|
 |----|----|
 |Java|Java Agent 2.1.0 버전 이상|
 |PHP|PHP Agent 2.3.2 버전 이상|
 |Python|Python Agent 1.2.2 버전 이상|
 |Server|Server Agent 2.1.2 버전 이상|
+
+</div>
 
 ----
 
@@ -279,12 +299,16 @@ Java, PHP, Python, Server 애플리케이션에서 로그 수집이 가능합니
 
 ### Telegraf 
 
+<div class="c2-3-7">
+
 |환경|지원 환경|
 |----|----|
 |Linux|Red Hat 6.x x64 이상|
 |^|Ubuntu 12.x x64 이상|
 |Unix|FreeBSD 10.x x64 이상|
 |Telegraf|Telegraf 1.3 이상|
+
+</div>
 
 :::note
 
@@ -293,6 +317,8 @@ Telegraf는 socket_writer ouput plugin을 지원하는 버전만 가능합니다
 :::
 
 ### Focus
+
+<div class="c2-3-7">
 
 |환경|지원 환경|
 |----|----|
@@ -306,21 +332,42 @@ Telegraf는 socket_writer ouput plugin을 지원하는 버전만 가능합니다
 |OSX|Lion 10.7 이상|
 |Raspberry Pi OS|8 이상|
 
+</div>
+
 ----
 
 ## 지원 브라우저
 
-{@include: getting-started/_supported-browser.mdx}  
+{@include: getting-started/_supported-browser.mdx}
 
 ----
+
 ## 방화벽
 
 {@include: getting-started/_proxy.mdx} 
 
 ----
+
 ## 모바일 앱
 
-{@include: getting-started/_mobile-app.mdx} 
+{@include: getting-started/_mobile-app.mdx}  
+
+:::note
+
+* 모바일 앱은 [service.whatap.io](https://service.whatap.io) 서비스를 지원합니다. 설치형 서비스는 지원하지 않습니다.
+
+* 현재 지원하는 상품 종류는 다음과 같습니다. 향후 업데이트를 통해 지원 범위를 확대하겠습니다.
+
+  * Application: Java, PHP, Python, Node.js, Go, .NET
+  * Server
+  * Database
+  * Kubernetes
+  * URL
+  * Browser
+
+* 모바일 앱에서는 프로젝트 그룹 기능을 지원하지 않습니다.
+
+:::
 
 ----
 

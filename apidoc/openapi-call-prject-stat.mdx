@@ -65,3 +65,33 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
   ]
 }
 ```
+
+## IP 기반 트랜잭션 검색
+
+사용자가 지정한 시작 시간(`stime`)으로부터 1시간 동안, 특정 IP가 요청한 트랜잭션을 호출 건수 많은 순으로 정렬하여 최대 100건의 URL 목록을 전달합니다.
+
+<span class='apitype'>POST</span> https://api.whatap.io/open/api/v2/yard/flush
+
+```bash title="command"
+curl --location 'https://api.whatap.io/open/api/v2/yard/flush' \
+--header 'x-whatap-token: {{PROJECT API TOKEN}}' \
+--header 'x-whatap-pcode: {{projectCode}}' \
+--header 'Content-Type: application/json' \
+--data '{
+    "type": "profiles",
+    "path": "/filter/search",
+    "pcode": "{{projectCode}}",
+    "params": {
+        "stime": {{stime}},
+        "filter": {
+            "ip": "{{ip}}"
+        }
+    }
+}'
+```
+
+| Response Field | Field Type | 설명 |
+| -- | :-: | -- |
+| `elapsed` | <span class='type'>number</span> | 시작 시간(`stime`) 기준으로부터 경과 시간 |
+| `count` | <span class='type'>number</span> | HTTP 호출 건수 |
+| `url` | <span class='type'>string</span> | 클라이언트가 요청한 트랜잭션 이름 |

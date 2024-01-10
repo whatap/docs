@@ -27,6 +27,12 @@ tags: [ PostgreSQL, 데이터베이스, Top 오브젝트 ]
 
 * <Cmdname sid="dbObjectInfo" />에 대한 정보는 하루에 한번 수집합니다. 관련한 에이전트 설정에 대한 자세한 내용은 <Link to="#set-agent-topObject">다음 문서</Link>를 참조하세요.
 
+* 데이터 조회를 위해서는 DB 모니터링 계정에 다음 권한이 필요합니다.
+
+  ```sql
+  grant select on all tables in schema {schema_name} to whatap;
+  ```
+
 * 이 기능은 DBX 에이전트 1.6.13 버전 이상에서 지원합니다.
 
 :::
@@ -34,6 +40,8 @@ tags: [ PostgreSQL, 데이터베이스, Top 오브젝트 ]
 ## Bloating
 
 **Bloating**은 실제 사용되지 않는 tuple이 증가하여 오브젝트 크기가 커지는 현상입니다. 
+
+에이전트 설정(*whatap.conf*)의 `table[index]_bloat_ratio[bytes]`에 설정된 수집 기준보다 큰 값을 가지는 테이블과 인덱스를 목록에 표시합니다. 해당하는 오브젝트가 없으면 데이터가 조회되지 않을 수 있습니다.
 
 :::tip
 
@@ -107,7 +115,7 @@ tags: [ PostgreSQL, 데이터베이스, Top 오브젝트 ]
 
 **튜닝 팁**
 
-주요 테이블을 파악하고 아케텍쳐, 백업 설계 등의 주요 대상을 검토하세요.
+사용하는 시스템의 주요 테이블을 파악하여 테이블 변경이나 아키텍처 설계 시 참고하세요.
 
 :::
 
@@ -157,11 +165,19 @@ Analyze와 Vacuum 수행이 오래된 오브젝트 목록입니다.
 
 PostgreSQL에서는 XID(transaction id)를 순환적으로 사용하여 어느 순간 XID가 랩어라운드(Wraparound)될 수 있습니다. 이를 방지하기 위해 `xid_age`(Current XID - 생성 시점의 XID)가 계속 증가하지 않도록 관리되어야 합니다. `autovacuum_freeze_max_age`를 초과하면 Anti-Wraparound Vacuum을 자동으로 수행하게 되어 `autovacuum_freeze_max_age` 이하로 `xid_age`를 관리합니다.
 
+이 목록은 아래 기준에 해당하는 vacuum 대상이 있는지 조회합니다. 대상이 없으면 데이터가 조회되지 않을 수 있습니다.
+
+- dead tuple 수가 vacuum threshold(`autovacuum_threshold` + `autovacuum_scale_factor` * `number-of-tuples`) 보다 많은 테이블
+
+- age(`relfrozenxid`)가 `autovacuum_freeze_max_age` 보다 큰 테이블
+
 :::tip
 
 **튜닝 팁**
 
-`xid_age`를 낮추기 위해서는 Vacuum 수행을 검토하세요. 자세한 내용은 [다음 문서](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND)를 참조하세요.
+`xid_age`가 계속 증가하고 있다면 현재 설정된 Auto Vaccum 조건으로 XID 정리 작업이 진행되지 않는 것일 수 있습니다. auto vacuum 파라미터를 조정하거나 수동으로 Vacuum 수행을 검토하세요.
+
+자세한 내용은 [다음 문서](https://www.postgresql.org/docs/current/routine-vacuuming.html#VACUUM-FOR-WRAPAROUND)를 참조하세요.
 
 :::
 

@@ -20,3 +20,20 @@ import Note from '../common-items/_import_v2-note.mdx';
 {@include: ../common-items/_db-multi-region-cant-select-one-pr.mdx}
 
 {@include: ../common-items/_db-cant-use-duplicated-name.mdx}
+
+
+## DB 권한 및 에이전트 설정
+
+권한 및 및 에이전트 설정에 따라 데이터가 조회되지 않는 메뉴가 있습니다. 다음 내용을 참고해 필요한 에이전트 옵션을 설정하고 권한을 부여하세요.
+
+:::note
+
+모니터링 계정을 `whatap`으로 생성한 경우의 예시입니다. `create user whatap with password 'DBPassword’;`
+
+:::
+
+| 메뉴      | DB 옵션 및 권한                      | 에이전트 설정(*whatap.conf* / *xos.conf*) | 비고                            |
+| --------- | ------------------------------------ | ---------------------------- | ------------------------------- |
+| 기본 메뉴 | `GRANT PG_READ_ALL_STATS TO whatap;` | - | PostgreSQL V2, DBX v1.6.15 이상 |
+| <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="slow_query" className="uitext" /> | **DB 파마미터**:<br/>`log_min_duration_statement=500`<br/>(ex. 500ms 이상 소요되는 SQL 기록)<br/>**DB 권한**<br/>`GRANT PG_READ_ALL_SETTINGS TO whatap;` | *xos.conf*:<br/>`slow_query_interval=30` (기본값 30초)<br/>*whatap.conf*:<br/>`slow_query_log=ON` | - |
+| <Cmdname sid="instance_monitoring" className="uitext" /> &gt; <Cmdname sid="session_kill" className="uitext" /> |

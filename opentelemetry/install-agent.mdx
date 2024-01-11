@@ -1,0 +1,93 @@
+---
+id: install-agent
+title: 에이전트 설치 및 설정하기
+description: OpenTelemetry 에이전트 설치 방법을 안내합니다.
+tags: [ OpenTelemetry, Extensions, 에이전트 ]
+---
+
+OpenTelemetry 에이전트 설치 및 설정 방법을 안내합니다. 
+
+## 에이전트 다운로드
+
+다음 명령어를 실행해 OpenTelemetry Collector가 설치된 인스턴스에 에이전트를 다운로드하세요.
+
+<Tabs groupId="os">
+<TabItem value="rc" label="Red Hat/Centos">
+
+```bash
+# Register package repository
+$ sudo rpm -Uvh https://repo.whatap.io/centos/5/noarch/whatap-repo-1.0-1.noarch.rpm
+
+# Install package
+$ sudo yum install whatap-otel
+```
+
+</TabItem>
+
+<TabItem value="du" label="Debian/Ubuntu">
+
+```bash
+# Register package repository
+$ wget https://repo.whatap.io/debian/release.gpg -O -|sudo apt-key add -
+$ wget https://repo.whatap.io/debian/whatap-repo_1.0_all.deb
+$ sudo dpkg -i whatap-repo_1.0_all.deb
+$ sudo apt-get update
+
+# Install package
+$ sudo apt-get install whatap-otel
+```
+
+</TabItem>
+
+<TabItem value="al" label="Amazon Linux">
+
+```bash
+# Register package repository
+$ sudo rpm --import https://repo.whatap.io/centos/release.gpg
+$ echo "[whatap]" | sudo tee /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "name=whatap packages for enterprise linux" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "baseurl=https://repo.whatap.io/centos/latest/\$basearch" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "enabled=1" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+
+# Install package
+$ sudo yum install whatap-otel
+```
+
+</TabItem>
+
+<TabItem value="apl" label="Alpine Linux">
+
+```bash
+$ wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-otel.tar.gz
+$ tar -xvzf whatap-otel.tar.gz -C /
+```
+
+</TabItem>
+
+<TabItem value="apldocker" label="Alpine Linux Docker">
+
+```bash title="FROM alpine"
+FROM alpine
+
+RUN apk update && apk upgrade
+# Install WhaTap Go monitoring agent
+RUN wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-otel.tar.gz
+RUN tar -xvzf whatap-otel.tar.gz -C /
+```
+
+```bash title="Manual"
+$ wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-otel.tar.gz
+$ tar -xvzf whatap-otel.tar.gz -C /
+```
+
+</TabItem>
+
+</Tabs>
+
+
+## 에이전트 설정하기
+
+[와탭 모니터링 서비스](https://service.whatap.io)에서 애플리케이션(Application) 상품의 프로젝트가 준비되어 있어야 합니다. 프로젝트의 <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴에서 액세스 키와 수집 서버 IP 주소를 확인하고 준비하세요.
+
+### whatap.conf 파일에 설정하기

@@ -1,0 +1,204 @@
+---
+id: install-agent
+title: 에이전트 설치
+description: OpenTelemetry 에이전트 설치 방법을 안내합니다.
+tags: [ OpenTelemetry, Extensions, 설치 ]
+---
+
+OpenTelemetry 에이전트 설치 방법을 안내합니다. 
+
+## 에이전트 다운로드
+
+다음 명령어를 실행해 OpenTelemetry Collector가 설치된 인스턴스에 에이전트를 다운로드하세요.
+
+<Tabs groupId="os">
+<TabItem value="rc" label="Red Hat/Centos">
+
+```bash
+# Register package repository
+$ sudo rpm -Uvh https://repo.whatap.io/centos/5/noarch/whatap-repo-1.0-1.noarch.rpm
+
+# Install package
+$ sudo yum install whatap-otel
+```
+
+</TabItem>
+
+<TabItem value="du" label="Debian/Ubuntu">
+
+```bash
+# Register package repository
+$ wget https://repo.whatap.io/debian/release.gpg -O -|sudo apt-key add -
+$ wget https://repo.whatap.io/debian/whatap-repo_1.0_all.deb
+$ sudo dpkg -i whatap-repo_1.0_all.deb
+$ sudo apt-get update
+
+# Install package
+$ sudo apt-get install whatap-otel
+```
+
+</TabItem>
+
+<TabItem value="al" label="Amazon Linux">
+
+```bash
+# Register package repository
+$ sudo rpm --import https://repo.whatap.io/centos/release.gpg
+$ echo "[whatap]" | sudo tee /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "name=whatap packages for enterprise linux" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "baseurl=https://repo.whatap.io/centos/latest/\$basearch" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "enabled=1" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+
+# Install package
+$ sudo yum install whatap-otel
+```
+
+</TabItem>
+
+<TabItem value="apl" label="Alpine Linux">
+
+```bash
+$ wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-otel.tar.gz
+$ tar -xvzf whatap-otel.tar.gz -C /
+```
+
+</TabItem>
+
+<TabItem value="apldocker" label="Alpine Linux Docker">
+
+```bash title="FROM alpine"
+FROM alpine
+
+RUN apk update && apk upgrade
+# Install WhaTap Go monitoring agent
+RUN wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-otel.tar.gz
+RUN tar -xvzf whatap-otel.tar.gz -C /
+```
+
+```bash title="Manual"
+$ wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-otel.tar.gz
+$ tar -xvzf whatap-otel.tar.gz -C /
+```
+
+</TabItem>
+
+</Tabs>
+
+
+## 에이전트 기본 설정
+
+에이전트 설정을 위해서는 와탭 프로젝트의 액세스 키와 수집 서버 IP 주소가 필요합니다. [와탭 모니터링 서비스](https://service.whatap.io)에서 애플리케이션(Application) 상품의 프로젝트로 이동하세요. <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴에서 액세스 키와 수집 서버 IP 주소를 확인하고 준비하세요.
+
+### whatap.conf 파일 설정하기
+
+에이전트 설정(*whatap.conf*) 파일에 액세스 키와 수집 서버 IP 주소를 설정하세요.
+
+```bash
+echo "accesskey={액세스 키}" >> /usr/whatap/otel/whatap.conf
+echo "whatap.server.host={수집 서버 IP 주소}" >> /usr/whatap/otel/whatap.conf
+```
+
+### 환경 변수로 설정하기
+
+환경 변수(Environment)로 에이전트 설정값을 지정할 수 있습니다. 
+
+```ini
+WHATAP_ACCESSKEY={액세스 키}
+WHATAP_SERVER_HOST={수집 서버 IP 주소}
+WHATAP_OTEL_GRPC_SERVER_PORT={Grpc 서버 리스닝 포트}
+```
+
+:::note
+
+환경 변수와 *whatap.conf* 파일을 모두 설정한 경우,  *whatap.conf* 파일의 설정값이 우선합니다.
+
+:::
+
+
+## Opentelemetry Collector 설정
+
+whatap-otel로 데이터를 전달하도록 OTLP Exporter를 설정하세요.
+
+```yaml title="otel-collector-config.yaml" showLineNumbers{13,14-15}
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+processors:
+  batch:
+
+exporters:
+  logging:
+  # otlp exporter에 whatap-otel을 대상으로 설정합니다.  
+  otlp:
+    endpoint: 127.0.0.1:6600
+    tls:
+      insecure: true
+
+service:
+  pipelines:
+    traces:
+      receivers:
+      - otlp
+      processors:
+      - batch
+      exporters:
+      - logging
+      - otlp
+  telemetry:
+    logs:
+      level: debug #activate debug mode
+```
+
+* 엔드포인트(`endpoint`) 설정: `127.0.0.1:6600`
+
+  로컬에 설치한 에이전트가 사용하는 기본 포트는 6600입니다.
+
+* `tls.secure` 설정: `insecure: true`
+
+* gzip 압축 설정을 기본 사용합니다. (gzip 사용)
+
+
+:::info
+
+OpenTelemetry Collector 설치와 관련한 자세한 내용은 다음 링크를 참조하세요.
+
+* [Install the Collector](https://opentelemetry.io/docs/collector/installation/)
+
+* [Building a custom collector](https://opentelemetry.io/docs/collector/custom-collector/)
+
+:::
+
+
+## 기타 플랫폼
+
+### Tyk Gateway
+
+[Tyk Gateway](https://tyk.io/)의 OpenTelemetry 기능을 활성화한 다음 OpenTelemetry Collecotr를 통해서 트랜잭션 정보를 확인할 수 있습니다. 
+
+1. OpenTelemetry Collector를 Tyk Gateway에 연결합니다. 
+
+  ```json title="tyk.conf"
+  {
+    "log_level": "debug" ,
+    "listen_port": 8081,
+
+    ...
+
+    "opentelemetry": {
+        "enabled": true,
+        "endpoint": "111.222.333.444:4317",
+    }
+  }
+  ```
+
+1. 연결된 OpenTelemetry Collector에 whatap-otel 에이전트가 연결되면 트레이스 정보를 수집합니다.
+
+
+## 모니터링 시작하기
+
+* 모든 설정을 완료한 다음 애플리케이션 서버를 다시 시작하면 에이전트가 정보를 수집하기 시작합니다. <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="application_dashboard" className="uitext" /> 메뉴로 이동해 수집된 데이터를 실시간으로 모니터링하세요.
+
+* 에이전트 설정에 대한 자세한 내용은 [다음 문서](set-agent)를 확인하세요.

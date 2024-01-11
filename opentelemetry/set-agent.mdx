@@ -1,0 +1,175 @@
+---
+id: set-agent
+title: 설정하기
+description: 에이전트 설정을 통해 OpenTelemetry로부터 다양한 지표를 수집할 수 있습니다.
+tags: [ OpenTelemetry, Extensions, 에이전트 ]
+---
+
+OpenTelemetry로부터 다양한 지표를 수집하고 처리하도록 에이전트를 설정할 수 있습니다. 
+
+## 에이전트
+
+* **otel_grpc_server_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  OpenTelemetry protocol(OTLP)를 통해 전달되는 데이터를 수신하기 위한 Grpc 서버를 활성화합니다.
+
+* **otel_grpc_server_port** <span class='type'>String</span>
+
+  기본값 `6600`
+
+  Grpc 서버의 Listen 포트입니다. 
+
+  :::note
+
+  포트 번호를 변경 후에는 whatap-otel 서비스를 재시작해야 합니다. 
+
+  :::
+
+* **otel_grpc_server_gzip_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  Grpc 서버에서 읽는 데이터의 암호화로 `gzip`을 활성화합니다. 
+
+* **debug_otel_grpc_server_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  OpenTelemetry Trace 데이터 처리에 관련된 디버그 로그의 출력을 활성화합니다.
+
+
+## Trace
+
+OpenTelemetry Trace 데이터 처리와 관련한 에이전트 설정 옵션입니다. 와탭의 트레이스 분석과 관련한 자세한 내용은 [다음 문서](../java/dashboard-hitmap-trace#anlaysis-trace)를 참조하세요.
+
+:::note
+
+OpenTelemetry의 Trace 데이터에 대한 자세한 내용은 [다음 링크](https://opentelemetry.io/docs/concepts/signals/traces/)를 참조하세요.
+
+:::
+
+* **otel_trace_server_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  OpenTelemetry Trace 데이터 처리를 활성화합니다. 
+
+* **otel_trace_queue_size** <span class='type'>Int</span>
+
+  기본값 `5000`
+
+  OpenTelemetry Trace 데이터 처리를 위한 큐 크기를 설정합니다. 
+
+* **otel_span_collector_max** <span class='type'>Int</span>
+
+  기본값 `100000`
+
+  OpenTelemetry Trace 데이터의 Span 데이터 버퍼의 최대 크기(개수)를 지정합니다. 
+
+* **otel_attr_dbcon_keys** <span class='type'>String</span>
+
+  기본값 `sql.system, db.connection_string, db.system`
+
+  OpenTelemetry Trace 데이터 속성(Attribute)에 이름값을 설정하여 DB Connection 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 **DB Connection** 스텝으로 표시합니다. 
+
+* **otel_attr_sql_keys** <span class='type'>String</span>
+
+  기본값 `db.statement, sql.query`
+
+  OpenTelemetry Trace 데이터 속성(Attribute)에 이름값을 설정하여 SQL 쿼리 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 SQL 스텝으로 표시합니다. 
+
+* **otel_attr_httpc_keys** <span class='type'>String</span>
+
+  기본값 `url.full, http.url, http.target`
+
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 HTTP call 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 HTTP Call 스텝으로 표시합니다. 
+
+* **otel_attr_tx_url_keys** <span class='type'>String</span>
+
+  기본값 `http.url, http.route, http.target, tyk.api.path, http.url`
+
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 서비스 URL 정보로 활용합니다.
+
+* **otel_attr_tx_host_keys** <span class='type'>String</span>
+
+  기본값 `http.host`
+
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 호스트 정보로 활용합니다.
+
+* **otel_attr_tx_method_keys** <span class='type'>String</span>
+
+  기본값 `http.method, http.request.method`
+
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 HTTP Method 정보로 활용합니다.
+
+* **otel_attr_tx_status_keys** <span class='type'>String</span>
+
+  기본값 `http.status_code`
+
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 HTTP 상태 코드 정보로 활용합니다.
+
+* **otel_attr_tx_useragent_keys** <span class='type'>String</span>
+
+  기본값 `http.user_agent`
+
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 User-Agent 정보로 활용합니다.
+
+* **otel_attr_tx_clientip_keys** <span class='type'>String</span>
+
+  기본값 `net.peer.ip,net.socket.peer.addr`
+
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 클라이언트 IP 정보로 활용합니다.
+
+* **otel_attr_tx_referer_keys** <span class='type'>String</span>
+
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 HTTP Referer 정보로 활용합니다.
+
+* **otel_attr_error_keys** <span class='type'>String</span>
+
+  기본값 `error.type`
+
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 에러 정보로 활용합니다.
+
+
+## Metric
+
+:::note
+
+OpenTelemetry의 Metric 데이터에 대한 자세한 내용은 [다음 링크](https://opentelemetry.io/docs/concepts/signals/metrics/)를 참조하세요.
+
+:::
+
+* **otel_metric_server_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  OpenTelemetry Metric 데이터 처리를 활성화합니다.
+
+* **otel_metric_queue_size** <span class='type'>Int</span>
+
+  기본값 `5000`
+
+  Opentelemetry Metric 데이터 처리를 위한 큐 크기를 설정합니다.
+
+
+## Log
+
+:::note
+
+OpenTelemetry의 Log 데이터에 대한 자세한 내용은 [다음 링크](https://opentelemetry.io/docs/concepts/signals/logs/)를 참조하세요.
+
+:::
+
+* **otel_log_server_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  Opentelemetry Log 데이터 처리를 활성화합니다.
+
+* **otel_log_queue_size** <span class='type'>Int</span>
+
+  기본값 `5000`
+
+  Opentelemetry Log 데이터 처리를 위한 큐 크기를 설정합니다.

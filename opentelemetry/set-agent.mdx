@@ -37,12 +37,18 @@ OpenTelemetry로부터 다양한 지표를 수집하고 처리하도록 에이�
 
   기본값 `false`
 
-  OpenTelemtry Trace 데이터 처리에 관련된 디버그 로그의 출력을 활성화합니다.
+  OpenTelemetry Trace 데이터 처리에 관련된 디버그 로그의 출력을 활성화합니다.
 
 
 ## Trace
 
-OpenTelemetry Trace 데이터 처리와 관련한 에이전트 설정 옵션입니다. 트레이스 분석과 관련한 자세한 내용은 [다음 문서](../java/dashboard-hitmap-trace#anlaysis-trace)를 참조하세요.
+OpenTelemetry Trace 데이터 처리와 관련한 에이전트 설정 옵션입니다. 와탭의 트레이스 분석과 관련한 자세한 내용은 [다음 문서](../java/dashboard-hitmap-trace#anlaysis-trace)를 참조하세요.
+
+:::note
+
+OpenTelemetry의 Trace 데이터에 대한 자세한 내용은 [다음 링크](https://opentelemetry.io/docs/concepts/signals/traces/)를 참조하세요.
+
+:::
 
 * **otel_trace_server_enabled** <span class='type'>Boolean</span>
 
@@ -60,98 +66,110 @@ OpenTelemetry Trace 데이터 처리와 관련한 에이전트 설정 옵션입�
 
   기본값 `100000`
 
-  OpenTelemtry Trace 데이터의 Span 데이터 버퍼의 최대 크기(개수)를 지정합니다. 
+  OpenTelemetry Trace 데이터의 Span 데이터 버퍼의 최대 크기(개수)를 지정합니다. 
 
 * **otel_attr_dbcon_keys** <span class='type'>String</span>
 
   기본값 `sql.system, db.connection_string, db.system`
 
-  OpenTelemtry Trace 데이터 속성(Attribute)에 이름값을 설정하여 DB Connection 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 **DB Connection** 스텝으로 표시합니다. 
+  OpenTelemetry Trace 데이터 속성(Attribute)에 이름값을 설정하여 DB Connection 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 **DB Connection** 스텝으로 표시합니다. 
 
 * **otel_attr_sql_keys** <span class='type'>String</span>
 
   기본값 `db.statement, sql.query`
 
-  OpenTelemtry Trace 데이터 속성(Attribute)에 이름값을 설정하여 SQL 쿼리 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 SQL 스텝으로 표시합니다. 
+  OpenTelemetry Trace 데이터 속성(Attribute)에 이름값을 설정하여 SQL 쿼리 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 SQL 스텝으로 표시합니다. 
 
 * **otel_attr_httpc_keys** <span class='type'>String</span>
 
   기본값 `url.full, http.url, http.target`
 
-  OpenTelemtry Trace 데이터 속성(Attribute)의 이름값을 설정하여 HTTP call 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 HTTP Call 스텝으로 표시합니다. 
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 HTTP call 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 HTTP Call 스텝으로 표시합니다. 
 
 * **otel_attr_tx_url_keys** <span class='type'>String</span>
 
   기본값 `http.url, http.route, http.target, tyk.api.path, http.url`
 
-  OpenTelemtry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 서비스 URL 정보로 활용합니다.
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 서비스 URL 정보로 활용합니다.
 
 * **otel_attr_tx_host_keys** <span class='type'>String</span>
 
   기본값 `http.host`
 
-  OpenTelemtry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 호스트 정보로 활용합니다.
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 호스트 정보로 활용합니다.
 
-otel_attr_tx_method_keys
+* **otel_attr_tx_method_keys** <span class='type'>String</span>
 
-기본값 :  "http.method, http.request.method"
+  기본값 `http.method, http.request.method`
 
-OpenTelemtry Trace 데이터의 속성(Attribute)의 이름값을 지정하여 트랜잭션의  HTTP Method 정보로 활용합니다.  
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 HTTP Method 정보로 활용합니다.
 
-otel_attr_tx_status_keys
+* **otel_attr_tx_status_keys** <span class='type'>String</span>
 
-기본값 :  "http.status_code"
+  기본값 `http.status_code`
 
-OpenTelemtry Trace 데이터의 속성(Attribute)의 이름값을 지정하여 트랜잭션의 HTTP Status code 정보로 활용합니다.  
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 HTTP 상태 코드 정보로 활용합니다.
 
-otel_attr_tx_useragent_keys
+* **otel_attr_tx_useragent_keys** <span class='type'>String</span>
 
-기본값 :  "http.user_agent"
+  기본값 `http.user_agent`
 
-OpenTelemtry Trace 데이터의 속성(Attribute)의 이름값을 지정하여 트랜잭션의 User agent 정보로 활용합니다.  
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 User-Agent 정보로 활용합니다.
 
-otel_attr_tx_clientip_keys
+* **otel_attr_tx_clientip_keys** <span class='type'>String</span>
 
-기본값 :  "net.peer.ip,net.socket.peer.addr"
+  기본값 `net.peer.ip,net.socket.peer.addr`
 
-OpenTelemtry Trace 데이터의 속성(Attribute)의 이름값을 지정하여 트랜잭션의 Client IP 정보로 활용합니다.  
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 클라이언트 IP 정보로 활용합니다.
 
-otel_attr_tx_referer_keys
+* **otel_attr_tx_referer_keys** <span class='type'>String</span>
 
-기본값 :  ""
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 HTTP Referer 정보로 활용합니다.
 
-OpenTelemtry Trace 데이터의 속성(Attribute)의 이름값을 지정하여 트랜잭션의  HTTP Referer 정보로 활용합니다.  
+* **otel_attr_error_keys** <span class='type'>String</span>
 
-otel_attr_error_keys
+  기본값 `error.type`
 
-기본값 :   "error.type"
+  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 에러 정보로 활용합니다.
 
-OpenTelemtry Trace 데이터의 속성(Attribute)의 이름값을 지정하여 트랜잭션의 에러 정보로 활용합니다.  
 
-# Metric
+## Metric
 
-otel_metric_server_enabled
+:::note
 
-기본값 : false
+OpenTelemetry의 Metric 데이터에 대한 자세한 내용은 [다음 링크](https://opentelemetry.io/docs/concepts/signals/metrics/)를 참조하세요.
 
-Opentelemetry Metric 데이터 처리를 활성화합니다.
+:::
 
-otel_metric_queue_size
+* **otel_metric_server_enabled** <span class='type'>Boolean</span>
 
-기본값 :  5000
+  기본값 `false`
 
-Opentelemetry Metric데이터 처리를 위한 큐 크기를 지정합니다.
+  OpenTelemetry Metric 데이터 처리를 활성화합니다.
 
-# Log
+* **otel_metric_queue_size** <span class='type'>Int</span>
 
-otel_log_server_enabled
+  기본값 `5000`
 
-기본값 : false
+  Opentelemetry Metric 데이터 처리를 위한 큐 크기를 설정합니다.
 
-Opentelemetry Log 데이터 처리를 활성화합니다.
 
-otel_log_queue_size
+## Log
 
-기본값 :  5000
+:::note
 
-Opentelemetry Log  데이터 처리를 위한 큐 크기를 지정합니다.
+OpenTelemetry의 Log 데이터에 대한 자세한 내용은 [다음 링크](https://opentelemetry.io/docs/concepts/signals/logs/)를 참조하세요.
+
+:::
+
+* **otel_log_server_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  Opentelemetry Log 데이터 처리를 활성화합니다.
+
+* **otel_log_queue_size** <span class='type'>Int</span>
+
+  기본값 `5000`
+
+  Opentelemetry Log 데이터 처리를 위한 큐 크기를 설정합니다.

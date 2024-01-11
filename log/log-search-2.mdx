@@ -1,3 +1,12 @@
+---
+id: log-search-2
+title: 로그 검색
+description: 로그 모니터링의 로그 검색 메뉴를 안내합니다.
+tags: [ 로그 모니터링, 로그, 로그 검색, UI ]
+toc_max_heading_level: 3
+draft: true
+---
+
 {@include: ../common-items/_log-role-view.mdx}
 
 <Xclude product='aws-log'>
@@ -40,7 +49,27 @@
 
 * ![number-s](/img/number-03.png) 로그 테이블 상단 오른쪽 <LinkImage img='ic-fullscreen.svg' desc='전체 화면 아이콘'/> ***전체 화면*** 아이콘을 선택하면 ***로그***와 ***타임스탬프***를 전체 화면에서 확인할 수 있습니다.
 
-* {@include: ../common-items/_log-agent-option.mdx}
+* 에이전트 옵션이 설정된 경우 로그 레벨을 수집해 로그 레벨 기준 색상이 다음과 같이 표시됩니다. 
+
+  ![로그 레벨 색상](/img/log-agent-option-level.png)
+
+:::note 
+
+**에이전트 옵션 설정**
+
+* 에이전트 옵션은 다음과 같습니다. 
+
+  ```ini
+  # whatap.conf
+  weaving=log4j-2.17
+  weaving=logback-1.2.8
+  ```
+
+* Java 에이전트 2.2.22 버전 이후부터 위빙 설정에 log4j-2.17 또는 logback-1.2.8 설정시 사용할 수 있습니다. 에이전트 재시작이 필요합니다.
+
+* 로그 레벨은 파싱된 키워드 중 `level`, `type` 기준으로 판별합니다. `level`, `type`으로 파싱된 키가 존재하고 파싱 값이 `FATAL`, `CRITICAL`, `ERROR`, `WARN`, `WARNING`, `INFO`를 포함할 경우 로그 레벨 색상을 표시합니다. 
+
+:::
 
 ## 로그 Content 확인하기
 
@@ -78,7 +107,7 @@
 
 * 전체 로그 중 서버 조회 범위 당 1만 건씩 조회합니다. 서버 조회 범위의 경우 기본 20만 건이지만 전체 로그 양에 따라 비율이 달라질 수 있습니다.
 
-* 파서 설정에 대한 자세한 내용은 [다음 문서](log-parser.mdx)를 참조하세요. 
+* 파서 설정에 대한 자세한 내용은 [다음 문서](log-parser.mdx)를 참조하세요.
 
 :::
 
@@ -106,7 +135,7 @@
 
 {@include: ../common-items/_log-filter-expressions-search-key.mdx}
 
-{@include: ../common-items/_log-filter-expressions-commons.mdx}
+{@include: ../common-items/_log-filter-expressions-commons.mdx} 
 
 ## 로그 태그 옵션
 

@@ -42,11 +42,58 @@ OpenTelemetry로부터 다양한 지표를 수집하고 처리하도록 에이�
 
 ## Trace
 
-OpenTelemetry Trace 데이터 처리와 관련한 에이전트 설정 옵션입니다. 와탭의 트레이스 분석과 관련한 자세한 내용은 [다음 문서](../java/dashboard-hitmap-trace#anlaysis-trace)를 참조하세요.
+OpenTelemetry Trace 데이터 처리와 관련한 에이전트 설정 옵션입니다. 와탭은 OpenTelemetry Trace 구성 요소인 **Span**의 `attribute` 객체로부터 값을 가져와 모니터링 정보로 활용합니다.
+
+와탭의 에이전트와 **Span**의 `attribute` 객체가 어떻게 연관되는지 다음 코드를 참조하세요.
+
+```json title='OpenTelemetry - Span example' showLineNumbers {18,22,24}
+{
+    "name": "/v1/sys/health",
+    "context": {
+        "trace_id": "7bba9f33312b3dbb8b2c2c62bb7abe2d",
+        "span_id": "086e83747d0e381e"
+    },
+    "parent_id": "",
+    "start_time": "2021-10-22 16:04:01.209458162 +0000 UTC",
+    "end_time": "2021-10-22 16:04:01.209514132 +0000 UTC",
+    "status_code": "STATUS_CODE_OK",
+    "status_message": "",
+    "attributes": {
+        "net.transport": "IP.TCP",
+        "net.peer.ip": "172.17.0.1",
+        "net.peer.port": "51820",
+        "net.host.ip": "10.177.2.152",
+        "net.host.port": "26040",
+        "http.method": "GET",
+        "http.target": "/v1/sys/health",
+        "http.server_name": "mortar-gateway",
+        "http.route": "/v1/sys/health",
+        "http.user_agent": "Consul Health Check",
+        "http.scheme": "http",
+        "http.host": "10.177.2.152:26040",
+        "http.flavor": "1.1"
+    },
+    "events": [
+        {
+            "name": "",
+            "message": "OK",
+            "timestamp": "2021-10-22 16:04:01.209512872 +0000 UTC"
+        }
+    ]
+}
+```
+
+```ini title="whatap.conf"
+otel_attr_tx_host_keys=http.host
+otel_attr_tx_method_keys=http.method
+otel_attr_tx_useragent_keys=http.user_agent
+```
 
 :::note
 
-OpenTelemetry의 Trace 데이터에 대한 자세한 내용은 [다음 링크](https://opentelemetry.io/docs/concepts/signals/traces/)를 참조하세요.
+* 와탭의 트레이스 분석과 관련한 자세한 내용은 [다음 문서](../java/dashboard-hitmap-trace#anlaysis-trace)를 참조하세요.
+
+* OpenTelemetry의 Trace 데이터에 대한 자세한 내용은 [다음 링크](https://opentelemetry.io/docs/concepts/signals/traces/)를 참조하세요. 
 
 :::
 
@@ -70,67 +117,73 @@ OpenTelemetry의 Trace 데이터에 대한 자세한 내용은 [다음 링크](h
 
 * **otel_attr_dbcon_keys** <span class='type'>String</span>
 
-  기본값 `sql.system, db.connection_string, db.system`
+  기본값 `sql.system,db.connection_string,db.system`
 
-  OpenTelemetry Trace 데이터 속성(Attribute)에 이름값을 설정하여 DB Connection 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 **DB Connection** 스텝으로 표시합니다. 
+  DB Connection 정보로 활용할 속성값을 입력하세요. 해당 정보를 활용해 와탭에서는 **DB Connection** 스텝으로 표시합니다.
+
+  :::note
+
+  OpenTelemetry의 Database Span에 대한 자세한 내용은 [다음 링크](https://opentelemetry.io/docs/specs/semconv/database/database-spans/)를 참조하세요.
+
+  :::
 
 * **otel_attr_sql_keys** <span class='type'>String</span>
 
   기본값 `db.statement, sql.query`
 
-  OpenTelemetry Trace 데이터 속성(Attribute)에 이름값을 설정하여 SQL 쿼리 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 SQL 스텝으로 표시합니다. 
+  OpenTelemetry Trace 데이터 속성(`attribute`)에 이름값을 설정하여 SQL 쿼리 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 SQL 스텝으로 표시합니다. 
 
 * **otel_attr_httpc_keys** <span class='type'>String</span>
 
   기본값 `url.full, http.url, http.target`
 
-  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 HTTP call 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 HTTP Call 스텝으로 표시합니다. 
+  OpenTelemetry Trace 데이터 속성(`attribute`)의 이름값을 설정하여 HTTP call 정보로 활용합니다. 해당 정보를 활용해 와탭에서는 HTTP Call 스텝으로 표시합니다. 
 
 * **otel_attr_tx_url_keys** <span class='type'>String</span>
 
   기본값 `http.url, http.route, http.target, tyk.api.path, http.url`
 
-  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 서비스 URL 정보로 활용합니다.
+  OpenTelemetry Trace 데이터 속성(`attribute`)의 이름값을 설정하여 트랜잭션의 서비스 URL 정보로 활용합니다.
 
 * **otel_attr_tx_host_keys** <span class='type'>String</span>
 
   기본값 `http.host`
 
-  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 호스트 정보로 활용합니다.
+  OpenTelemetry Trace 데이터 속성(`attribute`)의 이름값을 설정하여 트랜잭션의 호스트 정보로 활용합니다.
 
 * **otel_attr_tx_method_keys** <span class='type'>String</span>
 
-  기본값 `http.method, http.request.method`
+  기본값 `http.method,http.request.method`
 
-  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 HTTP Method 정보로 활용합니다.
+  OpenTelemetry Trace 데이터 속성(`attribute`)의 이름값을 설정하여 트랜잭션의 HTTP Method 정보로 활용합니다.
 
 * **otel_attr_tx_status_keys** <span class='type'>String</span>
 
   기본값 `http.status_code`
 
-  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 HTTP 상태 코드 정보로 활용합니다.
+  OpenTelemetry Trace 데이터 속성(`attribute`)의 이름값을 설정하여 트랜잭션의 HTTP 상태 코드 정보로 활용합니다.
 
 * **otel_attr_tx_useragent_keys** <span class='type'>String</span>
 
   기본값 `http.user_agent`
 
-  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 User-Agent 정보로 활용합니다.
+  OpenTelemetry Trace 데이터 속성(`attribute`)의 이름값을 설정하여 트랜잭션의 User-Agent 정보로 활용합니다.
 
 * **otel_attr_tx_clientip_keys** <span class='type'>String</span>
 
   기본값 `net.peer.ip,net.socket.peer.addr`
 
-  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 클라이언트 IP 정보로 활용합니다.
+  OpenTelemetry Trace 데이터 속성(`attribute`)의 이름값을 설정하여 트랜잭션의 클라이언트 IP 정보로 활용합니다.
 
 * **otel_attr_tx_referer_keys** <span class='type'>String</span>
 
-  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 HTTP Referer 정보로 활용합니다.
+  OpenTelemetry Trace 데이터 속성(`attribute`)의 이름값을 설정하여 트랜잭션의 HTTP Referer 정보로 활용합니다.
 
 * **otel_attr_error_keys** <span class='type'>String</span>
 
   기본값 `error.type`
 
-  OpenTelemetry Trace 데이터 속성(Attribute)의 이름값을 설정하여 트랜잭션의 에러 정보로 활용합니다.
+  OpenTelemetry Trace 데이터 속성(`attribute`)의 이름값을 설정하여 트랜잭션의 에러 정보로 활용합니다.
 
 
 ## Metric

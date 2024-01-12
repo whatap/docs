@@ -42,9 +42,9 @@ OpenTelemetry로부터 다양한 지표를 수집하고 처리하도록 에이�
 
 ## Trace
 
-OpenTelemetry Trace 데이터 처리와 관련한 에이전트 설정 옵션입니다. 와탭은 OpenTelemetry Trace 구성 요소인 **Span**의 `attribute` 객체로부터 값을 가져와 모니터링 정보로 활용합니다.
+OpenTelemetry Trace 데이터 처리와 관련한 에이전트 설정 옵션입니다. 와탭은 OpenTelemetry Trace 구성 요소인 **Span**의 `attributes` 객체로부터 값을 가져와 모니터링 정보로 활용합니다.
 
-**Span**의 `attribute` 객체가 와탭의 에이전트 설정과 어떻게 연관되는지 다음 코드를 참조하세요.
+**Span**의 `attributes` 객체가 와탭의 에이전트 설정과 어떻게 연관되는지 다음 코드를 참조하세요.
 
 ```json title='OpenTelemetry - Span example' showLineNumbers {18,22,24}
 {
@@ -95,7 +95,7 @@ otel_attr_tx_useragent_keys=http.user_agent
 
 * OpenTelemetry의 Trace 데이터 처리에 대한 자세한 내용은 [다음 링크](https://opentelemetry.io/docs/concepts/signals/traces/)를 참조하세요. 
 
-* OpenTelemetry에서 제공하는 속성(`attribute`)에 대한 자세한 내용은 다음 링크를 참조하세요.
+* OpenTelemetry에서 제공하는 속성(`attributes`)에 대한 자세한 내용은 다음 링크를 참조하세요.
 
   * [Database](https://opentelemetry.io/docs/specs/semconv/database/database-spans/)
 

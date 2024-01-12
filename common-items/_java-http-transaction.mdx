@@ -4,7 +4,14 @@
 
 * **trace_transaction_name_key** <span class='type'>String</span>
 
-  설정한 http request parameter에서 추출한 값을 트랜잭션의 이름 마지막에 추가합니다.
+  HTTP request parameter 값을 해당 옵션에 설정하면, 파라미터 값을 추출하여 트랜잭션의 이름 마지막에 추가합니다. 
+  
+  예를 들어, HTTP 파라미터로 `paramKey`를 가진 `/api/test` URL을 호출하는 경우 다음 예제와 같이 설정하면 트레이스 내역에 `/api/test$paramKey={value}`로 트랜잭션 이름을 표시합니다. 다만 여러 개의 파라미터를 등록할 수는 없습니다.
+
+  ```ini title='whatap.conf'
+  # example
+  trace_transaction_name_key=paramKey
+  ```
 
 {@include: ../common-items/_transaction-trace-common.mdx}
 

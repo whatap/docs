@@ -1,17 +1,26 @@
 ---
-id: install-master-node-agent-temp
-title: 마스터 및 노드 에이전트 설치
-description: 설치 안내 페이지에 따라 마스터 및 노드 에이전트 설치 과정을 진행하세요.
-tags: [ 쿠버네티스, 쿠버네티스 모니터링, 에이전트, 마스터, 노드, 에이전트 설치 ]
-hide_table_of_contents: false
-toc_max_heading_level: 2
-draft: false
+id: install-temp
+title: 설치하기
+description: 쿠버네티스 모니터링을 위한 에이전트 설치 단계를 설명합니다.
+tags: [ 쿠버네티스, 쿠버네티스 모니터링, 에이전트, 에이전트 설치 ]
+draft: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import TR from '@site/src/components/TR';
 
-다음과 같이 마스터 및 노드 에이전트 설치 과정을 안내합니다. ***설치 안내*** 화면과 동일한 과정입니다.
+와탭 쿠버네티스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+
+{@include: ../common-items/_agent-signup-guide.mdx}  
+
+<Youtube ko='U0uupE1fnvs' en='DwjeYmXCCSo' ja='DwjeYmXCCSo' />
+
+{@include: ../getting-started/_create-project-v2.mdx} 
+
+{@include: ../getting-started/_accesskey-v2.mdx} 
+
+## 에이전트 설치
+
+***설치 안내*** 화면 절차에 따라 마스터 및 노드 에이전트 설치 과정을 진행하세요. 
 
 :::note 
 
@@ -19,7 +28,7 @@ EKS Fargate는 지원 예정입니다.
 
 :::
 
-## 사전 환경 점검 및 설정
+### 사전 환경 점검 및 설정
 
 사용자의 쿠버네티스 환경에 따라 사전 환경 설정이 필요할 수 있습니다. Istio, GKE, OpenShift 환경에 해당하지 않을 경우 [다음 단계](#create-kubernetes-agent)로 넘어가세요.
 
@@ -88,7 +97,7 @@ oc create -f whatap_openshift_scc.yaml
 </Tabs>
 
 
-## 쿠버네티스 에이전트 생성
+### 쿠버네티스 에이전트 생성{#create-kubernetes-agent}
 
 사용자의 쿠버네티스 버전과 Container Runtime에 맞는 *YAML* 파일을 다운로드해 에이전트를 생성하세요.
 
@@ -124,7 +133,7 @@ oc create -f whatap_openshift_scc.yaml
 :::
 
 
-## 쿠버네티스 에이전트 설치 확인
+### 쿠버네티스 에이전트 설치 확인
 
 쿠버네티스 에이전트 설치가 정상적으로 완료되었을 경우 다음 명령어를 실행해 마스터 에이전트와 노드 에이전트의 상태를 확인할 수 있습니다.
 

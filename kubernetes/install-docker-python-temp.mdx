@@ -112,7 +112,7 @@ CMD ["./entrypoint.sh"]
 
 ### 추가 설정 
 
-다음 설정은 선택사항으로 필요한 경우에만 사용하세요. 다음 추가 설정 외에도 로그 및 트랜잭션 관련 설정이 가능합니다. 기타 추가 설정의 경우 [다음 문서](https://docs.whatap.io/python/introduction)를 참조하세요. 
+다음 설정은 선택사항으로 필요한 경우에만 사용하세요. 다음 추가 설정 외에도 로그 및 트랜잭션 관련 설정이 가능합니다. 기타 추가 설정의 경우 [다음 문서](https://docs.whatap.io/python/set-agent)를 참조하세요. 
 
 * **에이전트 그룹화** 
 
@@ -128,7 +128,7 @@ CMD ["./entrypoint.sh"]
   echo "trace_logging_enabled=true" >> whatap.conf
   ```
 
-## 컨테이너 환경변수 설정 
+## 컨테이너 환경변수 설정{#k8s-env}
 
 Docker 빌드 후 쿠버네티스 환경 내 **컨테이너 환경변수**를 설정하세요. 애플리케이션 배포 *yaml* 파일에 다음 내용을 추가하세요. 
 

@@ -37,15 +37,19 @@ npm update whatap
 
 ## 에이전트 설정
 
-*node_modules/whatap* 경로에 위치한 *whatap.conf* 파일을 Node.js 애플리케이션 루트 디렉토리로 복사하세요. 다음 내용을 참고해 복사한 *whatap.conf* 파일을 수정하세요.
+### whatap.conf 설정
 
-```ini
-license=XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
-whatap.server.host={수집 서버 IP}
-whatap_micro_enabled=true
-```
+1. *node_modules/whatap* 경로에 위치한 *whatap.conf* 파일을 Node.js 애플리케이션 루트 디렉토리로 복사하세요. 
 
-### 사용법
+1. *whatap.conf* 파일을 다음과 같이 수정하세요.
+
+    ```ini
+    license=XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
+    whatap.server.host={수집 서버 IP}
+    whatap_micro_enabled=true
+    ```
+
+### 애플리케이션 파일 내 에이전트 삽입 설정
 
 애플리케이션 메인 모듈의 첫 줄에 다음 코드를 추가하세요.
 
@@ -59,7 +63,7 @@ let server = null;
 const port = normalizePort(process.env.PORT || '3000');
 ```
 
-ECMAScript(ES)를 활용한다면 다음 코드를 추가하세요.
+ECMAScript(ES) 활용 시 다음 코드를 추가하세요.
 
 ```javascript
 import WhatapAgent from 'whatap';

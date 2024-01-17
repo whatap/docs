@@ -46,11 +46,11 @@ ADD . /app/
 RUN pip3 install --upgrade whatap-python
 ```
 
-## 에이전트 설정
+## 에이전트 설정 및 실행
 
-애플리케이션 실행 전 Python 에이전트 작업 디렉터리를 정하고 기본 설정 파일을 생성하세요. 설정 파일을 통해 에이전트에 인증 정보를 전달하고 로그 추적 여부 등을 설정합니다.
+애플리케이션 실행 전 Python 에이전트 작업 디렉터리를 정하고 기본 설정 파일을 생성하세요. 설정 파일(*entrypoint.sh*)을 통해 에이전트에 인증 정보를 전달하고 로그 추적 여부 등을 설정합니다.
 
-1. Python 애플리케이션 시작 시 와탭 에이전트가 Injection할 수 있도록 애플리케이션 시작 스크립트를 수정하세요. 
+1. Python 애플리케이션 시작 시 와탭 에이전트가 Injection 할 수 있도록 애플리케이션 시작 스크립트를 수정하세요. 
 
     컨테이너 작업 디렉터리를 `WHATAP_HOME` 환경변수로 설정하세요. 해당 경로에 에이전트 로그 및 설정 파일을 생성합니다. 
 
@@ -93,9 +93,9 @@ echo `sudo chmod -R 777 $WHATAP_HOME`
 
 :::
 
-### Dockerfile 
+### 예시
 
-다음 Dockerfile 정의 예시를 참조하세요. 
+다음 Dockerfile 정의 예시를 참조하세요. *entrypoint.sh* 스크립트 실행하는 완성된 예시입니다.
 
 ```docker 
 FROM python:3.10

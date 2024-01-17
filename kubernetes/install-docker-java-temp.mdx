@@ -172,16 +172,6 @@ Docker 컨테이너 기반으로 실행하는 Java 애플리케이션의 JVM Opt
     whatap.server.host={proxyServer}
     ```
 
-1. 프로젝트 최상위 경로에 *paramkey.txt* 파일을 생성한 다음 6자리 영어, 숫자로 이루어진 비밀번호를 지정하세요.
-
-    :::note 
-
-    * *paramkey.txt* 파일은 모니터링 시 암호화된 인수 복호화 시 사용합니다. 
-    
-    * 비밀번호 예시는 다음과 같습니다. `ABCCEDF`
-
-    :::
-
 1. Dockerfile의 시작 명령어에 다음 내용을 추가하세요. *whatap* 디렉터리 내부에서 에이전트 파일을 확인 후 **X.Y.Z** 부분에 해당 버전을 입력하세요.
 
     ```bash

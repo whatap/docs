@@ -3,6 +3,7 @@ id: install-docker-java-temp
 title: Docker Java 설치
 description: 컨테이너 내 Java 애플리케이션을 모니터링하기 위한 에이전트 설치 단계입니다.
 tags: [ 쿠버네티스, 쿠버네티스 모니터링, 애플리케이션 설치, Java ]
+toc_max_heading_level: 2
 draft: false
 ---
 
@@ -134,12 +135,6 @@ Docker 컨테이너 기반으로 실행하는 Java 애플리케이션의 JVM Opt
     EXPOSE 8080
     ```
 
-  :::tip
-
-  Java 17버전 이상의 경우 reflection 관련한 `--add-opens=java.base/java.lang=ALL-UNNAMED` 옵션을 추가해야 합니다.
-
-  :::
-
 1. Docker를 빌드하세요. `{YOUR_DOCKERFILE_DIR}`를 Dockerfile이 위치한 경로로 변경하세요.
 
     ```docker
@@ -150,6 +145,92 @@ Docker 컨테이너 기반으로 실행하는 Java 애플리케이션의 JVM Opt
 </TabItem>
 
 </Tabs>
+
+
+</TabItem>
+
+<TabItem value="direct" label="직접 설치">
+
+1. 설치 파일(*whatap.agent.java.tar.gz*)을 다운로드하려면 ***다운로드*** 버튼을 선택하세요.
+
+1. Dockerfile을 작성할 수 있는 서버에 업로드한 다음 압축을 해제하세요.
+
+    :::info
+    
+    설치할 서버에 직접 다운로드하려면 다음 명령어를 실행하세요.
+    
+    ```bash
+    wget https://api.whatap.io/agent/whatap.agent.java.tar.gz
+    ```
+
+    :::
+
+1. 압축 해제 시 *whatap* 디렉터리가 생성됩니다. *whatap* 디렉터리 내부의 *whatap.conf* 파일에서 설정 내용을 확인 후 다음과 같이 수정하세요.
+
+    ```ini
+    license={licenseKey}
+    whatap.server.host={proxyServer}
+    ```
+
+1. 프로젝트 최상위 경로에 *paramkey.txt* 파일을 생성한 다음 6자리 영어, 숫자로 이루어진 비밀번호를 지정하세요.
+
+    :::note 
+
+    * *paramkey.txt* 파일은 모니터링 시 암호화된 인수 복호화 시 사용합니다. 
+    
+    * 비밀번호 예시는 다음과 같습니다. `ABCCEDF`
+
+    :::
+
+1. Dockerfile의 시작 명령어에 다음 내용을 추가하세요. *whatap* 디렉터리 내부에서 에이전트 파일을 확인 후 **X.Y.Z** 부분에 해당 버전을 입력하세요.
+
+    ```bash
+    -javaagent:/whatap/whatap.agent-X.Y.Z.jar -Dwhatap.micro.enabled=true
+    ```
+
+    다음 Dockerfile의 정의 예시를 참조하세요.
+
+    ```bash title='Dockerfile'
+    FROM openjdk:8-jdk-alpine
+    RUN mkdir -p /app && mkdir /whatap
+    WORKDIR /app
+    COPY ./whatap.agent-X.Y.Z.jar /whatap/
+    COPY ./whatap.conf /whatap/
+    COPY ./target/myApp.jar myApp.jar
+    COPY ./paramkey.txt /whatap/
+    CMD ["java","-javaagent:/whatap/whatap.agent-X.Y.Z.jar","-Dwhatap.micro.enabled=true","-jar","/app/myApp.jar"]
+    EXPOSE 8080
+    ```
+
+:::note
+
+* *whatap-virtual-X.Y.Z.jar*: 모니터링 대상(샘플 애플리케이션)
+
+* *whatap.agent-X.Y.Z.jar*: 와탭 에이전트
+
+* 에이전트의 파일명이 *whatap.agent-1.2.3.jar*이라면 **X.Y.Z** 부분을 **1.2.3**으로 변경하세요.
+
+* JVM 옵션 추가에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/java/install-agent#addjvmopt)를 참조하세요.
+
+:::
+
+</TabItem>
+
+</Tabs>
+
+:::tip
+
+Java 17 버전 이상의 경우 reflection 관련 `--add-opens=java.base/java.lang=ALL-UNNAMED` 옵션을 추가하세요.
+
+:::
+
+### paramkey 파일 생성
+
+프로젝트 최상위 경로에 *paramkey.txt* 파일을 생성한 다음 6자리 영어, 숫자로 이루어진 비밀번호를 지정하세요.
+
+* *paramkey.txt* 파일은 모니터링 시 암호화된 인수 복호화 시 사용합니다. 
+
+* 비밀번호 예시는 다음과 같습니다. `ABCCEDF`
 
 ## 컨테이너 환경변수 설정
 
@@ -216,82 +297,5 @@ spec:
 - `whatap_micro_enabled`: 컨테이너와의 연동을 활성화합니다.
 
 :::
-
-</TabItem>
-
-<TabItem value="direct" label="직접 설치">
-
-1. 설치 파일(*whatap.agent.java.tar.gz*)을 다운로드하려면 ***다운로드*** 버튼을 선택하세요.
-
-1. Dockerfile을 작성할 수 있는 서버에 업로드한 다음 압축을 해제하세요.
-
-    :::info
-    
-    설치할 서버에 직접 다운로드하려면 다음 명령어를 실행하세요.
-    
-    ```bash
-    wget https://api.whatap.io/agent/whatap.agent.java.tar.gz
-    ```
-
-    :::
-
-1. 압축 해제 시 *whatap* 디렉터리가 생성됩니다. *whatap* 디렉터리 내부의 *whatap.conf* 파일에서 설정 내용을 확인 후 다음과 같이 수정하세요.
-
-    ```ini
-    license={licenseKey}
-    whatap.server.host={proxyServer}
-    ```
-
-1. 프로젝트 최상위 경로에 *paramkey.txt* 파일을 생성한 다음 6자리 영어, 숫자로 이루어진 비밀번호를 지정하세요.
-
-    :::note 
-
-    * *paramkey.txt* 파일은 모니터링 시 암호화된 인수 복호화 시 사용합니다. 
-    
-    * 비밀번호 예시는 다음과 같습니다. `ABCCEDF`
-
-    :::
-
-1. Dockerfile의 시작 명령어에 다음 내용을 추가하세요. *whatap* 디렉터리 내부에서 에이전트 파일을 확인 후 **X.Y.Z** 부분에 해당 버전을 입력하세요.
-
-    ```bash
-    -javaagent:/whatap/whatap.agent-X.Y.Z.jar -Dwhatap.micro.enabled=true
-    ```
-
-    다음 Dockerfile의 정의 예시를 참조하세요.
-
-    ```bash title='Dockerfile'
-    FROM openjdk:8-jdk-alpine
-    RUN mkdir -p /app && mkdir /whatap
-    WORKDIR /app
-    COPY ./whatap.agent-X.Y.Z.jar /whatap/
-    COPY ./whatap.conf /whatap/
-    COPY ./target/myApp.jar myApp.jar
-    COPY ./paramkey.txt /whatap/
-    CMD ["java","-javaagent:/whatap/whatap.agent-X.Y.Z.jar","-Dwhatap.micro.enabled=true","-jar","/app/myApp.jar"]
-    EXPOSE 8080
-    ```
-
-    :::tip
-
-    Java 17 버전 이상의 경우 reflection 관련한 `--add-opens=java.base/java.lang=ALL-UNNAMED` 옵션을 추가해야 합니다.
-
-    :::
-
-:::note
-
-* *whatap-virtual-X.Y.Z.jar*: 모니터링 대상(샘플 애플리케이션)
-
-* *whatap.agent-X.Y.Z.jar*: 와탭 에이전트
-
-* 에이전트의 파일명이 *whatap.agent-1.2.3.jar*이라면 **X.Y.Z** 부분을 **1.2.3**으로 변경하세요.
-
-* JVM 옵션 추가에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/java/install-agent#addjvmopt)를 참조하세요.
-
-:::
-
-</TabItem>
-
-</Tabs>
 
 {@include: _check-install-agent.mdx} 

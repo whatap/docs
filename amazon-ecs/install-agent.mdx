@@ -288,3 +288,13 @@ Amazon ECS launch types에 대한 자세한 설명은 [다음 문서](https://do
 * 모니터링 서비스 활성화 불가
 
   <ImgLang img='amazon-ecs-monitoring-off.png' desc='모니터링 활성화 불가' />
+
+## 제거 시 주의 사항
+
+완전한 비용 발생 방지를 위해서는 다음 항목을 삭제하세요.
+
+* ECS Service: `whatap-ecs-agent`
+
+* Task Sidecar: `whatap-ecs-agent` 
+
+* Role: `WhatapEcsReadonly`

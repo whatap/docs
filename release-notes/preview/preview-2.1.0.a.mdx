@@ -42,6 +42,21 @@ toc_max_heading_level: 2
 
 - <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_history" className="uitext" /> &gt; 이벤트 항목 선택 &gt; 이벤트 상세 메뉴에서 처리내역을 추가할 경우 작성한 사용자 계정이 등록되지 않는 문제 수정
 
+- <Status>Changed</Status> <Cmdname sid="report" className="uitext" /> 메뉴의 <b>월간 서버 보고서(상세)</b> 템플릿 선택 화면에서 에이전트 선택 옵션 이름을 <Cmdname sid="application" className="b500" />에서 <Cmdname sid="filter" className="uitext" />로 변경
+
+---
+
+### `Database`
+
+#### DB <code class="my">V2</code>
+
+- <Status>Feature</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="lock_tree" className="uitext" /> 메뉴에서 다음 기능 추가
+
+  - <span class="uitext">Lock Wait Sessions</span> 위젯의 오른쪽 위에 조회 시간 단위 및 최대값 표기 태그 추가
+  - 시간 조회 범위가 1달 이전인 상태에서 3시간 이내의 데이터를 조회할 겨우우 조회 불가 메시지 표시 기능 추가
+
+- <Status>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="lock_tree" className="uitext" /> 메뉴에서 많은 양의 락으로 인해 로직 상의 부하를 초래하여 발생하는 화이트아웃 현상 수정
+
 ---
 
 ### `Kubernetes`
@@ -49,12 +64,6 @@ toc_max_heading_level: 2
 - <Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="kube_master" className="uitext" /> 메뉴 이름을 <Cmdname sid="MNU07551" className="uitext" />로 변경
 
 - <Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="MNU07551" className="uitext" /> 메뉴에서 탭 메뉴 위치 수정 및 매니페스트 정보 UI 변경
-
----
-
-### `Network`
-
-- <Status>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="MNU06850" className="uitext" />, <Cmdname sid="MNU06851" className="uitext" /> 메뉴에서 특정 필드키로 검색이 수행되지 않는 문제 수정
 
 </div>
 

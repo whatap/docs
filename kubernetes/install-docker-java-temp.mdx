@@ -7,6 +7,7 @@ toc_max_heading_level: 2
 draft: true
 ---
 
+<!-- 컨테이너 환경 변수 수정 0119 -->
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -247,25 +248,42 @@ env:
 다음 예시를 참조하세요.
 
 ```yaml
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: mypod
+  name: #DeploymentName
+  labels:
+    app: #AppLabel
 spec:
-  containers:
-	  env:
-    - name: NODE_IP
-      valueFrom: {fieldRef: {fieldPath: status.hostIP}}
-    - name: NODE_NAME
-      valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
-    - name: POD_NAME
-      valueFrom: {fieldRef: {fieldPath: metadata.name}}
-		- name: license
-			value: {licenseKey}
-		- name: whatap_server_host
-			value: {proxyServer}
-		- name: whatap_micro_enabled
-			value: "true"
+  selector:
+    matchLabels:
+      app: #AppLabel
+	replicas: 3
+  template:
+    metadata:
+      labels:
+        app: #AppLabel
+		spec:
+		  containers:
+			- name: #ContainerName
+        image: nginx
+        ports:
+        - containerPort: 80
+			  env:
+		    - name: NODE_IP
+	        valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+				- name: NODE_NAME
+		      valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+		    - name: POD_NAME
+		      valueFrom: {fieldRef: {fieldPath: metadata.name}}
+				- name: OKIND
+          value: #DeploymentName
+				- name: license
+					value: {licenseKey}
+				- name: whatap_server_host
+					value: {proxyServer}
+				- name: whatap_micro_enabled
+					value: "true"
 ```
 
 :::note

@@ -6,6 +6,8 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 애플리케이션 설치
 draft: false
 ---
 
+<!-- 환경변수 역할 수정 0119 -->
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -219,7 +221,27 @@ spec:
 		  valueFrom: {fieldRef: {fieldPath: metadata.name}}
 ```
 
-{@include: _k8s-env-role.mdx} 
+:::note
+
+**환경변수 역할**
+
+- `license`: 에이전트 인증 확인을 위한 키입니다.
+
+- `whatap_server_host`: 와탭 수집 서버 호스트 IP입니다.
+
+- `app_name`: 애플리케이션의 에이전트를 식별하는 이름입니다. 에이전트 식별에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/python/agent-name)를 참조하세요.
+
+- `app_process_name`: CPU, Heap Memory 등 수집할 대상 프로세스를 설정합니다. 예로 uwsgi, gunicorn 등이 있습니다.
+
+- `okind`(선택사항) : Pod에 해당하는 애플리케이션들을 그룹화합니다. 디플로이먼트(Deployment) 이름으로 설정 시 해당하는 Pod들을 하나로 그룹화합니다.
+
+- `NODE_IP`: 현재 Pod가 호스팅된 노드(Node)의 IP 주소를 수집합니다.
+
+- `NODE_NAME`: 현재 Pod가 실행 중인 노드의 이름을 수집합니다.
+
+- `POD_NAME`: 현재 Pod의 이름을 수집합니다.
+
+:::
 
 
 ## 에이전트 설치 확인

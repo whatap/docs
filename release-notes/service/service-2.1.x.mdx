@@ -3,6 +3,7 @@ id: service-2_1_x
 title: Service 2.1.0
 toc_max_heading_level: 2
 pagination_next: release-notes/service/service-1_114_x
+displayed_sidebar: releaseSidebar
 ---
 
 2024년 01월 24일
@@ -11,6 +12,18 @@ pagination_next: release-notes/service/service-1_114_x
 
 
 ### `공통`
+
+- <Status>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_history" className="uitext" /> 메뉴에서 다음 기능 추가
+
+  - <Cmdname sid="event_time" className="uitext" /> 컬럼에 <Cmdname sid="in_progress" className="uitext" />, <Cmdname sid="ITM07315" className="uitext" /> 태그 표시기능 추가
+
+  - <Cmdname sid="TTL06583" className="uitext" /> 컬럼 표시 옵션 추가
+
+  :::note
+
+  이 기능은 서버 모니터링을 제외한 모든 상품에 적용됩니다.
+
+  :::
 
 - <Status>Changed</Status> <Cmdname sid="project_list" className="uitext" /> 메뉴에서 프로젝트 삭제 시 표시되는 팝업창의 UI 변경(프로젝트 이름이 잘리는 현상 개선)
 
@@ -26,28 +39,15 @@ pagination_next: release-notes/service/service-1_114_x
 
 - <Status>Changed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="tag_count_chart" className="uitext" /> 메뉴에서 전체 에이전트 선택 해제 기능 추가
 
-- <Status>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_history" className="uitext" /> 메뉴에서 다음 기능 추가
+- <Status>Changed</Status> 일부 메뉴에서 적용되지 않던 요소에 다크 테마 추가 적용
 
-  - <Cmdname sid="event_time" className="uitext" /> 컬럼에 <Cmdname sid="in_progress" className="uitext" />, <Cmdname sid="ITM07315" className="uitext" /> 태그 표시기능 추가
-
-  - <Cmdname sid="TTL06583" className="uitext" /> 컬럼 표시 옵션 추가
-
-  :::note
-
-  이 기능은 서버 모니터링을 제외한 모든 상품에 적용됩니다.
-
-  :::
+- <Status>Fixed</Status> <Cmdname sid="real_time_alert_list" className="uitext" /> 메뉴에서 그룹 지정 시 알림 목록이 제대로 나타나지 않는 이슈 수정
 
 - <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 다음 기능 수정
 
   - <Cmdname sid="metrics" className="uitext" /> 이벤트 탭 수정 창에서 <Cmdname sid="guide" className="uitext" /> <Cmdname sid="shortcut_link" className="uitext" /> 버튼 클릭 시 언어 설정별 가이드 문서로 이동하도록 수정
 
   - <Cmdname sid="metrics" className="uitext" /> 이벤트 탭 JSON 내보내기 또는 가져오기 과정에서 <Cmdname sid="save" className="uitext" /> 및 <Cmdname sid="add_to_list" className="uitext" /> 버튼 클릭 시 내보내기 또는 가져오기 창이 닫히지 않는 이슈 수정
-
-- <Status>Fixed</Status> <Cmdname sid="real_time_alert_list" className="uitext" /> 메뉴에서 그룹 지정 시 알림 목록이 제대로 나타나지 않는 이슈 수정
-
-- <Status>Changed</Status> 일부 메뉴에서 적용되지 않던 요소에 다크 테마 추가 적용
-
 - <Status>Fixed</Status> Safari 브라우저에서 <Cmdname sid="TTL06763" className="uitext" />메뉴 내 간헐적인 목록 미표시 이슈 수정
 
 ---
@@ -56,11 +56,11 @@ pagination_next: release-notes/service/service-1_114_x
 
 - <Status>Changed</Status> Node 에이전트 설치 지원 버전 변경 7.10.0 → <b>16.4.0</b>
 
-- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06127" className="uitext" /> 탭에서 <LinkImage img="ic-outside.svg" className="ico" /> 버튼을 선택하면 설정된 다른 옵션이 해제되는 현상 수정
-
 - <Status>Changed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06377" className="uitext" /> 탭에서 차트 및 트리 설정에 대한 저장 기능 추가
 
 - <Status>Changed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06377" className="uitext" /> 탭에서 프로젝트 선택 상태를 저장하는 기능 추가
+
+- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06127" className="uitext" /> 탭에서 <LinkImage img="ic-outside.svg" className="ico" /> 버튼을 선택하면 설정된 다른 옵션이 해제되는 현상 수정
 
 - <Status>Fixed</Status> <Cmdname sid="integratedTopology" className="uitext" /> 및 <Cmdname sid="application_topology" className="uitext" /> 내 버튼 그룹 사이 간격 오류 수정
 
@@ -70,9 +70,9 @@ pagination_next: release-notes/service/service-1_114_x
 
 ### `Server`
 
-- <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_history" className="uitext" /> &gt; 이벤트 항목 선택 &gt; 이벤트 상세 메뉴에서 처리내역을 추가할 경우 작성한 사용자 계정이 등록되지 않는 문제 수정
-
 - <Status>Changed</Status> <Cmdname sid="report" className="uitext" /> 메뉴의 <b>월간 서버 보고서(상세)</b> 템플릿 선택 화면에서 에이전트 선택 옵션 이름을 <Cmdname sid="application" className="b500" />에서 <Cmdname sid="filter" className="uitext" />로 변경
+
+- <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_history" className="uitext" /> &gt; 이벤트 항목 선택 &gt; 이벤트 상세 메뉴에서 처리내역을 추가할 경우 작성한 사용자 계정이 등록되지 않는 문제 수정
 
 ---
 
@@ -95,14 +95,14 @@ pagination_next: release-notes/service/service-1_114_x
 
 ### `Kubernetes`
 
+- <Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="kube_master" className="uitext" /> 메뉴 이름을 <Cmdname sid="MNU07551" className="uitext" />로 변경
+
+- <Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="MNU07551" className="uitext" /> 메뉴에서 과거 오브젝트 매니페스트를 조회할 수 있는 기능 추가
+
 - <Status>Fixed</Status> 다음 메뉴에서 누락된 다국어 번역 추가
 
   - <Cmdname sid="app_upper" className="uitext" /> &gt; <Cmdname sid="multi_hitmap" className="uitext" />
   - <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="report" className="uitext" />
-
-- <Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="kube_master" className="uitext" /> 메뉴 이름을 <Cmdname sid="MNU07551" className="uitext" />로 변경
-
-- <Status>Changed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="MNU07551" className="uitext" /> 메뉴에서 과거 오브젝트 매니페스트를 조회할 수 있는 기능 추가
 
 ---
 

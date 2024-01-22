@@ -11,11 +11,11 @@ toc_max_heading_level: 2
 다국어 이미지 필요
 -->
 
-홈 화면 > 프로젝트 선택 > ***리소스*** > ***Pod 목록***
+홈 화면 > 프로젝트 선택 > <Cmdname sid="resource" className="uitext" /> > <Cmdname sid="podList" className="uitext" />
 
 Pod 목록을 조회합니다. 원하는 컬럼 선택 시 해당 컬럼 기준으로 Pod 목록을 정렬해 조회할 수 있습니다. 
 
-![Pod 목록](/img/k8s-pod-list.png)
+<ImgLang img='k8s-pod-list.png' desc='Pod 목록' />
 
 * 좌측 상단에서 전체 Pod 개수와 상태별 Pod 개수를 확인할 수 있습니다.
 
@@ -23,13 +23,13 @@ Pod 목록을 조회합니다. 원하는 컬럼 선택 시 해당 컬럼 기준�
 
 :::note 
 
-**메트릭 정보**, **필터**, **컬럼 선택** 안내는 ***리소스*** 메뉴 하위의 목록형 기능 안내와 같습니다.
+**메트릭 정보**, **필터**, **컬럼 선택** 안내는 <Cmdname sid="resource" className="uitext" /> 메뉴 하위의 목록형 기능 안내와 같습니다.
 
 :::
 
 ## 메트릭 정보
 
-{@include: ../common-items/_k8s-list-metric.mdx}
+{@include: ../common-items/_k8s-list-metric.mdx} 
 
 ## 필터
 
@@ -41,7 +41,7 @@ Pod 목록을 조회합니다. 원하는 컬럼 선택 시 해당 컬럼 기준�
 
 ## 상세 보기 
 
-***애플리케이션 목록***에서 조회를 원하는 애플리케이션 선택 시 해당 애플리케이션에 대한 상세 정보를 확인할 수 있습니다.
+<Cmdname sid="containerizedAppList" className="uitext" />에서 조회를 원하는 애플리케이션 선택 시 해당 애플리케이션에 대한 상세 정보를 확인할 수 있습니다.
 
 :::note 
 
@@ -51,19 +51,19 @@ Pod 목록을 조회합니다. 원하는 컬럼 선택 시 해당 컬럼 기준�
 
 ### 리소스 
 
-대상 선택 후 상세 보기의 ***리소스*** 탭에서 선택한 리소스와 관련된 리소스 목록 및 관계도를 조회할 수 있습니다. 
+대상 선택 후 상세 보기의 <Cmdname sid="resource" className="uitext" /> 탭에서 선택한 리소스와 관련된 리소스 목록 및 관계도를 조회할 수 있습니다. 
 
-<ImgLang img='k8s-pod-list-detail.png' desc='애플리케이션 목록' />
+<ImgLang img='k8s-pod-list-detail.png' desc='Pod 목록 상세 ' />
 
 #### 요약 정보
 
 선택한 리소스와 관련된 리소스 목록의 요약 정보를 제공합니다. 리소스 명 옆에 상세보기 아이콘을 선택 시 해당 리소스 목록 화면으로 이동합니다. 
 
-* ***컨테이너***: 해당 컨테이너만 필터링된 상태의 ***컨테이너 목록***으로 이동합니다. 
+* <Cmdname sid="container" className="uitext" />: 해당 컨테이너만 필터링된 상태의 <Cmdname sid="container_list" className="uitext" />으로 이동합니다. 
 
-* ***Pod***: 해당 파드만 필터링된 ***Pod 목록***으로 이동합니다. 
+* <Cmdname sid="podName" className="uitext" />: 해당 파드만 필터링된 <Cmdname sid="podList" className="uitext" />으로 이동합니다. 
 
-* ***노드***: 해당 노드 이름이 선택된 상태의 ***노드 상세***로 이동합니다. 
+* <Cmdname sid="node" className="uitext" />: 해당 노드 이름이 선택된 상태의 <Cmdname sid="node_detail" className="uitext" />로 이동합니다. 
 
 #### 리소스 관계도 
 

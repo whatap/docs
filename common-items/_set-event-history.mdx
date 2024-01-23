@@ -54,10 +54,68 @@
 
 * <Cmdname sid="filter" className="uitext" />: <Cmdname sid="title" className="uitext" /> 또는 <Cmdname sid="message" className="uitext" /> 내용을 기준으로 이벤트 기록을 필터링할 수 있습니다.
 
-* <Cmdname sid="all_selected" className="uitext" />: 프로젝트에 포함한 에이전트를 선택할 수 있습니다.
+<InDoc product='java,php,nodejs,python,dotnet,golang,log'>
+
+* <Cmdname sid="application" className="uitext" />: 프로젝트에 포함한 에이전트를 선택할 수 있습니다.
+
+</InDoc>
+
+<InDoc product='postgresql,postgresql-v1,oracle,mysql,mysql-v1,mssql,tibero,cubrid,altibase,redis,mongodb'>
+
+* <Cmdname sid="database" className="uitext" />: 프로젝트에 포함한 에이전트를 선택할 수 있습니다.
+
+</InDoc>
+
+<InDoc product='kubernetes'>
+
+* <Cmdname sid="container" className="uitext" />: 프로젝트에 포함한 에이전트를 선택할 수 있습니다.
+
+</InDoc>
+
+<InDoc product='browser,npm,amazon-cloudwatch,amazon-ecs,aws-log,azure,ncloud,oracle-cloud'>
+
+* <Cmdname sid="agent" className="uitext" />: 프로젝트에 포함한 에이전트를 선택할 수 있습니다.
+
+</InDoc>
 
 * ***CSV***: 조회한 이벤트 기록 결과를 csv 파일로 저장할 수 있습니다. ***CSV*** 버튼을 클릭하면 <Cmdname sid="maximum_csv_lines" className="uitext" />를 입력한 다음 <Cmdname sid="download" className="uitext" /> 버튼을 선택하세요.
 
 * <Cmdname sid="column_select" className="uitext" />: 조회한 이벤트 기록 결과의 열 항목을 추가할 수 있습니다.
 
 * <Cmdname sid="event_setting" className="uitext" />: <Cmdname sid="event_statistic" className="uitext" /> > <Cmdname sid="event_setting" className="uitext" /> 메뉴로 이동합니다.
+
+* <Cmdname sid="title" className="uitext" /> / <Cmdname sid="message" className="uitext" />: <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 추가한 이벤트의 <Cmdname sid="event_name" className="uitext" />과 <Cmdname sid="message" className="uitext" /> 항목의 내용입니다.
+
+  :::note
+
+  * 이벤트 추가에 대한 자세한 내용은 [다음 문서](metric-warning-notice)를 참조하세요.
+
+  * 알림 메시지 사용자 정의에 대한 자세한 내용은 [다음 문서](set-notification-message)를 참조하세요.
+
+  :::
+
+* <Cmdname sid="event_time" className="uitext" />: 이벤트가 발생한 시각입니다. 
+
+  * 이벤트가 해소되지 않고 진행 중일 경우 <Cmdname sid="in_progress" className="uitext" /> 태그가 표시됩니다.
+
+  * 정비 중인 경우 이벤트가 발생하면 <Cmdname sid="ITM07315" className="uitext" /> 태그가 표시됩니다.
+
+  :::note
+
+  <Cmdname sid="sms_maintenance" className="uitext" />에 대한 자세한 내용은 <Link to="../management/maintenance">다음 문서</Link>를 참조하세요.
+
+  :::
+
+* <Cmdname sid="TTL06583" className="uitext" />: 설정한 이벤트가 해결된 시각입니다. 만약 해당 컬럼이 보이지 않는다면 <Cmdname sid="column_select" className="uitext" /> 버튼을 클릭한 다음 <Cmdname sid="TTL06583" className="uitext" />을 선택하세요.
+
+<Xclude product="postgresql,postgresql-v1,oracle,mysql,mysql-v1,mssql,tibero,cubrid,altibase,redis,mongodb">
+
+* <Cmdname sid="application" className="uitext" />: <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 이벤트 추가 시 <Cmdname sid="alert_object_filtering" className="uitext" /> 항목을 설정하면 표시됩니다.
+
+</Xclude>
+
+<InDoc product='postgresql,postgresql-v1,oracle,mysql,mysql-v1,mssql,tibero,cubrid,altibase,redis,mongodb'>
+
+* <Cmdname sid="instance" className="uitext" />: <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 이벤트 추가 시 <Cmdname sid="alert_object_filtering" className="uitext" /> 항목을 설정하면 표시됩니다.
+
+</InDoc>

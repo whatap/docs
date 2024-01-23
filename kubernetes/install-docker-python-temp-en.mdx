@@ -36,17 +36,17 @@ RUN pip3 install --upgrade whatap-python
 See the following definition example of the following Dockerfile. 
 
 ```docker title='python ver 3.10'
-# python3.10을 도커환경에 설치합니다.
+# Install python3.10 In the Docker environment.
 FROM python:3.10
 
-# 작업 디렉토리를 /app 으로 설정합니다.
+# Set the working directory to /app.
 WORKDIR /app
 
-# 현재 디렉토리의 모든 파일과 폴더를 컨테이너 내의 /app 디렉토리에 복사합니다.
+# Copy all the files and folers in the current directory to the /app directory in the container.
 ADD . /app/
 
-# 파이썬에서는 pip를 이용하여 외부 라이브러리를 설치할 수 있습니다. 
-# 와탭 파이썬 에이전트를 도커 이미지 빌드시 설치합니다.
+# In Python, any external library can be installed using pip. 
+# Install the WhaTap Python agent when building the docker image.
 RUN pip3 install --upgrade whatap-python
 ```
 
@@ -60,31 +60,31 @@ Before running the application, determine the Python agent's working directory a
 ```bash title='entrypoint.sh'
 #!/bin/bash
 
-# 컨테이너의 작업 디렉터리를 와탭 경로로 설정하세요. 해당 경로에 에이전트 로그 및 설정 파일을 생성합니다.
+# Set the working directory of the container to the WhaTap path. The agent logs and configuration file are generated in the path.
 export WHATAP_HOME=${PWD}
 
-# 권한 오류 발생 시 다음 주석을 제거 후 진행하세요.
+# If any permission error occurs, remove the following comment.
 #chmod -R 777 $WHATAP_HOME
 
-# 다음은 에이전트 구성에 필수적인 설정 값입니다. 애플리케이션 배포 yaml 파일을 통해 설정합니다.
+# The following lists the settings required for agent configuration. Configure them through the yaml file for release of applications.
 whatap-setting-config \
 --host $whatap_server_host \
 --license $license \
 --app_name $app_name \
 --app_process_name $app_process_name
 
-# 다음 주석은 에이전트 그룹화 및 로그 수집 활성화 등의 추가 설정입니다. 필요한 경우에만 사용하세요.
+# The following comments are additionally configured for agent grouping and activation of log collection. Use them if necessary.
 
-# 에이전트 그룹화
+# Agent grouping
 #echo "okind=$okind" >> whatap.conf
 
-# 로그 수집 활성화
+# Activation of log collection
 #echo "logsink_enabled=true" >> whatap.conf
 #echo "logsink_trace_enabled=true" >> whatap.conf
 #echo "trace_logging_enabled=true" >> whatap.conf
 
 
-# 다음과 같이 whatap-start-agent를 애플리케이션 시작 명령어 앞에 추가해 에이전트를 실행하세요. 
+# Add whatap-start-agent before the application startup command to run the agent.  
 whatap-start-agent uvicorn server:app --host 0.0.0.0 --port 8000
 ```
 
@@ -140,10 +140,10 @@ WORKDIR /app
 ADD . /app/
 RUN pip3 install --upgrade whatap-python 
 
-#entrypoint.sh 스크립트을 컨테이너에서 실행할 수 있도록 권한을 부여합니다.
+# Assign a role to run the entrypoint.sh script in the container.
 RUN chmod +x ./entrypoint.sh
 
-# 컨테이너 생성시 entrypoint.sh 스크립트를 실행합니다.
+# Execute the entrypoint.sh script when generating the container.
 CMD ["./entrypoint.sh"]
 ```
 

@@ -136,7 +136,7 @@ WORKDIR /app
 ADD . /app/
 RUN pip3 install --upgrade whatap-python 
 
-#entrypoint.sh 스크립트을 컨테이너에서 실행할 수 있도록 권한을 부여합니다.
+# entrypoint.sh 스크립트를 컨테이너에서 실행할 수 있도록 권한을 부여합니다.
 RUN chmod +x ./entrypoint.sh
 
 # 컨테이너 생성시 entrypoint.sh 스크립트를 실행합니다.

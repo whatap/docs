@@ -33,4 +33,27 @@ draft: false
 
   :::
 
+---
+
+### `Database`
+
+- <Status>Deprecated</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_history" className="uitext" /> 메뉴에서 <Cmdname sid="alert_log" className="uitext" /> 버튼 삭제
+
+---
+
+### `Network`
+
+- <Status>Feature</Status> 에이전트 설치 시 AWS의 리소스를 식별하기 위한 옵션 추가
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="MNU06848" className="uitext" /> 메뉴에서 프리셋을 선택한 상태로 페이지를 새로 고침하면 모든 태그가 미선택 상태로 표시되는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> 하위 메뉴에서 검색할 수 있는 누락된 필드 추가, 각 메뉴에서 검색할 수 있는 필드만 노출하도록 수정
+
+  - 다음 두 메뉴에서 <code>session_count</code> 필드 추가
+
+  - <Cmdname sid="MNU06850" className="uitext" />: <code>avg_jitter</code>, <code>avg_latency</code> 추가
+
+  - <Cmdname sid="MNU06851" className="uitext" />: <code>avg_jitter</code>, <code>avg_latency</code>, <code>lost_count</code>, <code>retransmission_count</code> 필드가 표시되지 않도록 수정
+
+
 </div>

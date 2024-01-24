@@ -5,14 +5,194 @@ description: 컨테이너 내 PHP 애플리케이션을 모니터링하기 위�
 tags: [ 쿠버네티스, 쿠버네티스 모니터링, 애플리케이션 설치, PHP ]
 ---
 
-<!--에이전트 다운로드-->
-{@include: ../common-items/_php-docker-download-agent.mdx} 
+***관리*** > ***에이전트 설치*** > 하단의 ***애플리케이션 설치*** 클릭 > 설치 안내 중 ***Docker PHP*** 탭 선택
 
-<!--에이전트 설정-->
-{@include: ../common-items/_php-docker-setting-agent.mdx}
+Docker 컨테이너 기반으로 실행하는 PHP 애플리케이션에 와탭 모니터링 에이전트를 적용하고 컨테이너 이미지를 패키징하는 과정을 다음과 같이 안내합니다. 
 
-<!--K8s 환경변수 및 볼률 설정-->
-{@include: ../common-items/_php-docker-setting-k8s.mdx} 
+:::note 
 
-<!--모니터링 시작하기-->
-{@include: ../common-items/_php-docker-start-monitoring.mdx}
+EKS Fargate는 지원 예정입니다. 
+
+:::
+
+## 에이전트 다운로드
+
+PHP 애플리케이션 도커 이미지 빌드 시 whatap-php 패키지를 설치하세요.
+
+
+<Tabs>
+<TabItem value="rc" label="Red Hat/CentOS" default>
+
+```docker title='Red Hat/CentOS'
+
+RUN rpm -Uvh https://repo.whatap.io/centos/5/noarch/whatap-repo-1.0-1.noarch.rpm
+RUN yum install -y whatap-php
+
+```
+
+</TabItem>
+
+<TabItem value="du" label="Debian/Ubuntu" default>
+
+```docker title='Debian/Ubuntu'
+
+RUN wget https://repo.whatap.io/debian/release.gpg -O -| apt-key add -
+RUN wget https://repo.whatap.io/debian/whatap-repo_1.0_all.deb
+RUN dpkg -i whatap-repo_1.0_all.deb
+RUN apt-get update
+RUN apt-get install -y whatap-php
+
+```
+
+</TabItem>
+
+<TabItem value="al" label="Amazon Linux" default>
+
+```docker title='Amazon Linux'
+
+RUN rpm --import https://repo.whatap.io/centos/release.gpg
+RUN echo "[whatap]" | tee /etc/yum.repos.d/whatap.repo > /dev/null
+RUN echo "name=whatap packages for enterprise linux" | tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+RUN echo "baseurl=https://repo.whatap.io/centos/latest/\$basearch" | tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+RUN echo "enabled=1" | tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+RUN echo "gpgcheck=0" | tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+RUN yum install -y whatap-php
+
+```
+
+</TabItem>
+
+<TabItem value="apl" label="Alpine Linux" default>
+
+```docker title='Alpine Linux'
+
+RUN wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-php.tar.gz
+RUN tar -xvzf whatap-php.tar.gz -C /
+
+```
+
+</TabItem>
+
+</Tabs>
+
+## 에이전트 설정
+
+* 다음 명령어를 이용해 설치 스크립트를 설정하세요. 와탭 액세스 키, 서버 IP 정보를 입력하면 PHP 환경 정보를 자동으로 수집합니다.
+
+  ```docker
+  RUN (echo "[액세스 키]"; echo "[서버 IP]")|/usr/whatap/php/install.sh
+  ```
+
+* 다음과 같이 PHP 환경 정보를 직접 입력할 수 있습니다. 
+
+  ```docker
+  # RUN /usr/whatap/php/install.sh -l [액세스 키] -s [서버 IP] -v [PHP 버전 x.x] -i [php.ini의 전체 경로] -p [프로세스명] -z [thread safety]
+  RUN /usr/whatap/php/install.sh -l xxxxx -s 1.1.1.1/2.2.2.2 -v 7.0 -i /etc/php.ini -p httpd [-z]
+  ```
+
+:::note 
+
+**액세스 키**가 Docker Public 상태의 이미지에 노출되지 않도록 주의하세요.
+
+:::
+
+## 컨테이너 환경변수 설정
+
+Docker 빌드 후 쿠버네티스 환경 내 **컨테이너 환경변수**를 설정하세요. 애플리케이션 배포 *yaml* 파일에 다음 내용을 추가하세요. 
+
+```yaml
+
+env:
+- name: NODE_IP
+  valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+- name: NODE_NAME
+  valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+- name: POD_NAME
+  valueFrom: {fieldRef: {fieldPath: metadata.name}}
+
+```
+
+다음 예시를 참조하세요. 
+
+
+```yaml 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: # Pod Name
+  labels: # Pod Labels
+spec:
+  containers:
+	  env:
+    - name: NODE_IP
+      valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+    - name: NODE_NAME
+      valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+    - name: POD_NAME
+      valueFrom: {fieldRef: {fieldPath: metadata.name}}
+```
+
+:::note 
+
+**환경변수 역할**
+
+* `NODE_IP`: 현재 Pod가 호스팅된 노드(Node)의 IP 주소를 수집합니다.
+
+* `NODE_NAME`: 현재 Pod가 실행 중인 노드의 이름을 수집합니다.
+
+* `POD_NAME`: 현재 Pod의 이름을 수집합니다.
+
+:::
+
+## 에이전트 실행 
+
+<Tabs>
+<TabItem value="cm" label="Command" default>
+
+애플리케이션 시작 명령어 앞에 추가로 whatap-php 시작 명령어를 추가하세요. 
+
+```docker'
+sh -c "/usr/whatap/php/whatap-php start && [애플리케이션 시작 명령어]"
+```
+
+</TabItem>
+
+<TabItem value="sup" label="Supervisor" default>
+
+Supervisor로 애플리케이션을 시작하는 경우 다음 코드를 참조해 whatap-php 서비스를 추가하세요.
+
+```docker
+
+RUN echo "[program:whatap-php]" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "command = /usr/whatap/php/whatap-php start" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "user = root" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "autostart = true" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "autorestart = true" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "stdout_logfile = /dev/stdout" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "stdout_logfile_maxbytes=0" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "stderr_logfile = /dev/stderr" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "stderr_logfile_maxbytes=0" >> /etc/supervisor/conf.d/whatap.conf
+
+```
+
+</TabItem>
+
+</Tabs>
+
+다음 명령어를 실행해 와탭 서비스가 정상 실행되었는지 확인하세요. 애플리케이션 서버가 실행되면 에이전트가 모니터링 정보를 수집하기 시작합니다.
+
+```docker
+
+ps -ef | grep whatap_php
+
+```
+
+## 에이전트 설치 확인
+
+에이전트를 제대로 설치했는지 확인하려면 <Cmdname sid="dashboard" className="uitext" /> > <Cmdname sid="serviceDashboard" className="uitext" /> 메뉴로 이동하세요.
+
+다운로드한 파일을 직접 설치한 다음, <Cmdname sid="dashboard" className="uitext" /> 메뉴에서 에이전트를 확인할 수 없다면 다음 사항을 확인하세요.
+
+* 컨테이너에서 `ps -ef | grep whatap` 명령어를 실행해 에이전트 옵션을 적용했는지 확인하세요.
+
+* 컨테이너의 */usr/whatap/php/logs* 경로의 내용을 확인하세요. 에이전트 로그는 *logs/whatap-`{boot or install}`-yyyymmdd.log* 형식의 파일명으로 출력됩니다.

@@ -1,0 +1,101 @@
+---
+id: preview-2_2_0x
+title: Preview 2.2.0.a
+toc_max_heading_level: 2
+draft: false
+---
+
+<head>
+<meta name="robots" content="noindex, nofollow"/>
+</head>
+
+:::note
+
+[https://preview.whatap.io](https://preview.whatap.io)에서 다음 추가한 신기능과 수정한 내용을 미리 경험할 수 있습니다. 
+
+:::
+
+## Preview 2.2.0.a0
+
+2024년 01월 25일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Feature</Status> SSO 계정 연동 기능 추가
+
+  화면 오른쪽 위에 프로필 아이콘을 선택한 다음 <Cmdname sid="MNU07360" className="uitext" /> &gt; <Cmdname sid="ssoIntegrations" className="uitext" />을 선택하세요.
+
+  :::note
+
+  SSO 계정 연동에 대한 자세한 내용은 [다음 문서](../../account/sso)를 참조하세요.
+
+  :::
+
+- <Status>Feature</Status> 사이드 메뉴 개편
+
+  사이드 메뉴가 새단장을 했습니다. 기존에 프로젝트 목록과 프로젝트 메뉴가 상하로 분리된 UI 구조에서 메뉴 집중형 구조로 개편했습니다. 자세한 내용을 확인하려면 사이드 메뉴 아래에 <Cmdname sid="BTN07397" className="uitext" /> 버튼을 선택하세요.
+
+  <ImgLang img='release/release-main-ui.png' desc='' />
+
+  :::note
+
+  사이드 메뉴에 대한 자세한 내용은 [다음 문서](../../main-ui-intro-v2)를 참조하세요.
+
+  :::
+
+- <Status>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 메트릭스 이벤트를 추가 또는 편집 시 <Cmdname sid="category" className="uitext" /> 항목의 제품 로고에 적용된 다크 테마 시인성 개선
+
+- <Status>Changed</Status> <Cmdname sid="add_group" className="uitext" /> 페이지의 제목 변경, <Cmdname sid="project_list" className="b500" /> → <Cmdname sid="add_group" className="uitext" />
+
+---
+
+### `Database`
+
+#### 공통
+
+<p><Status>Deprecated</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_history" className="uitext" /> 메뉴에서 <Cmdname sid="alert_log" className="uitext" /> 버튼 삭제</p>
+
+#### DB <code class="my">V2</code> 
+
+<p><Status>Changed</Status> 프로젝트 V1 지원 종료 관련 안내 팝업창의 날짜 변경</p>
+
+#### PostgreSQL <code class="my">V2</code>
+
+<p><Status>Feature</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="db_parameter" className="uitext" /> 메뉴에서 <span class="uitext">Value</span> 컬럼 표기 시 일부 값에 단위 표기 추가</p>
+
+---
+
+### `Kubernetes`
+
+- <Status>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="containerMap" className="uitext" /> 메뉴에서 레플리케이션 컨트롤러(ReplicationController) 그룹화 옵션 추가
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="containerMap" className="uitext" /> 메뉴에서 이전에 선택한 그룹화 옵션과 관련된 데이터가 없는 경우 데이터가 보이지 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="resource" className="uitext" /> &gt; <Cmdname sid="container_volume" className="uitext" /> 메뉴에서 UsedPercent가 100%일 때 아이콘 수정
+
+---
+
+### `Log`
+
+<p><Status>Changed</Status> <Cmdname sid="log" className="uitext" /> 메뉴에서 테이블의 설정값을 해당 프로젝트의 <Cmdname sid="logTail" className="uitext" />, <Cmdname sid="log_search" className="uitext" />, <Cmdname sid="logExplorer" className="uitext" /> 메뉴에서 모두 공유되도록 수정</p>
+
+---
+
+### `Network`
+
+- <Status>Feature</Status> 에이전트 설치 시 AWS의 리소스를 식별하기 위한 옵션 추가
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="MNU06848" className="uitext" /> 메뉴에서 프리셋을 선택한 상태로 페이지를 새로 고침하면 모든 태그가 미선택 상태로 표시되는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> 하위 메뉴에서 검색할 수 있는 누락된 필드 추가, 각 메뉴에서 검색할 수 있는 필드만 노출하도록 수정
+
+  - 다음 두 메뉴에서 <code>session_count</code> 필드 추가
+
+  - <Cmdname sid="MNU06850" className="uitext" />: <code>avg_jitter</code>, <code>avg_latency</code> 필드 추가
+
+  - <Cmdname sid="MNU06851" className="uitext" />: <code>avg_jitter</code>, <code>avg_latency</code>, <code>lost_count</code>, <code>retransmission_count</code> 필드가 표시되지 않도록 수정
+
+
+</div>

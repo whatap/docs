@@ -28,8 +28,8 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링 ]
 
 | 기준 뷰  | 그룹화 속성                                                                                                                        |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| 컨테이너 | 미설정 (All)<br/>Node<br/>Namespace<br/>Deployment<br/>ReplicaSet<br/>Pod<br/>ContainerName<br/>Image<br/>DemonSet<br/>StatefulSet |
-| Pod      | 미설정 (All)<br/>Node<br/>Namespace<br/>Deployment<br/>ReplicaSet                                                                  |
+| Container | 미설정 (All)<br/>Node<br/>Namespace<br/>Deployment<br/>ReplicaSet<br/>Pod<br/>ContainerName<br/>Image |
+| Pod      | 미설정 (All)<br/>Node<br/>Namespace<br/>Deployment<br/>ReplicaSetDemonSet<br/>StatefulSet                                             |
 
 {@include: ../common-items/_container-note-reset.mdx}
 
@@ -49,7 +49,7 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링 ]
 
 | 기준 뷰  | 리소스 지표                                                                   | 애플리케이션 지표                                           |
 | -------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| 컨테이너 | CpuByLimit<br/>CpuByRequest<br/>MemByLimit<br/>NetRxBytes<br/>NetTxBytes<br/> | Normal TX<br/>Slow TX<br/>Very Slow TX<br/>Total TX<br/>TPS |
+| Container | CpuByLimit<br/>CpuByRequest<br/>MemByLimit<br/>NetRxBytes<br/>NetTxBytes<br/> | Normal TX<br/>Slow TX<br/>Very Slow TX<br/>Total TX<br/>TPS |
 | Pod      | CpuTotUsage<br/>CpuByNode<br/>MemUsage<br/>NetRxBytes<br/>NetTxBytes          | ^                                                           |
 
 사용자의 커서가 ***Container*** (또는 ***Pod***), ***ActiveTX*** 위에 올라가 있으면 각 메트릭에 대한 설명을 팝업으로 확인할 수 있습니다.

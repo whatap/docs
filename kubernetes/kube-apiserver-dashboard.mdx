@@ -1,0 +1,259 @@
+---
+id: kube-apiserver-dashboard
+title: kube-apiserver 대시보드
+description: kube-apiserver 대시보드를 안내합니다.
+tags: [ 쿠버네티스, 쿠버네티스 모니터링, kube-apiserver, 컨트롤 플레인 ]
+toc_max_heading_level: 2
+---
+
+홈 화면 > 클러스터 프로젝트 선택 > ***대시보드*** > ***kube-apiserver 대시보드***
+
+kube-apiserver는 **컨트롤 플레인**(Control Plane) 내부 및 외부의 요청을 처리하는 컴포넌트입니다. ***kube-apiserver 대시보드*** 메뉴를 통해 kube-apiserver의 상태와 성능 메트릭을 수집 후 kube-apiserver의 응답 시간, 처리량, 요청 실패 등을 추적해 클러스터의 가용성과 성능을 쉽게 모니터링할 수 있습니다.
+
+:::note
+
+**권한**
+
+***kube-apiserver 대시보드*** 메뉴를 사용하기 위해서 쿠버네티스 클러스터 프로젝트 **읽기 권한**이 필요합니다.
+
+:::
+
+## kube-apiserver 모니터링 활성화 
+
+와탭 쿠버네티스 에이전트 설치 시 다운로드한 *yaml* 파일을 다음 안내에 따라 수정해 kube-apiserver 모니터링을 활성화하세요. 
+
+1. `whatap-master-agent` deployment의 spec 하위에 kube-apiserver 모니터링을 위한 에이전트 컨테이너 spec을 추가하세요.
+
+  ```yaml
+  containers:
+    - name: whatap-control-plane-helper
+      image: whatap/kube_mon
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 9496
+      command: ["/data/agent/master/whatap_control_plane_helper"]
+      args: ["-collect_control_plane_monitoring_enabled=true"]
+  ```
+
+  다음 예시를 참조하세요. 
+
+  ```yaml {17-23}
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: whatap-master-agent
+    namespace: whatap-monitoring
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        name: whatap-master-agent
+    template:
+      metadata:
+        labels:
+          name: whatap-master-agent
+      spec:
+        containers:
+          - name: whatap-control-plane-helper
+            image: whatap/kube_mon
+            imagePullPolicy: Always
+            ports:
+              - containerPort: 9496
+            command: ["/data/agent/master/whatap_control_plane_helper"]
+            args: ["-collect_control_plane_monitoring_enabled=true"]
+          - name: whatap-master-agent
+            image: whatap/kube_mon
+            imagePullPolicy: Always
+            resources:
+              requests:
+                memory: 300Mi
+                cpu: 100m
+              limits:
+                memory: 350Mi
+                cpu: 200m
+            ports:
+              - containerPort: 6600
+            command: ['/bin/entrypoint.sh']
+            env:
+              - name: WHATAP_LICENSE
+                value: "xxxxxxxx-12345xxxxxx-x00e000000xxx8"
+              - name: WHATAP_HOST
+                value: "13.124.11.223/13.209.172.35"
+              - name: WHATAP_PORT
+                value: "6600"
+              - name: WHATP_MEM_LIMIT
+                valueFrom:
+                  resourceFieldRef:
+                    containerName: whatap-master-agent
+                    resource: limits.memory
+            volumeMounts:
+              - name: start-script-volume
+                mountPath: /bin/entrypoint.sh
+                readOnly: true
+                subPath: entrypoint.sh
+              - mountPath: /whatap_conf
+                name: whatap-config-volume
+        volumes:
+          - name: start-script-volume
+            configMap:
+              defaultMode: 0700
+              name: master-start-script
+          - name: whatap-config-volume
+            emptyDir: {}
+        serviceAccount: whatap
+  ```
+
+1. `whatap-master-agent` deployment의 `whatap-master-agent` 컨테이너 spec에서 env 설정에 다음 내용을 추가하세요. 
+
+  ```yaml 
+  env:
+    - name: collect_control_plane_monitoring_enabled
+      value: "true"
+  ```
+
+  다음 예시를 참조하세요. 
+
+  ```yaml {38-39}
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: whatap-master-agent
+    namespace: whatap-monitoring
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        name: whatap-master-agent
+    template:
+      metadata:
+        labels:
+          name: whatap-master-agent
+      spec:
+        containers:
+          - name: whatap-control-plane-helper
+            image: whatap/kube_mon
+            imagePullPolicy: Always
+            ports:
+              - containerPort: 9496
+            command: ["/data/agent/master/whatap_control_plane_helper"]
+            args: ["-collect_control_plane_monitoring_enabled=true"]
+          - name: whatap-master-agent
+            image: whatap/kube_mon
+            imagePullPolicy: Always
+            resources:
+              requests:
+                memory: 300Mi
+                cpu: 100m
+              limits:
+                memory: 350Mi
+                cpu: 200m
+            ports:
+              - containerPort: 6600
+            command: ['/bin/entrypoint.sh']
+            env:
+              - name: collect_control_plane_monitoring_enabled
+                value: "true"
+              - name: WHATAP_LICENSE
+                value: "xxxxxxxx-12345xxxxxx-x00e000000xxx8"
+              - name: WHATAP_HOST
+                value: "13.124.11.223/13.209.172.35"
+              - name: WHATAP_PORT
+                value: "6600"
+              - name: WHATP_MEM_LIMIT
+                valueFrom:
+                  resourceFieldRef:
+                    containerName: whatap-master-agent
+                    resource: limits.memory
+            volumeMounts:
+              - name: start-script-volume
+                mountPath: /bin/entrypoint.sh
+                readOnly: true
+                subPath: entrypoint.sh
+              - mountPath: /whatap_conf
+                name: whatap-config-volume
+        volumes:
+          - name: start-script-volume
+            configMap:
+              defaultMode: 0700
+              name: master-start-script
+          - name: whatap-config-volume
+            emptyDir: {}
+        serviceAccount: whatap
+  ```
+
+1. 컨트롤 플레인 모니터링 성능 지표를 수집하기 위해 `whatap` ClusterRole에 다음의 권한을 추가하세요. 
+
+  ```yaml 
+  rules:
+    - nonResourceURLs: ["/metrics"]
+      verbs: ["*"]
+  ```
+
+  다음 예시를 참조하세요. 
+
+  ```yaml {18-19} 
+  apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRole
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    name: whatap
+    namespace: whatap-monitoring
+  rules:
+    - apiGroups: ["*"]
+      resources: ["namespaces", "pods", "pods/log", "configmaps","services", "endpoints","daemonsets","ingresses","deployments","nodes","persistentvolumes","persistentvolumeclaims", "events", "replicasets", "roles", "rolebindings", "clusterroles", "clusterrolebindings", "jobs", "cronjobs", "statefulsets", "serviceaccounts", "configmaps", "storageclasses", "horizontalpodautoscalers" ]
+      verbs: ["get","list","watch"]
+    - apiGroups: [""]
+      resources: ["pods/exec"]
+      verbs: ["create"]
+    - apiGroups: [""]
+      resources: ["configmaps"]
+      verbs: ["*"]
+    - nonResourceURLs: ["/metrics"]
+      verbs: ["*"]
+  ---
+  ```
+
+:::note 
+
+`kubectl apply` 또는 `kubectl edit` 명령을 통해 kube-apiserver 모니터링을 활성화할 수도 있습니다. 
+
+:::
+
+## 기본 화면 안내 
+
+<ImgLang img='k8s-kube-apiserver.png' desc='kube-apiserver 대시보드'/>
+
+***kube-apiserver 대시보드*** 메뉴는 최근 1시간 동안의 kube-apiserver 주요 지표를 1분 주기로 반영합니다. 다음과 같은 지표를 확인할 수 있습니다. 지표 상세는 하단 [메트릭 안내](#kube-apiserever-metric)를 참조하세요.
+
+* 클러스터 부하 및 사용량 모니터링을 위해 메소드, 리소스, 응답 코드별 요청 횟수 현황 및 추이를 제공합니다. 
+
+* 클러스터 부하 상태를 파악할 수 있도록 현재 처리 중인 API 요청 수를 제공합니다. 
+
+* 생성된 OS 스레드와 현재 존재하는 고루틴의 수를 제공합니다. 
+
+
+## kube-apiserver 메트릭{#kube-apiserever-metric}
+
+| 분류                         | 메트릭                                             | 설명                                                                                                                               |
+| ---------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| API GET 요청                 | 분당 GET 요청 현황                                   | kube-apiserver 의 GET 요청에 대한 분당 요청 수                                                                                     |
+| ^                            | 초당 GET 요청 수 추이                                | kube-apiserver 의 GET 요청에 대한 초당 요청 수 추이                                                                                |
+| ^                            | Resource & Subresource 별 분당 GET 요청 수 추이      | kube-apiserver 에 들어온 GET 요청의 Resource 와 Subresource 별 분당 요청 수 추이                                                   |
+| API POST 요청                | 분당 POST 요청 현황                                  | kube-apiserver 의 POST 요청에 대한 분당 요청 수                                                                                    |
+| ^                            | 초당 POST 요청 수 추이                               | kube-apiserver 의 POST 요청에 대한 초당 요청 수 추이                                                                               |
+| ^                            | Resource & Subresource 별 POST 분당 요청 수 추이     | kube-apiserver 에 들어온 POST 요청에 대해  Resource 와 Subresource 별로 그룹화 한 분당 요청 수 추이                                |
+| API 응답 코드별 요청         | [ 2xx ] 분당 응답 요청 현황                          | kube-apiserver 요청 중 200 이상 300 미만의 응답 코드가 내려진 요청 수에 대한 분당 현황                                             |
+| ^                            | [ 2xx ] 분당 응답 코드별 요청 수 추이                | kube-apiserver 요청 중 200 이상 300 미만의 응답 코드가 내려진 요청 수에 대한 응답 코드별 분당 현황                                 |
+| ^                            | [ 2xx ] 분당 Resource & Subresource 별 요청 수 추이  | kube-apiserver 요청 중 200 이상 300 미만의 응답 코드가 내려진 요청에 대해 Resource 와 Subresource 별로 그룹화 한 분당 요청 수 추이 |
+| ^                            | [ 3xx ] 분당 응답 요청 현황                          | kube-apiserver 요청 중 300 이상 400 미만의 응답 코드가 내려진 요청 수에 대한 분당 현황                                             |
+| ^                            | [ 3xx ] 분당 응답 코드별 요청 수 추이                | kube-apiserver 요청 중 300 이상 400 미만의 응답 코드가 내려진 요청 수에 대한 응답 코드별 분당 현황                                 |
+| ^                            | [ 3xx ] 분당 Resource & Subresource 별 요청 수 추이  | kube-apiserver 요청 중 300 이상 400 미만의 응답 코드가 내려진 요청에 대해 Resource 와 Subresource 별로 그룹화 한 분당 요청 수 추이 |
+| ^                            | [ 400~ ] 분당 응답 요청 현황                         | kube-apiserver 요청 중 400 이상의 응답 코드가 내려진 요청 수에 대한 분당 현황                                                      |
+| ^                            | [ 400~ ] 분당 응답 코드별 요청 수 추이               | kube-apiserver 요청 중 400 이상의 응답 코드가 내려진 요청 수에 대한 응답 코드별 분당 현황                                          |
+| ^                            | [ 400~ ] 분당 Resource & Subresource 별 요청 수 추이 | kube-apiserver 요청 중 400 이상의 응답 코드가 내려진 요청에 대해 Resource 와 Subresource 별로 그룹화 한 분당 요청 수 추이          |
+| Go Metrics                   | 고루틴 수                                            | 현재 존재하는 고루틴 수                                                                                                            |
+| ^                            | 스레드 수                                            | 현재 존재하는 OS 스레드 수                                                                                                         |
+| 현재 실행 중인 요청 수 (1초) | 최근 1초 내 실행 중인 요청 수                        | 데이터 수집 시 kube-apiserver 에서 1초 내에 진행되고 있던 요청 수                                                                  |
+
+

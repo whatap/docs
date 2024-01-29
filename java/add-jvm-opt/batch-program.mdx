@@ -91,11 +91,11 @@ active_stack_start_wait_time=1000
 ### 배치 호스트(Batch Host) 실행 명령어
 
 ```bash title='Batch Host Agent'
-java -cp {BATCH_HOST_HOME}/whatap.agent.batch.host-x.y.z.jar:{BATCH_HOST_HOME}/whatap.agent-x.y.z.jar -Dwhatap.name=batch whatap.agent.batch.App
+java -cp {BATCH_HOST_HOME}/whatap.agent.batch.host-x.y.z.jar;{BATCH_HOST_HOME}/whatap.agent-x.y.z.jar -Dwhatap.name=batch whatap.agent.batch.App
 ```
 
 ```bash title='Batch Host Agent, Java 17 or later'
-java --add-opens=java.base/java.lang=ALL-UNNAMED -cp {BATCH_HOST_HOME}/whatap.agent.batch.host-x.y.z.jar:{BATCH_HOST_HOME}/whatap.agent-x.y.z.jar -Dwhatap.name=batch whatap.agent.batch.App
+java --add-opens=java.base/java.lang=ALL-UNNAMED -cp {BATCH_HOST_HOME}/whatap.agent.batch.host-x.y.z.jar;{BATCH_HOST_HOME}/whatap.agent-x.y.z.jar -Dwhatap.name=batch whatap.agent.batch.App
 ```
 
 ### 배치 에이전트(Batch Agent) 실행 명령어

@@ -63,11 +63,11 @@ tags: [ 네트워크 성능 모니터링, 대시보드, 네트워크 토폴로�
 
 <ImgLang img="npm-dashboard-topology-edge.png" desc="엣지" />
 
-토폴로지 차트의 엣지에 표시할 값의 종류를 선택할 수 있습니다. <Cmdname sid="MNU06813" className="uitext" /> 항목에서 원하는 지표를 선택할 수 있습니다. 엣지에 표시 가능한 성능 지표의 종류는 다음과 같습니다.
-
-* ***latency***
+토폴로지 차트의 엣지에 표시할 값의 종류를 선택할 수 있습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에서 원하는 지표를 선택할 수 있습니다. 엣지에 표시 가능한 성능 지표의 종류는 다음과 같습니다.
 
 * ***jitter***
+
+* ***latency***
 
 * ***bps***(bit per second)
 
@@ -77,25 +77,18 @@ tags: [ 네트워크 성능 모니터링, 대시보드, 네트워크 토폴로�
 
 :::note
 
-<Cmdname sid="MNU06813" className="uitext" /> 항목에서 선택한 지표의 종류에 따라 세 번째 항목도 같이 변경됩니다. 세 번째 항목에서는 선택한 지표의 임계치를 설정할 수 있습니다.
+* <Cmdname sid="MNU06813" className="uitext" /> 항목에서 선택한 지표의 종류에 따라 두 번째 항목도 같이 변경됩니다. 두 번째 항목에서는 선택한 지표의 임계치를 설정할 수 있습니다.
 
-<ImgLang img='npm-dashboard-settings-threshold.png' desc='임계치 설정' />
+  <ImgLang img='npm-dashboard-settings-threshold.png' desc='임계치 설정' />
+
+* <Cmdname sid="ITM07578" className="uitext" /> 항목에서 선택한 값에 따라 노드 크기의 가중치가 자동 설정됩니다.
 
 :::
 
 
-#### 노드 크기 설정하기
-
-<Cmdname sid="MNU06814" className="uitext" /> 항목에서는 토폴로지 차트에 표시되는 노드 크기의 가중치 종류를 설정할 수 있습니다. 데이터 또는 패킷 처리량에 따라 노드의 크기가 달라집니다.
-
-* ***Total bytes*** : 데이터 처리량을 가중치로 설정합니다. 데이터 처리량은 송신 데이터량 및 수신 데이터량의 총합입니다.
-
-* ***Packet counts*** : 패킷 처리량을 가중치로 설정합니다. 패킷 처리량은 송신 패킷량 및 수신 패킷량의 총합입니다.
-
-
 #### 임계치 설정하기
 
-세 번째 항목과 <Cmdname sid="TTL06840" className="uitext" /> 항목에서는 엣지로 설정된 지표에 대한 임계치와 단위를 설정할 수 있습니다. 임계치를 넘어가는 엣지는 토폴로지 상에서 강조 표시됩니다. 
+두 번째 항목과 <Cmdname sid="TTL06840" className="uitext" /> 항목에서는 엣지로 설정된 지표에 대한 임계치와 단위를 설정할 수 있습니다. 임계치를 넘어가는 엣지는 토폴로지 상에서 강조 표시됩니다. 
 
 별도로 설정 과정이 없다면 임계치와 단위는 다음과 같이 기본 설정됩니다. 
 

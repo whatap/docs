@@ -8,11 +8,13 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 에이전트 업데이트
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::note 
+
+EKS Fargate는 지원 예정입니다. 
+
+:::
+
 에이전트 업데이트가 필요한 경우 다음 명령을 실행하세요.
-
-<Tabs groupId='k8stype'>
-
-<TabItem value='kubernetes' label='KUBERNETES' default>
 
 * **마스터 에이전트**
 
@@ -26,19 +28,6 @@ import TabItem from '@theme/TabItem';
   kubectl set image -n whatap-monitoring daemonset/whatap-node-agent whatap-node-agent=whatap/kube_mon:{agent_version}
   ```
 
-</TabItem>
-
-<TabItem value='eksfragate' label='EKS Fargate(지원 예정)'>
-
-**마스터 에이전트**
-
-```
-kubectl set image deployment/whatap-master-agent whatap-master-agent=whatap/kube_mon:{agent_version}
-```
-
-</TabItem>
-
-</Tabs>
 
 :::note
 

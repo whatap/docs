@@ -15,6 +15,75 @@ draft: false
 
 :::
 
+## Preview 2.2.0.a3
+
+2024년 02월 01일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Changed</Status> <Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="project_subscription" className="uitext" /> 메뉴에서 <Cmdname sid="include_project_has_not_billing" className="b500" /> 문구를 <Cmdname sid="DSC07606" className="uitext" />로 변경, 툴팁 추가
+
+- <Status>Fixed</Status> <Cmdname sid="integrated_member_management" className="uitext" /> 메뉴에서 멤버 목록 테이블의 너비 수정
+
+- <Status>Fixed</Status> <Cmdname sid="MNU07360" className="uitext" /> &gt; <Cmdname sid="my_profile" className="uitext" /> 메뉴에서 회원 탈퇴 불가 사유 복사 시 태그까지 복사되는 문제 수정
+
+- <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 다음의 기능을 추가 및 수정합니다.
+
+  - <Status>Feature</Status> 그룹 위젯 복사 기능 추가
+
+  - <Status>Fixed</Status> 이벤트 타임라인 위젯의 이벤트 횟수가 간헐적으로 실제 이벤트 발생 횟수와 다르게 증가하는 현상 수정
+
+  - <Status>Fixed</Status> 대시보드 불러오기를 실패할 경우 대시보드 목록으로 이동하도록 수정
+
+---
+
+### `Application`
+
+<p><Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 에이전트 필터링(<code>okind</code>, <code>onode</code>)이 적용되지 않는 문제 수정</p>
+
+---
+
+### `Database`
+
+#### 공통
+
+<p><Status>Changed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴에서 DB 유저 파일 생성을 위한 명령어 입력 시 운영체제에 따른 고려 사항 추가</p>
+
+#### Redis
+
+<p><Status>Changed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴에서 Redis 버전에 따라 다른 <em>uid.sh</em> 실행 명령어에 대한 설명 추가</p>
+
+---
+
+### `Kubernetes`
+
+- <Status>Feature</Status> 마스터 및 노드 에이전트 설치 현황 확인할 수 있는 <Cmdname sid="kubernetesAgentList" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 클러스터 프로젝트 전용이며, <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="kubernetesAgentList" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+  :::
+
+- <Status>Changed</Status> <Cmdname sid="container" className="uitext" /> &gt; <Cmdname sid="container_list" className="uitext" /> 메뉴에서 비교하기 기능 이용 시 <Cmdname sid="kube_default" className="uitext" />, <Cmdname sid="kube_cpu" className="uitext" /> 탭에 <span class="uitext">Container CPU Usage</span> 차트 추가
+
+---
+
+### `Log`
+
+<p><Status>Changed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 로그 모니터링 비활성화 시 표시되는 안내 메시지의 스타일 수정</p>
+
+---
+
+### `AWS Log`
+
+<p><Status>Fixed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴에서 사용자가 선택한 언어에 맞는 가이드를 연결하도록 수정</p>
+
+</div>
+
+
 ## Preview 2.2.0.a2
 
 2024년 01월 26일

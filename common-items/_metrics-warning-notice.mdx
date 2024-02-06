@@ -1,13 +1,24 @@
+
+<Xclude product="npm">
+
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="metrics" className="uitext" /> 탭 선택
 
+</Xclude>
+
+<InDoc product="npm">
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" />
+
+</InDoc>
+
 ## 메트릭스 이벤트란?
+
+<Xclude product='npm'>
 
 메트릭스 이벤트는 기본 이벤트(애플리케이션 이벤트, 서버 이벤트 등)보다 구체적이고 복잡한 이벤트를 설정할 때 사용합니다. 프로젝트에서 실시간으로 수집 중인 메트릭스 데이터를 기반으로 이벤트를 설정할 수 있습니다. 사용에 따라 두 가지 설정 방법 중 하나를 선택해 이벤트를 설정할 수 있습니다.
 
 - 메트릭스 이벤트
 - 복합 메트릭스 이벤트
-
-<Xclude product='npm'>
 
 :::note
 
@@ -19,6 +30,8 @@
 
 <InDoc product='npm'>
 
+메트릭스 이벤트는 기본 이벤트(애플리케이션 이벤트, 서버 이벤트 등)보다 구체적이고 복잡한 이벤트를 설정할 때 사용합니다. 프로젝트에서 실시간으로 수집 중인 메트릭스 데이터를 기반으로 이벤트를 설정할 수 있습니다.
+
 :::note
 
 메트릭스에 대한 자세한 내용은 [다음 문서](../metrics/common-metrics-intro)를 참조하세요.
@@ -29,7 +42,17 @@
 
 ## 메트릭스 이벤트
 
+<Xclude product="npm">
+
 <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 화면 위에 <Cmdname sid="metrics" className="uitext" />를 선택하세요. 화면 오른쪽 위에 <Cmdname sid="add_notification" className="uitext" />를 선택하세요. <Cmdname sid="metrics_event" className="uitext" /> 창이 나타납니다.
+
+</Xclude>
+
+<InDoc product="npm">
+
+<Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 화면 오른쪽 위에 <Cmdname sid="add_notification" className="uitext" />를 선택하세요. <Cmdname sid="metrics_event" className="uitext" /> 창이 나타납니다.
+
+</InDoc>
 
 <ImgLang img='set-events-metrics.png' desc='메트릭스 이벤트' />
 
@@ -150,302 +173,3 @@
 <ImgLang img='set-event-test.png' desc='경고 알림 테스트' />
 
 선택한 시간 동안 설정한 이벤트 조건을 실행해 몇 번의 경고 알림이 발생했는지 확인할 수 있습니다. 실행 버튼을 선택하면 알림 발생 건수 정보를 알 수 있으며, 이벤트 발생 조건에서 선택한 필드와 임계치를 차트상에 표시합니다.
-
-
-## 복합 메트릭스 이벤트
-
-<Cmdname sid="composite_metrics" className="uitext" /> 이벤트를 이용하려면 다음의 개념에 대한 이해가 필요합니다.
-
-<Xclude product='npm'>
-
-* [메트릭스란?](metrics-intro)
-
-</Xclude>
-
-<InDoc product='npm'>
-
-* [메트릭스란?](../metrics/common-metrics-intro)
-
-</InDoc>
-
-* [MXQL](../mxql/mxql-overview)
-
-<Cmdname sid="composite_metrics" className="uitext" /> 이벤트는 메트릭스 데이터에 보다 복잡한 규칙을 활용해 이벤트를 생성하고 경고 알림을 보낼 수 있습니다. 복합 메트릭스은 다음과 같은 상황에서 효과적으로 사용할 수 있습니다.
-
-* 여러 에이전트에서 수신된 데이터에 대해 종합적인 이벤트 판정을 해야할 때
-* 과거 데이터와 현재 데이터를 비교해 이벤트 판정을 해야할 때
-
-메트릭스 이벤트는 에이전트로부터 메트릭스를 수신할 때마다 이벤트 판정을 합니다. 반면, 복합 메트릭스 이벤트는 각 에이전트에서 수집한 메트릭스들을 데이터베이스에 저장합니다. 그리고 다시 조회해서 이벤트 판정을 합니다. 이와 같은 특성 때문에 여러 에이전트의 데이터를 종합적으로 활용하거나 과거의 데이터를 활용할 수 있습니다. 하지만 **MXQL**이라는 와탭 고유의 데이터 조회 언어를 사용해야한다는 진입장벽이 존재합니다. 따라서 사용자들이 기초적인 **MXQL**만 이해하더라도 효과적으로 이벤트를 설정할 수 있도록 이벤트 템플릿을 제공합니다. MXQL 기초 사용자는 이벤트 대상 필터링과 이벤트 조건에 대한 쿼리만 수정해서 이벤트를 적용할 수 있습니다.
-
-1. <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 화면 위에 <Cmdname sid="metrics" className="uitext" />를 선택하세요. 
-
-1. <Cmdname sid="composite_metrics" className="uitext" /> 섹션에서 오른쪽에 <Cmdname sid="add_notification" className="uitext" />를 선택하세요. 
-
-1. <Cmdname sid="composite_metrics" className="uitext" /> 창이 나타나면 <Cmdname sid="create_new_composite_mxql_event" className="uitext" />를 선택하세요.
-
-이벤트 설정 창이 나타납니다. 
-
-<ImgLang img='set-event-cmetric.png' desc='복합 메트릭스 이벤트 설정' />
-
-<Xclude product='server'>
-
-:::note
-
-복합 메트릭스 이벤트를 설정하려면 **이벤트 설정** 권한이 있어야 합니다.
-
-:::
-
-</Xclude>
-
-<InDoc product='server,postgresql,postgresql-v1,java,python,php,nodejs,golang,dotnet,browser'>
-
-:::note
-
-복합 메트릭스에 이벤트 템플릿에 대한 자세한 내용은 [다음 문서](#composite-metrics-template)를 참조하세요.
-
-:::
-
-</InDoc>
-
-### 이벤트 데이터 조회
-
-<Cmdname sid="composite_metrics" className="uitext" /> 이벤트는 메트릭스 데이터 질의 언어인 <b>MXQL</b>을 기반으로 이벤트 조건을 생성합니다. <Cmdname sid="create_new_composite_mxql_event" className="uitext" /> 기능은 <b>MXQL</b>의 자동완성을 위한 콤보박스 기능을 제공합니다. 이벤트 데이터를 조회하여 차트를 구성한 다음 이벤트 발행 조건을 직접 입력하기 위한 템플릿입니다. <Cmdname sid="widget" className="uitext" /> 또는 <Cmdname sid="text" className="uitext" /> 옵션을 선택해 이벤트를 설정하세요.
-
-<Tabs>
-<TabItem value='widget' label='위젯'>
-
-시계열 차트를 구성하는 옵션을 통해 이벤트 설정 시 사용할 **MXQL**을 자동완성할 수 있습니다.
-
-<ImgLang img='set-event-data-view.png' desc='이벤트 데이터 조회' />
-
-* <Cmdname sid="filter" className="uitext" />: 이벤트 조건 대상을 선택합니다. <LinkImage img="number-01.png" className="ico" /> 연산식, <LinkImage img="number-02.png" className="ico" /> 태그, <LinkImage img="number-03.png" className="ico" /> 필터링값을 입력해 필터링 조건을 생성합니다.
-
-  <ImgLang img='set-event-cmetric-filter.png' desc='필터' />
-
-* <Cmdname sid="groupby" className="uitext" />: 그룹화된 메트릭스 데이터를 선택합니다. 다중 선택할 수 있습니다.
-
-* <Cmdname sid="timeunit" className="uitext" />: 그룹화된 데이터를 나눌 시간 기준을 설정합니다. <Cmdname sid="second" className="uitext" />, <Cmdname sid="minute" className="uitext" />, <Cmdname sid="hour" className="uitext" /> 단위로 선택하고 설정할 수 있습니다.
-
-* <Cmdname sid="field" className="uitext" />: 이벤트 발행 조건에 사용할 필드를 선택합니다. 다중 선택할 수 있습니다.
-
-</TabItem>
-<TabItem value='text' label='텍스트'>
-
-**MXQL**을 평문 그대로 수정할 수 있는 편집창이 나타납니다.
-
-<ImgLang img='set-event-metrics-text.png' desc='메트릭스 이벤트 - 텍스트' />
-
-</TabItem>
-</Tabs>
-
-
-### 알림
-
-경고 알림 설정의 기본 정보를 입력합니다.
-
-* <Cmdname sid="enable_events" className="uitext" />: 토글 버튼을 클릭해 이벤트를 활성활 여부를 선택할 수 있습니다.
-
-* <Cmdname sid="level" className="uitext" />: <span class='vslow'>위험(Critical)</span>, <span class='slow'>경고(Warning)</span>, <span style={{color: '#757575'}}>정보</span> 수준 중 하나의 레벨을 선택하세요.
-  
-  <Cmdname sid="resolved_event_notification" className="uitext" />: 이벤트 항목 중 발생한 이벤트 상태가 해결되면 추가 알림 송신 여부를 선택할 수 있습니다. 토글 버튼을 선택해 기능을 켜거나 끌 수 있습니다.
-
-* <Cmdname sid="title" className="uitext" />: 경고 알림의 제목을 입력하세요.
-
-* <Cmdname sid="message" className="uitext" />: 이벤트 발생 시 출력하는 알림 메시지를 입력합니다. <code>&#36;&#123;태그 또는 필드키&#125;</code> 입력으로 메시지에 변수를 적용할 수 있습니다. 변수에 입력할 키는 선택한 복합 메트릭스 데이터 <Cmdname sid="category" className="uitext" />에 포함된 값이여야 합니다. <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="tag_count" className="uitext" /> 메뉴에서 입력할 수 있는 태그 또는 필드키를 확인할 수 있습니다.
-
-### 알림 정책
-
-경고 알림을 보낼 조건을 입력합니다.
-
-* <Cmdname sid="data_time_range" className="uitext" />: 이벤트 조건에 사용할 <b>MXQL</b>의 실시간 데이터 조회 범위를 설정합니다. 이벤트 데이터 조회에 포함된 필드만 사용할 수 있습니다.
-
-  복합 메트릭스 이벤트는 DB에 저장된 메트릭스를 조회해서 활용합니다. 따라서 데이터를 조회할 시간 범위를 먼저 지정해야 합니다. 데이터 조회 시간을 5분으로 선택하면 최근 5분동안 수집된 데이터를 조회해서 이벤트 발생 조건을 확인합니다. 최근 데이터에 대해서 이벤트를 설정할 때에는 짧게, 넓은 시간에 대해서 통계적으로 접근하고 싶을 때에는 길게 설정할 수 있습니다. 실제 사용 예시는 [다음 문서](#template)를 참조하세요.
-
-* <Cmdname sid="condition" className="uitext" />: MXQL에 반영한 필드와 연산 규칙, 임계치를 입력합니다.
-
-### 부가 정보
-
-경고 알림 수신과 관련한 부가적인 옵션을 설정합니다.
-
-* <Cmdname sid="interval" className="uitext" />: 선택한 시간 간격으로 알림 조건을 확인합니다.
-
-* <Cmdname sid="silent" className="uitext" />: 과도한 경고 알림 발생을 방지할 수 있는 옵션입니다. 첫번째 경고 알림 이후 선택한 시간 동안 경고 알림을 보내지 않습니다. 또한 <Cmdname sid="event_history" className="uitext" /> 메뉴에 기록되지 않습니다.
-
-* <Cmdname sid="event_tag" className="uitext" />: 이벤트 수신 태그를 선택하면 해당 태그를 가진 프로젝트 멤버와 3rd-party 플러그인에 알림을 전송할 수 있습니다. 이벤트 수신 태그를 선택하지 않으면 프로젝트 전체 멤버에게 경고 알림을 보냅니다.
-
-  :::note
-
-  <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_receive_configuration" className="uitext" /> 메뉴에서 프로젝트 멤버와 3rd-party 플러그인에 태그를 설정할 수 있습니다.
-  
-  :::
-
-
-### 이벤트 규칙 테스트
-
-<ImgLang img='set-event-cmetric-test.png' desc='이벤트 규칙 테스트' />
-
-선택한 시간 동안 설정한 이벤트 조건을 실행해 몇 번의 경고 알림이 발생했는지 확인할 수 있습니다. 실행 버튼을 선택하면 알림 발생 건수 정보를 알 수 있으며, 이벤트 발생 조건에서 선택한 필드와 임계치를 차트상에 표시합니다.
-
-이벤트 설정에 포함된 대부분의 내용들이 **MXQL**을 사용해서 지정됩니다. **MXQL**이 적절하게 작성되었는지 시뮬레이션할 수 있는 기능을 제공합니다. 시뮬레이션 기능은 과거의 24시간 데이터를 조회해서 이벤트 판정을 한 다음 몇 건의 메트릭스가 조회되었고 그 중 몇 건에서 이벤트 판정이 성공했는지 알려줍니다.
-
-## 메트릭스 이벤트 수정 및 삭제
-
-1. <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴로 이동한 다음 <Cmdname sid="metrics" className="uitext" /> 탭을 선택하세요. 
-
-1. 이벤트 목록에서 수정 또는 삭제하려는 항목의 가장 오른쪽에 ![편집 아이콘](/img/ico-edit.svg) 버튼을 선택하세요.
-
-1. 메트릭스 또는 복합 메트릭스 이벤트 설정 창이 나타나면 각 옵션을 수정한 다음 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
-
-  선택한 이벤트를 삭제하려면 이벤트 설정 창의 오른쪽 위에 ![삭제 아이콘](/img/ico-trash.svg) <Cmdname sid="delete" className="uitext" /> 버튼을 선택하세요.
-
-## 발생 조건, 대상 선택 가이드 {#condition-guide}
-
-메트릭스 경고 알림의 이벤트 발생 조건과 이벤트 대상 선택은 동일한 문법을 사용합니다. 단, 이벤트 발생 조건은 태그(Tag)의 Key를 변수로 사용하고, 이벤트 대상 선택은 필드(Field)의 Key를 변수로 사용합니다.
-
-### 기본 문법
-
-* 문자열을 그냥 입력하면 변수, 작은 따옴표('') 또는 큰 따옴표("")로 감싸면 text로 인식합니다.
-
-  ```java title='oid == "oid"'
-  1. oid : 변수
-  2. == : 함수
-  3. "oid" : text
-  ```
-
-  ```java
-  // oname가 ott-1235일 경우
-
-  // 정상적인 경우
-  onname = 'ott-1235' 또는 onname = "ott-1235"
-
-  // 비정상적인 경우, 알림이 동작하지 않습니다.
-  onname = ott-1235
-  ```
-
-* 숫자를 그냥 입력하면 number, 작은 따옴표('') 또는 큰 따옴표("")로 감싸면 text로 인식합니다.
-
-  ```java title='oid == 123'
-  1. oid : 변수
-  2. == : 함수
-  3. 123 : number
-  ```
-
-  ```java
-  // oid가 123일 경우
-  
-  // 정상적인 경우
-  oid = 123
-
-  // 비정상적인 경우, 알림이 동작하지 않습니다.
-  id == '123' 또는 oid == "123"
-  ```
-
-### 사용 가능한 연산자 목록
-
-|     연산자     | 사용법                       | 설명                                                                                            |
-| :------------: | ---------------------------- | ----------------------------------------------------------------------------------------------- |
-|       ==       | operand1 == operand2         | operand1과 operand2의 값이 동일한지 확인합니다.                                                 |
-|       !=       | operand1 != operand2         | operand1과 operand2의 값이 다른지 확인합니다.                                                   |
-| <span>></span> | operand1 &gt; operand2          | operand1의 값이 operand2의 값보다 큰지 확인합니다.                                              |
-|       >=       | operand1 >= operand2         | operand1의 값이 operand2의 값보다 큰거나 같은지 확인합니다.                                     |
-|       \<       | operand1 \< operand2          | operand1의 값이 operand2의 값보다 작은지 확인합니다.                                            |
-|       \<=       | operand1 \<= operand2         | operand1의 값이 operand2의 값보다 작거나 같은지 확인합니다.                                     |
-|      like      | operand1 like operand2       | operand1에 operand2가 포함되어 있는 지를 패턴으로 검색합니다.                        |
-|       &&       | expression1 && expression2   | expression1과 expression2이 모두 `true`인지 확인합니다.                                           |
-|      and       | expression1 and expression2  | expression1과 expression2이 모두 `true`인지 확인합니다.<br/>**&&**와 동일한 역할을 수행하는 연산자입니다. |
-|      \|\|      | expression1 \|\| expression2 | expression1 또는 expression2이 `true`인지 확인합니다.                                             |
-|       or       | expression1 or expression2   | expression1 또는 expression2이 `true`인지 확인합니다.<br/>**\|\|**와 동일한 역할을 수행하는 연산자입니다. |
-
-#### like 사용법
-
-와일드카드(`*`)를 통해 포함 문자열을 편리하게 검색할 수 있습니다.
-
-* 특정 키워드로 시작하는 문자열 검색
-
-  ```java
-  
-  Key like "Value*"
-
-  ```
-
-* 특정 키워드로 끝나는 문자열 검색
-
-  ```java
-  
-  Key like "*Value"
-
-  ```
-
-* 특정 키워드가 포함된 문자열 검색
-
-  ```java
-
-  Key like "*Value*"
-
-  ```
-
-* 키워드 중간에 와일드카드(`*`)를 사용할 수 없습니다.
-
-  ```java
-
-  // 지원하지 않는 문법
-  Key like "Va*lue"
-
-  ```
-
-* `like` 연산자에서 와일드카드(`*`)를 생략하는 경우 equals(`==`)로 동작합니다.
-
-  ```java
-
-  // 아래의 두 문장은 완전히 같은 결과를 가집니다.
-  Key like "Value"
-  Key == "Value"
-
-  ```
-
-### 사용 가능한 함수 목록
-
-| 함수       | 사용법                     | 설명                                                                      |
-| ---------- | -------------------------- | ------------------------------------------------------------------------- |
-| [startsWith](#startwith) | startsWith(param1, param2) | param1을 Key로 하는 Value가 param2로 시작하면 `true`, 반대의 경우 `false` |
-| [endsWith](#endsWith)   | endsWith(param1, param2)   | param1을 Key로 하는 Value가 param2로 끝나면 `true`, 반대의 경우 `false`   |
-| [isNull](#isnull)     | isNull(param1)             | param1이 `null`이면 `true`, 반대의 경우 `false`                           |
-| [isNotNull](#isnotnull)  | isNotNull(param1)          | param1이 `null`이 아니면 `true`, 반대의 경우 `false`                      |
-| [isEmpty](#isempty)    | isEmpty(param1)            | param1이 `null` 또는 `EmptyString("")`이면 `true`, 반대의 경우 `false`    |
-| [isNotEmpty](#isnotempty) | isNotEmpty(param1)         | param1이 `null`도 아니고 `EmptyString("")`도 아니면 `true`, 반대의 경우 `false` |
-
-#### startsWith {#startwith}
-
-```java
-startsWith(Key, "Value")
-```
-
-#### endsWith {#endswith}
-
-```java
-endsWith(Key, "Value")
-```
-
-#### isNull {#isnull}
-
-```java
-isNull(Key)
-```
-
-#### isNotNull {#isnotnull}
-
-```java
-isNotNull(Key)
-```
-
-#### isEmpty {#isempty}
-
-```java
-isEmpty(Key)
-```
-
-#### isNotEmpty {#isnotempty}
-
-```java
-isNotEmpty(Key)
-```

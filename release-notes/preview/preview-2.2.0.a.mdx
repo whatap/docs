@@ -23,7 +23,25 @@ draft: false
 
 ### `공통`
 
+- <Status>Feature</Status> 사이드 메뉴에서 <Cmdname sid="TLT07385" className="uitext" /> 기능 사용 시 표시할 메뉴가 없으면 안내 문구 추가
+
 - <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" /> 메뉴의 <Cmdname sid="alert_receive_settings_by_member" className="uitext" /> 섹션 테이블에서 멤버 이름이 너무 길면 테이블의 열이 밀리는 문제 수정
+
+- <Status>Changed</Status> 클라우드 관련 지표에 대하여 5분, 1시간 통계 카테고리를 사용할 수 있도록 변경: <code>aws_</code> / <code>azure_</code> / <code>ncloud_</code> / <code>oci_</code>
+
+---
+
+### `Application`
+
+- <Status>Changed</Status> <Cmdname sid="flexboard" className="uitext" /> 메뉴의 <Cmdname sid="filter" className="uitext" /> 탭에 제공하는 에이전트 그룹 단위 이름 변경
+
+  - <Cmdname sid="type_okind" className="b500" /> → <Cmdname sid="ITM06006" className="uitext" />
+
+  - <Cmdname sid="type_onode" className="b500" /> → <Cmdname sid="ITM06007" className="uitext" />
+
+  - <Cmdname sid="application" className="b500" /> → <Cmdname sid="ITM06005" className="uitext" />
+
+---
 
 ### `Server`
 
@@ -32,6 +50,12 @@ draft: false
   범례가 많아지는 경우 <Cmdname sid="more" className="uitext" /> 버튼을 노출하고, 버튼을 선택하면 드롭다운 메뉴를 표시합니다.
 
 - <Status>Fixed</Status> <Cmdname sid="tag_count_chart" className="uitext" /> 메뉴에서 Network Traffic 관련 차트에 표시되는 byte 단위를 bit 단위로 표시되도록 수정
+
+---
+
+### `Network`
+
+- <Status>Fixed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴의 <span class="uitext">쿠버네티스</span> 탭에서 입력한 <b>AWS 리소스 옵션</b>이 다운로드 받은 YAML 파일에 반영되지 않는 문제 수정
 
 </div>
 

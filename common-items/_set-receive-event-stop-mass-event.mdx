@@ -1,10 +1,18 @@
 ## 대량 알림 발생 방지
 
-알림이 대량으로 발생하면 설정한 시간 동안 경고 알림을 일시적으로 중단합니다.  ***경고 알림*** > ***이벤트 수신 설정*** 메뉴에서 대량 알림 발생 방지 섹션으로 이동하세요.
+알림이 대량으로 발생하면 설정한 시간 동안 경고 알림을 일시적으로 중단합니다. <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" /> 메뉴에서 <Cmdname sid="aboids_large_number_alerts" className="uitext" /> 섹션으로 이동하세요.
 
 <ImgLang img='set-event-huge-message.png' desc='대량 알림 발생 방지' />
 
-* ***활성화*** 토글 버튼을 선택해 기능을 켜거나 끌 수 있습니다.
-* ***탐지 시간*** 동안 ***탐지 횟수*** 이상의 이벤트가 발생하면 ***정지 시간*** 동안 경고 알림을 중지합니다.
+* <Cmdname sid="enable" className="uitext" /> 토글 버튼을 선택해 기능을 켜거나 끌 수 있습니다.
+* <Cmdname sid="detection_time" className="uitext" /> 동안 <Cmdname sid="number_of_detections" className="uitext" /> 이상의 이벤트가 발생하면 <Cmdname sid="pause_time" className="uitext" /> 동안 경고 알림을 중지합니다.
 
-예를 들어, 5분 동안 20회의 이벤트가 발생하면 5분 동안 경고 알림을 중지합니다. 설정한 ***정지 시간*** 시간이 지나면 대량 알림 발생 방지 기능은 해제됩니다.
+예를 들어, 5분 동안 20회의 이벤트가 발생하면 5분 동안 경고 알림을 중지합니다. 설정한 <Cmdname sid="pause_time" className="uitext" /> 시간이 지나면 대량 알림 발생 방지 기능은 해제됩니다.
+
+:::caution
+
+문자 메시지 알림이 하루 200건 이상 발생하면 일시 중지하며 다음 메시지를 표시합니다. 문자 알림 중단 기능을 해제하려면 <Cmdname sid="terminate_now" className="uitext" /> 버튼을 선택하세요.
+
+<ImgLang img='notification-set-large-message-warning.png' desc='문자알림 중단 해제' />
+
+:::

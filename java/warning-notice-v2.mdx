@@ -75,7 +75,7 @@ tags: [ Java, 경고 알림, 이벤트 설정, 애플리케이션 ]
 </InDoc>
 
 
-## 이벤트 수정하기
+## 이벤트 수정하기 {#modify-event}
 
 기본 이벤트 템플릿에 적용된 지표값을 수정해 경고 알림이 발생 기준을 변경할 수 있습니다. 그 외에도 다양한 옵션 설정을 통해 알림 발생 기준을 변경할 수 있습니다. 수정하려는 이벤트 항목에서 ![수정 아이콘](/img/ico-edit.svg) 버튼을 선택하면 이벤트 수정 화면으로 이동합니다. 다음의 항목을 차례로 수정한 다음 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
 
@@ -186,3 +186,60 @@ tags: [ Java, 경고 알림, 이벤트 설정, 애플리케이션 ]
   <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" /> 메뉴에서 프로젝트 멤버와 3rd-party 플러그인에 태그를 설정할 수 있습니다. 자세한 내용은 <Link to="set-receive-event#set-notice-by-team-or-users">다음 문서</Link>를 참조하세요.
 
   :::
+
+
+## 이벤트 추가하기
+
+기본 제공되는 이벤트 템플릿을 편집해 사용자가 원하는 알림을 추가할 수 있습니다.
+
+1. 화면 오른쪽 위에 <Cmdname sid="add_alert_setting" className="uitext" /> 버튼을 선택하세요.
+
+1. 템플릿 목록에서 추가하려는 이벤트 항목을 선택하세요.
+
+1. <Cmdname sid="TTL07363" className="uitext" />와 <Cmdname sid="TTL07363" className="uitext" />, <Cmdname sid="TTL07364" className="uitext" /> 섹션의 옵션을 차례로 설정하세요.
+
+1. 모든 설정을 완료한 다음 화면 오른쪽 위에 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+이벤트 목록에서 새로 추가한 이벤트를 확인할 수 있습니다.
+
+:::note
+
+* 기본 제공되는 이벤트 템플릿과 구별하여 사용하려면 <Cmdname sid="event_title" className="uitext" /> 항목을 편집해 저장하세요.
+
+* 기본 제공하는 이벤트 템플릿에 대한 자세한 내용은 [다음 문서](#basic-template)를 참조하세요.
+
+* 이벤트 조건 설정에 대한 자세한 내용은 [다음 문서](#modify-event)를 참조하세요.
+
+:::
+
+
+## 이벤트 삭제하기
+
+기본 제공된 이벤트 또는 새로 추가한 이벤트를 삭제할 수 있습니다. 
+
+1. 이벤트 목록에서 삭제하려는 이벤트 항목에서 ![수정 아이콘](/img/ico-edit.svg) 버튼을 선택하세요. 
+
+1. 이벤트 수정 화면으로 이동하면 화면 오른쪽 위에 <Cmdname sid="delete" className="uitext" /> 버튼을 선택하세요.
+
+1. 삭제 확인 메시지가 나타나면 다시 한번 <Cmdname sid="delete" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+삭제한 이벤트는 복구할 수 없습니다.
+
+:::
+
+
+## 이벤트 설정 공유하기 {#share-event-settings}
+
+이벤트 설정을 JSON 파일로 저장해 다른 사용자와 설정을 공유하거나 다른 사용자의 설정을 가져올 수 있습니다.
+
+### 이벤트 설정 내보내기
+
+
+
+:::caution
+
+이 기능은 같은 종류의 상품 간에 이용할 수 있습니다. 다른 상품의 프로젝트로부터 이벤트 설정을 가져올 수는 있지만 정상 작동하지 않습니다.
+
+:::

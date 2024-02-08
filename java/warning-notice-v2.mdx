@@ -196,7 +196,7 @@ tags: [ Java, 경고 알림, 이벤트 설정, 애플리케이션 ]
 
 1. 템플릿 목록에서 추가하려는 이벤트 항목을 선택하세요.
 
-1. <Cmdname sid="TTL07363" className="uitext" />와 <Cmdname sid="TTL07363" className="uitext" />, <Cmdname sid="TTL07364" className="uitext" /> 섹션의 옵션을 차례로 설정하세요.
+1. <Cmdname sid="TTL07363" className="uitext" /> 및 <Cmdname sid="TTL07363" className="uitext" />, <Cmdname sid="TTL07364" className="uitext" /> 섹션의 옵션을 차례로 설정하세요.
 
 1. 모든 설정을 완료한 다음 화면 오른쪽 위에 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
 
@@ -208,7 +208,7 @@ tags: [ Java, 경고 알림, 이벤트 설정, 애플리케이션 ]
 
 * 기본 제공하는 이벤트 템플릿에 대한 자세한 내용은 [다음 문서](#basic-template)를 참조하세요.
 
-* 이벤트 조건 설정에 대한 자세한 내용은 [다음 문서](#modify-event)를 참조하세요.
+* 이벤트 조건 설정의 각 섹션에 대한 자세한 내용은 [다음 문서](#modify-event)를 참조하세요.
 
 :::
 
@@ -230,16 +230,96 @@ tags: [ Java, 경고 알림, 이벤트 설정, 애플리케이션 ]
 :::
 
 
-## 이벤트 설정 공유하기 {#share-event-settings}
+## JSON 형식으로 수정하기
+
+이벤트 설정을 JSON 형식으로 수정할 수 있습니다.
+
+1. <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_configuration" className="uitext" /> 메뉴로 이동하세요.
+
+1. 화면 오른쪽 위에 <span class="uitext">JSON</span> <LinkImage img="ico-export.svg" className="ico" /> 버튼틀 선택하세요.
+
+1. 편집 창이 나타나면 JSON 형식에 맞춰 내용을 수정하세요.
+
+1. 수정을 완료하면 화면 오른쪽 위에 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+수정한 내용이 JSON 형식에 맞지 않으면 화면 아래에 에러 메시지가 표시되며, 저장할 수 없습니다. 표시되는 에러 메시지는 형식에 따라 다를 수 있습니다.
+
+<ImgLang img='event-config-v2-json-error.png' desc='JSON error' />
+
+:::
+
+JSON 데이터의 구조는 다음과 같습니다.
+
+```json
+{
+    "metaId": "infra001",
+    "displayName": "CPU",
+    "stateful": true,
+    "selectCondition": {},
+    "warningEnabled": true,
+    "criticalEnabled": true,
+    "receiver": [],
+    "warningThreshold": "cpu > 70",
+    "criticalThreshold": "cpu > 90",
+    "repeatCount": 1,
+    "silentPeriod": 60000,
+    "enabled": false,
+    "message": "CPU = ${cpu}"
+},
+```
+
+JSON 데이터의 필드는 이벤트 설정에서 다음 옵션 항목과 연결됩니다.
+
+| JSON 필드 | 옵션 |
+| -- | -- |
+| `metaId` | 이벤트 식별을 위한 고유 ID |
+| `displayName` | <Cmdname sid="event_title" className="uitext" /> |
+| `stateful` | <Cmdname sid="TTL07368" className="uitext" /> | 
+| `selectCondition` | <Cmdname sid="ITM07588" className="uitext" /> |
+| `warningEnabled` | <span class="slow">Warning</span> 이벤트 활성 여부 |
+| `criticalEnabled` | <span class="vslow">Critical</span> 이벤트 활성 여부 |
+| `receiver` | <Cmdname sid="TTL07415" className="uitext" /> &gt; <Cmdname sid="ITM07420" className="uitext" /> 옵션의 수신 태그 키값 목록 |
+| `warningThreshold` | <span class="slow">Warning</span> 이벤트의 임곗값 설정 |
+| `criticalThreshold` | <span class="vslow">Critical</span> 이벤트의 임곗값 설정 |
+| `repeatCount` | <Cmdname sid="TTL07366" className="uitext" /> N <Cmdname sid="ITM07370" className="uitext" /> |
+| `silentPeriod` | <Cmdname sid="TTL07367" className="uitext" /> |
+| `enabled` | <Cmdname sid="enable_events" className="uitext" /> |
+| `message` | <Cmdname sid="TTL06883" className="uitext" /> |
+
+
+## JSON 파일로 공유하기
 
 이벤트 설정을 JSON 파일로 저장해 다른 사용자와 설정을 공유하거나 다른 사용자의 설정을 가져올 수 있습니다.
 
-### 이벤트 설정 내보내기
+### 내보내기
 
+1. <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_configuration" className="uitext" /> 메뉴로 이동하세요.
 
+1. 화면 오른쪽 위에 <span class="uitext">JSON</span> <LinkImage img="ico-export.svg" className="ico" /> 버튼틀 선택하세요.
+
+1. JSON 편집 창이 나타나면 <LinkImage img="ico-export.svg" className="ico" /> <Cmdname sid="export" className="uitext" /> 버튼을 선택하세요.
+
+JSON 파일을 다운로드합니다. JSON 파일 이름은 *event-rules-`YYYY`-`MM`-`DD`.json* 형식입니다.
+
+### 가져오기
+
+1. <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_configuration" className="uitext" /> 메뉴로 이동하세요.
+
+1. 화면 오른쪽 위에 <LinkImage img="ico-import.svg" className="ico" /> 버튼틀 선택하세요.
+
+1. <Cmdname sid="export" className="uitext" /> 기능을 통해 다운로드한 JSON 파일을 선택하세요.
+
+1. JSON 편집 창이 나타나면 <Cmdname sid="add_to_list" className="uitext" /> 또는 <Cmdname sid="overwrite" className="uitext" /> 버튼을 선택하세요.
 
 :::caution
 
-이 기능은 같은 종류의 상품 간에 이용할 수 있습니다. 다른 상품의 프로젝트로부터 이벤트 설정을 가져올 수는 있지만 정상 작동하지 않습니다.
+이 기능은 같은 종류의 상품 간에 이용할 것을 권장합니다. 다른 상품의 프로젝트로부터 이벤트 설정을 가져올 수는 있지만 정상 작동하지 않습니다.
 
 :::
+
+
+## 이벤트 검색하기
+
+이벤트 목록에서 이벤트 이름 또는 지표를 기준으로 검색할 수 있습니다. 검색 입력란에 검색어를 입력한 다음 ![검색 아이콘](/img/ico-search.svg) 버튼을 선택하세요.

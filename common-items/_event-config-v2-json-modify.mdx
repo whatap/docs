@@ -1,0 +1,55 @@
+## JSON 형식으로 수정하기
+
+이벤트 설정을 JSON 형식으로 수정할 수 있습니다.
+
+1. 화면 오른쪽 위에 <span class="uitext">JSON</span> <LinkImage img="ico-export.svg" className="ico" /> 버튼틀 선택하세요.
+
+1. 편집 창이 나타나면 JSON 형식에 맞춰 내용을 수정하세요.
+
+1. 수정을 완료하면 화면 오른쪽 위에 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+수정한 내용이 JSON 형식에 맞지 않으면 화면 아래에 에러 메시지가 표시되며, 저장할 수 없습니다. 표시되는 에러 메시지는 형식에 따라 다를 수 있습니다.
+
+<ImgLang img='event-config-v2-json-error.png' desc='JSON error' />
+
+:::
+
+JSON 데이터의 구조는 다음과 같습니다.
+
+```json
+{
+    "metaId": "infra001",
+    "displayName": "CPU",
+    "stateful": true,
+    "selectCondition": {},
+    "warningEnabled": true,
+    "criticalEnabled": true,
+    "receiver": [],
+    "warningThreshold": "cpu > 70",
+    "criticalThreshold": "cpu > 90",
+    "repeatCount": 1,
+    "silentPeriod": 60000,
+    "enabled": false,
+    "message": "CPU = ${cpu}"
+},
+```
+
+JSON 데이터의 필드는 이벤트 설정에서 다음 옵션 항목과 연결됩니다.
+
+| JSON 필드 | 옵션 |
+| -- | -- |
+| `metaId` | 이벤트 식별을 위한 고유 ID |
+| `displayName` | <Cmdname sid="event_title" className="uitext" /> |
+| `stateful` | <Cmdname sid="TTL07368" className="uitext" /> | 
+| `selectCondition` | <Cmdname sid="ITM07588" className="uitext" /> |
+| `warningEnabled` | <span class="slow">Warning</span> 이벤트 활성 여부 |
+| `criticalEnabled` | <span class="vslow">Critical</span> 이벤트 활성 여부 |
+| `receiver` | <Cmdname sid="TTL07415" className="uitext" /> &gt; <Cmdname sid="ITM07420" className="uitext" /> 옵션의 수신 태그 키값 목록 |
+| `warningThreshold` | <span class="slow">Warning</span> 이벤트의 임곗값 설정 |
+| `criticalThreshold` | <span class="vslow">Critical</span> 이벤트의 임곗값 설정 |
+| `repeatCount` | <Cmdname sid="TTL07366" className="uitext" /> N <Cmdname sid="ITM07370" className="uitext" /> |
+| `silentPeriod` | <Cmdname sid="TTL07367" className="uitext" /> |
+| `enabled` | <Cmdname sid="enable_events" className="uitext" /> |
+| `message` | <Cmdname sid="TTL06883" className="uitext" /> |

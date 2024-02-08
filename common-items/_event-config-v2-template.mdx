@@ -1,0 +1,127 @@
+## 기본 이벤트 템플릿 {#basic-template}
+
+생성한 프로젝트의 상품에 따라 기본 이벤트 템플릿을 제공합니다. 이벤트 목록의 가장 오른쪽에 <Cmdname sid="TTL06099" className="uitext" /> 버튼을 선택해 원하는 이벤트를 활성화할 수 있습니다.
+
+<InDoc product="java,php,python,nodejs,dotnet,golang">
+
+<ImgLang img='event-config-v2-apm.png' desc='이벤트 목록' />
+
+제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
+
+* ***Active Transaction***
+
+  카테고리: [`app_counter`](metrics-app#app_counter)
+
+  액티브 트랜잭션 발생 건수(`active_tx_count`)가 100개를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+* ***Server CPU***
+
+  카테고리: [`app_host_resource`](metrics-app#app_host_resource)
+
+  호스트의 CPU 사용률(`cpu`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Server Disk***
+
+  카테고리: [`app_host_resource`](metrics-app#app_host_resource)
+
+  호스트의 디스크 사용률(`disk`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Server Memory***
+
+  카테고리: [`app_host_resource`](metrics-app#app_host_resource)
+
+  호스트의 메모리 사용률(`mem`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Transaction Error Count***
+
+  카테고리: [`app_counter`](metrics-app#app_counter)
+
+  트랜잭션 에러 건수(`tx_error`)가 10개를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+* ***Transaction Response Time***
+
+  카테고리: [`app_counter`](metrics-app#app_counter)
+
+  트랜잭션의 평균 응답 시간(`resp_time`)이 2초(2000 ms)를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+:::note
+
+기본 이벤트 템플릿에 적용된 필드에 대한 자세한 내용은 [다음 문서](metrics-app)를 참조하세요.
+
+:::
+
+</InDoc>
+
+<InDoc product="server">
+
+<ImgLang img='event-config-v2-server.png' desc='이벤트 목록' />
+
+제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
+
+* ***CPU***
+
+  카테고리: [`server_base`](metrics-server#server_base)
+
+  CPU 사용률(`cpu`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***CPU Steal***
+
+  카테고리: [`server_base`](metrics-server#server_base)
+
+  [CPU steal 사용률](../glossary#cpusteal)(`cpu_steal`)이 5를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 10을 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Disk***
+
+  카테고리: [`server_disk`](metrics-server#server_disk)
+
+  파일 시스템 사용률(`usedPercent`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Disk I/O***
+
+  카테고리: [`server_disk`](metrics-server#server_disk)
+
+  [Disk I/O 사용률](../glossary#diskio)(`ioPercent`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Disk Inode***
+
+  카테고리: [`server_disk`](metrics-server#server_disk)
+
+  Disk Inode 사용률(`usedInodePercent`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Memory***
+
+  카테고리: [`server_base`](metrics-server#server_base)
+
+  메모리 사용률(`memory_pused`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Network IOPS***
+
+  카테고리: [`server_network`](metrics-server#server_network)
+
+  네트워크 인바운드 패킷(`packetIn`)과 아웃바운드 패킷(`packetOut`)의 합이 45000 byte를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50000 byte를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Process CPU***
+
+  카테고리: [`server_process`](metrics-server#server_process)
+
+  프로세스의 수(`count`)가 2 이상이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 1 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Process Memory***
+
+  카테고리: [`server_process`](metrics-server#server_process)
+
+  프로세스 메모리 사용률(`memory`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Swap Memory***
+
+  카테고리: [`server_base`](metrics-server#server_base)
+
+  스왑 메모리 사용률(`memory_swappused`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+:::note
+
+기본 이벤트 템플릿에 적용된 필드에 대한 자세한 내용은 [다음 문서](metrics-server)를 참조하세요.
+
+:::
+
+</InDoc>

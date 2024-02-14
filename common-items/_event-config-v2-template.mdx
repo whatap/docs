@@ -12,7 +12,7 @@
 
   카테고리: [`app_counter`](metrics-app#app_counter)
 
-  액티브 트랜잭션 발생 건수(`active_tx_count`)가 100개를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  액티브 트랜잭션 발생 건수(`active_tx_count`)가 100개를 초과한 상태하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
 * ***Server CPU***
 
@@ -36,13 +36,13 @@
 
   카테고리: [`app_counter`](metrics-app#app_counter)
 
-  트랜잭션 에러 건수(`tx_error`)가 10개를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  트랜잭션 에러 건수(`tx_error`)가 10개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
 * ***Transaction Response Time***
 
   카테고리: [`app_counter`](metrics-app#app_counter)
 
-  트랜잭션의 평균 응답 시간(`resp_time`)이 2초(2000 ms)를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  트랜잭션의 평균 응답 시간(`resp_time`)이 10회 연속, 2초(2,000 ms)를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
 :::note
 
@@ -123,5 +123,73 @@
 기본 이벤트 템플릿에 적용된 필드에 대한 자세한 내용은 [다음 문서](metrics-server)를 참조하세요.
 
 :::
+
+</InDoc>
+
+<InDoc product="kubernetes">
+
+<ImgLang img='event-config-v2-k8s.png' desc='이벤트 목록' />
+
+제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
+
+* ***Active Transaction***
+
+  카테고리: <Link to="../java/metrics-app#app_counter" target="_blank"><code>app_counter</code></Link>
+
+  액티브 트랜잭션 발생 건수(`active_tx_count`)가 100개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+* ***Container CPU Utilization Relative to Container CPU Limit***
+
+  카테고리: [`container`](metrics-kubernetes#container)
+
+  컨테이너의 실제 CPU 사용률(`cpu_per_quota`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Container Memory Utilization Relative to Container Memory Limit***
+
+  카테고리: [`container`](metrics-kubernetes#container)
+
+  컨테이너의 실제 메모리 사용량(`mem_percent`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Deployment Replicas Pending Pods Count***
+
+  카테고리: [`kube_pod_stat`](metrics-kubernetes#kube_pod_stat)
+
+  사용 가능한 Pod의 수(`available_pod`)가 배포 시 필요한 Pod의 수(`desired_pod`)보다 작으면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 원하는 값을 입력하세요.
+
+* ***Node CPU***
+
+  카테고리: <Link to="../server/metrics-server#server_base" target="_blank"><code>server_base</code></Link>
+
+  노드(Node)의 CPU 사용률(`cpu`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Node Disk(/) Utilization***
+
+  카테고리: <Link to="../server/metrics-server#server_disk" target="_blank"><code>server_disk</code></Link>
+
+  노드(Node)의 루트 경로에 해당하는 디스크 사용률(`usedPercent`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Node Memory***
+
+  카테고리: <Link to="../server/metrics-server#server_base" target="_blank"><code>server_base</code></Link>
+
+  노드(Node)의 메모리 사용률(`memory_pused`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Restart Count Of Container In Pod***
+
+  카테고리: [`kube_pod`](metrics-kubernetes#kube_pod)
+
+  Pod의 재시작 횟수(`RestartCount`)가 5개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+* ***Transaction Error Count***
+
+  카테고리: <Link to="../java/metrics-app#app_counter" target="_blank"><code>app_counter</code></Link>
+
+  트랜잭션 에러 건수(`tx_error`)가 10개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+* ***Transaction Response Time***
+
+  카테고리: <Link to="../java/metrics-app#app_counter" target="_blank"><code>app_counter</code></Link>
+
+  트랜잭션의 평균 응답 시간(`resp_time`)이 10회 연속, 2초(2,000 ms)를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
 </InDoc>

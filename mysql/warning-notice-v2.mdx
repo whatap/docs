@@ -1,0 +1,47 @@
+---
+id: warning-notice-v2
+title: 이벤트 설정
+description: 데이터베이스의 지표별 이벤트 조건 설정을 통해 경고 알림을 보냅니다.
+tags: [ MySQL, 데이터베이스, 경고 알림, 이벤트 설정 ]
+---
+
+{@include: ../common-items/_event-config-v2-basic.mdx} 
+
+<!--기본 이벤트 템플릿-->
+{@include: ../common-items/_event-config-v2-template.mdx} 
+
+<InDoc product="mysql">
+
+<ImgLang img='event-config-v2-db01.png' desc='이벤트 목록' />
+
+제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
+
+* ***Active Sessions***
+
+  카테고리: [`db_mysql_counter`](metrics-data-list)
+
+  쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Lock Wait Sessions***
+
+  카테고리: 
+
+</InDoc>
+
+<!--이벤트 수정하기-->
+{@include: ../common-items/_event-config-v2-modify.mdx}
+
+<!--이벤트 추가하기-->
+{@include: ../common-items/_event-config-v2-add.mdx}
+
+<!--이벤트 삭제하기-->
+{@include: ../common-items/_event-config-v2-delete.mdx}
+
+<!--JSON 형식으로 수정하기-->
+{@include: ../common-items/_event-config-v2-json-modify.mdx} 
+
+<!--JSON 파일로 공유하기-->
+{@include: ../common-items/_event-config-v3-json-share.mdx}
+
+<!--이벤트 검색하기-->
+{@include: ../common-items/_event-config-v2-search.mdx}

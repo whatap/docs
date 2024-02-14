@@ -38,7 +38,7 @@ toc_max_heading_level: 2
 | `recv_packet_size` | byte | 수신한 패킷의 데이터 크기 | - |
 | `retransmission_count` | count | 재전송이 일어난 패킷 수량 | - |
 | `row_count` | count | 중복을 포함한 세션 개수 | - |
-| `send_packet_packet` | count | 송신한 패킷의 수량 | - |
+| `send_packet_count` | count | 송신한 패킷의 수량 | - |
 | `send_packet_size` | byte | 송신한 패킷의 전체 크기 | - |
 | `session_count` | count | 중복을 제외한 세션 개수 | 유니크 세션의 수는 단순 합산이 아닌 **HyperLogLog**<sup><Link to="#hyperloglog">(1)</Link></sup>로 산출 |
 | `session_count_lobits` | - | 유니크 세션 계산을 위한 bit 정보(**HyperLogLog**) | 통계 처리를 위한 **HyperLogLog** 관련 정보입니다. |

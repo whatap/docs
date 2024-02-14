@@ -25,7 +25,7 @@ draft: false
 
 - <Status>Feature</Status> 프로필 아이콘 선택 &gt; <Cmdname sid="MNU07360" className="uitext" /> 메뉴의 <Cmdname sid="two_factor_auth" className="uitext" /> 섹션에서 OTP 인증 수단을 분실한 경우를 대비해 <Cmdname sid="TTL07396" className="uitext" /> 기능 추가
 
-- <Status>Feature</Status> 대시보드의 Apdex * 100 위젯에 프로젝트 데이터 병합 메트릭스 추가
+- <Status>Feature</Status> 대시보드의 Apdex * 100 위젯에 <Cmdname sid="ITM07648" className="uitext" /> 메트릭스 항목 추가
 
 ---
 
@@ -35,13 +35,59 @@ draft: false
 
 ---
 
+### `Database`
+
+#### 공통
+
+- <Status>Feature</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_list" className="uitext" /> 메뉴에서 데이터베이스 서버의 IP 주소를 표기하는 <Cmdname sid="db_ip" className="uitext" /> 컬럼 추가
+
+- <Status>Fixed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_list" className="uitext" /> 메뉴에서 상태 아이콘 색상 변경, <Cmdname sid="name" className="uitext" />(<Cmdname sid="initial" className="uitext" />), <Cmdname sid="db_ip" className="uitext" /> 컬럼의 텍스트가 컬럼 너비보다 길 경우 마우스 오버 시 툴팁으로 확인할 수 있도록 수정
+
+- <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="database" className="uitext" /> 탭에서 <Cmdname sid="resolved_event_notification" className="uitext" /> 기능에 대한 툴팁 문구 추가(에이전트 버전 1.6.22 이상에서 지원)
+
+#### Database <code class="my">V2</code>
+
+- <Status>Changed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" /> 메뉴에서 기본 프리셋(<span class="uitext">Default(rds)</span>, <span class="uitext">Default(xos)</span>) 추가
+
+---
+
 ### `Kubernetes`
 
 - <Status>Change</Status> <Cmdname sid="workload" className="uitext" /> &gt; <Cmdname sid="MNU07551" className="uitext" /> 메뉴에서 <Cmdname sid="compare" className="uitext" /> 기능의 UI 수정 및 목차 기능 추가
 
 - <Status>Change</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="containerMap" className="uitext" /> 메뉴에서 블록의 크기가 작은 경우 UI 표시 수정
 
+---
+
+### `Browser`
+
+- <Status>Feature</Status> 페이지 로드 히트맵 데이터에 네트워크 상태 관련 지표 추가: <Cmdname sid="TTL07611" className="uitext" />, <Cmdname sid="TTL07612" className="uitext" />, <Cmdname sid="TTL07610" className="uitext" />
+
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="rumDashboard" className="uitext" /> 메뉴의 <Cmdname sid="rumPageLoadHitmap" className="uitext" /> 위젯
+  - <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="rumPageLoadHitmap" className="uitext" />
+
+- <Status>Feature</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="rumPageLoadHitmap" className="uitext" /> 메뉴의 <Cmdname sid="page_load" className="uitext" /> <Cmdname sid="detail" className="uitext" /> 창에서 리소스 데이터에 지표 추가: <Cmdname sid="status_code" className="uitext" />, <span class="uitext">Delivery Type</span>
+
+- <Status>Feature</Status> AJAX 히트맵 데이터에 네트워크 상태 관련 지표 추가: <Cmdname sid="TTL07611" className="uitext" />, <Cmdname sid="TTL07612" className="uitext" />, <Cmdname sid="TTL07610" className="uitext" />, <span class="uitext">Delivery Type</span>
+
+  - <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="ajaxAnalytics" className="uitext" />
+
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="rumDashboard" className="uitext" /> 메뉴의 <Cmdname sid="ajaxAnalytics" className="uitext" /> 위젯
+
+:::note
+
+추가된 지표에 대한 자세한 내용은 다음 링크를 참조하세요.
+
+- [<Cmdname sid="TTL07611" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/effectiveType)
+- [<Cmdname sid="TTL07612" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/rtt)
+- [<Cmdname sid="TTL07610" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/downlink)
+- [<span class="uitext">Delivery Type</span>](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/deliveryType)
+- [<Cmdname sid="status_code" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/responseStatus)
+
+:::
+
 </div>
+
 
 ## Preview 2.2.0.a4
 
@@ -138,7 +184,23 @@ draft: false
 
 #### 공통
 
-<p><Status>Changed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴에서 DB 유저 파일 생성을 위한 명령어 입력 시 운영체제에 따른 고려 사항 추가</p>
+- <Status>Changed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴에서 DB 유저 파일 생성을 위한 명령어 입력 시 운영체제에 따른 고려 사항 추가
+
+- <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="database" className="uitext" /> 탭에서 <Cmdname sid="database_inactive_alert" className="b500" />를 <Cmdname sid="inactive_agent_alert" className="uitext" />로 문구 수정
+
+  :::note
+
+  이 수정 사항은 DBX 에이전트 1.6.22 버전 이상에서 지원합니다.
+
+  :::
+
+- <Status>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="database" className="uitext" /> 탭에서 에이전트 이벤트 원복 알림(<Cmdname sid="resolved_event_notification" className="uitext" />) 기능 추가
+
+  :::note
+
+  이 추가 기능은 DBX 에이전트 1.6.22 버전 이상에서 지원합니다.
+
+  :::
 
 #### Redis
 

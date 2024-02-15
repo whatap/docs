@@ -109,10 +109,13 @@ tags: [ Node.js, 트랜잭션 ]
 
   기본값 `PATCH,OPTIONS,HEAD,TRACE`
 
-  설정된 HTTP 메소드(Method)로 요청된 트랜잭션 정보는 수집하지 않습니다. 여러 개를 설정하려면 쉼표(,)를 구분자로 이용하세요.
+  설정한 HTTP 메소드(Method)로 요청된 트랜잭션 정보는 수집하지 않습니다. 여러 개를 설정하려면 쉼표(,)를 구분자로 이용하세요.
 
   ```ini title="whatap.conf"
-  # example
+  # e.g. http_method가 OPTIONS, HEAD인 트랜잭션 "추적"
+  ignore_http_method=PATCH,TRACE
+
+  # e.g. http_method가 OPTIONS, HEAD인 트랜잭션 "무시"
   ignore_http_method=OPTIONS,HEAD
   ```
 

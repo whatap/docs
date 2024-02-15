@@ -196,17 +196,15 @@ tags: [ Go, 트랜잭션 ]
 
   기본값 `Empty`
 
-  지정된 HTTP Method로 요청된 트랜잭션 정보는 수집하지 않습니다. 여러 개를 지정할 때는 콤마(,)로 구분합니다.
+  설정한 HTTP 메소드(Method)로 요청된 트랜잭션 정보는 수집하지 않습니다. 여러 개를 설정하려면 쉼표(,)를 구분자로 이용하세요.
 
-  :::note 
+  ```ini title="whatap.conf"
+  # e.g. http_method가 OPTIONS, HEAD인 트랜잭션 "추적"
+  ignore_http_method=PATCH,TRACE
 
-  다음과 같이 `OPTIONS`와 `HEAD` 두 값을 지정할 경우 콤마(,)로 구분합니다.
-
-  ```ini title='whatap.conf'
-  ignore_http_method=OPTIONS, HEAD
+  # e.g. http_method가 OPTIONS, HEAD인 트랜잭션 "무시"
+  ignore_http_method=OPTIONS,HEAD
   ```
-
-  :::
 
 * **biz_exceptions** <span class='type'>String</span>
 

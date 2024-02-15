@@ -52,7 +52,7 @@
 
 ### <Cmdname sid="TTL07363" />
 
-<InDoc product="java,php,python,nodejs,dotnet,golang,kubernetes,mysql">
+<InDoc product="java,php,python,nodejs,dotnet,golang,kubernetes,mysql,postgresql,oracle,mssql,cubrid,tibero,altibase,redis">
 
 특정 에이전트에서만 발생하는 이벤트를 알림으로 보내도록 설정할 수 있습니다. <Cmdname sid="TLT07556" className="uitext" /> 항목을 클릭한 다음 원하는 에이전트를 선택하세요.
 
@@ -68,13 +68,51 @@
 
 </InDoc>
 
+<InDoc product="browser">
+
+특정 페이지 그룹에서만 발생하는 이벤트를 알림으로 보내도록 설정할 수 있습니다. <span class="uitext">Page_group</span> 항목을 클릭한 다음 원하는 페이지 그룹을 선택하세요.
+
+<ImgLang img='event-config-v2-target-browser.png' desc='이벤트 대상 선택' />
+
+</InDoc>
+
+<InDoc product="npm">
+
+특정 대상에서만 발생하는 이벤트를 알림으로 보내도록 설정할 수 있습니다. <Cmdname sid="ITM07588" className="uitext" />의 각 항목을 클릭한 다음 원하는 대상을 선택하세요.
+
+<ImgLang img='event-config-v2-target-npm.png' desc='이벤트 대상 선택' />
+
+:::tip
+
+선택할 수 있는 대상은 **tagRule** 옵션으로 적용한 그룹화된 모니터링 단위입니다. **tagRule** 옵션에 대한 자세한 내용은 [다음 문서](set-tagrule)를 참조하세요.
+
+:::
+
+</InDoc>
+
 :::note
 
 * 제공되는 템플릿에 따라 선택할 수 있는 대상은 다를 수 있습니다.
 
+* 선택한 대상에 대한 이벤트 발생 현황을 확인하려면 <Cmdname sid="TTL07362" className="uitext" />에서 <Cmdname sid="run" className="uitext" /> 버튼을 선택하세요.
+
+<Xclude product="browser,npm">
+
 * 대상을 선택하지 않으면 프로젝트에 포함된 전체 에이전트를 대상으로 알림을 보냅니다. 전체 에이전트를 대상으로 이벤트가 실행되면 많은 알림이 발생할 수 있습니다.
 
-* 선택한 대상에 대한 이벤트 발생 현황을 확인하려면 <Cmdname sid="TTL07362" className="uitext" />에서 <Cmdname sid="run" className="uitext" /> 버튼을 선택하세요.
+</Xclude>
+
+<InDoc product="browser">
+
+* 대상을 선택하지 않으면 전체 페이지 그룹을 대상으로 알림을 보냅니다. 전체 페이지 그룹을 대상으로 이벤트가 실행되면 많은 알림이 발생할 수 있습니다.
+
+</InDoc>
+
+<InDoc product="npm">
+
+* 대상을 선택하지 않으면 전체 네트워크 그룹을 대상으로 알림을 보냅니다. 전체 네트워크 그룹을 대상으로 이벤트가 실행되면 많은 알림이 발생할 수 있습니다.
+
+</InDoc>
 
 :::
 

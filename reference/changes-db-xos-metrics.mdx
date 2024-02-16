@@ -1,0 +1,75 @@
+---
+id: changes-db-xos-metrics-guide
+title: XOS2 지표 폐기 안내
+description: 데이터베이스 모니터링에서 XOS 에이전트를 통해 제공되는 2개의 CPU 지표를 DBX 에이전트 v1.7.0부터 통합해 제공될 예정입니다.
+tags: [ 데이터베이스, XOS 에이전트 ]
+displayed_sidebar: dbSidebar
+---
+
+데이터베이스 서버에 XOS 에이전트를 설치하면 서버의 자원 상태를 모니터링할 수 있습니다. 수집하는 주요 지표는 다음 문서를 참조하세요.
+
+:::note
+
+- <Link to="https://docs.whatap.io/postgresql/instance-monitoring#column-info" target="_blank"><Cmdname sid="instance_monitoring" /></Link> - <b>Process information</b> 탭을 확인하세요.
+
+- <Link to="https://docs.whatap.io/postgresql/metrics-data-list" target="_blank">메트릭스 지표</Link> - <b>XOS</b> 카테고리의 지표
+
+:::
+
+## XOS 지표 변경 사항
+
+데이터베이스 모니터링에서는 CPU 사용량과 관련해 `CPU(xos)`, `CPU(xos2)` 지표 두 가지를 제공하고 있었습니다. DBX 에이전트 1.7.0 버전 이상에서는 두 지표가 통합될 예정입니다. xos2 지표는 폐기하고 xos 지표는 백분율로 변경합니다.
+
+| 변경 전 지표 이름 | 변경 후 지표 이름 | 단위 |
+| :--: | :--: | :--: |
+| `cpu(xos2)`<br/>`cpu(xos)` | `cpu(xos)` | 사용률(%) |
+| `cpu_idle(xos2)`<br/>`cpu_idle(xos)` | `cpu_idle(xos)` | % |
+| `cpu_sys(xos2)`<br/>`cpu_sys(xos)` | `cpu_sys(xos)` | % |
+| `cpu_user(xos2)`<br/>`cpu_user(xos)` | `cpu_user(xos)` | % |
+| `cpu_iowait(xos2)`<br/>`cpu_iowait(xos)` | `cpu_iowait(xos)` | % |
+
+DBX 에이전트를 1.7.0 버전으로 업데이트한 후에 기존 지표로 경고 알림을 설정했거나 대시보드를 구성했다면 지표 설정을 변경해야 합니다. <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 설정한 임계값은 자동 전환됩니다. 이미 설정한 경고 알림 중 위 5가지 지표를 사용한 알림이 제대로 전환됐는지 확인하세요. 다음 내용을 참고하세요.
+
+## DBX 에이전트 업데이트하기
+
+<Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_update" className="uitext" /> 메뉴에서 1.7.0 버전 이하의 에이전트를 업데이트하세요.
+
+<ImgLang img='changes/refer-db-agent-update-170.png' desc='에이전트 업데이트' />
+
+:::note
+
+에이전트 업데이트에 대한 자세한 내용은 [다음 문서](../postgresql/agent-manage)를 참조하세요.
+
+:::
+
+## 변경된 지표 확인하기
+
+DBX 에이전트 업데이트 후 <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴의 <Cmdname sid="database" className="uitext" /> 탭에서 `cpu(xos2)` 지표가 `cpu(xos)` 지표로 변경됐는지 확인하세요.
+
+* **DBX 에이전트 업데이트 전**
+
+  <ImgLang img='changes/refer-db-alert-xos2.png' desc='이벤트 설정' />
+
+* **DBX 에이전트 업데이트 후**
+
+  <ImgLang img='changes/refer-db-alert-xos.png' desc='이벤트 설정' />
+
+:::tip
+
+* <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴의 <Cmdname sid="metrics" className="uitext" /> 탭에서 <code>cpu(xos2)</code> 지표로 설정한 이벤트를 <code>cpu(xos)</code> 지표로 변경하세요.
+
+* 다음 메뉴 경로에서 개별로 설정한 프리셋 중 `cpu(xos2)` 지표를 `cpu(xos)` 지표로 변경하세요.
+
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" />
+
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="flexboard" className="uitext" />
+
+:::
+
+:::note
+
+* 3월 정기 서비스 배포(2024.3.27 18:00) 후 대시보드에서 `cpu(xos)` 지표가 보이지 않는다면 DBX 에이전트를 1.7.0 버전 이상으로 업데이트하세요. 에이전트 업데이트에 대한 자세한 내용은 [다음 문서](../postgresql/agent-manage)를 참조하세요.
+
+* 도움이 필요한 고객의 경우 [와탭 모니터링 서비스](https://service.whatap.io) 화면 오른쪽 위에 ![채팅 문의 아이콘](/img/ico-help.svg) **채팅 문의**를 통해서 지원받을 수 있습니다.
+
+:::

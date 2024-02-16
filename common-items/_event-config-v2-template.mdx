@@ -94,11 +94,17 @@
 
   메모리 사용률(`memory_pused`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
+* ***Network BPS***
+
+  카테고리: [`server_network`](metrics-server#server_network)
+
+  네트워크 인바운드 트래픽(`trafficIn`)과 아웃바운드 트래픽(`trafficOut`)의 합이 150,000,000byte(150MB)를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 200,000,000byte(200MB)를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
 * ***Network IOPS***
 
   카테고리: [`server_network`](metrics-server#server_network)
 
-  네트워크 인바운드 패킷(`packetIn`)과 아웃바운드 패킷(`packetOut`)의 합이 45000 byte를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50000 byte를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  네트워크 인바운드 패킷(`packetIn`)과 아웃바운드 패킷(`packetOut`)의 합이 45000byte를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50000byte를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Process CPU***
 
@@ -154,7 +160,7 @@
 
   카테고리: [`kube_pod_stat`](metrics-kubernetes#kube_pod_stat)
 
-  사용 가능한 Pod의 수(`available_pod`)가 배포 시 필요한 Pod의 수(`desired_pod`)보다 작으면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 원하는 값을 입력하세요.
+  사용할 수 있는 Pod 개수(`available_pod`)가 배포 시 필요한 Pod 개수(`desired_pod`)보다 작으면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 사용할 수 있는 Pod 개수와 배포 시 필요한 Pod 개수의 차이를 임곗값으로 입력하세요.
 
 * ***Node CPU***
 
@@ -192,6 +198,12 @@
 
   트랜잭션의 평균 응답 시간(`resp_time`)이 10회 연속, 2초(2,000 ms)를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
+:::note
+
+기본 이벤트 템플릿에 적용된 필드에 대한 자세한 내용은 [다음 문서](metrics-kubernetes)를 참조하세요.
+
+:::
+
 </InDoc>
 
 <InDoc product="mysql">
@@ -210,7 +222,7 @@
 
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
-  현재 row lock을 획득하기 위해 대기 중인 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Memory***
 
@@ -248,7 +260,7 @@
 
   카테고리: [`db_postgresql_counter`](metrics-data-list)
 
-  현재 row lock을 획득하기 위해 대기 중인 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Memory***
 
@@ -286,7 +298,7 @@
 
   카테고리: [`db_oracle_counter`](metrics-data-list)
 
-  현재 row lock을 획득하기 위해 대기 중인 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Memory***
 
@@ -318,7 +330,7 @@
 
   카테고리: `db_cubrid_counter`
 
-  현재 row lock을 획득하기 위해 대기 중인 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Memory***
 
@@ -350,7 +362,7 @@
 
   카테고리: `db_tibero_counter`
 
-  현재 row lock을 획득하기 위해 대기 중인 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Memory***
 
@@ -382,7 +394,7 @@
 
   카테고리: `db_altibase_counter`
 
-  현재 row lock을 획득하기 위해 대기 중인 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Memory***
 
@@ -414,7 +426,7 @@
 
   카테고리: [`db_mssql_counter`](metrics-mssql)
 
-  현재 row lock을 획득하기 위해 대기 중인 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Memory***
 
@@ -444,7 +456,7 @@
 
   카테고리: [`npm_process_tag_data`](metrics-npm#npm_process_tag_data)
 
-  패킷 왕복 지연 시간의 평균(`avg_latency`)이 200초를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 400초를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  패킷 왕복 지연 시간의 평균(`avg_latency`)이 200ms(0.2초)를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 400ms(0.4초)를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Loss Packet***
 
@@ -474,7 +486,13 @@
 
   카테고리: [`npm_process_tag_data`](metrics-npm#npm_process_tag_data)
 
-  송신한 패킷의 데이터 크기(`send_packet_size`)와 수신한 패킷의 데이터 크기(`recv_packet_size`)의 합이 7.68GB를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 15.36GB를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  송신한 패킷의 데이터 크기(`send_packet_size`)와 수신한 패킷의 데이터 크기(`recv_packet_size`)의 합이 7,680,000,000byte(7.68GB)를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 15,360,000,000byte(15.36GB)를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+:::note
+
+기본 이벤트 템플릿에 적용된 필드에 대한 자세한 내용은 [다음 문서](metrics-npm)를 참조하세요.
+
+:::
 
 </InDoc>
 
@@ -492,7 +510,7 @@
 
   카테고리: [`rum_ajax_each_page`](metrics-browser#rum_ajax_each_page)
 
-  AJAX 요청 평균 응답 시간(`ajax_duration`)이 20초를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50초를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  AJAX 요청 평균 응답 시간(`ajax_duration`)이 20,000ms(20초)를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50,000ms(50초)를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Abnormal error count***
 
@@ -511,5 +529,11 @@
   카테고리: [`rum_page_load_each_page`](metrics-browser#rum_page_load_each_page)
 
   브라우저가 웹 페이지를 완전히 불러오는데 소요한 평균 시간(`page_load_duration`)이 4초를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 6초를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+:::note
+
+기본 이벤트 템플릿에 적용된 필드에 대한 자세한 내용은 [다음 문서](metrics-browser)를 참조하세요.
+
+:::
 
 </InDoc>

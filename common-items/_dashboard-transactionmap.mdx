@@ -4,6 +4,22 @@
 
 <ImgLang img='dashboard-transaction-map.png' desc='트랜잭션 맵' />
 
+:::info
+
+[Service 2.2.0 릴리스](../release-notes/service/service-2.2.0)를 통해 변경된 사항은 다음과 같습니다.
+
+- 실시간 최대 30분, 과거 시점 최대 1일까지 데이터를 조회할 수 있습니다. (기존: 실시간 최대 5분 한정)
+
+- 과거 시점의 데이터를 조회할 경우 서버로부터 받은 데이터를 필터링할 수 있습니다.
+
+- <Cmdname sid="TTL06209" className="uitext" /> 창을 통해 조회할 수 있는 데이터 개수가 100건에서 1000건으로 늘어났습니다.
+
+- 트랜잭션 및 에러 개수를 실시간으로 표시합니다.
+
+- <span class="uitext">TOP 30</span> 목록 및 차트 영역에 키보드 이벤트를 추가했습니다. 키보드 방향 버튼을 선택하면 원하는 위치로 이동할 수 있습니다.
+
+:::
+
 :::tip 
 
 **히트맵 분석과 다른 점은?**
@@ -28,9 +44,13 @@
 
 ## 트레이스 분석하기
 
-<Cmdname sid="transaction_map" className="uitext" /> 위젯의 차트 영역을 드래그하면 세부 트랜잭션 정보를 확인할 수 있는 <Cmdname sid="TTL06209" className="uitext" /> 창이 나타납니다. 트랜잭션 목록과 각 트랜잭션 하위의 스텝 정보를 한 번에 확인할 수 있습니다.
+<Cmdname sid="transaction_map" />의 차트 영역을 드래그하면 세부 트랜잭션 정보를 확인할 수 있는 <Cmdname sid="TTL06209" className="uitext" /> 창이 나타납니다. 트랜잭션 목록과 각 트랜잭션 하위의 스텝 정보를 한 번에 확인할 수 있습니다.
 
 <ImgLang img='dashboard-txmap-tx-analysis.png' desc='트레이스 분석' />
+
+* 차트 영역을 드래그한 다음 <Cmdname sid="TTL06209" className="uitext" /> 창에서 조회할 수 있는 데이터는 최대 1,000건입니다.
+
+* 
 
 :::note
 

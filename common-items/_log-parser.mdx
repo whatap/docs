@@ -22,7 +22,7 @@ GROK 파서 패턴 등록에 관해 다음 동영상 가이드를 참조하세�
 
 {@youtube: skgg5KOFGpI}
 
-### GROK 시작하기
+### GROK 시작하기{#grok-starting}
 
 GROK은 두 가지 형태의 문법을 제공합니다.
 
@@ -44,6 +44,8 @@ GROK은 두 가지 형태의 문법을 제공합니다.
     |SPACE|`\s*`|
     |NOTSPACE|`\S+`|
     |UUID|`[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12}`|
+
+    와탭에서 제공하는 모든 named regular expressions 확인을 원한다면 다음 [링크](https://github.com/whatap/java-grok/blob/master/src/main/resources/patterns/patterns)를 참조하세요.
 
     :::
 
@@ -184,7 +186,7 @@ projectCode logCategiry dexBuildStartTime {area=areaEnum, city=cityEnum} dexBuil
 - dexBuildElapsed : 56
 ```
 
-### GROK 적용하기
+### GROK 적용하기{#grok-applying}
 
 ***로그 설정*** > ***로그 1차 파서 설정***
 
@@ -263,7 +265,7 @@ projectCode logCategiry dexBuildStartTime {area=areaEnum, city=cityEnum} dexBuil
 
 로그가 JSON 포맷으로 수집될 경우 JSON 파서를 사용해 쉽고 편리하게 파싱할 수 있습니다.
 
-### JSON 적용하기
+### JSON 적용하기{#json-applying}
 
 ***로그 설정*** > ***로그 1차 파서 설정***
 

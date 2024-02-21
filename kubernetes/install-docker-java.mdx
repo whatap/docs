@@ -212,13 +212,48 @@ Java 17 버전 이상의 경우 reflection 관련 `--add-opens=java.base/java.la
 
 :::
 
-### paramkey 파일 생성
+### 보안키 설정하기{#security}
 
-프로젝트 최상위 경로에 *paramkey.txt* 파일을 생성한 다음 6자리 영어, 숫자로 이루어진 비밀번호를 지정하세요.
+SQL 변수, HTTP 쿼리를 조회하거나 Thread 중지 기능 이용하려면 보안키를 설정하세요.
 
-* *paramkey.txt* 파일은 모니터링 시 암호화된 인수 복호화 시 사용합니다. 
+* Java 에이전트 2.2.2 버전 이상
 
-* 비밀번호 예시는 다음과 같습니다. `ABCDEF`
+  `$WHATAP_HOME` 경로에 *security.conf* 파일을 생성한 후 다음과 같이 6자리 영어, 숫자로 구성된 암호를 입력하세요.
+
+  ```ini title='security.conf'
+  paramkey=ABCDEF # SQL 변수 및 HTTP 쿼리 조회
+  threadkill=ABCDEF # Thread 중지 기능
+  ```
+
+* Java 에이전트 2.2.2 버전 미만
+
+  `$WHATAP_HOME` 경로에 *paramkey.txt* 파일을 생성한 후 다음과 같이 6자리 영어, 숫자로 구성된 암호를 입력하세요.
+
+  ```ini title='paramkey.txt'
+  ABCDEF # SQL 변수 및 HTTP 쿼리 조회, Thread 중지 기능
+  ```
+
+:::tip
+
+Java 에이전트 2.2.2 버전 미만에서 2.2.2 버전으로 업데이트하는 경우 기존 *paramkey.txt* 파일의 키값은 *seuciry.conf* 파일의 키값으로 자동 적용됩니다. 예를 들어, *paramkey.txt*에 `FEDCBA`를 사용한 상태에서 2.2.2 버전으로 업데이트했다면, *security.conf* 파일에는 다음과 같이 적용됩니다.
+
+```ini
+paramkey=FEDCBA
+threadkill=FEDCBA
+```
+
+*paramkey.txt* 파일이 존재하지 않을 경우 *security.conf* 파일의 키값은 **WHATAP**이라는 키값으로 자동 생성됩니다.
+
+:::
+
+:::note
+
+* SQL 파라미터 정보 기록과 관련한 에이전트 설정은 [다음 문서](agent-dbsql#profile-sql-param)를 참조하세요.
+
+* HTTP 파라미터 정보 기록과 관련한 에이전트 설정은 [다음 문서](agent-transaction#profile_http_parameter)를 참조하세요.
+
+:::
+
 
 ## 컨테이너 환경변수 설정
 

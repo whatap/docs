@@ -12,7 +12,7 @@ import Note from '../common-items/_import_v2-note.mdx';
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
-{@include: ../common-items/_agent-signup-guide.mdx}  
+{@include: ../common-items/_agent-signup-guide.mdx}   
 
 <Youtube ko='RhU3f3d7k1A' en='wQbXDKNdDfA' ja='wQbXDKNdDfA' />
 
@@ -46,7 +46,7 @@ import Note from '../common-items/_import_v2-note.mdx';
 {@include: ../common-items/_db-install-agent-common-notes.mdx}
 
 <!-- 모니터링용 계정 생성-->
-{@include: ../common-items/_db-create-monitoring-account.mdx}
+{@include: ../common-items/_db-create-monitoring-account.mdx} 
 
 <!-- PostgreSQL-->
 ```bash showLineNumbers
@@ -72,13 +72,16 @@ grant execute on function pg_get_backend_memory_contexts to whatap;
 
 # 테이블 사이즈 수집 시
 grant usage on schema {schema_name} to whatap;
+
+# 오브젝트 정보 조회 시
+grant select on all tables in schema {schema_name} to whatap;
 ```
 
 ## DB 유저 파일 생성{#create-db-user}
 
 <DBuserDesc name='default'/>
 
-{@include: ../common-items/_db-create-db-user-file-body.mdx} 
+{@include: ../common-items/_db-create-db-user-file-body.mdx}
 
 
 <!--## 에이전트 실행-->

@@ -66,17 +66,15 @@
 
   기본값 `Empty`
 
-  지정된 HTTP Method로 요청된 트랜잭션 정보는 수집하지 않습니다. 여러 개를 지정할 때는 콤마(,)로 구분합니다.
+  설정한 HTTP 메소드(Method)로 요청된 트랜잭션 정보는 수집하지 않습니다. 여러 개를 설정하려면 쉼표(,)를 구분자로 이용하세요.
 
-  :::note 
+  ```ini title="whatap.ini"
+  # e.g. http_method가 OPTIONS, HEAD인 트랜잭션 "추적"
+  whatap.ignore_http_method=PATCH,TRACE
 
-  다음과 같이 `OPTIONS`와 `HEAD` 두 값을 지정할 경우 콤마(,)로 구분합니다.
-
-  ```ini title='whatap.ini'
-  whatap.ignore_http_method=OPTIONS, HEAD
+  # e.g. http_method가 OPTIONS, HEAD인 트랜잭션 "무시"
+  whatap.ignore_http_method=OPTIONS,HEAD
   ```
-
-  :::
 
 * **whatap.biz_exceptions** <span class='type'>String</span>
 
@@ -86,6 +84,6 @@
 
 * **whatap.ignore_exceptions** <span class='type'>String</span>
 
-  무시할 Exception을 등록합니다. 여기에 등록되면 에러 자체가 무시됩니다. 
+  등록한 Exception의 에러 자체를 무시합니다.
   
   Exception의 경우 Custom Exception Class가 정의되어 있지 않으면, 기본으로 Exception으로 수집됩니다. 특정 Exception을 구분하기 위해서는 Custom Exception Class를 정의하고 해당 이름을 지정하면 제외할 수 있습니다.

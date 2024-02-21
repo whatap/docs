@@ -177,6 +177,12 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 }
 ```
 
+:::note
+
+와탭은 클라이언트와 관련한 정보를 기본 저장합니다.
+
+:::
+
 ## 트랜잭션
 
 <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/transaction/<code>stitme</code>/<code>etime</code>
@@ -189,6 +195,9 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 {
   "records": [
     {
+        "apdex_tolerated": 98,
+        "apdex_satisfied": 279,
+        "apdex": 0.830379746835443,
         "time_max": 44735,
         "sql_fetch_time": 363,
         "sql_time": 2628663,

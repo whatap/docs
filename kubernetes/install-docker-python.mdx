@@ -8,11 +8,15 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 애플리케이션 설치
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Docker 컨테이너 기반으로 실행하는 Python 애플리케이션에 와탭 모니터링 에이전트를 적용하고, 컨테이너 이미지를 패키징하는 과정입니다.
+***관리*** > ***에이전트 설치*** > 하단의 ***애플리케이션 설치*** 클릭 > 설치 안내 중 ***Docker Python*** 탭 선택
+
+Docker 컨테이너 기반으로 실행하는 Python 애플리케이션에 와탭 모니터링 에이전트를 적용하고 컨테이너 이미지를 패키징하는 과정을 다음과 같이 안내합니다. 쿠버네티스 애플리케이션을 배포하기 위해 도커 이미지가 필요합니다. 다음 과정을 통해 whatap-python 패키지가 설치된 도커 이미지를 생성합니다.
 
 :::note 
 
-Python 애플리케이션 연동 과정에 대한 이해를 돕고자 Git 예시 코드를 제공합니다. [다음 문서](https://github.com/whatap/kuber-apm-boilerplate/tree/main/python/fastapi)를 참조하세요.
+* EKS Fargate는 지원 예정입니다. 
+
+* Python 애플리케이션 연동 과정에 대한 이해를 돕고자 Git 예시 코드를 제공합니다. [다음 문서](https://github.com/whatap/kuber-apm-boilerplate/tree/main/python/fastapi)를 참조하세요.
 
 :::
 
@@ -20,29 +24,86 @@ Python 애플리케이션 연동 과정에 대한 이해를 돕고자 Git 예시
 
 Python 애플리케이션 도커 이미지 빌드 시 whatap-python 패키지를 설치하세요.
 
-```docker title='python ver 3.7'
+```docker
 RUN pip3 install --upgrade whatap-python
 ```
 
-## 에이전트 설정
+다음 Dockerfile의 정의 예시를 참조하세요. 
 
-1. Python 애플리케이션 시작 시 와탭 에이전트가 Injection할 수 있도록 애플리케이션 시작 스크립트를 수정하세요. 
+```docker title='python ver 3.10'
+# python3.10을 도커환경에 설치합니다.
+FROM python:3.10
 
-    로그 및 설정 파일 경로를 `WHATAP_HOME` 환경 변수로 설정하세요.
+# 작업 디렉터리를 /app 으로 설정합니다.
+WORKDIR /app
 
-    ```python
-    export WHATAP_HOME={로그 및 설정 파일 경로}
+# 현재 디렉터리의 모든 파일과 폴더를 컨테이너 내의 /app 디렉터리에 복사합니다.
+ADD . /app/
+
+# Python에서는 pip를 이용하여 외부 라이브러리를 설치할 수 있습니다. 
+# 와탭 Python 에이전트를 도커 이미지 빌드시 설치합니다.
+RUN pip3 install --upgrade whatap-python
+```
+
+## 에이전트 설정 및 실행
+
+애플리케이션 실행 전 Python 에이전트 작업 디렉터리를 정하고 기본 설정 파일을 생성하세요. 설정 파일(*entrypoint.sh*)을 통해 에이전트에 인증 정보를 전달하고 로그 추적 여부 등을 설정합니다.
+
+<details>
+<summary>설정 파일(entrypoint.sh) 완성 예시</summary>
+
+```bash title='entrypoint.sh'
+#!/bin/bash
+
+# 컨테이너의 작업 디렉터리를 와탭 경로로 설정하세요. 해당 경로에 에이전트 로그 및 설정 파일을 생성합니다.
+export WHATAP_HOME=${PWD}
+
+# 권한 오류 발생 시 다음 주석을 제거 후 진행하세요.
+#chmod -R 777 $WHATAP_HOME
+
+# 다음은 에이전트 구성에 필수적인 설정 값입니다. 애플리케이션 배포 yaml 파일을 통해 설정합니다.
+whatap-setting-config \
+--host $whatap_server_host \
+--license $license \
+--app_name $app_name \
+--app_process_name $app_process_name
+
+# 다음 주석은 에이전트 그룹화 및 로그 수집 활성화 등의 추가 설정입니다. 필요한 경우에만 사용하세요.
+
+# 에이전트 그룹화
+#echo "okind=$okind" >> whatap.conf
+
+# 로그 수집 활성화
+#echo "logsink_enabled=true" >> whatap.conf
+#echo "logsink_trace_enabled=true" >> whatap.conf
+#echo "trace_logging_enabled=true" >> whatap.conf
+
+
+# 다음과 같이 whatap-start-agent를 애플리케이션 시작 명령어 앞에 추가해 에이전트를 실행하세요. 
+whatap-start-agent uvicorn server:app --host 0.0.0.0 --port 8000
+```
+</details>
+
+1. 컨테이너 작업 디렉터리를 `WHATAP_HOME` 환경변수로 설정하세요. 해당 경로에 에이전트 로그 및 설정 파일을 생성합니다. 
+
+    ```bash 
+    export WHATAP_HOME=${PWD}
     ```
 
-1. `WHATAP_HOME`으로 설정한 경로에 *whatap.conf* 파일을 생성하고 설정하도록 다음 명령어를 실행하세요.
+1. `WHATAP_HOME`으로 설정한 경로에 *whatap.conf* 파일을 생성하고 설정하도록 다음 명령어를 실행하세요. `$`로 표시된 변수는 에이전트 구성에 필수적인 설정 값으로 애플리케이션 배포 *yaml* 파일을 통해 설정합니다.
 
-    ```bash
+    ```bash 
     whatap-setting-config \
-    --host {수집 서버 IP} \
-    --license {액세스 키} \
-    --app_name {사용자 지정 에이전트 이름} \
-    --app_process_name {프로세스 이름, 예시, uwsgi, gunicorn}
+    --host $whatap_server_host \
+    --license $license \
+    --app_name $app_name \
+    --app_process_name $app_process_name
     ```
+1. 애플리케이션 시작 명령어 앞에 다음과 같이 `whatap-start-agent`를 추가해 에이전트를 실행하세요. 
+
+  ```bash 
+  whatap-start-agent uvicorn server:app --host 0.0.0.0 --port 8000
+  ```
 
 :::caution
 
@@ -54,189 +115,134 @@ echo `sudo chmod -R 777 $WHATAP_HOME`
 
 :::
 
-## Kubernetes 환경변수 및 볼륨
+:::note 
 
-<Tabs>
-<TabItem value='basic' label='기본' default>
+* *yaml* 작성 예제는 다음 [컨테이너 환경변수 설정](#k8s-env)을 참고하세요.
 
-트랜잭션에서 Node 및 Pod 정보를 수집하기 위해 `NODE_IP`, `NODE_NAME`, `POD_NAME` 환경변수를 설정하세요. 와탭 설정 파일 및 로그 파일용 휘발성 볼륨을 탑재합니다.
+* 라이센스(`license`)는 와탭의 사용자 인증 정보입니다. **외부에 노출해서는 안됩니다**.
 
-```ini
-env:
-  - name: NODE_IP
-    valueFrom: {fieldRef: {fieldPath: status.hostIP}}
-  - name: NODE_NAME
-    valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
-  - name: POD_NAME
-    valueFrom: {fieldRef: {fieldPath: metadata.name}}
-```
-</TabItem>
-<TabItem value='eksfragate' label='EKS Fargate(지원 예정)'>
+:::
 
-1. 디플로이먼트(Deployment) 또는 레플리카셋(ReplicaSet)의 *.spec* 내 필드에 사용자 파드(Pod) 자원 관측을 위한 `shareProcessNamespace`, `serviceAccount`를 추가하세요.
+### 스크립트 실행 예시
 
-    ```ini
-    apiVersion: apps/v1
-    kind: Deployment
-    ...
-    spec:
-    ...
-        spec:
-          shareProcessNamespace: true
-          serviceAccount: whatap
-    ...
-    ```
+다음 Dockerfile 정의 예시를 참조하세요. *entrypoint.sh* 스크립트를 실행하는 완성된 예시입니다.
 
-1. 트랜잭션에서 Node 및 Pod 정보를 수집하기 위해 `NODE_IP`, `NODE_NAME`, `POD_NAME` 환경변수를 설정하세요. 와탭 설정 파일 및 로그 파일용 휘발성 볼륨을 탑재합니다.
+```docker 
+FROM python:3.10
+WORKDIR /app
+ADD . /app/
+RUN pip3 install --upgrade whatap-python 
 
-    ```ini
-    env:
-      - name: NODE_IP
-        valueFrom: {fieldRef: {fieldPath: status.hostIP}}
-      - name: NODE_NAME
-        valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
-      - name: POD_NAME
-        valueFrom: {fieldRef: {fieldPath: metadata.name}}
-    ```
+# entrypoint.sh 스크립트를 컨테이너에서 실행할 수 있도록 권한을 부여합니다.
+RUN chmod +x ./entrypoint.sh
 
-{@include: _pod-sidecar.mdx}
-
-</TabItem>
-</Tabs>
-
-## 모니터링 시작하기
-
-<Tabs>
-<TabItem value='command' label='Command' default>
-
-`whatap-start-agent` 커맨드를 애플리케이션 시작 명령어 앞에 추가해 실행하세요.
-
-```python
-# whatap-start-agent python manage.py runserver
-whatap-start-agent {애플리케이션 시작 명령어}
+# 컨테이너 생성시 entrypoint.sh 스크립트를 실행합니다.
+CMD ["./entrypoint.sh"]
 ```
 
-</TabItem>
-<TabItem value='uwsgi' label='uWSGI'>
+### 추가 설정 
 
-`whatap-start-agent` 커맨드를 애플리케이션 시작 명령어 앞에 추가해 실행하세요.
+다음 설정은 선택사항으로 필요한 경우에만 사용하세요. 설정 파일(*entrypoint.sh*)에 다음 추가 설정 외에도 로그 및 트랜잭션 관련 설정이 가능합니다. 기타 추가 설정의 경우 [다음 문서](https://docs.whatap.io/python/set-agent)를 참조하세요. 
 
-```python
-# whatap-start-agent uwsgi --ini myapp.ini
-whatap-start-agent {애플리케이션 시작 명령어}
+* **에이전트 그룹화** 
+
+  ```bash 
+  echo "okind=$okind" >> whatap.conf
+  ```
+
+* **로그 수집 활성화** 
+
+  ```bash
+  echo "logsink_enabled=true" >> whatap.conf
+  echo "logsink_trace_enabled=true" >> whatap.conf
+  echo "trace_logging_enabled=true" >> whatap.conf
+  ```
+
+## 컨테이너 환경변수 설정{#k8s-env}
+
+Docker 빌드 후 쿠버네티스 환경 내 **컨테이너 환경변수**를 설정하세요. 애플리케이션 배포 *yaml* 파일에 다음 내용을 추가하세요. 
+
+```yaml
+	  env:
+		- name: license
+			value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
+		- name: whatap_server_host
+			value: XXX.XXX.XXX.XXX
+		- name: app_name
+			value: {YOUR_APP_NAME}
+		- name: app_process_name
+		  value: {YOUR_PROCESS_NAME}
+		- name: okind
+			value: {YOUR_GROUP_NAME}
+		- name: NODE_IP
+		  valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+		- name: NODE_NAME
+		  valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+		- name: POD_NAME
+		  valueFrom: {fieldRef: {fieldPath: metadata.name}}
 ```
 
-#### Service에 uWSGI를 등록해 애플리케이션을 실행하는 경우
+다음 예시를 참조하세요. 
 
-* 사용자(User)를 변경한다면 `WHATAP_HOME` 환경변수를 추가해야 합니다.
-* 가상 환경을 사용한다면 에이전트 시작 명령어를 절대 경로로 추가하세요.
-
-서비스 실행 파일(*/etc/init/uwsgi.conf*)을 수정하여 에이전트 시작 명령어와 함께 애플리케이션을 시작하세요. 사용자 환경에 따라 서비스 실행 파일의 경로는 다를 수 있습니다.
-
-```python title='/etc/init.d/uwsgi'
-description "uWSGI application server handling myapp"
-start on runlevel {2345}
-stop on runlevel {!2345}
-exec whatap-start-agent {YOUR_APPLICATION_START_COMMAND}
-
-# 또는
-
-exec env WHATAP_HOME={PATH} {절대 경로}/whatap-start-agent {YOUR_APPLICATION_START_COMMAND}
+```yaml 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-fastapi-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python-fastapi-pod
+  template:
+    metadata:
+      labels:
+        app: python-fastapi-pod
+  containers:
+	- name: agent-python-fastapi
+    image: whatap/agent-python-fastapi
+	  env:
+		- name: license
+			value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
+		- name: whatap_server_host
+			value: XXX.XXX.XXX.XXX
+		- name: app_name
+			value: "myapp-python-fastapi"
+		- name: app_process_name
+		  value: "uvicorn"
+		- name: NODE_IP
+		  valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+		- name: NODE_NAME
+		  valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+		- name: POD_NAME
+		  valueFrom: {fieldRef: {fieldPath: metadata.name}}
 ```
 
-```ini title='/etc/init/uwsgi.conf'
-...
-NAME="uwsgi"
-PATH=/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/local/bin/uwsgi
-PID=$RUN/$NAME.pid
-INI_PATH=/etc/$NAME/$NAME.ini
+:::note
 
-########## WHATAP_AGENT_CONF ##########
-WHATAP_HOME={PATH}
-WHATAP_AGENT={절대 경로}/whatap-start-agent
+**환경변수 역할**
 
-...
-do_start(){
-  env WHATAP_HOME=$WHATAP_HOME $WHATAP_AGENT {YOUR_APPLICATION_START_COMMAND}
-}
-```
+- `license`: 에이전트 인증 확인을 위한 키입니다.
 
-</TabItem>
+- `whatap_server_host`: 와탭 수집 서버 호스트 IP입니다.
 
-<TabItem value='gunicorn' label='Gunicorn'>
+- `app_name`: 애플리케이션의 에이전트를 식별하는 이름입니다. 에이전트 식별에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/python/agent-name)를 참조하세요.
 
-`whatap-start-agent` 커맨드를 애플리케이션 시작 명령어 앞에 추가해 실행하세요.
+- `app_process_name`: CPU, Heap Memory 등 수집할 대상 프로세스를 설정합니다. 예로 uwsgi, gunicorn 등이 있습니다.
 
-```python
-# whatap-start-agent gunicorn myapp.wsgi
-whatap-start-agent {애플리케이션 시작 명령어}
-```
+- `okind`(선택사항) : Pod에 해당하는 애플리케이션들을 그룹화합니다. 디플로이먼트(Deployment) 이름으로 설정 시 해당하는 Pod들을 하나로 그룹화합니다.
 
-#### Service에 Gunicorn 등록하여 애플리케이션을 실행하는 경우
+- `NODE_IP`: 현재 Pod가 호스팅된 노드(Node)의 IP 주소를 수집합니다.
 
-* 사용자(User)를 변경한다면 `WHATAP_HOME` 환경변수를 추가해야 합니다.
-* 가상 환경을 사용한다면 에이전트 시작 명령어를 절대 경로로 추가하세요.
+- `NODE_NAME`: 현재 Pod가 실행 중인 노드의 이름을 수집합니다.
 
-서비스 실행 파일(*/etc/init/gunicorn.conf*)을 수정하여 에이전트 시작 명령어와 함께 애플리케이션을 시작하세요. 사용자 환경에 따라 서비스 실행 파일의 경로는 다를 수 있습니다.
+- `POD_NAME`: 현재 Pod의 이름을 수집합니다.
 
-```python title='/etc/init.d/gunicorn'
-description "Gunicorn application server handling myapp"
-start on runlevel {2345}
-stop on runlevel {!2345}
-exec whatap-start-agent {YOUR_APPLICATION_START_COMMAND}
+:::
 
-# 또는
 
-exec env WHATAP_HOME={PATH} {절대 경로}/whatap-start-agent {YOUR_APPLICATION_START_COMMAND}
-```
+## 에이전트 설치 확인
 
-```ini title='/etc/init/gunicorn.conf'
-...
-NAME="gunicorn"
-PATH=/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/local/bin/gunicorn
-PID=$RUN/$NAME.pid
-INI_PATH=/etc/$NAME/$NAME.ini
+* 에이전트를 제대로 설치했는지 확인하려면 ***대시보드*** > ***애플리케이션 서비스 대시보드*** 메뉴로 이동하세요.
 
-########## WHATAP_AGENT_CONF ##########
-WHATAP_HOME={PATH}
-WHATAP_AGENT={절대 경로}/whatap-start-agent
-
-...
-do_start(){
-  env WHATAP_HOME=$WHATAP_HOME $WHATAP_AGENT {YOUR_APPLICATION_START_COMMAND}
-}
-```
-
-</TabItem>
-<TabItem value='supervisor' label='Supervisor'>
-
-* 사용자(User)를 변경한다면 `WHATAP_HOME` 환경변수를 추가해야 합니다.
-* 가상 환경을 사용한다면 에이전트 시작 명령어를 절대 경로로 추가하세요.
-
-서비스 실행 파일(*/etc/supervisor/conf.d/supervisor.conf*)을 수정하여 에이전트 시작 명령어와 함께 애플리케이션을 시작하세요. 사용자 환경에 따라 서비스 실행 파일의 경로는 다를 수 있습니다.
-
-```ini title='supervisor.conf'
-[program:app-uwsgi]
-environment = WHATAP_HOME={PATH}
-command = {절대 경로}/whatap-start-agent /usr/local/bin/uwsgi --ini /home/blog/backend/config/uwsgi.ini
-[program:nginx-app]
-command = /usr/sbin/nginx
-```
-
-</TabItem>
-<TabItem value='code' label='Code'>
-
-가장 윗줄에 API를 직접 호출하는 코드를 추가하여 에이전트를 적용할 수 있습니다.
-
-```python
-import whatap
-whatap.agent()
-```
-
-</TabItem>
-</Tabs>
-
-{@include: _check-install-agent.mdx}
- 
+* 컨테이너에서 `ps -ef | grep whatap_python` 명령어를 실행해 와탭 Python 서비스가 정상적으로 실행되는지 확인하세요. 

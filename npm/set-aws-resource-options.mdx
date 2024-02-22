@@ -11,7 +11,8 @@ AWS 환경에서 네트워크 성능 모니터링을 사용하려면 각 리소�
 
 AWS의 ELB를 통해 내부에 트래픽이 인가되는 경우 그림과 같이 ENI에 표현된 정보를 통해 토폴로지에 표현할 수 있습니다. AWS ENI에 `Description` 필드를 기준으로 표현합니다. 만약 `Description` 필드에 아무런 정보를 남기지 않은 경우 `NetworkInterfaceId` 속성을 제공합니다.
 
-## EC2 환경에서 AWS 리소스 권한 설정하기 {#set-aws-resource-ec2}
+
+## EC2 환경에서 AWS 리소스 권한 설정 {#set-aws-resource-ec2}
 
 AWS EC2에 **NPM** 에이전트를 설치할 경우 IAM 설정을 통해 AWS의 리소스 정보를 수집할 수 있습니다.
 
@@ -23,7 +24,7 @@ AWS EC2에 **NPM** 에이전트를 설치할 경우 IAM 설정을 통해 AWS의 
 
 ### AWS IAM 설정하기
 
-AWS IAM 정책 설정 과정에서 최소 권한을 지정하도록 요구됩니다. **NPM**에서 AWS 리소스 정보를 수집하려면 `ec2:DescribeNetworkInterfaces` 권한이 필요합니다.
+AWS IAM 정책 설정 과정에서 최소 권한을 지정하도록 요구하고 있습니다. **NPM**에서 AWS 리소스 정보를 수집하려면 `ec2:DescribeNetworkInterfaces` 권한이 필요합니다.
 
 ```json
 {
@@ -47,7 +48,8 @@ AWS IAM 정책 설정 과정에서 최소 권한을 지정하도록 요구됩니
 
 :::
 
-## EKS 환경에서 AWS 리소스 권한 설정하기 {#set-aws-resource-eks}
+
+## EKS 환경에서 AWS 리소스 권한 설정 {#set-aws-resource-eks}
 
 AWS EKS에서 **NPM** 에이전트를 설치하는 경우 SeviceAccount를 통해 AWS의 리소스 정보를 수집할 수 있습니다.
 
@@ -58,3 +60,42 @@ AWS EKS에서 **NPM** 에이전트를 설치하는 경우 SeviceAccount를 통�
 :::
 
 ### AWS IAM 설정하기
+
+AWS IAM 정책 설정 과정에서 최소 권한을 지정하도록 요구하고 있습니다. **NPM**에서 AWS 리소스 정보를 수집하려면 `ec2:DescribeNetworkInterfaces` 권한이 필요 합니다.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+              //...
+              "ec2:DescribeNetworkInterfaces"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+:::note
+
+정책 및 권한에 대한 자세한 내용은 [다음 링크](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policy-structure.html#policy-syntax)를 참조하세요.
+
+:::
+
+### Service Account 설정하기
+
+AWS EKS 설정 과정에서 IAM과 쿠버네티스의 Service Account를 연결해야 하고, **NPM**에서 AWS 리소스 정보를 수집하려면 IAM과 NPM의 Service Account를 연결해야 합니다.
+
+**NPM**에서는 다음의 Service Account를 사용하세요.
+
+```yaml
+namespace : whatap-npm-ns
+service_account : whatap-npm
+```
+
+```bash title='example'
+kubectl annotate serviceaccount -n whatap-npm-ns whatap-npm eks.amazonaws.com/role-arn=arn:aws:iam::$account_id:role/$role
+```

@@ -1,6 +1,6 @@
 ## 기본 이벤트 템플릿 {#basic-template}
 
-생성한 프로젝트의 상품에 따라 기본 이벤트 템플릿을 제공합니다. 이벤트 목록의 가장 오른쪽에 <Cmdname sid="TTL06099" className="uitext" /> 버튼을 선택해 원하는 이벤트를 활성화할 수 있습니다.
+생성한 프로젝트의 상품에 따라 기본 이벤트 템플릿을 제공합니다. 이벤트 목록의 가장 왼쪽에 <Cmdname sid="TTL06099" className="uitext" /> 버튼을 선택해 원하는 이벤트를 활성화할 수 있습니다.
 
 <InDoc product="java,php,python,nodejs,dotnet,golang">
 
@@ -110,7 +110,13 @@
 
   카테고리: [`server_process`](metrics-server#server_process)
 
-  프로세스의 수(`count`)가 2 이상이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 1 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  CPU 전체 사용률(`cpu`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Process Count***
+
+  카테고리: [`server_process`](metrics-server#server_process)
+
+  프로세스의 수(`count`)가 2개 이상이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 1개 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Process Memory***
 

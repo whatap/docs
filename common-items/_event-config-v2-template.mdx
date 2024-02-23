@@ -110,7 +110,13 @@
 
   카테고리: [`server_process`](metrics-server#server_process)
 
-  프로세스의 수(`count`)가 2 이상이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 1 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  CPU 전체 사용률(`cpu`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Process Count***
+
+  카테고리: [`server_process`](metrics-server#server_process)
+
+  프로세스의 수(`count`)가 2개 이상이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 1개 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Process Memory***
 

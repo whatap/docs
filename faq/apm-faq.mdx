@@ -9,7 +9,7 @@ tags: [ 애플리케이션, APM, FAQ ]
 
 ## Java
 
-### Java 에이전트의 예외 처리(Exception) 기준이 궁금해요.
+### Java 에이전트의 예외 처리(**WARNING**) 기준이 궁금해요.
 
 Java 언어를 사용하는 애플리케이션 환경에서 발생하는 에러를 Java 에이전트가 예외 처리하는 기준에 대해서 안내합니다. 다음 내용은 [Java 에이전트 v2.2.27](../release-notes/java/java-2_2_27) 기준으로 작성되었습니다.
 
@@ -23,12 +23,12 @@ Java 언어를 사용하는 애플리케이션 환경에서 발생하는 에러�
 
 #### Spring ExceptionHandler 통과 시 에러 처리
 
-Spring 프레임워크에서는 `org.springframework.web.servlet.DispatcherServlet.processHandlerException` 메소드를 통과하는 경우 에러로 처리합니다. 다만 개발자가 Try-Catch 문을 사용하는 경우 `ExceptionHandler`에 의해 처리되므로 와탭에서는 에러 처리하지 않습니다.
+Spring 프레임워크에서는 `org.springframework.web.servlet.DispatcherServlet.processHandlerException` 메소드를 통과하는 경우 에러로 처리합니다. 다만 개발자가 Try-Catch 문을 사용하는 경우 `ExceptionHandler`를 통과하지 않으므로 와탭에서는 에러 처리하지 않습니다.
 
 
 #### Status Code 400 이상 에러 처리
 
-HTTP 응답 코드가 400 이상인 경우에는 예외 클래스(Exception Class)가 명시되지 않더라도 에러로 처리합니다.
+HTTP 응답 코드가 400 이상인 경우에는 예외 클래스(Exception Class)가 발생하지 않더라도 에러로 처리합니다.
 
 
 #### JDBC driver 호출 시 에러 처리

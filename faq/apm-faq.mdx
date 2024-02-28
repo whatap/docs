@@ -23,7 +23,7 @@ Java 언어를 사용하는 애플리케이션 환경에서 발생하는 에러�
 
 #### Spring ExceptionHandler 통과 시 에러 처리
 
-Spring 프레임워크에서는 `org.springframework.web.servlet.DispatcherServlet.processHandlerException` 메소드를 통과하는 경우 에러로 처리합니다. 다만 Try-Catch 문을 사용하는 경우 `ExceptionHandler`로 에러 처리하지 않습니다.
+Spring 프레임워크에서는 `org.springframework.web.servlet.DispatcherServlet.processHandlerException` 메소드를 통과하는 경우 에러로 처리합니다. 다만 개발자가 Try-Catch 문을 사용하는 경우 `ExceptionHandler`에 의해 처리되므로 와탭에서는 에러 처리하지 않습니다.
 
 
 #### Status Code 400 이상 에러 처리

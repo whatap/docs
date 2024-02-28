@@ -1,0 +1,88 @@
+---
+id: apm-faq
+title: Application FAQ
+description: 와탭 애플리케이션 모니터링 서비스 FAQ 문서입니다.
+tags: [ 애플리케이션, APM, FAQ ]
+---
+
+와탭 애플리케이션 모니터링 서비스 사용자들이 자주 묻는 질문을 확인해 보세요. 
+
+## Java
+
+### Java 에이전트의 예외 처리(Exception) 기준이 궁금해요.
+
+Java 에이전트에서 예외 처리(Exception) 기준은 다음과 같습니다. [v2.2.27](../release-notes/java/java-2_2_27) 기준으로 안내합니다.
+
+<Cmdname sid="AA005" className="uitext" /> 위젯, <Cmdname sid="TTL06209" className="uitext" /> 창을 통해서 확인할 수 있는 <Cmdname sid="TTL06087" className="uitext" />는 <span class="slow">WARNING</span>에 해당합니다.
+
+![hitmap, Trace analysis](/img/faq/apm-faq-hitmap-error.png)
+
+#### Spring ExceptionHandler 통과 시 에러 처리
+
+- `org.springframework.web.servlet.DispatcherServlet.processHandlerException`
+
+- try-catch 처리 시 ExceptionHandler로 처리하지 않습니다.
+    
+#### Status Code 400 이상 에러 처리
+
+Exception Class가 없더라도 Status Code 400 이상인 경우 에러 처리합니다.
+    
+#### JDBC driver 호출 시 에러 처리
+
+- JDBC connection 호출 에러 발생할 경우
+
+- SQL execute 호출 에러 발생할 경우
+
+#### HTTP call 에러 처리
+
+SLOW_HTTPC, httpc error
+
+#### 와탭 에러 처리
+
+- **TOO_MANY_RECORDS**: fetch 건수 10000 건 이상
+
+- **SLOW_SQL**: SQL 시간 30000ms 이상
+
+- **SLOW_HTTPC**: HTTP call 경과 시간이 10000ms 이상
+
+- **httpc error**: HTTP call status code 400 이상인 경우
+
+- **status error**: 트랜잭션 status code 400 이상인 경우
+
+#### 트랜잭션 에러 단계 INFO 처리
+
+- `biz_exceptions`: 레코드 에러 표시
+
+  ```ini title="whatap.conf"
+  biz_exceptions=io.home.test.baseapp.base.exception.custom.CustomParameterizedException
+  ```
+
+- `ignore_exceptions`: 레코드 에러 미표시
+
+  ```ini title="whatap.conf"
+  ignore_exceptions=org.springframework.web.util.NestedServletException
+  ```
+
+- `status_ignore`
+
+  ```ini title="whatap.conf"
+  status_ignore=408,500,200
+  ```
+
+- `httpc_status_ignore`
+
+  ```ini title="whatap.conf"
+  httpc_status_ignore=403,401
+  ```
+
+- `status_ignore_set`
+
+  ```ini title="whatap.conf"
+  status_ignore_set=/api/posts/test/timeout:200,/error:500
+  ```
+
+- `httpc_status_url_ignore_set`
+
+  ```ini title="whatap.conf"
+  httpc_status_url_ignore_set=/api/posts/test/timeout:408,/api/apache/httpclient/posts/timeout:500
+  ```

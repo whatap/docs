@@ -47,15 +47,21 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 애플리케이션, 트�
 
 ### 에러 메시지
 
-<ImgLang img='whatap_application_analysis_tx_profile_error.png' desc='에러 메시지' />
+<ImgLang img='k8s-analysis-tx-profile-err.png' desc='에러 메시지' />
 
-트랜잭션 에러 메시지를 기반으로 검색합니다. 디폴트 상태에서 에러 관련 컬럼이 보이지 않을 수 있습니다. 컬럼을 선택해 확인하세요.
+트랜잭션 에러 메시지를 기반으로 검색합니다. 디폴트 상태에서 에러 관련 컬럼이 보이지 않을 수 있습니다. 컬럼을 선택해 확인하세요. 
+
+:::note 
+
+에러 상태의 트랜잭션은 빨간색으로 표시됩니다.
+
+:::
 
 ### HTTP 호출 건수
 
-<ImgLang img='whatap_application_analysis_tx_profile_http.png' desc='HTTP 호출 건수' />
+<ImgLang img='k8s-analysis-tx-profile-httpc.png' desc='HTTP 호출 건수' />
 
-트랜잭션 중 외부 HTTP 서비스를 호출한 건수 기반으로 검색합니다.
+트랜잭션 중 외부 HTTP 서비스를 호출한 건수가 **입력 값 이상**에 해당하는 트랜잭션을 검색합니다. 예시 이미지의 경우 ***5***건 이상을 조회합니다.
 
 ### SQL 건수
 

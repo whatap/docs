@@ -61,31 +61,31 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 애플리케이션, 트�
 
 <ImgLang img='k8s-analysis-tx-profile-httpc.png' desc='HTTP 호출 건수' />
 
-트랜잭션 중 외부 HTTP 서비스를 호출한 건수가 **입력 값 이상**에 해당하는 트랜잭션을 검색합니다. 예시 이미지의 경우 ***5***건 이상을 조회합니다.
+트랜잭션 중 외부 HTTP 서비스를 호출한 건수가 입력값 이상에 해당하는 트랜잭션을 검색합니다. 예시 이미지의 경우 ***5***건 이상을 조회합니다.
 
 ### SQL 건수
 
 <ImgLang img='k8s-analysis-tx-profile-sqlcount.png' desc='SQL 건수' />
 
-트랜잭션별 SQL 수행 건수가 설정한 건수 이상인 트랜잭션을 검색합니다. 예외적으로 과도한 수의 SQL을 호출하는 트랜잭션을 검색할 때 이용합니다.
+트랜잭션별 SQL 수행 건수가 설정한 입력값 이상에 해당하는 트랜잭션을 검색합니다. 예외적으로 과도한 수의 SQL을 호출하는 트랜잭션을 검색할 때 이용합니다.
 
 ### SQL 패치 건수
 
-<ImgLang img='whatap_application_analysis_tx_profile_sqlfetch.png' desc='SQL 패치 건수' />
+<ImgLang img='k8s-analysis-tx-profile-sqlfetchcount.png' desc='SQL 패치 건수' />
 
-SQL 수행후 DB 패치 건수를 기반으로 검색합니다. 건수 기준은 트랜잭션별입니다. 과도한 데이터 패치를 수행하는 트랜잭션을 검색할 때 이용합니다.
+SQL 수행 후 DB 패치 건수를 기준으로 입력값 이상에 해당하는 트랜잭션을 검색합니다. 과도한 데이터 패치를 수행하는 트랜잭션을 검색할 때 이용합니다.
 
 ### 트랜잭션
 
-<ImgLang img='whatap_application_analysis_tx_profile_url.png' desc='URL' />
+<ImgLang img='k8s-analysis-tx-profile-tx.png' desc='URL' />
 
-URL 기반으로 트랜잭션을 검색합니다. 입력한 검색 문자열은 포함 여부(부분 일치)로 비교 검색합니다.
+트랜잭션 기준으로 검색합니다. 입력한 검색 문자열은 포함 여부(부분 일치)로 비교 검색합니다.
 
 ### 클라이언트 IP
 
-<ImgLang img='whatap_application_analysis_tx_profile_ip.png' desc='IP' />
+<ImgLang img='k8s-analysis-tx-profile-cl-ip.png' desc='IP' />
 
-IP 기반으로 트랜잭션을 검색합니다. 단, IP 문자열은 PREFIX 비교(전방 일치)로 검색합니다.
+클라이언트 IP 기반으로 트랜잭션을 검색합니다. 단 IP 문자열은 PREFIX 비교(전방 일치)로 검색합니다.
 
 ### 도메인
 

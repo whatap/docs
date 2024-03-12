@@ -68,8 +68,8 @@
 
 ```ini title='whatap.conf'
 aws_region={AWS_RDS_Region_Name}
-aws_access_key={Access_Key}
-aws_secret_key={Secret_Key}
+# AWS IAM에서 역할(Role)을 생성하고 역할 ARN(Role ARN) 값을 복사, 붙여넣기하세요.
+aws_arn=arn:aws:iam::999999999999:role/UpdateApp
 cloud_watch=on
 cloud_watch_instance=RDS_DB_Instance_Name
 cloud_watch_interval=60

@@ -29,23 +29,17 @@ Pod 목록에서 분석을 원하는 항목의 가장 왼쪽에 ![자세히 보�
 
 * ***Pending***: Pod를 생성한 후 ***Running*** 상태로 진입하는 구간입니다.
 
-  :::note
-
-  Pod의 pending 상태에 대한 자세한 내용은 [다음 링크](https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/)를 참조하세요.
-
-  :::
-
 * ***Running***: Pod가 ***Pending*** 상태를 지나 안정화되기 전까지의 구간입니다.
 
 * ***Stable Running***: Pod가 ***Running*** 상태를 지나 안정화된 구간입니다.
 
-  :::note
+:::note
 
-  **안정화된 상태(Stable Running)**
+**안정화된 상태(Stable Running)**
 
-  와탭에서는 Pod 생성 직후 약 5분 동안 컨테이너의 CPU Limit 대비 사용량의 평균을 계산합니다. 이 평균값보다 CPU 사용량이 적어지는 시점을 안정화 시작 상태라고 정의합니다.
+와탭에서는 Pod 생성 직후 약 5분 동안 컨테이너의 CPU Limit 대비 사용량의 평균을 계산합니다. 이 평균값보다 CPU 사용량이 적어지는 시점을 안정화 시작 상태라고 정의합니다.
 
-  :::
+:::
 
 ## 상세 분석하기
 
@@ -53,7 +47,13 @@ Pod 목록에서 분석을 원하는 항목의 가장 왼쪽에 ![자세히 보�
 
   <ImgLang img='k8s-pod-startup-analysis-details-restart-count.png' desc='컨테이너 재시작 횟수' />
 
-* ***Pending*** 구간이 길어진다면 Pod가 ***Running*** 상태로 진입하기까지 오랜 시간이 걸렸다는 의미입니다. Pod의 ***Pending*** 상태를 유발할 수 있는 요인이 있는지 점검해 보세요. Pod의 **pending** 상태에 대한 자세한 내용은 [다음 링크](https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/)를 참조하세요.
+* ***Pending*** 구간이 길어진다면 Pod가 ***Running*** 상태로 진입하기까지 오랜 시간이 걸렸다는 의미입니다. Pod의 ***Pending*** 상태를 유발할 수 있는 요인이 있는지 점검해 보세요. 
+
+  :::note
+  
+  Pod의 **pending** 상태에 대한 자세한 내용은 [다음 링크](https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/)를 참조하세요.
+
+  :::
 
 * ***Running*** 구간이 길다면 Pod 내 컨테이너가 처음 실행될 때 리소스 사용량이 많은 구간이 있다는 의미입니다. 컨테이너 실행 과정에 문제가 없는지 살펴보세요.
 

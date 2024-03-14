@@ -13,9 +13,9 @@ import TR from '@site/src/components/TR';
 
 {@include: ../common-items/_agent-signup-guide.mdx}   
 
-<Youtube ko='RhU3f3d7k1A' en='wQbXDKNdDfA' ja='wQbXDKNdDfA' />
+<Youtube ko='e_UpCgapfQY' en='MIo3HRIOt8M' ja='MIo3HRIOt8M' />
 
-{@include: ../getting-started/_create-project-v2.mdx} 
+{@include: ../getting-started/_create-project-v2.mdx}
 
 {@include: ../getting-started/_accesskey.mdx} 
 
@@ -23,7 +23,7 @@ import TR from '@site/src/components/TR';
 
 {@include: ../common-items/_db-install-agent-steps.mdx} 
 
-1. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
+3. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
 
     ```ini title='whatap.conf'
     license=프로젝트 액세스 키
@@ -35,11 +35,11 @@ import TR from '@site/src/components/TR';
     db_port=데이터베이스 포트
     ```
 
-1. 다음 경로에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
+4. 다음 경로에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
 
-  데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요.
-  
-**Altibase JDBC Drivers**: http://support.altibase.com/kr/product
+    데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요.
+
+    **Altibase JDBC Drivers**: http://support.altibase.com/kr/product
 
 :::note
 
@@ -56,3 +56,9 @@ create user whatap identified by '[DB_PASSWORD]'; ## 원하는 password를 입�
 ## DB 유저 파일 생성{#create-db-user}
 
 {@include: ../common-items/_db-create-db-user-file.mdx} 
+
+<!--## 에이전트 실행-->
+{@include: ../common-items/_db-run-agent.mdx} 
+
+<!--## XOS 에이전트 설치-->
+{@include: ../common-items/_db-install-xos-agent.mdx}

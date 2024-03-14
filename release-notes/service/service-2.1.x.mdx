@@ -6,6 +6,101 @@ pagination_next: release-notes/service/service-2_0_x
 displayed_sidebar: releaseSidebar
 ---
 
+## Service 2.1.14
+
+2024년 02월 26일
+
+<div class='indentTab'>
+
+### `공통`
+
+<p><Status>Fixed</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="report" className="uitext" /> 메뉴의 <Cmdname sid="set_up_emailing" className="uitext" /> 기능에서 <Cmdname sid="weekdays" className="uitext" /> 항목에 대한 체크 및 해제가 동작하지 않는 문제 수정</p>
+
+---
+
+### `Application`
+
+- <Status>Fixed</Status> <Cmdname sid="app_upper" className="uitext" /> &gt; <Cmdname sid="agentsConfiguration" className="uitext" /> 메뉴의 <Cmdname sid="open_socket_count" className="uitext" /> 탭에서 <Cmdname sid="show_trace" className="uitext" /> 버튼 클릭 시 응답 없는 현상 수정
+
+- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 SQL 상세 내용에 대한 Encoder 선택 기능 복구
+
+</div>
+
+
+## Service 2.1.13
+
+2024년 02월 23일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Fixed</Status> <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 필터의 프로젝트 선택 변경 시 이전 선택된 프로젝트의 필터 내용을 제거하도록 수정(각 필터는 프로젝트 단위 적용)
+
+- <Status>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="tag_count_chart" className="uitext" /> 메뉴의 위젯에서 다운로드하는 CSV 파일에 시작 시간 이상 종료 시간 미만까지 데이터를 포함하도록 수정
+
+- <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴의 메트릭스 이벤트 설정 화면에서 이벤트 메시지 예시 내용 수정
+
+---
+
+### `Server`
+
+<p><Status>Fixed</Status> <Cmdname sid="sms_server_list" className="uitext" /> &gt; <Cmdname sid="server_list" className="uitext" /> 메뉴에서 <LinkImage img="ico-setting.svg" className="ico" /> <Cmdname sid="monitoring_management" className="uitext" /> 모드를 활성화하면 툴팁 메시지가 사라지지 않아 일부 요소를 가리는 문제 수정</p> 
+
+</div>
+
+
+## Service 2.1.12
+
+2024년 02월 20일
+
+<div class='indentTab'>
+
+### `Application`
+
+<p><Status>Fixed</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="statistics" className="uitext" /> 메뉴의 <Cmdname sid="httpc" className="uitext" /> 탭에서 테이블 컬럼 명칭 변경</p>
+
+- <Cmdname sid="TTL06918" className="b500" /> → <Cmdname sid="ITM07683" className="uitext" />
+
+- <Cmdname sid="service" className="b500" /> → <Cmdname sid="TTL06918" className="uitext" />
+
+</div>
+
+
+## Service 2.1.11
+
+2024년 02월 19일
+
+<div class='indentTab'>
+
+### `Log`
+
+<p><Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="log" className="uitext" /> 메뉴에서 복합 로그 이벤트 저장을 실패하는 문제 수정</p>
+
+</div>
+
+
+## Service 2.1.10
+
+2024년 02월 16일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Deprecated</Status> 언어 설정이 영어 또는 일본어일 때 <Cmdname sid="manage_account_info" className="uitext" /> 메뉴에서 마케팅 옵션 제거
+
+### `Kubernetes`
+
+- <Status>Fixed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴에서 PHP, Go 애플리케이션 에이전트 설치 과정 중 <b>에이전트 실행</b>을 위한 일부 명령어 수정
+
+- <Status>Fixed</Status> 홈 화면 &gt; <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 컨테이너 performnace 템플릿 선택 시 발생하는 화이트 아웃 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="containerMap" className="uitext" /> 메뉴에서 노드 블록 선택 후 <Cmdname sid="BTN06342" className="uitext" /> 버튼을 선택하면 발생하는 화이트 아웃 문제 수정
+
+</div>
+
+
 ## Service 2.1.9
 
 2024년 02월 14일

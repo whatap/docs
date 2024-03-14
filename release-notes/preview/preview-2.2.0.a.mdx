@@ -14,6 +14,80 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.2.0.a6
+
+2024년 02월 19일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Changed</Status> <Cmdname sid="MNU07360" className="uitext" /> 메뉴의 <Cmdname sid="two_factor_auth" className="uitext" /> 섹션에서 OTP 키를 발급하지 않은 상태이면 <Cmdname sid="send_otp_key_mail" className="uitext" /> 버튼 비활성화
+
+- <Status>Changed</Status> 프로젝트 생성 시 상품 추천 배너에 <b>Network Performance Monitoring</b> 추가, <b>Java</b> 상품 제거
+
+- <Status>Deprecated</Status> 언어 설정이 영어 또는 일본어일 때 <Cmdname sid="manage_account_info" className="uitext" /> 메뉴에서 마케팅 옵션 제거
+
+---
+
+### `Application`
+
+- <Status>Changed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="application_dashboard" className="uitext" /> 메뉴에서 <Cmdname sid="today_tps" className="uitext" /> 및 <Cmdname sid="today_user" className="uitext" /> 위젯에 <code>All APPS.</code> 태그 추가
+
+  :::note
+
+  `All APPS.` 태그가 표시된 위젯은 항상 모든 에이전트에 대한 데이터를 표시하도록 고정되어 있습니다.
+
+  :::
+
+- <Status>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="transaction_map" className="uitext" /> 메뉴에 새로운 UI 적용 및 기능 개편
+
+  - 데이터 조회 구간 확장: 실시간 최대 30분, 과거 시점 최대 1일
+  - <Cmdname sid="TTL06209" className="uitext" /> 창을 통해 최대 조회 가능 데이터 개수 증가(100건 → 1000건)
+  - 트랜잭션 및 에러 개수를 실시간으로 표시
+  - Top 30 목록에서 키보드 이벤트 추가
+  - 차트 영역에 대한 키보드 이벤트 추가
+  - 과거 시점의 데이터를 조회할 경우 서버로부터 받는 데이터 필터링 가능
+
+  :::note
+
+  <Cmdname sid="transaction_map" className="uitext" /> 메뉴의 개편과 관련한 자세한 내용은 <Link to="https://www.whatap.io/ko/blog/210/index.html">다음 링크</Link>를 참조하세요.
+
+  :::
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status>Feature</Status> XOS2 지표 대체 관련 안내 사항 추가
+
+- <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="database" className="uitext" /> 탭에서 <Cmdname sid="resolved_event_notification" className="uitext" /> 기능에 대한 툴팁 문구 수정(에이전트 버전 1.6.22 이상 → <b>에이전트 버전 1.6.30</b> 이상)
+
+#### MySQL <code class="my">V2</code>
+
+- <Status>Feature</Status> JSON 형식으로 Plan 조회 기능 추가
+
+- <Status>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="db_size_increase" className="uitext" /> 메뉴의 <Cmdname sid="TTL06572" className="uitext" /> 테이블에서 <span class="uitext">TABLENAME</span> 컬럼 항목을 클릭하면 <b>column</b>, <b>index</b> 구성을 확인할 수 있는 기능 추가
+
+---
+
+### `Kubernetes`
+
+- <Status>Fixed</Status> 홈 화면 &gt; <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 컨테이너 performnace 템플릿 선택 시 발생하는 화이트 아웃 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="containerMap" className="uitext" /> 메뉴에서 노드 블록 선택 후 <Cmdname sid="BTN06342" className="uitext" /> 버튼을 선택하면 발생하는 화이트 아웃 문제 수정
+
+---
+
+### `Log`
+
+<p><Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="log" className="uitext" /> 메뉴에서 복합 로그 이벤트 저장을 실패하는 문제 수정</p>
+
+</div>
+
+
 ## Preview 2.2.0.a5
 
 2024년 02월 15일
@@ -47,6 +121,10 @@ toc_max_heading_level: 2
 #### Database <code class="my">V2</code>
 
 - <Status>Changed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" /> 메뉴에서 기본 프리셋(<span class="uitext">Default(rds)</span>, <span class="uitext">Default(xos)</span>) 추가
+
+#### PostgreSQL <code class="my">V2</code>
+
+<p><Status>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="dbObjectInfo" className="uitext" /> 메뉴에서 <span class="uitext">table_size</span> 및 <span class="uitext">index_size</span>, <span class="uitext">bloat_size</span> 컬럼의 값을 정상 출력하도록 수정</p>
 
 ---
 
@@ -198,12 +276,6 @@ toc_max_heading_level: 2
 
 - <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="database" className="uitext" /> 탭에서 <Cmdname sid="database_inactive_alert" className="b500" />를 <Cmdname sid="inactive_agent_alert" className="uitext" />로 문구 수정
 
-  :::note
-
-  이 수정 사항은 DBX 에이전트 1.6.22 버전 이상에서 지원합니다.
-
-  :::
-
 - <Status>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="database" className="uitext" /> 탭에서 에이전트 이벤트 원복 알림(<Cmdname sid="resolved_event_notification" className="uitext" />) 기능 추가
 
   :::note
@@ -330,7 +402,7 @@ toc_max_heading_level: 2
 
   :::note
 
-  SSO 계정 연동에 대한 자세한 내용은 [다음 문서](https://whatap.github.io/whatap-docs/account/sso)를 참조하세요.
+  SSO 계정 연동에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/account/sso)를 참조하세요.
 
   :::
 
@@ -342,7 +414,7 @@ toc_max_heading_level: 2
 
   :::note
 
-  사이드 메뉴에 대한 자세한 내용은 [다음 문서](https://whatap.github.io/whatap-docs/main-ui-intro-v2)를 참조하세요.
+  사이드 메뉴에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/main-ui-intro-v2)를 참조하세요.
 
   :::
 

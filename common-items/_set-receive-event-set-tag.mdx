@@ -1,6 +1,6 @@
 ## 팀별, 사용자별 알림 설정하기 {#set-notice-by-team-or-users}
 
-프로젝트의 멤버 중 특정 멤버 또는 팀을 대상으로 알림 수신 여부를 설정합니다. ***메트릭스***, ***이상치 탐지***, ***로그*** 이벤트 설정의 ***이벤트 수신 태그*** 항목에서 태그를 추가하세요. 이벤트별로 경고 알림을 수신하는 멤버 또는 팀을 선택할 수 있습니다.
+프로젝트의 멤버 중 특정 멤버 또는 팀을 대상으로 알림 수신 여부를 설정합니다. <Cmdname sid="metrics" className="uitext" /> 및 <Cmdname sid="anomaly_detection" className="uitext" />, <Cmdname sid="log" className="uitext" /> 이벤트 설정의 <Cmdname sid="event_tag" className="uitext" /> 항목에서 태그를 추가하세요. 이벤트별로 경고 알림을 수신하는 멤버 또는 팀을 선택할 수 있습니다.
 
 반대로 이벤트 수신 태그를 설정하지 않으면 전체 멤버에게 경고 알림을 보낼 수 있습니다.
 
@@ -15,23 +15,23 @@
 | 이상치 탐지 경고 알림 |        <span class='emoji-ok'>✅</span>        |          <span class='emoji-ok'>✅</span>          |
 | 로그 실시간 경고 알림 |        <span class='emoji-no'>❌</span>        |          <span class='emoji-ok'>✅</span>          |
 
-1. **이벤트 수신 설정하기** (***경고 알림*** > ***이벤트 수신 설정***)
+1. **이벤트 수신 설정하기** (<Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" />)
 
     <ImgLang img='set-event-tag-01.png' desc='사용자별 이벤트 수신 설정' />
 
     프로젝트에 속한 멤버들 중 서버팀 소속은 `서버팀`, 데브옵스팀 소속은 `데브옵스팀`으로 이벤트 수신 태그를 설정하세요.
 
-1. **메트릭스 경고 알림 설정하기** (***경고 알림*** > ***이벤트 설정*** > ***메트릭스*** > ***+ 이벤트 추가*** > ***이벤트 수신 설정***)
+1. **메트릭스 경고 알림 설정하기** (<Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="metrics" className="uitext" /> &gt; <Cmdname sid="add_notification" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" />)
 
     <ImgLang img='set-event-tag-02.png' desc='사용자별 이벤트 수신 설정' />
 
-    ***+ 태그 추가*** 또는 ***+*** 버튼을 클릭하세요. 태그 목록에서 원하는 태그를 선택하거나 새 태그를 생성하세요. 메트릭스 이벤트에 대한 알림을 `서버팀`으로 설정한 경우입니다.
+    <Cmdname sid="add_tag" className="uitext" /> 또는 <LinkImage img="ico-add.svg" desc="추가 아이콘" /> 버튼을 클릭하세요. 태그 목록에서 원하는 태그를 선택하거나 새 태그를 생성하세요. 메트릭스 이벤트에 대한 알림을 `서버팀`으로 설정한 경우입니다.
 
-1. ***로그 실시간 경고 알림 설정*** (***경고 알림*** > ***이벤트 설정*** > ***로그*** > ***+ 이벤트 추가*** > ***이벤트 수신 태그***)
+1. **로그 실시간 경고 알림 설정** (<Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="log" className="uitext" /> &gt; <Cmdname sid="add_notification" className="uitext" /> &gt; <Cmdname sid="event_tag" className="uitext" />)
 
     <ImgLang img='set-event-tag-03.png' desc='사용자별 이벤트 수신 설정' />
 
-    ***+ 태그 추가*** 또는 ***+*** 버튼을 클릭하세요. 태그 목록에서 원하는 태그를 선택하거나 새 태그를 생성하세요. 로그 실시간 이벤트에 대한 알림을 `데브옵스팀`으로 설정한 경우입니다.
+    <Cmdname sid="add_tag" className="uitext" /> 또는 <LinkImage img="ico-add.svg" desc="추가 아이콘" /> 버튼을 클릭하세요. 태그 목록에서 원하는 태그를 선택하거나 새 태그를 생성하세요. 로그 실시간 이벤트에 대한 알림을 `데브옵스팀`으로 설정한 경우입니다.
 
 1. 이상치 탐지 이벤트는 전체 멤버에게 경고 알림을 전송하므로 이벤트 수신 태그를 설정하지 않습니다.
 

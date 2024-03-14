@@ -1,0 +1,231 @@
+---
+id: preview-2_3_0x
+title: Preview 2.3.0.a
+toc_max_heading_level: 2
+---
+
+<head>
+<meta name="robots" content="noindex, nofollow"/>
+</head>
+
+:::note
+
+[https://preview.whatap.io](https://preview.whatap.io)에서 다음 추가한 신기능과 수정한 내용을 미리 경험할 수 있습니다. 
+
+:::
+
+## Preview 2.3.0.a3
+
+2024년 03월 14일
+
+<div class='indentTab'>
+
+### `공통`
+
+<p><Status>Changed</Status> 회원 탈퇴 시 미납액이 있을 경우 발행 에정인 청구서에 대한 미납액, 발행된 청구서에 대한 미납액 모두 표시하도록 변경</p>
+
+---
+
+### `Server`
+
+- <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_resourceEqualizer" className="uitext" /> 메뉴에서 <Cmdname sid="disk_iops" className="uitext" /> 차트의 y축 최댓값이 제대로 표시되지 않는 문제 수정
+
+---
+
+### `Kubernetes`
+
+#### <Cmdname sid="side_dashboard" />
+
+- <Status>Feature</Status> Deployment를 기준으로 ReplicaSet 수 및 컨테이너 개수, 주요 성능 정보 통계, Pod 개수 등의 정보 제공하는 <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_deploymentList" className="uitext" /> 메뉴 추가
+
+- <Status>Feature</Status> <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 <Cmdname sid="BTN06342" className="uitext" />에서 대상(컨테이너/파드) 목록 중에 선택한 것만 볼 수 있는 <Cmdname sid="checked_only" className="uitext" /> 옵션 추가
+
+- <Status>Feature</Status> <Cmdname sid="side_integratedContainerMap" className="uitext" /> 메뉴에서 <Cmdname sid="groupby" className="uitext" /> 옵션 항목으로 <UI>WhatapProject</UI> 추가: 와탭 프로젝트별 그룹화 기능
+
+- <Status>Feature</Status> 쿠버네티스 클러스터 프로젝트의 <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" /> 메뉴에서 노드 정보 컬럼 추가
+
+  > <UI>ExternalIP</UI>, <UI>InternalIP</UI>, <UI>InternalDNS</UI>, <UI>ExternalDNS</UI>, <UI>Hostname</UI>
+
+- <Status>Fixed</Status> <Cmdname sid="side_integratedContainerMap" className="uitext" /> 메뉴에서 <Cmdname sid="groupby" className="uitext" /> 옵션 사용 시 오브젝트 개수가 간헐적으로 가려지는 현상 수정
+
+</div>
+
+
+## Preview 2.3.0.a2
+
+2024년 03월 07일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" /> 메뉴에서 3rd 파티 플러그인으로 Opsgenie 플랫폼 등록 기능 추가
+
+- <Status>Changed</Status> 사이드 메뉴 상단 로고 툴팁 제거 
+
+- <Status>Changed</Status> 사이드 메뉴의 <Cmdname sid="BTN07359" className="uitext" /> 추가 버튼 스타일 변경
+
+- <Status>Changed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="tag_count" className="uitext" /> 메뉴에서 테이블 목록을 스크롤하면 헤더는 고정된 상태로 유지되도록 변경
+
+- <Status>Changed</Status> 프로젝트 생성에서 그룹 추가 시 프로젝트 생성 화면으로 이동하도록 변경
+
+- <Status>Changed</Status> 사이드 메뉴에서 그룹 내 프로젝트 목록을 이름순으로 정렬하도록 수정
+
+- <Status>Changed</Status> 프로젝트 생성 시 경고 알림 메시지의 기본 언어를 설정할 수 있는 <Cmdname sid="sms_noti_alert_language" className="uitext" /> 옵션 추가
+
+- <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_history" className="uitext" /> 메뉴에서 이벤트 발생 시각과 이벤트 해소 시각이 같은 시각으로 표시되는 문제 수정
+
+- <Status>Fixed</Status> 프로젝트의 알림 수신 언어가 '일본어'인 경우 <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="project_management" className="uitext" /> 메뉴에서 <Cmdname sid="sms_noti_alert_language" className="uitext" />의 옵션이 비어있는 문제 수정
+
+---
+
+### `Application`
+
+#### 공통
+
+<p><Status>Fixed</Status> <Cmdname sid="AA005" className="uitext" /> 위젯의 <Cmdname sid="dashboard_hitmap_error" className="uitext" /> 옵션을 활성화한 상태에서 차트를 드래그해 <Cmdname sid="TTL06209" className="uitext" /> 창을 열었을 때, 에러 수가 0 인 프로젝트는 노출되지 않도록 수정</p>
+
+#### Java
+
+<p><Status>Fixed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴의 <b>에이전트 설치 안내</b> 세션에서 <b>JVM 옵션 추가</b> 항목에 표기된 '선택 사항' 문구 제거</p>
+
+#### PHP
+
+<p><Status>Fixed</Status> PHP 상품의 프로젝트 설치 화면에서 버전 정보 수정: 8.0 → 8.3</p>
+
+#### Node.js
+
+<p><Status>Fixed</Status> Node.js 상품의 프로젝트 설치 화면에서 설치 안내 문구(일본어) 수정</p>
+
+---
+
+### `Server`
+
+#### <Cmdname sid="event_statistic" />
+
+- <Status>Feature</Status> <Cmdname sid="event_setting" className="uitext" /> 메뉴의 <Cmdname sid="sm_log_event_tab" className="uitext" /> 탭에서 수신자 태그 설정 기능 추가
+
+- <Status>Fixed</Status> <Cmdname sid="event_setting" className="uitext" /> 메뉴의 <Cmdname sid="sm_log_event_tab" className="uitext" /> 탭에서 목록의 텍스트가 레이아웃을 벗어나는 문제 수정
+
+#### <Cmdname sid="sms_alert_status" />
+
+<p><Status>Fixed</Status> <Cmdname sid="sms_alert_status" className="uitext" /> 목록에서 처리 내역 등록 시 처리 내역(건수)이 아닌 등록 완료 태그를 표시되도록 수정</p>
+
+---
+
+### `Database`
+
+- <Status>Feature</Status> <Cmdname sid="session_detail" className="uitext" /> 창에 실시간/정지 조회 및 새로고침 버튼 추가
+
+- <Status>Changed</Status> <Cmdname sid="session_detail" className="uitext" /> 창을 모달 형태에서 팝아웃 형태로 변경
+
+- <Status>Fixed</Status> <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 액티브 세션 리스트 조회 성능 개선
+
+---
+
+### `Kubernetes`
+
+- <Status>Feature</Status> <Cmdname sid="workload" className="uitext" /> &gt; <Cmdname sid="containerizedAppList" className="uitext" /> 메뉴의 애플리케이션 상세 정보에서 <Cmdname sid="TTL06891" className="uitext" /> 탭 추가
+
+- <Status>Feature</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="pod_init_perform" className="uitext" /> 메뉴 개편 및 메뉴 이름을 <Cmdname sid="podInitPerf" className="uitext" />으로 변경
+
+  > <Cmdname sid="podInitPerf" className="uitext" /> 메뉴는 Pod 생성 후 시작 성능을 분석하여 효율적인 컨테이너 자원 관리를 돕습니다.
+
+  - 단일 목록 제공에서 Pod 선택 시 분석을 시작하도록 동선을 변경했습니다.
+  
+  - 성능 분석 구간 시각화했습니다.
+
+</div>
+
+
+## Preview 2.3.0.a1
+
+2024년 02월 29일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Fixed</Status> <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 필터의 프로젝트 선택 변경 시 이전 선택된 프로젝트의 필터 내용을 제거하도록 수정(각 필터는 프로젝트 단위 적용)
+
+- <Status>Changed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" /> 메뉴의 영문 이름 변경(<b>Configuration</b> → <span class="uitext">Notifications</span>)
+
+---
+
+### `Kubernetes`
+
+- <Status>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="containerMap" className="uitext" /> 메뉴에서 목록 메뉴로 이동하는 링크 추가
+
+- <Status>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="containerMap" className="uitext" /> 메뉴에서 선택한 카테고리의 Pod Phase 정보 및 Phase 안내 추가
+
+- <Status>Fixed</Status> 다음 메뉴 경로에서 <code>MemUsage</code> 지표를 <code>MemWs</code> 지표로 수정
+
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="containerMap" className="uitext" />
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="performance_summary" className="uitext" />
+  - <Cmdname sid="container" className="uitext" /> &gt; <Cmdname sid="container_list" className="uitext" />
+  - <Cmdname sid="workload" className="uitext" /> &gt; <Cmdname sid="podList" className="uitext" />
+  - <Cmdname sid="cluster" className="uitext" /> &gt; <Cmdname sid="kubeApiserverDashboard" className="uitext" />
+
+---
+
+### `Database` 
+
+<p><Status>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 액티브 세션 테이블 필터 추가</p>
+
+#### Redis, MongoDB <code class="my">V2</code>
+
+- <Status>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_list" className="uitext" /> 메뉴에서 Master-Slave 관계 표시
+
+- <Status>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_list" className="uitext" /> 메뉴에서 <UI>cluster name</UI> 컬럼 추가
+
+</div>
+
+## Preview 2.3.0.a0
+
+2024년 02월 22일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Feature</Status> 메트릭스의 필드(Field) 중심의 사용자 경험을 강화한 <Cmdname sid="event_setting" className="uitext" /> <code class="newfunc">New</code> 기능 추가
+
+  :::note
+
+  - 새로운 <Cmdname sid="event_setting" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/java/warning-notice-v2)를 참조하세요.
+
+  - 이 기능은 ![아이콘](/img/ic-sitemap.svg) <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> <code class="newfunc">New</code> 경로에서 확인할 수 있습니다.
+
+  :::
+
+- <Status>Fixed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="integrated_member_management" className="uitext" /> 메뉴에서 조직 하위 그룹의 멤버를 삭제할 수 없도록 <Cmdname sid="delete" className="uitext" /> 버튼 비활성화
+
+- <Status>Changed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="integrated_member_management" className="uitext" /> 메뉴에서 <b>결제</b> 권한 및 <b>멤버 관리</b> 권한을 소유한 유일한 멤버를 삭제할 경우 경고 메시지를 표시하도록 수정
+
+---
+
+### `Application`
+
+<p><Status>Changed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 SQL 상세 내용 확인 시 CRUD 표시 형식 개선</p>
+
+---
+
+### `Database`
+
+#### Database <code class="my">V2</code>
+
+- <Status>Feature</Status> 다음 메뉴 경로에서 <Cmdname sid="lock_tree" className="uitext" /> 테이블의 컬럼을 클릭하면 세션 상세 창을 표시하는 기능 추가
+
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" />
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="multi_instance_monitoring" className="uitext" />
+  - <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="lock_tree" className="uitext" />
+
+- <Status>Fixed</Status> 다음 메뉴 경로에서 <Cmdname sid="lock_tree" className="uitext" /> 테이블에 waiter id가 표시되지 않는 문제 수정
+
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" />
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="multi_instance_monitoring" className="uitext" />
+  - <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="lock_tree" className="uitext" />
+
+- <Status>Changed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" /> / <Cmdname sid="multi_instance_monitoring" className="uitext" /> 메뉴에서 <span class="uitext">Lock Wait Sessions</span> 위젯의 차트를 클릭하면 화면 아래 테이블의 <Cmdname sid="lock_tree" className="uitext" /> 탭이 활성화되도록 수정
+
+</div>

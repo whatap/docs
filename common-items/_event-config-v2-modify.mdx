@@ -1,0 +1,165 @@
+## 이벤트 수정하기 {#modify-event}
+
+기본 이벤트 템플릿에 적용된 지표값을 수정해 경고 알림이 발생 기준을 변경할 수 있습니다. 그 외에도 다양한 옵션 설정을 통해 알림 발생 기준을 변경할 수 있습니다. 수정하려는 이벤트 항목에서 ![수정 아이콘](/img/ico-edit.svg) 버튼을 선택하면 이벤트 수정 화면으로 이동합니다. 다음의 항목을 차례로 수정한 다음 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+### <Cmdname sid="TTL07362" />
+
+이벤트 발생 조건 기준을 설정할 수 있습니다.
+
+<ImgLang img='event-config-v2-condition-common.png' desc='이벤트 조건 정의' />
+
+* <Cmdname sid="run" className="uitext" />: 이벤트 조건을 설정한 다음 버튼을 선택하면 설정한 이벤트를 시뮬레이션할 수 있습니다.
+
+  <ImgLang img='event-config-v2-simulation-common.png' desc='이벤트 시뮬레이션' />
+
+* <Cmdname sid="TTL07365" className="uitext" replace="</br>" />: <span class="slow">Warning</span> 또는 <span class="vslow">Critical</span> 알림에 대한 임곗값를 설정할 수 있습니다. 연산자를 설정하고 임곗값을 입력하세요.
+
+  * 연산자 종류: `>`(보다 큼), `>=`(보다 크거나 같음), `<`(보다 작음), `<=`(보다 작거나 같음), `==`(같음)
+
+  * 임곗값으로 양수, 음수, 0을 입력할 수 있지만, 선택한 이벤트 템플릿에 따라 음수 입력 여부는 다를 수 있습니다.
+
+  :::note
+
+  * 제공되는 이벤트 템플릿에 따라 설정할 수 있는 알림 수준(Level)은 다를 수 있습니다.
+
+  * <span class="slow">Warning</span> 또는 <span class="vslow">Critical</span> 수준 하나만 선택할 수 있지만, 두 항목을 모두 비활성화할 수는 없습니다.
+
+  :::
+
+* <Cmdname sid="TTL07366" className="uitext" />: 설정한 이벤트 조건을 충족하는 횟수에 따라 알림을 보낼 수 있습니다.
+
+  * <Cmdname sid="ITM07369" className="uitext" />: 이벤트가 발생할 때마다 알림을 보냅니다.
+
+  * <Cmdname sid="TTL07366" className="uitext" />: 입력한 횟수만큼 이벤트가 발생하면 알림을 보냅니다.
+
+* <Cmdname sid="TTL07367" className="uitext" />: 알림 수신 후 선택한 시간 동안 이벤트가 발생하지 않습니다.
+
+* <Cmdname sid="TTL07368" className="uitext" />: 이벤트가 해결되면 <b>RECOVERED</b> 상태의 알림을 보냅니다.
+
+:::tip
+
+다음 조건에 따라 알림을 보내는 기준이 달라집니다.
+
+| <Cmdname sid="TTL07366" className="uitext" /> | <Cmdname sid="TTL07368" className="uitext" /> | 동작 |
+| -- | :--: | -- |
+| <Cmdname sid="ITM07369" className="uitext" /> | **On** | 설정한 이벤트 조건을 충족하거나 해결되면 알림을 보냅니다. |
+| ^ | **Off** | 설정한 조건을 충족할 때마다 알림을 보냅니다. |
+| <Cmdname sid="TTL07366" className="uitext" /> N <Cmdname sid="ITM07370" className="uitext" /> | **On** | N 회 이상 조건을 충족하거나 N 회 이상 이벤트가 해결되면 알림을 보냅니다. |
+| ^ | **Off** | N 회 이상 설정한 이벤트 조건을 충족하면 알림을 보냅니다. 알림을 보낸 후 횟수를 초기화해 횟수를 다시 집계합니다. |
+
+:::
+
+
+### <Cmdname sid="TTL07363" />
+
+<InDoc product="java,php,python,nodejs,dotnet,golang,kubernetes">
+
+특정 에이전트에서만 발생하는 이벤트를 알림으로 보내도록 설정할 수 있습니다. <Cmdname sid="TLT07556" className="uitext" /> 항목을 클릭한 다음 원하는 에이전트를 선택하세요.
+
+<ImgLang img='event-config-v2-target-apm.png' desc='이벤트 대상 선택' />
+
+</InDoc>
+
+<InDoc product="mysql,postgresql,oracle,mssql,cubrid,tibero,altibase,redis">
+
+특정 에이전트에서만 발생하는 이벤트를 알림으로 보내도록 설정할 수 있습니다. <Cmdname sid="TLT07556" className="uitext" /> 항목을 클릭한 다음 원하는 에이전트를 선택하세요. 에이전트를 선택한 다음 연결된 DB 서버의 데이터베이스 이름(***DbName***)을 추가로 선택할 수도 있습니다.
+
+<ImgLang img='event-config-v2-target-db.png' desc='이벤트 대상 선택' />
+
+</InDoc>
+
+<InDoc product="server">
+
+특정 에이전트에서만 발생하는 이벤트를 알림으로 보내도록 설정할 수 있습니다. <Cmdname sid="TLT07557" className="uitext" /> 항목을 클릭한 다음 원하는 에이전트를 선택하세요.
+
+<ImgLang img='event-config-v2-target-server.png' desc='이벤트 대상 선택' />
+
+</InDoc>
+
+<InDoc product="browser">
+
+특정 페이지 그룹에서만 발생하는 이벤트를 알림으로 보내도록 설정할 수 있습니다. <span class="uitext">Page_group</span> 항목을 클릭한 다음 원하는 페이지 그룹을 선택하세요.
+
+<ImgLang img='event-config-v2-target-browser.png' desc='이벤트 대상 선택' />
+
+</InDoc>
+
+<InDoc product="npm">
+
+특정 대상에서만 발생하는 이벤트를 알림으로 보내도록 설정할 수 있습니다. <Cmdname sid="ITM07588" className="uitext" />의 각 항목을 클릭한 다음 원하는 대상을 선택하세요.
+
+<ImgLang img='event-config-v2-target-npm.png' desc='이벤트 대상 선택' />
+
+:::tip
+
+선택할 수 있는 대상은 **tagRule** 옵션으로 적용한 그룹화된 모니터링 단위입니다. **tagRule** 옵션에 대한 자세한 내용은 [다음 문서](set-tagrule)를 참조하세요.
+
+:::
+
+</InDoc>
+
+:::note
+
+* 제공되는 템플릿에 따라 선택할 수 있는 대상은 다를 수 있습니다.
+
+* 선택한 대상에 대한 이벤트 발생 현황을 확인하려면 <Cmdname sid="TTL07362" className="uitext" />에서 <Cmdname sid="run" className="uitext" /> 버튼을 선택하세요.
+
+<Xclude product="browser,npm">
+
+* 대상을 선택하지 않으면 프로젝트에 포함된 전체 에이전트를 대상으로 알림을 보냅니다. 전체 에이전트를 대상으로 이벤트가 실행되면 많은 알림이 발생할 수 있습니다.
+
+</Xclude>
+
+<InDoc product="browser">
+
+* 대상을 선택하지 않으면 전체 페이지 그룹을 대상으로 알림을 보냅니다. 전체 페이지 그룹을 대상으로 이벤트가 실행되면 많은 알림이 발생할 수 있습니다.
+
+</InDoc>
+
+<InDoc product="npm">
+
+* 대상을 선택하지 않으면 전체 네트워크 그룹을 대상으로 알림을 보냅니다. 전체 네트워크 그룹을 대상으로 이벤트가 실행되면 많은 알림이 발생할 수 있습니다.
+
+</InDoc>
+
+:::
+
+### <Cmdname sid="TTL07364" />
+
+알림으로 수신되는 이벤트의 제목과 메시지를 작성하고, 수신 대상을 선택할 수 있습니다.
+
+<ImgLang img='event-config-v2-info-receive-common.png' desc='기본 정보 및 수신 설정' />
+
+* <Cmdname sid="enable_events" className="uitext" />: 현재 이벤트를 활성화할 수 있습니다.
+
+* <Cmdname sid="event_title" className="uitext" />: 기본 제공된 템플릿의 이벤트 이름이 입력되어 있습니다. 사용자가 원하는 이벤트 이름으로 편집할 수 있습니다.
+
+* <Cmdname sid="TTL06883" className="uitext" />: 기본 제공된 템플릿의 메시지가 입력되어 있습니다. 사용자가 원하는 메시지로 편집할 수 있습니다. <LinkImage img="ico-timing.svg" className="ico" desc="시간 아이콘" /> 버튼을 클릭하면 이전에 입력한 메시지 기록을 확인할 수 있습니다.
+
+  :::tip
+
+  메시지 입력 창에 <code>&#36;&#123;Tag&#125;</code> 또는 <code>&#36;&#123;Field&#125;</code> 변수를 입력해 메시지를 작성할 수 있습니다.
+
+  <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="tag_count" className="uitext" /> 메뉴에서 <Cmdname sid="category" className="uitext" />를 선택한 다음 입력할 수 있는 <code>&#36;&#123;Tag&#125;</code> 또는 <code>&#36;&#123;Field&#125;</code> 변수를 확인하세요. 현재 이벤트 템플릿의 <Cmdname sid="category" className="uitext" /> 이름은 <Link to="#basic-template">다음 문서</Link>의 <b>카테고리</b> 항목을 참조하세요.
+
+  :::
+
+* <Cmdname sid="alert_test" className="uitext" />: 현재 이벤트로 발생하는 알림 수신 시 입력한 이벤트 이름과 메시지를 사전 점검할 수 있습니다. 필수 항목(<Cmdname sid="TTL07365" className="uitext" replace="</br>" />, <Cmdname sid="event_title" className="uitext" />, <Cmdname sid="TTL06883" className="uitext" />)을 모두 입력해야 테스트할 수 있습니다.
+
+  :::note
+
+  테스트 중에는 실제 메트릭스 값이나 변수에 대한 치환 기능이 작동하지 않으며, 수신자 태그가 설정된 사용자에게만 알림을 보낼 수 없습니다.
+
+  :::
+
+* <Cmdname sid="TTL07415" className="uitext" />: 현재 이벤트로 발생하는 알림을 수신할 멤버를 선택할 수 있습니다.
+
+  * <Cmdname sid="ITM07419" className="uitext" />: 프로젝트에 소속된 멤버 전원에게 알림을 보냅니다.
+
+  * <Cmdname sid="ITM07420" className="uitext" />: 선택한 태그를 가진 프로젝트 멤버와 3rd-party 플러그인에 알림을 보냅니다. <Cmdname sid="add_tag" className="uitext" /> 또는 <LinkImage img="ico-add.svg" className="ico" /> 버튼을 클릭해 태그 목록에서 원하는 태그를 선택하세요.
+
+  :::note
+
+  <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" /> 메뉴에서 프로젝트 멤버와 3rd-party 플러그인에 태그를 설정할 수 있습니다. 자세한 내용은 <Link to="set-receive-event#set-notice-by-team-or-users">다음 문서</Link>를 참조하세요.
+
+  :::

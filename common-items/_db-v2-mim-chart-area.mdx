@@ -4,11 +4,11 @@
 
 ### XOS 위젯
 
-* ***Cpu(Xos)***
+* ***[XOS] CPU***
 
   에이전트별 CPU 사용률을 실시간으로 확인할 수 있습니다.
 
-* ***Mem(Xos)***
+* ***[XOS] Memory***
 
   에이전트별 메모리 사용률을 실시간으로 확인할 수 있습니다.
 
@@ -29,15 +29,15 @@
 
 ### AWS RDS CloudWatch 위젯
 
-* ***RDS CPUUtilization***
+* ***[RDS] CPUUtilization***
 
   RDS 데이터베이스의 인스턴스별 CPU 사용률을 실시간으로 확인할 수 있습니다.
 
-* ***RDS FreeableMemory***
+* ***[RDS] FreeableMemory***
 
   RDS 데이터베이스의 인스턴스별 메모리 사용률을 실시간으로 확인할 수 있습니다.
 
-* ***RDS FreeStorageSpace***
+* ***[RDS] FreeStorageSpace***
 
   RDS 데이터베이스의 사용 가능한 저장 공간의 양을 실시간으로 확인할 수 있습니다.
 
@@ -63,9 +63,9 @@ AWS CloudWatch 지표 조회를 위한 에이전트 설정 방법은 [다음 문
 
 <InDoc product='mysql'>
 
-* ***SQL Executed***
+* ***Questions***
 
-  인스턴스별 초당 SQL 수행 건수 합계입니다. 5초 단위로 수집한 `Questions`(전체 쿼리 요청 횟수) 지푯값을 기반으로 합니다.
+  MySQL 서버에서 실행한 명령문 수입니다. Stored program 내에서 실행된 명령문을 계산하지 않는다는 점 에서 Queries와 다릅니다.
 
 </InDoc>
 
@@ -73,9 +73,23 @@ AWS CloudWatch 지표 조회를 위한 에이전트 설정 방법은 [다음 문
 
   시간대별 슬로우 쿼리를 실시간 차트로 표시합니다. 차트의 특정 영역을 드래그하면 ***Slow Query List*** 목록을 확인할 수 있습니다. ![위 방향 아이콘](/img/up-arrow.svg) 또는 ![아래 방향 아이콘](/img/down-arrow.svg) 버튼을 선택해 세로축의 범위를 확대 또는 축소할 수 있습니다.
 
+<InDoc product="postgresql">
+
 * ***Logical I/O***
 
   `blks_hit` 지표로, 디스크 블록이 이미 버퍼 캐시에서 발견되어 읽기가 필요하지 않은 총 횟수를 실시간 차트로 표시합니다.
+
+</InDoc>
+
+<InDoc product="mysql">
+
+* ***Logical I/O***
+
+  물리적 읽기 포함한 논리적 읽기 요청 횟수를 실시간 차트로 표시합니다. `Inodb buffer pool hit` 백분율 계산을 다음과 같이 할 수 있으며, 90% 이상을 권장합니다. 만약 Hit Ratio가 낮다면 `Innodb_buffer_pool_size` 증설을 검토하세요.
+
+  > `Buffer Hit Ratio` = (1 - (`Innodb_buffer_pool_reads`/`Innodb_buffer_pool_read_requests`)) * 100
+
+</InDoc>
 
 * ***SQL Elapse Map***
 
@@ -115,7 +129,7 @@ AWS CloudWatch 지표 조회를 위한 에이전트 설정 방법은 [다음 문
 
 * ***Physical I/O***
 
-  데이터를 물리적인 disk에서 읽은 횟수를 실시간 차트로 표시합니다.
+  물리적인 disk에서 데이터를 읽은 횟수를 실시간 차트로 표시합니다.
 
 <InDoc product='postgresql'>
 
@@ -127,11 +141,11 @@ AWS CloudWatch 지표 조회를 위한 에이전트 설정 방법은 [다음 문
 
 <InDoc product='mysql'>
 
-* ***Full Scan***
+* ***Select Full Join***
 
-  인스턴스별 테이블을 풀 스캔(full scan)한 휫수를 실시간 차트로 표시합니다.
+  하나 이상의 테이블 조인(`JOIN`) 시 인덱스를 사용하지 않고 드리븐(driven) 테이블을 풀 스캔(full scan)한 횟수를 실시간 차트로 표시합니다.
 
-* ***tmp table***
+* ***Tmp Tables***
 
   인스턴스별 명령문을 실행하는 동안 서버에 의해 생성된 내부 임시 테이블의 수를 실시간 차트로 표시합니다.
 

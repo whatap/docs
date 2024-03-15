@@ -2,33 +2,70 @@
 id: multi-instance-monitoring
 title: 멀티 인스턴스 모니터링
 description: 다수의 데이터베이스 인스턴스 핵심 지표를 통합해 확인할 수 있는 기능을 제공합니다.
-tags: [ Redis, 인스턴스, 대시보드, 데이터베이스 모니터링, 멀티 인스턴스 모니터링 ]
+tags: [ Redis, 인스턴스, 대시보드, 데이터베이스, 멀티 인스턴스 모니터링 ]
 ---
 
-import ProdImg from '@site/src/components/ChangeImgName.js';
-import Xclude from '@site/src/components/XcludeDoc.js';
-import InDoc from '@site/src/components/InDoc.js';
+<!-- 개요-->
+{@include: ../common-items/_db-v2-mulit-instance-monitoring-desc.mdx} 
 
-<!-- 개요 -->
-{@include: ../common-items/_db-mulit-instance-monitoring-desc.mdx}
+<ProdImg img='db-multi-instance.png' desc='멀티 인스턴스 모니터링' />
 
-<!-- Notes -->
+<!-- Notes-->
 {@include: ../common-items/_db-multi-instance-monitoring-desc-notes.mdx} 
 
-<!-- 기본 화면 안내 -->
-{@include: ../common-items/_db-multi-instance-monitoring-basic.mdx} 
+<!-- 과거 데이터 조회하기-->
+{@include: ../common-items/_apm-dashboard-set-past-time.mdx} 
 
+<!-- 에이전트 확인하기-->
+{@include: ../common-items/_apm-dashboard-check-agent.mdx}
 
-<!-- 지표 선택하기 -->
-{@include: ../common-items/_db-select-metric-data-widget.mdx} 
+<!-- 위젯 편집하기-->
+{@include: ../common-items/_apm-dashborad-edit-widget.mdx} 
 
+<!-- 위젯 옵션 이용하기-->
+{@include: ../common-items/_apm-dashboard-widget-options.mdx}
 
-<!-- 레이아웃 설정하기 -->
-{@include: ../common-items/_db-set-layout.mdx}   
+<!-- 프리셋-->
+{@include: ../common-items/_apm-dashboard-preset.mdx} 
 
+## 주요 위젯 알아보기 {#about-widget}
 
-<!-- 액티브 세션 영역 활용하기 -->
-{@include: ../common-items/_db-using-area-active-session.mdx}
+대시보드에 배치할 수 있는 위젯의 종류는 다음과 같습니다.
+
+* ***DB Status***
+
+  프로젝트에 포함된 에이전트(인스턴스)의 상태를 확인할 수 있습니다. 개별 에이전트를 육각형 모양으로 표시하며, 마우스를 오버하면 현재 상태와 IP 주소를 확인할 수 있습니다.
+
+  ![DB Status](/img/db-dashboard-status-widget.png)
+
+  전체 에이전트의 상태를 위젯 왼쪽 아래의 범례를 통해서 확인할 수 있습니다.
+
+  * <span class='normal'>정상</span>
+
+  * <span class='slow'>경고</span>
+
+  * <span class='vslow'>위험</span>
+
+  * <span class='mstop'>비활성화된 에이전트</span>
+
+<!-- Session Table-->
+{@include: ../common-items/_db-v2-mim-activesession-desc.mdx} 
+
+{@include: ../common-items/_db-v2-mim-activesession-note.mdx}
+
+### 테이블 데이터 필터링하기
+
+{@include: ../common-items/_db-table-data-filtering.mdx}
+
+### 테이블 컬럼 설정하기{#change-column}
+
+{@include: ../common-items/_db-v2-data-edit-column.mdx}
 
 <!-- 컬럼 정보 안내 -->
 {@include: ../common-items/_db-redis-info-of-column.mdx} 
+
+<!-- 조회 목록 다운로드하기-->
+{@include: ../common-items/_db-dashboard-session-table-download.mdx}
+
+<!-- 새창으로 보기-->
+{@include: ../common-items/_db-dashboard-session-table-new.mdx}

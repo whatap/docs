@@ -1,0 +1,31 @@
+## 세션 상세 정보 확인하기 {#session-details}
+
+<Cmdname sid="active_sessions" className="uitext" /> 탭에서 세션 항목을 선택하면 <Cmdname sid="session_detail" className="uitext" /> 창이 나타납니다. 선택한 세션에 대한 자세한 내용을 확인할 수 있습니다.
+
+<ImgLang img='db-session-details-info.png' desc='세션 상세 정보' />
+
+* 세션에 대한 정보는 기본값으로 실시간 조회되고 있습니다. 시간 선택자에서 ![정지 아이콘](/img/ico-pause.svg) 버튼을 선택하면 실시간 조회를 중지하고, 중지한 시간 기준의 데이터를 확인할 수 있습니다. 실시간 조회를 중지한 상태에서 데이터를 갱신하려면 ![새로고침 아이콘](/img/ico-refresh.svg) 버튼을 선택하세요.
+
+* ***Kill Session***: 선택한 세션을 중지할 수 있습니다. <Cmdname sid="session_kill" className="uitext" /> 창이 나타나면 비밀번호(***Parameter Key***) 값을 입력한 다음 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
+
+  :::note
+
+  실시간 조회 모드에서만 이 기능을 이용할 수 있습니다.
+
+  :::
+
+* <Cmdname sid="TTL06721" className="uitext" />: 선택한 세션 기록을 확인할 수 있는 <Cmdname sid="side_sessionHistory" className="uitext" /> 메뉴로 이동할 수 있습니다.
+
+  :::note
+
+  <Cmdname sid="side_sessionHistory" className="uitext" /> 메뉴에 대한 자세한 내용은 <Link to="analysis-session-history">다음 문서</Link>를 참조하세요.
+
+  :::
+
+* ***Session Info***: 선택한 세션에 대한 세부 정보를 확인할 수 있습니다.
+
+* ***Wait Info***: 해당 백엔드 프로세스가 현재 대기 중인 경우 대기 이벤트 이름(`wait_event`)과 이벤트 유형(`wait_event_type`) 정보를 확인할 수 있습니다.
+
+* ***Process_Info***: 선택한 세션에 대한 프로세스 정보를 확인할 수 있습니다.
+
+* ***SQL Text*** / ***Plan***: 선택한 세션의 SQL 쿼리 문과 Plan 정보를 확인할 수 있습니다. 자세한 내용은 [다음 문서](#query-details)를 참조하세요.

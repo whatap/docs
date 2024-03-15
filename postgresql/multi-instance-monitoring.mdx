@@ -6,40 +6,58 @@ tags: [ PostgreSQL, 인스턴스, 대시보드, 데이터베이스 모니터링,
 ---
 
 <!-- 개요-->
-{@include: ../common-items/_db-v2-mulit-instance-monitoring-desc.mdx}
-
-{@include: ../common-items/_db-multi-instance-monitoring-desc-notes.mdx}
-
-## 기본 화면 안내
+{@include: ../common-items/_db-v2-mulit-instance-monitoring-desc.mdx} 
 
 <ProdImg img='db-multi-instance.png' desc='멀티 인스턴스 모니터링' />
 
-<!-- 인스턴스 선택-->
-{@include: ../common-items/_db-v2-mim-select-instance.mdx}
+{@include: ../common-items/_db-multi-instance-monitoring-desc-notes.mdx} 
 
-<!-- 차트영역-->
-{@include: ../common-items/_db-v2-mim-chart-area.mdx}
+<!-- 과거 데이터 조회하기-->
+{@include: ../common-items/_apm-dashboard-set-past-time.mdx} 
 
-{@include: ../common-items/_db-v2-mim-activesession-desc.mdx}
+<!-- 에이전트 확인하기-->
+{@include: ../common-items/_apm-dashboard-check-agent.mdx}
+
+<!-- 위젯 편집하기-->
+{@include: ../common-items/_apm-dashborad-edit-widget.mdx} 
+
+<!-- 위젯 옵션 이용하기-->
+{@include: ../common-items/_apm-dashboard-widget-options.mdx}
+
+<!-- 프리셋-->
+{@include: ../common-items/_apm-dashboard-preset.mdx} 
+
+<!-- 위젯 알아보기-->
+{@include: ../common-items/_db-v2-mim-chart-area.mdx} 
+
+<!-- Session Table-->
+{@include: ../common-items/_db-v2-mim-activesession-desc.mdx} 
 
 {@include: ../common-items/_db-dashboard-activesession-desc.mdx}
 
-{@include: ../common-items/_db-dashboard-locktree-desc.mdx}
+{@include: ../common-items/_db-dashboard-locktree-desc.mdx} 
 
 {@include: ../common-items/_db-v2-mim-activesession-note.mdx}
 
-{@include: ../common-items/_db-folding-activesession-table.mdx}
-
-## 테이블 데이터 필터링하기
-
-{@include: ../common-items/_db-table-data-filtering.mdx}
-
-## 테이블 컬럼 설정하기{#change-column}
-
-{@include: ../common-items/_db-v2-data-edit-column.mdx}
+<!--## 세션 상세 정보 확인하기-->
+{@include: ../common-items/_db-v2-session-details-info.mdx} 
 
 <!--쿼리 자세히 보기-->
 {@include: ../common-items/_db-query-details.mdx} 
 
-<!-- 컬럼 정보 안내 -->
+### 테이블 데이터 필터링하기
+
+{@include: ../common-items/_db-table-data-filtering.mdx}
+
+### 테이블 컬럼 설정하기{#change-column}
+
+{@include: ../common-items/_db-v2-data-edit-column.mdx}
+
+<!-- 컬럼 정보 안내-->
 {@include: ../common-items/_db_postgresql-column.mdx} 
+
+<!-- 조회 목록 다운로드하기-->
+{@include: ../common-items/_db-dashboard-session-table-download.mdx}
+
+<!-- 새창으로 보기-->
+{@include: ../common-items/_db-dashboard-session-table-new.mdx}

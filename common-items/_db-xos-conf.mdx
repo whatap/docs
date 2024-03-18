@@ -54,11 +54,11 @@
 
   데이터베이스 서버의 IP 목록을 수집할 수 있습니다. 초 단위(최소 3초)로 시간 간격(interval)을 설정해야 수집할 수 있습니다.
 
-<InDoc product='postgresql'>
-
 - **file** <span class='type'>String</span>
 
   ***로그*** 메뉴(***라이브 테일***, ***로그 트렌드***, ***로그 검색***, ***로그 설정***)를 이용하려면 `file` 옵션에 모니터링하려는 로그 파일명의 절대 경로로 입력하세요.
+
+  <InDoc product='postgresql'>
 
   ```ini title='xos.conf'
   file=/opt/postgresql/logs/postgresql.log
@@ -67,13 +67,8 @@
   file3=/opt/postgresql/data/logs/pg10/postgresql-Tue.log
   ```
 
-</InDoc>
-
-<InDoc product='mysql'>
-
-- **file** <span class='type'>String</span>
-
-  ***로그*** 메뉴(***라이브 테일***, ***로그 트렌드***, ***로그 검색***, ***로그 설정***)를 이용하려면 `file` 옵션에 모니터링하려는 로그 파일명의 절대 경로로 입력하세요.
+  </InDoc>
+  <InDoc product='mysql'>
 
   ```ini title='xos.conf'
   file=/var/log/mysqld.log
@@ -81,4 +76,11 @@
   file2=/var/lib/mysql/dbx-database-slow.log
   ```
 
-</InDoc>
+  </InDoc>
+  <InDoc product='redis'>
+
+  ```ini title='xos.conf'
+  file=/var/log/redis.log
+  ```
+
+  </InDoc>

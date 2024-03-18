@@ -2,12 +2,8 @@
 id: instance-monitoring
 title: 인스턴스 모니터링
 description: 인스턴스 모니터링 메뉴에서는 데이터베이스 서버의 핵심 지표들에 대한 상세 정보를 실시간으로 확인할 수 있습니다.
-tags: [ Redis, 인스턴스, 대시보드, 데이터베이스 모니터링  ]
+tags: [ Redis, 인스턴스, 대시보드, 데이터베이스 ]
 ---
-
-import ProdImg from '@site/src/components/ChangeImgName.js';
-import Xclude from '@site/src/components/XcludeDoc.js';
-import InDoc from '@site/src/components/InDoc.js';
 
 {@include: ../common-items/_db-instance-monitoring-desc.mdx}
 
@@ -15,20 +11,49 @@ import InDoc from '@site/src/components/InDoc.js';
 
 <ProdImg img='db-instance-monitoring.png' desc='인스턴스 모니터링' />
 
-{@include: ../common-items/_db-instance-monitoring-basic-usage.mdx} 
+<!--###조회시간 및 대상 선택하기-->
+{@include: ../common-items/_db-v2-instance-monitoring-select.mdx}
 
-<!-- 지표 선택하기 -->
-{@include: ../common-items/_db-select-metric-data-widget.mdx} 
+<!--###그래프 차트 위젯 영역-->
+{@include: ../common-items/_db-v2-instance-monitoring-widget.mdx}
 
-<!-- 레이아웃 설정하기 -->
-{@include: ../common-items/_db-set-layout.mdx} 
+<!--###액티브 세션 락트리 프로세스정보-->
+{@include: ../common-items/_db-v2-instance-monitoring-activesession-desc-redis.mdx} 
 
-<!-- 액티브 세션 영역 활용 -->
+{@include: ../common-items/_db-dashboard-activesession-desc.mdx} 
+
+{@include: ../common-items/_db-dashborad-process-info-desc.mdx}
+
+{@include: ../common-items/_db-v2-instance-monitoring-activesession-note.mdx}
+
+<!--##지표 선택하기-->
+{@include: ../common-items/_db-v2-instance-monitoring-select-metrics.mdx}
+
+<!--###지표 추가하기-->
+{@include: ../common-items/_db-v2-instance-monitoring-add-metrics.mdx}
+
+<!--###지표 변경하기-->
+{@include: ../common-items/_db-v2-instance-monitoring-change-merics.mdx}
+
+<!--###지표 삭제하기-->
+{@include: ../common-items/_db-v2-instance-monitoring-delete-metrics.mdx}
+
+<!--## 프리셋-->
+{@include: ../common-items/_db-v2-instance-monitoring-preset.mdx} 
+
+<!-- 액티브 세션 영역 활용-->
 {@include: ../common-items/_db-using-area-active-session.mdx}
 
-## 테이블 컬럼 변경하기{#change-column}
+{@include: ../common-items/_db-folding-activesession-table.mdx}
 
-{@include: ../common-items/_db-data-edit-column.mdx}
+### 테이블 컬럼 설정하기{#change-column}
 
-<!-- 컬럼 정보 안내 -->
-{@include: ../common-items/_db_ats-lock-column.mdx}
+{@include: ../common-items/_db-v2-data-edit-column.mdx}
+
+### 테이블 데이터 필터링하기
+
+{@include: ../common-items/_db-table-data-filtering.mdx}
+
+### 컬럼 정보 안내 {#column-info}
+
+{@include: ../common-items/_db-redis-info-of-column.mdx}

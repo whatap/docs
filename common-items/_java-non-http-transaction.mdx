@@ -50,9 +50,11 @@
 
 * **hook_service_supers** <span class='type'>String</span>
 
-  NON-HTTP 트랜잭션 추적을 위한 시작점의 공통 분모가 특정 클래스의 메소드를 상속 받은 경우라면 공통 분모의 메소드를 설정합니다. `{full_package_class_name}` 형식으로 입력하세요. 와일드 카드(`*`)를 사용할 수 있으며, 쉼표(,)를 구분자로 이용해 여러 개의 Method를 등록할 수 있습니다.
+  NON-HTTP 트랜잭션 추적을 위한 시작점의 공통 분모가 특정 클래스의 메소드를 상속 받은 경우라면 공통 분모의 메소드를 설정합니다. 메소드 전체 경로를 입력하세요. 와일드 카드(`*`)를 사용할 수 있으며, 쉼표(,)를 구분자로 이용해 여러 개의 메소드를 등록할 수 있습니다.
 
-  Class의 상속 구조를 기반으로 특정 메소드(Method)를 추적하고 싶을 때 사용하는 설정 옵션입니다. 예를 들어, 특정 Class A가 다른 Class B를 상속할 경우, Class B에서 사용되는 특정 Method를 추적하고 싶다면 이 옵션을 사용하세요. Class A를 사용하는 모든 곳에서 Class B의 특정 Method를 추적할 수 있습니다.
+  ```ini title="whatap.conf"
+  hook_service_supers=a.b.C.method,a.b.C.*
+  ```
 
 * **hook_service_interfaces** <span class='type'>String</span>
 

@@ -1,0 +1,194 @@
+---
+id: about-partner-mxql
+title: MXQL 기본 기능
+description: 성능 데이터를 유연하게 조회할 수 있도록 돕는 쿼리 언어 MXQL의 기본 기능을 안내합니다.
+tags: [ MXQL, 메트릭스, 활용 안내 ]
+---
+
+## MXQL이란?
+
+MXQL은 와탭의 성능 데이터(메트릭스)를 유연하게 조회하기 위한 쿼리 언어입니다. 하나의 프로젝트에 포함된 여러 에이전트에서 수집한 메트릭스들을 종합적으로 조회하고 활용하기 위해서 사용합니다.
+
+## MXQL과 SQL의 차이
+
+다음 표를 통해 MXQL과 SQL이 사용하는 용어를 비교할 수 있습니다. SQL의 Database, Table, Column에 대응하는 MXQL의 용어는 각각 Database, Category, Field입니다.
+
+| 저장 방식 | MXQL     | SQL      |
+| -------- | -------- | -------- |
+| 대분류   | Database | Database |
+| 중분류   | Category | Table    |
+| 소분류   | Field    | Column   |
+
+보다 자세한 설명은 다음 MXQL과 SQL 쿼리 예시의 주석 내용을 참조하세요. 
+
+* 다음의 SQL 쿼리 예시는 `app_counter` 테이블에서 트랜잭션 처리 건수(`tx_count`) 컬럼의 값이 `1`인 시간 및 프로젝트 번호 컬럼을 조회합니다.
+
+  ```sql title='SQL query'
+  SELECT time, pcode  -- Column 선택(time, pcode 컬럼만 조회하도록 설정합니다.)
+  FROM app_counter    -- Table 선택(app_counter 테이블에서 데이터를 조회합니다.)
+  WHERE tx_count = 1  -- 데이터 필터링(tx_count column의 값이 1인 데이터만 조회하도록 설정합니다.)
+  ```
+
+* 다음의 MXQL 쿼리 예시는 `app_counter` 카테고리에서 트랜잭션 처리 건수(`tx_count`) 필드의 값이 `5`인 시간 및 프로젝트 번호 필드를 조회합니다.
+
+  ```sql title='MXQL query'
+  CATEGORY app_counter                 -- app_counter 카테고리에서 데이터를 조회하도록 설정합니다.
+  TAGLOAD                              -- 데이터를 조회합니다.
+  SELECT [ time, pcode ]               -- 조회된 전체 컬럼 중에서 time, pcode 필드만 선택합니다.
+  FILTER { key : tx_count, value : 5}  -- tx_count 필드의 값이 5인 데이터만 남깁니다.
+  ```
+
+MXQL 명령은 `LOAD` 이전과 이후로 구분해 작성합니다. `LOAD` 이전 명령들은 `LOAD`의 조건으로 지정하고, `LOAD` 이후는 데이터를 가공하는 명령을 수행합니다. 
+
+![mxql load sc](/img/about-partner/mxql-load-s2.png) 
+
+:::note 
+
+**MXQL 단계별 구성**
+
+* 메트릭스 **선택** `CATEGORY`
+
+  사용할 메트릭스를 선택하세요.
+
+* 메트릭스 **로딩** `TAGLOAD` `FLEXLOAD`
+
+  이전 단계에서 설정한 값을 사용해 메트릭스를 조회합니다. 대부분 `TAGLOAD`를 사용하고 특수한 경우에 `FLEXLOAD`를 사용합니다.
+
+* 메트릭스 **가공** `SELECT` `FILTER` `GROUP`
+
+  이전 단계에서 조회한 메트릭스를 가공합니다. 
+
+:::
+
+## 기본 기능 사용하기
+
+애플리케이션 프로젝트의 MXQL 실행창을 열고 다음의 명령어를 실행해 보세요. `app_counter` 카테고리 데이터를 조회합니다.
+
+```sql title='MXQL query'
+# 메트릭스 선택 단계
+CATEGORY app_counter -- 카테고리 선택
+# 메트릭스 로딩 단계
+TAGLOAD -- 데이터 조회
+```
+
+#### 특정 필드 조회 
+
+불러온 데이터 중 출력이 필요한 특정 필드를 선택해 조회합니다.
+
+```sql title='MXQL query'
+# 메트릭스 선택 단계
+CATEGORY app_counter 
+# 메트릭스 로딩 단계
+TAGLOAD
+# 메트릭스 가공 단계
+SELECT [time, oname, tps, tx_count, tx_error] 
+```
+
+#### 그룹화 조회 
+
+불러온 데이터 중 출력이 필요한 특정 필드를 선택하고 5초 단위 데이터를 1시간으로 만들어 확인할 수 있도록 그룹화(`group by`)할 수 있습니다. 
+
+```sql title='MXQL query'
+# 메트릭스 선택 단계
+CATEGORY app_counter 
+# 메트릭스 로딩 단계
+TAGLOAD 
+# 메트릭스 가공 단계
+SELECT [time, oname, tps, tx_count, tx_error] 
+GROUP { timeunit:1h, merge:[tps, tx_count, tx_error], pk:oname }
+```
+
+* 1시간 통계 생성 시 `oname`별 생성을 위해 pk를 지정해야 합니다. 
+
+* 출력된 값은 모두 평균값을 의미합니다. 
+
+* `_rows_`는 그룹을 만들기 위해 사용된 row의 수를 의미합니다. 자동으로 추가되는 필드입니다. 
+
+
+#### 필드별 통계 데이터 변경
+
+필드별로 통계 데이터를 변경할 수 있습니다. 기본 출력은 평균이지만 `merge:[tps, tx_count, tx_error]`에 설정된 필드에 대해서는 `sum`,`avg`,`max` 중에서 선택할 수 있습니다.
+
+```sql title='MXQL query'
+# 메트릭스 선택 단계
+CATEGORY app_counter 
+# 메트릭스 로딩 단계
+TAGLOAD 
+# 메트릭스 가공 단계
+SELECT [time, oname, tps, tx_count, tx_error] 
+GROUP { timeunit:1h, merge:[tps, tx_count, tx_error], pk:oname }
+UPDATE {key:tps, value:avg}
+UPDATE {key:[tx_count, tx_error], value:sum}
+```
+
+* 예시 쿼리는 `tps`는 평균을 필드값으로 반영합니다. 
+
+* 예시 쿼리는 `tx_count`와 `tx_error`의 경우 1시간 동안 발생한 값의 합계를 필드 값으로 반영합니다.
+
+#### 특정 ONAME 필터링
+
+특정 `oname`을 다음과 같이 필터링할 수 있습니다. 일반적으로 필터링을 먼저하고 다른 명령어를 수행하는 것이 유리합니다. 하지만 정확한 위치는 쿼리마다 개별적으로 판단해야 합니다. 
+
+* 필터링 예시 쿼리1
+
+  ```sql title='MXQL query' {6}
+  # 메트릭스 선택 단계
+  CATEGORY app_counter 
+  # 메트릭스 로딩 단계
+  TAGLOAD 
+  # 메트릭스 가공 단계
+  FILTER { key: "oname", value: "java-demo1" }
+  SELECT [time, oname, tps, tx_count, tx_error] 
+  GROUP { timeunit:1h, merge:[tps, tx_count, tx_error], pk:oname }
+  UPDATE {key:tps, value:avg}
+  UPDATE {key:[tx_count, tx_error], value:sum}
+  ```
+
+* 필터링 예시 쿼리2
+
+  ```sql title='MXQL query' {10}
+  # 메트릭스 선택 단계
+  CATEGORY app_counter 
+  # 메트릭스 로딩 단계
+  TAGLOAD 
+  # 메트릭스 가공 단계
+  SELECT [time, oname, tps, tx_count, tx_error] 
+  GROUP { timeunit:1h, merge:[tps, tx_count, tx_error], pk:oname }
+  UPDATE {key:tps, value:avg}
+  UPDATE {key:[tx_count, tx_error], value:sum}
+  FILTER { key: "oname", value: "java-demo1" }
+  ```
+
+#### 포맷팅 
+
+자릿값이 예시의 `tps`처럼 큰 경우 포맷팅합니다. 
+
+```sql title='MXQL query' 
+# 메트릭스 선택 단계
+CATEGORY app_counter 
+# 메트릭스 로딩 단계
+TAGLOAD 
+# 메트릭스 가공 단계
+FILTER { key: "oname", value: "java-demo1" }
+SELECT [time, oname, tps, tx_count, tx_error] 
+GROUP { timeunit:1h, merge:[tps, tx_count, tx_error], pk:oname }
+UPDATE {key:tps, value:avg}
+UPDATE {key:[tx_count, tx_error], value:sum}
+```
+
+포맷팅된 필드는 내부적으로 문자열 타입으로 변하기 떄문에 주의해야 합니다. 숫자 타입(`float`)으로 치환합니다. 
+
+```sql title='MXQL query' 
+# 메트릭스 선택 단계
+CATEGORY app_counter 
+# 메트릭스 로딩 단계
+TAGLOAD 
+# 메트릭스 가공 단계
+FILTER { key: "oname", value: "java-demo1" }
+SELECT [time, oname, tps, tx_count, tx_error] 
+GROUP { timeunit:1h, merge:[tps, tx_count, tx_error], pk:oname }
+UPDATE {key:tps, value:avg}
+UPDATE {key:[tx_count, tx_error], value:sum}
+UPDATE {key:tps, cast:float}
+```
+

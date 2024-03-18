@@ -1,0 +1,59 @@
+목록에서 조회를 원하는 <InDoc pages="resource-pod-list">Pod</InDoc><InDoc pages="resource-application-list">애플리케이션</InDoc><InDoc pages="deployment-list">Deployment</InDoc>의 ![돋보기 아이콘](/img/ic-search.svg) ***상세 보기*** 아이콘 선택 시 해당 <InDoc pages="resource-pod-list">Pod</InDoc><InDoc pages="resource-application-list">애플리케이션</InDoc><InDoc pages="deployment-list">Deployment</InDoc>에 대한 상세 정보를 확인할 수 있습니다.
+
+
+<Xclude pages="resource-application-list">
+
+:::note 
+
+상세 보기 창의 [트레이스](container-map-trace), [메트릭스](container-map-metrics), [로그](container-map-log), [이벤트](container-map-event) 탭의 경우 컨테이너 맵 상세 보기와 동일합니다.
+
+:::
+
+</Xclude>
+
+<InDoc pages="resource-application-list">
+
+:::note 
+
+상세 보기 창의 [트레이스](container-map-trace), [메트릭스](container-map-metrics), [로그](container-map-log), [이벤트](container-map-event), [호출 정보](container-map-call-information) 탭의 경우 컨테이너 맵 상세 보기와 동일합니다.
+
+:::
+
+</InDoc>
+
+### 리소스 
+
+대상 선택 후 상세 보기의 <Cmdname sid="resource" className="uitext" /> 탭에서 선택한 리소스와 관련된 리소스 목록 및 관계도를 조회할 수 있습니다. 
+
+<InDoc pages="resource-pod-list">
+
+<ImgLang img='k8s-pod-list-detail.png' desc='Pod 목록 상세 ' />
+
+</InDoc>
+
+<InDoc pages="resource-application-list">
+
+<ImgLang img='k8s-app-list-detail.png' desc='Pod 목록 상세 ' />
+
+</InDoc>
+
+<InDoc pages="deployment-list">
+
+<ImgLang img='k8s-deployment-list-detail.png' desc='deployment 목록 상세 ' />
+
+</InDoc>
+
+
+#### 요약 정보
+
+선택한 리소스와 관련된 리소스 목록의 요약 정보를 제공합니다. 리소스 명 옆에 상세보기 아이콘을 선택 시 해당 리소스 목록 화면으로 이동합니다. 
+
+* <Cmdname sid="container" className="uitext" />: 해당 컨테이너만 필터링된 상태의 <Cmdname sid="container_list" className="uitext" />으로 이동합니다. 
+
+* <Cmdname sid="podName" className="uitext" />: 해당 파드만 필터링된 <Cmdname sid="podList" className="uitext" />으로 이동합니다. 
+
+* <Cmdname sid="node" className="uitext" />: 해당 노드 이름이 선택된 상태의 <Cmdname sid="node_detail" className="uitext" />로 이동합니다. 
+
+#### 리소스 관계도 
+
+리소스간 연결 관계와 상태를 시각적으로 확인할 수 있습니다. 목록과 동일하게 Pod, 컨테이너, 애플리케이션에 마우스 오버 시 상세 지표를 확인할 수 있습니다. 리소스 선택 시 해당 리소스 목록 페이지로 이동합니다.

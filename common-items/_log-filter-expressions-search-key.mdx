@@ -6,12 +6,12 @@
 
 <InDoc pages="log-lt,aws-log-lt">
 
-| 검색 키 종류                         | 검색 키 포멧 | 의미        | 검색 키와 검색 값 예시 | 검색 예시                             |
-| ------------------------------------ | ------------ | ----------- | --------------- | -------------------------- |
-| 문자열 키워드                        | keyword      | 파일 이름   | - 키: fileName<br/> - 값: /data/whatap/logs/yard.log | `fileName:/data/whatap/logs/yard.log` |
-| 숫자 키워드                          | keyword.n    | 응답시간    | - 키: response_time.n<br/> - 값: 2945                       | `response_time.n>=2945`               |
-| 예약어 키워드<br/>(사전 정의 키워드) | @keyword     | 트랜잭션 ID | - 키: @txid<br/> - 값: 85459614215434144          | 
-| 로그 본문 키워드                     | content      | 로그 본문   | - 키: content<br/> - 값: 사용자 입력값              | `content: *ERROR*`                    |
+|검색 키 종류|검색 키 포멧|의미|검색 키와 검색 값 예시|검색 예시|
+|---|---|---|---|---|
+|문자열 키워드|keyword|파일 이름|- 키: fileName<br/> - 값: /data/whatap/logs/yard.log|fileName:/data/whatap/logs/yard.log|
+|숫자 키워드|keyword.n|응답시간|- 키: response_time.n<br/> - 값: 2945|response_time.n>=2945|
+|예약어 키워드<br/>(사전 정의 키워드)|@keyword|트랜잭션 ID|- 키: @txid<br/> - 값: 85459614215434144|-|
+|로그 본문 키워드|content|로그 본문|- 키: content<br/> - 값: 사용자 입력값|content: `*ERROR*`|
 
 :::note
 
@@ -27,10 +27,10 @@
 
 <InDoc pages="log-search,aws-log-search">
 
-| 검색 키 종류                         | 검색 키 포멧 | 의미        | 검색 키와 검색 값 예시 | 검색 예시                             |
-| ------------------------------------ | ------------ | ----------- | --------------- | -------------------------- |
-| 문자열 키워드                        | keyword      | 파일 이름   | - 키: fileName<br/> - 값: /data/whatap/logs/yard.log | `fileName:/data/whatap/logs/yard.log` |
-| 숫자 키워드                          | keyword.n    | 응답시간    | - 키: response_time.n<br/> - 값: 2945                       | `response_time.n>=2945`               |
-| 예약어 키워드<br/>(사전 정의 키워드) | @keyword     | 트랜잭션 ID | - 키: @txid<br/> - 값: 85459614215434144          | 
+|검색 키 종류|검색 키 포멧|의미|검색 키와 검색 값 예시|검색 예시|
+|---|---|---|---|---|
+|문자열 키워드|keyword|파일 이름|- 키: fileName<br/> - 값: /data/whatap/logs/yard.log|fileName:/data/whatap/logs/yard.log|
+|숫자 키워드|keyword.n|응답시간|- 키: response_time.n<br/> - 값: 2945|response_time.n>=2945|
+|예약어 키워드<br/>(사전 정의 키워드)|@keyword|트랜잭션 ID|- 키: @txid<br/> - 값: 85459614215434144|-|
 
 </InDoc>

@@ -5,13 +5,36 @@ description: .NET 에이전트 설치 시 발생할 수 있는 문제를 확인�
 tags: [ .NET, 문제 해결, Troubleshooting ]
 ---
 
-.NET 에이전트 설치 후 예기치 않은 문제가 발생한다면 다음 사항을 확인하고 신속하게 문제를 해결하세요. 계속해서 같은 문제가 발생한다면 [support@whatap.io](mailto:support@whatap.io)로 문의하거나 서비스 화면의 오른쪽 위에 ![고객지원 아이콘](/img/ico-help.svg) 버튼을 선택하면 채팅창이 나탑니다. 추가 지원을 받으세요.
+.NET 에이전트 설치 후 예기치 않은 문제가 발생한다면 다음 사항을 확인하고 신속하게 문제를 해결하세요. 계속해서 같은 문제가 발생한다면 [support@whatap.io](mailto:support@whatap.io)로 문의하세요. 또는 서비스 화면의 오른쪽 위에 ![고객지원 아이콘](/img/ico-help.svg) 버튼을 선택하면 나타나는 채팅창을 통해서 추가 지원을 받을 수도 있습니다.
 
-### 모든 데이터가 정상 수집되지 않는 경우
+:::note
+
+메일 또는 채팅창을 통해 문의 시 에이전트의 로그 파일이 필요할 수 있습니다. 에이전트의 로그 파일은 다음 경로에 위치합니다.
+
+- `C:\Program Files\WhaTap .NET\logs`
+- `C:\ProgramData\WhaTap` (이 경로는 없을 수도 있습니다. 이런 경우 무시해도 좋습니다.)
+
+:::
+
+## 모든 데이터가 수집되지 않는 경우
 
 <ImgLang img='dotnet-apm-troubleshooting-connection-fail.png' desc='' />
 
 모든 위젯에 데이터가 수집되지 않을 경우 다음 사항을 확인해 보세요.
+
+- 에이전트 설정을 위한 *whatap.conf* 파일에 프로젝트 **액세스 키**와 **수집 서버 정보**가 제대로 입력되었는지 확인하세요.
+
+- 해당 서버의 방화벽 설정을 확인하세요. 아웃바운드 연결을 위해 6600 포트가 열려있어야 합니다.
+
+## 히트맵 정보가 수집되지 않는 경우
+
+<ImgLang img='dotnet-apm-troubleshooting-none-hitmap.png' desc='' />
+
+사용자의 애플리케이션이 지원 환경을 확인하세요. .NET 애플리케이션 모니터링을 위한 지원 환경은 [다음 문서](supported-spec)를 참조하세요. 서버의 닷넷 버전이 지원 환경에 해당하더라도 애플리케이션의 버전이 .NET Framework 4.5 이상이 아니면, 모니터링을 위한 데이터 수집이 원활하지 않을 수 있습니다.
+
+## 지원 범위를 확인하기 어렵거나 지원 대상으로 판별된 경우
+
+대상 애플리케이션의 *web.config* 파일을 [support@whatap.io](mailto:support@whatap.io)로 전달해 문의하세요. 가능하다면 대상 애플리케이션의 프로젝트 파일(*.csproj*)을 전달해줄 것을 권장합니다.
 
 ## 시스템 환경 변수 확인
 
@@ -44,3 +67,4 @@ tags: [ .NET, 문제 해결, Troubleshooting ]
 * **WHATAP_DOTNET_TRACE = 1**
 
   모니터링 데이터 수집 기능을 활성화합니다.
+

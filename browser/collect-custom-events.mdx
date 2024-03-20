@@ -82,16 +82,34 @@ function PurchaseProduct(payload) {
 
 `PurchaseProduct` 함수가 동작할 때 사용자 정의 이벤트를 지정한 `name` 값으로 전송하게 됩니다.
 
-## 수집 데이터 조회 방법
+## 수집 데이터 조회하기
+
+### 사용자 세션 로그 검색 메뉴 이용하기
 
 1. 브라우저 모니터링 프로젝트를 선택한 다음 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_userSessionEventSearch" className="uitext" /> 메뉴로 이동하세요.
 
-1. <Cmdname sid="filter" className="uitext" /> 옵션에서 `type` 태그를 선택하고 'custom'을 입력하세요.
+1. <Cmdname sid="filter" className="uitext" /> 옵션에서 <code>type</code> 태그를 선택하고 'custom'을 입력하세요.
 
-    <ImgLang img='collection-custom-events-example01.png' desc='필터 검색' />
+    <ImgLang img='collect-custom-events-example01.png' desc='필터 검색' />
 
 1. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
 
+1. 조회된 결과에서 `name` 태그를 추가로 선택하고 특정 값을 필터링할 수도 있습니다.
 
-analysis
+    <ImgLang img='collect-custom-events-example02.png' desc='필터 검색' />
 
+1. 이벤트 발생까지의 사용자 행동을 확인하려면 조회된 결과 목록의 <Cmdname sid="TTL07736" className="uitext" /> 컬럼에서 <Cmdname sid="analysis" className="uitext" /> 버튼을 선택하세요.
+
+    <ImgLang img='collect-custom-events-example03.png' desc='사용자 세션 분석' />
+
+:::note
+
+사용자 세션 분석에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+:::
+
+### Flex 보드에서 위젯으로 확인하기
+
+사용자 정의 이벤트 데이터를 <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 위젯으로 만들어 확인할 수 있습니다.
+
+* ***커스텀 이벤트 건수***

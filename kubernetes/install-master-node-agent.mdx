@@ -187,63 +187,6 @@ oc create -f whatap_openshift_scc.yaml
     helm install whatap-kube-agent whatap/kube -f values.yaml
     ```
 
-:::note 
-
-**Helm 차트 배포 과정**
-
-1. **차트 검사**
-
-    ```shell 
-    helm lint charts/kube
-    # ==> Linting . 1 chart(s) linted, 0 chart(s) failed
-    ```
-
-1. **차트 디버깅** 실제 애플리케이션 배포 시 문제 발생 여부를 점검합니다.
-
-    ```shell 
-    helm install whatap-kube-agent charts/kube --dry-run --debug
-    ```
-
-1. **차트 패키징**
-
-    ```shell 
-    helm package charts/kube/
-    ```
-
-1. **인덱스 파일 생성** 현재 디렉터리에 있는 Helm 차트로부터 인덱스 파일을 생성합니다. 
-
-    ```shell 
-    helm repo index --url https://whatap.github.io/helm/ .
-    ```
-
-:::
-
-<details>
-<summary><b>Helm 차트 구조</b></summary>
-
-와탭이 제공하는 *helm* 차트의 구조는 다음과 같습니다.
-
-```shell 
-└── kube
-    ├── Chart.yaml
-    ├── README.md
-    ├── index.yaml
-    ├── templates
-    │   ├── clusterrole.yaml
-    │   ├── clusterrolebinding.yaml
-    │   ├── configmap-master.yaml
-    │   ├── configmap-node.yaml
-    │   ├── daemonset.yaml
-    │   ├── deployment.yaml
-    │   ├── namespace.yaml
-    │   ├── service.yaml
-    │   └── serviceaccount.yaml
-    ├── values.yaml
-    └── kube-*.tgz
-```
-
-</details>
-
 ### *values.yaml* 주요 설정 항목
 
 와탭 쿠버네티스 에이전트 설정을 수정하기 위해서는 기본 설정 파일(*values.yaml*)을 수정해야 합니다. *values.yaml* 파일 내 주요 설정 항목을 다음과 같이 안내합니다. 
@@ -289,16 +232,11 @@ oc create -f whatap_openshift_scc.yaml
 
 </div>
 
-#### 구성 예시 
+:::note 
 
-*values.yaml* 파일을 이용한 주요 구성 수정 방법의 예시는 다음과 같습니다. 
+Helm 차트 기준 **설치 문제 해결**에 대한 안내는 [다음 문서](agent-troubleshooting#troubleshooting-helm-chart)를 참조하세요.
 
-```yaml='WhaTap 기본 설정'
-whatap:
-  license: "라이선스 키 입력"
-  host: "와탭 수집서버 호스트 입력"
-  port: "와탭 수집서버 포트 입력"
-```
+:::
 
 </TabItem>
 </Tabs>

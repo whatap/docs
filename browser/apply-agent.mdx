@@ -51,6 +51,7 @@ config: {
   pcode: {pcode},
   sampleRate: 100,
   ignoreOrigins: [ 'https://ignore-site.com/' , '/^(https?://)([^/]*)(ignore-site.io)(/)(.*)/i' ],
+  collectUserClick: false
 }
 ```
 
@@ -58,6 +59,7 @@ config: {
 * **pcode**: 프로젝트 코드입니다.
 * **sampleRate**: 수집하는 사용자 세션 비율을 설정할 수 있습니다.
 * **ignoreOrigins**: 통계 수집에서 제외할 특정 리소스 도메인을 문자열 배열 형태로 추가할 수 있습니다. 정규 표현식을 적용할 수도 있습니다.
+* **collectUserClick**: 클릭 이벤트를 수집할 수 있습니다. 기본값은 `false`입니다.
 
 :::note
 

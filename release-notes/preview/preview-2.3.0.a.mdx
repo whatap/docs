@@ -85,6 +85,14 @@ toc_max_heading_level: 2
 
 - <Status>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_counter" className="uitext" /> 메뉴에서 카테고리별로 필드를 선택할 수 있도록 수정
 
+- <Status>Changed</Status> xos 지표 변경(xos2 → xos)을 위한 데이터베이스 상품 서비스의 변경 사항 적용
+
+  - <Cmdname sid="side_flexboard" className="uitext" /> 메뉴의 CPU 사용률 위젯에서 <span class="b500">cpu(xos2)</span> 지표를 <UI>cpu(xos)</UI> 지표로 변경
+
+  - MySQL 프로젝트에서 사용자 정의 보고서의 지표 목록 중 <span class="b500">cpu(xos2)</span> 지표를 <UI>cpu(xos)</UI> 지표로 변경
+
+  - <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 메트릭스 이벤트 템플릿 중 CPU 사용률 템플릿의 <span class="b500">cpu(xos2)</span> 지표를 <UI>cpu(xos)</UI> 지표로 변경
+
 #### PostgreSQL, MySQL
 
 - <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 <UI>Default(xos)</UI>, <UI>Default(rds)</UI> 프리셋 추가

@@ -1,0 +1,33 @@
+---
+id: browser-v1_3_4
+title: Browser Agent v1.3.4
+toc_max_heading_level: 3
+pagination_next: release-notes/browser/browser-v1_3_3
+---
+
+2024년 02월 19일
+
+- <Status>Feature</Status> 페이지 로드, AJAX 이벤트 발생 시 <b>Network Information API</b>의 다음 지표를 추가 수집
+
+  - downlink
+  - effectiveType
+  - rtt
+
+- <Status>Feature</Status> 리소스 이벤트 발생 시 다음 지표를 추가 수집
+  
+  - deliveryType
+  - responseStatus
+
+- <Status>Feature</Status> Content Security Policy(CSP) 에러 수집 기능 추가
+
+:::note
+
+추가한 지표에 대한 자세한 내용은 다음 링크를 참조하세요.
+
+- [<Cmdname sid="TTL07611" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/effectiveType) (effectiveType)
+- [<Cmdname sid="TTL07612" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/rtt) (rtt)
+- [<Cmdname sid="TTL07610" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/downlink) (downlink)
+- [<span class="uitext">Delivery Type</span>](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/deliveryType) (deliveryType)
+- [<Cmdname sid="status_code" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/responseStatus) (responseStatus)
+
+:::

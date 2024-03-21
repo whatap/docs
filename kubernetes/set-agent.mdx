@@ -150,7 +150,7 @@ tags: [ 쿠베네티스, 쿠베네티스 모니터링, 애플리케이션, Java,
 
   기본값 `false`
 
-  해당 옵션이 활성화 된 경우 노드 에이전트는 메트릭 수집을 마스터 에이전트에 위임합니다. whatap-master-agent의 `collect_apiserver_metric_by_leader` 옵션 활성화가 필요합니다. 메트릭 수집 위임을 통해 기존 whatap-node-agent가 발생시킨 apiserver 부하를 낮출 수 있습니다.
+  해당 옵션이 활성화 된 경우 노드 에이전트는 메트릭 수집을 마스터 에이전트에 위임합니다. whatap-master-agent의 `collect_apiserver_metric_by_leader` 옵션 활성화 선행이 필요합니다. 메트릭 수집 위임을 통해 기존 whatap-node-agent가 발생시킨 apiserver 부하를 낮출 수 있습니다.
 
 ### whatap-control-plane-helper
 
@@ -236,7 +236,7 @@ tags: [ 쿠베네티스, 쿠베네티스 모니터링, 애플리케이션, Java,
 
   기본값 `false`
 
-  whatap-master-agent에서 광범위한 debug log 수집 여부를 설정합니다. 
+  whatap-master-agent에서 `DEBUG` 레벨 로깅 활성화 여부를 설정합니다. 
 
 * **collect_apiserver_metric_by_leader** <span class='type'>bool</span>
 

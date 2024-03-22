@@ -5,79 +5,101 @@ description: 개별 트랜잭션의 성능 속성을 기반으로 원하는 트�
 tags: [ 쿠버네티스, 쿠버네티스 모니터링, 애플리케이션, 트랜잭션 ]
 ---
 
-홈 화면 > 프로젝트 선택 > ***애플리케이션*** > ***트랜잭션 검색***
+홈 화면 > 프로젝트 선택 > ***애플리케이션*** > ***분석*** > ***트랜잭션 검색***
 
-<ImgLang img='whatap_application_analysis_tx_profile.png' desc='트랜잭션 검색' />
+***트랜잭션 검색*** 메뉴를 통해 특정 기간 동안 각 트랜잭션의 성능 속성에 대한 통계와 실행 상태를 검색할 수 있습니다. 모든 트랜잭션을 확인하고 정상 및 에러 상태를 빠르게 확인할 수 있습니다. 제공되는 정보를 통해 어떤 트랜잭션의 사용량이 많고 리소스를 많이 소비하는지 알 수 있습니다. 트랜잭션의 속성에 따라 다양하게 필터링할 수 있어 특정 조건의 트랜잭션을 찾는데 유용합니다.
 
-개별 트랜잭션의 성능 속성을 기반으로 원하는 트랜잭션을 검색할 수 있습니다.
+<ImgLang img='k8s-analysis-tx-profile.png' desc='트랜잭션 검색' />
 
-<ImgLang img='whatap_application_analysis_tx_profile_column.png' desc='컬럼 선택' />
-
-결과 조회 시 ![컬럼 선택 아이콘](/img/ico-column-set.svg) ***컬럼 선택*** 버튼을 클릭해 확인이 필요한 컬럼을 적절하게 선택하세요.
+![지시선 1](/img/number-01.png) 영역에서 조회 시간을 설정 후 ***컨테이너*** 옵션에서 조회 대상을 선택하세요. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하면 검색 결과가 테이블에 표시됩니다. ![지시선 2](/img/number-02.png) 영역의 결과 목록에서 원하는 항목을 선택하면 ***트랜잭션 정보*** 창이 나타납니다. ***트랜잭션 정보*** 창을 활용한 트랜잭션 트레이스 상세 분석에 관한 자세한 내용은 [다음 문서](../java/trs-profile#transaction-info)를 참조하세요.
 
 :::note
 
-검색 조건에 따라 응답 지연이 발생할 수 있기 때문에 검색 시간을 가급적 짧게 설정할 것을 권고합니다.
+* 에러 상태의 트랜잭션만 검색하려면 <Cmdname sid="show_only_error" className="uitext" />를 클릭한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+* 검색 조건에 따라 응답 지연이 발생할 수 있기 때문에 검색 시간을 가급적 짧게 설정할 것을 권고합니다.
 
 :::
 
-## 경과 시간
+## 컬럼 선택
 
-<ImgLang img='whatap_application_analysis_tx_profile_time.png' desc='경과 시간' />
+![지시선 2](/img/number-02.png) 영역의 ![컬럼 선택 아이콘](/img/ico-column-set.svg) ***컬럼 선택*** 버튼 클릭 시 다음과 같이 컬럼 선택 창이 나타납니다. 원하는 컬럼을 적절하게 선택하세요.
+
+<ImgLang img='k8s-tx-profile-clm.png' desc='컬럼 선택' />
+
+## 필터 적용
+
+![지시선 1](/img/number-01.png) 영역에서 필터를 활용해 상세 검색이 가능합니다. 다양한 검색 조건에 의한 데이터 탐색 방식을 지원합니다. 필터 항목 역시 여러 개를 적용할 수 있습니다. 원하는 필터를 지정한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+:::note
+
+* 일부 필터 항목은 상품에 따라 지원하지 않을 수 있습니다.
+
+* 다중 필터 적용 시 <Cmdname sid="TTL06107" className="uitext" /> 필터를 적용하여 검색할 경우 <Cmdname sid="TTL06111" className="uitext" /> 필터만 추가 적용할 수 있습니다.
+
+:::
+
+### 경과 시간
+
+<ImgLang img='k8s-analysis-tx-profile-el.png' desc='경과 시간' />
 
 트랜잭션 응답시간 기준으로 검색합니다. 기준 이상과 미만의 2개 값을 입력해 검색합니다.
 
-## 에러 메시지
+### 에러 메시지
 
-<ImgLang img='whatap_application_analysis_tx_profile_error.png' desc='에러 메시지' />
+<ImgLang img='k8s-analysis-tx-profile-err.png' desc='에러 메시지' />
 
-트랜잭션 에러 메시지를 기반으로 검색합니다. 디폴트 상태에서 에러 관련 컬럼이 보이지 않을 수 있습니다. 컬럼을 선택해 확인하세요.
+트랜잭션 에러 메시지를 기반으로 검색합니다. 디폴트 상태에서 에러 관련 컬럼이 보이지 않을 수 있습니다. 컬럼을 선택해 확인하세요. 
 
-## HTTP 호출 건수
+:::note 
 
-<ImgLang img='whatap_application_analysis_tx_profile_http.png' desc='HTTP 호출 건수' />
+에러 상태의 트랜잭션은 빨간색으로 표시됩니다.
 
-트랜잭션 중 외부 HTTP 서비스를 호출한 건수 기반으로 검색합니다.
+:::
 
-## SQL 건수
+### HTTP 호출 건수
 
-<ImgLang img='whatap_application_analysis_tx_profile_sql.png' desc='SQL 건수' />
+<ImgLang img='k8s-analysis-tx-profile-httpc.png' desc='HTTP 호출 건수' />
 
-트랜잭션별 SQL 수행 건수가 설정한 건수 이상인 트랜잭션을 검색합니다. 예외적으로 과도한 수의 SQL을 호출하는 트랜잭션을 검색할 때 이용합니다.
+트랜잭션 중 외부 HTTP 서비스를 호출한 건수가 입력값 이상에 해당하는 트랜잭션을 검색합니다. 예시 이미지의 경우 ***5***건 이상을 조회합니다.
 
-## SQL 패치 건수
+### SQL 건수
 
-<ImgLang img='whatap_application_analysis_tx_profile_sqlfetch.png' desc='SQL 패치 건수' />
+<ImgLang img='k8s-analysis-tx-profile-sqlcount.png' desc='SQL 건수' />
 
-SQL 수행후 DB 패치 건수를 기반으로 검색합니다. 건수 기준은 트랜잭션별입니다. 과도한 데이터 패치를 수행하는 트랜잭션을 검색할 때 이용합니다.
+트랜잭션별 SQL 수행 건수가 설정한 입력값 이상에 해당하는 트랜잭션을 검색합니다. 예외적으로 과도한 수의 SQL을 호출하는 트랜잭션을 검색할 때 이용합니다.
 
-## URL
+### SQL 패치 건수
 
-<ImgLang img='whatap_application_analysis_tx_profile_url.png' desc='URL' />
+<ImgLang img='k8s-analysis-tx-profile-sqlfetchcount.png' desc='SQL 패치 건수' />
 
-URL 기반으로 트랜잭션을 검색합니다. 입력한 검색 문자열은 포함 여부(부분 일치)로 비교 검색합니다.
+SQL 수행 후 DB 패치 건수를 기준으로 입력값 이상에 해당하는 트랜잭션을 검색합니다. 과도한 데이터 패치를 수행하는 트랜잭션을 검색할 때 이용합니다.
 
-## IP
+### 트랜잭션
 
-<ImgLang img='whatap_application_analysis_tx_profile_ip.png' desc='IP' />
+<ImgLang img='k8s-analysis-tx-profile-tx.png' desc='URL' />
 
-IP 기반으로 트랜잭션을 검색합니다. 단, IP 문자열은 PREFIX 비교(전방 일치)로 검색합니다.
+트랜잭션 기준으로 검색합니다. 입력한 검색 문자열은 포함 여부(부분 일치)로 비교 검색합니다.
 
-## 도메인
+### 클라이언트 IP
 
-<ImgLang img='whatap_application_analysis_tx_profile_domain.png' desc='도메인' />
+<ImgLang img='k8s-analysis-tx-profile-cl-ip.png' desc='IP' />
+
+클라이언트 IP 기반으로 트랜잭션을 검색합니다. 단 IP 문자열은 PREFIX 비교(전방 일치)로 검색합니다.
+
+### 도메인
+
+<ImgLang img='k8s-analysis-tx-profile-dm.png' desc='도메인' />
 
 HTTP 서비스 도메인(host:port) 기반으로 트랜잭션을 검색합니다. 검색 조건은 도메인이 완전히 일치(전체 일치)해야 합니다.
 
-## 유저 에이전트
+### 유저 에이전트
 
-<ImgLang img='whatap_application_analysis_tx_profile_useragent.png' desc='유저 에이전트' />
+<ImgLang img='k8s-analysis-tx-profile-user-agent.png' desc='유저 에이전트' />
 
 유저 에이전트 기반으로 트랜잭션을 검색(부분 일치)합니다. 
 
-## Referer
-
-<ImgLang img='whatap_application_analysis_tx_profile_referer.png' desc='Referer' />
+### Referer
 
 Referer 문자열 기반으로 트랜잭션을 검색합니다.
 
@@ -93,25 +115,29 @@ Referer 문자열 기반으로 트랜잭션을 검색합니다.
 
 :::
 
-## 트랜잭션 ID
+### 트랜잭션 ID
 
-<ImgLang img='whatap_application_analysis_tx_profile_tid.png' desc='트랜잭션 ID' />
+<ImgLang img='k8s-analysis-tx-profile-tx-id.png' desc='트랜잭션 ID' />
 
 트랜잭션 ID 기반으로 트랜잭션을 검색(전체 일치)합니다. 트랜잭션 ID의 경우 검색 인덱스가 생성되어 있기 때문에 빠른 속도로 검색할 수 있습니다.
 
 :::note
 
-최신 버전의 에이전트가 아닌 경우 인덱스 사용이 아닌 풀스캔이 발생할 수 있습니다.
+* 트랜잭션 ID는 <Cmdname sid="TTL06527" className="uitext" /> 창의 <Cmdname sid="TTL06125" className="uitext" /> 탭에서 확인할 수 있습니다. 자세한 내용은 [다음 문서](../java/trs-profile#anlaysis-trace-record-summary)를 참조하세요.
+
+* 최신 버전의 에이전트가 아닌 경우 인덱스 사용이 아닌 풀스캔이 발생할 수 있습니다.
 
 :::
 
-## 멀티 트랜잭션 ID
+### 멀티 트랜잭션 ID
 
-<ImgLang img='whatap_application_analysis_tx_profile_mtid.png' desc='멀티 트랜잭션 ID' />
+<ImgLang img='k8s-analysis-tx-profile-mtxid.png' desc='멀티 트랜잭션 ID' />
 
 멀티 트랜잭션 ID 기반으로 트랜잭션을 검색(전체 일치)합니다.
 
 :::note
+
+* 멀티 트랜잭션 ID는 <Cmdname sid="TTL06527" className="uitext" /> 창의 <Cmdname sid="TTL06125" className="uitext" /> 탭에서 확인할 수 있습니다. 자세한 내용은 [다음 문서](../java/trs-multi-trace#trace-multi-tx)를 참조하세요.
 
 * 최신 버전의 에이전트가 아닌 경우 인덱스 사용이 아닌 풀스캔이 발생할 수 있습니다.
 
@@ -119,9 +145,9 @@ Referer 문자열 기반으로 트랜잭션을 검색합니다.
 
 :::
 
-## 클라이언트 ID
+### WClientID
 
-<ImgLang img='whatap_application_analysis_tx_profile_clientid.png' desc='클라이언트 ID' />
+<ImgLang img='k8s-analysis-tx-profile-wcl.png' desc='클라이언트 ID' />
 
 클라이언트 ID(`wClientId`)는 와탭 에이전트가 사용자를 구분하기 위해 부여하는 ID입니다. 이 ID 값 기반으로 트랜잭션을 검색(전체 일치)합니다. 검색을 위한 별도 인덱스는 없습니다.
 
@@ -131,14 +157,31 @@ Referer 문자열 기반으로 트랜잭션을 검색합니다.
 
 :::
 
-## 로그인 ID
-
-<ImgLang img='whatap_application_analysis_tx_profile_loginid.png' desc='로그인 ID' />
+### 로그인 ID
 
 로그인 아이디 기반으로 트랜잭션을 검색합니다.
 
 :::note
 
 기본 설정 상태의 에이전트는 로그인 ID 정보를 수집하지 않습니다. 로그인 ID 설정이 필요한 경우 [다음 문서](../java/script-plugin#common-plugin)를 참조해 설정을 추가하세요.
+
+:::
+
+
+## 검색 결과 다운로드하기
+
+사용자가 설정한 필터 조건에 따라 검색된 결과를 CSV 파일로 다운로드할 수 있습니다. 
+
+1. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 클릭해 검색 결과를 조회하세요.
+
+1. ![다운로드 아이콘](/img/ic-csv-download-ms.svg) 버튼을 선택하세요.
+
+1. 최대 CSV 라인 수를 입력하세요. 입력한 라인 수만큼 조회된 결과를 저장할 수 있습니다.
+
+1. <Cmdname sid="download" className="uitext" /> 버튼을 선택하면 CSV 파일로 다운로드합니다.
+
+:::note
+
+CSV 파일 이름은 *profile\_`{pcode}`\_`YYMMDD`.csv* 형식입니다.
 
 :::

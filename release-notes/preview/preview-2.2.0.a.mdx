@@ -2,7 +2,6 @@
 id: preview-2_2_0x
 title: Preview 2.2.0.a
 toc_max_heading_level: 2
-draft: false
 ---
 
 <head>
@@ -14,6 +13,169 @@ draft: false
 [https://preview.whatap.io](https://preview.whatap.io)에서 다음 추가한 신기능과 수정한 내용을 미리 경험할 수 있습니다. 
 
 :::
+
+## Preview 2.2.0.a6
+
+2024년 02월 19일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Changed</Status> <Cmdname sid="MNU07360" className="uitext" /> 메뉴의 <Cmdname sid="two_factor_auth" className="uitext" /> 섹션에서 OTP 키를 발급하지 않은 상태이면 <Cmdname sid="send_otp_key_mail" className="uitext" /> 버튼 비활성화
+
+- <Status>Changed</Status> 프로젝트 생성 시 상품 추천 배너에 <b>Network Performance Monitoring</b> 추가, <b>Java</b> 상품 제거
+
+- <Status>Deprecated</Status> 언어 설정이 영어 또는 일본어일 때 <Cmdname sid="manage_account_info" className="uitext" /> 메뉴에서 마케팅 옵션 제거
+
+---
+
+### `Application`
+
+- <Status>Changed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="application_dashboard" className="uitext" /> 메뉴에서 <Cmdname sid="today_tps" className="uitext" /> 및 <Cmdname sid="today_user" className="uitext" /> 위젯에 <code>All APPS.</code> 태그 추가
+
+  :::note
+
+  `All APPS.` 태그가 표시된 위젯은 항상 모든 에이전트에 대한 데이터를 표시하도록 고정되어 있습니다.
+
+  :::
+
+- <Status>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="transaction_map" className="uitext" /> 메뉴에 새로운 UI 적용 및 기능 개편
+
+  - 데이터 조회 구간 확장: 실시간 최대 30분, 과거 시점 최대 1일
+  - <Cmdname sid="TTL06209" className="uitext" /> 창을 통해 최대 조회 가능 데이터 개수 증가(100건 → 1000건)
+  - 트랜잭션 및 에러 개수를 실시간으로 표시
+  - Top 30 목록에서 키보드 이벤트 추가
+  - 차트 영역에 대한 키보드 이벤트 추가
+  - 과거 시점의 데이터를 조회할 경우 서버로부터 받는 데이터 필터링 가능
+
+  :::note
+
+  <Cmdname sid="transaction_map" className="uitext" /> 메뉴의 개편과 관련한 자세한 내용은 <Link to="https://www.whatap.io/ko/blog/210/index.html">다음 링크</Link>를 참조하세요.
+
+  :::
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status>Feature</Status> XOS2 지표 대체 관련 안내 사항 추가
+
+- <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="database" className="uitext" /> 탭에서 <Cmdname sid="resolved_event_notification" className="uitext" /> 기능에 대한 툴팁 문구 수정(에이전트 버전 1.6.22 이상 → <b>에이전트 버전 1.6.30</b> 이상)
+
+#### MySQL <code class="my">V2</code>
+
+- <Status>Feature</Status> JSON 형식으로 Plan 조회 기능 추가
+
+- <Status>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="db_size_increase" className="uitext" /> 메뉴의 <Cmdname sid="TTL06572" className="uitext" /> 테이블에서 <span class="uitext">TABLENAME</span> 컬럼 항목을 클릭하면 <b>column</b>, <b>index</b> 구성을 확인할 수 있는 기능 추가
+
+---
+
+### `Kubernetes`
+
+- <Status>Fixed</Status> 홈 화면 &gt; <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 컨테이너 performnace 템플릿 선택 시 발생하는 화이트 아웃 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="containerMap" className="uitext" /> 메뉴에서 노드 블록 선택 후 <Cmdname sid="BTN06342" className="uitext" /> 버튼을 선택하면 발생하는 화이트 아웃 문제 수정
+
+---
+
+### `Log`
+
+<p><Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="log" className="uitext" /> 메뉴에서 복합 로그 이벤트 저장을 실패하는 문제 수정</p>
+
+</div>
+
+
+## Preview 2.2.0.a5
+
+2024년 02월 15일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Feature</Status> 프로필 아이콘 선택 &gt; <Cmdname sid="MNU07360" className="uitext" /> 메뉴의 <Cmdname sid="two_factor_auth" className="uitext" /> 섹션에서 OTP 인증 수단을 분실한 경우를 대비해 <Cmdname sid="TTL07396" className="uitext" /> 기능 추가
+
+- <Status>Feature</Status> 대시보드의 Apdex * 100 위젯에 <Cmdname sid="ITM07648" className="uitext" /> 메트릭스 항목 추가
+
+---
+
+### `Application`
+
+<p><Status>Changed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="application_dashboard" className="uitext" /> 메뉴에서 차트 영역의 디자인 요소 수정(위젯 제목 크기 및 위젯 간격, 차트 구간 설명 텍스트의 크기 수정)</p>
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status>Feature</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_list" className="uitext" /> 메뉴에서 데이터베이스 서버의 IP 주소를 표기하는 <Cmdname sid="db_ip" className="uitext" /> 컬럼 추가
+
+- <Status>Fixed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_list" className="uitext" /> 메뉴에서 상태 아이콘 색상 변경, <Cmdname sid="name" className="uitext" />(<Cmdname sid="initial" className="uitext" />), <Cmdname sid="db_ip" className="uitext" /> 컬럼의 텍스트가 컬럼 너비보다 길 경우 마우스 오버 시 툴팁으로 확인할 수 있도록 수정
+
+- <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="database" className="uitext" /> 탭에서 <Cmdname sid="resolved_event_notification" className="uitext" /> 기능에 대한 툴팁 문구 추가(에이전트 버전 1.6.22 이상에서 지원)
+
+#### Database <code class="my">V2</code>
+
+- <Status>Changed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="instance_monitoring" className="uitext" /> 메뉴에서 기본 프리셋(<span class="uitext">Default(rds)</span>, <span class="uitext">Default(xos)</span>) 추가
+
+#### PostgreSQL <code class="my">V2</code>
+
+<p><Status>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="dbObjectInfo" className="uitext" /> 메뉴에서 <span class="uitext">table_size</span> 및 <span class="uitext">index_size</span>, <span class="uitext">bloat_size</span> 컬럼의 값을 정상 출력하도록 수정</p>
+
+---
+
+### `Kubernetes`
+
+- <Status>Change</Status> <Cmdname sid="workload" className="uitext" /> &gt; <Cmdname sid="MNU07551" className="uitext" /> 메뉴에서 <Cmdname sid="compare" className="uitext" /> 기능의 UI 수정 및 목차 기능 추가
+
+- <Status>Change</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="containerMap" className="uitext" /> 메뉴에서 블록의 크기가 작은 경우 UI 표시 수정
+
+- <Status>Changed</Status> <Cmdname sid="Container" className="uitext" /> &gt; <Cmdname sid="containerImages" className="uitext" /> 메뉴의 컬럼 항목 변경
+
+  - 추가: <span class="uitext">Registry</span>, <span class="uitext">Name</span>, <span class="uitext">Tag</span>
+  - 제거: <b>Image Name</b>, <b>Image Tag</b>
+
+- <Status>Fixed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴에서 PHP, Go 애플리케이션 에이전트 설치 과정 중 <b>에이전트 실행</b>을 위한 일부 명령어 수정
+
+- <Status>Fixed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="kubernetesAgentList" className="uitext" /> 메뉴에서 비활성화된 에이전트의 데이터가 출력되지 않는 문제 수정
+
+- <Status>Feature</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="kubernetesAgentList" className="uitext" /> 메뉴에서 노드별 에이전트의 버전이 다를 경우 화면 위에 버전 통일 권장 안내 문구 추가
+
+---
+
+### `Browser`
+
+- <Status>Feature</Status> 페이지 로드 히트맵 데이터에 네트워크 상태 관련 지표 추가: <Cmdname sid="TTL07611" className="uitext" />, <Cmdname sid="TTL07612" className="uitext" />, <Cmdname sid="TTL07610" className="uitext" />
+
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="rumDashboard" className="uitext" /> 메뉴의 <Cmdname sid="rumPageLoadHitmap" className="uitext" /> 위젯
+  - <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="rumPageLoadHitmap" className="uitext" />
+
+- <Status>Feature</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="rumPageLoadHitmap" className="uitext" /> 메뉴의 <Cmdname sid="page_load" className="uitext" /> <Cmdname sid="detail" className="uitext" /> 창에서 리소스 데이터에 지표 추가: <Cmdname sid="status_code" className="uitext" />, <span class="uitext">Delivery Type</span>
+
+- <Status>Feature</Status> AJAX 히트맵 데이터에 네트워크 상태 관련 지표 추가: <Cmdname sid="TTL07611" className="uitext" />, <Cmdname sid="TTL07612" className="uitext" />, <Cmdname sid="TTL07610" className="uitext" />, <span class="uitext">Delivery Type</span>
+
+  - <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="ajaxAnalytics" className="uitext" />
+
+  - <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="rumDashboard" className="uitext" /> 메뉴의 <Cmdname sid="ajaxAnalytics" className="uitext" /> 위젯
+
+:::note
+
+추가된 지표에 대한 자세한 내용은 다음 링크를 참조하세요.
+
+- [<Cmdname sid="TTL07611" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/effectiveType)
+- [<Cmdname sid="TTL07612" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/rtt)
+- [<Cmdname sid="TTL07610" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/downlink)
+- [<span class="uitext">Delivery Type</span>](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/deliveryType)
+- [<Cmdname sid="status_code" className="uitext" />](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/responseStatus)
+
+:::
+
+</div>
+
 
 ## Preview 2.2.0.a4
 
@@ -61,9 +223,11 @@ draft: false
 
 - <Status>Fixed</Status> <Cmdname sid="server_list" className="uitext" /> &gt; <Cmdname sid="serverDetail" className="uitext" /> 메뉴에서 범례 항목이 너무 많을 경우 차트 영역이 가려져 보이지 않던 부분 수정
 
-  범례가 많아지는 경우 <Cmdname sid="more" className="uitext" /> 버튼을 노출하고, 버튼을 선택하면 드롭다운 메뉴를 표시합니다.
+  - 범례가 많아지는 경우 <Cmdname sid="more" className="uitext" /> 버튼을 노출하고 버튼을 선택하면 드롭다운 메뉴를 표시
 
 - <Status>Fixed</Status> <Cmdname sid="tag_count_chart" className="uitext" /> 메뉴에서 Network Traffic 관련 차트에 표시되는 byte 단위를 bit 단위로 표시되도록 수정
+
+- <Status>Feature</Status> AIX 운영체제에 대한 에이전트 설치 패키지 및 안내 제공
 
 ---
 
@@ -82,7 +246,7 @@ draft: false
 
 ### `공통`
 
-- <Status>Changed</Status> <Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="projectSubscription" className="uitext" /> 메뉴에서 <Cmdname sid="include_project_has_not_billing" className="b500" /> 문구를 <Cmdname sid="DSC07606" className="uitext" />로 변경, 툴팁 추가
+- <Status>Changed</Status> <Cmdname sid="MNU07361" className="uitext" /> &gt; <Cmdname sid="projectSubscription" className="uitext" /> 메뉴에서 <Cmdname sid="include_project_has_not_billing" className="b500" /> 문구를 <Cmdname sid="DSC07606" className="uitext" />로 변경, 툴팁 추가
 
 - <Status>Fixed</Status> <Cmdname sid="integrated_member_management" className="uitext" /> 메뉴에서 멤버 목록 테이블의 너비 수정
 
@@ -108,7 +272,17 @@ draft: false
 
 #### 공통
 
-<p><Status>Changed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴에서 DB 유저 파일 생성을 위한 명령어 입력 시 운영체제에 따른 고려 사항 추가</p>
+- <Status>Changed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" /> 메뉴에서 DB 유저 파일 생성을 위한 명령어 입력 시 운영체제에 따른 고려 사항 추가
+
+- <Status>Fixed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="database" className="uitext" /> 탭에서 <Cmdname sid="database_inactive_alert" className="b500" />를 <Cmdname sid="inactive_agent_alert" className="uitext" />로 문구 수정
+
+- <Status>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="database" className="uitext" /> 탭에서 에이전트 이벤트 원복 알림(<Cmdname sid="resolved_event_notification" className="uitext" />) 기능 추가
+
+  :::note
+
+  이 추가 기능은 DBX 에이전트 1.6.22 버전 이상에서 지원합니다.
+
+  :::
 
 #### Redis
 
@@ -228,7 +402,7 @@ draft: false
 
   :::note
 
-  SSO 계정 연동에 대한 자세한 내용은 [다음 문서](https://whatap.github.io/whatap-docs/account/sso)를 참조하세요.
+  SSO 계정 연동에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/account/sso)를 참조하세요.
 
   :::
 
@@ -240,7 +414,7 @@ draft: false
 
   :::note
 
-  사이드 메뉴에 대한 자세한 내용은 [다음 문서](https://whatap.github.io/whatap-docs/main-ui-intro-v2)를 참조하세요.
+  사이드 메뉴에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/main-ui-intro-v2)를 참조하세요.
 
   :::
 

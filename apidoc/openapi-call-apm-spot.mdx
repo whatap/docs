@@ -35,7 +35,8 @@ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {
     "act_sql": "24",
     "act_httpc": "64",
     "act_dbc": "10",
-    "act_socket": "0"
+    "act_socket": "0",
+    "apdex": "0.9871"
 }
 ```
 
@@ -62,6 +63,7 @@ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {
 | act_httpc | <span class='api'>string</span> | 액티브 HTTP Call 수 |
 | act_dbc | <span class='api'>string</span> | 액티브 DB Connection 수 |
 | act_socket | <span class='api'>string</span> | 액티브 Socket 수 |
+| apdex | <span class='api'>string</span> | [Apdex](#apdex)([Application Performance Index](https://www.apdex.org/), 애플리케이션의 사용자 만족도) |
 
 
 ## 활성화 상태의 에이전트 수{#active-agent}
@@ -188,6 +190,18 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 
 ```json title='response'
 9.26 // 평균 CPU 사용률
+```
+
+## Apdex {#apdex}
+
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/apdex
+
+```bash title='command'
+$ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/apdex"
+```
+
+```json title='response'
+0.9871
 ```
 
 ## 활성/비활성화 상태의 에이전트 정보

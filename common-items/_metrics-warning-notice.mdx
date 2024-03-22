@@ -74,7 +74,7 @@
 
 * <Cmdname sid="template" className="uitext" />: 만들어진 템플릿을 선택해 빠르고 쉽게 이벤트를 설정할 수 있습니다. 템플릿을 사용하지 않을 경우 <Cmdname sid="metrics_option_disabled" className="uitext" />을 선택하세요.
 
-  <InDoc product='java,php,nodejs,python,golang,dotnet,postgresql,postgresql-v1,browser,npm'>
+  <InDoc product='java,php,nodejs,python,golang,dotnet,postgresql,browser,npm'>
 
   :::note
 
@@ -100,7 +100,9 @@
 
 * <Cmdname sid="message" className="uitext" />
 
-  * 이벤트 발생 시 출력하는 알림 메시지를 입력합니다. `${태그 또는 필드키}` 입력으로 메시지에 변수를 적용할 수 있습니다. 변수에 입력할 키는 선택한 메트릭스 데이터 <Cmdname sid="category" className="uitext" />에 포함된 값이여야 합니다. <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="tag_count" className="uitext" /> 메뉴에서 입력할 수 있는 태그 또는 필드키를 확인할 수 있습니다.
+  * 이벤트 발생 시 출력하는 알림 메시지를 입력합니다. <code>&#36;&#123;Tag&#125;</code> 또는 <code>&#36;&#123;Field&#125;</code> 입력으로 메시지에 변수를 적용할 수 있습니다. 변수에 입력할 키는 선택한 메트릭스 데이터 <Cmdname sid="category" className="uitext" />에 포함된 값이여야 합니다. <Cmdname sid="tag_count" className="uitext" /> 메뉴에서 입력할 수 있는 태그 또는 필드키를 확인할 수 있습니다.
+
+    <ImgLang img='event-config-message-example.png' desc='Message example' />
 
   * ![시간 아이콘](/img/ico-timing.svg) 버튼을 클릭하면 이전에 입력한 메시지 기록을 확인할 수 있습니다.
 

@@ -34,7 +34,7 @@
 | `Binlog_commits` | - | 이진 로그에 기록된 Commit 수. | Performance |
 | `Innodb_row_lock_time` | - | row lock 획득에 소비된 총 시간(milliseconds) | Performance |
 | `Innodb_row_lock_waits` | - | Innodb 스토리지 엔진 테이블에서 row lock을 기다려야 하는 횟수. Lock을 획득한 수가 아닌 lock을 얻기 위해 대기하는 횟수로, 이 지표가 평소보다 급증한다면 쿼리 대기가 발생(락 경합)하는 것으로 쿼리 튜닝이 필요합니다. | Performance |
-| `lock_wait_sessions` | - | 현재 row lock을 획득하기 위해 대기중인 수. `Innodb_row_lock_current_waits`과 같음. | Performance |
+| `lock_wait_sessions` | - | 현재 row lock을 획득하기 위해 대기중인 수. `innodb_lock_waits`(`data_lock_waits`)의 건수입니다. | Performance |
 | `replication_delay` | - | Replication 구조일 경우 replication db에 반영되는 지연시간. Slave DB에서 측정되는 지표입니다. | Performance |
 | `Slaves_running` | - | 실행되는 슬레이브 SQL 스레드 수. | Performance |
 | `Slow_queries` | - | DB 파라미터 `long_query_time`(초)에 설정한 시간 이상으로 실행된 쿼리 수 | Performance |

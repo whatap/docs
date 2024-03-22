@@ -17,13 +17,13 @@ tags: [ 멀티팩터, 계정, 보안 ]
 
 :::
 
-다음의 순서에 따라 <Cmdname sid="manage_account_info" className="uitext" /> 페이지로 이동한 다음 멀티 팩터 인증을 설정할 수 있습니다.
+다음의 순서에 따라 <Cmdname sid="MNU07360" className="uitext" /> 페이지로 이동한 다음 멀티 팩터 인증을 설정할 수 있습니다.
 
 1. [와탭 모니터링 서비스](https://service.whatap.io)로 로그인하세요.
 
 1. 화면 오른쪽 위에 프로필 아이콘을 선택하세요. 드롭다운 메뉴가 나타납니다.
 
-1. <Cmdname sid="manage_account_info" className="uitext" />를 선택하세요.
+1. <Cmdname sid="MNU07360" className="uitext" />를 선택하세요.
 
 1. 페이지를 아래로 스크롤하여 <Cmdname sid="two_factor_auth" className="uitext" /> 섹션으로 이동하세요.
 
@@ -58,21 +58,54 @@ tags: [ 멀티팩터, 계정, 보안 ]
     
     <ImgLang img='account-mfa-google.png' desc='구글 OTP 앱' />
     
-1. 발급 받은 OTP 토큰을 <Cmdname sid="manage_account_info" className="uitext" /> 페이지의 <Cmdname sid="authentication" className="uitext" /> 텍스트 상자에 입력하세요. 
+1. 발급 받은 OTP 토큰을 <Cmdname sid="BTN06501" className="uitext" /> 텍스트 상자에 입력하세요. 
 
-1. <Cmdname sid="validate_otp_token" className="uitext" />을 선택하세요.
+1. <Cmdname sid="validate_otp_token" className="uitext" /> 버튼을 선택하세요.
 
-OTP 기반 멀티팩터 설정을 완료했습니다. 멀티팩터 인증 설정을 확인하려면 로그아웃한 상태에서 다시 로그인하세요.
+1. <Cmdname sid="TTL07396" className="uitext" /> 창이 나타나면 <Cmdname sid="BTN07544" className="uitext" /> 버튼을 선택해 다운로드하거나 코드를 복사해 저장하세요.
+
+    :::note
+
+    복구 코드는 OTP 인증 수단을 분실한 경우를 대비해 이용할 수 있는 OTP 키 대체 수단입니다. 다운로드한 복구 코드 파일(*WhaTap-recovery-codes.txt*)을 안전한 곳에 보관하세요.
+
+    :::
+
+<Cmdname sid="TTL07396" className="uitext" /> 창을 닫으면 OTP 기반 멀티팩터 설정을 완료합니다. 멀티팩터 인증 설정을 확인하려면 로그아웃한 상태에서 다시 로그인하세요.
+
+:::note
+
+OTP 인증 수단을 분실했을 때 복구 코드를 이용한 로그인 방법은 [다음 문서](#recoverycode)를 참조하세요.
+
+:::
+
 
 ### OTP 기반 멀티팩터 인증 사용하기
 
-1. [로그인](https://service.whatap.io/account/login) 페이지에서 로그인 하세요.
+1. [로그인](https://service.whatap.io/account/login) 페이지에서 이메일과 비밀번호를 입력해 로그인하세요.
 
 1. 멀티팩터 인증 화면이 나타나면 모바일 기기의 OTP 앱에서 OTP 키를 확인하세요.
 
-1. 발급 받은 OTP 키를 입력한 후 <Cmdname sid="validate_otp_token" className="b600" />을 선택하세요.
+1. 발급 받은 OTP 키를 입력한 후 <Cmdname sid="authentication" className="uitext" /> 버튼을 선택하세요.
 
 OTP 토큰 검증에 성공하면 서비스 화면으로 진입할 수 있습니다.
+
+
+### 복구 코드를 이용해 인증하기 {#recoverycode}
+
+OTP 인증 수단을 분실했을 경우 복구 코드를 이용해 로그인할 수 있습니다.
+
+1. [로그인](https://service.whatap.io/account/login) 페이지에서 로그인 하세요.
+
+1. 멀티팩터 인증 화면이 나타나면 <Cmdname sid="BTN07393" className="uitext" />을 선택하세요.
+
+    <ImgLang img='account-mfa-recovery.png' desc='복구 코드' />
+
+1. 다운로드한 복구 코드 파일(*WhaTap-recovery-codes.txt*)에서 코드를 하나 복사해 복구 코드 입력란에 붙여넣기하세요.
+
+1. <Cmdname sid="authentication" className="uitext" /> 버튼을 선택하세요.
+
+<Cmdname sid="MNU07360" className="uitext" /> 메뉴의 <Cmdname sid="two_factor_auth" className="uitext" /> 섹션으로 이동해 이메일 또는 OTP 인증을 시도하세요.
+
 
 ## 이메일 토큰 인증{#email}
 
@@ -84,9 +117,9 @@ OTP 토큰 검증에 성공하면 서비스 화면으로 진입할 수 있습니
 
 1. 이메일에서 no-reply@whatap.io으로부터 수신 받은 인증 토큰(Verification Code)을 확인하세요. 이메일을 수신 받지 못 한 경우 스팸 메일함을 확인하세요.
 
-1. 수신 받은 인증 토큰을 <Cmdname sid="manage_account_info" className="uitext" /> 페이지의 <Cmdname sid="authentication" className="uitext" /> 텍스트 상자에 입력하세요. 
+1. 수신 받은 인증 토큰을 <Cmdname sid="BTN06501" className="uitext" /> 텍스트 상자에 입력하세요. 
 
-1. <Cmdname sid="validate_email_token" className="b600" />을 선택하세요.
+1. <Cmdname sid="validate_email_token" className="uitext" /> 버튼을 선택하세요.
 
 이메일 기반 멀티팩터 설정을 완료했습니다. 멀티팩터 인증 설정을 확인하려면 로그아웃 후 다시 로그인하세요.
 
@@ -94,14 +127,15 @@ OTP 토큰 검증에 성공하면 서비스 화면으로 진입할 수 있습니
 
 1. [로그인](https://service.whatap.io/account/login) 페이지에서 로그인 하세요.
 
-1. 멀티팩터 인증 화면이 나타나면 <Cmdname sid="send_auth_token_mail" className="uitext" />를 선택하세요.
+1. 멀티팩터 인증 화면이 나타나면 이메일로 발송된 인증 코드를 확인하세요.
 
-1. 이메일로 수신 받은 인증 토큰을 입력하고 <Cmdname sid="validate_email_token" className="uitext" />을 선택하세요.
+1. 이메일로 수신 받은 인증 토큰을 입력하고 <Cmdname sid="authentication" className="uitext" /> 버튼을 선택하세요.
 
 이메일 인증 토큰 검증에 성공하면 서비스 화면으로 진입할 수 있습니다.
+
 
 ## 멀티팩터 인증 취소
 
 <ImgLang img='account-mfa-disable.png' desc='멀티팩터 인증 취소' />
 
-멀티팩터 인증을 활성화한 경우에만 멀티팩터 인증 설정을 해제할 수 있습니다. <Link to="https://service.whatap.io/v2/account/management"><Cmdname sid="manage_account_info" /></Link> 페이지의 <Cmdname sid="two_factor_auth" className="uitext" /> 섹션으로 이동한 다음 <Cmdname sid="clear_multi_factor" className="uitext" /> 또는 <Cmdname sid="clear_otp_key" className="uitext" />를 선택하세요.
+멀티팩터 인증을 활성화한 경우에만 멀티팩터 인증 설정을 해제할 수 있습니다. <Link to="https://service.whatap.io/v2/account/management"><Cmdname sid="MNU07360" /></Link> 메뉴의 <Cmdname sid="two_factor_auth" className="uitext" /> 섹션으로 이동한 다음 <Cmdname sid="clear_otp_key" className="uitext" /> 또는 <Cmdname sid="clear_multi_factor" className="uitext" /> 버튼을 선택하세요.

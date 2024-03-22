@@ -1,6 +1,12 @@
-홈 화면 > 프로젝트 선택 > ***분석*** > ***큐브***
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="cube_navigator"  className="uitext" />
 
-와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 ***프로젝트 메뉴*** 하위에 ***분석*** > ***큐브***를 선택하세요. 여기서 국가별 접속, 히트맵, 트랜잭션, TOP 트랜잭션, TPS, 응답 시간, 자원 사용 정보를 제공합니다.
+국가별 접속, 히트맵, 트랜잭션, TOP 트랜잭션, TPS, 응답 시간, 자원 사용 정보를 제공합니다.
+
+* 시간 경과에 따른 애플리케이션 성능 추세를 파악할 수 있습니다. 5분 간격으로 처리된 통계 데이터를 사용해 애플리케이션 성능의 변화를 빠르게 파악할 수 있습니다.
+
+* 트래픽의 지리적 분포를 파악할 수 있습니다. 애플리케이션에 대한 트래픽 데이터를 통해 트래픽의 지리적 분포를 파악하고, 지역별 성능을 비교할 수 있습니다.
+
+* 리소스 사용량을 파악할 수 있습니다. 애플리케이션이 사용하는 리소스 사용량을 파악하고 성능 저하의 원인을 분석할 수 있습니다.
 
 ## 큐브란?
 
@@ -8,21 +14,21 @@
 
 <ImgLang img='cube-apm.png' desc='큐브' />
 
-## ![](/img/number-01.png)큐브 셀렉트 패널
+## ![](/img/number-01.png) 큐브 셀렉트 패널
 
 왼쪽 ![number 1](/img/number-01.png) 영역의 큐브 셀렉트 패널에서 특정 시간 기준으로 큐브를 선택하세요. 큐브는 5분 단위로 저장되어 있기 때문에 특정 시간을 선택해야 합니다. 
 
 * **패널 관심 지표**
 
-  * ***TPS***
+  * <Cmdname sid="tps" className="uitext" />
 
-  * ***응답 시간***
+  * <Cmdname sid="res_time" className="uitext" />
 
-  * ***Tx Error 건수***
+  * <Cmdname sid="service_error" className="uitext" />
 
-  * ***액티브 TX 건수***
+  * <Cmdname sid="active_tx_count" className="uitext" />
 
-  * ***동시접속 사용자***
+  * <Cmdname sid="rt_user" className="uitext" />
 
 * **큐브 표시색**
 
@@ -38,26 +44,26 @@
 
 <ImgLang img='cube-select-app.png' desc='큐브 셀렉트 애플리케이션' />
 
-* ***전체 선택***: 모든 애플리케이션을 조회합니다. 기본은 ***전체 선택***과 ***활성 애플리케이션***이 선택되어있습니다. 
+* <Cmdname sid="select_all" className="uitext" />: 모든 애플리케이션을 조회합니다. 기본은 <Cmdname sid="select_all" className="uitext" />과 <Cmdname sid="oid_active" className="uitext" />이 선택되어 있습니다. 
 
-* ***활성 애플리케이션***: 애플리케이션 중 활성화된 애플리케이션을 지정해 조회합니다. 
+* <Cmdname sid="oid_active" className="uitext" />: 애플리케이션 중 활성화된 애플리케이션을 지정해 조회합니다. 
 
-* ***선택된 것만 보기***: 애플리케이션 중 사용자가 지정한 해당 애플리케이션만 조회합니다. 
+* <Cmdname sid="checked_only" className="uitext" />: 애플리케이션 중 사용자가 지정한 해당 애플리케이션만 조회합니다. 
 
-* ***검색***: 애플리케이션이 많은 경우 입력창을 통해 해당 애플리케이션을 검색할 수 있습니다.
+* <Cmdname sid="search" className="uitext" />: 애플리케이션이 많은 경우 입력창을 통해 해당 애플리케이션을 검색할 수 있습니다.
 
 * <font color='5B7DEC'>숫자</font>/<font color='979797'>숫자</font>: <font color='5B7DEC'>지정한 애플리케이션 개수</font>/<font color='979797'>전체 애플리케이션 개수</font>를 표시합니다.
 
 
 ## ![](/img/number-03.png) 큐브 데이터
 
-![number 3](/img/number-03.png) 영역에서 해당 큐브 데이터를 ***히트맵***, ***국가***, ***TPS***, ***응답 시간***, ***CPU***, ***동시접속 사용자***, ***상위 TX***, ***힙 메모리*** 등의 차트를 통해 확인할 수 있습니다.
+![number 3](/img/number-03.png) 영역에서 해당 큐브 데이터를 <Cmdname sid="hitmap" className="uitext" />, <Cmdname sid="country" className="uitext" />, <Cmdname sid="tps" className="uitext" />, <Cmdname sid="instance_resp_time" className="uitext" />, <Cmdname sid="cpu" className="uitext" />, <Cmdname sid="realtime_user" className="uitext" />, <Cmdname sid="top_tx" className="uitext" />, <Cmdname sid="heap_use" className="uitext" /> 등의 차트를 통해 확인할 수 있습니다.
 
-* ***히트맵***
+* <Cmdname sid="hitmap" className="uitext" />
 
   큐브 시간 동안 트랜잭션 분포를 보여줍니다. 트레이스 상세 분석이 가능합니다. 
   
-  ![right-arrow](/img/right-arrow.svg) 버튼을 선택하면 큐브 시간 동안 ***탑 스택***과 ***유니크 스택***을 조회할 수 있습니다.
+  ![right-arrow](/img/right-arrow.svg) 버튼을 선택하면 큐브 시간 동안 <Cmdname sid="topstack" className="uitext" />과 <Cmdname sid="uniquestack" className="uitext" />을 조회할 수 있습니다.
 
   :::note
 
@@ -65,7 +71,7 @@
 
   :::
 
-* ***국가***
+* <Cmdname sid="country" className="uitext" />
 
   클라이언트 아이피를 기준으로 국가를 매핑하여 어느 국가에서 트랜잭션이 들어오는지를 보여줍니다. 지도의 색은 트랜잭션의 양을 상대적으로 표시합니다.
 
@@ -75,27 +81,27 @@
 
   :::
 
-* ***TPS***
+* <Cmdname sid="tps" className="uitext" />
 
   Tansaction Per Second(***TPS***)는 초당 처리한 트랜잭션 건수를 의미합니다.
 
-* ***인스턴스 응답 시간***
+* <Cmdname sid="instance_resp_time" className="uitext" />
 
   트랜잭션 평균 응답시간입니다.
 
-* ***CPU***
+* <Cmdname sid="cpu" className="uitext" />
 
   프로젝트 내 애플리케이션(에이전트)를 IP로 정렬하여 사용량이 많은 서버의 CPU를 바 차트로 보여줍니다.
 
-* ***동시접속 사용자***
+* <Cmdname sid="realtime_user" className="uitext" />
 
   실시간 브라우저 사용자 수를 보여줍니다. 
 
-* ***상위 TX***
+* <Cmdname sid="top_tx" className="uitext" />
 
   호출 건수가 많은 트랜잭션 5건을 보여줍니다. 트랜잭션 통계에서는 좀 더 상세한 데이터를 확인할 수 있습니다.
 
-* ***힙 메모리***
+* <Cmdname sid="heap_use" className="uitext" />
 
   애플리케이션(인스턴스) 중 힙 메모리 사용량이 많은 순서대로 인스턴스를 정렬해 표시합니다.
 

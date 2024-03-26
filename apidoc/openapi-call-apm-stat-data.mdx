@@ -319,6 +319,13 @@ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {
   * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_queue/<code>stitme</code>/<code>etime</code>/avg
   * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_queue/<code>stitme</code>/<code>etime</code>/avg/<code>oids</code>
 
+* **Apdex**
+
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/apdex/<code>stime</code>/<code>etime</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/apdex/<code>stime</code>/<code>etime</code>/<code>oids</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/apdex/<code>stime</code>/<code>etime</code>/avg
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/apdex/<code>stime</code>/<code>etime</code>/avg/<code>oids</code>
+
 ### 에이전트 개별 데이터 조회 예시
 
 ```bash title='command'
@@ -332,11 +339,12 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
   "stime": 1536050100000,
   "etime": 1536050700000,
   "interval": 300, // data point 간격
-  "data": [
+  "timeMerge": "sum",
+  "objects": [
     {
       "oname": "8080",
       "oid": -1234257485,
-      "data": [
+      "series": [
         [
           1536050100000, // 시계열 timestamp
           95.2
@@ -355,7 +363,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
     {
       "oname": "TC-29-96-8082",
       "oid": 1482741919,
-      "data": [
+      "series": [
         [
           1536050100000,
           98.11
@@ -387,8 +395,9 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
   "stime": 1536050100000,
   "etime": 1536050700000,
   "interval": 300, // data point 간격
-  "op": "avg",
-  "data": [
+  "timeMerge": "sum",
+  "objectMerge": "avg",
+  "series": [
     [
       1536050100000, // 시계열 timestamp
       122.86 // 전체 에이전트 평균 데이터
@@ -408,7 +417,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 ### 에이전트 지정 데이터 조회 예시
 
 ```bash title='command'
-$ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/thread_count/1536050100000/1536050700000/-1050048219,- 1459620666"
+$ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/thread_count/1536050100000/1536050700000/-1050048219,-1459620666"
 ```
 
 ```json title='response' {10,24} showLineNumbers
@@ -418,11 +427,12 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
   "stime": 1536050100000,
   "etime": 1536050700000,
   "interval": 300,
-  "data": [
+  "timeMerge": "sum",
+  "objects": [
     {
       "oname": "8081",
       "oid": -1050048219, // 지정한 에이전트 정보 조회
-      "data": [
+      "series": [
         [
           1536050100000,
           97.75
@@ -436,7 +446,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
     {
       "oname": "8073",
       "oid": -1459620666, // 지정한 에이전트 정보 조회
-      "data": [
+      "series": [
         [
           1536050100000,
           137.23
@@ -458,7 +468,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 ### 에이전트 지정 평균 데이터 조회 예시
 
 ```bash title='command'
-$ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/thread_count/1536050100000/1536050700000/avg/-1050048219,- 1459620666"
+$ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/thread_count/1536050100000/1536050700000/avg/-1050048219,-1459620666"
 ```
 
 ```json title='response' {11} showLineNumbers
@@ -468,8 +478,9 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
   "stime": 1536050100000,
   "etime": 1536050700000,
   "interval": 300,
-  "op": "avg",
-  "data": [
+  "timeMerge": "sum",
+  "objectMerge": "avg",
+  "series": [
     [
       1536050100000,
       117.49 // 지정한 에이전트들의 평균 지표 조회

@@ -16,7 +16,7 @@ tags: [ Open API, API, 통계, 통계 데이터 조회, 애플리케이션, 애�
 
 ## Exception
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/exception/<code>stitme</code>/<code>etime</code>
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/exception/<code>stime</code>/<code>etime</code>
 
 ```bash title='command'
 $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/exception/1535554800000/1535641200000"
@@ -44,7 +44,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 
 ## HTTP 외부 호출
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/httpc/<code>stitme</code>/<code>etime</code>
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/httpc/<code>stime</code>/<code>etime</code>
 
 ```bash title='command'
 $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/httpc/1535554800000/1535641200000"
@@ -123,7 +123,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 
 ## SQL
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/sql/<code>stitme</code>/<code>etime</code>
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/sql/<code>stime</code>/<code>etime</code>
 
 ```bash title='command'
 $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/sql/1535554800000/1535641200000"
@@ -156,7 +156,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 
 ### client IP
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/remote/<code>stitme</code>/<code>etime</code>
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/remote/<code>stime</code>/<code>etime</code>
 
 ```bash title='command'
 $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/remote/1535554800000/1535641200000"
@@ -185,7 +185,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 
 ## 트랜잭션
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/transaction/<code>stitme</code>/<code>etime</code>
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/transaction/<code>stime</code>/<code>etime</code>
 
 ```bash title='command'
 $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/transaction/1535554800000/1535641200000"
@@ -232,7 +232,7 @@ heap 사용량에 대한 통계를 조회할 수 있습니다.
 
 ### 통계 평균값 요청
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/heap_use/<code>stitme</code>/<code>etime</code>/avg
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/heap_use/<code>stime</code>/<code>etime</code>/avg
 
 ```bash title='command'
 curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/heap_use/{sitme}/{etime}/avg"
@@ -240,7 +240,7 @@ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {
 
 ### 통계 최댓값 요청
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/heap_use/<code>stitme</code>/<code>etime</code>/max
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/heap_use/<code>stime</code>/<code>etime</code>/max
 
 ```bash title='command'
 curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/heap_use/{sitme}/{etime}/max"
@@ -286,38 +286,38 @@ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {
 
 * **Thread Count**
 
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_count/<code>stitme</code>/<code>etime</code>
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_count/<code>stitme</code>/<code>etime</code>/<code>oids</code>
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_count/<code>stitme</code>/<code>etime</code>/avg
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_count/<code>stitme</code>/<code>etime</code>/avg/<code>oids</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_count/<code>stime</code>/<code>etime</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_count/<code>stime</code>/<code>etime</code>/<code>oids</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_count/<code>stime</code>/<code>etime</code>/avg
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_count/<code>stime</code>/<code>etime</code>/avg/<code>oids</code>
 
 * **Thread Daemon Count**
 
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_daemon/<code>stitme</code>/<code>etime</code>
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_daemon/<code>stitme</code>/<code>etime</code>/<code>oids</code>
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_daemon/<code>stitme</code>/<code>etime</code>/avg
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_daemon/<code>stitme</code>/<code>etime</code>/avg/<code>oids</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_daemon/<code>stime</code>/<code>etime</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_daemon/<code>stime</code>/<code>etime</code>/<code>oids</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_daemon/<code>stime</code>/<code>etime</code>/avg
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_daemon/<code>stime</code>/<code>etime</code>/avg/<code>oids</code>
 
 * **Thread Peak Count**
 
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_peak_count/<code>stitme</code>/<code>etime</code>
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_peak_count/<code>stitme</code>/<code>etime</code>/<code>oids</code>
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_peak_count/<code>stitme</code>/<code>etime</code>/avg
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_peak_count/<code>stitme</code>/<code>etime</code>/avg/<code>oids</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_peak_count/<code>stime</code>/<code>etime</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_peak_count/<code>stime</code>/<code>etime</code>/<code>oids</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_peak_count/<code>stime</code>/<code>etime</code>/avg
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/thread_peak_count/<code>stime</code>/<code>etime</code>/avg/<code>oids</code>
 
 * **Thread Pool Count**
 
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_active/<code>stitme</code>/<code>etime</code>
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_active/<code>stitme</code>/<code>etime</code>/<code>oids</code>
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_active/<code>stitme</code>/<code>etime</code>/avg
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_active/<code>stitme</code>/<code>etime</code>/avg/<code>oids</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_active/<code>stime</code>/<code>etime</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_active/<code>stime</code>/<code>etime</code>/<code>oids</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_active/<code>stime</code>/<code>etime</code>/avg
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_active/<code>stime</code>/<code>etime</code>/avg/<code>oids</code>
 
 * **Thread Pool Queue Count**
 
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_queue/<code>stitme</code>/<code>etime</code>
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_queue/<code>stitme</code>/<code>etime</code>/<code>oids</code>
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_queue/<code>stitme</code>/<code>etime</code>/avg
-  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_queue/<code>stitme</code>/<code>etime</code>/avg/<code>oids</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_queue/<code>stime</code>/<code>etime</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_queue/<code>stime</code>/<code>etime</code>/<code>oids</code>
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_queue/<code>stime</code>/<code>etime</code>/avg
+  * <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/threadpool_queue/<code>stime</code>/<code>etime</code>/avg/<code>oids</code>
 
 * **Apdex**
 
@@ -499,7 +499,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 
 ## 액티브 사용자(5분 단위)
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/visitor_5m/<code>stitme</code>/<code>etime</code>
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/visitor_5m/<code>stime</code>/<code>etime</code>
 
 ```bash title='command'
 $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/visitor_5m/1554444000000/1554076800000"
@@ -533,7 +533,7 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 
 ## 액티브 사용자(1시간 단위)
 
-<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/visitor_h/<code>stitme</code>/<code>etime</code>
+<span class='apitype'>GET</span> https://api.whatap.io/open/api/json/visitor_h/<code>stime</code>/<code>etime</code>
 
 ```bash title='command'
 $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/visitor_h/1554444000000/1554454800000"
@@ -561,10 +561,10 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 
 ## 프로젝트 간 트랜잭션 호출 통계
 
-* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_caller/<code>stitme</code>/<code>etime</code>
-* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_caller/<code>stitme</code>/<code>etime</code>/<code>oids</code>
-* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_caller/<code>stitme</code>/<code>etime</code>/filter/<code>filterkey</code>/<code>filterval</code>
-* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_caller/<code>stitme</code>/<code>etime</code>/<code>oids</code>/filter/<code>filterkey</code>/<code>filterval</code>
+* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_caller/<code>stime</code>/<code>etime</code>
+* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_caller/<code>stime</code>/<code>etime</code>/<code>oids</code>
+* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_caller/<code>stime</code>/<code>etime</code>/filter/<code>filterkey</code>/<code>filterval</code>
+* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_caller/<code>stime</code>/<code>etime</code>/<code>oids</code>/filter/<code>filterkey</code>/<code>filterval</code>
 
 :::note
 
@@ -575,10 +575,10 @@ $ curl -L -w "\n" -H "x-whatap-token: {{PROJECT API TOKEN}}" -H "x-whatap-pcode:
 
 ## 도메인 호출 통계
 
-* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_domain/<code>stitme</code>/<code>etime</code>
-* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_domain/<code>stitme</code>/<code>etime</code>/<code>oids</code>
-* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_domain/<code>stitme</code>/<code>etime</code>/filter/<code>filterkey</code>/<code>filterval</code>
-* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_domain/<code>stitme</code>/<code>etime</code>/<code>oids</code>/filter/<code>filterkey</code>/<code>filterval</code>
+* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_domain/<code>stime</code>/<code>etime</code>
+* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_domain/<code>stime</code>/<code>etime</code>/<code>oids</code>
+* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_domain/<code>stime</code>/<code>etime</code>/filter/<code>filterkey</code>/<code>filterval</code>
+* <span class='apitype'>GET</span> https://api.whatap.io/open/api/json/tx_domain/<code>stime</code>/<code>etime</code>/<code>oids</code>/filter/<code>filterkey</code>/<code>filterval</code>
 
 :::note
 

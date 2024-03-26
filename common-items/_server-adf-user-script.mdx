@@ -5,7 +5,6 @@
     ```bash title='Linux Shell'
     #!/bin/bash
 
-
     urls=("https://www.whatap.io"  "https://blog.whatap.io"  "https://service.whatap.io")
 
     for url in ${urls[*]}; do
@@ -21,7 +20,6 @@
     H %{url_effective} time_starttransfer %{time_starttransfer}\n
     H %{url_effective} time_total %{time_total}\n
     EOF
-
 
     done
     ```

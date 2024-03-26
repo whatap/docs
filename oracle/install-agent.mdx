@@ -14,7 +14,7 @@ import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
 
 {@include: ../common-items/_agent-signup-guide.mdx}   
 
-<Youtube ko='RhU3f3d7k1A' en='wQbXDKNdDfA' ja='wQbXDKNdDfA' />
+<Youtube ko='e_UpCgapfQY' en='MIo3HRIOt8M' ja='MIo3HRIOt8M' />
 
 {@include: ../getting-started/_create-project-v2.mdx}
 
@@ -24,7 +24,7 @@ import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
 
 {@include: ../common-items/_db-install-agent-steps.mdx} 
 
-1. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
+3. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
 
     ```ini title='whatap.conf'
     license=프로젝트 액세스 키
@@ -36,7 +36,7 @@ import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
     db_port={DB 서버 포트 번호}
     ```
 
-1. 다음 디렉터리에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
+4. 다음 디렉터리에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
 
     데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요. 
     
@@ -74,3 +74,6 @@ grant alter system to whatap
 
 <!--## 에이전트 실행-->
 {@include: ../common-items/_db-run-agent.mdx} 
+
+<!--## XOS 에이전트 설치-->
+{@include: ../common-items/_db-install-xos-agent.mdx} 

@@ -6,15 +6,12 @@ tags: [ MySQL, 데이터베이스 모니터링, 에이전트 ]
 ---
 
 import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
-import Note from '../common-items/_import_v2-note.mdx';
-
-<Note product='MySQL' link='../mysql-v1/install-agent' />
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
 {@include: ../common-items/_agent-signup-guide.mdx}   
 
-<Youtube ko='RhU3f3d7k1A' en='wQbXDKNdDfA' ja='wQbXDKNdDfA' />
+<Youtube ko='e_UpCgapfQY' en='MIo3HRIOt8M' ja='MIo3HRIOt8M' />
 
 {@include: ../getting-started/_create-project-v2.mdx}
 
@@ -24,7 +21,7 @@ import Note from '../common-items/_import_v2-note.mdx';
 
 {@include: ../common-items/_db-install-agent-steps.mdx}  
 
-1. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
+3. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
 
     ```ini title='whatap.conf'
     license=프로젝트 액세스 키
@@ -47,7 +44,7 @@ import Note from '../common-items/_import_v2-note.mdx';
 
     :::
 
-1. 다음 디렉터리에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
+4. 다음 디렉터리에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
 
     데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요.
     
@@ -179,7 +176,6 @@ grant show databases on *.* to whatap;
 </Tabs>
 
 
-
 ## DB 유저 파일 생성{#create-db-user}
 
 <DBuserDesc name='default'/>
@@ -189,3 +185,6 @@ grant show databases on *.* to whatap;
 
 <!--## 에이전트 실행-->
 {@include: ../common-items/_db-run-agent.mdx} 
+
+<!--## XOS 에이전트 설치-->
+{@include: ../common-items/_db-install-xos-agent.mdx} 

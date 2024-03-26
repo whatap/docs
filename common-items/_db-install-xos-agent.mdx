@@ -16,6 +16,8 @@
 
 :::
 
+<InDoc product="postgresql,mysql,oracle,cubrid,redis">
+
 <Tabs groupId="dbXos">
 <TabItem value="xos" label="XOS">
 
@@ -99,3 +101,55 @@ aws cloudwatch list-metrics --namespace AWS/RDS --dimensions Name=DBInstanceIden
 
 </TabItem>
 </Tabs>
+
+</InDoc>
+
+<InDoc product="altibase,mongodb,mssql,tibero">
+
+<ImgLang img='xos-agent.png' desc='' />
+
+1. DBX 에이전트가 설치된 경로의 *whatap.conf* 파일에 다음 옵션을 설정하세요.
+
+    ```ini title='whatap.conf'
+    xos=1
+    xos_port=3002
+    ```
+
+1. *xos* 폴더(`/압축 해제 폴더/xos/`)를 데이터베이스 서버로 이동하세요.
+
+1. 데이터베이스 서버로 이동한 *xos* 경로의 *xos.conf* 파일에 다음 옵션을 설정하세요.
+
+    ```ini title='xos.conf'
+    dbx_ip={DB_Agent_IP}
+    dbx_port=3002 # default 3002
+    cpu_limit=0
+    mem_limit=10240
+    ```
+
+    :::tip
+
+    <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 <UI>DB Agent IP</UI>, <UI>DB Agent Port</UI> 항목에 DB 정보를 입력하면 에이전트 옵션을 자동 생성할 수 있습니다.
+
+    :::
+
+1. XOS 에이전트 실행 권한을 부여하세요.
+
+    ```bash
+    chmod +x ./whatap.agent.xos*
+    ```
+
+1. XOS 에이전트를 실행하세요.
+
+    ```bash
+    ./start.sh
+    ```
+
+:::note
+
+* DBX 에이전트로 모니터링한 데이터를 전송하기 위해 `dbx_port`로 설정한 포트(default 3002)가 열려 있어야 합니다. (**UDP Outbound**)
+
+* XOS 에이전트를 백그라운드로 실행하려면 *./startd.sh* 파일을 실행하세요.
+
+:::
+
+</InDoc>

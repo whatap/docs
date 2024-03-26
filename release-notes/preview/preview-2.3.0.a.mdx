@@ -14,6 +14,182 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.3.0.a4
+
+2024년 03월 21일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code class="newfunc">New</code> 메뉴에서 기존 이벤트 설정 메뉴의 이벤트 탭을 표시하고, <Cmdname sid="BTN07761" className="uitext" />, <Cmdname sid="BTN07762" className="uitext" /> 기능 추가
+
+  :::note
+
+  이 기능은 `Cloud` 및 `URL` 상품을 제외한 모든 상품에 적용됩니다.
+
+  :::
+
+- <Status>Changed</Status> <Cmdname sid="flexboard" className="uitext" /> 메뉴의 대시보드 복사 및 공유 기능 개선
+
+  - 대시보드 공유 시 <b>초대되지 않은 프로젝트</b>의 경우 데이터를 조회할 수 없도록 수정
+
+  - 대시보드 공유 시 공유 대상자의 프로젝트에 대한 권한과 상관없이 공유 모드에 따라서 대시보드를 공유할 수 있도록 수정
+
+  - 여러 대상에게 대시보드 공유 시 계정별로 공유 모드를 설정할 수 있도록 개선
+
+  - 대시보드 복사와 공유 기능에 대한 UI 통일
+
+  - 읽기 모드로 공유된 대시보드는 복사만 가능하도록 수정
+
+- <Status>Changed</Status> <b>수정</b> 또는 <b>알림 설정</b> 권한을 가진 멤버가 <Cmdname sid="side_maintenancePlan" className="uitext" /> 메뉴를 이용할 수 있도록 권한 조정
+
+- <Status>Changed</Status> 사이드 메뉴의 튜토리얼 최초 동작을 중지하도록 변경
+
+- <Status>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" /> 메뉴의 <Cmdname sid="TTL06656" className="uitext" /> 기능에서 다국어 이미지 적용
+
+- <Status>Fixed</Status> 결제 수단을 Stripe로 등록한 사용자가 <Cmdname sid="bill_recipient_setting" className="uitext" /> 항목을 수정하면 표시되는 에러 메시지 제거
+
+- <Status>Fixed</Status> 메뉴 진입 시 헤더 요소에 메뉴 이름이 아닌 다른 값이 표시되는 문제 수정
+
+---
+
+### `Application`
+
+#### 공통
+
+- <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 다음의 기능을 추가합니다.
+
+  - <Status>Feature</Status> 에이전트 선택 옵션의 에이전트 목록 간격 조정 및 정렬 기능, 검색 기능 추가
+
+  - <Status>Feature</Status> 에이전트별 액티브 트랜잭션을 표시하는 <Cmdname sid="AA018" className="uitext" /> 위젯 추가
+
+- <Status>Feature</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06126" className="uitext" />에서 <b>DB Connection</b>, <b>SQL</b> 스텝을 클릭하면 활성화되는 모달에 <UI>SERIAL</UI> 필드 추가
+
+  ![SERIAL field](/img/release/release-apm-trace-add-serial-field.png)
+
+- <Status>Changed</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_tx" className="uitext" /> 메뉴에서 <Cmdname sid="sort" className="uitext" /> 항목으로 <Cmdname sid="sql_count" className="uitext" /> 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_management" /> &gt; <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴에서 에이전트 목록을 기본으로 모두 펼치도록 수정
+
+- <Status>Changed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> 메뉴의 탭 메뉴 구성을 개별 하위 메뉴로 구성하는 디자인 시스템 적용
+
+- <Status>Changed</Status> <Cmdname sid="side_statistics" className="uitext" /> 메뉴의 탭 메뉴 구성을 개별 하위 메뉴로 구성하는 디자인 시스템 적용
+
+#### PHP
+
+<p><Status>Fixed</Status> PHP 에이전트 설정에서 <code>whatap.active_stat_enabled</code> 옵션으로 전달되는 데이터 형식을 <code>long</code>에서 <code>boolean</code>으로 수정</p>
+
+---
+
+### `Database`
+
+#### <Status>New</Status> Redis, MongoDB <code class="my">V2</code> 서비스 시작!
+
+- <Cmdname sid="side_dashboard" className="uitext" /> 메뉴의 UI 및 기능 대폭 개선했습니다.
+
+- <Cmdname sid="side_dashboard" className="uitext" /> 메뉴에서 데이터베이스의 성능 지표 정보를 확인할 수 있습니다.
+
+- <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 클러스터별 에이전트 선택 기능을 추가했습니다.
+
+- 데이터베이스 로그를 검색하고 추이를 확인할 수 있는 <Cmdname sid="side_log" className="uitext" /> 메뉴를 추가했고, 로그 관련 알림을 설정할 수 있습니다.
+
+:::note
+
+- **Redis 모니터링 V2**의 새로운 기능에 대한 자세한 내용은 [다음 문서](https://whatap.github.io/whatap-docs/redis/monitoring-intro#new-feature)를 참조하세요.
+
+- **MongoDB 모니터링 V2**의 새로운 기능에 대한 자세한 내용은 [다음 문서](https://whatap.github.io/whatap-docs/mongodb/monitoring-intro#new-feature)를 참조하세요.
+
+:::
+
+#### 공통
+
+- <Status>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 다중 필터 선택 기능 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 다음과 같이 옵션 이름 변경
+
+  - <Cmdname sid="TTL06346" className="b500" /> → <Cmdname sid="sort" className="uitext" />
+  - <Cmdname sid="TTL06345" className="b500" /> → <Cmdname sid="TTL07773" className="uitext" />
+
+- <Status>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_counter" className="uitext" /> 메뉴에서 카테고리별로 필드를 선택할 수 있도록 수정
+
+- <Status>Changed</Status> xos 지표 변경(xos2 → xos)을 위한 데이터베이스 상품 서비스의 변경 사항 적용
+
+  - <Cmdname sid="side_flexboard" className="uitext" /> 메뉴의 CPU 사용률 위젯에서 <span class="b500">cpu(xos2)</span> 지표를 <UI>cpu(xos)</UI> 지표로 변경
+
+  - MySQL 프로젝트에서 사용자 정의 보고서의 지표 목록 중 <span class="b500">cpu(xos2)</span> 지표를 <UI>cpu(xos)</UI> 지표로 변경
+
+  - <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 메트릭스 이벤트 템플릿 중 CPU 사용률 템플릿의 <span class="b500">cpu(xos2)</span> 지표를 <UI>cpu(xos)</UI> 지표로 변경
+
+- <Status>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴의 대시보드에서 마우스 우클릭으로 표시되는 위젯 선택 목록의 스타일 변경
+
+#### PostgreSQL, MySQL
+
+<p><Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 다음의 기능을 추가 및 수정합니다.</p>
+
+- <Status>Feature</Status> <UI>Default(xos)</UI>, <UI>Default(rds)</UI> 프리셋 추가
+
+- <Status>Feature</Status> 대시보드의 <UI>SQL Elapse Map</UI> 및 <UI>Slow Query</UI> 위젯에서 변경한 Y축 값을 저장하는 기능 추가
+
+- <Status>Fixed</Status> 대시보드의 <UI>SQL Elapse Map</UI> 위젯에서 차트를 드래그해 쿼리를 조회할 경우, 조회되는 데이터의 양이 많아 브라우저가 일시적으로 멈추는 문제 수정
+
+#### MongoDB
+
+<p><Status>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSize" className="uitext" /> 메뉴의 UI 변경</p>
+
+---
+
+### `Kubernetes`
+
+- <Status>New</Status> kube-apiserver 수집 지표 목록을 조회할 수 있는 <Cmdname sid="side_kubeApiserverMetricsSearch" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 클러스터 프로젝트 전용이며, <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_kubeApiserverMetricsSearch" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+  :::
+
+- <Status>Feature</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_containerImages" className="uitext" /> 메뉴의 화면 위에 이미지의 총 개수 표시
+
+- <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴에서 다음의 기능을 추가 및 수정합니다.
+
+  - <Status>Feature</Status> Pod 카테고리에 <Cmdname sid="ITM06172" className="uitext" /> 옵션 추가
+
+    ![](/img/release/release-k8s-container-add-option.png)
+
+  - <Status>Fixed</Status> 그룹화 옵션을 적용하면 위젯 상단에 오브젝트 개수 표시 추가
+
+    ![](/img/release/release-k8s-container-group-application-count.png)
+
+  - <Status>Fixed</Status> <Cmdname sid="BTN06342" className="uitext" />에서 분류에 따라 메트릭스의 정렬 순서 변경
+
+- <Status>Fixed</Status> <Cmdname sid="side_appl" className="uitext" /> &gt; <Cmdname sid="side_analysis" className="uitext" /> 하위에 <Cmdname sid="side_counter" className="uitext" />, <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴 추가
+
+- <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_podInitPerf" className="uitext" />(<Cmdname sid="pod_init_perform" className="uitext" />) 메뉴에서 불러올 데이터가 없을 경우 표시하는 안내 문구에 테마가 적용되지 않는 문제 수정
+
+---
+
+### `Browser`
+
+- <Status>New</Status> 사용자 세션 로그를 검색할 수 있는 <Cmdname sid="side_userSessionEventSearch" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_userSessionEventSearch" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+  :::
+
+- <Status>Feature</Status> 다음 메뉴 경로에 사용자 세션 분석 기능 추가
+
+  - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_rumPageLoadHitmap" className="uitext" />
+
+  - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_ajaxAnalytics" className="uitext" />
+
+  - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_userSessionEventSearch" className="uitext" />
+
+</div>
+
+
 ## Preview 2.3.0.a3
 
 2024년 03월 14일

@@ -122,3 +122,31 @@
   * `shared pool free mem ratio`
 
 </InDoc>
+
+<InDoc product="mongodb">
+
+* **collections** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  컬렉션 사이즈 정보의 저장 여부를 설정합니다. 저장하지 않으려면 `false`로 변경하세요.
+
+  :::note
+
+  이 에이전트 옵션과 관련한 메뉴에 대한 자세한 내용은 [다음 문서](database-size)를 참조하세요.
+
+  :::
+
+* **collections_hour** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  컬렉션 정보를 저장하기 위해 정보 수집 시각을 설정합니다. 기본값은 `5`이며 새벽 5시에 수집을 시작합니다.
+
+  :::note
+
+  이 에이전트 옵션과 관련한 메뉴에 대한 자세한 내용은 [다음 문서](database-size)를 참조하세요.
+
+  :::
+
+</InDoc>

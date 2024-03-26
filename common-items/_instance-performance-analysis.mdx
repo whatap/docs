@@ -1,22 +1,15 @@
-홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="agentsConfiguration" className="uitext" />
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" />
 
 애플리케이션의 환경을 확인하고 성능과 관련한 설정을 확인할 수 있습니다.
 
-<ProdImg img="ipa-main.png" desc="인스턴스 성능 분석" />
-
 ## 에이전트 목록
 
-<Cmdname sid="application_agents" className="uitext" />에서는 프로젝트에 할당된 에이전트 목록을 확인할 수 있습니다. 개별 에이전트 항목을 선택하면 오른쪽 화면에 설정된 환경 변수 및 에이전트 설정, 성능과 관련한 정보를 조회할 수 있습니다.
+화면 왼쪽에 애플리케이션 목록에서는 프로젝트에 할당된 에이전트 목록을 확인할 수 있습니다. 개별 에이전트 항목을 선택하면 오른쪽 화면에 설정된 환경 변수 및 에이전트 설정, 성능과 관련한 정보를 조회할 수 있습니다.
 
-* ![컬럼 아이콘](/img/ico-column.svg): 에이전트 목록 테이블의 컬럼을 추가하거나 삭제할 수 있습니다.
+<ImgLang img='ipa-agent-list.png' desc='에이전트 목록' width="400" height="auto" />
 
-* ![새로 고침 아이콘](/img/ico-refresh.svg): 에이전트 목록을 갱신할 수 있습니다. 비활성화된 에이전트를 재기동한 다음 목록에 자동으로 표시되지 않는다면 버튼을 눌러 갱신하세요.
+에이전트 목록을 갱신하거나 비활성화된 에이전트를 재기동한 다음 목록에 자동으로 표시되지 않는다면 ![새로 고침 아이콘](/img/ico-refresh.svg) 버튼을 선택하세요.
 
-* ![확장 아이콘](/img/ic-s-arrows-alt.svg): 오른쪽 화면을 감추고 에이전트 목록을 확장해 에이전트와 관련한 추가 정보를 확인할 수 있습니다.
-
-  <ImgLang img='ipa-agent-list.png' desc='에이전트 목록' />
-
-* <Cmdname sid="inactive_agent_deletion_time" className="uitext" />: 설정한 시간 동안 에이전트가 비활성화되면 목록에서 삭제됩니다.
 
 ## 에이전트 및 애플리케이션 상세 정보
 
@@ -24,133 +17,193 @@
 
 * 오른쪽 위에 텍스트 입력란을 통해 원하는 항목을 필터링할 수 있습니다. 
 
-* 모니터링 대상 서버에 위치한 에이전트 및 애플리케이션의 변경 사항이 자동 반영되지 않는다면 ![새로 고침 아이콘](/img/ico-refresh.png) 버튼을 선택하세요.
+* 모니터링 대상 서버에 위치한 에이전트 및 애플리케이션의 변경 사항이 자동 반영되지 않는다면 ![새로 고침 아이콘](/img/ico-refresh.svg) <Cmdname sid="refresh" className="uitext" /> 버튼을 선택하세요.
 
 ### 에이전트 관련 항목
 
-* <Cmdname sid="runtime_boot_env" className="uitext" />  
+#### <Cmdname sid="runtime_boot_env" />
 
-  에이전트 실행과 관련한 환경 변수를 조회할 수 있습니다. 에이전트 버전 및 설치 경로, 이름, IP 주소 등을 확인할 수 있습니다.
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_bootEnvironmentVariable" className="uitext" />
 
-<InDoc product="dotnet,golang,php">
+<ProdImg img="ipa-run-env-var.png" desc="실행 환경 변수" />
 
-* <Cmdname sid="agent_status" className="uitext" />  
+에이전트 실행과 관련한 환경 변수를 조회할 수 있습니다. 에이전트 버전 및 설치 경로, 이름, IP 주소 등을 확인할 수 있습니다.
 
-  지난 하루 동안 에이전트가 사용한 리소스 사용량을 확인할 수 있습니다.
+<InDoc product="golang,php">
+
+#### <Cmdname sid="agent_status" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentStatus" className="uitext" />
+
+지난 하루 동안 에이전트가 사용한 리소스 사용량을 확인할 수 있습니다.
 
 </InDoc>
 
-* <Cmdname sid="agent_log" className="uitext" />  
+#### <Cmdname sid="agent_log"/>
 
-  모니터링 대상 서버에 저장된 에이전트 로그를 조회할 수 있습니다. 로그 파일의 이름은 *whatap-`YYYYMMDD`.log* 형식입니다. 각 로그를 선택해 로그에 캡쳐되는 오류 및 이벤트에 대한 정보를 액세스할 수 있습니다.
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentLog" className="uitext" />
 
-  :::note
+<ProdImg img="ipa-agent-log.png" desc="에이전트 로그" />
 
-  로그와 관련한 에이전트 설정은 [다음 문서](agent-log)를 참조하세요.
+모니터링 대상 서버에 저장된 에이전트 로그를 조회할 수 있습니다. 로그 파일의 이름은 *whatap-`YYYYMMDD`.log* 형식입니다. 각 로그를 선택해 로그에 캡쳐되는 오류 및 이벤트에 대한 정보를 액세스할 수 있습니다.
 
-  :::
+:::note
 
-* <Cmdname sid="agent_configuration" className="uitext" />  
+로그와 관련한 에이전트 설정은 [다음 문서](agent-log)를 참조하세요.
 
-  모니터링 대상 서버에 위치한 *whatap.conf* 파일을 직접 수정하지 않고 에이전트 설정 옵션을 추가하거나 수정, 삭제할 수 있습니다.
-
-  :::info
-
-  에이전트 설정 기능은 사용성과 기능을 개선한 <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_configuration" className="uitext" /> 메뉴를 이용할 것을 권장합니다. 화면 오른쪽 위에 <Cmdname sid="new_agents_setting" className="uitext" /> 버튼을 선택하세요. 자세한 내용은 [다음 문서](set-agent#set-agent-service)를 참조하세요.
-
-  :::
-
-### 애플리케이션 관련 항목
-
-* <Cmdname sid="boot_env" className="uitext" />  
-
-  애플리케이션 실행과 관련한 환경 변수 정보를 조회할 수 있습니다.
+:::
 
 <InDoc product="java">
 
-* <Cmdname sid="heap_histogram" className="uitext" />  
+#### <Cmdname sid="agent_configuration" />
 
-  JVM(자바 가상 머신)의 메모리에 올라가 있는 Heap 점유 객체 현황(힙 메모리상의 객체별 사이즈)을 조회할 수 있습니다.
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> <code class="oldfunc">Old</code>
 
-  :::note
+모니터링 대상 서버에 위치한 *whatap.conf* 파일을 직접 수정하지 않고 에이전트 설정 옵션을 추가하거나 수정, 삭제할 수 있습니다.
 
-  Java 6 ~ 8 버전에서는 JVM 옵션 없이 기본 지원하지만, 일부 Java 버전에 따라 다음과 같이 JVM 옵션을 적용해야 합니다.
+:::info
 
-  * Java 9 ~ Java 15 버전
+에이전트 설정 기능은 사용성과 기능을 개선한 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴를 이용할 것을 권장합니다. 화면 오른쪽 위에 <Cmdname sid="new_agents_setting" className="uitext" /> 버튼을 선택하세요. 자세한 내용은 [다음 문서](set-agent#set-agent-service)를 참조하세요.
 
-    ```bash
-    -Djdk.attach.allowAttachSelf=true
-    ```
-
-    ```bash title="example"
-    java -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true -jar {application.jar}
-    ```
-
-  * Java 16 버전 이상
-
-    ```bash
-    -Djdk.attach.allowAttachSelf=true
-    --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED
-    ```
-
-    ```bash title="example"
-    java -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED -jar {application.jar}
-    ```
-
-  * Java 5 버전 이하, IBM Java는 지원하지 않습니다.
-
-  :::
-
-* <Cmdname sid="loaded_classes" className="uitext" />  
-
-  Java 애플리케이션에 로딩된 클래스 정보를 확인할 수 있습니다.
-
-* <Cmdname sid="components_version" className="uitext" />  
-
-  Java 애플리케이션을 구성하는 라이브러리의 버전을 확인할 수 있습니다.
-
-* <Cmdname sid="thread_list" className="uitext" />  
-
-  Java 프로세스의 모든 스레드 상태에 대한 스냅샷 정보를 확인할 수 있습니다. Java 애플리케이션의 성능 문제를 진단하는데 이용할 수 있습니다. 스레드 목록에서 각 스레드의 ![확장 아이콘](/img/ico-expander.svg) 버튼을 선택하면 스레드 덤프 정보를 확인할 수 있습니다. 자세한 내용은 [다음 문서](#thread-details)를 참조하세요.
-
-* <Cmdname sid="open_socket_count" className="uitext" />  
-
-  Java 애플리케이션이 TCP 기능을 수행하기 위해 오픈한 소켓(Socket) 정보를 확인할 수 있습니다.
-
-* <Cmdname sid="method_stat" className="uitext" />
-
-  Java 애플리케이션에서 수행 중인 메소드(Method)의 상세 정보를 확인할 수 있습니다.
-
-* <Cmdname sid="datasource_status" className="uitext" />  
-
-  데이터소스(DataSource)의 상태를 확인할 수 있습니다.
-
-* <Cmdname sid="system_gc_only" className="uitext" />
-
-  JVM(자바 가상 머신)의 Heap 영역에서 동적으로 할당했던 메모리 중 필요 없게 된 메모리 객체(garbage)를 모아 제거할 수 있습니다. <Cmdname sid="run" className="uitext" /> 버튼을 선택하면 GC 프로세스를 실행하게 되며, 실행 전 후의 메모리 용량을 확인할 수 있습니다.
-
-* <Cmdname sid="heap_dump" className="uitext" />
-
-  Java 애플리케이션 실행 중 메모리 누수 등의 문제가 발생하면 관련된 문제를 정리하여 덤프 파일을 생성할 수 있습니다. <Cmdname sid="dump_heap" className="uitext" /> 버튼을 선택하세요.
-
-  :::note
-
-  이 기능은 Java 에이전트 1.5.2 버전 이상에서 지원합니다. 에이전트 설정에서 `heapdump_enabled` 옵션을 `true`로 설정하세요. <Cmdname sid="dump_heap" className="uitext" /> 버튼을 선택해 힙 덤프 파일을 만드는 기능을 활성화합니다. 매번 힙 덤프를 자동 생성하지 않으며 해당 옵션이 성능에 영향을 주진 않습니다. 그러나 덤프 확보 작업은 성능에 영향을 미칠 수 있습니다.
-
-  힙 덤프 확보 작업은 부하가 큰 작업에 속합니다. 부하와 별개로 힙 덤프가 모두 추출될 때까지 애플리케이션의 코드는 실행이 중지(stop the world)되기 때문에 사용자가 느끼는 성능 차이는 더 심할 수 있습니다.
-
-  :::
-
-* <Cmdname sid="configuration_throttling" className="uitext" />
-
-  Java 애플리케이션의 부하량 제어와 관련한 에이전트 설정을 확인하고 옵션을 설정할 수 있습니다. 부하량 제어와 관련한 에이전트 설정에 대한 자세한 내용은 [다음 문서](agent-load-amount)를 참조하세요.
+:::
 
 </InDoc>
 
-<InDoc product="nodejs,php,python">
+### 애플리케이션 관련 항목
 
-* <Cmdname sid="module_dependency" className="uitext" />  
+#### <Cmdname sid="side_environmentVariable" />
 
-  애플리케이션에서 사용 중인 모듈 관련 정보를 조회할 수 있습니다.
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_environmentVariable" className="uitext" />
+
+<ProdImg img="ipa-env-var.png" desc="환경 변수" />
+
+애플리케이션 실행과 관련한 환경 변수 정보를 조회할 수 있습니다.
+
+<InDoc product="java">
+
+#### <Cmdname sid="side_heapHistogram" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_heapHistogram" className="uitext" />
+
+<ImgLang img='ipa-heap-histogram-java.png' desc='힙 히스토그램' />
+
+JVM(자바 가상 머신)의 메모리에 올라가 있는 Heap 점유 객체 현황(힙 메모리상의 객체별 사이즈)을 조회할 수 있습니다.
+
+:::note
+
+Java 6 ~ 8 버전에서는 JVM 옵션 없이 기본 지원하지만, 일부 Java 버전에 따라 다음과 같이 JVM 옵션을 적용해야 합니다.
+
+* Java 9 ~ Java 15 버전
+
+  ```bash
+  -Djdk.attach.allowAttachSelf=true
+  ```
+
+  ```bash title="example"
+  java -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true -jar {application.jar}
+  ```
+
+* Java 16 버전 이상
+
+  ```bash
+  -Djdk.attach.allowAttachSelf=true
+  --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED
+  ```
+
+  ```bash title="example"
+  java -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED -jar {application.jar}
+  ```
+
+* Java 5 버전 이하, IBM Java는 지원하지 않습니다.
+
+:::
+
+#### <Cmdname sid="side_loadedClasses" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_loadedClasses" className="uitext" />
+
+<ImgLang img='ipa-loaded-class-java.png' desc='로딩된 클래스' />
+
+Java 애플리케이션에 로딩된 클래스 정보를 확인할 수 있습니다.
+
+#### <Cmdname sid="side_libraryVersion" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_libraryVersion" className="uitext" />
+
+<ImgLang img='ipa-library-version-java.png' desc='라이브러리 버전' />
+
+Java 애플리케이션을 구성하는 라이브러리의 버전을 확인할 수 있습니다.
+
+#### <Cmdname sid="side_threadList" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" />
+
+<ImgLang img='ipa-thread-list-java.png' desc='스레드 목록/덤프' />
+
+Java 프로세스의 모든 스레드 상태에 대한 스냅샷 정보를 확인할 수 있습니다. Java 애플리케이션의 성능 문제를 진단하는데 이용할 수 있습니다. 스레드 목록에서 각 스레드의 ![확장 아이콘](/img/ico-expander.svg) 버튼을 선택하면 스레드 덤프 정보를 확인할 수 있습니다. 자세한 내용은 [다음 문서](#thread-details)를 참조하세요.
+
+#### <Cmdname sid="side_openSocket" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_openSocket" className="uitext" />
+
+<ImgLang img='ipa-open-socket-java.png' desc='소켓 오픈 개수' />
+
+Java 애플리케이션이 TCP 기능을 수행하기 위해 오픈한 소켓(Socket) 정보를 확인할 수 있습니다.
+
+#### <Cmdname sid="side_methodStat" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_methodStat" className="uitext" />
+
+Java 애플리케이션에서 수행 중인 메소드(Method)의 상세 정보를 확인할 수 있습니다.
+
+#### <Cmdname sid="side_dataSourceStatus" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_dataSourceStatus" className="uitext" />
+
+<ImgLang img='ipa-datasource-java.png' desc='데이터소스 상태' />
+
+데이터소스(DataSource)의 상태를 확인할 수 있습니다.
+
+#### <Cmdname sid="side_systemGarbageCollection" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_systemGarbageCollection" className="uitext" />
+
+<ImgLang img='ipa-system-gc-java.png' desc='시스템 GC' />
+
+JVM(자바 가상 머신)의 Heap 영역에서 동적으로 할당했던 메모리 중 필요 없게 된 메모리 객체(garbage)를 모아 제거할 수 있습니다. <Cmdname sid="run" className="uitext" /> 버튼을 선택하면 GC 프로세스를 실행하게 되며, 실행 전 후의 메모리 용량을 확인할 수 있습니다.
+
+#### <Cmdname sid="side_heapDump" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_heapDump" className="uitext" />
+
+<ImgLang img='ipa-heap-dump-java.png' desc='힙 덤프' />
+
+Java 애플리케이션 실행 중 메모리 누수 등의 문제가 발생하면 관련된 문제를 정리하여 덤프 파일을 생성할 수 있습니다. <Cmdname sid="dump_heap" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+이 기능은 Java 에이전트 1.5.2 버전 이상에서 지원합니다. 에이전트 설정에서 `heapdump_enabled` 옵션을 `true`로 설정하세요. <Cmdname sid="dump_heap" className="uitext" /> 버튼을 선택해 힙 덤프 파일을 만드는 기능을 활성화합니다. 매번 힙 덤프를 자동 생성하지 않으며 해당 옵션이 성능에 영향을 주진 않습니다. 그러나 덤프 확보 작업은 성능에 영향을 미칠 수 있습니다.
+
+힙 덤프 확보 작업은 부하가 큰 작업에 속합니다. 부하와 별개로 힙 덤프가 모두 추출될 때까지 애플리케이션의 코드는 실행이 중지(stop the world)되기 때문에 사용자가 느끼는 성능 차이는 더 심할 수 있습니다.
+
+:::
+
+#### <Cmdname sid="side_throttlingConfiguration" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_throttlingConfiguration" className="uitext" />
+
+<ImgLang img='ipa-set-throttling-java.png' desc='쓰로틀링 설정' />
+
+Java 애플리케이션의 부하량 제어와 관련한 에이전트 설정을 확인하고 옵션을 설정할 수 있습니다. 부하량 제어와 관련한 에이전트 설정에 대한 자세한 내용은 [다음 문서](agent-load-amount)를 참조하세요.
+
+</InDoc>
+
+<InDoc product="golang,php">
+
+#### <Cmdname sid="side_moduleDependency" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_moduleDependency" className="uitext" />
+
+애플리케이션에서 사용 중인 모듈 관련 정보를 조회할 수 있습니다.
 
 </InDoc>

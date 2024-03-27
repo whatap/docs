@@ -1,0 +1,55 @@
+---
+id: dbx-1_7_0
+title: DBX v1.7.0
+pagination_next: release-notes/db/dbx-1_6_35
+displayed_sidebar: releaseSidebar
+---
+
+2024년 03월 25일
+
+## 공통
+
+<Status>Changed</Status> <code>cpu</code> 지표에서 <code>xos2</code> 지표를 없애고 <code>xos</code> 지표를 백분률 값으로 변경
+
+## MongoDB
+
+<Status>Feature</Status> MongoDB <code class="my">V2</code> 추가
+
+- 카테고리 이름 통일
+
+  - <code>agentinfo</code> → <code>db_agentinfo</code>
+  - <code>session</code> → <code>db_mongo_active_session</code>
+  - <code>stat</code> → <code>db_mongodb_counter</code>
+  - <code>dbsize</code> → <code>db_dbsize</code>
+
+- 기본 지표 간소화
+
+  <code>v2=true</code>로 설정하면 <code>serverStatus</code> 값 중 <code>opcounters</code>, <code>globalLock</code>, <code>extra_info</code>, <code>connections</code>, <code>network</code>, <code>mem</code>, <code>opLatencies</code>, <code>asserts</code> 지표만 수집 및 저장함 
+
+  :::note
+
+  <code>v2=false</code>가 기본값이며, v1과 동일하게 <code>serverStatus</code> 결과를 모두 수집합니다.
+
+  :::
+
+- 지표 추가 옵션: <code>category=network,repl,indexStats…</code> 등 serverStatus의 output을 추가로 지정하면 추가 수집 가능
+
+- 데이터베이스 사이즈 수집 정보 추가: <code>index size</code>, <code>storage size</code>, <code>total size</code> 수집
+
+- Collection size 신규 수집: <code>storage size</code>, <code>index size</code>, <code>total size</code> 수집
+
+- 기존 언더바로 표기했던 xos 지표들(<code>xos_cpu</code>, <code>xos_mem</code> 등)을 상품 통일성을 위해 괄호로 변경한 값도 함께 전송
+
+## Redis
+
+<Status>Feature</Status> Redis <code class="my">V2</code> 추가
+
+- 카테고리 이름 통일
+
+  - <code>agentinfo</code> → <code>db_agentinfo</code>
+  - <code>session</code> → <code>db_redis_active_session</code>
+  - <code>stat</code> → <code>db_redis_couter</code>
+
+- <code>db_redis_clusterinfo</code>, <code>db_redis_clusternodes</code>, <code>db_redis_master</code>, <code>db_redis_slave</code> 카테고리 추가
+
+- 기존 언더바로 표기했던 xos 지표들(<code>xos_cpu</code>, <code>xos_mem</code> 등)을 상품 통일성을 위해 괄호로 변경한 값도 함께 전송

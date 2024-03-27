@@ -78,3 +78,12 @@ whatap-monitoring 네임스페이스에 직접 사용자 정의 리소스를 생
     clusterrolebinding.rbac.authorization.k8s.io "whatap" deleted
     clusterrole.rbac.authorization.k8s.io "whatap" deleted
     ```
+
+### Helm 차트 기준 설치 시 에이전트 삭제{#uninstall-agent-helm-chart}
+
+다음 명령어를 실행해 와탭 쿠버네티스 에이전트 애플리케이션을 삭제하세요. 
+
+```bash
+# release 삭제
+helm uninstall whatap-kube-agent
+```

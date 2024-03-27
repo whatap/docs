@@ -88,48 +88,9 @@ oc create -f whatap_openshift_scc.yaml
  
 ## 쿠버네티스 에이전트 생성{#create-kubernetes-agent}
 
-와탭 쿠버네티스 에이전트 설치 시 *yaml* 파일 기준 안내와 및 *helm* 차트 기준 안내를 다음과 같이 제공합니다.
+와탭 쿠버네티스 에이전트 설치 시 *helm* 차트 기준 안내와 *yaml* 파일 기준 안내를 다음과 같이 제공합니다. 
 
 <Tabs>
-
-<TabItem value='yaml' label='YAML' default>
-
-### YAML 파일 기준 설치
-
-사용자의 쿠버네티스 버전과 Container Runtime에 맞는 *YAML* 파일을 다운로드해 에이전트를 생성하세요.
-
-1. 다음 명령어를 실행해 **VERSION**과 **CONTAINER-RUNTIME**을 확인하세요.
-
-    ```bash
-    kubectl get node -o wide
-    ```
-
-    ![](/img/k8s-check-version.svg)
-
-1. ***에이전트 설치*** 화면에서 **VERSION**과 **CONTAINER-RUNTIME**에 맞는 *YAML* 파일을 선택하고 ***다운로드*** 버튼을 클릭하세요.
-
-    <ImgLang img='k8s-download-yaml.png' desc='yaml 다운로드' />
-
-1. 다운로드한 *YAML* 파일을 마스터 노드에 업로드하세요.
-
-1. 에이전트를 생성하기 위해 다음 명령어를 실행하세요. 
-
-    ```bash
-    # {whatap_kube_X.YZ.yaml} 파일명을 다운로드한 파일명과 일치하도록 수정하세요.
-    kubectl apply -f {whatap_kube_X.YZ.yaml}
-    ```
-
-1. 다음과 같이 에이전트를 정상적으로 생성(create)한 것을 확인하세요.
-
-    ![에이전트 생성 확인](/img/k8s-install-agent-check.svg)
-
-:::note
-
-**마스터 에이전트가 사용하는 자원량**은 **사용자 환경의 노드 수**에 어느 정도 **비례**합니다. 즉 클러스터 내에 노드 수가 많을 경우 기본값으로 설정된 메모리 Limit(350MB) 이상의 자원을 사용해 OOM(Out Of Memory)이 발생할 수 있습니다. 마스터 에이전트에 할당된 메모리 Limit 수치는 에이전트 설치 *YAML* 파일을 통해 변경할 수 있습니다.
-
-:::
-
-</TabItem>
 
 <TabItem value='helm' label='Helm Chart' default>
 
@@ -142,7 +103,7 @@ oc create -f whatap_openshift_scc.yaml
     # version.BuildInfo{Version:"v3.x", GitCommit:"xxx", GitTreeState:"clean", GoVersion:"go1.20.8"}
     ```
 
-1. 와탭 Helm 리포지토리에 대한 네트워크 연결 상태를 확인하세요 
+1. 와탭 Helm 리포지토리에 대한 네트워크 연결 상태를 확인하세요. 
 
     ```bash 
     curl https://whatap.github.io/helm/ping 
@@ -239,6 +200,46 @@ Helm 차트 기준 **설치 문제 해결**에 대한 안내는 [다음 문서](
 :::
 
 </TabItem>
+
+<TabItem value='yaml' label='YAML' default>
+
+### YAML 파일 기준 설치
+
+사용자의 쿠버네티스 버전과 Container Runtime에 맞는 *YAML* 파일을 다운로드해 에이전트를 생성하세요.
+
+1. 다음 명령어를 실행해 **VERSION**과 **CONTAINER-RUNTIME**을 확인하세요.
+
+    ```bash
+    kubectl get node -o wide
+    ```
+
+    ![](/img/k8s-check-version.svg)
+
+1. ***에이전트 설치*** 화면에서 **VERSION**과 **CONTAINER-RUNTIME**에 맞는 *YAML* 파일을 선택하고 ***다운로드*** 버튼을 클릭하세요.
+
+    <ImgLang img='k8s-download-yaml.png' desc='yaml 다운로드' />
+
+1. 다운로드한 *YAML* 파일을 마스터 노드에 업로드하세요.
+
+1. 에이전트를 생성하기 위해 다음 명령어를 실행하세요. 
+
+    ```bash
+    # {whatap_kube_X.YZ.yaml} 파일명을 다운로드한 파일명과 일치하도록 수정하세요.
+    kubectl apply -f {whatap_kube_X.YZ.yaml}
+    ```
+
+1. 다음과 같이 에이전트를 정상적으로 생성(create)한 것을 확인하세요.
+
+    ![에이전트 생성 확인](/img/k8s-install-agent-check.svg)
+
+:::note
+
+**마스터 에이전트가 사용하는 자원량**은 **사용자 환경의 노드 수**에 어느 정도 **비례**합니다. 즉 클러스터 내에 노드 수가 많을 경우 기본값으로 설정된 메모리 Limit(350MB) 이상의 자원을 사용해 OOM(Out Of Memory)이 발생할 수 있습니다. 마스터 에이전트에 할당된 메모리 Limit 수치는 에이전트 설치 *YAML* 파일을 통해 변경할 수 있습니다.
+
+:::
+
+</TabItem>
+
 </Tabs>
 
 ## 쿠버네티스 에이전트 설치 확인{#check-kubernetes-agent}

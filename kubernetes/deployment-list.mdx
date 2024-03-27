@@ -14,39 +14,16 @@ Deployment의 목록을 조회합니다. 여러 Pod로 구성된 애플리케이
 
 * 10초 주기로 실시간 데이터를 업데이트합니다.
 
-* 검색, 컬럼 정렬, 상세 보기, *CSV* 파일 다운로드 기능을 제공합니다.
+* 검색, 컬럼 정렬, 상세 보기, *CSV* 파일 다운로드를 제공합니다.
+
+  > CSV 파일명, *kubernetes\_deployment\_list\_`{pcode}`\_`{timestamp}`.csv*
 
 ## 컬럼 선택 
 
-{@include: ../common-items/_k8s-list-cl.mdx} 
-
+{@include: ../common-items/_k8s-list-cl.mdx}
+ 
 ## 상세 보기 
 
-***Deployment 목록***에서 조회를 원하는 Deployment 선택 시 해당 Deployment에 대한 상세 정보를 확인할 수 있습니다.
-
-:::note 
-
-상세 보기 창의 [트레이스](container-map-trace), [메트릭스](container-map-metrics), [로그](container-map-log), [이벤트](container-map-event) 탭의 경우 컨테이너 맵 Pod 뷰 상세와 동일합니다.
-
-:::
-
-### 리소스 
-
-대상 선택 후 상세 보기의 <Cmdname sid="resource" className="uitext" /> 탭에서 선택한 리소스와 관련된 리소스 목록 및 관계도를 조회할 수 있습니다. 
-
-<ImgLang img='k8s-deployment-list-detail.png' desc='deployment 목록 상세 ' />
-
-#### 요약 정보
-
-선택한 리소스와 관련된 리소스 목록의 요약 정보를 제공합니다. 리소스 명 옆에 상세보기 아이콘을 선택 시 해당 리소스 목록 화면으로 이동합니다. 
-
-* <Cmdname sid="container" className="uitext" />: 해당 컨테이너만 필터링된 상태의 <Cmdname sid="container_list" className="uitext" />으로 이동합니다. 
-
-* <Cmdname sid="podName" className="uitext" />: 해당 파드만 필터링된 <Cmdname sid="podList" className="uitext" />으로 이동합니다. 
-
-* <Cmdname sid="node" className="uitext" />: 해당 노드 이름이 선택된 상태의 <Cmdname sid="node_detail" className="uitext" />로 이동합니다. 
-
-#### 리소스 관계도 
-
-리소스간 연결 관계와 상태를 시각적으로 확인할 수 있습니다. 목록과 동일하게 Pod, 컨테이너, 애플리케이션에 마우스 오버 시 상세 지표를 확인할 수 있습니다. 리소스 선택 시 해당 리소스 목록 페이지로 이동합니다.
-
+{@include: ../common-items/_k8s-list-detail.mdx}
+ 
+ 

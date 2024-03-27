@@ -1,0 +1,20 @@
+| 분류                         | 메트릭                                             | 설명                                                                                                                               |
+| ---------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| API GET 요청                 | 분당 GET 요청 현황                                   | kube-apiserver 의 GET 요청에 대한 분당 요청 수                                                                                     |
+| ^                            | 초당 GET 요청 수 추이                                | kube-apiserver 의 GET 요청에 대한 초당 요청 수 추이                                                                                |
+| ^                            | Resource & Subresource 별 분당 GET 요청 수 추이      | kube-apiserver 에 들어온 GET 요청의 Resource 와 Subresource 별 분당 요청 수 추이                                                   |
+| API POST 요청                | 분당 POST 요청 현황                                  | kube-apiserver 의 POST 요청에 대한 분당 요청 수                                                                                    |
+| ^                            | 초당 POST 요청 수 추이                               | kube-apiserver 의 POST 요청에 대한 초당 요청 수 추이                                                                               |
+| ^                            | Resource & Subresource 별 POST 분당 요청 수 추이     | kube-apiserver 에 들어온 POST 요청에 대해  Resource 와 Subresource 별로 그룹화 한 분당 요청 수 추이                                |
+| API 응답 코드별 요청         | [ 2xx ] 분당 응답 요청 현황                          | kube-apiserver 요청 중 200 이상 300 미만의 응답 코드가 내려진 요청 수에 대한 분당 현황                                             |
+| ^                            | [ 2xx ] 분당 응답 코드별 요청 수 추이                | kube-apiserver 요청 중 200 이상 300 미만의 응답 코드가 내려진 요청 수에 대한 응답 코드별 분당 현황                                 |
+| ^                            | [ 2xx ] 분당 Resource & Subresource 별 요청 수 추이  | kube-apiserver 요청 중 200 이상 300 미만의 응답 코드가 내려진 요청에 대해 Resource 와 Subresource 별로 그룹화 한 분당 요청 수 추이 |
+| ^                            | [ 3xx ] 분당 응답 요청 현황                          | kube-apiserver 요청 중 300 이상 400 미만의 응답 코드가 내려진 요청 수에 대한 분당 현황                                             |
+| ^                            | [ 3xx ] 분당 응답 코드별 요청 수 추이                | kube-apiserver 요청 중 300 이상 400 미만의 응답 코드가 내려진 요청 수에 대한 응답 코드별 분당 현황                                 |
+| ^                            | [ 3xx ] 분당 Resource & Subresource 별 요청 수 추이  | kube-apiserver 요청 중 300 이상 400 미만의 응답 코드가 내려진 요청에 대해 Resource 와 Subresource 별로 그룹화 한 분당 요청 수 추이 |
+| ^                            | [ 400~ ] 분당 응답 요청 현황                         | kube-apiserver 요청 중 400 이상의 응답 코드가 내려진 요청 수에 대한 분당 현황                                                      |
+| ^                            | [ 400~ ] 분당 응답 코드별 요청 수 추이               | kube-apiserver 요청 중 400 이상의 응답 코드가 내려진 요청 수에 대한 응답 코드별 분당 현황                                          |
+| ^                            | [ 400~ ] 분당 Resource & Subresource 별 요청 수 추이 | kube-apiserver 요청 중 400 이상의 응답 코드가 내려진 요청에 대해 Resource 와 Subresource 별로 그룹화 한 분당 요청 수 추이          |
+| Go Metrics                   | 고루틴 수                                            | 현재 존재하는 고루틴 수                                                                                                            |
+| ^                            | 스레드 수                                            | 현재 존재하는 OS 스레드 수                                                                                                         |
+| 현재 실행 중인 요청 수 (1초) | 최근 1초 내 실행 중인 요청 수                        | 데이터 수집 시 kube-apiserver 에서 1초 내에 진행되고 있던 요청 수                                                                  |

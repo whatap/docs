@@ -1,19 +1,19 @@
 ---
 id: async-tracking
 title: 비동기 추적
-description: Java 에이전트를 통해 비동기 활동을 추적하는 방법을 안내합니다.
-tags: [ Java, 애플리케이션, 에이전트 설정, 비동기 추적 ]
+description: 자바(Java) 에이전트 설정을 통해 비동기 애플리케이션 활동을 추적하는 방법을 안내합니다. CompletableFuture 메소드 수집 방법과 사용자 애플리케이션에 해당 메소드를 hooking하는 방식을 포함합니다. 설정 예시와 함께 whatap.conf 파일에 추가해야 할 옵션을 제공하여 비동기 호출의 성능 모니터링을 강화할 수 있도록 지원합니다.
+tags: [ Java, 애플리케이션, 에이전트, 비동기 추적 ]
 ---
 
-Java 에이전트를 통해 비동기 애플리케이션의 활동을 추적하는 방법을 안내합니다.
+자바(Java) 에이전트 설정을 통해 비동기 애플리케이션 활동을 추적하는 방법을 안내합니다. `CompletableFuture` 메소드 수집 방법과 사용자 애플리케이션에 해당 메소드를 hooking하는 방식을 포함합니다. 설정 예시와 함께 *whatap.conf* 파일에 추가해야 할 옵션을 제공하여 비동기 호출의 성능 모니터링을 강화할 수 있도록 지원합니다.
 
 ## CompletableFuture
 
-Java 에이전트 설정을 통해 CompletableFuture 메서드를 수집할 수 있는 방법을 안내합니다. 
+Java 에이전트 설정을 통해 CompletableFuture 메소드를 수집할 수 있는 방법을 안내합니다. 
 
 ### CompletableFuture 메서드 추가
 
-사용자의 Java 애플리케이션 프로젝트에 에이전트로 hooking할 CompletableFuture 메서드 추가하세요.
+사용자의 Java 애플리케이션 프로젝트에 에이전트로 hooking할 CompletableFuture 메소드를 추가하세요.
 
 * 메서드 이름: `trace`로 통일
 
@@ -52,7 +52,7 @@ hook_completablefuture_patterns=io.home.test.util.W.*
 
 :::note
 
-* Context가 있는 경우 `trace` 메서드를 추가해 트랜잭션을 연결하세요.
+* Context가 있는 경우 `trace` 메소드를 추가해 트랜잭션을 연결하세요.
 
 * Context가 없는 경우 `hook_service_patterns` 옵션으로 서비스를 시작해야 합니다.
 

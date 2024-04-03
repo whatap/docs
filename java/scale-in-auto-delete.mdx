@@ -1,9 +1,8 @@
 ---
 id: scale-in-auto-delete
 title: Scale In에서 에이전트 자동 삭제
-description: Auto Scale 환경에서 Scale In이 발생할 경우 에이전트 자동 삭제 방법을 제공합니다.
-tags:
-    - Java
+description: Auto Scale 환경에서 자동으로 확장된 시스템이 Scale In을 실행할 때, 자바(Java) 에이전트를 자동 삭제하는 방법을 안내합니다. 에이전트는 특정 파일 생성을 통해 SILENT_SHUTDOWN 이벤트를 서버에 전송하며, 이를 통해 에이전트가 자동으로 목록에서 제거됩니다. 이 과정은 시스템의 자동 축소 시점에 맞춰 에이전트 관리를 용이하게 하며, 추가적인 운영자 개입 없이 리소스를 효율적으로 관리할 수 있습니다.
+tags: [ Java, 에이전트 ]
 ---
 
 Auto Scale 환경에서 에이전트 이름을 자동 부여하면 Scale Out이 발생할 경우 운영자 개입이 필요 없습니다. 시스템을 자동으로 확장합니다. 반면 Scale In이 발생하면 시스템이 정상적인 Shut down으로 인식해야 합니다.

@@ -139,7 +139,15 @@ oc create -f whatap_openshift_scc.yaml
         port: "6600"
     ```
 
-1. 다음 명령어를 실행해 에이전트 애플리케이션을 설치하세요. 
+1. 에이전트 애플리케이션을 설치하세요. 
+
+    * 에이전트를 **처음** 설치하는 사용자는 다음 명령어를 실행해 에이전트 애플리케이션을 설치하세요. 
+
+    ```bash 
+    helm install whatap-kube-agent whatap/kube -f values.yaml
+    ```
+
+    * 기존 와탭 쿠버네티스 에이전트 사용자는 Clean Install을 위해 다음 명령어를 실행해 에이전트 애플리케이션을 설치하세요. 
 
     ```bash 
     kubectl delete ns whatap-monitoring

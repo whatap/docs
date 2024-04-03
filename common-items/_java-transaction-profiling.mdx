@@ -120,6 +120,12 @@
   
   :::
 
+* **trace_concern_error_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  `trace_basetime` 또는 `profile_basetime` 옵션과 무관하게 에러가 있는 상세 트레이스에 대한 수집 여부를 설정합니다.
+
 ## 예외 처리 {#exception}
 
 * **biz_exceptions** <span class='type'>String</span>
@@ -232,3 +238,9 @@
   HTTP 상태 에러 코드 무시 / 에러 통계 미포함
 
   :::
+
+* **trace_sql_exception_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  JDBC 드라이버에서 SqlException 발생 시 추적 여부를 설정합니다. 옵션 값을 `false`로 설정하면 사용자 정의 예외 처리로 `biz_exceptions` 처리할 수 있습니다.

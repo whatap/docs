@@ -58,3 +58,11 @@
   # e.g. http_method가 OPTIONS, HEAD인 트랜잭션 "무시"
   ignore_http_method=OPTIONS,HEAD
   ```
+
+* **trace_tx_name_with_method_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  통계 데이터에서 URL을 변경한 URL+method로 수집할 수 있습니다. <Cmdname sid="side_statistics" className="uitext" /> 또는 <Cmdname sid="side_txSearch" className="uitext" /> 메뉴에서 URL+method로 확인할 수 있습니다.
+
+  > 예시, /api/user+GET, /api/user+POST

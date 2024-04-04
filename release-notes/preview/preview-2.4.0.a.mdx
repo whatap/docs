@@ -38,11 +38,21 @@ toc_max_heading_level: 2
 
 - <Status>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴의 복합 메트릭스 이벤트 설정에서, 최초 시뮬레이션을 실행한 다음 날짜를 변경하여 재실행하면 데이터가 정상 표기되지 않는 문제 수정
 
+- <Status>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 그룹 위젯에 메트릭스 타입 필터를 적용하고, 하위 위젯에서 <Cmdname sid="apply_group_widget_filter" className="uitext" /> 옵션을 선택하면 필터가 적용되지 않는 문제 수정
+
 ---
 
 ### `Application`
 
-<p><Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06126" className="uitext" /> 탭에서 <UI>TXT</UI> 또는 <UI>SQL</UI> 버튼을 선택해 다운로드한 파일에 기입된 시간이 UTC+9가 적용되는 않는 문제 수정</p>
+- <Status>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_perfTrend" className="uitext" /> 메뉴에서 다운로드한 CSV 파일의 헤더 컬럼에 단위 추가
+
+- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06126" className="uitext" /> 탭에서 <UI>TXT</UI> 또는 <UI>SQL</UI> 버튼을 선택해 다운로드한 파일에 기입된 시간이 UTC+9가 적용되는 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_statError" className="uitext" /> 메뉴에서 <Cmdname sid="TTL07712" className="uitext" /> 기능 이용 시 에러 건수가 일치하지 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_statSql" className="uitext" /> 메뉴에서 <Cmdname sid="TTL07712" className="uitext" /> 컬럼 항목을 선택하면 발생하는 414 에러 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_appDashboard" className="uitext" />에서 프리셋 저장 후 덮어쓰기가 되지 않는 문제 수정
 
 ---
 
@@ -62,6 +72,12 @@ toc_max_heading_level: 2
 
 - <Status>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_objectManifest" className="uitext" /> 메뉴에서 <Cmdname sid="side_kubeEventList" className="uitext" /> 연동 기능 추가
 
+  :::note
+
+  이 기능은 마스터 에이전트 1.5.8 버전 이상에서 지원합니다.
+
+  :::
+
 - <Status>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 다음과 같이 복합 메트릭스 이벤트 템플릿 추가
 
   - <UI>The kube-apiserver latency over 10 second</UI>
@@ -76,9 +92,17 @@ toc_max_heading_level: 2
 
   - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_objectManifest" className="uitext" />
 
+- <Status>Fixed</Status> 프로젝트 생성 후 에이전트를 설치하지 않는 상태에서 액세스 키만 발급한 경우, <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="kubernetesAgentList" className="uitext" /> 메뉴에서 발생하는 화이트 아웃 현상 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="node_detail" className="uitext" /> 메뉴의 <Cmdname sid="cpu_cores" className="uitext" />, <Cmdname sid="memory_total" className="uitext" /> 지푯값을 <code>kube_node</code> 메트릭스 데이터의 <code>CapacityCpu</code>, <code>CapacityMemory</code> field 값으로 변경
+
 ---
 
 ### `Database`
+
+#### Database <code class="my">V1</code>
+
+<p><Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 <Cmdname sid="TTL06224" className="uitext" /> 팝업창을 열면 query 텍스트가 보이지 않는 문제 수정</p>
 
 #### Database <code class="my">V2</code>
 
@@ -95,6 +119,12 @@ toc_max_heading_level: 2
 Outbound 트래픽을 발생시키는 노드는 녹색으로, Inbound 트래픽을 발생시키는 노드는 회색으로 테두리를 표시합니다.
 
 :::
+
+---
+
+### `Log`
+
+<p><Status>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴의 <Cmdname sid="log" className="uitext" /> 탭에서 실시간 로그 이벤트의 <Cmdname sid="ITM06430" className="uitext" /> 필드에 공백을 포함할 수 있도록 수정</p>
 
 </div>
 

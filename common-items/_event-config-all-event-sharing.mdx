@@ -10,8 +10,8 @@ JSON 데이터 구조는 다음과 같습니다.
 
 ```json title="integrated-event"
 {
-  "productType": "APM",
-  "platform": "JAVA",
+  "productType": "{productType}",
+  "platform": "{platform}",
   "events": {
     "HITMAP": {
       ...
@@ -39,6 +39,16 @@ JSON 데이터 구조는 다음과 같습니다.
 ```
 
 `events` 속성의 하위 속성들은 다음 이벤트 설정에 해당합니다.
+
+<InDoc product="java,php,python,nodejs,golang,dotnet,kubernetes"><ImgLang img='event-config-v2-all-events-apm-k8s.png' desc='Events' /></InDoc>
+
+<InDoc product="postgresql,oracle,mysql,mssql,tibero,cubrid,altibase,redis,mongodb"><ImgLang img='event-config-v2-all-events-apm-k8s.png' desc='Events' /></InDoc>
+
+<InDoc product="server"><ImgLang img='event-config-v2-all-events-server.png' desc='Events' /></InDoc>
+
+<InDoc product="browser"><ImgLang img='event-config-v2-all-events-browser.png' desc='Events' /></InDoc>
+
+<InDoc product="npm"><ImgLang img='event-config-v2-all-events-npm.png' desc='Events' /></InDoc>
 
 * `BASIC`: <Cmdname sid="default" className="uitext" />
 
@@ -86,3 +96,24 @@ JSON 데이터의 속성 중 `productType` 또는 `platform` 속성의 값을 �
 
 ### 불러오기
 
+1. 화면 위에 <Cmdname sid="BTN07761" className="uitext" /> 버튼을 선택하세요.
+
+1. JSON 편집창이 열리면 화면 아래에 <Cmdname sid="load" className="uitext" /> 버튼을 선택하세요.
+
+    <ImgLang img='event-config-v2-json-batch-edit.png' desc='JSON 일괄 수정' />
+
+1. <Cmdname sid="BTN07762" className="uitext" /> 기능을 통해 다운로드 받은 JSON 파일을 선택하세요.
+
+1. <Cmdname sid="overwrite" className="uitext" /> 버튼을 선택하세요.
+
+1. 확인 메시지가 나타나면 <Cmdname sid="overwrite" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+- 덮어쓰기하면 이전의 이벤트 설정은 복구할 수 없습니다.
+
+- `productType` 또는 `platform` 속성의 값을 임의로 수정하면 다른 프로젝트에서 이벤트가 동작하지 않을 수 있습니다.
+
+- JSON 편집창은 JSON 검증(Validation) 기능이 내장되어 있습니다. 형식이나 값이 올바르지 않은 경우 편집창 아래에 오류 메시지가 표시됩니다.
+
+:::

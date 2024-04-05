@@ -65,13 +65,13 @@ tags: [ PostgreSQL, 경고 알림, 메트릭스 이벤트, 데이터베이스 �
 
 * <p><Cmdname sid="TTL07137" className="uitext" /><span class="uitext">_Warning</span></p>
 
-  조건: `blks_hit_ratio` <= 80
+  조건: `blks_hit_ratio` \<\= 80
 
   개별 인스턴스에서 Memory Block Hit율이 80% 이하인 경우 <span class='slow'>Warning</span>(경고) 수준의 알림을 보냅니다.
 
 * <p><Cmdname sid="TTL07138" className="uitext" /><span class="uitext">_Warning</span></p>
 
-  조건: `replication_delay` >= 10
+  조건: `replication_delay` \>\= 10
 
   개별 인스턴스에서 replication 데이터베이스에 반영되는 지연 시간이 10초 이상이면 <span class='slow'>Warning</span>(경고) 수준의 알림을 보냅니다.
 

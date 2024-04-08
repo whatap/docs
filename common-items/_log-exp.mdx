@@ -1,4 +1,8 @@
-{@include: ../common-items/_log-role-view.mdx}
+import Logroleview from "../common-items/_log-role-view.mdx";
+import Logagentoption from "../common-items/_log-agent-option.mdx";
+import Loguimainterm from "../common-items/_log-ui-main-term.mdx";
+
+<Logroleview />
 
 <Xclude product='aws-log'>
 
@@ -12,7 +16,7 @@
 
 </InDoc>
 
-***로그 트렌드*** 메뉴에서 유형별로 분류된 로그의 발생 건수 추이를 통해 특정 에러 유형의 발생 패턴을 확인하고 시간별 상세 로그 데이터를 확인할 수 있습니다. 하이라이트 기능을 통해 원하는 로그를 빠르게 식별할 수 있습니다. 카테고리별로 수집된 로그의 추이를 조회할 수 있습니다. {@include: ../common-items/_log-ui-main-term.mdx}
+***로그 트렌드*** 메뉴에서 유형별로 분류된 로그의 발생 건수 추이를 통해 특정 에러 유형의 발생 패턴을 확인하고 시간별 상세 로그 데이터를 확인할 수 있습니다. 하이라이트 기능을 통해 원하는 로그를 빠르게 식별할 수 있습니다. 카테고리별로 수집된 로그의 추이를 조회할 수 있습니다. <Loguimainterm />
 
 <ImgLang img='log-trend.png' desc='로그 트렌드'/>
 
@@ -32,11 +36,13 @@
 
 * ![number-s](/img/number-04.png) 사이드 메뉴에서 태그로 필터를 걸어서 로그를 확인할 수 있습니다. 검색 키는 2개까지 선택할 수 있고, 검색값은 복수 개 선택이 가능합니다.
 
-* {@include: ../common-items/_log-agent-option.mdx}
+* <Logagentoption />
 
 ## 로그 Content 확인하기
 
-{@include: ../common-items/_log-contents-check.mdx}
+import Logcontentscheck from "../common-items/_log-contents-check.mdx";
+
+<Logcontentscheck />
 
 ## 차트로 로그 조회하기
 
@@ -52,13 +58,17 @@
 
 ## 하이라이트
 
-{@include: ../common-items/_log-highlight.mdx} 
+import Loghighlight from "../common-items/_log-highlight.mdx";
+
+<Loghighlight /> 
 
 ## 테이블 설정하기
 
-{@include: ../common-items/_log-ui-table-setting.mdx}
+import Loguitablesetting from "../common-items/_log-ui-table-setting.mdx";
 
-<!-- ***테이블 설정*** 메뉴는 ***라이브 테일***, ***로그 검색***, ***로그 트렌드***에서 사용할 수 있습니다. 
+<Loguitablesetting />
+
+{/* ***테이블 설정*** 메뉴는 ***라이브 테일***, ***로그 검색***, ***로그 트렌드***에서 사용할 수 있습니다. 
 
 ### 컬럼 추가 
 
@@ -67,9 +77,9 @@
 하이라이트
 ![](https://img.whatap.io/media/images/logexplorer_009_highlight.png)
 
--->
+*/}
 
-<!-- 홀딩 후 기능으로 화면 재구조화
+{/* 홀딩 후 기능으로 화면 재구조화
 ## ![](/img/number-01.png) 시간 및 카테고리
 
 탐색할 로그 데이터의 특정 시간대와 수집 단위를 지정합니다. 스크롤이 바닥에 닿으면 데이터를 조회합니다.
@@ -80,4 +90,4 @@
 
 ## ![](/img/number-04.png) 검색 키(Search Key) 내비게이션
 
--->
+*/}

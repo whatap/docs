@@ -7,7 +7,9 @@ tags: [ AWS Log, 설치하기 ]
 
 import TR from '@site/src/components/TR';
 
-{@include: ../getting-started/_how-to-start-intro.mdx}
+import Howtostartintro from "../getting-started/_how-to-start-intro.mdx";
+
+<Howtostartintro />
 
 설치 과정은 다음 동영상 가이드를 참조하세요. 
 
@@ -45,11 +47,15 @@ AWS Log를 수집하려면 부가적인 자원이 필요합니다. 사용자의 
 
 </details>
 
-<!--  프로젝트 생성 -->
+{/*  프로젝트 생성 */}
 
-{@include: ../getting-started/_create-project-v2.mdx}
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
-{@include: ../getting-started/_accesskey.mdx}
+<Createprojectv2 />
+
+import Accesskey from "../getting-started/_accesskey.mdx";
+
+<Accesskey />
 
 :::note 
 
@@ -102,7 +108,7 @@ AWS Log를 수집하려면 부가적인 자원이 필요합니다. 사용자의 
 
   `UseReservedConcurrency`의 값이 `true`일 때 WhaTap Forwarder에 할당할 Function의 개수를 지정합니다. AWS 계정 당 디폴트로 할당 가능한 Function 수는 1,000개 입니다. 사용자가 사용할 수 있는 Function의 총 개수는 계정 당 총 할당 Function 개수(1,000)에서 `ReservedConcurrency` 설정 값을 뺀 것으로 제한됩니다.
 
-  <!-- 사용자는 AWS 계정 당 할당 가능한 총 Function 개수에서 `ReservedConcurrency` 설정 값을 뺀 만큼 Function을 사용할 수 있습니다. -->
+  {/* 사용자는 AWS 계정 당 할당 가능한 총 Function 개수에서 `ReservedConcurrency` 설정 값을 뺀 만큼 Function을 사용할 수 있습니다. */}
 
 * **cloudfrontPrefix** <span class='type'>String</span>
 
@@ -280,7 +286,7 @@ WhaTap Forwarder가 사용자의 AWS 환경 자원 로그를 전송받으려면 
 
 ### IAM 역할 생성{#create-iam-role}
 
-<!-- 어떤 AWS 계정 ID로 생성된 자원에 대해 권한을 허용할지를 지정하고 직전에 생성한 IAM 정책을 매핑합니다. -->
+{/* 어떤 AWS 계정 ID로 생성된 자원에 대해 권한을 허용할지를 지정하고 직전에 생성한 IAM 정책을 매핑합니다. */}
 
 생성된 자원에 대한 권한을 어떤 AWS 계정에 허용할지 지정하고 직전에 생성한 IAM 정책을 매핑합니다. 와탭 ***에이전트 설치*** > ***설치 안내*** 섹션의 ***AWS IAM 역할 생성*** 탭을 참조해 진행하세요. 
 

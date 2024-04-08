@@ -6,7 +6,9 @@ description: 와탭 모니터링 서비스를 이용하려면 회원 가입을 �
 
 ## 회원 가입
 
-{@include: _create-account.mdx} 
+import Createaccount from "./_create-account.mdx";
+
+<Createaccount /> 
 
 ## 비밀 번호 설정
 
@@ -49,8 +51,10 @@ import Setreceiveeventsms from "../common-items/_set-receive-event-sms.mdx"
 
 <Setreceiveeventsms />
 
-<!-- WhatsApp 알림 수신-->
-{@include: ../common-items/_set-receive-event-whatsapp.mdx} 
+{/* WhatsApp 알림 수신*/}
+import Setreceiveeventwhatsapp from "../common-items/_set-receive-event-whatsapp.mdx";
+
+<Setreceiveeventwhatsapp /> 
 
 ### 수신 레벨 및 알림 시간 설정하기
 

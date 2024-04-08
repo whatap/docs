@@ -8,11 +8,11 @@ toc_max_heading_level: 2
 displayed_sidebar: learningSidebar
 ---
 
-<!--
+{/*
 >
 일문 이미지 미제공
 
--->
+*/}
 
 이 문서에서는 대표적인 애플리케이션 성능 장애 유형 중 하나인 **DB 연결 지연**(DBC 지연)과 **Connection Pool**의 상관관계를 모니터링 관점에서 소개하려 합니다.
 
@@ -94,7 +94,7 @@ DB Connection Pool의 상황을 확인하기 위해 ***분석*** 메뉴의 ***�
 
 두 번째로 Connection 재활용 및 최적화를 통한 방법을 활용할 수 있습니다. 예를 들어 애플리케이션이 사용한 Connection을 반환하지 않아 Connection Leak이 발생한 경우라면 아무리 Connection Pool의 개수를 늘린다고 해도 해당 현상을 해결할 수 없습니다. 이 경우 DB Active 개수는 우상향 그래프를 그리게 됩니다. Connection Leak을 막기 위해서는 사용한 Connection을 반드시 반환하도록 관리해야 합니다. Connection 사용 후 명시적으로 반환하도록 설정하거나 재사용하는 방식을 적용해 볼 수 있습니다.
 
-<!--
+{/*
 
 >
 
@@ -102,4 +102,4 @@ DB Connection Pool의 상황을 확인하기 위해 ***분석*** 메뉴의 ***�
 
 미리 알아보기 위치?
 
--->
+*/}

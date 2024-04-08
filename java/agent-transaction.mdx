@@ -5,19 +5,31 @@ description: 자바(Java) 애플리케이션 내 각 트랜잭션의 성능 데�
 tags: [ Java, 애플리케이션, Transaction, 트랜잭션, 에이전트 ]
 ---
 
-{@include: ../common-items/_transaction.mdx}
+import Transaction from "../common-items/_transaction.mdx";
+
+<Transaction />
 
 ## 트랜잭션 트레이싱
 
-{@include: ../common-items/_transaction-profiling-common.mdx} 
+import Transactionprofilingcommon from "../common-items/_transaction-profiling-common.mdx";
 
-{@include: ../common-items/_java-transaction-profiling.mdx} 
+<Transactionprofilingcommon /> 
 
-{@include: ../common-items/_java-http-transaction.mdx} 
+import Javatransactionprofiling from "../common-items/_java-transaction-profiling.mdx";
 
-{@include: ../common-items/_java-non-http-transaction.mdx} 
+<Javatransactionprofiling /> 
 
-{@include: ../common-items/_java-trace-transaction.mdx} 
+import Javahttptransaction from "../common-items/_java-http-transaction.mdx";
+
+<Javahttptransaction /> 
+
+import Javanonhttptransaction from "../common-items/_java-non-http-transaction.mdx";
+
+<Javanonhttptransaction /> 
+
+import Javatracetransaction from "../common-items/_java-trace-transaction.mdx";
+
+<Javatracetransaction /> 
 
 ## 트레이스 데이터 샘플링
 

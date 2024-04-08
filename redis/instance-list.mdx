@@ -5,11 +5,19 @@ description: 에이전트를 설치한 Redis 데이터베이스 서버들의 목
 tags: [ Redis, 인스턴스, 대시보드, 데이터베이스 ]
 ---
 
-{@include: ../common-items/_db-instance-list-desc.mdx}
+import Dbinstancelistdesc from "../common-items/_db-instance-list-desc.mdx";
 
-<!-- ## 기본 화면 안내 -->
-{@include: ../common-items/_db-instance-list-basic-usage.mdx}
+<Dbinstancelistdesc />
 
-{@include: ../common-items/_db-comapre-instance-performance.mdx} 
+{/* ## 기본 화면 안내 */}
+import Dbinstancelistbasicusage from "../common-items/_db-instance-list-basic-usage.mdx";
 
-{@include: ../common-items/_db-column-display-hide.mdx} 
+<Dbinstancelistbasicusage />
+
+import Dbcomapreinstanceperformance from "../common-items/_db-comapre-instance-performance.mdx";
+
+<Dbcomapreinstanceperformance /> 
+
+import Dbcolumndisplayhide from "../common-items/_db-column-display-hide.mdx";
+
+<Dbcolumndisplayhide /> 

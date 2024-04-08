@@ -5,31 +5,47 @@ description: 다수의 데이터베이스 인스턴스 핵심 지표를 통합�
 tags: [ Redis, 인스턴스, 대시보드, 데이터베이스, 멀티 인스턴스 모니터링 ]
 ---
 
-<!-- 개요-->
-{@include: ../common-items/_db-v2-mulit-instance-monitoring-desc.mdx} 
+{/* 개요*/}
+import Dbv2mulitinstancemonitoringdesc from "../common-items/_db-v2-mulit-instance-monitoring-desc.mdx";
+
+<Dbv2mulitinstancemonitoringdesc /> 
 
 <ProdImg img='db-multi-instance.png' desc='멀티 인스턴스 모니터링' />
 
-<!-- Notes-->
-{@include: ../common-items/_db-multi-instance-monitoring-desc-notes.mdx} 
+{/* Notes*/}
+import Dbmultiinstancemonitoringdescnotes from "../common-items/_db-multi-instance-monitoring-desc-notes.mdx";
 
-<!-- 과거 데이터 조회하기-->
-{@include: ../common-items/_apm-dashboard-set-past-time.mdx} 
+<Dbmultiinstancemonitoringdescnotes /> 
 
-<!-- 에이전트 확인하기-->
-{@include: ../common-items/_apm-dashboard-check-agent.mdx}
+{/* 과거 데이터 조회하기*/}
+import Apmdashboardsetpasttime from "../common-items/_apm-dashboard-set-past-time.mdx";
 
-<!-- 클러스터별 에이전트-->
-{@include: ../common-items/_db-dashboard-select-agent-category.mdx}
+<Apmdashboardsetpasttime /> 
 
-<!-- 위젯 편집하기-->
-{@include: ../common-items/_apm-dashborad-edit-widget.mdx}
+{/* 에이전트 확인하기*/}
+import Apmdashboardcheckagent from "../common-items/_apm-dashboard-check-agent.mdx";
 
-<!-- 위젯 옵션 이용하기-->
-{@include: ../common-items/_apm-dashboard-widget-options.mdx}
+<Apmdashboardcheckagent />
 
-<!-- 프리셋-->
-{@include: ../common-items/_apm-dashboard-preset.mdx} 
+{/* 클러스터별 에이전트*/}
+import Dbdashboardselectagentcategory from "../common-items/_db-dashboard-select-agent-category.mdx";
+
+<Dbdashboardselectagentcategory />
+
+{/* 위젯 편집하기*/}
+import Apmdashboradeditwidget from "../common-items/_apm-dashborad-edit-widget.mdx";
+
+<Apmdashboradeditwidget />
+
+{/* 위젯 옵션 이용하기*/}
+import Apmdashboardwidgetoptions from "../common-items/_apm-dashboard-widget-options.mdx";
+
+<Apmdashboardwidgetoptions />
+
+{/* 프리셋*/}
+import Apmdashboardpreset from "../common-items/_apm-dashboard-preset.mdx";
+
+<Apmdashboardpreset /> 
 
 ## 주요 위젯 알아보기 {#about-widget}
 
@@ -148,25 +164,39 @@ tags: [ Redis, 인스턴스, 대시보드, 데이터베이스, 멀티 인스턴�
 
 :::
 
-<!-- Session Table-->
-{@include: ../common-items/_db-v2-mim-activesession-desc.mdx} 
+{/* Session Table*/}
+import Dbv2mimactivesessiondesc from "../common-items/_db-v2-mim-activesession-desc.mdx";
 
-{@include: ../common-items/_db-v2-mim-activesession-note.mdx}
+<Dbv2mimactivesessiondesc /> 
+
+import Dbv2mimactivesessionnote from "../common-items/_db-v2-mim-activesession-note.mdx";
+
+<Dbv2mimactivesessionnote />
 
 ### 테이블 데이터 필터링하기
 
-{@include: ../common-items/_db-table-data-filtering.mdx} 
+import Dbtabledatafiltering from "../common-items/_db-table-data-filtering.mdx";
+
+<Dbtabledatafiltering /> 
 
 ### 테이블 컬럼 설정하기{#change-column}
 
-{@include: ../common-items/_db-v2-data-edit-column.mdx}
+import Dbv2dataeditcolumn from "../common-items/_db-v2-data-edit-column.mdx";
+
+<Dbv2dataeditcolumn />
 
 ### 컬럼 정보 안내 {#column-info}
 
-{@include: ../common-items/_db-mongodb-activesessions-columns.mdx}
+import Dbmongodbactivesessionscolumns from "../common-items/_db-mongodb-activesessions-columns.mdx";
 
-<!-- 조회 목록 다운로드하기-->
-{@include: ../common-items/_db-dashboard-session-table-download.mdx}
+<Dbmongodbactivesessionscolumns />
 
-<!-- 새창으로 보기-->
-{@include: ../common-items/_db-dashboard-session-table-new.mdx}
+{/* 조회 목록 다운로드하기*/}
+import Dbdashboardsessiontabledownload from "../common-items/_db-dashboard-session-table-download.mdx";
+
+<Dbdashboardsessiontabledownload />
+
+{/* 새창으로 보기*/}
+import Dbdashboardsessiontablenew from "../common-items/_db-dashboard-session-table-new.mdx";
+
+<Dbdashboardsessiontablenew />

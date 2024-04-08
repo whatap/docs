@@ -9,9 +9,13 @@ tags:
     - 애플리케이션
 ---
 
-{@include: ../common-items/_apm-name-description.mdx}
+import Apmnamedescription from "../common-items/_apm-name-description.mdx";
 
-{@include: ../common-items/_agent-name-warning.mdx}
+<Apmnamedescription />
+
+import Agentnamewarning from "../common-items/_agent-name-warning.mdx";
+
+<Agentnamewarning />
 
 :::note
 
@@ -42,16 +46,18 @@ tags:
 
   애플리케이션을 식별하기 위한 에이전트 이름(ONAME) 구성 방식입니다. ONAME을 토대로 OID가 생성됩니다.  
 
-{@include: ../common-items/_php-restart-whatap-service.mdx}
+import Phprestartwhatapservice from "../common-items/_php-restart-whatap-service.mdx";
+
+<Phprestartwhatapservice />
 
 * **whatap.app_name** <span class='type'>String</span>
 
   애플리케이션을 식별하기 위한 에이전트 이름(ONAME)의 구성 요소로 `object_name`의 `{type}`에 해당하는 값입니다.  
 
-{@include: ../common-items/_php-restart-whatap-service.mdx}
+<Phprestartwhatapservice />
 
 * **whatap.app_process_name** <span class='type'>String</span>
 
   애플리케이션을 식별하기 위한 에이전트 이름(ONAME)의 구성 요소입니다. 애플리케이션 프로세스 이름으로 애플리케이션 서버의 CPU, Heap Memory 등을 수집할 대상 프로세스를 설정합니다. `object_name`의 `{process}`에 해당하는 값입니다.  
 
-{@include: ../common-items/_php-restart-whatap-service.mdx}
+<Phprestartwhatapservice />

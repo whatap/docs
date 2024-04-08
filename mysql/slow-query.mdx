@@ -6,11 +6,17 @@ tags: [ MySQL, 인스턴스, 대시보드, 데이터베이스 모니터링, 슬�
 toc_max_heading_level: 2
 ---
 
-<!-- 개요 -->
-{@include: ../common-items/_db-slow-query-desc.mdx}
+{/* 개요 */}
+import Dbslowquerydesc from "../common-items/_db-slow-query-desc.mdx";
 
-<!-- 슬로우 쿼리 에이전트 설정 -->
-{@include: ../common-items/_db-slow-query-agent-settings.mdx} 
+<Dbslowquerydesc />
 
-<!-- 기본 화면 안내 -->
-{@include: ../common-items/_db-slow-query-basic.mdx} 
+{/* 슬로우 쿼리 에이전트 설정 */}
+import Dbslowqueryagentsettings from "../common-items/_db-slow-query-agent-settings.mdx";
+
+<Dbslowqueryagentsettings /> 
+
+{/* 기본 화면 안내 */}
+import Dbslowquerybasic from "../common-items/_db-slow-query-basic.mdx";
+
+<Dbslowquerybasic /> 

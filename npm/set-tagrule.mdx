@@ -134,9 +134,9 @@ proxy → msa_process → msa_process2 → db로 이어지는 네트워크 구�
 
   ```mermaid
   flowchart LR
-    A[Proxy] --> B(msa_process1);
-    B --> C(msa_process2);
-    C --> D(DB);
+    A[Proxy] */} B(msa_process1);
+    B */} C(msa_process2);
+    C */} D(DB);
   ```
 
 * `appName` 옵션으로 동일한 명칭의 프로세스들을 **운영기**/**개발기**/**시험기**로 분리하는 경우
@@ -168,12 +168,12 @@ proxy → msa_process → msa_process2 → db로 이어지는 네트워크 구�
 
   ```mermaid
   flowchart LR
-    A(prod_proxy) --> B(prod_msa1);
-    B[prod_msa1] --> C(prod_msa2);
-    C[prod_msa2] --> D(DB);
-    E[dev_proxy] --> F(dev_msa);
-    F[dev_msa] --> D(DB);
-    G[test] --> D(DB);
+    A(prod_proxy) */} B(prod_msa1);
+    B[prod_msa1] */} C(prod_msa2);
+    C[prod_msa2] */} D(DB);
+    E[dev_proxy] */} F(dev_msa);
+    F[dev_msa] */} D(DB);
+    G[test] */} D(DB);
   ```
 
 :::note

@@ -5,29 +5,47 @@ description: 다수의 데이터베이스 인스턴스 핵심 지표를 통합�
 tags: [ Oracle, 인스턴스, 대시보드, 데이터베이스 모니터링, 멀티 인스턴스 모니터링 ]
 ---
 
-<!-- 개요 -->
-{@include: ../common-items/_db-mulit-instance-monitoring-desc.mdx}
+{/* 개요 */}
+import Dbmulitinstancemonitoringdesc from "../common-items/_db-mulit-instance-monitoring-desc.mdx";
 
-<!-- Notes -->
-{@include: ../common-items/_db-multi-instance-monitoring-desc-notes.mdx} 
+<Dbmulitinstancemonitoringdesc />
 
-<!-- 기본 화면 안내 -->
-{@include: ../common-items/_db-multi-instance-monitoring-basic.mdx} 
+{/* Notes */}
+import Dbmultiinstancemonitoringdescnotes from "../common-items/_db-multi-instance-monitoring-desc-notes.mdx";
 
-<!-- 지표 선택하기 -->
-{@include: ../common-items/_db-select-metric-data-widget.mdx}   
+<Dbmultiinstancemonitoringdescnotes /> 
 
-<!-- 레이아웃 설정하기 -->
-{@include: ../common-items/_db-set-layout.mdx}   
+{/* 기본 화면 안내 */}
+import Dbmultiinstancemonitoringbasic from "../common-items/_db-multi-instance-monitoring-basic.mdx";
 
-<!-- 액티브 세션 영역 활용하기 -->
-{@include: ../common-items/_db-using-area-active-session.mdx} 
+<Dbmultiinstancemonitoringbasic /> 
 
-{@include: ../common-items/_db-query-details.mdx}
+{/* 지표 선택하기 */}
+import Dbselectmetricdatawidget from "../common-items/_db-select-metric-data-widget.mdx";
+
+<Dbselectmetricdatawidget />   
+
+{/* 레이아웃 설정하기 */}
+import Dbsetlayout from "../common-items/_db-set-layout.mdx";
+
+<Dbsetlayout />   
+
+{/* 액티브 세션 영역 활용하기 */}
+import Dbusingareaactivesession from "../common-items/_db-using-area-active-session.mdx";
+
+<Dbusingareaactivesession /> 
+
+import Dbquerydetails from "../common-items/_db-query-details.mdx";
+
+<Dbquerydetails />
 
 ## 테이블 컬럼 변경하기{#change-column}
 
-{@include: ../common-items/_db-data-edit-column.mdx}
+import Dbdataeditcolumn from "../common-items/_db-data-edit-column.mdx";
 
-<!-- 컬럼 정보 안내 -->
-{@include: ../common-items/_db_oracle-column.mdx} 
+<Dbdataeditcolumn />
+
+{/* 컬럼 정보 안내 */}
+import Oraclecolumn from "../common-items/_db_oracle-column.mdx";
+
+<Oraclecolumn /> 

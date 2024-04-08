@@ -23,7 +23,7 @@ tags: [ 로그 모니터링, 쿠버네티스 ]
 
 쿠버네티스 컨테이너에 로그를 수집하려면 ***에이전트 설정 확인*** 탭에서 ***로그 설정 적용하기*** 버튼을 선택하세요. 
 
-<!-- 
+{/* 
 
 >
 
@@ -39,7 +39,7 @@ tags: [ 로그 모니터링, 쿠버네티스 ]
 
 1. ![number 4](/img/number-04.png) ***적용*** 버튼을 선택하세요. 쿠버네티스 컨테이너에 로그를 수집할 수 있습니다.
 
--->
+*/}
 
 ### 컨테이너 내부 애플리케이션 로그 수집 활성화{#k8s-log-app}
 
@@ -75,9 +75,13 @@ Java 2.1.1, Python 1.2.2 버전부터 가능합니다. 쿠버네티스 컨테이
 
 ***로그 모니터링 시작하기*** 섹션의 ***로그 모니터링 활성화*** 탭에서 토글 버튼으로 와탭 로그 모니터링을 활성화 또는 비활성화 할 수 있습니다. 
 
-{@include: ../common-items/_log-java-start.mdx}
+import Logjavastart from "../common-items/_log-java-start.mdx";
 
-{@include: ../common-items/_log-active-note.mdx} 
+<Logjavastart />
+
+import Logactivenote from "../common-items/_log-active-note.mdx";
+
+<Logactivenote /> 
 
 ## 쿠버네티스 로그 모니터링 카테고리 안내
 

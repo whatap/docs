@@ -7,7 +7,12 @@ toc_max_heading_level: 3
 draft: true
 ---
 
-{@include: ../common-items/_log-role-view.mdx}
+import Logroleview from "../common-items/_log-role-view.mdx";
+import Loguimainterm from "../common-items/_log-ui-main-term.mdx";
+import Logfilterapply2 from "../common-items/_log-filter-apply2.mdx";
+import Loguitablesetting from "../common-items/_log-ui-table-setting.mdx";
+
+<Logroleview />
 
 <Xclude product='aws-log'>
 
@@ -23,7 +28,7 @@ draft: true
 
 ***로그 검색*** 메뉴에서 통합 수집된 대량의 로그를 다양한 조건으로 검색하고 사용자가 원하는 로그를 특정할 수 있습니다. 복수의 검색 조건을 파싱된 키와 밸류로 지정할 수 있어 원하는 조건에 일치하는 로그 데이터만 추출합니다. 
 
-동적 페이지로 검색된 로그 데이터를 정해진 라인 단위로 가져오며, 스크롤 등에 의해 하단에 닿으면 자동으로 다음 데이터를 가져와 표시합니다. {@include: ../common-items/_log-ui-main-term.mdx}
+동적 페이지로 검색된 로그 데이터를 정해진 라인 단위로 가져오며, 스크롤 등에 의해 하단에 닿으면 자동으로 다음 데이터를 가져와 표시합니다. <Loguimainterm />
 
 <Xclude product='postgresql,mysql'>
 
@@ -73,7 +78,9 @@ draft: true
 
 ## 로그 Content 확인하기
 
-{@include: ../common-items/_log-ui-log-content.mdx}
+import Loguilogcontent from "../common-items/_log-ui-log-content.mdx";
+
+<Loguilogcontent />
 
 * ![number-s](/img/number-03.png) 로그 테이블의 행(로그)마다 ![아이콘](/img/ic-caret-right.svg)***더보기*** 버튼이 있습니다. ![아이콘](/img/ic-caret-right.svg)***더보기*** 버튼을 선택하면 ![number-s](/img/number-04.png)처럼 해당 로그의 전체 Content를 확인할 수 있습니다.
 
@@ -83,7 +90,7 @@ draft: true
 
 ### 필터 적용
 
-![number-s](/img/number-01.png) 왼쪽 ***시간 선택창***에서 시간 범위를 지정할 수 있습니다. 오른쪽에서 {@include: ../common-items/_log-filter-apply2.mdx} 
+![number-s](/img/number-01.png) 왼쪽 ***시간 선택창***에서 시간 범위를 지정할 수 있습니다. 오른쪽에서 <Logfilterapply2 /> 
 
 ### 미파싱 키워드 필터 적용
 
@@ -113,7 +120,9 @@ draft: true
 
 ### 필터 수정
 
-{@include: ../common-items/_log-filter-modify.mdx} 
+import Logfiltermodify from "../common-items/_log-filter-modify.mdx";
+
+<Logfiltermodify /> 
 
 ### 검색 키(Search Key)
 
@@ -133,9 +142,13 @@ draft: true
 
 ### 필터 입력 문법{#filter-expressions}
 
-{@include: ../common-items/_log-filter-expressions-search-key.mdx} 
+import Logfilterexpressionssearchkey from "../common-items/_log-filter-expressions-search-key.mdx";
 
-{@include: ../common-items/_log-filter-expressions-commons.mdx} 
+<Logfilterexpressionssearchkey /> 
+
+import Logfilterexpressionscommons from "../common-items/_log-filter-expressions-commons.mdx";
+
+<Logfilterexpressionscommons /> 
 
 ## 로그 태그 옵션
 
@@ -199,4 +212,4 @@ draft: true
 
 ## 테이블 설정하기
 
-* ![number-s](/img/number-03.png) 영역 오른쪽 {@include: ../common-items/_log-ui-table-setting.mdx}
+* ![number-s](/img/number-03.png) 영역 오른쪽 <Loguitablesetting />

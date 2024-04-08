@@ -5,24 +5,38 @@ description: 데이터베이스 운용 추이를 확인하고 비교할 수 있�
 tags: [ PostgreSQL, 데이터베이스, 분석, 카운트 추이 ]
 ---
 
-<!-- description-->
-{@include: ../common-items/_db-v2-count-trend-desc.mdx}
+{/* description*/}
+import Dbv2counttrenddesc from "../common-items/_db-v2-count-trend-desc.mdx";
+
+<Dbv2counttrenddesc />
 
 
-<!-- ## 기본 화면 안내-->
-{@include: ../common-items/_db-v2-count-trend-basic-usage.mdx} 
+{/* ## 기본 화면 안내*/}
+import Dbv2counttrendbasicusage from "../common-items/_db-v2-count-trend-basic-usage.mdx";
 
-<!-- ### 비교 대상 선택하기-->
-{@include: ../common-items/_db-v2-count-trend-select-instance.mdx} 
+<Dbv2counttrendbasicusage /> 
 
-<!-- ### 액티브 세션 정보 비교하기-->
-{@include: ../common-items/_db-v2-count-trend-compare.mdx} 
+{/* ### 비교 대상 선택하기*/}
+import Dbv2counttrendselectinstance from "../common-items/_db-v2-count-trend-select-instance.mdx";
 
-<!-- ### 특정 시간 비교하기-->
-{@include: ../common-items/_db-v2-count-trend-compare-time.mdx}
+<Dbv2counttrendselectinstance /> 
 
-<!--## 프리셋-->
-{@include: ../common-items/_db-v2-count-trends-preset.mdx} 
+{/* ### 액티브 세션 정보 비교하기*/}
+import Dbv2counttrendcompare from "../common-items/_db-v2-count-trend-compare.mdx";
 
-<!--컬럼 정보 안내-->
-{@include: ../common-items/_db_postgresql-column.mdx} 
+<Dbv2counttrendcompare /> 
+
+{/* ### 특정 시간 비교하기*/}
+import Dbv2counttrendcomparetime from "../common-items/_db-v2-count-trend-compare-time.mdx";
+
+<Dbv2counttrendcomparetime />
+
+{/*## 프리셋*/}
+import Dbv2counttrendspreset from "../common-items/_db-v2-count-trends-preset.mdx";
+
+<Dbv2counttrendspreset /> 
+
+{/*컬럼 정보 안내*/}
+import Postgresqlcolumn from "../common-items/_db_postgresql-column.mdx";
+
+<Postgresqlcolumn /> 

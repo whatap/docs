@@ -9,15 +9,25 @@ tags: [ Altibase, 데이터베이스, 데이터베이스 모니터링, 통계, �
 
 데이터베이스의 성능을 실시간 모니터링을 통해 분석할 수 있는 지표들에 대한 설명입니다.
 
-{@include: ../common-items/_db-count-trend.mdx} 
+import Dbcounttrend from "../common-items/_db-count-trend.mdx";
 
-{@include: ../common-items/_db-compare-count-trend.mdx}
+<Dbcounttrend /> 
 
-{@include: ../common-items/_db-using-count-trend-chart.mdx}
+import Dbcomparecounttrend from "../common-items/_db-compare-count-trend.mdx";
 
-{@include: ../common-items/_db-locktree.mdx}
+<Dbcomparecounttrend />
 
-<!-- oracle, tibero -->
-<!-- {@include: ../common-items/_db-parallel-query-tree.mdx} -->
+import Dbusingcounttrendchart from "../common-items/_db-using-count-trend-chart.mdx";
 
-{@include: ../common-items/_db-parameters.mdx} 
+<Dbusingcounttrendchart />
+
+import Dblocktree from "../common-items/_db-locktree.mdx";
+
+<Dblocktree />
+
+{/* oracle, tibero */}
+{/* {@include: ../common-items/_db-parallel-query-tree.mdx} */}
+
+import Dbparameters from "../common-items/_db-parameters.mdx";
+
+<Dbparameters /> 

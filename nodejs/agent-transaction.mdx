@@ -5,13 +5,17 @@ description: 에이전트에서 트랜잭션 성능을 추적해 설정할 수 �
 tags: [ Node.js, 트랜잭션 ]
 ---
 
-{@include: ../common-items/_transaction.mdx}
+import Transaction from "../common-items/_transaction.mdx";
+
+<Transaction />
 
 에이전트에서 트랜잭션 성능을 추적해 설정할 수 있는 옵션을 다음과 같이 제공합니다.
 
 ## 트랜잭션 트레이싱
 
-{@include: ../common-items/_transaction-profiling-common.mdx}
+import Transactionprofilingcommon from "../common-items/_transaction-profiling-common.mdx";
+
+<Transactionprofilingcommon />
 
 * **profile_error_step_enabled** <span class='type'>Boolean</span>
 
@@ -19,7 +23,9 @@ tags: [ Node.js, 트랜잭션 ]
 
   프로파일에 에러 관련 정보를 표시하는 스텝을 추가할 수 있습니다.
 
-{@include: ../common-items/_transaction-profile-active-color.mdx}
+import Transactionprofileactivecolor from "../common-items/_transaction-profile-active-color.mdx";
+
+<Transactionprofileactivecolor />
 
 * **hook_method_patterns** <span class='type'>String</span>
 
@@ -93,9 +99,13 @@ tags: [ Node.js, 트랜잭션 ]
 
 ## HTTP 트랜잭션 추적
 
-{@include: ../common-items/_transaction-trace-common.mdx} 
+import Transactiontracecommon from "../common-items/_transaction-trace-common.mdx";
 
-{@include: ../common-items/_transaction-profile-http.mdx} 
+<Transactiontracecommon /> 
+
+import Transactionprofilehttp from "../common-items/_transaction-profile-http.mdx";
+
+<Transactionprofilehttp /> 
 
 * **trace_ignore_url_set** <span class='type'>String</span>
 

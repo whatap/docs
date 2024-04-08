@@ -5,13 +5,19 @@ description: Redis 데이터베이스의 에이전트를 업데이트하거나 �
 tags: [ Redis, 데이터베이스, 에이전트 ]
 ---
 
-<!-- 에이전트 업데이트-->
-{@include: ../common-items/_db-update-agent.mdx}
+{/* 에이전트 업데이트*/}
+import Dbupdateagent from "../common-items/_db-update-agent.mdx";
+
+<Dbupdateagent />
 
 ## 에이전트 삭제
 
-<!-- 에이전트 설치 서버에서 삭제하기 -->
-{@include: ../common-items/_db-uninstall-agent-installed-server.mdx}
+{/* 에이전트 설치 서버에서 삭제하기 */}
+import Dbuninstallagentinstalledserver from "../common-items/_db-uninstall-agent-installed-server.mdx";
 
-<!-- 서비스 화면에서 삭제하기 -->
-{@include: ../common-items/_db-unistall-agent-in-service.mdx} 
+<Dbuninstallagentinstalledserver />
+
+{/* 서비스 화면에서 삭제하기 */}
+import Dbunistallagentinservice from "../common-items/_db-unistall-agent-in-service.mdx";
+
+<Dbunistallagentinservice /> 

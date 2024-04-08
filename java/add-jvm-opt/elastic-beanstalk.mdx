@@ -9,7 +9,9 @@ tags: [ Java, Elastic Beanstalk, 애플리케이션, 에이전트 ]
 
 **Elastic Beanstalk**를 이용해 배포할 경우 와탭 에이전트를 적용하는 방법입니다. 
 
-{@include: _pass-note.mdx}
+import Passnote from "./_pass-note.mdx";
+
+<Passnote />
 
 1. Spring Boot 결과물을 jar로 배포할 경우 *.ebextensions*의 내용을 적용할 수 없습니다. 다음 파일들을 압축해 zip 형태로 배포하세요.
 
@@ -76,7 +78,9 @@ tags: [ Java, Elastic Beanstalk, 애플리케이션, 에이전트 ]
 
 :::note
 
-{@include: _java-17.mdx}
+import Java17 from "./_java-17.mdx";
+
+<Java17 />
 
 :::
 
@@ -86,8 +90,12 @@ tags: [ Java, Elastic Beanstalk, 애플리케이션, 에이전트 ]
 
 :::
 
-{@include: _set-heap-memory.mdx} 
+import Setheapmemory from "./_set-heap-memory.mdx";
+
+<Setheapmemory /> 
 
 ## 모니터링 시작하기
 
-{@include: ../../common-items/_start-apm.mdx} 
+import Startapm from "../../common-items/_start-apm.mdx";
+
+<Startapm /> 

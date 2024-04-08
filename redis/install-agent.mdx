@@ -12,17 +12,25 @@ import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
-{@include: ../common-items/_agent-signup-guide.mdx}   
+import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+
+<Agentsignupguide />   
 
 <Youtube ko='e_UpCgapfQY' en='MIo3HRIOt8M' ja='MIo3HRIOt8M' />
 
-{@include: ../getting-started/_create-project-v2.mdx}
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
-{@include: ../getting-started/_accesskey.mdx}
+<Createprojectv2 />
+
+import Accesskey from "../getting-started/_accesskey.mdx";
+
+<Accesskey />
 
 ## 와탭 데이터베이스 에이전트 다운로드
 
-{@include: ../common-items/_db-install-agent-steps.mdx} 
+import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
+
+<Dbinstallagentsteps /> 
 
 3. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키(`license`) 정보 및 와탭 서버 정보(`whatap.server.host`), DB 접속 정보(`dbms`, `db_ip`, `db_port`)를 입력하세요.
 
@@ -35,8 +43,10 @@ import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
     db_port={DB_server_port}
     ```
 
-<!-- 공통 Notes-->
-{@include: ../common-items/_db-install-agent-common-notes.mdx} 
+{/* 공통 Notes*/}
+import Dbinstallagentcommonnotes from "../common-items/_db-install-agent-common-notes.mdx";
+
+<Dbinstallagentcommonnotes /> 
 
 ## DB 유저 파일 생성 {#create-db-user}
 
@@ -48,11 +58,17 @@ user와 password를 사용하지 않는 경우 (인증 없이 Redis에 접속 �
 
 <DBuserDesc />
 
-{@include: ../common-items/_db-create-db-user-file-body.mdx} 
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+
+<Dbcreatedbuserfilebody /> 
 
 
-<!--## 에이전트 실행-->
-{@include: ../common-items/_db-run-agent.mdx} 
+{/*## 에이전트 실행*/}
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
 
-<!--## XOS 에이전트 설치-->
-{@include: ../common-items/_db-install-xos-agent.mdx} 
+<Dbrunagent /> 
+
+{/*## XOS 에이전트 설치*/}
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+
+<Dbinstallxosagent /> 

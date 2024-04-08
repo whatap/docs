@@ -12,32 +12,46 @@ DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다.
 
 ## 기본 옵션
 
-{@include: ../common-items/_db-agent-dbx-basic-option.mdx}    
+import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
+
+<Dbagentdbxbasicoption />    
 
 
 ## 데이터 수집
 
-{@include: ../common-items/_db-agent-setting-data-collection.mdx}   
+import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data-collection.mdx";
+
+<Dbagentsettingdatacollection />   
 
 ### Top 오브젝트 사용 설정하기
 
 다음은 <Cmdname sid="dbObjectInfo" />에 대한 정보를 조회하기 위한 에이전트 설정입니다. <Cmdname sid="dbObjectInfo" /> 메뉴에 대한 자세한 내용은 [다음 문서](analysis-top-object)를 참조하세요.
 
-{@include: ../common-items/_db-pg-top-object-agent-setting.mdx}
+import Dbpgtopobjectagentsetting from "../common-items/_db-pg-top-object-agent-setting.mdx";
+
+<Dbpgtopobjectagentsetting />
 
 
 ## AWS RDS CloudWatch 적용{#using-aws-rds}
 
 <AWSRDSdesc name='db_postgresql_counter' />
 
-{@include: ../common-items/_db-agent-aws.mdx}
+import Dbagentaws from "../common-items/_db-agent-aws.mdx";
+
+<Dbagentaws />
 
 
-<!-- AES 256 암호화 적용 -->
-{@include: ../common-items/_db-aes-256-encrypt.mdx}  
+{/* AES 256 암호화 적용 */}
+import Dbaes256encrypt from "../common-items/_db-aes-256-encrypt.mdx";
+
+<Dbaes256encrypt />  
 
 ## 에이전트 이름 식별{#naming}
 
-{@include: ../common-items/_db-setting-agent-name-details.mdx}
+import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
 
-{@include: ../common-items/_db-agent-dbx-naming.mdx} 
+<Dbsettingagentnamedetails />
+
+import Dbagentdbxnaming from "../common-items/_db-agent-dbx-naming.mdx";
+
+<Dbagentdbxnaming /> 

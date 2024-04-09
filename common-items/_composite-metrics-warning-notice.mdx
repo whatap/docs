@@ -107,7 +107,17 @@
 
 * <Cmdname sid="data_time_range" className="uitext" />: 이벤트 조건에 사용할 <b>MXQL</b>의 실시간 데이터 조회 범위를 설정합니다. 이벤트 데이터 조회에 포함된 필드만 사용할 수 있습니다.
 
-  복합 메트릭스 이벤트는 DB에 저장된 메트릭스를 조회해서 활용합니다. 따라서 데이터를 조회할 시간 범위를 먼저 지정해야 합니다. 데이터 조회 시간을 5분으로 선택하면 최근 5분동안 수집된 데이터를 조회해서 이벤트 발생 조건을 확인합니다. 최근 데이터에 대해서 이벤트를 설정할 때에는 짧게, 넓은 시간에 대해서 통계적으로 접근하고 싶을 때에는 길게 설정할 수 있습니다. 실제 사용 예시는 [다음 문서](#template)를 참조하세요.
+  복합 메트릭스 이벤트는 DB에 저장된 메트릭스를 조회해서 활용합니다. 따라서 데이터를 조회할 시간 범위를 먼저 지정해야 합니다. 데이터 조회 시간을 5분으로 선택하면 최근 5분동안 수집된 데이터를 조회해서 이벤트 발생 조건을 확인합니다. 최근 데이터에 대해서 이벤트를 설정할 때에는 짧게, 넓은 시간에 대해서 통계적으로 접근하고 싶을 때에는 길게 설정할 수 있습니다. 
+
+  <Xclude product="altibase,amazon-cloudwatch,amazon-ecs,azure,cubrid,mongodb,mssql,mysql,ncloud,oracle-cloud,oracle,redis,server,tibero">
+
+  :::note
+
+  실제 사용 예시는 [다음 문서](#template)를 참조하세요.
+
+  :::
+
+  </Xclude>
 
 * <Cmdname sid="condition" className="uitext" />: MXQL에 반영한 필드와 연산 규칙, 임계치를 입력합니다.
 

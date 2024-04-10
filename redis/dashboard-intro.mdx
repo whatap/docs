@@ -5,10 +5,18 @@ description: 와탭 모니터링 대시보드는 Redis 데이터베이스 프로
 tags: [ Redis, 대시보드, 인스턴스, 데이터베이스 ]
 ---
 
-{@include: ../common-items/_db-dashboard-intro.mdx}  
+import Dbdashboardintro from "../common-items/_db-dashboard-intro.mdx";
 
-{@include: ../common-items/_db-dashboard-instance-list.mdx}
+<Dbdashboardintro />  
 
-{@include: ../common-items/_db-dashboard-instance-monitoring.mdx}  
+import Dbdashboardinstancelist from "../common-items/_db-dashboard-instance-list.mdx";
 
-{@include: ../common-items/_db-dashboard-multi-instance-monitoring.mdx}
+<Dbdashboardinstancelist />
+
+import Dbdashboardinstancemonitoring from "../common-items/_db-dashboard-instance-monitoring.mdx";
+
+<Dbdashboardinstancemonitoring />  
+
+import Dbdashboardmultiinstancemonitoring from "../common-items/_db-dashboard-multi-instance-monitoring.mdx";
+
+<Dbdashboardmultiinstancemonitoring />

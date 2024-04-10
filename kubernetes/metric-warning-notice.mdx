@@ -5,15 +5,23 @@ description: 구체적이고 복잡한 이벤트를 설정하려면 메트릭스
 tags: [ 경고 알림, 메트릭스 이벤트, 쿠버네티스 모니터링 ]
 ---
 
-{@include: ../common-items/_metrics-warning-notice.mdx} 
+import Metricswarningnotice from "../common-items/_metrics-warning-notice.mdx";
 
-{@include: ../common-items/_composite-metrics-warning-notice.mdx} 
+<Metricswarningnotice /> 
 
-{@include: ../common-items/_metrics-event-modify-delete.mdx}
+import Compositemetricswarningnotice from "../common-items/_composite-metrics-warning-notice.mdx";
 
-{@include: ../common-items/_metrics-event-condition-select-target-guide.mdx}
+<Compositemetricswarningnotice /> 
 
-## 메트릭스 이벤트 템플릿{#k8s-metrics-event-template}
+import Metricseventmodifydelete from "../common-items/_metrics-event-modify-delete.mdx";
+
+<Metricseventmodifydelete />
+
+import Metricseventconditionselecttargetguide from "../common-items/_metrics-event-condition-select-target-guide.mdx";
+
+<Metricseventconditionselecttargetguide />
+
+## 메트릭스 이벤트 템플릿 {#template}
 
 :::note 
 
@@ -149,7 +157,7 @@ Kubernetes 이벤트의 `reason` 필드 정보 중 `Unhealthy`가 0회 이상 �
 > APDEX가 0.7 보다 작습니다 (`${oname}`)
 
 
-<!-- 
+{/* 
 
 #### ***HPA CPU 사용률 알림***
 
@@ -163,4 +171,4 @@ Kubernetes 이벤트의 `reason` 필드 정보 중 `Unhealthy`가 0회 이상 �
 
 > HPA POD 생성 최대치에 도달하였고 메모리 사용률이 >= 90% 상태 입니다.
 
--->
+*/}

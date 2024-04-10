@@ -13,17 +13,17 @@ Java 에이전트가 CPU, 메모리, 디스크 사용량을 수집하는 방법�
 
   CPU, 메모리, 디스크 사용량을 Linux의 *proc* 디렉터리에서 수집할지 여부를 설정합니다.
 
-* **oshi_enabled** <span class='type'>Boolean</span>
+* **oshi_enabled** <span class='type'>Boolean</span> <code class="my">Java Agent v2.1.0 or later</code>
 
   기본값 `false`
 
   CPU, 메모리, 디스크 사용량을 측정할 때 oshi 라이브러리 사용 여부를 설정합니다.
 
-  :::note
-  
-  whatap.agent.2.1.0 버전 이상만 지원합니다.
-  
-  :::
+* **oshi_netstat_enabled** <span class='type'>Boolean</span> <code class="my">Java Agent v2.2.31 or later</code>
+
+  기본값 `false`
+
+  netstat 지표 수집 여부를 설정합니다. Maximum Transmission Unit(MTU) 지표가 추가됩니다.
 
 * **sigar_enabled** <span class='type'>Boolean</span>
 

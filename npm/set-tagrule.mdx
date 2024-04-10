@@ -9,7 +9,7 @@ tags: [ 네트워크 성능 모니터링, tagRule ]
 
 에이전트는 Raw Data에 IP 주소 및 Port(Source, Target), Host Name, Process Name 정보를 키로 수집합니다. 수집한 정보를 기반으로 토폴로지 또는 차트에 표현할 노드의 그룹 단위를 설정할 수 있습니다.
 
-에이전트에서 수집하는 기본 태그와 더불어 사용자가 쉽게 변경하고 적용할 수 있는 룰을 만들었습니다. 에이전트 설치 경로(*/usr/whatap/whtap-npmd*)에 *tagRule.yaml* 파일을 수정해 옵션을 적용할 수 있습니다.
+에이전트에서 수집하는 기본 태그와 더불어 사용자가 쉽게 변경하고 적용할 수 있는 룰을 만들었습니다. 에이전트 설치 경로(*/usr/whatap/whatap-npmd*)에 *tagRule.yaml* 파일을 수정해 옵션을 적용할 수 있습니다.
 
 
 ## tagRule 옵션
@@ -134,9 +134,9 @@ proxy → msa_process → msa_process2 → db로 이어지는 네트워크 구�
 
   ```mermaid
   flowchart LR
-    A[Proxy] --> B(msa_process1);
-    B --> C(msa_process2);
-    C --> D(DB);
+    A[Proxy] */} B(msa_process1);
+    B */} C(msa_process2);
+    C */} D(DB);
   ```
 
 * `appName` 옵션으로 동일한 명칭의 프로세스들을 **운영기**/**개발기**/**시험기**로 분리하는 경우
@@ -168,12 +168,12 @@ proxy → msa_process → msa_process2 → db로 이어지는 네트워크 구�
 
   ```mermaid
   flowchart LR
-    A(prod_proxy) --> B(prod_msa1);
-    B[prod_msa1] --> C(prod_msa2);
-    C[prod_msa2] --> D(DB);
-    E[dev_proxy] --> F(dev_msa);
-    F[dev_msa] --> D(DB);
-    G[test] --> D(DB);
+    A(prod_proxy) */} B(prod_msa1);
+    B[prod_msa1] */} C(prod_msa2);
+    C[prod_msa2] */} D(DB);
+    E[dev_proxy] */} F(dev_msa);
+    F[dev_msa] */} D(DB);
+    G[test] */} D(DB);
   ```
 
 :::note

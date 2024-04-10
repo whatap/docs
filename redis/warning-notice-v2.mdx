@@ -5,28 +5,41 @@ description: Redis 데이터베이스의 지표별 이벤트 조건 설정을 �
 tags: [ Redis, 데이터베이스, 경고 알림, 이벤트 설정 ]
 ---
 
-{@include: ../common-items/_event-config-v2-basic.mdx} 
+import Eventconfigv2basic from "../common-items/_event-config-v2-basic.mdx";
 
-<!--기본 이벤트 템플릿-->
-{@include: ../common-items/_event-config-v2-template.mdx} 
+<Eventconfigv2basic /> 
 
-<!--이벤트 수정하기-->
-{@include: ../common-items/_event-config-v2-modify.mdx}
+{/*기본 이벤트 템플릿*/}
+import Eventconfigv2template from "../common-items/_event-config-v2-template.mdx";
 
-<!--이벤트 추가하기-->
-{@include: ../common-items/_event-config-v2-add.mdx}
+<Eventconfigv2template /> 
 
-<!--이벤트 삭제하기-->
-{@include: ../common-items/_event-config-v2-delete.mdx}
+{/*이벤트 수정하기*/}
+import Eventconfigv2modify from "../common-items/_event-config-v2-modify.mdx";
 
-<!--JSON 형식으로 수정하기-->
-{@include: ../common-items/_event-config-v2-json-modify.mdx} 
+<Eventconfigv2modify />
 
-<!--JSON 파일로 공유하기-->
-{@include: ../common-items/_event-config-v3-json-share.mdx} 
+{/*이벤트 추가하기*/}
+import Eventconfigv2add from "../common-items/_event-config-v2-add.mdx";
 
-<!--모든 이벤트 공유하기-->
-{@include: ../common-items/_event-config-all-event-sharing.mdx} 
+<Eventconfigv2add />
 
-<!--이벤트 검색하기-->
-{@include: ../common-items/_event-config-v2-search.mdx} 
+{/*이벤트 삭제하기*/}
+import Eventconfigv2delete from "../common-items/_event-config-v2-delete.mdx";
+
+<Eventconfigv2delete />
+
+{/*JSON 형식으로 수정하기*/}
+import Eventconfigv2jsonmodify from "../common-items/_event-config-v2-json-modify.mdx";
+
+<Eventconfigv2jsonmodify /> 
+
+{/*JSON 파일로 공유하기*/}
+import Eventconfigv3jsonshare from "../common-items/_event-config-v3-json-share.mdx";
+
+<Eventconfigv3jsonshare />
+
+{/*이벤트 검색하기*/}
+import Eventconfigv2search from "../common-items/_event-config-v2-search.mdx";
+
+<Eventconfigv2search /> 

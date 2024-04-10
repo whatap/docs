@@ -5,13 +5,17 @@ description: 에이전트에서 트랜잭션 성능을 추적해 설정할 수 �
 tags: [ .NET, 트랜잭션 ]
 ---
 
-{@include: ../common-items/_transaction.mdx}
+import Transaction from "../common-items/_transaction.mdx";
+
+<Transaction />
 
 에이전트에서 트랜잭션 성능을 추적해 설정할 수 있는 옵션을 다음과 같이 제공합니다.
 
 ### 트랜잭션 트레이싱
 
-{@include: ../common-items/_dotnet-transaction-profile.mdx} 
+import Dotnettransactionprofile from "../common-items/_dotnet-transaction-profile.mdx";
+
+<Dotnettransactionprofile /> 
 
 * **transaction_status_error_enable** <span class='type'>Boolean</span>
     
@@ -85,3 +89,8 @@ tags: [ .NET, 트랜잭션 ]
 
   트랜잭션 종료를 기다리는 제한 시간입니다. 5분 안에 트랜잭션이 끝나지 않는 경우 트랜잭션을 정보를 더 이상 수집하지 않습니다. 트랜잭션의 트레이스 정보에서 'Lost Connection'를 확인할 수 있습니다.
 
+* **prepend_app_pool_name** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  옵션값을 `true`로 설정하면 트랜잭션의 URL 앞에 애플리케이션의 전체 이름을 표시합니다.

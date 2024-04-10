@@ -23,9 +23,13 @@ tags: [ Go, 에이전트 설치 ]
 
 와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다.
 
-{@include: ../getting-started/_create-project-v2.mdx}
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
-{@include: ../getting-started/_accesskey-v2.mdx} 
+<Createprojectv2 />
+
+import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
+
+<Accesskeyv2 /> 
 
 ## 에이전트 다운로드
 
@@ -194,8 +198,10 @@ WHATAP_HOME=./whatap_home1 ./app
 
 ```
 
-<!--Go 라이브러리 설정하기-->
-{@include: ../common-items/_go-docker-setting-library.mdx}
+{/*Go 라이브러리 설정하기*/}
+import Godockersettinglibrary from "../common-items/_go-docker-setting-library.mdx";
+
+<Godockersettinglibrary />
 
 
 ## 모니터링 시작하기

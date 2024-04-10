@@ -19,7 +19,7 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 클러스터, 노드 목�
 
 - 노드 상태 요약, 비교, 필터 및 *CSV* 파일 다운로드 기능을 제공합니다.
     
-    > CSV 파일명, *kubernetes\_node\_list\_{pcode}_{timestamp}.csv*
+    > CSV 파일명, *kubernetes\_node\_list\_\{pcode}_\{timestamp}.csv*
 
 ## 기본 화면 안내
 
@@ -43,19 +43,27 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 클러스터, 노드 목�
 
 ## 메트릭 정보
 
-{@include: ../common-items/_k8s-list-metric.mdx}
+import K8slistmetric from "../common-items/_k8s-list-metric.mdx";
+
+<K8slistmetric />
  
 ## 필터
 
-{@include: ../common-items/_k8s-list-filter.mdx}
+import K8slistfilter from "../common-items/_k8s-list-filter.mdx";
+
+<K8slistfilter />
  
 ## 비교하기 
 
-{@include: ../common-items/_k8s-list-compare.mdx}
+import K8slistcompare from "../common-items/_k8s-list-compare.mdx";
+
+<K8slistcompare />
 
 ## 컬럼 선택 
 
-{@include: ../common-items/_k8s-list-cl.mdx}
+import K8slistcl from "../common-items/_k8s-list-cl.mdx";
+
+<K8slistcl />
  
 ## 노드 상세 {#nodedetails} 
 
@@ -104,9 +112,7 @@ tags: [ 쿠버네티스, 쿠버네티스 모니터링, 클러스터, 노드 목�
   | NetTxIops        | 컨테이너 네트워크 송신 건수                       |
 
 
-<!-- 
-
-ImgLang img='whatap_kubernetes_resource_node_list.png' desc='노드 목록' />
+{/* ImgLang img='whatap_kubernetes_resource_node_list.png' desc='노드 목록' />
 
 다음 기능을 추가로 제공합니다.
 
@@ -114,6 +120,4 @@ ImgLang img='whatap_kubernetes_resource_node_list.png' desc='노드 목록' />
 
 * ![CSV 다운로드 아이콘](/img/ico-csv.svg) ***CSV 다운로드***: 화면에 표시된 목록 데이터를 CSV 파일로 다운로드할 수 있습니다.
 
-서버 목록 페이지의 데이터는 60초 마다 자동 갱신됩니다. 사용자는 ![일시정지 아이콘](/img/ico-pause.svg) 버튼을 클릭해 데이터의 자동 갱신을 중지하거나 ![재생 아이콘](/img/ico-play-time.svg) 버튼을 클릭해 자동 갱신을 재시작할 수 있습니다.
-
--->
+서버 목록 페이지의 데이터는 60초 마다 자동 갱신됩니다. 사용자는 ![일시정지 아이콘](/img/ico-pause.svg) 버튼을 클릭해 데이터의 자동 갱신을 중지하거나 ![재생 아이콘](/img/ico-play-time.svg) 버튼을 클릭해 자동 갱신을 재시작할 수 있습니다. */}

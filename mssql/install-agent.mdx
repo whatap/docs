@@ -11,17 +11,25 @@ import TR from '@site/src/components/TR';
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
-{@include: ../common-items/_agent-signup-guide.mdx}   
+import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+
+<Agentsignupguide />   
 
 <Youtube ko='e_UpCgapfQY' en='MIo3HRIOt8M' ja='MIo3HRIOt8M' />
 
-{@include: ../getting-started/_create-project-v2.mdx}
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
-{@include: ../getting-started/_accesskey.mdx}
+<Createprojectv2 />
+
+import Accesskey from "../getting-started/_accesskey.mdx";
+
+<Accesskey />
 
 ## 와탭 데이터베이스 에이전트 다운로드
 
-{@include: ../common-items/_db-install-agent-steps.mdx} 
+import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
+
+<Dbinstallagentsteps /> 
 
 3. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
 
@@ -63,7 +71,9 @@ import TR from '@site/src/components/TR';
 
 :::
 
-{@include: ../common-items/_db-create-monitoring-account.mdx}
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+
+<Dbcreatemonitoringaccount />
 
 ```bash showLineNumbers
 create login whatap with password='DB_PASSWORD'; ## 원하는 password를 입력하세요.
@@ -84,10 +94,16 @@ grant kill database connection to whatap;
 
 ## DB 유저 파일 생성{#create-db-user}
 
-{@include: ../common-items/_db-create-db-user-file.mdx} 
+import Dbcreatedbuserfile from "../common-items/_db-create-db-user-file.mdx";
 
-<!--## 에이전트 실행-->
-{@include: ../common-items/_db-run-agent.mdx} 
+<Dbcreatedbuserfile /> 
 
-<!--## XOS 에이전트 설치-->
-{@include: ../common-items/_db-install-xos-agent.mdx} 
+{/*## 에이전트 실행*/}
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+
+<Dbrunagent /> 
+
+{/*## XOS 에이전트 설치*/}
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+
+<Dbinstallxosagent /> 

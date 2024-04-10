@@ -49,7 +49,9 @@ MySQL의 `performance_schema`에서 제공하는 SQL 통계 데이터(수행 횟
 
 <ImgLang img='db-mysql-sql-stat.png' desc='MYSQL SQL 통계' />
 
-{@include: ../common-items/_db-product-sql-stat-basic-usage.mdx} 
+import Dbproductsqlstatbasicusage from "../common-items/_db-product-sql-stat-basic-usage.mdx";
+
+<Dbproductsqlstatbasicusage /> 
 
 ## 컬럼 정보 안내
 
@@ -89,11 +91,17 @@ MySQL의 `performance_schema`에서 제공하는 SQL 통계 데이터(수행 횟
 
 <ImgLang img='db-sql-details-postgresql.png' desc='SQL 상세' />
 
-{@include: ../common-items/_db-product-sql-stat-query-details.mdx}
+import Dbproductsqlstatquerydetails from "../common-items/_db-product-sql-stat-query-details.mdx";
 
-<!-- 필터 조건추가하기-->
-{@include: ../common-items/_db-sql-filter.mdx}
+<Dbproductsqlstatquerydetails />
+
+{/* 필터 조건추가하기*/}
+import Dbsqlfilter from "../common-items/_db-sql-filter.mdx";
+
+<Dbsqlfilter />
 
 ## 테이블 컬럼 설정하기{#change-column}
 
-{@include: ../common-items/_db-v2-data-edit-column.mdx} 
+import Dbv2dataeditcolumn from "../common-items/_db-v2-data-edit-column.mdx";
+
+<Dbv2dataeditcolumn /> 

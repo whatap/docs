@@ -9,11 +9,15 @@ import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
-{@include: ../common-items/_agent-signup-guide.mdx}   
+import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+
+<Agentsignupguide />   
 
 <Youtube ko='e_UpCgapfQY' en='MIo3HRIOt8M' ja='MIo3HRIOt8M' />
 
-{@include: ../getting-started/_create-project-v2.mdx}
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
+
+<Createprojectv2 />
 
 ## 구성도 확인
 
@@ -27,8 +31,10 @@ DBX 에이전트는 별도 서버에 설치하거나 DB 서버에 설치할 수 
 
 </div>
 
-<!-- 모니터링용 계정 생성-->
-{@include: ../common-items/_db-create-monitoring-account.mdx}
+{/* 모니터링용 계정 생성*/}
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+
+<Dbcreatemonitoringaccount />
 
 기능 및 사용 환경에 따라 추가 권한을 부여하세요.
 
@@ -87,7 +93,9 @@ DBX 에이전트는 별도 서버에 설치하거나 DB 서버에 설치할 수 
   grant select on all tables in schema {schema_name} to whatap;
   ```
 
-{@include: ../getting-started/_accesskey-v2.mdx}
+import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
+
+<Accesskeyv2 />
 
 ## DBX 에이전트 다운로드
 
@@ -140,18 +148,26 @@ db_port={DB_Server_Port}
 
 :::
 
-<!-- 공통 Notes-->
-{@include: ../common-items/_db-install-agent-common-notes.mdx}
+{/* 공통 Notes*/}
+import Dbinstallagentcommonnotes from "../common-items/_db-install-agent-common-notes.mdx";
+
+<Dbinstallagentcommonnotes />
 
 ### DB 유저 파일 생성{#create-db-user}
 
 <DBuserDesc name='default'/>
 
-{@include: ../common-items/_db-create-db-user-file-body.mdx} 
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+
+<Dbcreatedbuserfilebody /> 
 
 
-<!--모니터링 시작하기-->
-{@include: ../common-items/_db-run-agent.mdx}
+{/*모니터링 시작하기*/}
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
 
-<!--XOS 에이전트 설치-->
-{@include: ../common-items/_db-install-xos-agent.mdx} 
+<Dbrunagent />
+
+{/*XOS 에이전트 설치*/}
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+
+<Dbinstallxosagent /> 

@@ -16,6 +16,39 @@ import Checkpakip from "../common-items/_check-pak-ip.mdx";
 
 <Checkpakip />
 
+## 필터를 위한 특정 태그 추가
+
+사용자가 필터를 위한 특정 문자열을 태그로 설정할 수 있습니다. 설정을 통해 와탭 모니터링 서비스 화면에서 수집된 데이터를 해당 태그의 이름 및 값으로 필터링할 수 있습니다.
+
+<Tabs groupId="operating-systems">
+<TabItem value="lx" label="Linux Shell">
+
+```bash title="SH" showLineNumbers {5,6}
+# -tag.[사용자 태그 키 이름][공백][사용자태그 값]
+
+./focus -license $WHATAP_LICENSE \
+    -pcode $WHATAP_PCODE -server.host $WHATAP_HOST \
+    -tag.CustomTagName CustomTagValue \
+    -tag.MyServer1 server_01 \
+    ...
+```
+
+</TabItem>
+<TabItem value="wd" label="Windows Powershell">
+
+```powershell title="Powersehll" showLineNumbers {5,6}
+# -tag.[사용자 태그 키 이름][공백][사용자태그 값]
+
+.\focus.exe -license $WHATAP_LICENSE `
+    -pcode $WHATAP_PCODE -server.host $WHATAP_HOST `
+    -tag.CustomTagName CustomTagValue `
+    -tag.MyServer1 server_01 `
+    ...
+```
+
+</TabItem>
+</Tabs>
+
 ## 알림 보내기
 
 사용자 정의 알림을 즉시 보낼 수 있습니다. 알림을 보낸 후 Focus는 종료합니다.
@@ -23,7 +56,7 @@ import Checkpakip from "../common-items/_check-pak-ip.mdx";
 <Tabs groupId="operating-systems">
 <TabItem value="lx" label="Linux Shell">
 
-```bash title=SH
+```bash title="SH"
 #알림의 심각도를 선택합니다.
 level={info|warn|fatal}
 #알림의 제목
@@ -38,7 +71,7 @@ message=원하는 알림의 본문
 </TabItem>
 <TabItem value="wd" label="Windows Powershell">
 
-```bash title='SH'
+```powershell title="Powersehll"
 #알림의 심각도를 선택합니다.
 $level="{info|warn|fatal}"
 #알림의 제목
@@ -60,7 +93,7 @@ $message="원하는 알림의 본문"
 <Tabs groupId="operating-systems">
 <TabItem value="lx" label="Linux Shell">
 
-```bash title=SH
+```bash title="SH"
 #매트릭 카테고리
 category=my_category
 #데이터 베이스 드라이버
@@ -79,7 +112,7 @@ sqlquery="select some, columns from sometable"
 </TabItem>
 <TabItem value="wd" label="Windows Powershell">
 
-```bash title='SH'
+```powershell title="Powersehll"
 #매트릭 카테고리
 $CATEGORY="my_category"
 #데이터 베이스 드라이버
@@ -106,7 +139,7 @@ $sqlquery="select some, columns from sometable"
 <Tabs groupId="operating-systems">
 <TabItem value="lx" label="Linux Shell">
 
-```bash title=SH
+```bash title="SH"
 #매트릭 카테고리
 category=my_category
 #로그 파일
@@ -126,7 +159,7 @@ LOG_KEYWORDS=keyword1,keyword2
 </TabItem>
 <TabItem value="wd" label="Windows Powershell">
 
-```bash title='SH'
+```powershell title="Powersehll"
 #매트릭 카테고리
 $CATEGORY="my_category"
 #로그 파일
@@ -154,7 +187,7 @@ LOG_KEYWORDS=keyword1,keyword2
 <Tabs groupId="operating-systems">
 <TabItem value="lx" label="Linux Shell">
 
-```bash title=SH
+```bash title="SH"
 #카테고리
 category=my_category
 #로그 파일 wildcard(*), 날짜패턴(http://strftime.org) 포함 가능
@@ -168,7 +201,7 @@ LOG_FILE=로그 파일 경로
 </TabItem>
 <TabItem value="wd" label="Windows Powershell">
 
-```bash title='SH'
+```powershell title="Powersehll"
 #카테고리
 $CATEGORY="my_category"
 #로그 파일 wildcard(*), 날짜패턴(http://strftime.org) 포함 가능

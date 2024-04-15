@@ -14,6 +14,79 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.4.0.a2
+
+2024년 04월 16일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 실시간 로그 이벤트 또는 복합 로그 이벤트를 JSON 형식으로 불러올 경우 id 속성을 제외하고 추가 또는 덮어쓰기 하도록 수정
+
+- <Status>Changed</Status> 프로젝트 생성 페이지에서 리전 선택 동선 변경(지역 → CSP 선택 순으로 동선 변경)
+
+- <Status>Changed</Status> AWS Marketplace 계정 사용자의 경우 구독 취소 기능 제거 후 안내 메시지 추가
+
+- <Status>Fixed</Status> 사이드 메뉴의 프로젝트 목록에서 그룹/프로젝트 이름이 긴 경우 정렬이 흐트러지는 문제 수정
+
+- <Status>Deprecated</Status> 사이드 메뉴의 튜토리얼 버튼 제거
+
+---
+
+### `Application`
+
+#### 공통
+
+- <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dailyAppStat" className="uitext" /> 메뉴에서 데이터 조회가 완료되기 전 검색 버튼을 선택해 다시 조회가 가능한 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴의 <Cmdname sid="today_tps" className="uitext" /> 및 <Cmdname sid="today_user" className="uitext" /> 위젯에서 조회 기간을 변경해도 데이터가 유지되는 문제 수정
+
+#### Java
+
+- <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 **JVM 옵션 추가 항목**에서 WebLogic 설치 가이드 내용 수정: <code>JAVA_OPTS</code> → <code>JAVA_OPTIONS</code>
+
+---
+
+### `Kubernetes`
+
+- <Status>Feature</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_deploymentList" className="uitext" /> 메뉴의 <Cmdname sid="BTN06342" className="uitext" /> 화면에서 <Cmdname sid="resource" className="uitext" /> 탭에 ReplicaSet 목록 추가
+
+- <Status>Changed</Status> 목록형 화면에서 이동 버튼의 UI 변경
+
+---
+
+### `Database`
+
+#### PostgreSQL
+
+<Status>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbObjectInfo" className="uitext" /> 메뉴에서 데이터가 없을 경우 표시되는 안내 문구 변경
+
+#### PostgreSQL / MySQL
+
+<Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 디스크 사용 추이를 확인할 수 있는 상세 팝아웃 추가
+
+#### PostgreSQL / MySQL / MongoDB
+
+<Status>Changed</Status> cpu(xos) 지표를 <code>cpu_sys(xos)</code>, <code>cpu_user(xos)</code>, <code>cpu_iowait(xos)</code>으로 세분화하여 표시하도록 변경
+
+---
+
+### `Cloud`
+
+#### Amazon ECS
+
+<Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 <Cmdname sid="agent-setup-guide" className="uitext" /> 섹션에서 언어별로 다른 사항을 동일한 기준으로 수정
+
+#### Amazon CloudWatch
+
+- <Status>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 Role ARN 입력 필드에 대한 라벨을 버튼 형식에서 텍스트 형식으로 변경 
+
+- <Status>Fixed</Status> 언어 설정을 일본어로 설정한 상태에서, <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 <Cmdname sid="pricing" className="uitext" /> 탭에서 <Cmdname sid="price_policy" className="uitext" /> 링크를 선택하면 한국어 페이지가 아닌 일본어 페이지로 이동하도록 수정
+
+</div>
+
+
 ## Preview 2.4.0.a1
 
 2024년 04월 04일

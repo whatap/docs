@@ -36,6 +36,12 @@ toc_max_heading_level: 2
 
 #### 기타
 
+- <Status>Changed</Status> 다음 메뉴에서 목록 테이블에서 활성화 토글과 수정 버튼 컬럼 순서를 가장 왼쪽으로 변경
+
+  - <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_maintenancePlan" className="uitext" />
+  - <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="metrics" className="uitext" /> &gt; <Cmdname sid="goto_alertTemplate" className="uitext" />
+
+
 - <Status>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 실시간 로그 이벤트 또는 복합 로그 이벤트를 JSON 형식으로 불러올 경우 id 속성을 제외하고 추가 또는 덮어쓰기 하도록 수정
 
 - <Status>Changed</Status> 프로젝트 생성 페이지에서 리전 선택 동선 변경(지역 → CSP 선택 순으로 동선 변경)
@@ -59,6 +65,12 @@ toc_max_heading_level: 2
 #### Java
 
 - <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 **JVM 옵션 추가 항목**에서 WebLogic 설치 가이드 내용 수정: <code>JAVA_OPTS</code> → <code>JAVA_OPTIONS</code>
+
+---
+
+### `Server`
+
+<Status>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴의 서버 이벤트 추가/수정 창에서 포트 알림 안내 툴팁의 문구 수정
 
 ---
 
@@ -103,13 +115,17 @@ toc_max_heading_level: 2
 
 #### Amazon ECS
 
-<Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 <Cmdname sid="agent-setup-guide" className="uitext" /> 섹션에서 언어별로 다른 사항을 동일한 기준으로 수정
+- <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 <Cmdname sid="agent-setup-guide" className="uitext" /> 섹션에서 언어별로 다른 사항을 동일한 기준으로 수정
+
+- <Status>Fixed</Status> 다국어가 적용이 되지 않은 지표 이름을 언어 환경에 맞게 표시하도록 수정
 
 #### Amazon CloudWatch
 
 - <Status>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 Role ARN 입력 필드에 대한 라벨을 버튼 형식에서 텍스트 형식으로 변경 
 
 - <Status>Fixed</Status> 언어 설정을 일본어로 설정한 상태에서, <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 <Cmdname sid="pricing" className="uitext" /> 탭에서 <Cmdname sid="price_policy" className="uitext" /> 링크를 선택하면 한국어 페이지가 아닌 일본어 페이지로 이동하도록 수정
+
+- <Status>Fixed</Status> 다국어가 적용이 되지 않은 지표 이름을 언어 환경에 맞게 표시하도록 수정
 
 </div>
 

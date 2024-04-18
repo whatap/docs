@@ -21,7 +21,9 @@ import Metricseventconditionselecttargetguide from "../common-items/_metrics-eve
 
 <Metricseventconditionselecttargetguide />
 
-## 메트릭스 이벤트 템플릿 {#template}
+## 템플릿 {#template}
+
+### 메트릭스 이벤트 템플릿 
 
 :::note 
 
@@ -172,3 +174,89 @@ Kubernetes 이벤트의 `reason` 필드 정보 중 `Unhealthy`가 0회 이상 �
 > HPA POD 생성 최대치에 도달하였고 메모리 사용률이 >= 90% 상태 입니다.
 
 */}
+
+### 복합 메트릭스 이벤트 템플릿 
+
+#### ***Inactive agents has been found***
+
+활성화된 에이전트의 수가 지정한 조건보다 적을 때 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다. 
+
+> `${ip}` `${okindName}` The number of active agents has decreased to `${num_of_current_agents}`. 
+
+#### ***TPS has changed by more than 30% compared to the previous week***
+
+애플리케이션의 TPS 가 전주 대비 30% 이상 변화했을 때 알림이 발생합니다. 메시지 예시는 다음과 같습니다.
+
+> `${okindName}` a week ago : `${prev_week_tps_display}`, current : `${current_tps_display}`,  difference : `${one_week_diff_display}`
+
+#### ***Very slow active transactions detected***
+
+애플리케이션의 8초 초과 구간 트랜잭션 수가 평균 10개를 넘어갔을 때 알림이 발생합니다. 메시지 예시는 다음과 같습니다.
+
+> `${okindName}` `${very_slow_tx_cnt_m5_avg_display}` active transactions performed for more than 8 seconds were detected.
+
+#### ***APDEX score dropped***
+
+APDEX 점수가 70 미만이 되면 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> The average apdex of `${pname}` in the last 5 seconds is `${apdex_display}`
+
+#### ***CPU % is too high***
+
+노드의 CPU 사용률이 80% 초과 시 알림이 발생합니다. 메시지 예시는 다음과 같습니다.
+
+> CPU utilization rate of the `${oname}` in the last minute > `${_rule_}` %
+
+#### ***CPU User % is too high***
+
+사용자가 사용하는 CPU 사용률이 50% 초과 시 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> CPU User utilization rate of the `${oname}` in the last minute > `${_rule_}` %
+
+#### ***The number of agents with high CPU SYS % is too large***
+
+시스템이 사용하는 CPU 사용률이 50% 초과 시 알림이 발생합니다. 메시지 예시는 다음과 같습니다. 
+
+> The number of agents with a CPU SYS of 70% or more in the last minute > `${_rule_}` %
+
+#### ***The Disk I/O is too high***
+
+디스크 I/O 사용률이 10% 초과 시 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> In the last minute, `${oname}`'s Disk I/O > `${_rule_}` %
+
+#### ***The Disk Used % is too high***
+
+파일 시스템 사용률이 90% 초과 시 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> In the last minute, `${oname}`'s Disk Used > `${_rule_}` %
+
+#### ***Network Traffic I/O is too high***
+
+네트워크 인바운드 트래픽/아웃바운드 트래픽이 10% 초과 시 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> In the last minute, `${oname}`'s Network Traffic I/O > `${_rule_}` %
+
+#### ***Network Packet I/O is too high***
+
+네트워크 인바운드 패킷/아웃바운드 패킷이 10% 초과 시 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> In the last minute, `${oname}`'s Network Packet I/O > `${_rule_}` %
+
+#### ***Network Error I/O is too high***
+
+네트워크 인바운드 에러/아웃바운드 에러가 10% 초과 시 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> In the last minute, The maximum value of the `${oname}`'s Network Error I/O > `${_rule_}` %
+
+#### ***The kube-apiserver latency over 10 second***
+
+컨트롤 플레인 컴포넌트 중 kube-apiserver의 latency가 10초 초과 시 알림이 발생합니다. 단 WATCH 행위는 제외합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> Latency of the `${verb}` verb in `${instance}` of kube-apiserver exceeded `${metricValue}` seconds.
+
+#### ***The kube-apiserver response increase/decrease rate for error codes***
+
+컨트롤 플레인 컴포넌트 중 kube-apiserver의 에러 응답이 50건을 초과하고 증감률이 50% 이상 변화한 경우 알림이 발생합니다. <Cmdname sid="message" className="uitext" /> 예시는 다음과 같습니다.
+
+> Rate of increase in the number of requests for code `${code}` on instance `${instance}` of kube-apiserver exceeded `${metricValue}`.

@@ -27,9 +27,9 @@ npm install whatap
 
 - *whatap.conf*: 모니터링을 위한 에이전트의 정보 및 액세스 키, 와탭 데이터 수집 서버의 IP 정보 등을 저장하는 설정 파일입니다. 
 
-- *security.conf(또는 paramkey.txt)*: SQL 변수, HTTP 쿼리를 조회하거나 Thread 중지 기능을 이용할 때 입력하는 보안키를 저장합니다.
+- *security.conf* (또는 *paramkey.txt*): SQL 변수, HTTP 쿼리를 조회하거나 Thread 중지 기능을 이용할 때 입력하는 보안키를 저장합니다.
 
-- *server.js*: **Next.js** 앱 인스턴스를 위한 서버 설정 파일입니다.
+- *server.js* (파일명 예시): **Next.js** 앱 인스턴스를 위한 서버 설정 파일입니다.
 
 ## server.js 코드 작성하기
 
@@ -47,7 +47,6 @@ var WhatapAgent = require('whatap').NodeAgent;
 const {createServer} = require('http')
 const {parse} = require('url')
 const next = require('next')
-const axios = require('axios')
 ```
 
 ### 애플리케이션 설정
@@ -102,7 +101,6 @@ var WhatapAgent = require('whatap').NodeAgent;
 const {createServer} = require('http')
 const {parse} = require('url')
 const next = require('next')
-const axios = require('axios')
 
 const dev = process.env.NODE_ENV !== 'production'
 const hostname = 'localhost'

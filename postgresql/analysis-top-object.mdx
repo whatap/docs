@@ -188,7 +188,8 @@ PostgreSQL에서는 XID(transaction id)를 순환적으로 사용하여 어느 �
 | `datname` | 데이터베이스 이름 |
 | `schemaname` | 스케마(schema) 이름 |
 | `tablename` | 테이블 이름 |
-| `xid_age` | 테이블의 max age, 가장 오래된 레코드의 xid(트랜잭션 ID) |
+| `xid_age` | 테이블의 max age, 가장 오래된 레코드의 `xid`(트랜잭션 ID) |
+| `per_to_wraparound` | `xid`(트랜잭션 ID) 래핑까지의 남은 여유를 백분율로 표시한 지표<br/>계산식: `per_to_wraparound`(%) = `xid_age` / `Autovacuum_freeze_max_age` * 100 |
 | `table_size` | 테이블 사이즈 |
 | `autovacuum_vacuum_tuples` | 이 값보다 Dead tuple 갯수가 많아지면 autovacuum을 수행합니다. |
 | `dead_tuples` | Dead tuple 수 |

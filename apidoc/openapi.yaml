@@ -14,13 +14,13 @@ servers:
   - url: 'https://api.whatap.io'
 tags:
   - name: 메타성 목록 조회
-    description: 프로젝트 및 그룹, 활성화된 에이전트 목록을 조회할 수 있는 API 입니다.
+    description: 프로젝트 및 그룹, 활성화된 에이전트 목록을 조회할 수 있는 API 목록을 안내합니다.
 paths:
   /open/api/json/projects:
     get:
       summary: 프로젝트 목록 조회
       operationId: getProjectsList
-      description: 프로젝트 목록을 조회합니다.
+      description: 프로젝트 목록을 조회하는 API입니다.
       tags:
         - 메타성 목록 조회
       parameters:
@@ -63,6 +63,14 @@ paths:
                         status:
                           type: string
                           description: 프로젝트 상태
+                          enum:
+                            - pending
+                            - trial
+                            - subscribe
+                            - close_pending
+                            - limited
+                            - closed
+                            - trial_limited
                         productType:
                           type: string
                           description: 서버 유형
@@ -71,7 +79,7 @@ paths:
                           description: 서버 플랫폼
                         gatewayName:
                           type: string
-                          description: 게이트웨이 이름
+                          description: 데이터 서버 지역
                         apiToken:
                           type: string
                           description: 프로젝트 API 토큰
@@ -83,16 +91,16 @@ paths:
                     description: 프로젝트 수
                 example:
                   data:
-                    - groupName: ""
+                    - groupName: ''
                       projectCode: 35
-                      projectName: "APM_TEST2"
-                      createTime: "2018-10-19T07:17:03.774"
-                      status: "subscribe"
-                      productType: "APM"
-                      platform: "JAVA"
-                      gatewayName: "LOCAL"
-                      apiToken: "5**********************R"
-                  accountEmail: "xxx@whatap.io"
+                      projectName: 'APM_TEST2'
+                      createTime: '2018-10-19T07:17:03.774'
+                      status: 'subscribe'
+                      productType: 'APM'
+                      platform: 'JAVA'
+                      gatewayName: 'LOCAL'
+                      apiToken: '5**********************R'
+                  accountEmail: 'xxx@whatap.io'
                   total: 6
       x-codeSamples:
         - lang: 'curl'
@@ -104,7 +112,7 @@ paths:
   /open/api/json/project:
     get:
       summary: 프로젝트 정보 조회
-      description: 애플리케이션 및 서버 상품의 프로젝트 정보를 조회합니다.
+      description: 애플리케이션 및 서버 상품의 프로젝트 정보를 조회하는 API입니다.
       operationId: getProjectInfo
       tags:
         - 메타성 목록 조회
@@ -130,59 +138,476 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/APM'
                   - $ref: '#/components/schemas/Server'
-            examples:
-              apm:
-                summary: 애플리케이션 프로젝트 정보 조회
-                value:
-                  platform: "JAVA"
-                  createTime: "Tue Sep 18 08:34:27 GMT 2018"
-                  gatewayName: "Office-OTE"
-                  projectCode: 1**1
-                  status: "Subscribe"
-                  lastUpdatedTime: "Tue Sep 18 08:34:34 GMT 2018"
-                  name: "SEO_APM"
-                  productType: "APM"
-              server:
-                summary: 서버 프로젝트 정보 조회
-                value:
-                  pname: "LOCAL_PC"
-                  timezone: 9,
-                  regionName: "LOCAL"
-                  values:
-                    servers:
-                      public_ip: "192.168.1.0"
-                      os_cpuvendor: "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz"
-                      agent_created: "1572406071216"
-                      ip: "192.168.1.0"
-                      os_arch: "amd64"
-                      actTime: 1572406264112
-                      cpu_cores: "8"
-                      oid: -1030311093
-                      isActive: true
-                      okind: ""
-                      version: "1.2.4"
-                      tags: [
-                          "network:169.254.0.0/16",
-                          "network:192.168.1.0/24",
-                          "java",
-                          "OpenVpn",
-                          "oracle",
-                          "ftp"
-                      ]
-                      inactTime: 0
-                      oname: "DESKTOP-KEIPLT5"
-                      os_name: "windows"
-                      startTime: 1572406263602
-                      os_memory: "17036419072"
-                      os_status: "warning"
+              examples:
+                apm:
+                  value:
+                    platform: 'JAVA'
+                    createTime: 'Tue Sep 18 08:34:27 GMT 2018'
+                    gatewayName: 'Office-OTE'
+                    projectCode: 1234
+                    status: 'Subscribe'
+                    lastUpdatedTime: 'Tue Sep 18 08:34:34 GMT 2018'
+                    name: 'SEO_APM'
+                    productType: 'APM'
+                server:
+                  value:
+                    pname: 'LOCAL_PC'
+                    timezone: 9
+                    regionName: 'LOCAL'
+                    values:
+                      servers:
+                        - public_ip: '192.168.1.0'
+                          os_cpuvendor: 'Intel(R) Core(TM) i7-8550U CPU 1.80GHz'
+                          agent_created: '2018-11-18T07:17:31.216Z'
+                          ip: '192.168.1.0'
+                          os_arch: 'amd64'
+                          actTime: 1572406264112
+                          cpu_cores: '8'
+                          oid: -1030311093
+                          isActive: true
+                          okind: ''
+                          version: '1.2.4'
+                          tags:
+                            - 'network:169.254.0.0/16'
+                            - 'network:192.168.1.0/24'
+                            - 'java'
+                            - 'OpenVpn'
+                            - 'oracle'
+                            - 'ftp'
+                          inactTime: 0
+                          oname: 'DESKTOP-KEIPLT5'
+                          os_name: 'windows'
+                          startTime: '2018-11-18T07:17:43.602Z'
+                          os_memory: '17036419072'
+                          os_status: 'warning'
       x-codeSamples:
         - lang: 'curl'
           source: |
             curl -L \
             -w "\n" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
-            -H "x-whatap-pcode: {{projectCode}}" "https://api.whatap.io/open/api/json/project"
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/api/json/project"
+  /open/json/agents:
+    get:
+      summary: 에이전트 상태 및 호스트 IP 조회
+      description: 프로젝트 내 에어전트의 상태 및 IP 주소를 조회하는 API입니다.
+      operationId: getAgentInfo
+      tags:
+        - 메타성 목록 조회
+      parameters:
+        - name: x-whatap-token
+          in: header
+          required: true
+          schema:
+            type: string
+          description: 프로젝트 API 토큰 {{PROJECT_API_TOKEN}}
+        - name: x-whatap-pcode
+          in: header
+          required: true
+          schema:
+            type: string
+          description: 프로젝트 코드 {{projectCode}}
+      responses:
+        '200':
+          description: 에이전트 정보 조회 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        host_ip:
+                          type: string
+                          format: ipv4
+                          description: IP 주소
+                        oname:
+                          type: string
+                          description: 에이전트 이름
+                        active:
+                          type: boolean
+                          description: 에이전트 활성화 상태 여부
+              example:
+                data:
+                  - host_ip: "127.0.0.1"
+                    oname: "TC-29-96-8082"
+                    active: true
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/json/agents"
+  /open/api/json/project/{projectCode}/members:
+    get:
+      summary: 프로젝트 멤버 목록 조회
+      description: 프로젝트에 소속된 멤버 목록을 조회하는 API입니다.
+      operationId: getProjectMemberList
+      tags:
+        - 메타성 목록 조회
+      parameters:
+        - name: x-whatap-token
+          in: header
+          required: true
+          schema:
+            type: string
+          description: 계정 API 토큰 {{ACCOUNT_API_TOKEN}}
+        - name: projectCode
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: 프로젝트 코드
+      responses:
+        '200':
+          description: 프로젝트 멤버 목록 조회 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        email:
+                          type: string
+                          description: 사용자 계정 이메일 주소
+                        name:
+                          type: string
+                          description: 사용자 이름
+                        desc:
+                          type: string
+                          description: 사용자 계정에 대한 설명
+                        sms:
+                          type: string
+                          description: 사용자 전화번호
+                  total:
+                    type: integer
+                    description: 프로젝트 멤버 수
+              example:
+                data:
+                  - email: 'honggildong@whatap.io'
+                    name: '홍길동'
+                    desc: ''
+                    sms: '010XXXXXXX'
+                totla: 8
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+              -w "\n" \
+              -H "x-whatap-token: {{ACCOUNT_API_TOKEN}}" \
+              "https://api.whatap.io/open/api/json/project/{projectCode}/members"
+  /open/api/json/groups:
+    get:
+      summary: 그룹 목록 조회
+      description: 사용자가 소속된 그룹 목록을 조회하는 API입니다.
+      operationId: getGroupList
+      tags:
+        - 메타성 목록 조회
+      parameters:
+        - name: x-whatap-token
+          in: header
+          required: true
+          schema:
+            type: string
+          description: 계정 API 토큰 {{ACCOUNT_API_TOKEN}}
+      responses:
+        '200':
+          description: 그룹 목록 조회 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        groupName:
+                          type: string
+                          description: 그룹 이름
+                        groupKey:
+                          type: string
+                          description: 그룹 고유 식별자(ID)
+                        description:
+                          type: string
+                          description: 그룹에 대한 설명
+                  total:
+                    type: integer
+                    description: 그룹 수
+              example:
+                data:
+                  - groupName: 'WHATAP APM'
+                    groupKey: 'grp****ab123kskd*****q'
+                    description: 'APM Group'
+                total: 3
+        x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+              -w "\n" \
+              -H "x-whatap-token: {{ACCOUNT_API_TOKEN}}" \
+              "https://api.whatap.io/open/api/v2/json/groups"
+  /open/api/json/group/{groupKey}/members:
+    get:
+      summary: 그룹 멤버 목록 조회
+      description: 사용자가 소속된 그룹의 멤버 목록을 조회하는 API입니다.
+      operationId: getGroupMemberList
+      tags:
+        - 메타성 목록 조회
+      parameters:
+        - name: x-whatap-token
+          in: header
+          required: true
+          schema:
+            type: string
+          description: 계정 API 토큰 {{ACCOUNT_API_TOKEN}}
+        - name: groupKey
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: 그룹 고유 식별자(ID)
+      responses:
+        '200':
+          description: 그룹 목록 조회 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        email:
+                          type: string
+                          description: 사용자 계정 이메일 주소
+                        name:
+                          type: string
+                          description: 사용자 이름
+                        desc:
+                          type: string
+                          description: 사용자 계정에 대한 설명
+                        sms:
+                          type: string
+                          description: 사용자 전화번호
+                  total:
+                    type: integer
+                    description: 그룹 멤버 수
+              example:
+                  data:
+                    - email: 'honggildong@whatap.io'
+                      name: '홍길동'
+                      desc: ''
+                      sms: '010XXXXXXX'
+                  totla: 8
+        x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+              -w "\n" \
+              -H "x-whatap-token: {{ACCOUNT_API_TOKEN}}" \
+              "https://api.whatap.io/open/api/json/group/{groupKey}/members"
+  /open/api/json/group/{groupKey}/projects:
+    get:
+      summary: 그룹에 포함된 프로젝트 조회
+      description: 그룹에 포함된 프로젝트들의 메타정보를 조회하는 API입니다.
+      operationId: getGroupProjectList
+      tags:
+        - 메타성 목록 조회
+      parameters:
+        - name: x-whatap-token
+          in: header
+          required: true
+          schema:
+            type: string
+          description: 계정 API 토큰 {{ACCOUNT_API_TOKEN}}
+        - name: groupKey
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: 그룹 고유 식별자(ID)
+      responses:
+        '200':
+          description: 그룹 목록 조회 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        projectCode:
+                          type: integer
+                          description: 프로젝트 코드
+                        name:
+                          type: string
+                          description: 프로젝트 이름
+                        status:
+                          type: string
+                          description: 프로젝트 상태
+                          enum:
+                            - pending
+                            - trial
+                            - subscribe
+                            - close_pending
+                            - limited
+                            - closed
+                            - trial_limited
+                        productType:
+                          type: string
+                          description: 프로젝트의 상품 유형
+                        platform:
+                          type: string
+                          description: 프로젝트의 상품 플랫폼
+                        gatewayName:
+                          type: string
+                          description: 데이터 서버 지역
+              example:
+                data:
+                  - projectCode: 35
+                    name: 'APM_TEST2'
+                    status: 'Subscribe'
+                    productType: 'APM'
+                    platform: 'JAVA'
+                    gatewayName: 'LOCAL'
+        x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+              -w "\n" \
+              -H "x-whatap-token: {{ACCOUNT_API_TOKEN}}" \
+              "https://api.whatap.io/open/api/json/group/{groupKey}/projects"
+  /open/api/v2/agent/list:
+    get:
+      summary: oid 목록 호출
+      description: |
+        사용자가 조회를 원하는 시간 동안 활성화된 에이전트 정보를 조회할 수 있는 API입니다. 조회 시간(`stime`, `etime`)은 하루로 제한되며, 시간 단위는 밀리초(millisecond, ms)입니다.
 
+        예시에서 작성된 샘플 코드 중 `stime`, `etime` 파라미터 값은 사용자 환경에 맞게 변경해 사용하세요. 파라미터 값은 다양한 포맷으로 변경해 요청할 수 있습니다.
+
+        * 1693475430087 (unix timestamp)
+        * `yyyyMMddHHmmss`
+        * `yyyyMMddHHmm`
+        * `MMddHHmmss`
+        * `MMddHHmm`
+      tags:
+        - 메타성 목록 조회
+      parameters:
+        - name: x-whatap-token
+          in: header
+          required: true
+          schema:
+            type: string
+          description: 프로젝트 API 토큰 {{PROJECT_API_TOKEN}}
+        - name: x-whatap-pcode
+          in: header
+          required: true
+          schema:
+            type: string
+          description: 프로젝트 코드 {{projectCode}}
+      responses:
+        '200':
+          description: oid 목록 호출 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stime:
+                    type: integer
+                    format: int64
+                    description: 조회 시작 시간(UNIX epoch time, millisecond)
+                  etime:
+                    type: integer
+                    format: int64
+                    description: 조회 종료 시간(UNIX epoch time, millisecond)
+                  timestamp:
+                    type: integer
+                    format: int64
+                    description: 데이터 생성 시간(UNIX epoch time, millisecond)
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        oid:
+                          type: integer
+                          description: 에이전트 고유 식별자(ID)
+                        oname:
+                          type: string
+                          description: 에이전트 이름
+                        alias:
+                          type: string
+                          description: 에이전트 별칭
+                        initial:
+                          type: string
+                          description: 에이전트 이니셜
+                        otype:
+                          type: string
+                          description: 에이전트 유형
+                        subtype:
+                          type: string
+                          description: 에이전트 하위 유형
+                        active:
+                          type: boolean
+                          description: 에이전트 활성 상태
+                        okind:
+                          type: integer
+                          description: 종류별 에이전트 그룹 고유 식별자(ID)
+                        okindName:
+                          type: string
+                          description: 종류별 에이전트 그룹 이름
+                        onode:
+                          type: integer
+                          description: 서버별 에이전트 그룹 고유 식별자(ID)
+                        onodeName:
+                          type: string
+                          description: 서버별 에이전트 그룹 이름
+                        ip:
+                          type: string
+                          description: 에이전트 IP 주소
+                        agent.version:
+                          type: string
+                          description: 에이전트 버전
+                        cpuCores:
+                          type: integer
+                          description: 에이전트가 설치된 서버의 CPU 코어 수
+              example:
+                stime: 1690850183000
+                etime: 1693321200000
+                timestamp: 1693388196965
+                data:
+                  - oid: 757639646
+                    oname: "DBX-0-107-3306"
+                    alias: ""
+                    initial: ""
+                    otype: "database"
+                    subtype: "0"
+                    active: false
+                    okind: 0
+                    okindName: ""
+                    onode: 0
+                    onodeName: ""
+                    ip: ""
+                    agent.version: ""
+                    cpuCores: 0
 components:
   schemas:
     APM:
@@ -196,12 +621,20 @@ components:
           description: 프로젝트 생성 날짜
         gatewayName:
           type: string
-          description: 게이트웨이 이름
+          description: 데이터 서버 지역
         projectCode:
           type: number
           description: 프로젝트 코드
         status:
           type: string
+          enum:
+            - pending
+            - trial
+            - subscribe
+            - close_pending
+            - limited
+            - closed
+            - trial_limited
           description: 프로젝트 상태
         lastUpdatedTime:
           type: string
@@ -217,10 +650,13 @@ components:
       properties:
         pname:
           type: string
+          description: 프로젝트 이름
         timezone:
           type: integer
+          description: 서버의 위치가 설정된 표준 시간대
         regionName:
           type: string
+          description: 데이터 서버 지역
         values:
           type: object
           properties:
@@ -232,44 +668,59 @@ components:
                   public_ip:
                     type: string
                     format: ipv4
+                    description: 외부에서 접속할 수 있는 IP 주소
                   os_cpuvendor:
                     type: string
+                    description: 서버에 탑재된 CPU 제조사 및 이름
                   agent_created:
                     type: string
                     format: date-time
+                    description: 에이전트 생성 날짜
                   ip:
                     type: string
                     format: ipv4
+                    description: 내부에서 접근할 수 있는 IP 주소
                   os_arch:
                     type: string
+                    description: 운영체제 아키텍쳐
                   actTime:
                     type: integer
                     format: int64
+                    description: 에이전트 활성화 시간(ms)
                   cpu_cores:
                     type: string
+                    description: CPU 코어 갯수
                   oid:
                     type: integer
                     format: int32
+                    description: 에이전트 고유 식별자
                   isActive:
                     type: boolean
+                    description: 활성화 상태 여부
                   okind:
                     type: string
+                    description: 종류별 에이전트 그룹 이름
                   version:
                     type: string
+                    description: 에이전트 버전
                   tags:
                     type: array
-                    items:
-                      type: string
                   inactTime:
                     type: integer
+                    description: 에이전트 비활성화 시간
                   oname:
                     type: string
+                    description: 에이전트 이름
                   os_name:
                     type: string
+                    description: 운영체제 이름
                   startTime:
                     type: string
                     format: date-time
+                    description: 에이전트 시작 시간
                   os_memory:
                     type: string
+                    description: 운영체제의 메모리 용량
                   os_status:
                     type: string
+                    description: 운영체제의 상태

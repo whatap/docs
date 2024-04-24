@@ -1508,6 +1508,11 @@ paths:
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/visitor_h/{stime}/{etime}"
+  /open/apijson/{metric_type}/{stime}/{etime}/filter/{filterkey}/{filtereval}:
+    get:
+      summary: 호출 통계 필터링
+      description: |
+        프로젝트 간 트랜잭션 호출 통계 또는 도메인 호출 통계를 필터링해 조회할 수 있습니다.
 components:
   parameters:
     WhatapTokenHeader:

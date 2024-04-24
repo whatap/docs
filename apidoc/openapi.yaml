@@ -1669,7 +1669,7 @@ paths:
                 $ref: '#/components/schemas/ServerAgentCount'
               example:
                 pname: LOCAL_INFRA
-                values: "57.0"
+                values: "108.0"
       x-codeSamples:
         - lang: 'curl'
           source: |
@@ -1677,7 +1677,7 @@ paths:
             -w "\n" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
-            "https://api.whatap.io/open/json/host"
+            "https://api.whatap.io/open/json/cpucore"
 
 components:
   parameters:

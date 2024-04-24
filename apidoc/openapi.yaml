@@ -13,10 +13,14 @@ info:
 servers:
   - url: 'https://api.whatap.io'
 tags:
-  - name: Spot 정보 조회
-    description: 프로젝트의 에이전트 정보 및 관련 지표를 조회할 수 있는 API 목록을 안내합니다.
-  - name: 통계 데이터 조회
-    description: 프로젝트의 통계 데이터를 조회할 수 있는 API 목록을 안내합니다.
+  - name: APM Spot 정보 조회
+    description: 애플리케이션 프로젝트의 에이전트 정보 및 관련 지표를 조회할 수 있는 API 목록을 안내합니다.
+  - name: APM 통계 데이터 조회
+    description: 애플리케이션 프로젝트의 통계 데이터를 조회할 수 있는 API 목록을 안내합니다.
+  - name: Server Spot 정보 조회
+    description: 서버 프로젝트의 에이전트 정보 및 관련 지표를 조회할 수 있는 API 목록을 안내합니다.
+  - name: Server 통계 데이터 조회
+    description: 서버 프로젝트의 통계 데이터를 조회할 수 있는 API 목록을 안내합니다.
 x-tagGroups:
   - name: 메타성 정보 조회
     description: 프로젝트 및 그룹, 활성화된 에이전트 목록을 조회할 수 있는 API 목록을 안내합니다.
@@ -27,8 +31,13 @@ x-tagGroups:
   - name: Appication
     description: 애플리케이션 프로젝트의 에이전트 정보 및 관련 지표를 조회할 수 있는 API 목록을 안내합니다.
     tags:
-      - Spot 정보 조회
-      - 통계 데이터 조회
+      - APM Spot 정보 조회
+      - APM 통계 데이터 조회
+  - name: Server
+    description: 서버 프로젝트의 에이전트 정보 및 관련 지표를 조회할 수 있는 API 목록을 안내합니다.
+    tags:
+      - Server Spot 정보 조회
+      - Server 통계 데이터 조회
 paths:
   /open/api/json/projects:
     get:
@@ -585,7 +594,7 @@ paths:
       operationId: getApmAllinfo
       description: 애플리케이션 프로젝트의 모든 정보를 조회하는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -630,9 +639,9 @@ paths:
   /open/api/act_agent:
     get:
       summary: 활성화 상태의 에이전트 수 조회
-      description: 활성화 상태의 에이전트 수를 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 활성화 상태의 에이전트 수를 조회할 수 있는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -656,9 +665,9 @@ paths:
   /open/api/inact_agent:
     get:
       summary: 비활성화 상태의 에이전트 수 조회
-      description: 비활성화 상태의 에이전트 수를 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 비활성화 상태의 에이전트 수를 조회할 수 있는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -682,9 +691,9 @@ paths:
   /open/api/host:
     get:
       summary: 호스트(HOST) 수
-      description: 프로젝트와 연결된 호스트(HOST) 수를 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트와 연결된 호스트(HOST) 수를 조회할 수 있는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -708,9 +717,9 @@ paths:
   /open/api/cpucore:
     get:
       summary: 호스트의 CPU 코어 합
-      description: 프로젝트와 연결된 호스트(HOST)의 CPU 코어 합계를 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트와 연결된 호스트(HOST)의 CPU 코어 합계를 조회할 수 있는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -734,9 +743,9 @@ paths:
   /open/api/txcount:
     get:
       summary: 트랜잭션 개수
-      description: 트랜잭션 개수를 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 트랜잭션 개수를 조회할 수 있는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -760,9 +769,9 @@ paths:
   /open/api/tps:
     get:
       summary: TPS
-      description: 초당 처리된 트랜잭션 건수(Transaction per second, TPS)를 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 초당 처리된 트랜잭션 건수(Transaction per second, TPS)를 조회할 수 있는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -787,9 +796,9 @@ paths:
   /open/api/user:
     get:
       summary: 액티브 사용자(5분)
-      description: 최근 5분 이내에 트랜잭션을 발생시킨 사용자를 측정한 동시 접속 사용자를 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 최근 5분 이내에 트랜잭션을 발생시킨 사용자를 측정한 동시 접속 사용자를 조회할 수 있는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -813,9 +822,9 @@ paths:
   /open/api/actx:
     get:
       summary: 액티브 트랜잭션
-      description: 액티브 트랜잭션 수를 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 액티브 트랜잭션 수를 조회할 수 있는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -839,9 +848,9 @@ paths:
   /open/api/rtime:
     get:
       summary: 평균 응답시간
-      description: 평균 응답시간을 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 평균 응답시간을 조회할 수 있는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -865,9 +874,9 @@ paths:
   /open/api/cpu:
     get:
       summary: 평균 CPU 사용률
-      description: 평균 CPU 사용률을 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 평균 CPU 사용률을 조회할 수 있는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -892,9 +901,9 @@ paths:
   /open/api/apdex:
     get:
       summary: Apdex
-      description: Apdex(Application Performance Index, 애플리케이션의 사용자 만족도)를 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 Apdex(Application Performance Index, 애플리케이션의 사용자 만족도)를 조회할 수 있는 API입니다.
       tags:
-        - Spot 정보 조회
+        - APM Spot 정보 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -919,9 +928,9 @@ paths:
   /open/api/json/exception/{stime}/{etime}:
     get:
       summary: Exception
-      description: 설정한 시간 동안 Exception 처리된 내역을 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 Exception 처리된 내역을 조회할 수 있는 API입니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -957,9 +966,9 @@ paths:
   /open/api/json/httpc/{stime}/{etime}:
     get:
       summary: HTTP 외부 호출
-      description: 설정한 시간 동안 HTTP 외부 호출 내역을 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 HTTP 외부 호출 내역을 조회할 수 있는 API입니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -999,9 +1008,9 @@ paths:
   /open/api/json/httpc/{stime}/{etime}/filter/host/{host}/port/{port}:
     get:
       summary: HTTP 외부 호출 필터링
-      description: 설정한 시간 동안 HTTP 외부 호출 내역을 호스트의 주소와 포트 번호를 기준으로 필터링해 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 HTTP 외부 호출 내역을 호스트의 주소와 포트 번호를 기준으로 필터링해 조회할 수 있는 API입니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1068,9 +1077,9 @@ paths:
   /open/api/json/sql/{stime}/{etime}:
     get:
       summary: SQL
-      description: 설정한 시간 동안 SQL 문을 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 SQL 문을 조회할 수 있는 API입니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1112,9 +1121,9 @@ paths:
   /open/api/json/remote/{stime}/{etime}:
     get:
       summary: Client IP
-      description: 설정한 시간 동안 원격 클라이언트 IP를 조회할 수 있는 API입니다. 와탭은 클라이언트와 관련한 정보를 기본 저장합니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 원격 클라이언트 IP를 조회할 수 있는 API입니다. 와탭은 클라이언트와 관련한 정보를 기본 저장합니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1145,9 +1154,9 @@ paths:
   /open/api/json/transaction/{stime}/{etime}:
     get:
       summary: 트랜잭션
-      description: 설정한 시간 동안 발생한 트랜잭션 내역을 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 발생한 트랜잭션 내역을 조회할 수 있는 API입니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1192,9 +1201,9 @@ paths:
   /open/api/json/heap_use/{stime}/{etime}/avg:
     get:
       summary: Heap 사용량 - 통계 평균값
-      description: 설정한 시간 동안 Heap 사용량에 대한 통계 평균값을 조회할 수 있는 API입니다. 조회 시간은 한 시간 이내로 제한하며, 밀리초(millisecond, ms) 단위입니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 Heap 사용량에 대한 통계 평균값을 조회할 수 있는 API입니다. 조회 시간은 한 시간 이내로 제한하며, 밀리초(millisecond, ms) 단위입니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1231,9 +1240,9 @@ paths:
   /open/api/json/heap_use/{stime}/{etime}/max:
     get:
       summary: Heap 사용량 - 통계 최댓값
-      description: 설정한 시간 동안 Heap 사용량에 대한 통계 최댓값을 조회할 수 있는 API입니다. 조회 시간은 한 시간 이내로 제한하며, 밀리초(millisecond, ms) 단위입니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 Heap 사용량에 대한 통계 최댓값을 조회할 수 있는 API입니다. 조회 시간은 한 시간 이내로 제한하며, 밀리초(millisecond, ms) 단위입니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1270,9 +1279,9 @@ paths:
   /open/api/json/{metric_type}/{stime}/{etime}:
     get:
       summary: 에이전트 데이터 조회
-      description: 설정한 시간 동안 전체 에이전트의 데이터를 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 전체 에이전트의 데이터를 조회할 수 있는 API입니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1317,9 +1326,9 @@ paths:
   /open/api/json/{metric_type}/{stime}/{etime}/avg:
     get:
       summary: 에이전트 평균 데이터 조회
-      description: 설정한 시간 동안 전체 에이전트의 평균 데이터를 조회할 수 있는 API입니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 전체 에이전트의 평균 데이터를 조회할 수 있는 API입니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1356,9 +1365,9 @@ paths:
   /open/api/json/{metric_type}/{stime}/{etime}/{oids}:
     get:
       summary: 지정 에이전트 데이터 조회
-      description: 설정한 시간 동안 지정한 에이전트(oids)의 스레드 수 데이터를 조회할 수 있는 API입니다. 에이전트(oids)는 쉼표(,)를 구분자로 여러 개 지정할 수 있습니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 지정한 에이전트(oids)의 스레드 수 데이터를 조회할 수 있는 API입니다. 에이전트(oids)는 쉼표(,)를 구분자로 여러 개 지정할 수 있습니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1404,9 +1413,9 @@ paths:
   /open/api/json/{metric_type}/{stime}/{etime}/avg/{oids}:
     get:
       summary: 지정 에이전트 평균 데이터 조회
-      description: 설정한 시간 동안 지정한 에이전트(oids)의 평균 데이터를 조회할 수 있는 API입니다. 에이전트(oids)는 쉼표(,)를 구분자로 여러 개 지정할 수 있습니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 지정한 에이전트(oids)의 평균 데이터를 조회할 수 있는 API입니다. 에이전트(oids)는 쉼표(,)를 구분자로 여러 개 지정할 수 있습니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1443,9 +1452,9 @@ paths:
   /open/api/json/visitor_5m/{stime}/{etime}:
     get:
       summary: 5분 단위 액티브 사용자 조회
-      description: 설정한 시간 동안 5분 단위의 동시 접속 사용자를 조회할 수 있습니다. 동시 접속 사용자는 최근 5분 이내에 트랜잭션을 발생시킨 사용자를 측정한 값입니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 5분 단위의 동시 접속 사용자를 조회할 수 있습니다. 동시 접속 사용자는 최근 5분 이내에 트랜잭션을 발생시킨 사용자를 측정한 값입니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1477,9 +1486,9 @@ paths:
   /open/api/json/visitor_h/{stime}/{etime}:
     get:
       summary: 1시간 단위 액티브 사용자 조회
-      description: 설정한 시간 동안 1시간 단위의 동시 접속 사용자를 조회할 수 있습니다.
+      description: 애플리케이션 프로젝트에서 설정한 시간 동안 1시간 단위의 동시 접속 사용자를 조회할 수 있습니다.
       tags:
-        - 통계 데이터 조회
+        - APM 통계 데이터 조회
       parameters:
         - $ref: '#/components/parameters/WhatapTokenHeader'
         - $ref: '#/components/parameters/WhatapPcodeHeader'
@@ -1508,11 +1517,168 @@ paths:
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/visitor_h/{stime}/{etime}"
-  /open/apijson/{metric_type}/{stime}/{etime}/filter/{filterkey}/{filtereval}:
+  /open/api/json/{metric_type}/{stime}/{etime}/filter/{filterkey}/{filtereval}:
     get:
       summary: 호출 통계 필터링
       description: |
-        프로젝트 간 트랜잭션 호출 통계 또는 도메인 호출 통계를 필터링해 조회할 수 있습니다.
+        프로젝트 간 트랜잭션 호출 통계 또는 트랜잭션 도메인 호출 통계를 필터링해 조회할 수 있습니다.
+        
+        * **filterkey**: 조회 조건 키 (`caller_pcode`, `caller_spec` (버전), `caller_url`, `spec` (버전), `url`)
+        * **filterval**: 조회 조건 (`filterkey가` `caller_url` 또는 `url`인 경우 base64로 인코딩)
+      tags:
+        - APM 통계 데이터 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+        - $ref: '#/components/parameters/CallStaticTypePath'
+        - $ref: '#/components/parameters/StartTimePath'
+        - $ref: '#/components/parameters/EndTimePath'
+        - $ref: '#/components/parameters/FilterkeyPath'
+        - $ref: '#/components/parameters/FiltervalPath'
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/api/json/{metric_type}/{stime}/{etime}/filter/{filterkey}/{filtereval}"
+  /open/api/json/{metric_type}/{stime}/{etime}/{oids}/filter/{filterkey}/{filtereval}:
+    get:
+      summary: 지정 에이전트 호출 통계 필터링
+      description: |
+        지정한 에이전트를 기준으로 프로젝트 간 트랜잭션 호출 통계 또는 트랜잭션 도메인 호출 통계를 필터링해 조회할 수 있습니다.
+
+        * **filterkey**: 조회 조건 키 (`caller_pcode`, `caller_spec` (버전), `caller_url`, `spec` (버전), `url`)
+        * **filterval**: 조회 조건 (`filterkey가` `caller_url` 또는 `url`인 경우 base64로 인코딩)
+      tags:
+        - APM 통계 데이터 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapAccoutTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+        - $ref: '#/components/parameters/CallStaticTypePath'
+        - $ref: '#/components/parameters/StartTimePath'
+        - $ref: '#/components/parameters/EndTimePath'
+        - $ref: '#/components/parameters/OidPath'
+        - $ref: '#/components/parameters/FilterkeyPath'
+        - $ref: '#/components/parameters/FiltervalPath'
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/api/json/{metric_type}/{stime}/{etime}/{oids}/filter/{filterkey}/{filtereval}"
+  /open/json/act_agent:
+    get:
+      summary: 활성화 상태의 에이전트 수 조회
+      description: 서버 프로젝트에서 활성화 상태의 에이전트 수를 조회할 수 있는 API입니다.
+      tags:
+        - Server Spot 정보 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+      responses:
+        '200':
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerActAgentCount'
+              example:
+                pname: LOCAL_INFRA
+                values: "57.0"
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/json/act_agent"
+  /open/json/inact_agent:
+    get:
+      summary: 비활성화 상태의 에이전트 수 조회
+      description: 서버 프로젝트에서 비활성화 상태의 에이전트 수를 조회할 수 있는 API입니다.
+      tags:
+        - Server Spot 정보 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+      responses:
+        '200':
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerAgentCount'
+              example:
+                pname: LOCAL_INFRA
+                values: "4.0"
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/json/inact_agent"
+  /open/json/host:
+    get:
+      summary: 호스트(HOST) 수
+      description: 서버 프로젝트와 연결된 호스트(HOST) 수를 조회할 수 있는 API입니다.
+      tags:
+        - Server Spot 정보 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+      responses:
+        '200':
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerAgentCount'
+              example:
+                pname: LOCAL_INFRA
+                values: "57.0"
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/json/host"
+  /open/json/cpucore:
+    get:
+      summary: 호스트의 CPU 코어 합
+      description: 서버 프로젝트와 연결된 호스트(HOST)의 CPU 코어 합계를 조회할 수 있는 API입니다.
+      tags:
+        - Server Spot 정보 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+      responses:
+        '200':
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerAgentCount'
+              example:
+                pname: LOCAL_INFRA
+                values: "57.0"
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/json/host"
+
 components:
   parameters:
     WhatapTokenHeader:
@@ -1595,6 +1761,16 @@ components:
             - threadpool_queue
             - apdex
         description: 조회할 수 있는 지표
+    CallStaticTypePath:
+      name: metric_type
+      in: path
+      require: true
+      schema:
+        type: string
+        enum:
+            - tx_caller
+            - tx_domain
+        description: 조회할 수 있는 지표
     OidPath:
       name: oids
       in: path
@@ -1603,7 +1779,37 @@ components:
         type: integer
         format: int32
         description: 에이전트 고유 식별자(ID)
+    FilterkeyPath:
+      name: filterkey
+      in: path
+      required: true
+      schema:
+        type: string
+        enum:
+          - caller_pcode
+          - caller_spec
+          - caller_url
+          - spec
+          - url
+        description: 조회 조건 키
+    FiltervalPath:
+      name: filterval
+      in: path
+      required: true
+      schema:
+        type: string
+        description: 조회 조건 (`filterkey가` `caller_url` 또는 `url`인 경우 base64로 인코딩)
   schemas:
+    ServerAgentCount:
+      type: object
+      properties:
+        pname:
+          type: string
+          description: 프로젝트 이름
+        vlaues:
+          type: string
+          description: 개수
+
     APM:
       type: object
       properties:

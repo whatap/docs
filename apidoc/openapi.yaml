@@ -25,6 +25,10 @@ tags:
     description: 데이버베이스의 파라미터 관련 사항을 조회할 수 있습니다.
   - name: Database SQL 조회
     description: 데이버베이스의 SQL 관련 사항을 조회할 수 있습니다.
+  - name: MXQL text API
+    description: 직접 MXQL 쿼리를 작성해 데이터를 조회하는 API입니다.
+  - name: MXQL path API
+    description: SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록으로 데이터를 조회하는 API입니다.
 x-tagGroups:
   - name: 메타성 정보 조회
     description: 프로젝트 및 그룹, 활성화된 에이전트 목록을 조회할 수 있는 API 목록을 안내합니다.
@@ -47,9 +51,12 @@ x-tagGroups:
     tags:
       - Database 파라미터 조회
       - Database SQL 조회
-  # - name: MXQL Open API
-  #   description: |
-  #     Open API를 이용해 MXQL 데이터를 조회하는 방법을 안내합니다.
+  - name: MXQL Open API
+    description: |
+      Open API를 이용해 MXQL 데이터를 조회하는 방법을 안내합니다.
+    tags:
+      - MXQL text API
+      - MXQL path API
 paths:
   /open/api/json/projects:
     get:

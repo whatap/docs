@@ -1585,7 +1585,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServerActAgentCount'
+                $ref: '#/components/schemas/ServerAgentCount'
               example:
                 pname: LOCAL_INFRA
                 values: "57.0"
@@ -1678,7 +1678,413 @@ paths:
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/cpucore"
-
+  /open/json/infra_cpu:
+    get:
+      summary: CPU 사용률
+      description: 서버 프로젝트와 연결된 호스트(HOST)의 CPU 사용률을 조회할 수 있는 API입니다.
+      tags:
+        - Server Spot 정보 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+      responses:
+        '200':
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerCpuUsage'
+              example:
+                pcode: 29763
+                pname: "Server Monitoring Demo"
+                timezone: 9
+                regionName: "LOCAL"
+                values:
+                  mysql-official-demo-03: 0.9009018
+                  php-official-demo: 1.6949158
+                  python-demo-attacker: 0.50099945
+                  virtual-java-agent: 55.08919
+                language: "en"
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/json/infra_cpu"
+  /open/json/infra_disk_iops:
+    get:
+      summary: 디스크 IOPS 합계
+      description: 서버 프로젝트와 연결된 호스트(HOST)의 디스크 IOPS 합계를 조회할 수 있는 API입니다.
+      tags:
+        - Server Spot 정보 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+      responses:
+        '200':
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerDiskIOPS'
+              example:
+                pcode: 29763
+                pname: "Server Monitoring Demo"
+                timezone: 9
+                regionName: "LOCAL"
+                values:
+                  mysql-official-demo-03:
+                    bps: 8208.67
+                    iops: 1.402849
+                  php-official-demo:
+                    bps: 3951.273
+                    iops: 0.771733
+                  python-demo-attacker:
+                    bps: 7376.34
+                    iops: 1.00048
+                  virtual-java-agent:
+                    bps: 6563.1836
+                    iops: 0.40058494
+                language: "en"
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/json/infra_disk_iops"
+  /open/json/infra_net_traffic:
+    get:
+      summary: 네트워크 트래픽(IN/OUT) 합산
+      description: 서버 프로젝트와 연결된 호스트(HOST)의 네트워크 트래픽(IN/OUT) 합산을 조회할 수 있는 API입니다.
+      tags:
+        - Server Spot 정보 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+      responses:
+        '200':
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerNetworkTraffic'
+              example:
+                pcode: 29763
+                pname: "Server Monitoring Demo"
+                timezone: 9
+                regionName: "LOCAL"
+                values:
+                  mysql-official-demo-03: 128204.76878652698
+                  python-demo-attacker: 16231.465016029671
+                  virtual-java-agent: 10820618.160992496
+                language: "en"
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/json/infra_net_traffic"
+  /open/json/infra_proc:
+    get:
+      summary: 프로세스 현황
+      description: 서버 프로젝트와 연결된 호스트(HOST)의 프로세스 현황을 조회할 수 있는 API입니다.
+      tags:
+        - Server Spot 정보 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+      responses:
+        '200':
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerProc'
+              example:
+                pname: "LOCAL_INFRA"
+                values:
+                  "s-p-gtw-03":
+                    - memoryBytes: 1274269696
+                      bps: 819.2
+                      cmd1: "java"
+                      cpu: 2.8507125
+                    - memoryBytes: 2895872
+                      bps: 0
+                      cmd1: "rsyslogd"
+                      cpu: 0
+                  "t-a-yrd-01":
+                    - memoryBytes: 2583621632
+                      bps: 1175961.5
+                      cmd1: "java"
+                      cpu: 10.621243
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/json/infra_proc"
+  /open/json/sm_servers:
+    get:
+      summary: 서버 목록
+      description: 서버 프로젝트의 서버 목록을 조회할 수 있는 API입니다.
+      tags:
+        - Server Spot 정보 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+      responses:
+        '200':
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerList'
+              example:
+                pcode: 29763
+                pname: "Server Monitoring Demo"
+                timezone: 9
+                regionName: "LOCAL"
+                values:
+                  - os.status: "warning"
+                    oname: "php-official-demo"
+                    os.name: "linux"
+                    oid: -1413588424
+                    isActive: true
+                  - os.status: "ok"
+                    oname: "dotnet-official-demo"
+                    os.name: "windows"
+                    oid: -1755389652
+                    isActive: true
+                  - os.status: "ok"
+                    oname: "mysql-official-demo-02"
+                    os.name: "linux"
+                    oid: -1816982090
+                    isActive: true
+                language: "en"
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/json/sm_servers"
+  /open/json/sm:
+    get:
+      summary: 서버 모니터링 상세
+      description: 서버 프로젝트의 각 서버별 상세 정보를 조회할 수 있는 API입니다.
+      tags:
+        - Server Spot 정보 조회
+      parameters:
+        - $ref: '#/components/parameters/WhatapTokenHeader'
+        - $ref: '#/components/parameters/WhatapPcodeHeader'
+      responses:
+        '200':
+          description: 조회 성공
+          content:
+            application/json:
+              example:
+                pname: LOCAL_INFRA
+                values:
+                  servers:
+                    - public_ip: 192.168.0.1
+                      os_cpuvendor: Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz
+                      agent_created: '49572130779'
+                      ip: '127.0.0.1,10.128.0.1'
+                      os_arch: amd64
+                      actTime: 1570672662216
+                      cpu_cores: '1'
+                      oid: -1359816680
+                      isActive: true
+                      version: 1.2.5
+                      tags:
+                        - gateway
+                        - python
+                        - 'network:10.0.0.0/8'
+                        - '@PRX'
+                      inactTime: 0
+                      oname: h-db-prx-01
+                      os_name: linux
+                      startTime: 1570672662000
+                      os_memory: '2088476672'
+                      os_status: ok
+                      snapshot:
+                        disk:
+                          /boot:
+                            writeIops: 0
+                            fileSystem: ext4
+                            mountPoint: /boot
+                            queueLength: 0
+                            usedSpace: 58863616
+                            blksize: 4096
+                            freeSpace: 841175040
+                            display: true
+                            count: 1
+                            readBps: 0
+                            totalSpace: 966778880
+                            ioPercent: 0
+                            mountOption: 'rw,relatime'
+                            deviceId: /dev/sda1
+                            usedPercent: 6.540122985839844
+                            freePercent: 93.45987701416016
+                            writeBps: 0
+                            readIops: 0
+                          /home:
+                            writeIops: 0
+                            fileSystem: ext4
+                            mountPoint: /home
+                            queueLength: 0
+                            usedSpace: 1670574080
+                            blksize: 4096
+                            freeSpace: 69533446144
+                            display: true
+                            count: 1
+                            readBps: 0
+                            totalSpace: 75039498240
+                            ioPercent: 0
+                            mountOption: 'rw,relatime'
+                            deviceId: /dev/sda3
+                            usedPercent: 2.3461761474609375
+                            freePercent: 97.65382385253906
+                            writeBps: 0
+                            readIops: 0
+                          /:
+                            writeIops: 0
+                            fileSystem: ext4
+                            mountPoint: /
+                            queueLength: 0
+                            usedSpace: 5079060480
+                            blksize: 4096
+                            freeSpace: 22798901248
+                            display: true
+                            count: 1
+                            readBps: 0
+                            totalSpace: 29394726912
+                            ioPercent: 0
+                            mountOption: 'rw,relatime'
+                            deviceId: /dev/sda2
+                            usedPercent: 18.218902587890625
+                            freePercent: 81.78109741210938
+                            writeBps: 0
+                            readIops: 0
+                        memory:
+                          shared: 21590016
+                          swapused: 0
+                          buffers: 182550528
+                          available: 1746370560
+                          swaptotal: 0
+                          used: 342106112
+                          pused: 16.380653381347656
+                          slab: 85729280
+                          total: 2088476672
+                          sunreclaim: 23261184
+                          cached: 521756672
+                          pavailable: 83.61934661865234
+                          pagefaults: 0
+                          sreclaimable: 62468096
+                          free: 1167208448
+                          swappused: 0
+                        cpu:
+                          softirq: 0
+                          usr: 0
+                          idle: 100
+                          steal: 0
+                          irq: 0
+                          load5: 0
+                          iowait: 0
+                          sys: 0
+                          nice: 0
+                          load1: 0
+                          load15: 0
+                        open_filedescriptors: 249
+                        netstat:
+                          established: 1
+                          syn_sent: 1
+                          syn_recv: 0
+                          closing: 0
+                          time_wait: 19
+                          last_ack: 0
+                          fin_wait1: 0
+                          close_wait: 0
+                          fin_wait2: 0
+                          listen: 3
+                          unknown: 0
+                        uptime: 16313689
+                        network:
+                          lo:
+                            errorOut: 0
+                            packetOut: 0.3991734786600438
+                            trafficIn: 281.0181289766709
+                            trafficOut: 281.0181289766709
+                            hwAddr: ''
+                            errorIn: 0
+                            ip: 127.0.0.1
+                            count: 1
+                            droppedIn: 0
+                            droppedOut: 0
+                            packetIn: 0.3991734786600438
+                            desc: lo
+                          eth0:
+                            errorOut: 0
+                            packetOut: 8.1830563125309
+                            trafficIn: 11314.173079140282
+                            trafficOut: 19447.731880317337
+                            hwAddr: '00:1d:d8:b7:87:18'
+                            errorIn: 0
+                            ip: 10.128.112.133
+                            count: 1
+                            droppedIn: 0
+                            droppedOut: 0
+                            packetIn: 24.549168937592693
+                            desc: eth0
+                  max:
+                    disk:
+                      writeIops: 240.9893
+                      usedPercent: 94.38699
+                      freePercent: 100
+                      usedSpace: 2464956810000
+                      freeSpace: 0
+                      writeBps: 2917852
+                      readBps: 118646.15
+                      readIops: 75.80727
+                      totalSpace: 9223372000000000000
+                      ioPercent: 100
+                      freespace: 158926471000
+                    nic:
+                      errorOut: 0
+                      packetOut: 2175.8743
+                      trafficIn: 4856648
+                      trafficOut: 2503208.8
+                      errorIn: 1
+                      droppedIn: 1
+                      droppedOut: 0
+                      packetIn: 2175.8743
+                    compound_eye_traffic: 1000000000
+                  count:
+                    total: 14
+                    paused: 0
+                    inactive: 0
+                    warning: 1
+                    ok: 13
+                    close: 0
+                    fatal: 0
+                  tags: {}
+      x-codeSamples:
+        - lang: 'curl'
+          source: |
+            curl -L \
+            -w "\n" \
+            -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
+            -H "x-whatap-pcode: {{projectCode}}" \
+            "https://api.whatap.io/open/json/sm"
 components:
   parameters:
     WhatapTokenHeader:
@@ -1800,16 +2206,164 @@ components:
         type: string
         description: 조회 조건 (`filterkey가` `caller_url` 또는 `url`인 경우 base64로 인코딩)
   schemas:
+    ServerList:
+      type: object
+      properties:
+        pcode:
+          type: integer
+          description: 프로젝트 코드
+        pname:
+          type: string
+          description: 프로젝트 이름
+        timezone:
+          type: integer
+          description: 타임존
+        regionName:
+          type: string
+          description: 데이터 서버 지역
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              os.status:
+                type: string
+                description: 운영체제의 상태
+              oname:
+                type: string
+                description: 서버 이름
+              os.name:
+                type: string
+                description: 운영체제 이름
+              oid:
+                type: integer
+                description: 에이전트 고유 식별자(ID)
+              isActive:
+                type: boolean
+                description: 에이전트의 활성화 상태
+        language:
+          type: string
+          description: 경고 알림 언어
+    ServerProc:
+      type: object
+      properties:
+        pname:
+          type: string
+          description: 프로젝트 이름
+        values:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: object
+              properties:
+                memoryBytes:
+                  type: integer
+                  format: int64
+                  description: 프로세스가 사용하는 메모리 양(byte)
+                bps:
+                  type: number
+                  format: float
+                  description: Bytes Per Second
+                cmd1:
+                  type: string
+                  description: 프로세스 이름
+                cpu:
+                  type: number
+                  format: float
+                  description: 프로세스 CPU 사용량(%)
+        language:
+          type: string
+          description: 경고 알림 언어
+    ServerDiskIOPS:
+      type: object
+      properties:
+        pcode:
+          type: integer
+          description: 프로젝트 코드
+        pname:
+          type: string
+          description: 프로젝트 이름
+        timezone:
+          type: integer
+          description: 타임존
+        regionName:
+          type: string
+          description: 데이터 서버 지역
+        values:
+          type: object
+          additionalProperties:
+            type: object
+            description: 호스트 이름
+            properties:
+              bps:
+                type: number
+                format: float
+                description: Bytes Per Second
+              iops:
+                type: number
+                format: float
+                description: Disk Input/Output Operations Per Second
+        language:
+          type: string
+          description: 경고 알림 언어
     ServerAgentCount:
       type: object
       properties:
         pname:
           type: string
           description: 프로젝트 이름
-        vlaues:
+        values:
           type: string
           description: 개수
-
+    ServerCpuUsage:
+      type: object
+      properties:
+        pcode:
+          type: integer
+          description: 프로젝트 코드
+        pname:
+          type: string
+          description: 프로젝트 이름
+        timezone:
+          type: integer
+          description: 타임존
+        regionName:
+          type: string
+          description: 데이터 서버 지역
+        values:
+          type: object
+          additionalProperties:
+            type: number
+            format: float
+          description: 서버별 CPU 사용률(%)
+        language:
+          type: string
+          description: 경고 알림 언어
+    ServerNetworkTraffic:
+      type: object
+      properties:
+        pcode:
+          type: integer
+          description: 프로젝트 코드
+        pname:
+          type: string
+          description: 프로젝트 이름
+        timezone:
+          type: integer
+          description: 타임존
+        regionName:
+          type: string
+          description: 데이터 서버 지역
+        values:
+          type: object
+          additionalProperties:
+            type: number
+            format: float
+            description: 각 호스트의 네트워크 트래픽 합계(byte)
+        language:
+          type: string
+          description: 경고 알림 언어
     APM:
       type: object
       properties:

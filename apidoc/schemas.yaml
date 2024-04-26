@@ -551,13 +551,13 @@ SqlQueryRecord:
             description: 최소 처리 시간(ms)
           fetch_count:
             type: integer
-            description: 페치된 총 행 수
+            description: 패치된 총 행 수
           hash:
             type: integer
             description: SQL 해시 코드
           fetch_time:
             type: integer
-            description: 페치 시간(ms)
+            description: 패치 시간(ms)
           sql_crud:
             type: integer
             description: SQL CRUD 작업 유형 (0 - none, 1 - create, 2 - read, 3 - update, 4 - delete)
@@ -631,7 +631,7 @@ TransactionsRecord:
             description: 최대 처리 시간(ms)
           sql_fetch_time:
             type: integer
-            description: SQL 페치 시간(ms)
+            description: SQL 패치 시간(ms)
           sql_time:
             type: integer
             description: SQL 처리 총 시간(ms)
@@ -649,7 +649,7 @@ TransactionsRecord:
             description: 트랜잭션 해시 코드
           sql_fetch:
             type: integer
-            description: SQL 페치된 총 데이터 수
+            description: SQL 패치된 총 데이터 수
           httpc_avg:
             type: integer
             description: HTTP 연결 평균 응답시간(ms)
@@ -1039,3 +1039,272 @@ ConnectionDetail:
     total:
       type: integer
       description: 총 DB connection 수 (`active` + `idle`)
+
+MXQLRequest:
+  type: object
+  required: [stime, etime, mql, limit, pageKey]
+  properties:
+    stime:
+      type: integer
+      format: int64
+      description: 조회 시작 시간(UNIX epoch time, millisecond)
+    etime:
+      type: integer
+      format: int64
+      description: 조회 종료 시간(UNIX epoch time, millisecond)
+    mql:
+      type: string
+      description: 직접 작성한 MXQL 쿼리
+    limit:
+      type: integer
+      description: 최대 데이터 조회 수
+    pageKey:
+      type: string
+      description: 문자열 `mxql` 고정값
+    inject:
+      type: object
+      additionalProperties: true
+      description: | 
+        [다음 문서](../mxql/mxql-calculate#inject) 참조<br/>예시, `{ "default": "ORDER {key : [oid],  sort : [desc] }"}`
+    param:
+      type: object
+      additionalProperties: true
+      description: |
+        [다음 문서](../mxql/mxql-guide#bind-parameter) 참조<br/> 예시 : `{ "$oidFirst": "520111224", "$oidSecond": "1031483086" }`
+
+MXQLtextResponse:
+  type: object
+  properties:
+    time:
+      type: integer
+      format: int64
+      description: 데이터 기록 시간
+    pcode:
+      type: integer
+      description: 프로젝트 코드
+    pname:
+      type: string
+      description: 프로젝트 이름
+    okind:
+      type: integer
+      description: 종류별 에이전트 그룹 고유 식별자(ID)
+    onode:
+      type: integer
+      description: 서버별 에이전트 그룹 고유 식별자(ID)
+    oname:
+      type: string
+      description: 에이전트 이름
+    okindName:
+      type: string
+      description: 종류별 에이전트 그룹 이름
+    onodeName:
+      type: string
+      description: 서버별 에이전트 그룹 이름
+    host_ip:
+      type: string
+      description: 호스트 IP 주소
+    container:
+      type: string
+      description: 컨테이너 식별자
+    pid:
+      type: integer
+      description: 프로세스 ID
+    type:
+      type: string
+      description: 플랫폼 종류
+    containerKey:
+      type: integer
+      description: 컨테이너 키
+    tx_count:
+      type: integer
+      description: 트랜잭션 수
+    tx_error:
+      type: integer
+      description: 에러가 발생한 트랜잭션 수
+    tx_time:
+      type: number
+      format: double
+      description: 트랜잭션 처리 시간
+    apdex_satisfied:
+      type: integer
+      description: Apdex - 만족 S
+    apdex_tolerated:
+      type: integer
+      description: Apdex - 허용 T 
+    apdex_total:
+      type: integer
+      description: Apdex
+    tx_dbc_time:
+      type: number
+      format: double
+      description: 데이터베이스 커넥션에 소요된 시간
+    tx_sql_time:
+      type: number
+      format: double
+      description: SQL 처리 시간
+    tx_httpc_time:
+      type: number
+      format: double
+      description: HTTP 클라이언트 처리 시간
+    sql_count:
+      type: integer
+      description: SQL 쿼리 수
+    sql_error:
+      type: integer
+      description: 에러가 발생한 SQL 쿼리 수
+    sql_time:
+      type: number
+      format: double
+      description: SQL 처리 시간
+    sql_fetch_count:
+      type: integer
+      description: SQL 패치 횟수
+    sql_fetch_time:
+      type: number
+      format: double
+      description: SQL 패치 시간
+    httpc_count:
+      type: integer
+      description: HTTP 클라이언트 요청 수
+    httpc_error:
+      type: integer
+      description: 에러가 발생한 HTTP 클라이언트 요청 수
+    httpc_time:
+      type: number
+      format: double
+      description: HTTP 클라이언트 처리 시간
+    active_tx_count:
+      type: integer
+      description: 액티브 트랜잭션 수
+    active_tx_0:
+      type: integer
+      description: 3초 미만 액티브 트랜잭션
+    active_tx_3:
+      type: integer
+      description: 3초 이상 액티브 트랜잭션
+    active_tx_8:
+      type: integer
+      description: 8초 이상 액티브 트랜잭션
+    tps:
+      type: number
+      format: double
+      description: 초당 트랜잭션 처리 수
+    resp_time:
+      type: integer
+      description: 응답시간
+    arrival_rate:
+      type: number
+      format: double
+      description: 초당 도착률
+    pack_dropped:
+      type: integer
+      description: 드롭된 패킷 수
+    metering:
+      type: integer
+      description: 미터링
+    _clock_delta_:
+      type: integer
+      description: 시계 차이
+    oid:
+      type: integer
+      description: 에이전트 고유 식별자(ID)
+
+MXQLPathRequest:
+  type: object
+  required: [stime, etime, mql, limit, pageKey]
+  properties:
+    stime:
+      type: integer
+      format: int64
+      description: 조회 시작 시간(UNIX epoch time, millisecond)
+    etime:
+      type: integer
+      format: int64
+      description: 조회 종료 시간(UNIX epoch time, millisecond)
+    mql:
+      type: string
+      description: 직접 작성한 MXQL 쿼리
+    limit:
+      type: integer
+      description: 최대 데이터 조회 수
+    pageKey:
+      type: string
+      description: 문자열 `mxql` 고정값
+    inject:
+      type: object
+      additionalProperties: true
+      description: | 
+        [다음 문서](../mxql/mxql-calculate#inject) 참조<br/>예시, `{ "default": "ORDER {key : [oid],  sort : [desc] }"}`
+    param:
+      type: object
+      description: 쿼리에 사용될 파라미터
+
+MXQLPathResponse:
+  type: object
+  properties:
+    pcode:
+      type: integer
+      description: 프로젝트 코드
+    pname:
+      type: string
+      description: 프로젝트 이름
+    oid:
+      type: integer
+      description: 에이전트 고유 식별자(ID)
+    oname:
+      type: string
+      description: 에이전트 이름
+    otype:
+      type: string
+      description: 에이전트 타입
+    okind:
+      type: integer
+      description: 종류별 에이전트 그룹 고유 식별자(ID)
+    okindName:
+      type: string
+      description: 종류별 에이전트 그룹 이름
+    onode:
+      type: integer
+      description: 서버별 에이전트 그룹 고유 식별자(ID)
+    onodeName:
+      type: string
+      description: 서버별 에이전트 그룹 이름
+    type:
+      type: string
+      description: 상품 종류
+    subtype:
+      type: string
+      description: 플랫폼 종류
+    version:
+      type: string
+      description: 버전 정보
+    os_name:
+      type: string
+      description: 운영체제 이름
+    ip:
+      type: string
+      description: IP 주소
+    container_id:
+      type: integer
+      description: 컨테이너 ID
+    metering:
+      type: integer
+      description: 미터링
+    status:
+      type: string
+      description: 상태 정보
+    normal:
+      type: integer
+      description: 정상 처리된 트랜잭션 수
+    slow:
+      type: integer
+      description: 느린 트랜잭션 수
+    verySlow:
+      type: integer
+      description: 매우 느린 트랜잭션 수
+    total:
+      type: integer
+      description: 총 트랜잭션 수
+    _pk_:
+      type: string
+      description: inject

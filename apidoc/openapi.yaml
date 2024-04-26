@@ -10,6 +10,32 @@ info:
     토큰은 계정 API 토큰과 프로젝트 API 토큰으로 구분됩니다. 계정 API 토큰은 프로젝트의 목록 정보를 취득하기 위한 용도로, 프로젝트 API 토큰은 프로젝트의 모니터링 정보를 취득하기 위한 용도로 활용합니다.
 
     프로젝트 코드는 프로젝트 진입 시 브라우저 화면 상단의 윈도우 또는 탭 제목에 '`[{프로젝트 코드}]` Cloud Application Monitoring'와 같이 표시되는 정보를 통해 확인할 수 있습니다. API 토큰을 변경하려면 각 화면의 ***재발급*** 또는 ***토큰 재발급*** 버튼을 선택하세요.
+
+    <div class="api-guide">
+
+    | 구분 | 키 | 설정값 | 비교 |
+    | -- | --| -- | --|
+    | 헤더 | `x-whatap-token` | API토큰 | 계정 API토큰 |
+    | 헤더 | `x-whatap-token` | API토큰 | 프로젝트 API토큰 |
+    | 헤더 | `x-whatap-pcode` | 프로젝트 코드 | 화면 윈도우 또는 브라우저 탭 타이틀 확인 |
+
+    </div>
+
+    ### 계정 토큰 확인하기
+
+    1. 화면의 오른쪽 위에 프로필 아이콘을 선택하세요.
+
+    1. 팝업 메뉴가 나타나면 ***계정 관리*** 버튼을 선택하세요.
+
+    1. 화면을 아래로 스크롤해 ***API토큰*** 섹션으로 이동하세요.
+
+    ### 프로젝트 토큰 확인하기
+
+    1. 홈 화면에서 프로젝트를 선택하세요. 
+
+    1. 프로젝트 진입 후 왼쪽에 ***관리*** &gt; ***프로젝트 관리*** 메뉴를 선택하세요.
+
+    1. ***API토큰*** 항목을 확인하세요.
 servers:
   - url: 'https://api.whatap.io'
 tags:
@@ -25,38 +51,62 @@ tags:
     description: 데이버베이스의 파라미터 관련 사항을 조회할 수 있습니다.
   - name: Database SQL 조회
     description: 데이버베이스의 SQL 관련 사항을 조회할 수 있습니다.
-  - name: MXQL text API
-    description: 직접 MXQL 쿼리를 작성해 데이터를 조회하는 API입니다.
-  - name: MXQL path API
-    description: SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록으로 데이터를 조회하는 API입니다.
+  - name: MXQL Open API 호출하기
+  - name: MXQL Open API 사용 안내
+    description: |
+      MXQL을 사용하는 방법은 다음과 같습니다.
+
+      * 직접 MXQL 쿼리를 작성해서 데이터를 조죄하는 방법
+      * [다음 문서](../mxql/mxql-guide#custom-query-saas)에서와 같이 '**SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록**'으로 데이터를 조회하는 방법
+
+      따라서 각각의 경우에 사용하는 API의 path가 달라집니다. 
+
+      <div class="api-guide">
+
+      | MXQL 활용 방법 | API |
+      | -- | -- |
+      | 직접 MXQL 쿼리를 작성하는 경우 | [MXQL text API](#text-api) |
+      | '**SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록**'을 사용하는 경우([다음 문서](../mxql/mxql-guide#custom-query-saas) 참조) | [MXQL path API](#path-api) |
+
+      </div>
+
+      Open API 호출 시 헤더에 포함하는 내용은 다음과 같습니다.
+
+      <div class="api-guide">
+
+      | 구분 | 키  | 설정 값 | 비고 |
+      | ---- | --- | ------- | ---- |
+      | 헤더 | x-whatap-token | API 토큰 `{{PROJECT API TOKEN}}` |프로젝트 API토큰: 프로젝트 선택 > ***관리*** > ***프로젝트 관리*** > ***API토큰***|
+      | 헤더 | x-whatap-pcode | 프로젝트 코드 `{{projectCode}}` | 프로젝트 코드: 프로젝트 선택 > ***관리*** > ***프로젝트 관리*** > ***프로젝트 코드*** |
+
+      </div>
+
+      **MXQL Open API 제한사항**
+
+      한 번의 요청으로 조회할 수 있는 기간은 최대 31일입니다.
+
 x-tagGroups:
   - name: 메타성 정보 조회
-    description: 프로젝트 및 그룹, 활성화된 에이전트 목록을 조회할 수 있는 API 목록을 안내합니다.
     tags:
       - 프로젝트
       - 그룹
       - 에이전트
   - name: Appication
-    description: 애플리케이션 모니터링 프로젝트의 에이전트 정보 및 관련 지표를 조회할 수 있는 API 목록을 안내합니다.
     tags:
       - APM Spot 정보 조회
       - APM 통계 데이터 조회
   - name: Server
-    description: 서버 모니터링 프로젝트의 에이전트 정보 및 관련 지표를 조회할 수 있는 API 목록을 안내합니다.
     tags:
       - Server Spot 정보 조회
       - Server 통계 데이터 조회
   - name: Database
-    description: 데이터베이스 모니터링 프로젝트의 에이전트 정보 및 파라미터 변동 사항, 통계 정보를 조회를 위한 API를 안내합니다.
     tags:
       - Database 파라미터 조회
       - Database SQL 조회
   - name: MXQL Open API
-    description: |
-      Open API를 이용해 MXQL 데이터를 조회하는 방법을 안내합니다.
     tags:
-      - MXQL text API
-      - MXQL path API
+      - MXQL Open API 사용 안내
+      - MXQL Open API 호출하기
 paths:
   /open/api/json/projects:
     get:
@@ -167,6 +217,7 @@ paths:
                   - $ref: 'schemas.yaml#/Server'
               examples:
                 apm:
+                  summary: Application
                   value:
                     platform: 'JAVA'
                     createTime: 'Tue Sep 18 08:34:27 GMT 2018'
@@ -177,6 +228,7 @@ paths:
                     name: 'SEO_APM'
                     productType: 'APM'
                 server:
+                  summary: Server
                   value:
                     pname: 'LOCAL_PC'
                     timezone: 9
@@ -602,10 +654,10 @@ paths:
         - lang: curl
           source: |
             curl --location \
-              'https://api.whatap.io/open/api/v2/agent/list' \
-              -H 'x-whatap-token: {{PROJECT_API_TOKEN}}' \
-              -H 'x-whatap-pcode: {{projectCode}}' \
-              -d '{"stime":{stime},"etime":{etime}}'
+            'https://api.whatap.io/open/api/v2/agent/list' \
+            -H 'x-whatap-token: {{PROJECT_API_TOKEN}}' \
+            -H 'x-whatap-pcode: {{projectCode}}' \
+            -d '{"stime":{stime},"etime":{etime}}'
   /open/api/json/spot:
     get:
       summary: 모든 정보 조회
@@ -2606,3 +2658,189 @@ paths:
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/db/statistics/sql?oids={oids}&period={period}&date={date}"
+  /open/api/flush/mxql/text:
+    post:
+      summary: MXQL text API
+      description: |
+        다음 이미지는 MXQL 실행 결과 예시입니다.
+
+        ![MXQL 실행 결과 예시](https://img.whatap.io/media/images/open_api_mxql_text_example.png)
+      tags:
+        - MXQL Open API 호출하기
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas.yaml#/MXQLRequest'
+            example:
+              stime: 1639016640000
+              etime: 1639016940000
+              mql: "CATEGORY app_counter\nOID [ $oidFirst, $oidSecond ]\nTAGLOAD\nSELECT\nINJECT sortByOidDesc"
+              limit: 2
+              pageKey: "mxql"
+              inject:
+                sortByOidDesc: "ORDER {key : [oid],  sort :[desc]}"
+              param:
+                $oidFirst: "1499132250"
+                $oidSecond: "1670734023"
+      parameters:
+        - $ref: 'parameters.yaml#/WhatapTokenHeader'
+        - $ref: 'parameters.yaml#/WhatapPcodeHeader'
+      responses:
+        '200':
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas.yaml#/MXQLtextResponse'
+              examples:
+                example1:
+                  summary: 조회된 데이터가 있는 경우
+                  value:
+                    - time: 1639016640000
+                      pcode: 101
+                      pname: "Virtual"
+                      okind: -1085056726
+                      onode: 334634079
+                      oname: "22136-8075"
+                      okindName: "ote-virtual-1"
+                      onodeName: "node-1"
+                      host_ip: "192.168.1.57"
+                      container: "ote-8075.service"
+                      pid: 22206
+                      type: "java"
+                      containerKey: 1876424218
+                      tx_count: 58
+                      tx_error: 0
+                      tx_time: 1643.9138
+                      apdex_satisfied: 41
+                      apdex_tolerated: 16
+                      apdex_total: 58
+                      tx_dbc_time: 13.655172
+                      tx_sql_time: 222.15517
+                      tx_httpc_time: 717.4138
+                      sql_count: 129
+                      sql_error: 0
+                      sql_time: 101.387596
+                      sql_fetch_count: 37621
+                      sql_fetch_time: 4.5187527E-4
+                      httpc_count: 41
+                      httpc_error: 0
+                      httpc_time: 1073.4878
+                      active_tx_count: 20
+                      active_tx_0: 19
+                      active_tx_3: 1
+                      active_tx_8: 0
+                      tps: 13.833333
+                      resp_time: 1628
+                      arrival_rate: 12.6
+                      pack_dropped: 110
+                      metering: 4
+                      _clock_delta_: 180
+                      oid: 1670734023
+                example2:
+                  value: []
+                  summary: 조회된 데이터가 없는 경우
+      x-codeSamples:
+        - lang: curl
+          source: |
+            curl --location 'https://api.whatap.io/open/api/flush/mxql/text' \
+            -H 'x-whatap-token: {{PROJECT API TOKEN}}' \
+            -H 'x-whatap-pcode: {{projectCode}}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "stime": 1639016640000,
+              "etime": 1639016940000,
+              "mql": "CATEGORY app_counter\nOID [ $oidFirst, $oidSecond ]\nTAGLOAD\nSELECT\nINJECT sortByOidDesc",
+              "limit": 2,
+              "pageKey": "mxql",
+              "inject": {
+                "sortByOidDesc": "ORDER {key : [oid],  sort :[desc]}"
+              },
+              "param": {
+                "$oidFirst": "1499132250",
+                "$oidSecond": "1670734023"
+              }
+            }'
+  /open/api/flush/mxql/path:
+    post:
+      summary: MXQL path API
+      tags:
+        - MXQL Open API 호출하기
+      parameters:
+        - $ref: 'parameters.yaml#/WhatapTokenHeader'
+        - $ref: 'parameters.yaml#/WhatapPcodeHeader'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas.yaml#/MXQLRequest'
+            example:
+              stime: 1639016640000
+              etime: 1639016940000
+              mql: "/app/act_tx/agent_with_tx"
+              limit: 2
+              pageKey: "mxql"
+              inject:
+                default: "CREATE {key : _pk_, value : okindName}"
+              param: {}
+      responses:
+        '200':
+          description: Query executed successfully
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas.yaml#/MXQLPathResponse'
+              examples:
+                example1:
+                  summary: 조회된 데이터가 있는 경우
+                  value:
+                    - pcode: 101
+                      pname: "Virtual"
+                      oid: -1348176005
+                      oname: "22137-8071"
+                      otype: "ap"
+                      okind: -1085056726
+                      okindName: "ote-virtual-1"
+                      onode: 334634079
+                      onodeName: "node-1"
+                      type: "ap"
+                      subtype: "java"
+                      version: "2.1.0 20211207u"
+                      os_name: "Linux"
+                      ip: "192.168.1.57"
+                      container_id: 842770198
+                      metering: 4
+                      status: "ok"
+                      normal: 12
+                      slow: 1
+                      verySlow: 0
+                      total: 13
+                      _pk_: "okindName"
+                    - pcode: 101
+                      pname: "Virtual"
+                      oid: -883058050
+                      oname: "22141-8070"
+                      otype: "ap"
+                      okind: -933992004
+                      okindName: "ote-virtual-0"
+                      onode: 1693789385
+                      onodeName: "node-0"
+                      type: "ap"
+                      subtype: "java"
+                      version: "2.1.0 20211207u"
+                      os_name: "Linux"
+                      ip: "192.168.1.57"
+                      container_id: 624997205
+                      metering: 4
+                      status: "ok"
+                      normal: 19
+                      slow: 1
+                      verySlow: 0
+                      total: 20
+                      _pk_: "okindName"
+                example2:
+                  summary: 조회된 데이터가 없는 경우
+                  value: []

@@ -65,8 +65,8 @@ tags:
 
       | MXQL 활용 방법 | API |
       | -- | -- |
-      | 직접 MXQL 쿼리를 작성하는 경우 | [MXQL text API](#text-api) |
-      | '**SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록**'을 사용하는 경우([다음 문서](../mxql/mxql-guide#custom-query-saas) 참조) | [MXQL path API](#path-api) |
+      | 직접 MXQL 쿼리를 작성하는 경우 | [MXQL text API](#tag/MXQL-Open-API/paths/~1open~1api~1flush~1mxql~1text/post) |
+      | '**SaaS 서비스에서 제공하는 사전에 정의된 MXQL 쿼리 목록**'을 사용하는 경우([다음 문서](../mxql/mxql-guide#custom-query-saas) 참조) | [MXQL path API](#tag/MXQL-Open-API/paths/~1open~1api~1flush~1mxql~1path/post) |
 
       </div>
 

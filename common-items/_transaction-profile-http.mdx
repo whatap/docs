@@ -14,8 +14,10 @@
 
   :::note
 
-  보안 키는 WAS 서버 *`${WHATAP_AGENT_HOME}`/paramkey.txt* 파일 내에 6자리로 설정합니다. *paramkey.txt* 파일이 존재하지 않는 경우 랜덤 값으로 자동 생성합니다.
-  
+  * **[Node.js 에이전트 0.4.95](../release-notes/nodejs/nodejs-0_4_95) 버전 미만**: 보안 키는 WAS 서버 *`${WHATAP_AGENT_HOME}`/paramkey.txt* 파일 내에 6자리로 작성합니다. *paramkey.txt* 파일이 존재하지 않는 경우 랜덤 값으로 자동 생성합니다.
+
+  * **[Node.js 에이전트 0.4.95](../release-notes/nodejs/nodejs-0_4_95) 버전 이상**: 보안 키는 WAS 서버 *`${WHATAP_AGENT_HOME}`/security.conf* 파일 내에 `paramkey` 키값을 확인하세요. *security.conf* 파일이 존재하지 않을 경우 `paramkey` 키값을 **WHATAP**으로 자동 생성합니다.
+
   :::
 
   </InDoc>
@@ -24,9 +26,9 @@
 
   :::note
 
-  * **Java 에이전트 2.2.2 버전 이전**: 보안 키는 WAS 서버 *`${WHATAP_AGENT_HOME}`/paramkey.txt* 파일 내에 6자리로 작성합니다. *paramkey.txt* 파일이 존재하지 않는 경우 랜덤 값으로 자동 생성합니다.
+  * **Java 에이전트 2.2.2 버전 미만**: 보안 키는 WAS 서버 *`${WHATAP_AGENT_HOME}`/paramkey.txt* 파일 내에 6자리로 작성합니다. *paramkey.txt* 파일이 존재하지 않는 경우 랜덤 값으로 자동 생성합니다.
   
-  * **Java 에이전트 2.2.2 버전 이후**: 보안 키는 WAS 서버 *`${WHATAP_AGENT_HOME}`/security.conf* 파일 내에 `paramkey` 키값을 확인하세요. *security.conf* 파일이 존재하지 않을 경우 `paramkey` 키값을 **WHATAP**으로 자동 생성합니다.
+  * **Java 에이전트 2.2.2 버전 이상**: 보안 키는 WAS 서버 *`${WHATAP_AGENT_HOME}`/security.conf* 파일 내에 `paramkey` 키값을 확인하세요. *security.conf* 파일이 존재하지 않을 경우 `paramkey` 키값을 **WHATAP**으로 자동 생성합니다.
 
   * 보안키 설정 파일에 대한 자세한 내용은 [다음 문서](install-agent#security)를 참조하세요.
 

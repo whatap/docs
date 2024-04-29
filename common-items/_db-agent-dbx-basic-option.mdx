@@ -24,6 +24,14 @@
 
   :::
 
+<InDoc product="oracle-dma">
+
+* **ipc_key** <span class='type'>String</span>
+
+  `ipcs -m` 명령어를 통해 얻을 수 있습니다. 모니터링할 오라클의 Key 값(16진수)입니다.
+
+</InDoc>
+
 <InDoc product='cubrid'>
 
 * **db** <span class='type'>String</span>
@@ -32,11 +40,15 @@
 
 </InDoc>
 
+<Xclude product="oracle-dma">
+
 * **db_ip** <span class='type'>String</span>
 
   모니터링할 데이터베이스 서버의 IP 주소를 설정합니다.
 
-<Xclude product='cubrid'>
+</Xclude>
+
+<Xclude product='cubrid,oracle-dma'>
 
 * **db_port** <span class='type'>String</span>
 

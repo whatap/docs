@@ -27,11 +27,41 @@
 트랜잭션을 통해 확인할 수 있는 장애의 현황은 우선 응답시간을 통해 알 수 있습니다. 또한 진행 중인 트랜잭션이 종료되지 않는다면 이 또한 장애로 인식해야 합니다. 와탭은 진행 중인 상태의 시간에 따라 구간을 나누어 표시합니다. <span class='normal'>파랑색(Normal)</span>은 응답 시간이 정상인 트랜잭션, <span class='slow'>주황색(Slow)</span>은 응답 시간이 8초 정도의 느린 트랜잭션, <span class='vslow'>빨간색(Very slow)</span>은 응답 시간이 보통의 2배 이상으로 느린 트랜잭션을 의미합니다. 이를 통해 사용자는 직관적으로 가장 빨리 장애를 인지할 수 있습니다.
 
 
-#### <Cmdname sid="AA001" />
+#### <Cmdname sid="AA001" /> {#active-trs-speed}
 
 ![액티브 트랜잭션 스피드](/img/speedmeter.png)
 
-현재 진행 중인 트랜잭션(가운데 영역)과 종료된 트랜잭션(오른쪽 영역) 현황을 확인할 수 있습니다. 왼쪽에서 오른쪽으로 지나가는 물방울 모양의 아이콘은 트랜잭션을 의미합니다. 액티브 트랜잭션의 상태를 속도(<span class='normal'>Normal</span>, <span class='slow'>Slow</span>, <span class='vslow'>Very Slow</span>)로 색상으로 분류하여 우측 상단에 개수로 표시합니다. 
+현재 진행 중인 트랜잭션(가운데 영역)과 종료된 트랜잭션(오른쪽 영역) 현황을 확인할 수 있습니다. 왼쪽에서 오른쪽으로 지나가는 물방울 모양의 아이콘은 트랜잭션을 의미합니다. 
+
+* 왼쪽 영역
+
+  요청 트랜잭션 수를 의미하며, 트랜잭션 수에 비례해 더 많이, 더 빠르게 표시합니다.
+
+* 가운데 영역
+
+  액티브 트랜잭션의 상태를 속도로 색상으로 분류하여 우측 상단에 개수로 표시합니다. 차트 안의 숫자는 전체 액티브 트랜잭션의 수입니다. 차트의 색상의 의미는 다음과 같습니다.
+
+  * 파란색(<span class='normal'>Normal</span>): 0초 \~ 3초
+
+  * 주황색(<span class='slow'>Slow</span>): 3초 \~ 8초
+
+  * 빨간색(<span class='vslow'>Very Slow</span>): 8초 이상
+
+* 오른쪽 영역
+
+  애플리케이션 성능 지표(Application Performance Index, Apdex)를 의미합니다. 웹 애플리케이션의 고객 만족도를 측정한 지표로, 0 ~ 1 사이의 값을 갖습니다. 물방울이 날아가는 속도는 Apdex 트랜잭션의 총 수에 비례하며, 물방울의 색상의 의미는 다음과 같습니다.
+
+  * 파란색: <span class='normal'>Apdex 만족</span>(Satisfied) 수 
+
+  * 주황색: <span class='slow'>Apdex 허용</span>(Tolerating) 수 
+
+  * 빨간색: <span class='vslow'>Apdex 불만</span>(Frustrated) 수 = `APDEX 트랜잭션 총 수` - (`Apdex 만족` + `Apdex 허용`)
+
+  :::note
+
+  애플리케이션 성능 지표(Application Performance Index, Apdex)에 대한 자세한 내용은 [다음 링크](https://www.apdex.org)를 참조하세요.
+
+  :::
 
 #### <Cmdname sid="AA002" /> {#active-trs}
 

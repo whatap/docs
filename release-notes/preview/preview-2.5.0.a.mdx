@@ -23,7 +23,17 @@ toc_max_heading_level: 2
 
 ### `공통`
 
-<Status>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" /> 또는 <Cmdname sid="side_integratedFlexboard" className="uitext" /> 메뉴에서 위젯에 대한 설명 첨부 기능 추가
+#### 프로젝트
+
+- <Status>Changed</Status> 상품 선택 및 프로젝트 생성 UI/UX 개선
+
+- <Status>Changed</Status> <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴로의 유입 경로에 따라 화면 상단에 노출되는 스텝바의 노출 여부를 다르게 적용
+
+#### <Cmdname sid="side_flexboard" /> / <Cmdname sid="side_integratedFlexboard" />
+
+- <Status>Feature</Status> 위젯에 대한 설명 첨부 기능 추가
+
+- <Status>Changed</Status> 리치 텍스트 위젯에서 <b>Heading</b> 스타일의 여백 제거 및 텍스트 분량에 따라 스크롤이 자동 노출되도록 변경
 
 ---
 
@@ -39,13 +49,23 @@ toc_max_heading_level: 2
 
 ### `Kubernetes`
 
-<Status>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 쿠버네티스 에이전트 설치 방식 개편
+- <Status>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 쿠버네티스 에이전트 설치 방식 개편
 
-- 사용자가 설치 파일을 수정하지 않고 옵션 선택만으로 환경에 맞는 파일을 다운로드할 수 있습니다.
+  - 사용자가 설치 파일을 수정하지 않고 옵션 선택만으로 환경에 맞는 파일을 다운로드할 수 있습니다.
 
-- <Cmdname sid="TTL07852" className="uitext" /> 옵션을 추가합니다.
+  - <Cmdname sid="TTL07852" className="uitext" /> 옵션을 추가합니다.
 
-- 설치 마지막 단계에서 모니터링 주요 메뉴를 소개합니다.
+  - 설치 마지막 단계에서 모니터링 주요 메뉴를 소개합니다.
+
+- <Status>Feature</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_pendingPod" className="uitext" /> 메뉴의 상세 탭 개편
+
+  - 이벤트 메시지를 기반으로 빠른 원인 분석을 도와주는 <UI>Suggestions</UI> 탭 추가
+
+  - Pod 연관 이벤트를 확인할 수 있는 <UI>Event</UI> 탭 추가
+  
+  - 컨테이너 로그를 확인할 수 있는 <UI>Log</UI> 탭 추가
+
+- <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 <Cmdname sid="BTN07267" className="uitext" />에서 Docker Python의 okind 설정 옵션 이름을 <code>whatap.okind</code>로 변경
 
 ---
 
@@ -57,15 +77,32 @@ toc_max_heading_level: 2
 
 - <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 query 텍스트를 선택하면 나타나는 <Cmdname sid="TTL06224" className="uitext" /> 창의 쿼리문이 <code>undefined</code>로 표시되는 문제 수정
 
+
+#### PostgreSQL / MySQL / Oracle V2 / Oracle DMA
+
+<Status>New</Status> 비교 시간을 설정해 해당 시간대에서 가장 많이 실행된 SQL과 해당 SQL의 등락을 확인할 수 있는 <Cmdname sid="side_dbTopSqlComparison" className="uitext" /> 메뉴 추가
+
+:::note
+
+이 기능은 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTopSqlComparison" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+:::
+
 #### PostgreSQL / Oracle DMA
 
 - <Status>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbWaitAnalysis" className="uitext" /> 메뉴의 테이블 위젯에서 마우스를 오버하면 항목의 전체 이름을 확인할 수 있는 툴팁 추가
 
 #### Oracle V2 / Oracle DMA
 
+- <Status>Feature</Status> <b>Applicatoin</b> 상품에서 <b>Database</b> 상품으로 연계하는 분석 기능에서 이벤트 값이 <code>enq: TX - row lock contention</code>이면 Lock 메시지를 표기하도록 기능 추가
+
 - <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 <UI>SQL Elapse Map</UI> 위젯의 차트 영역을 드래그하면 나타나는 <UI>Query List</UI> 테이블에 <UI>sid</UI>, <UI>serial#</UI> 컬럼 추가
 
 - <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 테이블의 컬럼 순서 조정
+
+- <Status>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />, <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 <Cmdname sid="active_sessions" className="uitext" /> 테이블의 항목을 선택하면 팝업되는 <Cmdname sid="session_detail" className="uitext" /> 창에서 표시되는 지표 변경 및 수정
+
+- <Status>Fixed</Status> <b>Applicatoin</b> 상품에서 <b>Database</b> 상품으로 연계 분석하는 기능에 특정 키 값이 있으면 에러 메시지로 확인하도록 키 값 수정
 
 - <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴에서 <UI>Operation Count</UI> 차트가 무한 로딩되는 문제 수정
 

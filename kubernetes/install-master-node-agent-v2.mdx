@@ -1,0 +1,280 @@
+---
+id: install-master-node-agent-v2
+title: 마스터 및 노드 에이전트 설치
+description: 설치 안내 페이지에 따라 마스터 및 노드 에이전트 설치 과정을 진행하세요.
+tags: [ 쿠버네티스, 쿠버네티스 모니터링, 에이전트, 마스터, 노드, 에이전트 설치 ]
+toc_max_heading_level: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+다음과 같이 마스터 및 노드 에이전트 설치 과정을 안내합니다. ***설치 안내*** 화면과 동일한 과정입니다.
+
+:::note 
+
+EKS Fargate는 지원 예정입니다. 
+
+:::
+
+## 설치 방식 선택 
+
+액세스 키 확인 후 ***설치 안내*** 화면에서 ***설치 방식 선택*** 탭을 선택하세요. 와탭 쿠버네티스 에이전트가 지원하는 **Helm** 차트와 **Yaml** 설치 방식 중 원하는 설치 방식을 선택 후 사용자의 쿠버네티스 환경에 따라 알맞은 항목을 선택하세요. 
+
+<ImgLang img='k8s-install-master-node-method.png' desc='설치 방식 선택'/>
+
+1. ***Helm*** 차트와 ***Yaml*** 중 원하는 **설치 방식**을 선택하세요. 
+
+1. ***1.16 이상*** 버전 또는 ***1.16 미만*** 버전 중 해당하는 **쿠버네티스 버전**을 선택하세요. 
+
+1. ***containerd***, ***Docker Engine***, ***CRI-O*** 중 **컨테이너 런타임**을 선택하세요. 
+
+1. **사용자 쿠버네티스 환경**(GKE, OpenShift, Istio, GPU Cluster) 중 해당하는 항목이 있을 경우 선택하세요.
+
+1. 설치 방식 관련 항목 선택을 마친 후 화면 오른쪽 아래의 ***다음*** 버튼을 클릭하거나 왼쪽 ***추가 기능 적용*** 탭을 선택해 다음 단계로 이동하세요.
+
+## 추가 기능 적용 
+
+와탭 쿠버네티스 모니터링은 현재 **컨트롤 플레인 모니터링**을 추가 기능으로 제공합니다. 추가 기능 적용을 원할 경우 ***Control Plane*** 체크 박스를 선택하세요. 
+
+<ImgLang img='k8s-install-master-node-addition.png' desc='추가 기능 선택'/>
+
+추가 적용한 기능이 많을 수록 수집되는 데이터의 양과 에이전트가 사용하는 리소스의 양이 증가할 수 있습니다. 설치 후 에이전트 설정을 통해 해당 기능을 활성화 또는 비활성화할 수 있습니다. 
+
+추가 기능 적용 여부를 선택 후 화면 오른쪽 아래의 ***다음*** 버튼을 클릭하거나 왼쪽 ***설치 파일 다운로드*** 탭을 선택해 다음 단계로 이동하세요. 
+
+:::note 
+
+**컨트롤 플레인 모니터링**에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/kubernetes/kube-apiserver-dashboard)를 참조하세요. 
+
+:::
+
+## 설치 파일 다운로드 
+
+설치 파일 다운로드 전 사용자 쿠버네티스 환경에 알맞은 항목이 선택되었는지 확인하세요. 선택 항목 확인 후 ***설치 파일 다운로드*** 버튼을 클릭해 설치에 필요한 기본 설정 파일(*values.yaml*)을 다운로드하세요. 
+
+<ImgLang img='k8s-install-master-node-download.png' desc='설치 파일 다운로드'/>
+
+다운로드 후 화면 오른쪽 아래의 ***다음*** 버튼을 클릭하거나 ***실행 명령어 입력*** 탭을 선택해 다음 단계로 이동하세요. 
+
+## 실행 명령어 입력 
+
+***설치 방식 선택*** 탭에서 선택한 환경과 설치 방식 안내에 따라 실행 명령어를 입력해 설치를 진행하세요.
+
+<ImgLang img='k8s-install-master-node-command.png' desc='실행 명령어 입력'/>
+
+### 쿠버네티스 환경
+
+***설치 방식 선택*** 탭에서 **GKE** 또는 **OpenShift** 환경을 선택한 경우 다음 안내를 참조하세요. 해당하지 않을 경우 다음의 [쿠버네티스 에이전트 생성](#create-kubernetes-agent) 단계로 넘어가세요.
+
+<Tabs>
+
+<TabItem value='gke' label='GKE 환경'>
+
+***설치 방식 선택*** 탭에서 **Google Kubernetes Engine**(**GKE**) 환경을 선택한 경우 사용자 클러스터 생성 후 권한 설정을 위해 다음 명령을 실행하세요.
+
+```bash
+ACCOUNT=$(gcloud info --format='value(config.account)')
+kubectl create clusterrolebinding owner-cluster-admin-binding \
+  --clusterrole cluster-admin \
+  --user $ACCOUNT
+```
+
+:::note
+
+gcloud 명령 설치에 대한 자세한 내용은 [구글 클라우드 문서](https://cloud.google.com/sdk/docs/install)를 참조하세요.
+
+:::
+
+</TabItem>
+
+<TabItem value='openshift' label='OpenShift 환경'>
+
+***설치 방식 선택*** 탭에서 **OpenShift** 환경을 선택한 경우 권한 설정을 위해 다음 명령을 실행하세요.
+
+```bash
+oc create -f whatap_openshift_scc.yaml
+```
+
+</TabItem>
+
+</Tabs>
+
+### 쿠버네티스 에이전트 생성{#create-kubernetes-agent}
+
+와탭 쿠버네티스 에이전트 설치 시 **Helm** 차트 기준 설치 방식 안내와 **Yaml** 파일 기준 설치 방식 안내를 다음과 같이 제공합니다. 
+
+<Tabs>
+
+<TabItem value='helm' label='Helm Chart' default>
+
+#### Helm 차트 기준 설치
+
+***설치 방식 선택*** 탭에서 ***Helm*** 차트 설치 방식을 선택한 경우 다음 안내를 참조하세요. 
+
+1. 다음 명령어를 통해 *helm* 버전을 확인하세요. 3.x 버전 이상을 지원합니다. 
+
+    ```bash 
+    helm Version
+
+    # 출력 예시
+    # version.BuildInfo{Version:"v3.x", GitCommit:"xxx", GitTreeState:"clean", GoVersion:"go1.20.8"}
+    ```
+
+1. 와탭 Helm 리포지토리에 대한 네트워크 연결 상태를 확인하세요. 
+
+    ```bash 
+    curl https://whatap.github.io/helm/ping 
+    # 출력 예시 
+    # pong
+    ```
+
+1. 다음 명령어를 실행해 와탭 Helm 리포지토리를 추가하세요.
+
+    ```bash 
+    helm repo add whatap https://whatap.github.io/helm/
+    helm repo update
+    ```
+
+1. 다음과 같이 에이전트 애플리케이션을 설치하세요. 
+
+    * 에이전트를 **처음** 설치하는 사용자는 다음 명령어를 실행해 에이전트 애플리케이션을 설치하세요. 
+
+        ```bash 
+        helm install whatap-kube-agent whatap/kube -f values.yaml
+        ```
+
+    * **기존** 와탭 쿠버네티스 에이전트 사용자는 다음 명령어를 실행해 에이전트 애플리케이션을 설치하세요. 
+
+        ```bash 
+        kubectl delete ns whatap-monitoring
+        kubectl delete clusterrole whatap
+        kubectl delete clusterrolebinding whatap
+        helm install whatap-kube-agent whatap/kube -f values.yaml
+        ```
+
+    :::note 
+
+    기존 *yaml* 파일 방식으로 와탭 쿠버네티스 에이전트를 설치한 경우 Clean Install이 필요합니다. 기존 쿠버네티스 에이전트 삭제 후 *helm* 차트를 통한 설치가 가능합니다. 
+
+    :::
+
+#### *values.yaml* 주요 설정 항목
+
+와탭 쿠버네티스 에이전트 설정을 수정하기 위해서는 기본 설정 파일(*values.yaml*)을 수정해야 합니다. *values.yaml* 파일 내 주요 설정 항목을 다음과 같이 안내합니다. 
+
+<div class='k8s-values-yaml-table'>
+
+| 키 | 타입 | 기본값 | 설명                                               |
+|-----|------|---------------|-----------------------------------------------------------|
+| `whatap.license` | String | `# <license-key>` | Whatap 라이센스 키                                             |
+| `whatap.host` | String | `# <whatap-server-host>` | Whatap 서버의 호스트 주소                                         |
+| `whatap.port` | Int | `# <whatap-server-port>` | Whatap 포트 번호                                              |
+| `containerRuntime` | String | `"docker"` | 사용 중인 컨테이너 런타임. `"docker"`, `"containerd"`, `"crio"` 중 선택 |
+| `daemonSet.name` | String | `whatap-node-agent` | DaemonSet의 이름                                             |
+| `daemonSet.label` | String | `whatap-node-agent` | DaemonSet에 지정할 라벨                                         |
+| `daemonSet.initContainers.nodeDebugger.enabled` | Bool | `true` | Whatap 노드 디버거 컨테이너 활성화 여부                                 |
+| `daemonSet.containers.nodeHelper.image` | String | `whatap/kube_mon` | nodeHelper 컨테이너의 이미지                                     |
+| `daemonSet.containers.nodeHelper.requests.memory` | String | `100Mi` | nodeHelper MEMORY request                                 |
+| `daemonSet.containers.nodeHelper.requests.cpu` | String | `100m` | nodeHelper CPU request                                    |
+| `daemonSet.containers.nodeHelper.limits.memory` | String | `350Mi` | nodeHelper MEMORY limit                                   |
+| `daemonSet.containers.nodeHelper.limits.cpu` | String | `200m` | nodeHelper CPU limit                                      |
+| `daemonSet.containers.nodeAgent.image` | String | `whatap/kube_mon` | nodeAgent 컨테이너의 이미지                                       |
+| `daemonSet.containers.nodeAgent.requests.memory` | String | `300Mi` | nodeAgent MEMORY request                                  |
+| `daemonSet.containers.nodeAgent.requests.cpu` | String | `100m` | nodeAgent CPU request                                     |
+| `daemonSet.containers.nodeAgent.limits.memory` | String | `350Mi` | nodeAgent MEMORY limit                                    |
+| `daemonSet.containers.nodeAgent.limits.cpu` | String | `200m` | nodeAgent CPU limit                                       |
+| `deployment.name` | String | `whatap-master-agent` | Deployment의 이름                                            |
+| `deployment.label` | String | `whatap-master-agent` | Deployment에 지정할 라벨                                        |
+| `deployment.replicas` | Int | `1` | Deployment의 replica 수                                     |
+| `deployment.containers.controlPlaneHelper.enabled` | Boolean | `true` | whatap-control-plane-helper 컨테이너를 활성화 여부                  |
+| `deployment.containers.controlPlaneHelper.image` | String | `"whatap/kube_mon"` | controlPlaneHelper 컨테이너의 이미지                              |
+| `deployment.containers.controlPlaneHelper.port` | String | `9496` | controlPlaneHelper 컨테이너의 포트 번호입니다                         |
+| `deployment.containers.controlPlaneHelper.resources.requests.memory` | String | `"300Mi"` | controlPlaneHelper 컨테이너 MEMORY request                    |
+| `deployment.containers.controlPlaneHelper.resources.requests.cpu` | String | `"100m"` | controlPlaneHelper 컨테이너 CPU request                       |
+| `deployment.containers.controlPlaneHelper.resources.limits.memory` | String | `"350Mi"` | controlPlaneHelper 컨테이너 MEMORY limit                      |
+| `deployment.containers.controlPlaneHelper.resources.limits.cpu` | String | `"200m"` | controlPlaneHelper 컨테이너 CPU limit                         |
+| `deployment.containers.masterAgent.name` | String | `whatap-master-agent` | masterAgent 컨테이너 이름                                       |
+| `deployment.containers.masterAgent.image` | String | `"whatap/kube_mon"` | masterAgent 컨테이너 이미지                                      |
+| `deployment.containers.masterAgent.port` | Int | `6600` | masterAgent 컨테이너 포트 번호                                    |
+| `deployment.containers.masterAgent.resources.requests.memory` | String | `"300Mi"` | masterAgent 컨테이너 MEMORY request                           |
+| `deployment.containers.masterAgent.resources.requests.cpu` | String | `"100m"` | masterAgent 컨테이너 CPU request                              |
+| `deployment.containers.masterAgent.resources.limits.memory` | String | `"350Mi"` | masterAgent 컨테이너 MEMORY limit                             |
+| `deployment.containers.masterAgent.resources.limits.cpu` | String | `"200m"` | masterAgent 컨테이너 CPU request                              |
+
+</div>
+
+:::note 
+
+Helm 차트 기준 **설치 문제 해결**에 대한 안내는 [다음 문서](agent-troubleshooting#troubleshooting-helm-chart)를 참조하세요.
+
+:::
+
+</TabItem>
+
+<TabItem value='yaml' label='Yaml' default>
+
+#### Yaml 파일 기준 설치
+
+***설치 방식 선택*** 탭에서 ***Yaml*** 파일 설치 방식을 선택한 경우 에이전트를 생성하기 위해 다음 명령어를 실행하세요. 
+
+```bash
+kubectl apply -f whatap_kube_agent.yaml
+```
+
+:::note
+
+**마스터 에이전트가 사용하는 자원량**은 **사용자 환경의 노드 수**에 어느 정도 **비례**합니다. 즉 클러스터 내에 노드 수가 많을 경우 기본값으로 설정된 메모리 Limit(350MB) 이상의 자원을 사용해 OOM(Out Of Memory)이 발생할 수 있습니다. 마스터 에이전트에 할당된 메모리 Limit 수치는 에이전트 설치 *YAML* 파일을 통해 변경할 수 있습니다.
+
+:::
+
+</TabItem>
+
+</Tabs>
+
+## 에이전트 설치 확인{#check-kubernetes-agent}
+
+쿠버네티스 에이전트 설치가 정상적으로 완료되었을 경우 다음 명령어를 실행해 마스터 에이전트와 노드 에이전트의 상태를 확인할 수 있습니다.
+
+```bash
+kubectl get pod -n whatap-monitoring
+```
+
+#### Running 상태인 경우
+
+다음과 같이 **STATUS** 항목이 **Running**인 경우 **설치를 완료한 상태**입니다. 마스터 및 노드 에이전트의 설치를 완료하면 쿠버네티스 환경의 자원 모니터링을 시작합니다. [와탭 모니터링 서비스](https://service.whatap.io)로 이동한 다음 ***프로젝트 목록***과 ***대시보드*** > ***컨테이너 맵*** 메뉴에서 성능 정보를 수집하는 것을 확인하세요. 
+
+![](/img/k8s-check-running-agent-monitoring.svg)
+
+#### Running 상태가 아닌 경우
+
+다음과 같이 **STATUS** 항목이 **Running**이 아닌 경우 설치가 제대로 이루어지지 않은 상태입니다. 
+
+![](/img/k8s-not-running-agent-monitoring.svg)
+
+1. 마스터 노드에서 다음 명령어를 실행해 Pod 생성의 실패 원인을 파악하세요. 
+
+    ```bash
+    kubectl describe pod {POD_NAME} -n whatap-monitoring
+    ```
+
+1. 실행 결과 하단에 **Events:** 항목을 확인하세요.
+
+    ![](/img/k8s-check-install-fail.svg)
+
+:::tip
+
+`kubectl` 명령어 사용 시 `-n {네임스페이스}` 옵션을 사용하면 특정 네임스페이스를 대상으로 작업을 수행합니다. 와탭 에이전트는 기본적으로 `whatap-monitoring`이라는 네임스페이스에 설치되므로 `-n whatap-monitoring`이라는 옵션을 추가합니다.
+
+:::
+
+
+:::note
+
+* 화면 오른쪽 아래에 ***모니터링 시작 안내*** 버튼 선택 시 와탭 쿠버네티스 모니터링의 주요 메뉴에 대한 안내를 확인할 수 있습니다. 각 주요 메뉴 안내 하단의 버튼 클릭 시 해당 메뉴로 이동합니다. 
+
+* 애플리케이션 에이전트를 설치를 진행하려면 화면 오른쪽 아래에 ***추가 모니터링 설치*** 버튼을 선택하세요. 자세한 내용은 [다음 문서](install-application-agent)를 참조하세요.
+
+* 에이전트를 최신 버전으로 업데이트하려면 [다음 문서](agent-update)를 참조하세요.
+
+:::

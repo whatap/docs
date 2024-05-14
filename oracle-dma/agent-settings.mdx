@@ -26,20 +26,116 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
 
 ### 데이터 수집
 
-import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data-collection.mdx";
+* **xos** <span class='type'>Boolean</span>
 
-<Dbagentsettingdatacollection /> 
+  기본값 `true`
 
+  XOS 에이전트로부터 데이터를 전송 여부를 설정합니다.
 
-### AWS RDS CloudWatch 적용 {#using-aws-rds}
+* **tables_min_size** <span class='type'>Int</span>
 
-import AWSRDSdesc from '../common-items/_import_aws-rds-desc.mdx';
+  기본값 `10`
 
-<AWSRDSdesc name='db_oracle_counter' />
+  테이블 정보를 수집할 때 설정한 값보다 작은 크기의 테이블 정보는 수집하지 않습니다. 테이블 데이터를 수집하는 최소 단위로 기본값은 10MB 입니다.
 
-import Dbagentaws from "../common-items/_db-agent-aws.mdx";
+* **interval** <span class='type'>Int</span>
 
-<Dbagentaws />
+  기본값 `3`
+
+  데이터 수집 주기를 초 단위로 설정합니다.
+
+  :::note
+
+  Oracle DMA 모니터링에서는 메모리 접근을 통해 데이터를 거의 실시간으로 수집할 수 있지만, **액티브 세션**, **stat**, **event** 지표의 경우 쿼리 방식으로 수집합니다.
+
+  :::
+
+* **stat** <span class='type'>String</span>
+
+  통계 관련 지표를 수집하도록 설정합니다. `v$sysstat`, `v$statname` 등의 `NAME` 컬럼을 참조해 수집하길 원하는 지표 이름을 작성하세요. `stat+=`와 같은 방식으로 작성하면 기본 지표들과 함께 추가로 수집할 수 있습니다. 공백 없이 쉼표(,)를 구분자로 이용해 여러 개를 입력할 수 있습니다.
+
+* **event** <span class='type'>String</span>
+
+  이벤트 관련 지표를 수집하도록 설정합니다. `v$system_event`, `v$event_name` 등의 `EVENT` 컬럼을 참조해 수집하길 원하는 지표 이름을 작성하세요. `event+=`와 같은 방식으로 작성하면 기본 지표들과 함께 추가로 수집할 수 있습니다. 공백 없이 쉼표(,)를 구분자로 이용해 여러 개를 입력할 수 있습니다.
+
+* **topstat** <span class='type'>Int</span>
+
+  기본값 `50`
+
+  통계 관련 주요 지표의 변화를 높은 수치 순으로 설정된 값만큼 수집합니다. `stat_top`, `event_top` 카테고리의 데이터를 사용합니다.
+
+* **topevent** <span class='type'>Int</span>
+
+  기본값 `50`
+
+  이벤트 관련 주요 지표의 변화를 높은 수치 순으로 설정된 값만큼 수집합니다. `stat_top`, `event_top` 카테고리의 데이터를 사용합니다.
+
+  :::note
+
+  이 옵션은 값을 설정하지 않으면 `topstat`의 설정값에 따라 작동합니다.
+
+  :::
+
+* **bind_interval** <span class='type'>Int</span>
+
+  기본값 `0`
+
+  바인드 캡처 간격을 초 단위로 설정합니다. 기본값(`0`)을 설정하면 바인드 캡쳐하지 않습니다.
+
+* **bind_max_count** <span class='type'>Int</span>
+
+  기본값 `1000`
+
+  바인드 캡처값을 수집할 때 몇 개까지 수집할지 설정합니다. 마지막 수집한 시간 이후의 바인드 캡처값만 수집할 수 있습니다.
+
+* **bind_elapse** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  SQL이 설정한 시간(초)보다 오래 수행하면 바인드 값을 수집하도록 설정합니다. 설정값이 `0`이면 이 옵션은 작동하지 않습니다.
+
+* **plan_change** <span class='type'>Int</span>
+
+  기본값 `1`
+
+  플랜의 변경 내역에 대한 수집 여부를 설정합니다.
+
+  * `1`: sys 제외
+  * `2`: sys 포함
+
+* **plan_elapse** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  실행 시간이 5초 이상 소요되는 플랜을 수집합니다.
+
+* **multi_db_stat** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  Multi DB를 사용하는 경우 데이터베이스별로 지표를 수집할 지, 전체 인스턴스 단위로 합산(sum)해 수집할 지 설정합니다.
+
+* **ora_hidden_param** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  히든 파라미터 값 수집 여부를 설정합니다. 히든 파라미터를 수집하려면 옵션값을 `true`로 설정하세요.
+
+* **tables_exclude_sys** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  Table 사이즈 수집 시 system 테이블은 제외합니다. `tables_min_size`(기본값 `10`) 이상인 테이블만 수집합니다.
+
+* **xview_min** <span class='type'>Int</span>
+
+  기본값 `100` (1초)
+
+  단위는 센티초(centisecond, 1/100초)입니다. 이 옵션은 설정한 값보다 긴 경과 시간(elpased time)을 가진 작업만 처리합니다.
+
+  * `-1`: 이 옵션을 비활성화합니다.
+  * `0`: 모든 작업을 수집합니다.
+
 
 ### AES 256 암호화 적용
 

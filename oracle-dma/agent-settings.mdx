@@ -94,7 +94,7 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
 
   SQL이 설정한 시간(초)보다 오래 수행하면 바인드 값을 수집하도록 설정합니다. 설정값이 `0`이면 이 옵션은 작동하지 않습니다.
 
-* **plan_change**
+* **plan_change** <span class='type'>Int</span>
 
   기본값 `1`
 
@@ -103,34 +103,38 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
   * `1`: sys 제외
   * `2`: sys 포함
 
-플랜이 변경된 내역을 수집할것인지
+* **plan_elapse** <span class='type'>Int</span>
 
-plan_elapse
+  기본값 `5`
 
-기본값 : 5(초)
+  실행 시간이 5초 이상 소요되는 플랜을 수집합니다.
 
-실행시간이 5초이상 되는 플랜을 수집
+* **multi_db_stat** <span class='type'>Boolean</span>
 
-multi_db_stat
+  기본값 `true`
 
-- 기본값 : true
-- multi db로 사용하는 경우 DB별로 지표를 수집할 지, 전체 인스턴스 단위로 sum해서 수집할 지 지정하는 옵션
+  Multi DB를 사용하는 경우 데이터베이스별로 지표를 수집할 지, 전체 인스턴스 단위로 합산(sum)해 수집할 지 설정합니다.
 
-ora_hidden_param
+* **ora_hidden_param** <span class='type'>Boolean</span>
 
-- 기본값 : false
-- true로 설정하면 히든 파라미터 값도 수집합니다.
+  기본값 `false`
 
-tables_exclude_sys  
+  히든 파라미터 값 수집 여부를 설정합니다. 히든 파라미터를 수집하려면 옵션값을 `true`로 설정하세요.
 
-- 기본값 : true
-- table 사이즈 수집 시 system 테이블들을 제외합니다. tables_min_size(default 10MB) 이상인 테이블만 수집합니다.
+* **tables_exclude_sys** <span class='type'>Boolean</span>
 
-xview_min
+  기본값 `true`
 
-- 기본값 : 100 (centi sec) (1초). 단위:centi sec
-- -1:off, 0: 수집된것 모두
-- 지정된 값보다 긴 elpase 의 것만 처리 합니다.
+  Table 사이즈 수집 시 system 테이블은 제외합니다. `tables_min_size`(기본값 `10`) 이상인 테이블만 수집합니다.
+
+* **xview_min** <span class='type'>Int</span>
+
+  기본값 `100` (1초)
+
+  단위는 센티초(centisecond, 1/100초)입니다. 이 옵션은 설정한 값보다 긴 경과 시간(elpased time)을 가진 작업만 처리합니다.
+
+  * `-1`: 이 옵션을 비활성화합니다.
+  * `0`: 모든 작업을 수집합니다.
 
 
 ### AES 256 암호화 적용

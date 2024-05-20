@@ -14,6 +14,209 @@ Slack, Telegram, Teams, Jandi, Webhook 등의 외부 애플리케이션을 통�
 
 :::note
 
-와탭랩스의 지원 범위에 포함하지 않는 사내 메신저는 표준 Webhook, webhook json을 통해 연동할 수 있습니다.
+와탭랩스의 지원 범위에 포함하지 않는 사내 메신저는 표준 Webhook, Webhook json을 통해 연동할 수 있습니다.
 
 :::
+
+다음 3rd 파티 플러그인 목록에서 사용하는 애플리케이션에 알맞는 알림 추가 방법을 확인하세요.
+
+<details>
+
+<summary>Slack</summary>
+
+화면 아래에 <Cmdname sid="add_to_slack" className="uitext" /> 버튼을 클릭하면 Slack의 팀 및 채널에 **WhaTapNotiBot**을 등록할 수 있습니다.
+
+<ImgLang img='3rdparty/set-event-3rd-party-plugin-add-slack.png' desc='Slack' />
+
+</details>
+
+<details>
+
+<summary>Telegram</summary>
+
+1. **Telegram**에서 **@WhaTapApmNotiBot**을 검색하세요.
+
+    <ImgLang img='3rdparty/set-event-3rd-party-plugin-add-telegram.png' desc='Telegram' />
+
+1. 알림을 받을 프로젝트의 액세스 키를 채팅창에 입력하세요.
+
+    <ImgLang img='3rdparty/set-event-3rd-party-plugin-add-telegram-license.png' desc='Telegram' />
+
+:::note
+
+다음은 사용할 수 있는 명령어 목록입니다.
+
+* `/help`: 명령어 목록 보기
+
+* `/license`: 알림 받을 프로젝트의 액세스 키 입력
+
+* `/remove`: 알림을 받지 않을 프로젝트 코드 입력
+
+* `/list`: 현재 알림을 받고 있는 프로젝트 코드 보기
+
+:::
+
+</details>
+
+<details>
+
+<summary>Teams</summary>
+
+1. 알림을 받을 채널의 **커넥터** 설정으로 이동하세요.
+
+    <ImgLang img="3rdparty/management_event_new_teams_step_01.png" className="width-200" desc="Teams" />
+
+1. **Webhook**을 추가하고 **구성** 버튼을 클릭하고 다음 단계로 넘어가세요.
+
+    <ImgLang img="3rdparty/management_event_new_teams_step_02.png" className="width-600" desc="Teams" />
+
+1. Webhook 이름을 입력하고 **만들기** 버튼을 클릭하세요.
+
+    <ImgLang img="3rdparty/management_event_new_teams_step_03.png" className="width-600" desc="Teams" />
+
+1. 생성한 Webhhok URL을 복사하세요.
+
+    <ImgLang img="3rdparty/management_event_new_teams_step_04.png" className="width-600" desc="Teams" />
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 화면으로 돌아와 <UI>Channel Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+    <ImgLang img="3rdparty/set-event-3rd-party-plugin-add-teams.png" className="width-600" desc="등록" />
+
+1. <Cmdname sid="BTN06673" className="uitext" /> 버튼을 선택하세요.
+
+</details>
+
+<details>
+
+<summary>잔디(Jandi)</summary>
+
+1. 알림을 받을 토픽 또는 채팅에서 **잔디 커넥트** 설정으로 이동하세요.
+
+1. **커넥트 목록**에서 <b>Webhook 수신 (Incoming Webhook)</b> 항목에서 **연동하기** 버튼을 선택하세요.
+
+    <ImgLang img="3rdparty/management_event_jandi_step_01.png" desc="Jandi" />
+
+1. **연동하기** 탭에서 **연동 추가하기** 버튼을 선택하세요.
+
+1. **Webhook URL 등록** 항목에 Webhook URL을 복사하세요.
+
+    <ImgLang img="3rdparty/management_event_jandi_step_02.png" desc="Jandi" />
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 화면으로 돌아와 <UI>Channel Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+    <ImgLang img="3rdparty/set-event-3rd-party-plugin-add-teams.png" className="width-600" desc="등록" />
+
+1. <Cmdname sid="BTN06673" className="uitext" /> 버튼을 선택하세요.
+
+</details>
+
+<details>
+
+<summary>AlertNow</summary>
+
+1. **AlerNow** 서비스를 접속한 다음 **Integration** 메뉴로 이동하세요.
+
+    <ImgLang img="3rdparty/management_event_alertnow_step_01.png" desc="AlertNow" className="width-200" />
+
+1. **Integration** 메뉴에서 **인티그레이션 생성** 버튼을 선택하세요.
+
+    <ImgLang img="3rdparty/management_event_alertnow_step_02.png" desc="AlertNow" className="width-600" />
+
+1. Integration 유형 중 **WhaTap**을 선택하세요.
+
+    ![AlerNow](/img/3rdparty/management_event_alertnow_step_03.png)
+
+1. **Integration 생성** 화면에서 이름 및 이름 지정 규칙을 설정하세요.
+
+    <ImgLang img="3rdparty/management_event_alertnow_step_04.png" desc="AlertNow" className="width-600" />
+
+1. **확인** 버튼을 선택하면 Integration이 생성됩니다.
+
+1. 생성된 Integration 목록을 확인하고 생성된 Integration 항목을 선택하세요.
+
+    <ImgLang img="3rdparty/management_event_alertnow_step_05.png" desc="AlertNow" className="width-600" />
+
+1. 상세 화면에서 **URL** 항목 오른쪽에 복사하기 버튼을 선택해 URL을 복사하세요.
+
+    <ImgLang img="3rdparty/management_event_alertnow_step_06.png" desc="AlertNow" className="width-600" />
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 화면으로 돌아와 <UI>Channel Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+    <ImgLang img="3rdparty/set-event-3rd-party-plugin-add-teams.png" className="width-600" desc="등록" />
+
+1. <Cmdname sid="BTN06673" className="uitext" /> 버튼을 선택하세요.
+
+</details>
+
+<details>
+
+<summary>Webhook</summary>
+
+1. 알림을 받을 Webhook을 등록하세요. 등록한 URL에 POST Method로 알림의 `title`, `text`가 전송됩니다.
+
+    ![Webhook](/img/3rdparty/set-event-3rd-party-plugin-add-webhook.png)
+
+1. <UI>Webhook Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+    <ImgLang img="3rdparty/set-event-3rd-party-plugin-add-webhook-options.png" className="width-600" desc="등록" />
+
+1. <Cmdname sid="BTN06673" className="uitext" /> 버튼을 선택하세요.
+
+</details>
+
+<details>
+
+<summary>Webhook JSON</summary>
+
+1. 알림을 받을 Webhook을 등록하세요. 등록한 URL에 POST Method로 알림 데이터가 JSON 형태로 전송됩니다.
+
+    ![Webhook](/img/3rdparty/set-event-3rd-party-plugin-add-webhook-json.png)
+
+1. <UI>Webhook Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+    <ImgLang img="3rdparty/set-event-3rd-party-plugin-add-webhook-json-options.png" className="width-600" desc="등록" />
+
+1. <Cmdname sid="BTN06673" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+* 이벤트 상태(`status`)는 `on`, `off`, `disabled`, `acknowledge`로 구분하며, 서버 모니터링의 상태 정보(on/off)를 갖습니다.
+
+* `level`은 `None`, `Info`, `Warning`, `Critical`로 구분합니다.
+
+* Header 값을 추가하려면 <Cmdname sid="TTL06674" className="uitext" />를 선택하세요.
+
+:::
+
+</details>
+
+<details>
+
+<summary>Opsgenie</summary>
+
+1. **Teams** 메뉴에서 알림을 수신할 팀을 선택한 다음 **Integrations** 메뉴를 클릭하세요.
+
+    ![Opsgenie](/img/3rdparty/management_event_opsgenie_step_01.png)
+
+1. **Add Integration** 버튼을 선택하세요.
+
+    ![Opsgenie](/img/3rdparty/management_event_opsgenie_step_02.png)
+
+1. Integration 목록에서 'API'를 검색한 다음 선택하세요.
+
+    ![Opsgenie](/img/3rdparty/management_event_opsgenie_step_03.png)
+
+1. API 이름 및 Team을 할당하고 각 권한을 설정하세요.
+
+    ![Opsgenie](/img/3rdparty/management_event_opsgenie_step_04.png)
+
+1. **Save Integration** 버튼을 선택하세요.
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 화면으로 돌아와 <UI>Name</UI>과 <UI>API Key</UI> 항목을 입력하세요.
+
+    <ImgLang img="3rdparty/set-event-3rd-party-plugin-add-opsgenie-options.png" className="width-600" desc="등록" />
+
+1. <Cmdname sid="BTN06673" className="uitext" /> 버튼을 선택하세요.
+
+
+</details>

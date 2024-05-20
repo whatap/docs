@@ -172,6 +172,12 @@ grant show databases on *.* to whatap;
   grant replication master admin, replica monitor, binlog monitor on *.* to whatap;
   ```
 
+  :::note
+
+  **AWS RDS MariaDB**의 경우 Replication 정보 조회는 **10.5** 버전 미만까지 지원합니다.
+
+  :::
+
 * Kill session 기능을 사용할 경우
 
   ```bash

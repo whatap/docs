@@ -2,7 +2,7 @@
 
 {/* 탑 스택 topstack / 유니크 스택 uniquestack / 액티브 스택 activestack */}
 
-특정 시간대의 호출 스택의 빈도와 메소드, 트랜잭션에 대한 상세 정보를 확인할 수 있습니다. <Cmdname sid="topstack" className="uitext" />, <Cmdname sid="uniquestack" className="uitext" />, <Cmdname sid="activestack" className="uitext" />을 조회할 수 있습니다. <Cmdname sid="topstack" className="uitext" />은 빈번하게 호출되는 메서드의 사용량을 보여주며, <Cmdname sid="uniquestack" className="uitext" />은 동일한 호출 스택의 빈도를 분석합니다. <Cmdname sid="activestack" className="uitext" />은 실행 중인 트랜잭션의 스택 정보를 정기적으로 수집하여 실시간 성능 분석을 가능하게 합니다.
+특정 시간대의 호출 스택의 빈도와 메소드, 트랜잭션에 대한 상세 정보를 확인할 수 있습니다. <Cmdname sid="topstack" className="uitext" />, <Cmdname sid="uniquestack" className="uitext" />, <Cmdname sid="activestack" className="uitext" />을 조회할 수 있습니다. <Cmdname sid="topstack" className="uitext" />은 호출 빈도가 높은 메소드의 사용량을 보여주며, <Cmdname sid="uniquestack" className="uitext" />은 동일한 호출 스택의 빈도를 분석합니다. <Cmdname sid="activestack" className="uitext" />은 실행 중인 트랜잭션의 스택 정보를 정기적으로 수집하여 실시간 성능 분석을 가능하게 합니다.
 
 :::note
 
@@ -20,7 +20,7 @@
 
   <Cmdname sid="topstack" className="uitext" />, <Cmdname sid="uniquestack" className="uitext" />, <Cmdname sid="activestack" className="uitext" /> 중 원하는 스택을 선택하여 조회할 수 있습니다.
 
-  * <Cmdname sid="topstack" className="uitext" />: 가장 빈번하게 발생한 호출 스택 정보를 제공합니다. 자세한 내용은 [다음 문서](#top-stack)를 참조하세요.
+  * <Cmdname sid="topstack" className="uitext" />: 가장 호출 빈도가 높은 스택 정보를 제공합니다. 자세한 내용은 [다음 문서](#top-stack)를 참조하세요.
 
   * <Cmdname sid="uniquestack" className="uitext" />: 실행된 메소드의 집합이 동일한 경우에 대한 통계 정보를 제공합니다. 자세한 내용은 [다음 문서](#unique-stack)를 참조하세요.
 
@@ -56,7 +56,7 @@
 
 ## 탑 스택 {#top-stack}
 
-<Cmdname sid="topstack" className="uitext" />에서는 가장 빈번하게 호출되는 메소드의 정보를 제공합니다. 스택 최상단에 위치한 메소드의 호출 빈도를 통해 서비스에 가장 영향을 미치는 메소드를 신속하게 확인할 수 있습니다. 메소드의 호출 빈도를 파악하여 CPU 또는 메모리에 부하가 걸리는 원인을 분석할 수 있습니다. 이를 통해 성능 개선을 위한 방안을 도출할 수 있습니다.
+<Cmdname sid="topstack" className="uitext" />에서는 가장 호출 빈도가 높은 메소드의 정보를 제공합니다. 스택 최상단에 위치한 메소드의 호출 빈도를 통해 서비스에 가장 영향을 미치는 메소드를 신속하게 확인할 수 있습니다. 메소드의 호출 빈도를 파악하여 CPU 또는 메모리에 부하가 걸리는 원인을 분석할 수 있습니다. 이를 통해 성능 개선을 위한 방안을 도출할 수 있습니다.
 
 와탭은 10초(기본값) 간격으로 수집한 스레드 스택을 활용하여 메소드 레벨의 성능 지연 구간을 분석합니다.
 
@@ -144,7 +144,7 @@ project (/home/ubuntu/python-sample/test/views/test.py:69)
 
 <Cmdname sid="topstack" className="uitext" /> 통계는 충분히 많은 데이터를 가지고 판단하는 것이 좋습니다. 수집한 스택의 개수가 10개 미만의 소수인 경우 통계 의미를 갖기에 부족합니다.
 
-<Cmdname sid="topstack" className="uitext" />은 튜닝 시 인지하기 힘들었던 부분의 튜닝 포인트를 찾아내는 데 유용합니다. 가장 빈번하게 나타난 스택은 현재 애플리케이션 서버에서 가장 많은 응답 지연을 발생하는 것으로 판단할 수 있습니다. 가장 왼쪽에 나타나는 비율은 애플리케이션 서버 성능에 영향을 미치는 정도입니다.
+<Cmdname sid="topstack" className="uitext" />은 튜닝 시 인지하기 힘들었던 부분의 튜닝 포인트를 찾아내는 데 유용합니다. 가장 호출 빈도가 높은 스택은 현재 애플리케이션 서버에서 가장 많은 응답 지연을 발생하는 것으로 판단할 수 있습니다. 가장 왼쪽에 나타나는 비율은 애플리케이션 서버 성능에 영향을 미치는 정도입니다.
 
 <InDoc product="java">
 
@@ -164,7 +164,7 @@ project (/home/ubuntu/python-sample/test/views/test.py:69)
 
 </InDoc>
 
-안정적인 애플리케이션 서버일지라도 빈번하게 나타난 스택은 성능 저하를 일으킬 가능성이 있으므로 해당 클래스는 유심히 보는 것이 좋습니다.
+안정적인 애플리케이션 서버일지라도 호출 빈도가 높은 스택은 성능 저하를 일으킬 가능성이 있으므로 해당 클래스는 유심히 보는 것이 좋습니다.
 
 <Cmdname sid="topstack" className="uitext" />을 클릭하면 해당 최상위 스택에 대한 호출 빈도를 확인할 수 있습니다. <Cmdname sid="topstack" className="uitext" />의 호출 관계는 1 대 1 관계이므로 <Cmdname sid="topstack" className="uitext" />의 depth가 밑으로 내려갈수록 정보의 정확성이 떨어질 수 있습니다. 하위 depth에 대한 정보는 참고 용도로 사용하며 튜닝을 진행하시기 바랍니다.
 
@@ -229,7 +229,7 @@ System.Web.Http.Controllers.ActionFilterResult.ExecuteAsync(System.Threading.Can
 
 <InDoc product="python"><ImgLang img="apm-analysis-apm-unique-stack-python.png" desc="Unique stack" /></InDoc>
 
-가장 많이 사용되는 스택의 정보를 파악할 수 있습니다. 동일한 스택이 여러 번 반복되더라도 중복을 제거하여 가장 빈번하게 발생하는 스택을 확인할 수 있습니다. 예를 들면 적체 비율이 높은 Stack Trace를 식별할 수 있습니다. 상세 호출 스텝 검토를 통한 호출 경로 상에 이상 모듈의 존재 여부를 파악할 수도 있습니다.
+가장 많이 사용되는 스택의 정보를 파악할 수 있습니다. 동일한 스택이 여러 번 반복되더라도 중복을 제거하여 가장 높은 호출 빈도의 스택을 확인할 수 있습니다. 예를 들면 적체 비율이 높은 Stack Trace를 식별할 수 있습니다. 상세 호출 스텝 검토를 통한 호출 경로 상에 이상 모듈의 존재 여부를 파악할 수도 있습니다.
 
 <InDoc product="java"><ImgLang img="apm-analysis-apm-unique-stack-details.png" desc="Unique stack" /></InDoc>
 

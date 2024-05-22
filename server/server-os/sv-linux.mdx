@@ -12,9 +12,11 @@ import TabItem from '@theme/TabItem';
 
 <ImgLang img='server-install-lx-unx.png' desc='서버 모니터링 Linux Unix'/>
 
+***에이전트 설치*** 화면에서 원하는 운영체제 선택 후 프로젝트 액세스 키를 확인했다면 다음 안내대로 설치를 진행하세요. 
+
 1. 와탭 **리포지토리**를 등록하세요.  
 
-    ![number-s](/img/number-01.png) ***관리*** > ***에이전트 설치*** 화면 상단 영역의 OS 탭에서 서버 OS를 선택하세요. ![number-s](/img/number-02.png) ***와탭 리포지토리 추가*** 탭에서 해당하는 명령어를 복사하여 입력합니다.
+    ***와탭 리포지토리 추가*** 탭에서 해당하는 명령어를 복사하여 입력합니다.
     
     <Tabs>
     <TabItem value="du" label="Debian / Ubuntu" default>
@@ -82,7 +84,7 @@ import TabItem from '@theme/TabItem';
 
 1. 다음 명령어를 통해 **패키지**를 설치하세요.
 
-    ![number-s](/img/number-03.png) ***와탭 서버 모니터링 패치 설치*** 탭에서 해당하는 명령어를 복사해 입력합니다.
+    ***와탭 서버 모니터링 패치 설치*** 탭에서 해당하는 명령어를 복사해 입력합니다.
     
     <Tabs>
     <TabItem value="du" label="Debian / Ubuntu" default>
@@ -119,7 +121,7 @@ import TabItem from '@theme/TabItem';
 
 1. **설정 스크립트**를 실행하세요.
 
-    ![number-s](/img/number-04.png) ***서버 모니터링 시작하기*** 탭으로 이동해 명령어를 발급받거나, 하단의 명령어에 프로젝트 액세스 키와 서버 IP를 추가해 실행하세요.
+    ***서버 모니터링 시작하기*** 탭으로 이동해 명령어를 발급받거나, 하단의 명령어에 프로젝트 액세스 키와 서버 IP를 추가해 실행하세요.
 
     ```bash
     echo "license=[발급된 프로젝트 액세스 키]" |sudo tee /usr/whatap/infra/conf/whatap.conf

@@ -1,0 +1,38 @@
+---
+id: apm-faq
+title: Application FAQs
+description: 와탭 애플리케이션 모니터링 서비스 FAQ 문서입니다.
+tags: [ 애플리케이션, FAQ ]
+---
+
+와탭 애플리케이션 모니터링 서비스 사용자들이 자주 묻는 질문을 확인해 보세요. 
+
+---
+
+<div className='faqs'>
+
+### Springboot 업데이트 후 일부 위젯의 정보가 나오지 않아요.
+
+> Springboot 업데이트 후 <Cmdname sid="AA005" className="uitext" />, <Cmdname sid="today_user" className="uitext" />, <Cmdname sid="today_tps" className="uitext" /> 위젯의 정보가 <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 나오지 않아요.
+
+Springboot를 업데이트한 이후에 <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 일부 위젯의 데이터가 출력되지 않는다면 다음 사항을 확인하세요.
+
+* **에이전트 설정**
+
+  ```ini title="whatap.conf"
+  weaving=spring-boot-3.0
+  ```
+
+* **Java 17 버전 이상**을 사용하는 환경이라면 reflection 관련한 다음 옵션을 추가하세요.
+
+  ```java
+  --add-opens=java.base/java.lang=ALL-UNNAMED
+  ```
+
+:::note
+
+<Cmdname sid="today_user" className="uitext" />, <Cmdname sid="today_tps" className="uitext" /> 위젯의 지표는 1시간 통계 데이터를 활용해 위젯에 차트로 표시합니다. 위 설정을 진행한 이후 시간이 지나 통계 데이터가 만들어지기 때문에 데이터가 바로 보이지 않을 수 있습니다.
+
+:::
+
+</div>

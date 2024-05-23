@@ -13,6 +13,8 @@ import Transaction from "../common-items/_transaction.mdx";
 
 ## 트랜잭션 트레이싱
 
+다음은 애플리케이션 내의 각 트랜잭션의 실행 경로를 상세하게 추적할 수 있는 에이전트 옵션입니다. 최소 응답 시간부터 트랜잭션의 실행 스텝 수까지 다양한 측면을 조정할 수 있습니다.
+
 import Transactionprofilingcommon from "../common-items/_transaction-profiling-common.mdx";
 
 <Transactionprofilingcommon />
@@ -67,6 +69,22 @@ import Transactionprofileactivecolor from "../common-items/_transaction-profile-
 
   메소드 트레이스를 설정할 때 no access indicated 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
 
+* **trace_service_port_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  트랜잭션의 이름에 포트 번호를 추가합니다.
+
+* **profile_zip_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+  
+  프로파일 정보를 압축 전송합니다.
+
+## 예외 처리 {#exception}
+
+다음은 애플리케이션에서 발생하는 예외를 관리하고 모니터링하기 위한 옵션입니다. 특정 예외를 무시하거나 HTTP 상태 코드가 에러인 경우 에러로 처리할지 여부를 설정할 수 있습니다. 예외로 처리된 항목들은 <Cmdname sid="side_hitmap" className="uitext" /> 또는 <Cmdname sid="TTL06209" className="uitext" /> 창에서 정상 트랜잭션으로 표시됩니다.
+
 * **hook_method_ignore_prefixes** <span class='type'>String</span>
 
   기본값 `get,set`
@@ -76,12 +94,6 @@ import Transactionprofileactivecolor from "../common-items/_transaction-profile-
 * **hook_method_ignore_classes** <span class='type'>String</span>
 
   메소드 트레이스를 설정할 때 트레이스에서 제외하고 싶은 클래스들을 설정합니다.
-
-* **trace_service_port_enabled** <span class='type'>Boolean</span>
-
-  기본값 `false`
-
-  트랜잭션의 이름에 포트 번호를 추가합니다.
 
 * **httpc_status_ignore** <span class='type'>String</span>
 
@@ -93,29 +105,33 @@ import Transactionprofileactivecolor from "../common-items/_transaction-profile-
   httpc_status_ignore=404,500
   ```
 
+  :::tip
+
+  HTTP 상태 에러 코드 무시 / 에러 통계 미포함
+
+  :::
+
 * **httpc_status_ignore_set** <span class='type'>String</span>
 
   기본값 `Empty`
 
   `whatap.error.HTTPC_ERROR`를 무시합니다. 여러 값을 대상으로 할 경우 쉼표(,)를 구분자로 이용하세요.
 
-  :::note
-
   `httpc_status_ignore_set=/a/b/c:400,/a/ab/c:404`와 같이 설정하세요. 이때 url은 통계/에러 분석에서 `HTTPC_URL` 값을 입력합니다.
+
+  :::tip
+
+  HTTP 상태 에러 코드 무시 / 에러 통계 미포함
 
   :::
 
-* **profile_zip_enabled** <span class='type'>Boolean</span>
-
-  기본값 `false`
-  
-  프로파일 정보를 압축 전송합니다.
-
 ## HTTP 트랜잭션 추적
+
+다음은 HTTP 요청 및 응답에 관련된 다양한 정보를 추적하고 기록하는 에이전트 옵션입니다. 이를 통해 사용자는 애플리케이션의 HTTP 트랜잭션을 세밀하게 모니터링하고 분석할 수 있습니다. 트랜잭션 이름에 파라미터 값을 추가하거나 특정 URL이나 HTTP 메소드를 제외할 수 있습니다. 또한 HTTP 헤더 정보와 파라미터 정보를 포함하여 트랜잭션을 보다 상세하게 기록할 수 있습니다.
 
 import Transactiontracecommon from "../common-items/_transaction-trace-common.mdx";
 
-<Transactiontracecommon /> 
+<Transactiontracecommon />
 
 import Transactionprofilehttp from "../common-items/_transaction-profile-http.mdx";
 
@@ -183,10 +199,11 @@ import Transactionprofilehttp from "../common-items/_transaction-profile-http.md
 
 ## NON HTTP 트랜잭션 추적
 
+다음은 HTTP 이외의 트랜잭션을 추적하고 모니터링하기 위한 옵션입니다. 이 옵션을 통해 사용자는 백그라운드 작업이나 다른 프로토콜에 대한 트랜잭션을 세밀하게 추적할 수 있습니다.
+
 * **hook_service_patterns** <span class='type'>String</span>
 
   NON-Http 트랜잭션 추적을 위한 시작점 패턴을 설정합니다. 와일드카드 문자를 사용할 수 없으며, 2개 이상의 값을 설정하려면 쉼표(,)를 구분자로 이용하세요.
-
 
 * **trace_background_socket_enabled** <span class='type'>Boolean</span>
 
@@ -195,6 +212,8 @@ import Transactionprofilehttp from "../common-items/_transaction-profile-http.md
   소켓(TCP) 연결이 오픈될 때 트랜잭션을 시작한 상황에서만 오픈을 추적하는데 트랜잭션이 아닌 백그라운드 스레드에 의해 소켓이 오픈될 때도 추적합니다.
 
 ## 멀티 트랜잭션 추적
+
+다음은 애플리케이션 간 호출을 추적하고 모니터링하기 위한 옵션입니다. 이 옵션을 통해 사용자는 여러 애플리케이션 간의 상호작용을 이해하는 데 도움이 받을 수 있습니다. 제공하는 다양한 옵션을 통해 멀티 트랜잭션 추적의 세부적인 동작을 조정할 수 있습니다.
 
 * **mtrace_rate** <span class='type'>Int</span>
 
@@ -247,7 +266,9 @@ import Transactionprofilehttp from "../common-items/_transaction-profile-http.md
 
 ## 트레이스 데이터 샘플링
 
-<code class="my">Node.js Agent v0.4.94 or later</code>
+다음은 트레이스 데이터의 샘플링을 조절하고, 데이터의 전송 여부를 설정하는 옵션입니다. 이 옵션을 통해 사용자는 애플리케이션의 성능과 데이터 전송량을 관리할 수 있습니다.
+
+에이전트 지원 범위: <code class="my">Node.js Agent v0.4.94 or later</code>
 
 :::note
 

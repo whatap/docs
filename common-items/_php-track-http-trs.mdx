@@ -20,11 +20,23 @@
 
   특정 URL을 설정하면 트랜잭션 추적 대상에서 제외됩니다. 설정된 URL은 트랜잭션 정보를 수집하지 않아, 트랜잭션 목록에서 확인되지 않습니다. 트랜잭션 추적 대상에서 제외할 URL을 지정합니다. 2개 이상의 값을 지정하려면 쉼표(,)를 구분자로 이용하세요
 
+  :::note
+
+  이 옵션을 통해 등록한 URL은 <Cmdname sid="side_hitmap" className="uitext" />, <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 수집 제외됩니다.
+
+  :::
+
 * **whatap.trace_ignore_url_prefix** <span class='type'>String</span>
 
   기본값 `0`
 
   트랜잭션 추적 대상에서 제외할 URL prefix를 지정합니다.
+
+  :::note
+
+  이 옵션을 통해 등록한 URL은 <Cmdname sid="side_hitmap" className="uitext" />, <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 수집 제외됩니다.
+
+  :::
 
 * **whatap.profile_http_header_enabled** <span class='type'>Boolean</span>
 
@@ -73,3 +85,9 @@
   # e.g. http_method가 OPTIONS, HEAD인 트랜잭션 "무시"
   whatap.ignore_http_method=OPTIONS,HEAD
   ```
+
+  :::note
+
+  이 옵션을 통해 등록한 HTTP 메소드는 <Cmdname sid="side_hitmap" className="uitext" />, <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 수집 제외됩니다.
+
+  :::

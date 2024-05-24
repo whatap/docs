@@ -39,7 +39,7 @@ import Transactionprofileactivecolor from "../common-items/_transaction-profile-
 
   :::note
 
-  * 이 옵션을 통해 등록한 메소드는 <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 Method 스텝으로 확인할 수 있습니다.
+  * 이 옵션을 통해 등록한 메소드는 <Cmdname sid="side_hitmap" className="uitext" />, <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 Method 스텝으로 확인할 수 있습니다.
 
   * 가급적 국소 범위에 적용할 것을 권장합니다. 광범위한 범위로 적용할 경우 애플리케이션의 성능 저하를 유발할 수 있습니다.
 
@@ -141,9 +141,21 @@ import Transactionprofilehttp from "../common-items/_transaction-profile-http.md
 
   트랜잭션 추적에서 제외할 URL을 설정합니다. 2개 이상의 값을 설정하려면 쉼표(,)를 구분자로 이용하세요.
 
+  :::note
+
+  이 옵션을 통해 등록한 URL은 <Cmdname sid="side_hitmap" className="uitext" />, <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 수집 제외됩니다.
+
+  :::
+
 * **trace_ignore_url_prefix** <span class='type'>String</span> <ScrollToLink anchor="trace_ignore_url_prefix" />
 
   트랜잭션 추적에서 제외할 URL prefix를 설정합니다. 2개 이상의 값을 설정하려면 쉼표(,)를 구분자로 이용하세요.
+
+  :::note
+
+  이 옵션을 통해 등록한 URL은 <Cmdname sid="side_hitmap" className="uitext" />, <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 수집 제외됩니다.
+
+  :::
 
 * **ignore_http_method** <span class='type'>String</span>
 
@@ -158,6 +170,12 @@ import Transactionprofilehttp from "../common-items/_transaction-profile-http.md
   # e.g. http_method가 OPTIONS, HEAD인 트랜잭션 "무시"
   ignore_http_method=OPTIONS,HEAD
   ```
+
+  :::note
+
+  이 옵션을 통해 등록한 HTTP 메소드는 <Cmdname sid="side_hitmap" className="uitext" />, <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 수집 제외됩니다.
+
+  :::
 
 * **profile_http_header_ignore_keys** <span class='type'>String</span>
 

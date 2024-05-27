@@ -2,48 +2,59 @@
 
 화면 위에 <Cmdname sid="report" className="uitext" />에서 ![down-arrow](/img/down-arrow.svg) 버튼을 클릭하면 일간, 주간, 월간으로 분류된 각종 분석 보고서를 확인할 수 있습니다. 원하는 보고서 양식을 선택한 다음 조회하길 원하는 날짜와 시간, 필터 옵션을 설정하세요. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하면 선택한 보고서를 확인할 수 있습니다.
 
-## ***일간 애플리케이션 보고서***
+## 일간 애플리케이션 보고서 {#AppDailyReport}
 
-<Cmdname sid="A001_AppDailyReport" className="uitext" />는 하루 동안의 애플리케이션 성능을 수치와 차트로 확인할 수 있는 보고서입니다. 시작일, 시작 시간, 종료 시간을 직접 설정하여 조회할 수 있습니다.
+하루 동안의 애플리케이션 성능을 수치와 차트로 확인할 수 있는 보고서입니다. 시작일, 시작 시간, 종료 시간을 직접 설정하여 조회할 수 있습니다.
 
-### 개요
+### <Cmdname sid="overview" report /> {#overview}
 
-<ImgLang img='app_daily_report_01.png' desc='' />
+선택한 조회 기간에 대한 개략적인 애플리케이션 정보를 확인할 수 있습니다.
 
-**개요**는 선택한 조회 기간에 대한 애플리케이션 정보를 개략적으로 볼 수 있습니다. **피크타임 성능 요약**은 하루 동안 처리량이 가장 높았던 시간과 그 시간대의 지표들을 확인할 수 있습니다.
+<div className="java-name">
 
-* **방문자**(**DAU**, Daily Active User)
+| 항목 | 설명 |
+| -- | -- |
+| <Cmdname sid="visitor_dau" className="b600" report/> (**DAU**, Daily Active User) | 조회 기간 동안 접속한 사용자 수입니다. |
+| <Cmdname sid="tx_count" className="b600" report/> | 조회 기간 요청된 전체 트랜잭션 수입니다. |
+| <Cmdname sid="error_ratio" className="b600" report/> | 전체 트랜잭션 건수 중 에러 비율입니다. |
+| <Cmdname sid="event_count" className="b600" report/> | 조회 기간 발생한 메트릭스 이벤트 중 <span class="vslow">Critical</span> 레벨인 이벤트의 수입니다. |
+| <Cmdname sid="application_count" className="b600" report/> | 조회 기간 모니터링한 애플리케이션 수(에이전트 수)입니다. |
+| <Cmdname sid="total_core" className="b600" report/> | 조회 기간 사용된 CPU 코어 수입니다. |
+| <b>APDEX\*100**</b> (Application Performance Index) | 조회 기간 동안 애플리케이션에 대한 고객 성능 만족도입니다. |
 
-  선택한 조회 기간 동안 접속한 사용자 수입니다.
+</div>
 
-* **요청**
+### <Cmdname sid="peaktime_performance_summary" report/> {#peaktime_performance_summary}
 
-  조회 기간 동안 들어온 트랜잭션의 수입니다.
+하루 동안 처리량이 가장 높았던 시간과 해당 시간의 지푯값을 확인할 수 있습니다.
 
-* **에러 비율**
+<div className="java-name">
 
-  에러 건수에서 트랜잭션 건수를 나눈 값입니다.
+| 항목 | 설명 |
+| -- | -- |
+| <Cmdname sid="tps" className="b600" report/> (**TPS**, Transaction Per Second) | 초당 처리된 트랜잭션의 수입니다. |
+| <Cmdname sid="_realtime_user" className="b600" report/> | 중복을 제거한 동시 접속 사용자 수입니다. |
+| <Cmdname sid="tx_count" className="b600" report/> | 요청된 전체 트랜잭션 수입니다. |
+| <Cmdname sid="response_avg" className="b600" report/> | 트랜잭션에 대한 평균 응답 시간입니다. |
+| <Cmdname sid="error_ratio" className="b600" report/> | 전체 트랜잭션 건수 중 에러 비율입니다. |
+| <Cmdname sid="application_count" className="b600" report/> | 모니터링한 애플리케이션 수(에이전트 수)입니다. |
+| <Cmdname sid="cpu_core" className="b600" report/> | 사용된 CPU 코어 수입니다. |
 
-* **치명적 이벤트**
+</div>
 
-  조회 기간동안 발생된 메트릭스 이벤트 중 레벨이 critical인 이벤트의 수입니다.
+### <Cmdname sid="avg_max_by_metrics" report/> {#avg_max_by_metrics}
 
-* **애플리케이션 서버**
+하루 동안 주요 지표별 평균 및 발생 시간 기준 최댓값을 확인할 수 있습니다.
 
-  조회 기간동안 모니터링한 애플리케이션 수(에이전트 수)입니다.
+<div className="java-name">
 
-* **CPU 코어**
+| 항목 | 설명 |
+| -- | -- |
+| <Cmdname sid="_realtime_user" className="b600" report/> | 중복을 제거한 동시 접속 사용자 수입니다. |
+| <Cmdname sid="visitor_per_hour" className="b600" report/> | 조회 기간의 시간당 방문자 수입니다. |
+| <Cmdname sid="" className="b600" report/>
 
-  조회 기간동안의 CPU 코어 수입니다.
-
-* **APDEX*100**(Application Performance Index) 
-
-  조회 기간 동안 애플리케이션에 대한 고객 성능 만족도입니다.
-
-* **처리량**(**TPS**, Transaction Per Second)
-
-  초당 처리된 트랜잭션의 수를 의미하며, 서비스 성능 지표의 기준이 됩니다.
-
+</div>
 
 ### 성능 추이 차트
 

@@ -1,114 +1,79 @@
+import Csvdownload from "../common-items/_csv-download.mdx";
+
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_report" className="uitext" />
 
 화면 위에 <Cmdname sid="report" className="uitext" />에서 ![down-arrow](/img/down-arrow.svg) 버튼을 클릭하면 일간, 주간, 월간으로 분류된 각종 분석 보고서를 확인할 수 있습니다. 원하는 보고서 양식을 선택한 다음 조회하길 원하는 날짜와 시간, 필터 옵션을 설정하세요. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하면 선택한 보고서를 확인할 수 있습니다.
 
-## 일간 애플리케이션 보고서 {#AppDailyReport}
+제공하는 보고서 양식은 다음과 같습니다.
+
+* [<Cmdname sid="A001_LF_AppDailyReport" className="uitext" report/>](#A001_LF_AppDailyReport)
+
+## 일간 애플리케이션 보고서 {#A001_LF_AppDailyReport}
 
 하루 동안의 애플리케이션 성능을 수치와 차트로 확인할 수 있는 보고서입니다. 시작일, 시작 시간, 종료 시간을 직접 설정하여 조회할 수 있습니다.
 
-### <Cmdname sid="overview" report /> {#overview}
+주요 지표에 대한 설명은 [다음 문서](#metricdesc)를 참조하세요.
 
-선택한 조회 기간에 대한 개략적인 애플리케이션 정보를 확인할 수 있습니다.
+* <Cmdname sid="overview" className="b600" report />: 선택한 조회 기간의 애플리케이션 주요 정보를 확인할 수 있습니다.
 
-<div className="java-name">
+* <Cmdname sid="peaktime_performance_summary" className="b600" report/>: 선택한 조회 기간에 처리량이 가장 높았던 시간과 해당 시간의 지푯값을 확인할 수 있습니다.
 
-| 항목 | 설명 |
-| -- | -- |
-| <Cmdname sid="visitor_dau" className="b600" report/> (**DAU**, Daily Active User) | 조회 기간 동안 접속한 사용자 수입니다. |
-| <Cmdname sid="tx_count" className="b600" report/> | 조회 기간 요청된 전체 트랜잭션 수입니다. |
-| <Cmdname sid="error_ratio" className="b600" report/> | 전체 트랜잭션 건수 중 에러 비율입니다. |
-| <Cmdname sid="event_count" className="b600" report/> | 조회 기간 발생한 메트릭스 이벤트 중 <span class="vslow">Critical</span> 레벨인 이벤트의 수입니다. |
-| <Cmdname sid="application_count" className="b600" report/> | 조회 기간 모니터링한 애플리케이션 수(에이전트 수)입니다. |
-| <Cmdname sid="total_core" className="b600" report/> | 조회 기간 사용된 CPU 코어 수입니다. |
-| <b>APDEX\*100**</b> (Application Performance Index) | 조회 기간 동안 애플리케이션에 대한 고객 성능 만족도입니다. |
+* <Cmdname sid="avg_max_by_metrics" className="b600" report/>: 선택한 조회 기간에 주요 지표별 평균 및 발생 시간 기준 최댓값을 확인할 수 있습니다.
 
-</div>
+* <Cmdname sid="performance_trend_chart" className="b600" report/>: 시스템의 주요 지표들을 시각적으로 표현한 시계열 차트입니다. 시간의 흐름에 따라 주요 지표들의 수치를 확인할 수 있습니다. 시스템의 안정성 및 성능을 평가하는데 중요한 지표입니다.
 
-### <Cmdname sid="peaktime_performance_summary" report/> {#peaktime_performance_summary}
+  :::note
 
-하루 동안 처리량이 가장 높았던 시간과 해당 시간의 지푯값을 확인할 수 있습니다.
+  <Csvdownload />
 
-<div className="java-name">
+  :::
 
-| 항목 | 설명 |
-| -- | -- |
-| <Cmdname sid="tps" className="b600" report/> (**TPS**, Transaction Per Second) | 초당 처리된 트랜잭션의 수입니다. |
-| <Cmdname sid="_realtime_user" className="b600" report/> | 중복을 제거한 동시 접속 사용자 수입니다. |
-| <Cmdname sid="tx_count" className="b600" report/> | 요청된 전체 트랜잭션 수입니다. |
-| <Cmdname sid="response_avg" className="b600" report/> | 트랜잭션에 대한 평균 응답 시간입니다. |
-| <Cmdname sid="error_ratio" className="b600" report/> | 전체 트랜잭션 건수 중 에러 비율입니다. |
-| <Cmdname sid="application_count" className="b600" report/> | 모니터링한 애플리케이션 수(에이전트 수)입니다. |
-| <Cmdname sid="cpu_core" className="b600" report/> | 사용된 CPU 코어 수입니다. |
+  * <Cmdname sid="realtime_user" className="b600" report/>
 
-</div>
+  * <Cmdname sid="visitor_per_hour" className="b600" report/>
 
-### <Cmdname sid="avg_max_by_metrics" report/> {#avg_max_by_metrics}
+  * <Cmdname sid="tps" className="b600" report/>
 
-하루 동안 주요 지표별 평균 및 발생 시간 기준 최댓값을 확인할 수 있습니다.
+  * <Cmdname sid="res_time_avg" className="b600" report/>
 
-<div className="java-name">
+  * <Cmdname sid="cpu_trend" className="b600" report/>
 
-| 항목 | 설명 |
-| -- | -- |
-| <Cmdname sid="_realtime_user" className="b600" report/> | 중복을 제거한 동시 접속 사용자 수입니다. |
-| <Cmdname sid="visitor_per_hour" className="b600" report/> | 조회 기간의 시간당 방문자 수입니다. |
-| <Cmdname sid="" className="b600" report/>
+  * <Cmdname sid="mem_sys" className="b600" report/>
 
-</div>
+  * <Cmdname sid="cpu_process" className="b600" report/>
 
-### 성능 추이 차트
+  * <Cmdname sid="heap_trend" className="b600" report/>
 
-<ImgLang img='app_daily_report_dau-process.png' desc='' />
+  * <Cmdname sid="error_cnt" className="b600" report/>
 
-**성능 추이 차트**를 통해 주요 지표들을 시각화하여 볼 수 있습니다.
+* <Cmdname sid="daily_hitmap" className="b600" report/>: 시간대별 트랜잭션 분포와 에러 발생 상황을 한눈에 파악할 수 있습니다. 그래프의 x축은 각 트랜잭션의 종료 시간, y축은 응답시간(초)을 의미합니다. 정상 트랜잭션의 경우 <span class='ntrs'>파란색</span>으로 표시되고, 에러가 발생한 경우 <span class='etrs'>빨간색</span>으로 표시됩니다.
 
-**성능 추이 차트**에서 볼 수 있는 지표로는 **동시접속 사용자**, **시간당 방문자 수**, **처리량**(TPS), **평균 응답시간**, **CPU 사용률**, **힙 사용량**, **에러 건수**, **일간 트랜잭션 분포도**가 있습니다. 각 그래프에서는 해당 지표가 가장 높았던 시간과 수치를 함께 확인할 수 있습니다.
+  <ImgLang img='app_daily_report_03.png' desc='' />
 
-import Csvdownload from "../common-items/_csv-download.mdx";
+* <Cmdname sid="application_summary" className="b600" report/>: 모니터링 대상 에이전트별로 <Cmdname sid="peaktime_performance" className="b600" report/>과 <Cmdname sid="daily_avg_performance" className="b600" report/>을 확인할 수 있습니다. <Cmdname sid="active_cnt" className="b600" report/>는 진행 중인 트랜잭션 건수입니다.
 
-<Csvdownload /> 
+* <Cmdname sid="transaction" className="b600" report/> **TOP 10**: 하루 동안 <Cmdname sid="txcount" className="b600" report/>, <Cmdname sid="error_cnt" className="b600" report/>, <Cmdname sid="res_time_avg" className="b600" report/> 기준으로 상위 10개의 트랜잭션을 확인할 수 있습니다.
 
-<ImgLang img='app_daily_report_03.png' desc='' />
+* <Cmdname sid="top_stack" className="b600" report/> **TOP 10**: Stack Trace 상의 스텝을 기준으로 스텝 간의 호출 빈도를 비율로 계산한 정보를 간소화하여 볼 수 있습니다.
 
-일간 트랜잭션 분포도에서는 시간대별 트랜잭션 분포를 한눈에 확인할 수 있습니다. 그래프의 x축은 각 트랜잭션의 종료 시간, y축은 응답시간(초)을 의미합니다. 정상 트랜잭션의 경우 <span class='ntrs'>파란색</span>으로 표시되고, 에러가 발생한 경우 <span class='etrs'>빨간색</span>으로 표시됩니다.
+  :::note
 
-### 애플리케이션별 현황
+  <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> &gt; <Cmdname sid="topstack" className="uitext" /> 메뉴에서 스택 상세 내용을 조회할 수 있습니다.
 
-<ImgLang img='app_daily_report_04.png' desc='' />
+  :::
 
-모니터링 대상별로 **피크타임 성능**과 **일일 평균 성능**을 확인할 수 있습니다. **액티브 건수**는 진행 중인 트랜잭션 건수를 말합니다.
+* <Cmdname sid="sql_res_time" className="b600" report/> **TOP 10**: 조회 기간 동안 사용된 SQL 쿼리문에 대해 평균 응답시간을 기준으로 정렬한 통계 정보입니다.
 
-### 트랜잭션 TOP 10
+  :::note
 
-<ImgLang img='app_daily_report_05.png' desc='' />
+  * **증가%**: 조회 전일까지 3일간의 평균 데이터와 조회 당일 데이터를 비교하여 증가한 비율을 계산한 수치입니다.
 
-하루 동안 트랜잭션 건수, 에러 건수, 평균 응답시간이 높았던 트랜잭션을 상위 10개 항목을 뽑아서 보여줍니다.
+    > 예, `4월 25일 00시 00분` \~ `23시 59분` 데이터 조회 → `4월 22일 00시 00분` \~ `4월 24일 23시 59분` 데이터와 비교  
+    해당 수치가 10% 이상인 경우 <span class='ov10'>붉은색</span>으로, 5%\~10% 사이인 경우 <span class='ov5ud10'>주황색</span>으로 표시됩니다. 5% 미만의 증가율은 표시하지 않습니다.
 
-### 탑 스택 TOP 10
+  * <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_statSql" className="uitext" /> 메뉴에서 각 쿼리의 발생 시간 및 성능을 상세 조회할 수 있습니다.
 
-<ImgLang img='app_daily_report_06.png' desc='' />
-
-Stack Trace 상의 Step을 기준으로 Step 간의 호출 빈도를 비율로 계산한 정보를 간소화하여 볼 수 있습니다. <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> &gt; <Cmdname sid="topstack" className="uitext" /> 페이지에서 Stack 상세 내용을 조회할 수 있습니다.
-
-### SQL 평균응답시간 TOP 10
-
-<ImgLang img='app_daily_report_07.png' desc='' />
-
-조회 기간 동안 사용된 SQL 쿼리문에 대해 평균 응답시간을 기준으로 정렬한 통계 정보입니다. <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_statSql" className="uitext" /> 페이지에서 각 쿼리의 발생 시간 및 성능을 상세 조회할 수 있습니다.
-
-:::note 
-
-**증가%**  
-
-조회 전일까지 3일간의 데이터를 평균 낸 값과 조회 당일 데이터를 비교하여 증가한 비율을 계산한 수치입니다.
-    
-* 예시
-
-  `4월 25일 00시 00분` \~ `23시 59분` 데이터 조회 → `4월 22일 00시 00분` \~ `4월 24일 23시 59분` 데이터와 비교  
-
-  해당 수치가 10% 이상인 경우 <span class='ov10'>붉은색</span>으로, 5%\~10% 사이인 경우 <span class='ov5ud10'>주황색</span>으로 표시됩니다. 5% 미만의 증가율은 표시하지 않습니다.
-
-:::
+  :::
 
 ## ***주간 애플리케이션 보고서***
 
@@ -412,3 +377,37 @@ SQL 쿼리문에 대해 평균 응답시간을 기준으로 정렬한 결과입�
   조회 당월과 조회 전월의 SQL 처리 평균 시간을 비교한 수치이며, 증감률은 이를 백분율로 계산한 수치입니다.
 
 <Rateofchange />  
+
+## 주요 지표 안내 {#metricdesc}
+
+<div className="java-name">
+
+| 항목 | 설명 |
+| -- | -- |
+| <Cmdname sid="visitor_dau" className="b600" report/> (**DAU**, Daily Active User) | 일일 활성 사용자 수로, 하루동안 애플리케이션을 실제로 사용한 사용자 수입니다. |
+| <Cmdname sid="tx_count" className="b600" report/> | 요청된 전체 트랜잭션 수입니다. |
+| <Cmdname sid="error_ratio" className="b600" report/> | 전체 트랜잭션 건수 중 에러 비율입니다. |
+| <Cmdname sid="event_count" className="b600" report/> | 메트릭스 이벤트 중 <span class="vslow">Critical</span> 레벨인 이벤트의 수입니다. |
+| <Cmdname sid="error_cnt" className="b600" report/> | 트랜잭션 처리 중 발생한 오류로 인해 실패한 트랜잭션 수입니다. |
+| <Cmdname sid="application_count" className="b600" report/> | 조회 기간 모니터링한 애플리케이션 수(에이전트 수)입니다. |
+| <Cmdname sid="total_core" className="b600" report/> | 조회 기간 사용된 CPU 코어 수입니다. |
+| <b>APDEX\*100**</b> (Application Performance Index) | 조회 기간 동안 애플리케이션에 대한 고객 성능 만족도입니다. |
+| <Cmdname sid="tps" className="b600" report/> (**TPS**, Transaction Per Second) | 초당 처리된 트랜잭션의 수입니다. |
+| <Cmdname sid="_realtime_user" className="b600" report/> | 중복을 제거한 동시 접속 사용자 수입니다. |
+| <Cmdname sid="response_avg" className="b600" report/> | 트랜잭션에 대한 평균 응답 시간입니다. |
+| <Cmdname sid="cpu_core" className="b600" report/> | 사용된 CPU 코어 수입니다. |
+| <Cmdname sid="visitor_per_hour" className="b600" report/> | 조회 기간의 시간당 방문자 수입니다. |
+| <Cmdname sid="cpu_trend" className="b600" report/> | 서버의 CPU 사용률입니다. |
+| <Cmdname sid="mem_sys" className="b600" report/> | 서버의 메모리 사용률입니다. |
+| <Cmdname sid="active_cnt" className="b600" report/> | 진행 중인 트랜잭션 건수입니다. |
+
+
+<InDoc product="java">
+
+* <Cmdname sid="cpu_process" className="b600" report/>: Java 애플리케이션의 CPU 사용률입니다.
+
+* <Cmdname sid="heap_trend" className="b600" report/>: JVM의 힙 메모리 영역에서 할당된 메모리 양입니다.
+
+</InDoc>
+
+</div>

@@ -1,0 +1,133 @@
+import Csvdownload from "../common-items/_csv-download.mdx";
+
+## 월간 보고서 {#appmonthlyreport}
+
+한 달간 애플리케션 성능의 변화를 확인할 수 있는 보고서를 제공합니다. 월간 보고서로 제공하는 보고서 양식은 다음과 같습니다.
+
+<InDoc product="java,python,nodejs,golang,dotnet">
+
+* [<Cmdname sid="A155_AppMonthPerformance" className="uitext" report />](#A155_AppMonthPerformance)
+
+* [<Cmdname sid="A200_AppMonthlyReport" className="uitext" report />](#A200_AppMonthlyReport)
+
+* [<Cmdname sid="A201_AppMonthlyOperReport" className="uitext" report />](#A201_AppMonthlyOperReport)
+
+* [<Cmdname sid="A010_AppDailyOidSummaryReport" className="uitext" report />](#A010_AppDailyOidSummaryReport)
+
+* [<Cmdname sid="A203_AppMonthlyVisitorReport" className="uitext" report />](#A203_AppMonthlyVisitorReport)
+
+* [<Cmdname sid="A215_AppMonthlyOkindErrorStatReport" className="uitext" report />](#A215_AppMonthlyOkindErrorStatReport)
+
+* [<Cmdname sid="A220_AppMonthlyAnalysisReport" className="uitext" report />](#A220_AppMonthlyAnalysisReport)
+
+* [<Cmdname sid="A225_AppMonthlyOkindTxStatReport" className="uitext" report />](#A225_AppMonthlyOkindTxStatReport)
+
+</InDoc>
+
+<InDoc product="java,python,nodejs,golang,dotnet">
+
+### 월간 성능비교 보고서 {#A155_AppMonthPerformance}
+
+애플리케이션의 주요 성능 지표를 월간 단위로 비교한 보고서입니다. 이 보고서를 통해 월간 성능 변화를 상세히 분석하여 향후 성능 최적화를 위한 기초 자료로 활용할 수 있습니다.
+
+* 방문자 수와 호출 건수를 통해 애플리케이션에 대한 월간 트래픽 변화 추이를 확인할 수 있습니다.
+
+* 평균 응답 시간과 처리량을 비교함으로써 애플리케이션의 처리 성능과 응답 성능을 평가할 수 있습니다.
+
+* CPU 코어 수와 호스트 건수를 통해 시스템 자원의 사용 현황을 파악할 수 있습니다. 이를 통해 리소스의 적절한 배분 및 필요시 확장의 근거로 활용할 수 있습니다.
+
+* 제공하는 데이터를 기반으로 장기적인 성능 변화를 추적하여 특정 시점에서의 성능 이슈를 파악하고, 지속적인 개선 작업을 수행할 수 있습니다.
+
+</InDoc>
+
+### 월간 애플리케이션 보고서 {#A200_AppMonthlyReport}
+
+한 달간 애플리케이션 성능에 대한 주요 지표를 종합적으로 분석할 수 있는 보고서입니다.
+
+:::note
+
+주요 용어 및 지표에 대한 자세한 내용은 [다음 문서](#metricdesc)를 참조하세요.
+
+:::
+
+* <Cmdname sid="overview" className="b600" report />: 애플리케이션의 주요 성능 지표를 확인할 수 있습니다.
+
+* <Cmdname sid="application_summary" className="b600" report/>: 에이전트별 <Cmdname sid="ip_address" className="b600" report/>, <Cmdname sid="os_info" className="b600" report/>, <Cmdname sid="operating_rate" className="b600" report/>을 확인할 수 있습니다.
+
+* <Cmdname sid="performance_trend_chart" className="b600" report/>: 시스템의 주요 지표들을 시각적으로 표현한 시계열 차트입니다. 시간의 흐름에 따라 주요 지표들의 수치를 확인할 수 있습니다. 시스템의 안정성 및 성능을 평가하는데 중요한 지표입니다.
+
+  :::note
+
+  <Csvdownload />
+
+  :::
+
+* <Cmdname sid="transaction" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/>: <Cmdname sid="txcount" className="b600" report/>, <Cmdname sid="error_cnt" className="b600" report/>, <Cmdname sid="res_time_avg" className="b600" report/> 기준으로 상위 10개의 트랜잭션을 확인할 수 있습니다. 각 트랜잭션의 한달 전과 조회 당월의 실행 건수, 증감 건을 제공합니다.
+
+* <Cmdname sid="top_stack" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/>: 스택 트레이스 상위 10개를 한달 전과 조회 당월의 퍼센트와 건수를 비교한 목록입니다. 가장 많이 호출되는 스택 항목을 식별할 수 있습니다.
+
+  :::note
+
+  <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> &gt; <Cmdname sid="topstack" className="uitext" /> 메뉴에서 스택 상세 내용을 조회할 수 있습니다.
+
+  :::
+
+* <Cmdname sid="sql_res_time" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/>: SQL 평균 응답 시간을 기준으로 상위 10개의 SQL 문을 비교한 목록입니다. 각 SQL 문에 대해 한달 전과 조회 당월의 실행 건수, 평균 응답 시간, 증감 시간을 제공합니다.
+
+<InDoc product="java,python,nodejs,golang,dotnet">
+
+### 월간 가용률 보고서 {#A201_AppMonthlyOperReport}
+
+애플리케이션이 한달 동안 동작한 시간을 백분율로 나타낸 보고서입니다. 예를 들어, 가동률이 100%라면 해당 애플리케이션이 조회 기간에 단 한 번도 중단되지 않고 계속 동작했음을 의미합니다. 반면에 가동률이 낮으면 해당 애플리케이션이 조회 기간에 중단되었거나 비정상적으로 동작한 시간이 있었음을 나타냅니다.
+
+* <Cmdname sid="monthly_total_tx" className="b600" report/>를 통해 애플리케이션의 사용 빈도를 파악할 수 있습니다.
+
+* <Cmdname sid="monthly_active_users" className="b600" report/>를 통해 사용자 참여도를 확인할 수 있습니다.
+
+* <Cmdname sid="application_count" className="b600" report/>와 <Cmdname sid="total_core" className="b600" report/>를 통해 현재 시스템 리소스의 활용 상태를 평가할 수 있습니다.
+
+* <Cmdname sid="availability" className="b600" report/>은 시스템의 안정성과 신뢰성을 평가하는 중요한 지표로, 서비스 중단 시간 최소화를 위한 기준을 마련할 수 있습니다.
+
+* <Cmdname sid="performance_trend_chart" className="b600" report/>를 통해 월간 가용률 변동을 한눈에 파악할 수 있습니다.
+
+이 보고서는 애플리케이션의 지속적인 성능 모니터링과 최적화를 위한 중요한 참고 자료로 활용할 수 있습니다.
+
+### 월간 애플리케이션 성능 요약 보고서 {#A010_AppDailyOidSummaryReport}
+
+* <Cmdname sid="tx_count" className="b600" report/>: 한달 간의 에이전트 별 트랜잭션 건수를 제공합니다.
+
+* <Cmdname sid="performance_summary" className="b600" report/>: 한달 간의 주요 성능 지표에 대한 수치를 제공합니다.
+
+### 월간 애플리케이션 방문자 보고서 {#A203_AppMonthlyVisitorReport}
+
+일별로 방문자 수와 동시 사용자 수를 기록하여 사용자의 활동 패턴과 성능 지표 분석에 활용할 수 있는 보고서입니다.
+
+* 일별 방문자 수와 동시 사용자 수를 통해 애플리케이션의 일간 사용자 트래픽을 파악할 수 있습니다.
+
+* 평균 및 최대 동시 사용자 수 데이터를 통해 시스템이 얼마나 많은 사용자 요청을 처리할 수 있는지 평가할 수 있습니다.
+
+* 일별 동시 사용자 수의 평균과 최대치를 분석함으로써 애플리케이션의 성능 병목 지점을 식별하고, 성능 개선 작업의 우선순위를 설정할 수 있습니다.
+
+* 월간 데이터를 기반으로 사용자 트래픽의 장기적 변화를 추적하고, 지속적인 성능 모니터링을 통해 안정적인 서비스 제공을 위한 기초 자료로 활용할 수 있습니다.
+
+### 월간 애플리케이션 종류별 에러통계 보고서 {#A215_AppMonthlyOkindErrorStatReport}
+
+애플리케이션의 에러 현황을 종합적으로 분석하여 제공하는 보고서입니다. 이 보고서는 애플리케이션 종류별(`whatap.okind`) 기준으로 에러 현황과 에러 메시지를 포함한 에러 현황을 제공합니다. 각 섹션별로 지난 달과 조회 당월의 에러 종류와 발생 건수, 증감율을 확인할 수 있습니다. 이 보고서는 장기간 발생하는 애플리케이션의 성능 문제를 식별하고 해결하는 데 중요한 데이터로 활용할 수 있습니다.
+
+### 월간 애플리케이션 분석 보고서 {#A220_AppMonthlyAnalysisReport}
+
+* <Cmdname sid="transaction" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/>: 에러 건수와 평균 응답 시간을 기준으로 정렬한 상위 10개의 트랜잭션 목록과 자주 발생하는 에러 현황, 평균 응답 시간이 오래 걸리는 SQL 쿼리 목록을 제공합니다. 지난 달과 조회 당월을 기준으로 수치를 비교할 수 있으며 증감 내역을 확인할 수 있습니다.
+
+* <Cmdname sid="err_stat" className="b600" report/> **TOP 20** <Cmdname sid="comparison" className="b600" report/>: 에러 발생의 증감 추이를 분석하는 자료로 활용할 수 있습니다. 이를 통해 에러가 급증한 서비스나 에러가 감소한 서비스를 식별하고, 주로 발생하는 에러 유형을 파악하여 예방 조치를 취할 수 있습니다. 
+
+* <Cmdname sid="sql_res_time" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/>: SQL 쿼리별로 평균 응답 시간을 비교하여 성능이 저하된 SQL 쿼리를 식별하세요. 평균 응답 시간이 긴 SQL 쿼리는 데이터베이스의 성능을 저해할 수 있으므로, 해당 쿼리를 최적화하거나 인덱스를 추가하여 성능 개선을 도모할 수 있습니다.
+
+### 월간 애플리케이션 종류별 통계 보고서 {#A225_AppMonthlyOkindTxStatReport}
+
+이 보고서는 에이전트 설정(*whatap.conf*)에서 `whatap.okind`로 분류된 애플리케이션 종류별로 요청이 가장 많은 상위 10개의 트랜잭션 목록과 가장 많은 에러가 발생한 에러 클래스(에러 메시지 포함)를 제공합니다.
+
+* **Heavy TR TOP 10**: 트랜잭션이 가장 많은 상위 10개 서비스를 식별하여 각 서비스의 처리 성능과 관련한 세부 데이터를 제공합니다.
+
+* **Error TR TOP 10**: 가장 자주 발생하는 에러를 상위 10개 항목으로 정리하여 애플리케이션의 주요 문제점을 파악할 수 있습니다.
+
+</InDoc>

@@ -63,13 +63,13 @@ env:
 - name: POD_NAME
   valueFrom: {fieldRef: {fieldPath: metadata.name}}
 - name: OKIND
-	value: {YOUR_OKIND_NAME}
-- name: license
-	value: {licenseKey}
-- name: whatap_server_host
-	value: {proxyServer}
-- name: whatap_micro_enabled
-	value: "true"
+  value: {YOUR_OKIND_NAME}
+- name: WHTAP_LICENSE
+  value: {licenseKey}
+- name: WHATAP_SERVER_HOST
+  value: {proxyServer}
+- name: WHATAP_MICRO_ENABLED
+  value: "true"
 ```
 
 다음 예시를 참조하세요.
@@ -105,11 +105,11 @@ spec:
 		      valueFrom: {fieldRef: {fieldPath: metadata.name}}
 				- name: OKIND
           value: #DeploymentName
-				- name: license
+				- name: WHTAP_LICENSE
 					value: {licenseKey}
-				- name: whatap_server_host
+				- name: WHATAP_SERVER_HOST
 					value: {proxyServer}
-				- name: whatap_micro_enabled
+				- name: WHATAP_MICRO_ENABLED
 					value: "true"
 ```
 

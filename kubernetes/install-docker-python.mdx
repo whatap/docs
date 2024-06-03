@@ -163,23 +163,23 @@ CMD ["./entrypoint.sh"]
 Docker 빌드 후 쿠버네티스 환경 내 **컨테이너 환경변수**를 설정하세요. 애플리케이션 배포 *yaml* 파일에 다음 내용을 추가하세요. 
 
 ```yaml
-	  env:
-		- name: license
-			value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
-		- name: whatap_server_host
-			value: XXX.XXX.XXX.XXX
-		- name: app_name
-			value: {YOUR_APP_NAME}
-		- name: app_process_name
-		  value: {YOUR_PROCESS_NAME}
-		- name: whatap.okind
-			value: {YOUR_GROUP_NAME}
-		- name: NODE_IP
-		  valueFrom: {fieldRef: {fieldPath: status.hostIP}}
-		- name: NODE_NAME
-		  valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
-		- name: POD_NAME
-		  valueFrom: {fieldRef: {fieldPath: metadata.name}}
+    env:
+    - name: license
+      value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
+    - name: whatap_server_host
+      value: XXX.XXX.XXX.XXX
+    - name: app_name
+      value: {YOUR_APP_NAME}
+    - name: app_process_name
+      value: {YOUR_PROCESS_NAME}
+    - name: whatap.okind
+      value: {YOUR_GROUP_NAME}
+    - name: NODE_IP
+      valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+    - name: NODE_NAME
+      valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+    - name: POD_NAME
+      valueFrom: {fieldRef: {fieldPath: metadata.name}}
 ```
 
 다음 예시를 참조하세요. 
@@ -199,23 +199,23 @@ spec:
       labels:
         app: python-fastapi-pod
   containers:
-	- name: agent-python-fastapi
+  - name: agent-python-fastapi
     image: whatap/agent-python-fastapi
-	  env:
-		- name: license
-			value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
-		- name: whatap_server_host
-			value: XXX.XXX.XXX.XXX
-		- name: app_name
-			value: "myapp-python-fastapi"
-		- name: app_process_name
-		  value: "uvicorn"
-		- name: NODE_IP
-		  valueFrom: {fieldRef: {fieldPath: status.hostIP}}
-		- name: NODE_NAME
-		  valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
-		- name: POD_NAME
-		  valueFrom: {fieldRef: {fieldPath: metadata.name}}
+    env:
+    - name: license
+      value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
+    - name: whatap_server_host
+      value: XXX.XXX.XXX.XXX
+    - name: app_name
+      value: "myapp-python-fastapi"
+    - name: app_process_name
+      value: "uvicorn"
+    - name: NODE_IP
+      valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+    - name: NODE_NAME
+      valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+    - name: POD_NAME
+      valueFrom: {fieldRef: {fieldPath: metadata.name}}
 ```
 
 :::note

@@ -324,13 +324,13 @@ env:
 - name: POD_NAME
   valueFrom: {fieldRef: {fieldPath: metadata.name}}
 - name: OKIND
-	value: {YOUR_OKIND_NAME}
+  value: {YOUR_OKIND_NAME}
 - name: license
-	value: {licenseKey}
-- name: whatap_server_host
-	value: {proxyServer}
-- name: whatap_micro_enabled
-	value: "true"
+  value: {licenseKey}
+- name: whatap.server.host
+  value: {proxyServer}
+- name: whatap.micro.enabled
+  value: "true"
 ```
 
 다음 예시를 참조하세요.
@@ -368,9 +368,9 @@ spec:
           value: #DeploymentName
         - name: license
           value: #licenseKey
-        - name: whatap_server_host
+        - name: whatap.server.host
           value: #proxyServer
-        - name: whatap_micro_enabled
+        - name: whatap.micro.enabled
           value: "true"
 ```
 
@@ -388,9 +388,9 @@ spec:
 
 - `license`: 에이전트 인증 확인을 위한 키입니다.
 
-- `whatap_server_host`: 와탭 수집 서버 호스트 IP입니다.
+- `whatap.server.host`: 와탭 수집 서버 호스트 IP입니다.
 
-- `whatap_micro_enabled`: 컨테이너와의 연동을 활성화합니다.
+- `whatap.micro.enabled`: 컨테이너와의 연동을 활성화합니다.
 
 :::
 

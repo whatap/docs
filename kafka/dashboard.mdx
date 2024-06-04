@@ -1,0 +1,112 @@
+---
+id: dashboard
+title: KAFKA 대시보드
+description: 와탭 카프카 모니터링은 전체 현황을 한 눈에 파악할 수 있는 맞춤형 대시보드를 제공합니다.
+tags: [ KAFKA, 대시보드, UI ]
+---
+
+홈 화면 > **피처 프로젝트**(<code class='Features'>Features</code>) 선택 > ***KAFKA*** > ***KAFKA 대시보드***
+
+와탭 카프카 모니터링은 카프카 클러스터의 성능과 상태 등 전체 현황을 한 눈에 파악할 수 있도록 카프카 브로커, 토픽, 파티션, 프로듀서, 컨슈머의 다양한 지표를 실시간으로 모니터링합니다. 
+
+와탭이 제공하는 카프카 **맞춤형 대시보드**는 다음의 세 가지 템플릿으로 구성되어있습니다. 
+
+* ***Kafka Default***: 클러스터 기능의 정상 작동 여부를 파악할 수 있는 대시보드입니다. 
+
+* ***Kafka Request***: 컨슈머와 프로듀서와 관련된 처리 성능을 확인할 수 있는 대시보드입니다. 
+
+* ***Kafka Broker***: 브로커 성능 정보를 확인할 수 있는 대시보드입니다. 
+
+## Kafka Default
+
+***Kafka Default***는 기본 대시보드입니다. 카프카 클러스터의 전반적인 상태를 실시간으로 모니터링하고, 성능 저하나 장애를 사전에 감지할 수 있습니다. 각 지표를 정기적으로 확인하여 클러스터가 최적의 상태를 유지하도록 관리할 수 있습니다.
+
+### Kafka Overview 
+
+* ***Active Controller Count***: 현재 활성 상태인 컨트롤러의 수입니다. 컨트롤러는 Kafka 클러스터에서 파티션 리더와 복제를 관리합니다. 보통 하나의 활성 컨트롤러가 존재합니다.
+
+* ***Brokers Online***: 온라인 상태의 브로커 수입니다. 브로커는 메시지를 저장하고 클라이언트 요청을 처리하는 역할을 합니다.
+
+* ***Online Partitions***: 온라인 상태의 파티션 수입니다. 각 토픽은 여러 파티션으로 나뉘며, 각 파티션은 여러 브로커에 걸쳐 저장됩니다.
+
+* ***Preferred Replica Imbalance***: 선호되는 리플리카의 불균형을 나타냅니다. 이 값이 높으면 특정 브로커에 리플리카가 집중되어 있음을 의미합니다.
+
+* ***Under Replicated Partitions***: 복제되지 않은 파티션 수입니다. 이 값이 0이 아닌 경우 데이터 손실 위험이 있습니다.
+
+* ***Leader Count per Broker***: 각 브로커별 리더 파티션 수를 나타냅니다. 리더 파티션은 클라이언트 요청을 직접 처리하는 파티션입니다.
+
+* ***Unclean Leader Elections***: 비정상적인 리더 선출 수입니다. 이 값이 높으면 클러스터 안정성에 문제가 있을 수 있습니다.
+
+* ***Under min ISR Partitions***: 최소 ISR(동기화된 복제본) 이하의 파티션 수입니다. ISR은 데이터의 내구성을 보장합니다.
+
+* ***Offline Partitions Count***: 오프라인 상태의 파티션 수입니다. 파티션이 오프라인 상태면 해당 파티션의 데이터에 접근할 수 없습니다.
+
+* ***Broker Network Throughput*** `BytesOutPerSec`/`BytesInPerSec`: 브로커의 네트워크 처리량을 나타냅니다. 초당 송신/수신 바이트 수를 그래프로 표시합니다.
+
+### Java Virtual Machine 
+
+* ***CPU Usage***: JVM의 CPU 사용률을 나타냅니다. CPU 사용률이 높으면 성능에 영향을 미칠 수 있습니다.
+
+* ***JVM Memory Used***: JVM이 사용 중인 메모리 양을 나타냅니다. 주기적으로 메모리가 증가하고 Garbage Collection(GC) 후에 감소하는 패턴을 보입니다.
+
+* ***Time Spent in GC***: Garbage Collection(GC)에 소비된 시간을 나타냅니다. GC 시간 증가가 성능 저하로 이어질 수 있습니다.
+
+### Linux Disk I/O
+
+* ***Linux Disk Read Bytes***: 디스크 읽기 바이트 수를 나타냅니다. 높은 디스크 읽기/쓰기 양은 I/O 병목을 초래할 수 있습니다.
+
+* ***Linux Disk Write Bytes***: 디스크 쓰기 바이트 수를 나타냅니다. 읽기와 마찬가지로 높은 쓰기 양은 성능에 영향을 줄 수 있습니다.
+
+## Kafka Request
+
+***Kafka Request***는 컨슈머와 프로듀서와 관련된 처리 성능을 확인할 수 있는 대시보드입니다. 카프카 클러스터의 다양한 성능 지표를 실시간으로 모니터링하여 시스템 상태를 파악하고 잠재적인 문제를 조기에 감지할 수 있도록 돕습니다. 각 지표를 정기적으로 확인하여 시스템이 최적의 상태를 유지할 수 있도록 관리할 수 있습니다.
+
+### Processing Performance 
+
+* ***Messages In / Messages In per Broker***:
+
+    * ***Messages In***: 전체 클러스터에서 초당 수신되는 메시지의 수를 나타냅니다.
+
+    * ***Messages In per Broker***: 각 브로커별로 초당 수신되는 메시지의 수를 나타냅니다.
+
+* ***Bytes In / Bytes In per Broker***:
+
+    * ***Bytes In***: 전체 클러스터에서 초당 수신되는 바이트의 수를 나타냅니다.
+
+    * ***Bytes In per Broker***: 각 브로커별로 초당 수신되는 바이트의 수를 나타냅니다.
+
+* ***Bytes Out / Bytes Out per Broker***:
+
+    * ***Bytes Out***: 전체 클러스터에서 초당 송신되는 바이트의 수를 나타냅니다.
+
+    * ***Bytes Out per Broker***: 각 브로커별로 초당 송신되는 바이트의 수를 나타냅니다.
+
+* ***Request Queue Size***: 현재 처리되지 않은 요청이 대기 중인 큐의 크기를 나타냅니다. 큐 크기가 커지면 응답 시간이 길어질 수 있습니다.
+
+* ***Response Queue Size***: 응답을 기다리는 요청이 대기 중인 큐의 크기를 나타냅니다. 큐 크기가 커지면 지연이 발생할 수 있습니다.
+
+* ***Network Processor Avg Usage Percent***: 네트워크 프로세서의 평균 사용률을 나타냅니다. 네트워크 관련 작업의 부하를 보여줍니다.
+
+* ***Request Handler Avg Percent***: 요청 처리기의 평균 사용률을 나타냅니다. 요청 처리에 대한 부하를 보여줍니다.
+
+### Requests
+
+### Errors 
+
+### Offset Commit 
+
+### Metadata
+
+### Consume Lag
+
+## Kafka Broker
+
+***Kafka Broker***는 브로커 성능 정보를 확인할 수 있는 대시보드입니다. 카프카 클러스터의 성능 상태를 실시간으로 모니터링하고 잠재적인 문제를 조기에 감지할 수 있습니다. 각 지표를 정기적으로 확인하여 클러스터가 최적의 상태를 유지할 수 있도록 관리할 수 있습니다.
+
+### Broker Performance - Produce 
+
+### Broker Performance - Consume 
+
+### Broker Performance - Fetch Follower 
+
+### ZooKeeper

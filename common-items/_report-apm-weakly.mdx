@@ -1,28 +1,6 @@
 import Csvdownload from "../common-items/_csv-download.mdx";
 
-## 주간 보고서 {#appweaklyreport}
-
-애플리케션의 한 주간 성능 변화를 확인할 수 있는 보고서를 제공합니다. 주간 보고서로 제공하는 보고서 양식은 다음과 같습니다.
-
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-* [<Cmdname sid="A100_AppWeeklyReport" className="uitext" report />](#A100_AppWeeklyReport)
-
-* [<Cmdname sid="A010_AppDailyOidSummaryReport" className="uitext" report />](#A010_AppDailyOidSummaryReport)
-
-* [<Cmdname sid="A101_AppWeeklyOkindReport" className="uitext" report />](#A101_AppWeeklyOkindReport)
-
-* [<Cmdname sid="A110_AppWeeklyErrorStatReport" className="uitext" report />](#apmreporterrorweekly)
-
-* [<Cmdname sid="A110_AppWeeklyOkindErrorStatReport" className="uitext" report />](#apmreporterrorweekly)
-
-* [<Cmdname sid="A111_AppWeeklyOkindAvgRespTime" className="uitext" report />](#A111_AppWeeklyOkindAvgRespTime)
-
-* [<Cmdname sid="A150_AppPerformance" className="uitext" report />](#A150_AppPerformance)
-
-</InDoc>
-
-### 주간 애플리케이션 보고서 {#A100_AppWeeklyReport}
+## 주간 애플리케이션 보고서 {#A100_AppWeeklyReport}
 
 애플리케이션의 한 주간 주요 지표를 종합적으로 분석할 수 있는 보고서입니다.
 
@@ -59,62 +37,3 @@ import Csvdownload from "../common-items/_csv-download.mdx";
 * <Cmdname sid="sql_res_time" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/> <Cmdname sid="sql_res_time_support" className="b600" report/>: SQL 평균응답시간을 기준으로 상위 10개의 SQL 문을 비교한 목록입니다. 각 SQL 문에 대해 일주일 전과 조회 주의 실행 건수, 평균 응답 시간, 증감 시간을 제공합니다.
 
 * <Cmdname sid="errors_in_project2" className="b600" report/>: 한 주간의 프로젝트의 에러 통계를 에러 클래스와 에러 메시지 기준으로 제공하는 통계 정보입니다.
-
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-### 주간 애플리케이션 요약 보고서 {#A010_AppDailyOidSummaryReport}
-
-애플리케이션의 주요 성능 지표에 대한 요약 보고서입니다. 각 섹션은 애플리케이션의 성능 상태를 파악할 수 있는 중요 데이터를 제공합니다. 일별 변화량을 파악할 수 있습니다.
-
-:::note
-
-* 조회 기간에 따라 제공하는 정보는 다를 수 있습니다.
-
-* 주요 용어 및 지표에 대한 자세한 내용은 [다음 문서](#metricdesc)를 참조하세요.
-
-:::
-
-### 주간 애플리케이션 종류별 보고서 {#A101_AppWeeklyOkindReport}
-
-이 보고서는 에이전트 설정(*whatap.conf*)에서 `whatap.okind`로 분류된 애플리케이션 종류별로 주요 지표의 주간 변화량을 제공합니다. 각 애플리케이션 종류에 대한 일일 평균값(**Avg**)과 최댓값(**Peak**)을 비교할 수 있습니다. 
-
-* 한 주간의 데이터를 통해 애플리케이션의 성능 변동을 분석하고 성능 최적화 및 문제 해결의 근거 자료로 활용할 수 있습니다.
-
-* 트랜잭션 수를 기반으로 한 리소스 사용량을 파악하는데 유용합니다.
-
-:::note
-
-* <Cmdname sid="app_counter$_clock_delta_" className="b600" report/>는 에이전트와 서버 간의 시간 동기화 차이를 의미합니다. 이 지표는 에이전트가 설치된 시스템의 시계와 서버의 시계 간의 차이를 측정한 것으로, 정확한 시간 동기화는 로그와 트랜잭션 데이터를 일관되게 분석하고 문제를 디버깅하는 데 필수적입니다. 시간차가 크다면 트랜잭션의 발생 시점이나 에러 발생 시점을 정확히 파악하기 어려워질 수 있습니다. 따라서 이 지표는 시스템의 시간 동기화 상태를 모니터링하고 유지하는 데 중요한 역할을 합니다.
-
-* **app_counter$tx_time_sqr_sum**는 트랜잭션 응답 시간의 제곱합을 나타내는 지표입니다. 이 지표는 트랜잭션 처리 시간의 변동성을 평가하기 위해 사용합니다. 제곱합을 계산함으로써 트랜잭션 응답 시간의 분산이나 표준 편차를 산출할 수 있습니다. 이는 평균 응답 시간만으로는 파악하기 어려운 응답 시간의 분산 정도를 이해하는 데 유용합니다. 높은 제곱합 값은 응답 시간의 변동이 크다는 것을 의미하며 시스템 성능의 불안정을 나타낼 수 있습니다.
-
-:::
-
-### 주간 에러 통계 보고서 {#apmreporterrorweekly}
-
-애플리케이션의 에러 현황을 종합적으로 분석하여 제공하는 보고서입니다. 이 보고서는 프로젝트 기준, 애플리케이션 종류별(`whatap.okind`) 기준으로 에러 현황과 에러 메시지를 포함한 에러 현황을 제공합니다. 각 섹션별로 2주 전과 조회 주의 에러 종류와 발생 건수, 증감율을 확인할 수 있습니다. 주간 에러 통계와 관련해 제공하는 보고서 양식은 다음과 같습니다.
-
-* <Cmdname sid="A110_AppWeeklyErrorStatReport" className="b600" report/>
-* <Cmdname sid="A110_AppWeeklyOkindErrorStatReport" className="b600" report/>
-
-이 보고서는 중기간 발생하는 애플리케이션의 성능 문제를 식별하고 해결하는 데 중요한 데이터로 활용할 수 있습니다.
-
-### 주간 애플리케이션 종류별 평균응답시간 보고서 {#A111_AppWeeklyOkindAvgRespTime}
-
-이 보고서는 애플리케이션별 평균 응답 시간을 비교한 데이터를 제공합니다. 개별 <Cmdname sid="service" className="b600" report/>에 대한 일주일 전과 조회 주의 평균 응답 시간을 제공하며, 응답 시간의 증감량과 증감률을 확인할 수 있습니다.
-
-성능 변화를 모니터링하고 성능 개선이 필요한 부분을 식별하는데 유용한 자료로 활용할 수 있습니다.
-
-### 주간 성능비교 보고서 {#A150_AppPerformance}
-
-애플리케이션의 주요 성능 지표를 주간 단위로 비교한 보고서입니다. 이 보고서를 통해 주간 성능 변화를 상세히 분석하여 향후 성능 최적화를 위한 기초 자료로 활용할 수 있습니다.
-
-* 방문자 수와 호출 건수를 통해 애플리케이션에 대한 주간 트래픽 변화 추이를 확인할 수 있습니다.
-
-* 평균 응답 시간과 처리량을 비교함으로써 애플리케이션의 처리 성능과 응답 성능을 평가할 수 있습니다.
-
-* CPU 코어 수와 호스트 건수를 통해 시스템 자원의 사용 현황을 파악할 수 있습니다. 이를 통해 리소스의 적절한 배분 및 필요시 확장의 근거로 활용할 수 있습니다.
-
-* 제공하는 데이터를 기반으로 장기적인 성능 변화를 추적하여 특정 시점에서의 성능 이슈를 파악하고, 지속적인 개선 작업을 수행할 수 있습니다.
-
-</InDoc>

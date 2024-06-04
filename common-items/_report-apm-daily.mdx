@@ -6,54 +6,13 @@ import Csvdownload from "../common-items/_csv-download.mdx";
 
 * [<Cmdname sid="A001_AppDailyReport" className="uitext" report/>](#A001_AppDailyReport)
 
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-* [<Cmdname sid="A002_AppDailyAllCharts" className="uitext" report/>](#A002_AppDailyAllCharts)
-
-* [<Cmdname sid="A003_AppDailyHitmap" className="uitext" report/>](#A003_AppDailyHitmap)
-
-</InDoc>
-
 * [<Cmdname sid="A004_AppDailyProjectPerfReport" className="uitext" report/>](#A004_AppDailyProjectPerfReport)
-
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-* [<Cmdname sid="A005_AppIPStatReport" className="uitext" report/>](#A005_AppIPStatReport)
-
-</InDoc>
 
 * [<Cmdname sid="A006_AppUserStatReport" className="uitext" report/>](#A006_AppUserStatReport)
 
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-* [<Cmdname sid="A008_AppDailyOkindTxThresholdList" className="uitext" report/>](#A008_AppDailyOkindTxThresholdList)
-
-</InDoc>
-
 * [<Cmdname sid="A00_DailyReportTag" className="uitext" report/>](#A00_DailyReportTag)
 
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-* [<Cmdname sid="A010_AppDailyOidSummaryReport" className="uitext" report/>](#A010_AppDailyOidSummaryReport)
-
-* [<Cmdname sid="detail_report_text001" className="uitext" report/>](#detail_report_text001)
-
-</InDoc>
-
 * [<Cmdname sid="A012_AppDailyOidCustomReport" className="uitext" report/>](#A012_AppDailyOidCustomReport)
-
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-* [<Cmdname sid="A013_AppDailyErrorStatReport" className="uitext" report/>](#A013_AppDailyErrorStatReport)
-
-* [<Cmdname sid="A014_AppDailySQLTopNReport" className="uitext" report/>](#A014_AppDailySQLTopNReport)
-
-* [<Cmdname sid="A015_AppDailyHttpcReport" className="uitext" report/>](#A015_AppDailyHttpcReport)
-
-* [<Cmdname sid="A050_AppDailyAnalysisReport" className="uitext" report/>](#A050_AppDailyAnalysisReport)
-
-</InDoc>
-
 
 ### 일간 애플리케이션 보고서 {#A001_AppDailyReport}
 
@@ -110,40 +69,6 @@ import Csvdownload from "../common-items/_csv-download.mdx";
 
   :::
 
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-### 일간 애플리케이션 추이차트 {#A002_AppDailyAllCharts}
-
-애플리케이션 성능과 관련한 주요 지표들의 추이를 확인할 수 있는 시계열 차트를 제공하는 보고서입니다. 차트에 적용된 지표들에 대한 자세한 내용은 [다음 문서](metrics-app)를 참조하세요.
-
-{/* * **heap_pending_finalization**: 애플리케이션 지표 중 `pending_finalization` 지표와 같으며, GC 중 fianlize 수행을 위해 대기 중인 객체 수입니다.
-
-* **service_count**: 조회한 시간동안 발생한 서비스 호출 수입니다. 서비스 호출 수의 변동을 통해 사용자 활동의 피크 시간대를 파악할 수 있습니다.
-
-* **service_error**: 조회한 시간동안 발생한 서비스 에러 수입니다. 서비스 에러 발생 패턴을 통해 시스템의 안정성을 평가하고, 문제가 발생한 시간대를 식별할 수 있습니다.
-
-* **service_time**: 조회한 시간동안 서비스 요청에 소요된 시간입니다. 서비스 응답 시간을 분석하여 성능 저하가 발생한 시간대를 확인할 수 있습니다. */}
-
-:::note
-
-* <UI>Avg.</UI>: <span class="normal">파란색</span> 선으로 표시되며, 각 시간대의 평균값입니다.
-
-* <UI>Max.</UI>: <span class="vslow">빨간색</span> 선으로 표시되며, 각 시간대의 최댓값입니다.
-
-:::
-
-### 일간 애플리케이션 히트맵 {#A003_AppDailyHitmap}
-
-<Cmdname sid="daily_hitmap" className="b600" report/> 와 그에 따른 주요 지표들의 성능 추이를 확인할 수 있는 보고서입니다. <Cmdname sid="performance_trend_chart" className="b600" report/>에는 다음 지표들의 차트가 포함됩니다.
-
-:::note
-
-차트로 제공하는 각 항목에 대한 자세한 내용은 [다음 문서](#metricdesc)를 참조하세요.
-
-:::
-
-</InDoc>
-
 ### 애플리케이션 피크 성능 비교 {#A004_AppDailyProjectPerfReport}
 
 모니터링 대상 에이전트별로 애플리케이션의 최대 성능 지표를 일간(<span class="vslow">빨간색</span>), 전일(<span class="normal">파란색</span>), 그리고 지난주(<span class="snormal">녹색</span>) 데이터와 비교하여 제공합니다. 각 지표는 특정 시간대의 최대값과 그에 대응하는 시간의 지푯값을 함께 표시합니다. 이를 통해 각 애플리케이션의 성능 변동을 한눈에 파악할 수 있습니다.
@@ -154,20 +79,6 @@ import Csvdownload from "../common-items/_csv-download.mdx";
 
 :::
 
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-### 일간 애플리케이션 IP 통계 {#A005_AppIPStatReport}
-
-애플리케이션에 접속한 IP 주소별 접속 건수를 집계하여 제공하는 보고서입니다. 이 보고서는 IP 주소를 기준으로 애플리케이션의 접속 패턴을 분석하는 데 유용합니다.
-
-* 비정상적으로 많은 접속을 시도하는 IP 주소를 식별하여 보안 위협을 조기에 탐지하고 대응할 수 있습니다.
-
-* 주기적으로 높은 트래픽을 유발하는 IP 주소를 분석하여 서버 리소스 배분 및 최적화를 할 수 있습니다.
-
-* 접속 빈도를 통해 사용자 행동 패턴을 분석하고 사용자 경험을 개선하기 위한 데이터로 활용할 수 있습니다.
-
-</InDoc>
-
 ### 일간 애플리케이션 사용자 통계 {#A006_AppUserStatReport}
 
 10초, 5분, 30분 단위 동시 접속 사용자와 1시간 방문자 수를 시계열 차트로 제공하는 보고서입니다. 이 보고서는 사용 패턴을 이해하고 사용자 트래픽을 효과적으로 관리하는 데 중요한 데이터로 활용할 수 있습니다.
@@ -177,20 +88,6 @@ import Csvdownload from "../common-items/_csv-download.mdx";
 * **5m** / **30m** <Cmdname sid="realtime_user" className="b600" report/>: 중단기적 사용자 패턴을 분석하여 서버 자원 및 네트워크 대역폭을 효율적으로 배분할 수 있습니다. 피크 시간대를 예측하여 해당 시간대에 더 많은 자원을 할당하는 계획을 수립할 수 도 있습니다.
 
 * **1h** <Cmdname sid="visitor" className="b600" report/>: 시간별로 사용자의 방문 패턴을 분석해 마케팅 전략 및 운영 계획에 활용할 수 있습니다.
-
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-### 일간 애플리케이션 종류별 임계치 초과 트랜잭션 리스트 {#A008_AppDailyOkindTxThresholdList}
-
-에이전트 설정(*whatap.conf*)에서 `whatap.okind`로 분류된 애플리케이션 종류별로 임계치(**10초**)를 초과한 트랜잭션 목록을 확인할 수 있습니다.
-
-* <Cmdname sid="tx_okindlist" className="b600" report/>: 애플리케이션 종류별로 임계치를 초과한 전체 트랜잭션 건수와 평균 및 최대 수행 시간을 확인할 수 있습니다.
-
-* <Cmdname sid="tx_list" className="b600" report/>: 개별 애플리케이션 종류에 대한 트랜잭션의 상세 목록을 제공합니다. <Cmdname sid="service" className="b600" report/> 기준 건수가 많은 순으로 나열되어 있습니다. 각 <Cmdname sid="service" className="b600" report/>의 평균 및 최대 수행 시간을 확인할 수 있습니다.
-
-특정 트랜잭션에서 매우 긴 수행 시간이 발생하는 것은 성능 최적화가 필요함을 의미합니다. 이 보고서는 최대 수행 시간이 비정상적으로 긴 트랜잭션의 장애 원인을 분석하고 대응 방안을 마련하는 데 중요한 데이터로 활용할 수 있습니다.
-
-</InDoc>
 
 ### 일간 메트릭 추이현황(Avg/Max) {#A00_DailyReportTag}
 
@@ -205,60 +102,6 @@ import Csvdownload from "../common-items/_csv-download.mdx";
 * <UI>Max.</UI>: <span class="vslow">빨간색</span> 선으로 표시되며, 각 시간대의 최댓값입니다.
 
 :::
-
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-### 일간 애플리케이션 요약 보고서 {#A010_AppDailyOidSummaryReport}
-
-애플리케이션의 주요 성능 지표에 대한 요약 보고서입니다. 각 섹션은 애플리케이션의 성능 상태를 파악할 수 있도록 중요한 데이터를 제공합니다.
-
-:::note
-
-* 조회 기간에 따라 제공하는 정보는 다를 수 있습니다.
-
-* 주요 용어 및 지표에 대한 자세한 내용은 [다음 문서](#metricdesc)를 참조하세요.
-
-<Csvdownload />
-
-:::
-
-* <Cmdname sid="peaktime_performance_summary" className="b600" report/>: 하루 동안 처리량(TPS)이 가장 높았던 시간의 주요 지표 데이터를 제공합니다.
-
-* <Cmdname sid="performance_trend_chart" className="b600" report/>: 주요 지표에 대한 시계열 차트를 제공합니다.
-
-* <Cmdname sid="A010_AppDailyOidSummaryReport" className="b600" report/>에서는 트랜잭션 건수 및 HTTPC 건수, SQL 응답시간에 대한 **TOP 5** 목록을 제공합니다.
-
-
-### 애플리케이션 모니터링 수시 리포트 {#detail_report_text001}
-
-특정 조회 기간의 애플리케이션의 주요 성능 지표를 종합하여 분석한 보고서입니다. 이 보고서는 여러 섹션으로 구성되어 있으며, 각 섹션은 애플리케이션의 성능 지표에 대한 설명과 그에 대한 모니터링 결과를 시계열 차트를 통해 제공합니다. 
-
-:::tip
-
-이 보고서는 HTML 파일로 다운받아 시스템 담당자의 의견을 기입할 수 있습니다. 
-
-1. 보고서 양식에서 <Cmdname sid="detail_report_text001" className="uitext" report />를 선택하세요.
-
-1. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
-
-1. 화면 위에 <Cmdname sid="download" className="uitext" /> 버튼을 선택하세요.
-
-1. HTML 파일 형식으로 사용자의 로컬 스토리지에 저장하세요.
-
-1. 텍스트 편집 프로그램을 통해서 `fieldset` 태그를 검색하세요.
-
-1. `fieldset` 안의 `legend` 태그가 끝나는 위치(`<!-- comment -->`)에 사용자의 의견을 작성할 수 있습니다.
-
-```html title="HTML"
-<fieldset>
-  <legend class="report-opinion"><span>...</span></legend>
-  <!-- comment -->
-</fieldset>
-```
-
-:::
-
-</InDoc>
 
 ### 일간 애플리케이션 사용자정의 보고서 {#A012_AppDailyOidCustomReport}
 
@@ -275,48 +118,3 @@ import Csvdownload from "../common-items/_csv-download.mdx";
 1. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
 
 보고서가 생성됩니다.
-
-<InDoc product="java,python,nodejs,golang,dotnet">
-
-### 일간 애플리케이션 에러통계 보고서 {#A013_AppDailyErrorStatReport}
-
-애플리케이션의 에러 현황을 종합적으로 분석하여 제공하는 보고서입니다. 이 보고서는 프로젝트 기준, 애플리케이션 종류별(`whatap.okind`) 기준으로 에러 현황과 에러 메시지를 포함한 에러 현황을 제공합니다. 각 섹션별로 에러 종류와 발생 건수, 증감율을 확인할 수 있습니다.
-
-이 보고서는 애플리케이션의 성능 문제를 조기에 식별하고 해결하는 데 중요한 데이터로 활용할 수 있습니다. 이를 통해 시스템의 안정성을 향상시키고 운영 효율성을 극대화할 수 있습니다.
-
-
-### 일간 애플리케이션 SQL TOP-N 보고서 {#A014_AppDailySQLTopNReport}
-
-애플리케이션에서 수행된 SQL 문을 평균 응답 시간과 SQL 수행 건수, SQL 에러 건수를 기준으로 상위 10개의 항목을 제공하는 보고서입니다. 이 보고서는 SQL 성능 및 안정성을 평가하고 최적화할 수 있는 중요한 데이터를 제공합니다.
-
-* 응답 시간이 긴 SQL 문을 식별하여 쿼리 최적화 및 인덱스 추가 등의 작업을 수행하세요.
-
-* 자주 실행되는 SQL 문을 분석하여 캐싱 전략을 도입하거나 데이터베이스 구조를 개선하세요.
-
-* 에러가 자주 발생하는 SQL 문을 분석하여 코드 수정이나 데이터베이스 설정 변경을 통해 문제를 해결하세요.
-
-
-### 일간 Http Call 지연 보고서 {#A015_AppDailyHttpcReport}
-
-애플리케이션에서 발생한 HTTP 호출의 지연 현황을 분석한 보고서입니다. 이 보고서는 평균 응답 시간, 전체 호출 횟수, 최대 응답 시간 등을 기준으로 상위 5개의 HTTP 호출을 선정하여 제공합니다. 보고서에는 각 HTTP 호출의 상세 정보와 시간대별 지연 현황을 확인할 수 있는 시계열 차트가 포함됩니다. 이 보고서를 통해 성능 저하가 발생한 호출을 식별하고 개선하여 시스템의 안정성과 효율성을 향상시킬 수 있습니다.
-
-* HTTP 호출의 지연 현황을 모니터링하여 특정 시간대나 특정 호출에서 성능 문제가 발생했는지 파악할 수 있습니다.
-
-* 지연 시간이 긴 HTTP 호출을 식별하여 성능 최적화나 문제 해결을 위한 조치를 취하세요.
-
-* 호출 횟수와 응답 시간을 분석하여 애플리케이션의 트래픽 패턴을 이해하고 시스템 자원을 효율적으로 배분하세요.
-
-
-### 일간 애플리케이션 분석 보고서 {#A050_AppDailyAnalysisReport}
-
-애플리케이션의 성능과 안정성을 종합적으로 평가하기 위한 지표를 제공하는 보고서입니다. 이 보고서는 트랜잭션, 스택, 에러, SQL 응답 시간에 대한 상위 목록을 통해 성능 최적화와 문제 해결에 필요한 중요한 데이터를 제공합니다.
-
-* <Cmdname sid="transaction" className="b600" report/> **TOP 10**: 에러 건수와 평균 응답 시간을 기준으로 상위 10개의 트랜잭션 목록을 제공합니다.
-
-* <Cmdname sid="top_stack" className="b600" report/> **TOP 20**: 발생 건수가 많은 순으로 상위 20개의 스택 목록을 제공합니다. 호출 빈도가 가장 높은 스택 정보를 확인할 수 있습니다.
-
-* <Cmdname sid="err_stat" className="b600" report/> **TOP 20**: 에러 건수가 많은 순으로 상위 20개의 에러 클래스를 제공합니다. 자주 발생하는 에러 유형을 확인하고 원인을 분석하여 대응할 수 있습니다.
-
-* <Cmdname sid="sql_res_time" className="b600" report/> **TOP 10**:  SQL의 응답 시간이 긴 순으로 상위 10개의 SQL 문을 제공합니다. 데이터베이스 성능을 저하시키는 주요 SQL 문을 식별하는데 유용합니다.
-
-</InDoc>

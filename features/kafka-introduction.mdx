@@ -1,5 +1,5 @@
 ---
-id: introduction
+id: kafka-introduction
 title: KAFKA 모니터링
 description: 이 문서는 KAFKA 모니터링 상품에 대한 소개 페이지입니다.
 displyed_sidebar: featuremonitorSidebar
@@ -9,7 +9,7 @@ tags: [KAFKA, Feature ]
 
 카프카는 실시간 데이터 피드를 처리하고 안정적으로 저장하며 전송하는 작업에 최적화된 분산형 스트리밍 플랫폼입니다. 카프카를 통해 데이터 스트림의 이상 현상을 추적할 수 있습니다. 카프카는 분산형 시스템이기 때문에 모니터링을 통해 각 브로커, 토픽, 파티션, 프로듀서 및 컨슈머의 상태를 상세히 확인할 필요가 있습니다. 
 
-와탭은 새로운 **피처 프로젝트** 방식으로 ***KAFKA*** 모니터링을 제공합니다. 카프카 클러스터의 성능과 상태를 추적하여 문제를 조기에 감지하고 해결할 수 있도록 돕습니다.
+와탭은 새로운 **피쳐 프로젝트** 방식으로 ***KAFKA*** 모니터링을 제공합니다. 카프카 클러스터의 성능과 상태를 추적하여 문제를 조기에 감지하고 해결할 수 있도록 돕습니다.
 
 * **지표 모니터링**: 카프카 브로커, 토픽, 파티션, 프로듀서, 컨슈머의 다양한 지표를 실시간으로 모니터링합니다.
 
@@ -31,14 +31,18 @@ tags: [KAFKA, Feature ]
 
 Feature 프로젝트를 선택해 프로젝트 생성 시  */}
 
-## 피처 프로젝트 알아보기
-
-{/* **피처 프로젝트**(<code class='Features'>Features</code>)는 사용자가 원하는 소프트웨어의 모니터링 지원 여부를 쉽게 확인하고, 간편하게 모니터링을 시작할 수 있도록 새로 지원하는  */}
-
-와탭은 사용자가 원하는 소프트웨어의 모니터링 지원 여부를 쉽게 확인하고 간편하게 모니터링을 시작할 수 있도록 새롭게 **피처 프로젝트**(<code class='Features'>Features</code>)를 도입하였습니다. 피처 프로젝트는 기존 모니터링 제품을 사용자가 모니터링하고자 하는 소프트웨어에 맞게 재포장해 최적화된 모니터링 솔루션을 제공합니다. 와탭 피처 프로젝트를 통해 서비스의 안정성과 성능을 더욱 효과적으로 관리해 보세요. 
+{/* **피쳐 프로젝트**(<code class='Features'>Features</code>)는 사용자가 원하는 소프트웨어의 모니터링 지원 여부를 쉽게 확인하고, 간편하게 모니터링을 시작할 수 있도록 새로 지원하는  */}
 
 
-## 카프카 모니터링 설치하기
+:::note  
+
+**피쳐 프로젝트**<ScrollToLink anchor='feature-project' />
+
+와탭은 사용자가 원하는 소프트웨어의 모니터링 지원 여부를 쉽게 확인하고 간편하게 모니터링을 시작할 수 있도록 새롭게 **피쳐 프로젝트**(<code class='Features'>Features</code>)를 도입하였습니다. 피쳐 프로젝트는 기존 모니터링 제품을 사용자가 모니터링하고자 하는 소프트웨어에 맞게 재포장해 최적화된 모니터링 솔루션을 제공합니다. 와탭 피쳐 프로젝트를 통해 서비스의 안정성과 성능을 더욱 효과적으로 관리해 보세요. 
+
+:::
+
+## 설치하기
 
 import DocCardList from '@theme/DocCardList';
 import TR from '@site/src/components/TR';
@@ -77,25 +81,25 @@ import TR from '@site/src/components/TR';
 
 지원 환경
 
-피처 프로젝트 선택 및 생성 
+피쳐 프로젝트 선택 및 생성 
 
-피처 프로젝트 안내
+피쳐 프로젝트 안내
 
-피처 에이전트 설치 */}
+피쳐 에이전트 설치 */}
 
-{/* ## 피처 프로젝트란?
+{/* ## 피쳐 프로젝트란?
 
-와탭은 사용자가 원하는 소프트웨어의 모니터링 지원 여부를 쉽게 확인하고 간편하게 모니터링을 시작할 수 있도록 새롭게 **피처 프로젝트**(<code class='Features'>Features</code>)를 제공합니다. 피처 프로젝트는 기존 모니터링 제품을 사용자가 모니터링하고자 하는 소프트웨어에 맞게 재포장해 최적화된 모니터링 솔루션을 제공합니다. 와탭 피처 프로젝트를 통해 서비스의 안정성과 성능을 더욱 효과적으로 관리해 보세요.  */}
+와탭은 사용자가 원하는 소프트웨어의 모니터링 지원 여부를 쉽게 확인하고 간편하게 모니터링을 시작할 수 있도록 새롭게 **피쳐 프로젝트**(<code class='Features'>Features</code>)를 제공합니다. 피쳐 프로젝트는 기존 모니터링 제품을 사용자가 모니터링하고자 하는 소프트웨어에 맞게 재포장해 최적화된 모니터링 솔루션을 제공합니다. 와탭 피쳐 프로젝트를 통해 서비스의 안정성과 성능을 더욱 효과적으로 관리해 보세요.  */}
 
-### 피처 프로젝트 생성하기
+### 피쳐 프로젝트 생성하기
 
-에이전트를 설치하기 전에 먼저 **피처 프로젝트**(<code class='Features'>Features</code>)를 생성하세요.
+에이전트를 설치하기 전에 먼저 **피쳐 프로젝트**(<code class='Features'>Features</code>)를 생성하세요.
 
 1. [와탭 모니터링 서비스](https://service.whatap.io)로 이동한 다음 로그인하세요.
 
 1. 프로젝트를 생성하려면 화면 왼쪽 사이드 메뉴에서 <Cmdname sid="BTN07332" className="uitext" /> &gt; ***+*** <Cmdname sid='BTN06696' className='uitext'/> 버튼을 선택하세요.
 
-1. <Cmdname sid="TTL07073" className="uitext" /> 화면에서 프로젝트에 설치할 **피처 상품**을 선택하세요.
+1. <Cmdname sid="TTL07073" className="uitext" /> 화면에서 프로젝트에 설치할 **피쳐 상품**을 선택하세요.
 
 1. <Cmdname sid="project_name" className="uitext" />, <Cmdname sid="data_server_region" className="uitext" />, <Cmdname sid="project_time_zone" className="uitext" /> 항목을 차례로 설정하세요.
 
@@ -107,15 +111,15 @@ import TR from '@site/src/components/TR';
 
 {/* :::note 
 
-**피처 프로젝트**<ScrollToLink anchor='feature-project' />
+**피쳐 프로젝트**<ScrollToLink anchor='feature-project' />
 
-**피처 프로젝트**(<code class='Features'>Features</code>)는 
+**피쳐 프로젝트**(<code class='Features'>Features</code>)는 
 
 ::: */}
 
 ### 카프카 에이전트 설치 
 
-**피처 프로젝트**(<code class='Features'>Features</code>) 생성 후 자동으로 ***KAFKA 에이전트 설치*** 화면으로 이동합니다. 다음 안내대로 설치를 진행하세요. 
+**피쳐 프로젝트**(<code class='Features'>Features</code>) 생성 후 자동으로 ***KAFKA 에이전트 설치*** 화면으로 이동합니다. 다음 안내대로 설치를 진행하세요. 
 
 1. **프로젝트 액세스 키**를 확인하세요. 
 
@@ -151,7 +155,7 @@ import TR from '@site/src/components/TR';
 
 ### 맞춤형 대시보드
 
-홈 화면 > **피처 프로젝트**(<code class='Features'>Features</code>) 선택 > ***KAFKA*** > ***KAFKA 대시보드***
+홈 화면 > **피쳐 프로젝트**(<code class='Features'>Features</code>) 선택 > ***KAFKA*** > ***KAFKA 대시보드***
 
 와탭 카프카 모니터링은 카프카 클러스터의 성능과 상태 등 전체 현황을 한 눈에 파악할 수 있도록 카프카 브로커, 토픽, 파티션, 프로듀서, 컨슈머의 다양한 지표를 실시간으로 모니터링합니다. 각 지표를 정기적으로 확인하여 클러스터가 최적의 상태를 유지하도록 관리할 수 있습니다.
 

@@ -14,6 +14,57 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.6.0.a5
+
+2024년 06월 07일
+
+<div class='indentTab'>
+
+### `Application`
+
+- <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_hitmap" className="uitext" /> 메뉴에서 DB 추적 시 이동하는 메뉴에 선택한 인스턴스가 기본 선택되지 않는 문제 수정
+
+- <Status>Fixed</Status> 프레젠테이션 또는 커스텀 테마 모드로 화면을 변경하면 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dailyAppStat" className="uitext" /> 메뉴에서 화이트아웃이 발생하는 문제 수정
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbParameter" className="uitext" /> 메뉴에서 <Cmdname sid="reference_date" className="uitext" />와 <Cmdname sid="comparison_date" className="uitext" />를 모두 오늘 날짜로 설정하면 실시간 데이터와 저장된 마지막 데이터(00:00 ~ 01:00)를 조회해 비교하는 기능 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbParameter" className="uitext" /> 메뉴에서 테이블의 헤더에 수집 시간을 표시하도록 수정
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 <Cmdname sid="instance" className="uitext" /> 옵션에서 하나의 인스턴스만 선택할 수 있도록 수정
+
+  :::note
+
+  다음 상품의 메뉴에서도 동일한 변경 사양을 적용합니다.
+
+  - **MySQL**: <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_mysqlStat" className="uitext" /> 
+
+  - **PostgreSQL**: <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_pgStat" className="uitext" /> 
+
+  :::
+
+- <Status>Fixed</Status> 대시보드의 <Cmdname sid="active_sessions" className="uitext" /> 테이블에서 <Cmdname sid="session_detail" className="uitext" /> 창을 열었을 때 종료된 세션이면 실시간 조회를 종료하며 시간 선택자를 선택할 수 없도록 수정
+
+- <Status>Fixed</Status> 대시보드의 <Cmdname sid="active_sessions" className="uitext" /> 테이블에서 <Cmdname sid="session_detail" className="uitext" /> 창을 열었을 때 종료된 세션이면 <Cmdname sid="TTL07046" className="uitext" /> 버튼을 노출하지 않도록 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 필터가 적용되지 않는 문제 수정
+
+- <Status>Fixed</Status> 다른 메뉴 화면에서 필터값을 포함한 링크를 클릭해 <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴로 이동하면 <Cmdname sid="filter" className="uitext" /> 항목에 `s_equal` 문자열이 확인되는 문제 수정
+
+#### MySQL
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 기본 컬럼에서 <UI>elapse wait</UI> 항목을 보이지 않도록 수정
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 <UI>sqlHash</UI> 컬럼 항목을 가장 오른쪽으로 이동
+
+</div>
+
+
 ## Preview 2.6.0.a4
 
 2024년 06월 05일

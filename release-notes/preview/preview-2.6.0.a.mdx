@@ -30,25 +30,27 @@ toc_max_heading_level: 2
 
 ### `Application`
 
+- <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_transaction_map" className="uitext" /> 메뉴에서 <UI>TOP 30</UI> 필터 내 항목을 직접 검색해 추가하는 <Cmdname sid="custom" className="uitext" /> 기능 추가 
+
+  ![Custom](/img/release/release-apm-dashboard-tx-map-custom.png)
+
 - <Status>Changed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_loadedClasses" className="uitext" /> 메뉴에서 클래스 조회 창의 제목 수정(<Cmdname sid="class_signature" className="b500" /> → <Cmdname sid="TTL08085" className="uitext" />)
+
+- <Status>Changed</Status> 구형 <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴 제거 예정
+
+  - <Cmdname sid="sitemap" className="uitext" /> 메뉴에 <Status>Deprecated</Status> 태그 추가 
+
+  - <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> <code class='old'>Old</code> 메뉴를 진입하면 제거 예정 안내 메시지 표시
+
+- <Status>Changed</Status> <Cmdname sid="side_statistics" className="uitext" /> 하위 메뉴에서 필터를 적용한 후 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하지 않아도, CSV 파일을 다운로드하면 필터가 적용되도록 수정
 
 - <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 <Cmdname sid="clientOs" className="uitext" />, <Cmdname sid="clientName" className="uitext" />, <Cmdname sid="status" className="uitext" />에 대한 문자열이 번역 key 값으로 노출되는 문제 수정
 
 - <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_counter" className="uitext" /> 메뉴에서 위젯의 차트 영역을 드래그한 후 ![상세 아이콘](/img/ico-detail.svg) <Cmdname sid="detail" className="uitext" /> 버튼을 선택해 열리는 화면의 조회 시간이 위젯의 조회 시간과 다르게 표시되는 문제 수정
 
-- <Status>Feature</Status> 구형 <UI>애플리케이션 대시보드</UI>가 제거될 예정입니다.
+- <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 위젯의 ![정보 아이콘](/img/ic-info-circle.svg) 버튼을 클릭해 안내 창을 열면 로딩 표시가 해당 위젯에서 적용되는 문제 수정
 
-  - <UI>사이트맵</UI> 메뉴에 <code class='Deprecated'>Deprecated</code> 태그 추가 
-
-  - <UI>사이트맵</UI> &gt; <UI>애플리케이션 대시보드</UI> <code class='old'>Old</code> 메뉴 진입 시 제거 예정 안내 모달 추가
-
-- <Status>Fixed</Status> <UI>대시보드</UI> &gt; <UI>애플리케이션 대시보드</UI> 메뉴에서 프리셋 위젯 안내 모달 활성화 시 로딩이 해당 위젯 전체에 걸리는 현상 수정
-
-- <Status>Fixed</Status> <UI>대시보드</UI> &gt; <UI>애플리케이션 대시보드</UI> 메뉴에서 에이전트가 없는 경우 딜레이 없이 데이터 호출이 발생하는 현상 수정
-
-- <Status>Changed</Status> <UI>통계</UI> 일부 메뉴에서 CSV 다운로드 시 필터가 바로 적용되도록 수정
-
-- <Status>Feature</Status> <UI>대시보드</UI> &gt; <UI>트랜잭션 맵</UI> 메뉴의 <UI>TOP 30</UI> 필터 내 항목을 직접 검색해 추가하는 <UI>커스텀</UI> 기능 추가 
+- <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 에이전트가 없는 경우 딜레이 없이 데이터 호출이 발생하는 문제 수정
 
 ---
 

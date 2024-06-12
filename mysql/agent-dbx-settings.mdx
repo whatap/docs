@@ -51,7 +51,7 @@ import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data
 
 * **skip_command** <span class='type'>String</span>
 
-  액티브 세션 수집 시 옵션값으로 설정한 `command`에 해당하는 세션은 수집하지 않습니다. 예를 들어, 다음 예시와 같이 설정하면, `Daemon`과 `Sleep` 상태의 세션은 수집에서 제외합니다.
+  액티브 세션 수집 시 옵션값으로 설정한 `command`에 해당하는 세션은 수집하지 않습니다. 예를 들어, 다음과 같이 설정하면 `Daemon`과 `Sleep` 상태의 세션은 수집에서 제외합니다.
 
   ```ini title="whatap.conf"
   skip_command=Daemon,Sleep

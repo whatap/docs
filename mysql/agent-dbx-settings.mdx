@@ -49,33 +49,9 @@ import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data
   variables_metric=uptime,version
   ```
 
-## 액티스 세션 제외 설정
+## 액티브 세션 제외 설정
 
 DBX 에이전트는 MySQL의 액티브 세션 목록을 수집하지만 특정 세션을 제외할 수 있는 옵션을 제공합니다. 제외한 세션은 `total_runtime`을 계산할 때 포함하지 않으며 <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서도 해당 SQL은 표시되지 않습니다.
-
-* **skip_sys_session** <span class='type'>Int</span>
-
-  기본값 `1`
-
-  * `0`: sys 세션(root, system user)을 액티브 세션 수집과 `total_runtime`에 포함합니다.
-
-  * `1`: sys 세션을 액티브 세션 수집에 포함하지만 `total_runtime`에서는 제외합니다. 
-  
-  * `2`: sys 세션을 액티브 세션 수집과 `total_runtime`에서 제외합니다.
-
-* **skip_whatap_session** <span class='type'>Int</span>
-
-  기본값 `0`
-
-  옵션값을 `1`로 설정하면 와탭의 수집 쿼리를 액티브 세션 수집과 `total_runtime`에서 제외합니다.
-
-* **skip_user** <span class='type'>String</span>
-
-  옵션값으로 설정한 사용자 계정을 액티브 세션과 `total_runtime`에서 제외합니다. 예를 들어, 다음과 같이 설정하면 `root`, `system user`, `event_scheduler` 계정에 대한 수집을 제외할 수 있습니다.
-
-  ```ini title="whatap.conf"
-  skip_user=root,system user,event_scheduler
-  ```
 
 * **skip_command** <span class='type'>String</span>
 
@@ -91,7 +67,32 @@ DBX 에이전트는 MySQL의 액티브 세션 목록을 수집하지만 특정 �
 
   :::
 
-## AWS RDS CloudWatch 적용{#using-aws-rds}
+* **skip_sys_session** <span class='type'>Int</span>
+
+  기본값 `1`
+
+  * `0`: sys 세션(root, system user)을 액티브 세션 수집과 `total_runtime`에 포함합니다.
+
+  * `1`: sys 세션을 액티브 세션 수집에 포함하지만 `total_runtime`에서는 제외합니다. 
+  
+  * `2`: sys 세션을 액티브 세션 수집과 `total_runtime`에서 제외합니다.
+
+* **skip_user** <span class='type'>String</span>
+
+  옵션값으로 설정한 사용자 계정을 액티브 세션과 `total_runtime`에서 제외합니다. 예를 들어, 다음과 같이 설정하면 `root`, `system user`, `event_scheduler` 계정에 대한 수집을 제외할 수 있습니다.
+
+  ```ini title="whatap.conf"
+  skip_user=root,system user,event_scheduler
+  ```
+
+* **skip_whatap_session** <span class='type'>Int</span>
+
+  기본값 `0`
+
+  옵션값을 `1`로 설정하면 와탭의 수집 쿼리를 액티브 세션 수집과 `total_runtime`에서 제외합니다.
+
+
+## AWS RDS CloudWatch 적용 {#using-aws-rds}
 
 <AWSRDSdesc name='db_mysql_counter' />
 

@@ -62,6 +62,8 @@ toc_max_heading_level: 2
 
 - <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 <Cmdname sid="clientOs" className="uitext" />, <Cmdname sid="clientName" className="uitext" />, <Cmdname sid="status" className="uitext" />에 대한 문자열이 번역 key 값으로 노출되는 문제 수정
 
+- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 스텝 타임라인 그래프를 선택하면 해당 스텝으로 이동하지 않는 문제 수정
+
 - <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_counter" className="uitext" /> 메뉴에서 위젯의 차트 영역을 드래그한 후 ![상세 아이콘](/img/ico-detail.svg) <Cmdname sid="detail" className="uitext" /> 버튼을 선택해 열리는 화면의 조회 시간이 위젯의 조회 시간과 다르게 표시되는 문제 수정
 
 - <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 위젯의 ![정보 아이콘](/img/ic-info-circle.svg) 버튼을 클릭해 안내 창을 열면 로딩 표시가 해당 위젯에서도 적용되는 문제 수정
@@ -116,6 +118,12 @@ toc_max_heading_level: 2
 
 - <Status>Changed</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_containerizedAppList" className="uitext" /> 메뉴의 <UI>Oname</UI> 컬럼 이름을 <UI>MicroOname</UI>으로 변경 {/* 서비스 배포 시 ApplicationName 표기 예정 */}
 
+- <Status>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 요약 보기에서 <Cmdname sid="log" className="uitext" /> &gt; <Cmdname sid="BTN07827" className="uitext" /> 탭의 카테고리 정렬 순서 변경
+
+  ![Category](/img/release/k8s-container-map-log-category-sort-change.png)
+
+- <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 요약 보기에서 <Cmdname sid="log" className="uitext" /> &gt; <Cmdname sid="BTN07827" className="uitext" /> 탭의 조회 결과가 <Cmdname sid="BTN06342" className="uitext" />의 조회 결과와 일치하지 않는 문제 수정
+
 - <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_kubernetesAgentList" className="uitext" /> 메뉴에서 에이전트가 활성화 상태일 때만 ![상세 보기 아이콘](/img/ico-detail-view.svg) <Cmdname sid="BTN06342" className="uitext" /> 버튼을 활성화하도록 수정
 
 ---
@@ -133,6 +141,20 @@ toc_max_heading_level: 2
 ### `URL`
 
 <Status>Fixed</Status> URL 프로젝트 화면 위에 ![알림 아이콘](/img/ico-noti.svg) <Cmdname sid="sms_alert_status" className="uitext" /> 아이콘이 사라지는 문제 수정
+
+---
+
+### `Database`
+
+#### Oracle DMA 
+
+- <Status>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 Oracle 버전에 따른 에이전트 다운로드 제공
+
+- <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴에서 다중 필터가 적용되지 않는 문제 수정 
+
+- <Status>Fixed</Status> 브라우저가 특정 크기일 때 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴의 <UI>Plan Change History</UI> 탭에서 차트가 사라지는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 설치 안내 문구 수정 
 
 </div>
 

@@ -30,6 +30,8 @@ toc_max_heading_level: 2
 
 ### `Application`
 
+#### 공통
+
 - <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_transaction_map" className="uitext" /> 메뉴에서 <UI>TOP 30</UI> 필터 내 항목을 직접 검색해 추가하는 <Cmdname sid="custom" className="uitext" /> 기능 추가 
 
   ![Custom](/img/release/release-apm-dashboard-tx-map-custom.png)
@@ -53,6 +55,14 @@ toc_max_heading_level: 2
 - <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 에이전트가 없는 경우 딜레이 없이 데이터 호출이 발생하는 문제 수정
 
 - <Status>Fixed</Status> 에이전트 선택(<Cmdname sid="application" className="uitext" />) 옵션에서 에이전트 목록이 화면의 세로 크기보다 많을 경우 스크롤이 적용되지 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_appStatTopology" className="uitext" /> 메뉴에서 시간 선택 옵션을 클릭해도 기능이 작동하지 않는 문제 수정 및 시간 선택 옵션의 UI 변경
+
+- <Status>Fixed</Status> 조직에 소속된 프로젝트에서 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> 메뉴로 진입하면 발생하는 화이트아웃 현상 수정
+
+#### Java
+
+<Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 **JVM 옵션 추가** 섹션에서 Jetty 설치 가이드 내용 수정: <code>JAVA_OPTS</code> → <code>JAVA_OPTIONS</code>
 
 ---
 

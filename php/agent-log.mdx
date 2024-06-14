@@ -59,3 +59,17 @@ tags:
   whatap.logsink_zip_enabled=true
   whatap.logsink.files=/etc/httpd/logs/error_log, /etc/httpd/logs/access_log
   ```
+
+:::tip
+
+로그 모니터링 파일 이름에 날짜 형식의 변수를 사용할 수 있습니다. Python `strftime()` 사용 기준으로 적용하세요. 
+
+> 예, 20240101: `%Y%m%d`
+
+```ini title="whatap.ini"
+whatap.logsink.files=/etc/httpd/logs/customlog-%Y%m%d
+```
+
+이 기능은 PHP 에이전트 2.7.2 버전 이상에서 지원합니다. 
+
+:::

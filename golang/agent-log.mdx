@@ -17,13 +17,7 @@ tags: [ Go, 로그 ]
 
 ## 로그 싱크(LogSink) 설정
 
-로그 데이터를 수집합니다. 다음 예시를 참조하세요.
-
-```ini title='whatap.conf'
-logsink_enabled=true
-logsink_zip_enabled=true
-logsink.files=/etc/httpd/logs/error_log, /etc/httpd/logs/access_log
-```
+로그 데이터를 수집합니다.
 
 ### 기본 설정
 
@@ -46,4 +40,26 @@ logsink.files=/etc/httpd/logs/error_log, /etc/httpd/logs/access_log
 
   수집할 로그 파일의 전체 경로 및 파일명을 설정할 수 있습니다. 여러 개의 파일을 설정하려면 쉼표(,)를 구분자로 이용하세요.
 
+### 예시
 
+다음 예시를 참조해 사용자의 환경에 맞는 에이전트 설정을 적용하세요.
+
+```ini title='whatap.conf'
+logsink_enabled=true
+logsink_zip_enabled=true
+logsink.files=/etc/httpd/logs/error_log, /etc/httpd/logs/access_log
+```
+
+:::tip
+
+로그 모니터링 파일 이름에 날짜 형식의 변수를 사용할 수 있습니다. Python `strftime()` 사용 기준으로 적용하세요. 
+
+> 예, 20240101: `%Y%m%d`
+
+```ini title="whatap.ini"
+whatap.logsink.files=/etc/httpd/logs/customlog-%Y%m%d
+```
+
+이 기능은 Go 에이전트 0.3.2 버전 이상에서 지원합니다. 
+
+:::

@@ -33,6 +33,12 @@ Pending 상태의 Pod 현황을 조회하여 각 Pod의 대기 원인을 종합�
 
 :::note 
 
+**QoS Class**(Quality of Service Class)에 대한 자세한 내용은 [다음 문서](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/)를 참조하세요. 
+
+:::
+
+{/* :::note 
+
 **QoS Class 우선 순위**
 
 QoS Class(Quality of Service Class)는 Pod 스케줄링을 결정하는데 사용되는 속성 중 하나로 Pod의 리소스 요청 및 사용에 따라 동적으로 조정될 수 있습니다. 클러스터 자원의 효율적인 관리 및 Pod 간의 공정한 분배에 중요한 속성입니다. 예를 들어 우선 순위가 높은 QoS Class가 할당된 Pod가 Pending 상태일 경우 빠른 문제 분석 및 원인 파악이 필요합니다. <code class='pay'>Burstable</code> Pod의 우선 순위는 <code class='bef'>BestEffort</code> Pod보다 높고 <code class='grnt'>Guaranteed</code> Pod보다 낮습니다. 
@@ -43,7 +49,7 @@ QoS Class(Quality of Service Class)는 Pod 스케줄링을 결정하는데 사�
 
 * <code class='grnt'>Guaranteed</code>: 정확한 리소스 요청이 있는 Pod입니다. 
 
-:::
+::: */}
 
 #### 필터 
 

@@ -22,11 +22,13 @@ toc_max_heading_level: 2
 
 ### `공통`
 
-<Status>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsML" className="uitext" /> 메뉴의 상세 데이터 조회 및 표시 기준 변경
+- <Status>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsML" className="uitext" /> 메뉴의 상세 데이터 조회 및 표시 기준 변경
 
-* **기존**: 차트 영역을 드래그한 기간에 대해 조회
+  - **기존**: 차트 영역을 드래그한 기간에 대해 조회
 
-* **변경**: 최대 6시간 기간만 조회
+  - **변경**: 최대 6시간 기간만 조회
+
+- <Status>Changed</Status> <Cmdname sid="side_integratedDashboard" className="uitext" />, <Cmdname sid="side_integratedMetricsBoard" className="uitext" /> 메뉴의 서비스 종료 안내 메시지 변경
 
 ---
 
@@ -39,6 +41,24 @@ toc_max_heading_level: 2
 ### `Server`
 
 <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 **Oracle Solaris** 에이전트 설치 명령어의 변수 수정 및 적용되지 않은 다국어 내용 반영
+
+---
+
+### `Kubernetes`
+
+<Status>Fixed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" /> 메뉴에서 컬럼 선택 드롭다운의 체크박스가 아래 목록의 체크박스와 겹치면 체크박스를 선택할 수 없는 문제 수정
+
+---
+
+### `Database`
+
+<Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="db_parameter" className="uitext" /> 메뉴에서 비교 날짜 선택 시 <Cmdname sid="time_today" className="uitext" /> 버튼 클릭하면 데이터가 정상 조회되지 않는 문제 수정
+
+:::note
+
+이 기능은 **Redis**, **MongoDB**, **Oracle DMA** 상품에는 적용되지 않습니다.
+
+:::
 
 ---
 

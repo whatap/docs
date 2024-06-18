@@ -1,0 +1,19 @@
+## 환경 변수 {#side_environmentVariable}
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_environmentVariable" className="uitext" />
+
+<ProdImg img="ipa-env-var.png" desc="환경 변수" />
+
+애플리케이션 실행과 관련한 환경 변수 정보를 조회할 수 있습니다. ***환경 변수*** 메뉴는 조회 시점의 환경 변수 정보를 수집해 제공합니다. `System.getProperty()`를 사용해 매개변수로 전달된 키의 값을 조회합니다. 주요 확인 사항은 다음과 같습니다. 
+
+* `(애플리케이션).version`: 애플리케이션 버전을 확인할 수 있습니다. 
+
+* `file.encoding`: `utf-8`과 같은 파일 인코딩 형식을 확인할 수 있습니다.
+
+<InDoc product="java">
+
+* 애플리케이션 상태 정보: 예를 들어 `catalina.home` 환경 변수가 조회될 경우 tomcat 환경임을 파악할 수 있습니다.
+
+</InDoc>
+
+* OS 환경 변수: 예를 들어 `(env) LANG` 환경 변수와 같이 접미사 `(env)` 형식으로 제공됩니다.

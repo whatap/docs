@@ -1,0 +1,106 @@
+---
+id: install-agent
+title: 설치하기
+description: 와탭 KAFKA 모니터링 에이전트를 설치하는 방법을 제공합니다.
+displyed_sidebar: featuremonitorSidebar
+toc_max_heading_level: 3
+tags: [ KAFKA, Feature, 설치하기 ]
+draft: true
+---
+
+import DocCardList from '@theme/DocCardList';
+import TR from '@site/src/components/TR';
+
+와탭 카프카 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다. 
+
+와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다. 회원 가입에 관한 자세한 내용은 [다음 문서](../account/account-manage)를 참조하세요. 
+
+{/* :::note 
+
+**지원 환경**
+
+와탭 카프카 모니터링 서비스는 **Apache Kafka 3.x** 이상을 지원합니다. 
+
+::: */}
+
+:::note  
+
+**지원 환경**<ScrollToLink anchor='kafka-supported-env' />
+
+와탭 카프카 모니터링 에이전트를 설치하기 전에 지원 환경을 확인하세요. 
+
+* **Kafka**: Apache Kafka 3.x 이상
+
+* **Ubuntu**: Ubuntu 12.04 이상
+
+* **OS**: Red Hat 6 or equivalent(CentOS, Rocky Linux, Amazon Linux)
+
+* **운영체제 아키텍처**: Amd64/X86_64, Arm64/Aarch64
+
+:::
+
+{/* 
+
+순서
+
+지원 환경
+
+피처 프로젝트 선택 및 생성 
+
+피처 프로젝트 안내
+
+피처 에이전트 설치 */}
+
+{/* ## 피처 프로젝트란?
+
+와탭은 사용자가 원하는 소프트웨어의 모니터링 지원 여부를 쉽게 확인하고 간편하게 모니터링을 시작할 수 있도록 새롭게 **피처 프로젝트**(<code class='Features'>Features</code>)를 제공합니다. 피처 프로젝트는 기존 모니터링 제품을 사용자가 모니터링하고자 하는 소프트웨어에 맞게 재포장해 최적화된 모니터링 솔루션을 제공합니다. 와탭 피처 프로젝트를 통해 서비스의 안정성과 성능을 더욱 효과적으로 관리해 보세요.  */}
+
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
+
+<Createprojectv2 />
+
+{/* :::note 
+
+**피처 프로젝트**<ScrollToLink anchor='feature-project' />
+
+**피처 프로젝트**(<code class='Features'>Features</code>)는 
+
+::: */}
+
+## 카프카 에이전트 설치 
+
+**피처 프로젝트**(<code class='Features'>Features</code>) 생성 후 자동으로 ***KAFKA 에이전트 설치*** 화면으로 이동합니다. 다음 안내대로 설치를 진행하세요. 
+
+1. **프로젝트 액세스 키**를 확인하세요. 
+
+    프로젝트 액세스 키는 와탭 서비스 활성화를 위한 고유 ID 입니다. <code class='my'>프로젝트 액세스 키 발급받기</code> 버튼을 선택하세요. 
+
+1. **설치 스크립트**를 생성하세요. 
+
+    사용자 환경을 자동으로 인식 후 카프카가 설치된 서버에 설치 스크립트를 생성하기 위해 다음 명령어를 실행하세요. 
+
+    ```bash
+    curl http://repo.whatap.io/telegraf/feature/kafka/install_kafka_monitoring.sh -o install_kafka_monitoring.sh
+    ```
+
+    다음 명령어를 실행해 카프카 에이전트를 설치하세요.
+    
+    ```bash
+    chmod +x install_kafka_monitoring.sh
+    ./install_kafka_monitoring.sh "XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX" "15.165.146.117"
+    ```
+
+1. 에이전트 설정 및 재시작 후 **모니터링**을 **시작**하세요.  
+
+    카프카에 Jolokia 에이전트 설정을 위해 다음 명령어를 실행 후 재시작하세요.
+
+    ```bash 
+    #cd {kafka home directory}/bin
+    sed -i '/^#!/a export KAFKA_OPTS='\''-javaagent:/usr/whatap/infra/feature/jolokia-agent-jvm-2.0.1-javaagent.jar=port=8778,host=127.0.0.1'\''' kafka-server-start.sh
+    ./kafka-server-stop.sh
+    ./kafka-server-start.sh
+    ```
+
+{/* 상위 프로덕트 용어 설정이 필요 
+
+상위 상품, 부모 상품 */}

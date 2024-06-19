@@ -19,6 +19,8 @@ tags: [ Go, DB, SQL ]
 
   :::note
 
-  보안 키는 *whatap.conf* 파일이 위치한 `WHATAP_HOME`*/paramkey.txt* 파일 내에 6자리로 설정합니다. *paramkey.txt* 파일이 존재하지 않는 경우 랜덤 값으로 자동 생성합니다.
+  * <code class="my">Go agent v0.4.0 or later</code>: 보안 키는 *whatap.conf* 파일이 위치한 `WHATAP_HOME`*/security.conf* 파일 내에 6자리(`paramkey`)로 설정합니다.
+
+  * <code class="my">Below Go agent v0.4.0</code>: 보안 키는 *whatap.conf* 파일이 위치한 `WHATAP_HOME`*/paramkey.txt* 파일 내에 6자리로 설정합니다. *paramkey.txt* 파일이 존재하지 않는 경우 랜덤 값으로 자동 생성합니다.
 
   :::

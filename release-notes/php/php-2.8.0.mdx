@@ -1,0 +1,41 @@
+---
+id: php-2_8_0
+title: PHP Agent v2.8.0
+toc_max_heading_level: 2
+pagination_next: release-notes/php/php-2_7_2
+displayed_sidebar: releaseSidebar
+---
+
+2024년 06월 19일
+
+- <Status>New</Status> linux aarch64 지원
+
+- <Status>Changed</Status> 기존 *paramkey.txt* 대신 *security.conf* 파일 사용
+
+  기존 *security.conf* 파일의 `paramkey` 키의 값을 사용합니다. 기본값은 무작위값이 아닌 `WHATAP`으로 지정도록 변경합니다. `WHATAP` 지정되면 키 입력없이 복호화할 수 있습니다.
+
+- <Status>Changed</Status> SQL 문장의 정규화 옵션 설정 변경
+
+  - SQL 문장에서 파라미터를 분리하여 정규화하는 기능을 항상 활성화하세요. `whatap.trace_sql_normalize_enabled` 옵션을 항상 `true`로 설정하세요.
+
+  - 이미 정규화 옵션을 비활성화(정규화 중지 설정)한 상태라면, 정규화해서 파라미터를 별도 표기하는 설정을 활성화하세요.
+
+    - `profile_sql_param_enabled` 옵션을 활성화하세요.
+    - 정규화된 파라미터를 별도 암호화하여 수집합니다.
+    - *security.conf*의 `paramkey`로 복호화하여 데이터를 확인할 수 있습니다.
+
+:::info
+
+**다운로드**
+
+| OS | 파일 형식 | 아키텍처 | 다운로드 |
+| - | :-: | :-: | :-: |
+| Red Hat / CentOS / Amazon linux | RPM | x86 x64 | [다운로드](https://repo.whatap.io/centos/6/x86_64/whatap-php-2.8-0.x86_64.rpm) |
+| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/centos/7/aarch64/whatap-php-2.8-0.aarch64.rpm) |
+| Ubuntu 12 and above / Debian | DEB | amd64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-php_2.8.0_amd64.deb) |
+| \^ | \^ | arm64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-php_2.8.0_arm64.deb) |
+| Alpine linux | tar gzip | x86 x64 | [다운로드](https://repo.whatap.io/alpine/x86_64/whatap-php-2.8.0.tar.gz) |
+| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/alpine/aarch64/whatap-php-2.8.0.tar.gz) |
+| Freebsd 10 and above | TXZ | x86 x64 | [다운로드](https://repo.whatap.io/freebsd/10/whatap-php-2.8.0.txz) |
+
+:::

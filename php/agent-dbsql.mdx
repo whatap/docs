@@ -10,6 +10,8 @@ tags:
     - 애플리케이션
 ---
 
+import Phprestartapply from "../common-items/_php-restart-apply.mdx";
+
 * **whatap.trace_sql_normalize_enabled** <span class='type'>Boolean</span>
 
   기본값 `true`
@@ -30,7 +32,7 @@ tags:
 
   :::note
 
-  보안 키는 WAS 서버 */usr/whatap/php/paramkey.txt* 파일 내에 6자리로 지정합니다. *paramkey.txt* 파일이 존재하지 않는 경우 랜덤 값으로 자동 생성됩니다.
+  보안 키는 WAS 서버 */usr/whatap/php/security.conf* (*paramkey.txt*) 파일 내에 6자리로 지정합니다. *security.conf* (*paramkey.txt*) 파일이 존재하지 않는 경우 랜덤 값으로 자동 생성됩니다.
 
   :::
 
@@ -46,9 +48,7 @@ tags:
 
   동시에 연결이 유지되는 DB Connection 정보를 최대로 저장할 수 있는 크기입니다. 초과하는 DB Connection 연결 시 오래된 정보부터 삭제됩니다.
 
-import Phprestartapply from "../common-items/_php-restart-apply.mdx";
-
-<Phprestartapply />
+  <Phprestartapply />
 
 * **whatap.profile_mysql_return_enabled** <span class='type'>Boolean</span>
 

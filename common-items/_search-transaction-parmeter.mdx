@@ -4,7 +4,7 @@
 
 <ImgLang img='sql-parameter-query.png' desc='SQL' />
 
-<Xclude product='java,php'>
+<Xclude product='java,php,golang'>
 
 * <Cmdname sid="BTN06764" className="uitext" />: 복호화된 파라미터 값을 확인할 수 있습니다. 비밀번호는 *`WHATAP_HOME`/paramkey.txt* 파일 내 6자리 문자열입니다. 다른 문자열로 변경 가능합니다.
 
@@ -16,13 +16,9 @@
 
 </Xclude>
 
-<InDoc product='java,php'>
+<InDoc product='java'>
 
-* <Cmdname sid="BTN06764" className="uitext" />: 복호화된 파라미터 값을 확인할 수 있습니다. 비밀번호는 *`WHATAP_HOME`/security.conf* (*paramkey.txt*) 파일 내 6자리 문자열(`paramkey`)입니다. 다른 문자열로 변경 가능합니다.
-
-</InDoc>
-
-  <InDoc product="java">
+* <Cmdname sid="BTN06764" className="uitext" />: 복호화된 파라미터 값을 확인할 수 있습니다. 비밀번호는 *`WHATAP_HOME`/security.conf* 파일 내 6자리 문자열(`paramkey`)입니다. 다른 문자열로 변경 가능합니다.
 
   :::note
 
@@ -30,7 +26,19 @@
 
   :::
 
-  </InDoc>
+</InDoc>
+
+<InDoc product='php,golang'>
+
+* <Cmdname sid="BTN06764" className="uitext" />: 복호화된 파라미터 값을 확인할 수 있습니다. 비밀번호는 *`WHATAP_HOME`/security.conf* 파일 내 6자리 문자열(`paramkey`)입니다. 다른 문자열로 변경 가능합니다.
+
+  :::note
+
+  에이전트 버전에 따라 비밀번호 설정 파일이 다를 수 있습니다. *security.conf* 파일 또는 *paramkey.txt* 파일 내 문자열을 변경하세요.
+
+  :::
+
+</InDoc>
 
 * <Cmdname sid="format" className="uitext" />: SQL 문장을 들여쓰기 및 포맷팅하여 가독성을 높일 수 있습니다.
 

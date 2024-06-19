@@ -161,8 +161,6 @@ import Transaction from "../common-items/_transaction.mdx";
 
 * **biz_exceptions** <span class='type'>String</span>
 
-  기본값 `Empty`
-
   특정 Error 또는 Exception을 Business Exception으로 지정합니다. 히트맵에서는 에러로 표기되지 않고 통계 정보에만 수집됩니다. 수집되는 Error Class 명과 동일하게 적용합니다. 콤마를 구분자로 하여 여러 개를 등록할 수 있습니다.
 
   ```ini title="whatap.conf"
@@ -286,8 +284,6 @@ import Transaction from "../common-items/_transaction.mdx";
   트랜잭션의 Host 정보를 출력합니다. 값이 `false`일 경우 트랜잭션의 URL에 URI만 표기하고, `true`일 경우 `/xxx.aaa.com/URL` 형식으로 출력됩니다.
 
 * **ignore_http_method** <span class='type'>String</span>
-
-  기본값 `Empty`
 
   설정한 HTTP 메소드(Method)로 요청된 트랜잭션 정보는 수집하지 않습니다. 여러 개를 설정하려면 쉼표(,)를 구분자로 이용하세요.
 

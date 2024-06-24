@@ -153,9 +153,9 @@ tags: [ 경고 알림, 서버, UI ]
 
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="process" className="uitext" /> 탭 &gt; ***+*** <Cmdname sid="add_alert_setting" className="uitext" /> 버튼 선택
 
-특정 프로세스에 대한 이벤트를 설정하여 경고 알림을 받을 수 있습니다. 주요 지표인 ***프로세스 수***, ***프로세스 CPU*** 사용량, ***프로세스 메모리*** 사용량을 기준으로 조건을 지정하면 해당 프로세스가 예기치 않게 종료되거나 성능이 급격히 변동하는 경우 실시간으로 경고를 받을 수 있습니다.
+특정 프로세스에 대한 이벤트를 설정하여 경고 알림을 받을 수 있습니다. 주요 지표인 <Cmdname sid="processcount" className="uitext" />, <Cmdname sid="processcpu" className="uitext" /> 사용량, <Cmdname sid="processmem" className="uitext" /> 사용량을 기준으로 조건을 지정하면 해당 프로세스가 예기치 않게 종료되거나 성능이 급격히 변동하는 경우 실시간으로 경고를 받을 수 있습니다.
 
-경고 및 위험 수준, 그리고 설정한 임계치가 유지되는 ***지속 시간***을 설정하여 이벤트의 심각성을 평가할 수 있습니다. 또한 ***이벤트 수신 태그***를 활용해 특정 프로젝트 멤버에게 알림을 전송할 수 있습니다. 이를 통해 효율적으로 우선순위에 따른 조치를 취할 수 있습니다.
+경고 및 위험 수준, 그리고 설정한 임계치가 유지되는 <Cmdname sid="sms_alert_duration" className="uitext" />을 설정하여 이벤트의 심각성을 평가할 수 있습니다. 또한 <Cmdname sid="event_tag" className="uitext" />를 활용해 특정 프로젝트 멤버에게 알림을 전송할 수 있습니다. 이를 통해 효율적으로 우선순위에 따른 조치를 취할 수 있습니다.
 
 {/* 
 
@@ -165,9 +165,9 @@ tags: [ 경고 알림, 서버, UI ]
 
 <ImgLang img='server-process-event.png' desc='프로세스 이벤트 추가 sc'/>
 
-1. ***이벤트 추가*** 창이 뜨면 ![number 1](/img/number-01.png) 이벤트 ***제목***을 입력하세요.
+1. <Cmdname sid="add_alert_setting" className="uitext" /> 창이 뜨면 ![number 1](/img/number-01.png) 이벤트 <Cmdname sid="title" className="uitext" />을 입력하세요.
 
-1. ![number 2](/img/number-02.png) ***이벤트 발행 조건*** 탭에서 ***서버 목록***의 ***선택된 에이전트가 없습니다*** 버튼을 클릭해 ***서버 목록*** 창에서 서버를 선택하세요. 
+1. ![number 2](/img/number-02.png) <Cmdname sid="alert_rule" className="uitext" /> 탭에서 <Cmdname sid="sms_server_list" className="uitext" />의 <Cmdname sid="empty_selected_agent" className="uitext" /> 버튼을 클릭해 <Cmdname sid="sms_server_list" className="uitext" /> 창에서 서버를 선택하세요. 
 
     :::note
 
@@ -175,7 +175,7 @@ tags: [ 경고 알림, 서버, UI ]
 
     :::
 
-1. ***프로세스*** 선택창에서 프로세스 혹은 프로세스 그룹을 선택하세요. 
+1. <Cmdname sid="process" className="uitext" /> 선택창에서 프로세스 혹은 프로세스 그룹을 선택하세요. 
 
     :::note
 
@@ -183,22 +183,22 @@ tags: [ 경고 알림, 서버, UI ]
     
     :::
 
-1. ***프로세스 소유자***를 선택하세요. 
+1. <Cmdname sid="process_owner" className="uitext" />를 선택하세요. 
 
-    * ***프로세스 소유자***를 지정하지 않을 시 소유자와 관계없이 같은 이름의 모든 프로세스에 해당 설정이 적용됩니다.
-    * 이벤트 조건은 ***프로세스 소유자***를 생략한 경우라도 소유자-프로세스 단위로 동작합니다.
+    * <Cmdname sid="process_owner" className="uitext" />를 지정하지 않을 시 소유자와 관계없이 같은 이름의 모든 프로세스에 해당 설정이 적용됩니다.
+    * 이벤트 조건은 <Cmdname sid="process_owner" className="uitext" />를 생략한 경우라도 소유자-프로세스 단위로 동작합니다.
 
-1. 원하는 ***지표***의 ***레벨***, ***지속 시간***, ***활성화*** 여부를 설정하세요.
+1. 원하는 <Cmdname sid="indicator" className="uitext" />의 <Cmdname sid="level" className="uitext" />, <Cmdname sid="sms_alert_duration" className="uitext" />, <Cmdname sid="enable" className="uitext" /> 여부를 설정하세요.
 
-    * ***레벨***: <Cmdname sid="sms_alert_warn" className="slow" /> 혹은 <Cmdname sid="sms_alert_fatal" className="vslow" /> 수준을 선택할 수 있습니다.
+    * <Cmdname sid="level" className="uitext" />: <Cmdname sid="sms_alert_warn" className="slow" /> 혹은 <Cmdname sid="sms_alert_fatal" className="vslow" /> 수준을 선택할 수 있습니다.
 
-    * ***지속 시간***:  설정한 임곗값의 ***지속 시간*** 이후 서버의 상태가 <Cmdname sid="sms_alert_warn" className="slow" />, <Cmdname sid="sms_alert_fatal" className="vslow" /> 수준으로 변경됩니다.
+    * <Cmdname sid="sms_alert_duration" className="uitext" />:  설정한 임곗값의 <Cmdname sid="sms_alert_duration" className="uitext" /> 이후 서버의 상태가 <Cmdname sid="sms_alert_warn" className="slow" />, <Cmdname sid="sms_alert_fatal" className="vslow" /> 수준으로 변경됩니다.
 
-    ***지표*** 안내는 다음을 참고하세요. 
+    <Cmdname sid="indicator" className="uitext" /> 안내는 다음을 참고하세요. 
 
-    * ***프로세스 수***: 동일한 이름의 프로세스의 개수에 대한 이벤트를 설정할 수 있습니다. ***위험***과 ***경고*** 조건의 개수를 지정하세요.
-    * ***프로세스 CPU***: CPU 사용량에 따라 이벤트를 설정할 수 있습니다.
-    * ***프로세스 메모리***: 메모리 사용량에 따라 이벤트를 설정할 수 있습니다.
+    * <Cmdname sid="processcount" className="uitext" />: 동일한 이름의 프로세스의 개수에 대한 이벤트를 설정할 수 있습니다. <Cmdname sid="sms_alert_fatal" className="uitext" />과 <Cmdname sid="sms_alert_warn" className="uitext" /> 조건의 개수를 지정하세요.
+    * <Cmdname sid="processcpu" className="uitext" />: CPU 사용량에 따라 이벤트를 설정할 수 있습니다.
+    * <Cmdname sid="processmem" className="uitext" />: 메모리 사용량에 따라 이벤트를 설정할 수 있습니다.
 
 1. ![number 3](/img/number-03.png) <Cmdname sid="event_tag" className="uitext" />를 설정하세요. 
 
@@ -208,30 +208,30 @@ tags: [ 경고 알림, 서버, UI ]
 
     * <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_receive_configuration" className="uitext" /> 메뉴에서 프로젝트 멤버와 3rd-party 플러그인에 태그를 설정할 수 있습니다. <Cmdname sid="event_receive_configuration" className="uitext" /> 메뉴에 대한 자세한 내용은 <Link to="set-receive-event#set-notice-by-team-or-users">다음 문서</Link>를 참조하세요.
 
-1. 이벤트 설정을 마쳤으면 ![number 4](/img/number-04.png) ***저장*** 버튼을 선택하세요.
+1. 이벤트 설정을 마쳤으면 ![number 4](/img/number-04.png) <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
 
 :::note
 
 * 프로세스 알림 ***조건***을 잘못 설정한 경우 해당 알림을 비활성화하거나 알림 ***조건***을 재설정하세요.
-* ***프로세스*** 및 ***프로세스 소유자***를 잘못 지정한 경우 해당 알림을 비활성화해 진행 중인 알림을 해소한 후 알림 ***조건***을 재설정하세요.
+* <Cmdname sid="process" className="uitext" /> 및 <Cmdname sid="process_owner" className="uitext" />를 잘못 지정한 경우 해당 알림을 비활성화해 진행 중인 알림을 해소한 후 알림 조건을 재설정하세요.
 
 :::
 
 ## 로그 파일 및 윈도우 이벤트 추가
 
-홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; ***로그 파일/윈도우 이벤트*** 탭 &gt; ***+ 이벤트 추가*** 버튼 선택
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="sm_log_event_tab" className="uitext" /> 탭 &gt; ***+*** <Cmdname sid="add_alert_setting" className="uitext" /> 버튼 선택
 
 특정 로그 파일과 윈도우 이벤트 설정을 관리할 수 있습니다.
 
 ### 로그 파일{#log-file-event}
 
-***로그 파일*** 이벤트를 추가하려면 다음을 참고해 ***이벤트 발생 조건***을 지정하세요. 
+<Cmdname sid="log_file" className="uitext" /> 이벤트를 추가하려면 다음을 참고해 <Cmdname sid="metrics_event_rules" className="uitext" />을 지정하세요. 
 
 <ImgLang img='server-log-file.png' desc='로그 파일 이벤트 추가 sc'/>
 
-1. ***이벤트 추가*** 창이 뜨면 ![number 1](/img/number-01.png) 이벤트 ***제목***을 입력하세요.
+1. <Cmdname sid="add_alert_setting" className="uitext" /> 창이 뜨면 ![number 1](/img/number-01.png) 이벤트 <Cmdname sid="title" className="uitext" />을 입력하세요.
 
-1. ![number 2](/img/number-02.png) ***서버 목록***을 확인하거나 검색창을 통해 모니터링을 원하는 서버를 선택하세요. 
+1. ![number 2](/img/number-02.png) <Cmdname sid="sms_server_list" className="uitext" />을 확인하거나 검색창을 통해 모니터링을 원하는 서버를 선택하세요. 
 
     :::note
 
@@ -239,31 +239,31 @@ tags: [ 경고 알림, 서버, UI ]
 
     :::
 
-1. ![number 3](/img/number-03.png) ***이벤트 발행 조건*** 탭에서 ***로그 종류***를 ***로그 파일***로 선택하세요.
+1. ![number 3](/img/number-03.png) <Cmdname sid="alert_rule" className="uitext" /> 탭에서 <Cmdname sid="sms_alert_log_rule_type" className="uitext" />를 <Cmdname sid="log_file" className="uitext" />로 선택하세요.
 
-1. 예시를 참고해 ***파일 경로***를 정규식대로 입력하세요. 
+1. 예시를 참고해 <Cmdname sid="sms_alert_log_rule_file_path" className="uitext" />를 정규식대로 입력하세요. 
 
     > 예시, */var/log/mylogfile_%Y-%m-%d_%H:%M:%S.log*
 
-1. 이벤트를 발생시킬 ***검색 키워드***를 입력하세요. 복수 개 지정할 수 있습니다.
+1. 이벤트를 발생시킬 <Cmdname sid="sms_alert_log_rule_keyword" className="uitext" />를 입력하세요. 복수 개 지정할 수 있습니다.
 
-1. 알림에서 제외할 ***검출 제외 문자열***을 입력하세요. 복수 개 지정할 수 있습니다.
+1. 알림에서 제외할 <Cmdname sid="sms_alert_log_rule_keyword_exclude" className="uitext" />을 입력하세요. 복수 개 지정할 수 있습니다.
 
-1. 몇 초 동안 몇 회 지정한 ***키워드*** 검출 시 알림을 받을 지 ***반복 횟수***와 ***기간***을 입력하세요. 
+1. 몇 초 동안 몇 회 지정한 **키워드** 검출 시 알림을 받을 지 <Cmdname sid="sms_alert_log_rule_keyword_option_repeat" className="uitext" /> 횟수와 <Cmdname sid="sms_alert_log_rule_keyword_option_duration" className="uitext" />을 입력하세요. 
 
-1. 이벤트의 ***위험도***를 선택하세요. <Cmdname sid="sms_alert_fatal" className="vslow" /> 혹은 <Cmdname sid="sms_alert_warn" className="slow" /> 수준을 선택할 수 있습니다.
+1. 이벤트의 <Cmdname sid="sms_alert_severity" className="uitext" />를 선택하세요. <Cmdname sid="sms_alert_fatal" className="vslow" /> 혹은 <Cmdname sid="sms_alert_warn" className="slow" /> 수준을 선택할 수 있습니다.
 
-1. ![number 4](/img/number-04.png) ***저장*** 버튼을 선택하세요.
+1. ![number 4](/img/number-04.png) <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
 
 ### 윈도우 이벤트{#windows-event}
 
-***윈도우 이벤트***를 추가하려면 다음을 참고해 ***이벤트 발행 조건***을 지정하세요. Windows 환경에서만 사용 가능합니다.
+<Cmdname sid="window_event" className="uitext" />를 추가하려면 다음을 참고해 <Cmdname sid="metrics_event_rules" className="uitext" />을 지정하세요. Windows 환경에서만 사용 가능합니다.
 
 <ImgLang img='server-log-windows.png' desc='윈도우 이벤트 추가 sc'/>
 
-1. ***이벤트 추가*** 창이 뜨면 ![number 1](/img/number-01.png) 이벤트 ***제목***을 입력하세요.
+1. <Cmdname sid="add_alert_setting" className="uitext" /> 창이 뜨면 ![number 1](/img/number-01.png) 이벤트 <Cmdname sid="title" className="uitext" />을 입력하세요.
 
-1. ![number 2](/img/number-02.png) ***서버 목록***을 확인하거나 검색창을 통해 모니터링을 원하는 서버를 선택하세요. 
+1. ![number 2](/img/number-02.png) <Cmdname sid="sms_server_list" className="uitext" />을 확인하거나 검색창을 통해 모니터링을 원하는 서버를 선택하세요. 
 
     :::note
 
@@ -271,21 +271,21 @@ tags: [ 경고 알림, 서버, UI ]
 
     :::
 
-1. ![number 3](/img/number-03.png) ***이벤트 발행 조건*** 탭에서 ***로그 종류***를 ***윈도우 이벤트***로 선택하세요.
+1. ![number 3](/img/number-03.png) <Cmdname sid="alert_rule" className="uitext" /> 탭에서 <Cmdname sid="sms_alert_log_rule_type" className="uitext" />를 <Cmdname sid="window_event" className="uitext" />로 선택하세요.
 
-1. 다음 예시를 참고해 ***로그명***을 선택하세요.
+1. 다음 예시를 참고해 <Cmdname sid="sms_alert_log_rule_event_category" className="uitext" />을 선택하세요.
 
     <ImgLang img='server-log-windows-a-01.png' desc='로그명'/>
 
-1. 다음 예시를 참고해 ***수준***, ***원본***(이벤트 소스), ***이벤트 ID***, ***검색 키워드***를 지정하세요. ***검색 키워드***는 복수 개 지정할 수 있습니다.
+1. 다음 예시를 참고해 <Cmdname sid="sms_alert_log_rule_event_level" className="uitext" />, <Cmdname sid="sms_alert_log_rule_eventsource" className="uitext" />(이벤트 소스), <Cmdname sid="sms_alert_log_rule_eventid" className="uitext" />, <Cmdname sid="sms_alert_log_rule_keyword" className="uitext" />를 지정하세요. <Cmdname sid="sms_alert_log_rule_keyword" className="uitext" />는 복수 개 지정할 수 있습니다.
 
     <ImgLang img='server-log-windows-a-02.png' desc='수준, 이벤트 소스 등'/>
 
-1. 알림에서 제외할 ***검출 제외 문자열***을 입력하세요. 복수 개 지정할 수 있습니다.
+1. 알림에서 제외할 <Cmdname sid="sms_alert_log_rule_keyword_exclude" className="uitext" />을 입력하세요. 복수 개 지정할 수 있습니다.
 
-1. 이벤트의 ***위험도***를 선택하세요. <Cmdname sid="sms_alert_fatal" className="vslow" /> 혹은 <Cmdname sid="sms_alert_warn" className="slow" /> 수준을 선택할 수 있습니다.
+1. 이벤트의 <Cmdname sid="sms_alert_severity" className="uitext" />를 선택하세요. <Cmdname sid="sms_alert_fatal" className="vslow" /> 혹은 <Cmdname sid="sms_alert_warn" className="slow" /> 수준을 선택할 수 있습니다.
 
-1. ![number 4](/img/number-04.png) ***저장*** 버튼을 선택하세요.
+1. ![number 4](/img/number-04.png) <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
 
 #### 로그 파일 처리량
 

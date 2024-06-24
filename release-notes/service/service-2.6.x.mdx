@@ -62,9 +62,9 @@ displayed_sidebar: releaseSidebar
 
 ### `Application`
 
-#### 공통
+#### <Cmdname sid="side_dashboard" />
 
-- <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 기본 프리셋 변경 기능 추가
+- <Status>Feature</Status> <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 기본 프리셋 변경 기능 추가
 
   :::note
 
@@ -72,7 +72,7 @@ displayed_sidebar: releaseSidebar
 
   :::
 
-- <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 에이전트 검색 기능 추가
+- <Status>Feature</Status> <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 에이전트 검색 기능 추가
 
   :::note
 
@@ -80,7 +80,7 @@ displayed_sidebar: releaseSidebar
 
   :::
 
-- <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_transaction_map" className="uitext" /> 메뉴에서 <UI>TOP 30</UI> 필터 내 항목을 직접 검색해 추가하는 <Cmdname sid="custom" className="uitext" /> 기능 추가 
+- <Status>Feature</Status> <Cmdname sid="side_transaction_map" className="uitext" /> 메뉴에서 <UI>TOP 30</UI> 필터 내 항목을 직접 검색해 추가하는 <Cmdname sid="custom" className="uitext" /> 기능 추가 
 
   ![Custom](/img/release/release-apm-dashboard-tx-map-custom.png)
 
@@ -89,6 +89,26 @@ displayed_sidebar: releaseSidebar
   <Cmdname sid="custom" className="uitext" /> 기능에 대한 자세한 내용은 [다음 문서](../../java/dashboard-transactionmap#custom)를 참조하세요.
 
   :::
+
+- <Status>Changed</Status> 구버전의 <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴 제거 예정
+
+  - <Cmdname sid="sitemap" className="uitext" /> 메뉴에 <Status>Deprecated</Status> 태그 추가 
+
+  - <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> <code class='old'>Old</code> 메뉴를 진입하면 제거 예정 안내 메시지 표시
+
+- <Status>Fixed</Status> <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 위젯의 ![정보 아이콘](/img/ic-info-circle.svg) 버튼을 클릭해 안내 창을 열면 로딩 표시가 해당 위젯에서도 적용되는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 <Cmdname sid="clientOs" className="uitext" />, <Cmdname sid="clientName" className="uitext" />, <Cmdname sid="status" className="uitext" />에 대한 문자열이 번역 key 값으로 노출되는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 스텝 타임라인 그래프를 선택하면 해당 스텝으로 이동하지 않는 문제 수정
+
+#### <Cmdname sid="side_topology" />
+
+- <Status>Fixed</Status> <Cmdname sid="side_appTopology" className="uitext" /> 메뉴에서 화면 위에 <Cmdname sid="node_selection" className="uitext" /> 버튼을 선택하면 오른쪽에 노출되는 다이어그램의 스타일이 정상 적용되지 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_appStatTopology" className="uitext" /> 메뉴에서 시간 선택 옵션을 클릭해도 기능이 작동하지 않는 문제 수정 및 시간 선택 옵션의 UI 변경
+
+#### <Cmdname sid="side_statistics" />
 
 - <Status>Feature</Status> <Cmdname sid="side_statistics" className="uitext" /> 하위 메뉴의 기능 개선 
 
@@ -102,33 +122,21 @@ displayed_sidebar: releaseSidebar
 
 - <Status>Changed</Status> <Cmdname sid="side_statistics" className="uitext" /> 하위 메뉴에서 필터를 적용한 후 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하지 않아도, CSV 파일을 다운로드하면 필터가 적용되도록 수정
 
-- <Status>Changed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_loadedClasses" className="uitext" /> 메뉴에서 클래스 조회 창의 제목 수정(<Cmdname sid="class_signature" className="b500" /> → <Cmdname sid="TTL08085" className="uitext" />)
+#### <Cmdname sid="side_analysis" />
 
-- <Status>Changed</Status> 구버전의 <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴 제거 예정
+- <Status>Fixed</Status> <Cmdname sid="side_perfTrend" className="uitext" /> 메뉴로 진입 시 간헐적으로 전체 에이전트가 선택되지 않고 특정 에이전트가 선택되는 문제 수정
 
-  - <Cmdname sid="sitemap" className="uitext" /> 메뉴에 <Status>Deprecated</Status> 태그 추가 
-
-  - <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> <code class='old'>Old</code> 메뉴를 진입하면 제거 예정 안내 메시지 표시
-
-- <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 위젯의 ![정보 아이콘](/img/ic-info-circle.svg) 버튼을 클릭해 안내 창을 열면 로딩 표시가 해당 위젯에서도 적용되는 문제 수정
-
-- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 <Cmdname sid="clientOs" className="uitext" />, <Cmdname sid="clientName" className="uitext" />, <Cmdname sid="status" className="uitext" />에 대한 문자열이 번역 key 값으로 노출되는 문제 수정
-
-- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 스텝 타임라인 그래프를 선택하면 해당 스텝으로 이동하지 않는 문제 수정
-
-- <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_perfTrend" className="uitext" /> 메뉴로 진입 시 간헐적으로 전체 에이전트가 선택되지 않고 특정 에이전트가 선택되는 문제 수정
-
-- <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_counter" className="uitext" /> 메뉴에서 위젯의 차트 영역을 드래그한 후 ![상세 아이콘](/img/ico-detail.svg) <Cmdname sid="detail" className="uitext" /> 버튼을 선택해 열리는 화면의 조회 시간이 위젯의 조회 시간과 다르게 표시되는 문제 수정
-
-- <Status>Fixed</Status> 에이전트 선택(<Cmdname sid="application" className="uitext" />) 옵션에서 에이전트 목록이 화면의 세로 크기보다 많을 경우 스크롤이 적용되지 않는 문제 수정
-
-- <Status>Fixed</Status> <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_appTopology" className="uitext" /> 메뉴에서 화면 위에 <Cmdname sid="node_selection" className="uitext" /> 버튼을 선택하면 오른쪽에 노출되는 다이어그램의 스타일이 정상 적용되지 않는 문제 수정
-
-- <Status>Fixed</Status> <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_appStatTopology" className="uitext" /> 메뉴에서 시간 선택 옵션을 클릭해도 기능이 작동하지 않는 문제 수정 및 시간 선택 옵션의 UI 변경
+- <Status>Fixed</Status> <Cmdname sid="side_counter" className="uitext" /> 메뉴에서 위젯의 차트 영역을 드래그한 후 ![상세 아이콘](/img/ico-detail.svg) <Cmdname sid="detail" className="uitext" /> 버튼을 선택해 열리는 화면의 조회 시간이 위젯의 조회 시간과 다르게 표시되는 문제 수정
 
 #### Java
 
 <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 **JVM 옵션 추가** 섹션에서 Jetty 설치 가이드 내용 수정: <code>JAVA_OPTS</code> → <code>JAVA_OPTIONS</code>
+
+#### 기타
+
+- <Status>Changed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_loadedClasses" className="uitext" /> 메뉴에서 클래스 조회 창의 제목 수정(<Cmdname sid="class_signature" className="b500" /> → <Cmdname sid="TTL08085" className="uitext" />)
+
+- <Status>Fixed</Status> 에이전트 선택(<Cmdname sid="application" className="uitext" />) 옵션에서 에이전트 목록이 화면의 세로 크기보다 많을 경우 스크롤이 적용되지 않는 문제 수정
 
 ---
 
@@ -156,15 +164,11 @@ displayed_sidebar: releaseSidebar
 
 - <Status>Changed</Status> 그룹을 선택할 때 요약 보기 상단에 다른 목록 메뉴로 이동 버튼을 노출하도록 수정
 
-- <Status>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> &gt; <Cmdname sid="TTL07944" className="uitext" />에서 PHP 에이전트 다운로드 명령어 수정
-
-- <Status>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> &gt; <Cmdname sid="TTL07944" className="uitext" />에서 Go 에이전트 다운로드 명령어 수정
-
 - <Status>Fixed</Status> 요약 보기에서 <Cmdname sid="log" className="uitext" /> &gt; <Cmdname sid="BTN07827" className="uitext" /> 탭의 조회 결과가 <Cmdname sid="BTN06342" className="uitext" />의 조회 결과와 일치하지 않는 문제 수정
 
 #### <Cmdname sid="side_cluster" />
 
-- <Status>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" /> 메뉴에서 <Cmdname sid="TTL06705" className="uitext" /> 하위 컬럼으로 <UI>capacityType</UI> 추가
+- <Status>Feature</Status> <Cmdname sid="side_nodeList" className="uitext" /> 메뉴에서 <Cmdname sid="TTL06705" className="uitext" /> 하위 컬럼으로 <UI>capacityType</UI> 추가
 
   :::note
 
@@ -172,9 +176,9 @@ displayed_sidebar: releaseSidebar
 
   :::
 
-- <Status>Changed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeDetail" className="uitext" /> 메뉴의 <Cmdname sid="product_type_cpm" className="uitext" /> 테이블을 <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_containerList" className="uitext" /> 메뉴의 테이블과 일치하도록 수정
+- <Status>Changed</Status> <Cmdname sid="side_nodeDetail" className="uitext" /> 메뉴의 <Cmdname sid="product_type_cpm" className="uitext" /> 테이블을 <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_containerList" className="uitext" /> 메뉴의 테이블과 일치하도록 수정
 
-- <Status>Changed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeDetail" className="uitext" /> 메뉴에서 노드 내 각 컨테이너에 대한 다음 지표의 합계 데이터를 <Cmdname sid="product_type_cpm" className="uitext" /> 테이블 상단에 표시
+- <Status>Changed</Status> <Cmdname sid="side_nodeDetail" className="uitext" /> 메뉴에서 노드 내 각 컨테이너에 대한 다음 지표의 합계 데이터를 <Cmdname sid="product_type_cpm" className="uitext" /> 테이블 상단에 표시
 
   `cpu_quota`, `cpu_request`, `cpu_total_milli`, `mem_limit`, `mem_request`, `mem_working_set`
 
@@ -194,7 +198,7 @@ displayed_sidebar: releaseSidebar
 
   :::
 
-- <Status>Fixed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" /> 메뉴에서 컬럼 선택 드롭다운의 체크박스가 아래 목록의 체크박스와 겹치면 체크박스를 선택할 수 없는 문제 수정
+- <Status>Fixed</Status> <Cmdname sid="side_nodeList" className="uitext" /> 메뉴에서 컬럼 선택 드롭다운의 체크박스가 아래 목록의 체크박스와 겹치면 체크박스를 선택할 수 없는 문제 수정
 
 #### <Cmdname sid="side_workload" />
 
@@ -210,20 +214,26 @@ displayed_sidebar: releaseSidebar
 
 - <Status>Changed</Status> <Cmdname sid="side_containerizedAppList" className="uitext" /> 메뉴의 <UI>Oname</UI> 컬럼 이름을 <UI>ApplicationName</UI>으로 변경
 
+#### <Cmdname sid="side_management" />
+
+- <Status>Changed</Status> <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 Java 에이전트 설정 옵션 관련 설명 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_agentInstall" className="uitext" /> &gt; <Cmdname sid="TTL07944" className="uitext" />에서 PHP 에이전트 다운로드 명령어 수정
+
+- <Status>Changed</Status> <Cmdname sid="side_agentInstall" className="uitext" /> &gt; <Cmdname sid="TTL07944" className="uitext" />에서 Go 에이전트 다운로드 명령어 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_correlatedProjectManagement" className="uitext" /> 메뉴의 <Cmdname sid="TTL07016" className="uitext" />에서 <Cmdname sid="view_and_analysis" className="b600" /> 권한이 없는 연계 프로젝트는 목록에 표시하지 않도록 않도록 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_kubernetesAgentList" className="uitext" /> 메뉴에서 에이전트가 활성화 상태일 때만 ![상세 보기 아이콘](/img/ico-detail-view.svg) <Cmdname sid="BTN06342" className="uitext" /> 버튼을 활성화하도록 수정
+
+- <Status>Deprecated</Status> <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴에서 <Cmdname sid="goto_previous_version" className="uitext" /> 버튼 제거
+
 #### 기타
 
-- <Status>Changed</Status> 다음 메뉴 경로에서 <Cmdname sid="TTL06366" className="b500" /> 컬럼을 <Cmdname sid="thread_cpu_time" className="uitext" />으로 변경, 천 단위마다 쉼표(,)로 구분자 표시
+<Status>Changed</Status> 다음 메뉴 경로에서 <Cmdname sid="TTL06366" className="b500" /> 컬럼을 <Cmdname sid="thread_cpu_time" className="uitext" />으로 변경, 천 단위마다 쉼표(,)로 구분자 표시
 
-  - <Cmdname sid="side_appl" className="uitext" /> &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" />
-  - <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_kubernetesAgentList" className="uitext" />
-
-- <Status>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 Java 에이전트 설정 옵션 관련 설명 추가
-
-- <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_correlatedProjectManagement" className="uitext" /> 메뉴의 <Cmdname sid="TTL07016" className="uitext" />에서 <Cmdname sid="view_and_analysis" className="b600" /> 권한이 없는 연계 프로젝트는 목록에 표시하지 않도록 않도록 수정
-
-- <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_kubernetesAgentList" className="uitext" /> 메뉴에서 에이전트가 활성화 상태일 때만 ![상세 보기 아이콘](/img/ico-detail-view.svg) <Cmdname sid="BTN06342" className="uitext" /> 버튼을 활성화하도록 수정
-
-- <Status>Deprecated</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴에서 <Cmdname sid="goto_previous_version" className="uitext" /> 버튼 제거
+- <Cmdname sid="side_appl" className="uitext" /> &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" />
+- <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_kubernetesAgentList" className="uitext" />
 
 ---
 
@@ -293,11 +303,11 @@ displayed_sidebar: releaseSidebar
 
 ### `Browser`
 
-<Status>Feature</Status> <Cmdname sid="side_rumPageLoadHitmap" className="uitext" />, <Cmdname sid="side_ajaxAnalytics" className="uitext" />, <Cmdname sid="side_userSessionEventSearch" className="uitext" /> 메뉴에 <Cmdname sid="TTL08103" className="uitext" /> 기능 추가
+<Status>Feature</Status> <Cmdname sid="side_rumPageLoadHitmap" className="uitext" />, <Cmdname sid="side_ajaxAnalytics" className="uitext" />, <Cmdname sid="side_userSessionEventSearch" className="uitext" /> 메뉴에 사용자가 웹 사이트에서 수행하는 모든 이벤트를 기록하고 재생할 수 있는 <Cmdname sid="TTL08103" className="uitext" /> 기능 추가
 
 :::note
 
-<Cmdname sid="TTL08103" className="uitext" />는 사용자가 웹 사이트에서 수행하는 모든 이벤트를 기록하고 재생할 수 있는 기능입니다. 이 기능에 대한 자세한 내용은 [다음 문서](../../browser/session-replay)를 참조하세요.
+<Cmdname sid="TTL08103" className="uitext" /> 기능에 대한 자세한 내용은 [다음 문서](../../browser/session-replay)를 참조하세요.
 
 :::
 

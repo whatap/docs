@@ -54,19 +54,11 @@ import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-acc
   grant pg_signal_backend to DB_User;
   ```
 
-* cache 수집하는 경우
-
-  ```sql title="SQL"
-  grant select on pg_backend_memory_contexts to DB_User;
-  grant execute on function pg_get_backend_memory_contexts to DB_User;
-  ```
-
 * 테이블 사이즈를 수집하는 경우
 
   ```sql title="SQL"
   grant usage on schema {schema_name} to DB_User;
   ```
-
 
 * 오브젝트 정보를 조회하는 경우(<Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbObjectInfo" className="uitext" />)
 

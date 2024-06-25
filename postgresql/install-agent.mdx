@@ -42,7 +42,7 @@ import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-acc
 
   ```sql title="SQL"
   create user whatap with password 'DB Password'; 
-  grant pg_read_all_stats to whatap;
+  grant pg_monitor to whatap;
   ```
 
 * PostgreSQL 10 버전 미만
@@ -57,20 +57,7 @@ import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-acc
   데이터베이스 모니터링에서는 진행 중인 세션을 종료할 수 있는 <UI>Kill Session</UI> 기능을 제공합니다. 이 기능을 사용하려면 다음과 같이 권한을 설정하세요.
 
   ```sql title="SQL"
-  alter user whatap with superuser;
-  ```
-
-* AWS RDS 환경에서 Kill session 기능을 사용할 경우
-
-  ```sql title="SQL"
-  grant rds_superuser to whatap;
-  ```
-
-* wal_count 수집하는 경우
-
-  ```sql title="SQL"
-  grant execute on function pg_ls_dir(text) to whatap;  # EDB 사용 시
-  alter user whatap with superuser;
+  grant pg_signal_backend to whatap;
   ```
 
 * cache 수집하는 경우

@@ -1,10 +1,13 @@
 Docker 컨테이너 기반으로 실행하는 Go 애플리케이션에 와탭 모니터링 에이전트를 적용하고 컨테이너 이미지를 패키징하는 과정을 다음과 같이 안내합니다. 
 
+<InDoc product='kubernetes'>
+
 :::note 
 
 EKS Fargate는 지원 예정입니다. 
 
 :::
+</InDoc>
 
 ## 에이전트 다운로드
 
@@ -56,6 +59,28 @@ RUN tar -xvzf whatap-agent.tar.gz -C /
 </TabItem>
 
 </Tabs>
+
+{/* <Tabs>
+
+<TabItem value="x64" label="x64" default>
+
+```docker title='x64'
+RUN wget <https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz>
+RUN tar -xvzf whatap-agent.tar.gz -C /
+```
+
+</TabItem>
+
+<TabItem value="aarch64" label="AArch64" default>
+
+```docker title='AArch64'
+RUN wget <https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/aarch64/whatap-agent.tar.gz>
+RUN tar -xvzf whatap-agent.tar.gz -C /
+```
+
+</TabItem>
+
+</Tabs> */}
 
 ## 에이전트 설정
 

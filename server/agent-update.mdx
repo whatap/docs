@@ -11,7 +11,7 @@ tags: [ Server, 업데이트, 관리하기 ]
 
 :::
 
-## Linux 및 Unix
+## Linux
 
 설치된 에이전트를 최신 버전으로 업데이트하려면 다음 명령어를 실행하세요.
 
@@ -29,7 +29,7 @@ tags: [ Server, 업데이트, 관리하기 ]
   sudo apt-get install whatap-infra={version}
   ```
 
-* **CentOS / Amazon Linux / SUSE / XenServer**
+* **CentOS / Amazon Linux / SUSE**
     
   ```bash title=SH
   sudo yum update whatap-infra
@@ -42,40 +42,44 @@ tags: [ Server, 업데이트, 관리하기 ]
   sudo yum install whatap-infra-{version}
   ```
 
+## Unix
+
 * **FreeBSD**
 
-  ```bash title=SH
-  wget http://repo.whatap.io/freebsd/10/whatap-infra.txz
-  pkg install whatap-infra.txz
+  설치된 에이전트를 최신 버전으로 업데이트하려면 다음 명령어를 실행하세요.
+
+    ```bash title=SH
+    wget http://repo.whatap.io/freebsd/10/whatap-infra.txz
+    pkg install whatap-infra.txz
+    ```
+
+* **AIX** 
+
+  설치된 에이전트를 최신 버전으로 업데이트하려면 다음 명령어를 실행하세요. 
+
+  ```bash 
+  stopsrc -s whatap-infra
+  cp /usr/whatap/infra/conf/whatap.conf /tmp/whatap.conf
+  rpm -e whatap-infra
+  rpm -Uvh http://repo.whatap.io/aix/noarch/whatap-infra-latest.noarch.rpm
+  cp /tmp/whatap.conf /usr/whatap/infra/conf/whatap.conf
+  startsrc -s whatap-infra
   ```
 
-## AIX 
+* **Oracle Solaris** 
 
-설치된 에이전트를 최신 버전으로 업데이트하려면 다음 명령어를 실행하세요. 
+  설치된 에이전트를 최신 버전으로 업데이트하려면 다음 명령어를 실행하세요. 
 
-```bash 
-stopsrc -s whatap-infra
-cp /usr/whatap/infra/conf/whatap.conf /tmp/whatap.conf
-rpm -e whatap-infra
-rpm -Uvh http://repo.whatap.io/aix/noarch/whatap-infra-latest.noarch.rpm
-cp /tmp/whatap.conf /usr/whatap/infra/conf/whatap.conf
-startsrc -s whatap-infra
-```
-
-## Oracle Solaris 
-
-설치된 에이전트를 최신 버전으로 업데이트하려면 다음 명령어를 실행하세요. 
-
-```bash 
-cp /usr/whatap/infra/conf/whatap.conf /tmp
-/etc/init.d/whatap-infra stop
-pkgrm whatap-infra
-wget https://repo.whatap.io/sunos/11/whatap-infra.latest.SPARC.pkg.tar.gz
-tar xzvf whatap-infra.latest.SPARC.pkg.tar.gz
-pkgadd -d .
-cp /tmp/whatap.conf /usr/whatap/infra/conf/whatap.conf
-/etc/init.d/whatap-infra start
-```
+  ```bash 
+  cp /usr/whatap/infra/conf/whatap.conf /tmp
+  /etc/init.d/whatap-infra stop
+  pkgrm whatap-infra
+  wget https://repo.whatap.io/sunos/11/whatap-infra.latest.SPARC.pkg.tar.gz
+  tar xzvf whatap-infra.latest.SPARC.pkg.tar.gz
+  pkgadd -d .
+  cp /tmp/whatap.conf /usr/whatap/infra/conf/whatap.conf
+  /etc/init.d/whatap-infra start
+  ```
 
 ## Windows
 

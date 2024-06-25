@@ -18,7 +18,7 @@ Go 애플리케이션 도커 이미지 빌드 시 whatap-agent 패키지를 설�
 <TabItem value="x64" label="x64" default>
 
 ```docker title='x64'
-RUN wget <https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz>
+RUN wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz
 RUN tar -xvzf whatap-agent.tar.gz -C /
 ```
 
@@ -27,7 +27,7 @@ RUN tar -xvzf whatap-agent.tar.gz -C /
 <TabItem value="aarch64" label="AArch64" default>
 
 ```docker title='AArch64'
-RUN wget <https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/aarch64/whatap-agent.tar.gz>
+RUN wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/aarch64/whatap-agent.tar.gz
 RUN tar -xvzf whatap-agent.tar.gz -C /
 ```
 

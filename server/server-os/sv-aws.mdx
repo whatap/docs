@@ -96,19 +96,6 @@ import TabItem from '@theme/TabItem';
     ```
 
     </TabItem>
-    <TabItem value="xs" label="XenServer">
-
-    ```bash 
-    sudo rpm --import http://repo.whatap.io/centos/release.gpg
-    sudo rpm -Uvh http://repo.whatap.io/centos/python/5/noarch/whatap-repo-1.0-1.noarch.rpm
-    sudo yum install whatap-infra
-    echo "license={LICENSE_INFO}" |sudo tee /usr/whatap/infra/conf/whatap.conf
-    echo "whatap.server.host={HOST_IP}" |sudo tee -a /usr/whatap/infra/conf/whatap.conf
-    echo "createdtime=`date +%s%N`" |sudo tee -a /usr/whatap/infra/conf/whatap.conf
-    sudo service whatap_infra restart
-    ```
-    
-    </TabItem>
     </Tabs>
 
 1. 다음 **명령어**를 수정하세요.

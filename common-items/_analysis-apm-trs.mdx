@@ -2,9 +2,23 @@
 
 와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 <Cmdname sid="side_statistics" className="uitext" />의 하위 메뉴를 선택하세요. 와탭 에이전트는 트랜잭션 정보, SQL과 같은 주요 트레이스 정보에 대해 통계 정보를 수집합니다. 5분마다 목록을 만들고 서버로 전송합니다.
 
+## 기본 화면 안내
+
+<Cmdname sid="time_selector" className="uitext" /> 및 <Cmdname sid="filter" className="uitext" />, <Cmdname sid="order_by" className="uitext" />, <Cmdname sid="applications" className="uitext" /> 항목을 설정한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+<ImgLang img="apm-statistic-basic-operator.png" desc="통계" />
+
 * 각 **통계** 메뉴는 **합계**, **최대** 및 **평균 시간** 및 **건수** 기준의 정렬 옵션을 제공해 원하는 관점으로 상위 목록을 조회할 수 있습니다. 
 
 * <Cmdname sid="BTN06441" className="uitext" /> 버튼을 통해 기본값 외에 목록 내 조회할 컬럼을 추가하거나 제외할 수 있습니다. 
+
+* ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하면 조회 결과와 함께 조회 목록 위에 ![CSV 아이콘](/img/ic-csv-download-ms.svg) 버튼이 나타납니다. 버튼을 선택하면 조회 목록을 CSV 형식의 파일로 다운로드할 수 있습니다.
+
+  :::tip
+
+  통계 조회 목록이 표시된 이후에 조회 조건을 변경한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하지 않고 ![CSV 아이콘](/img/ic-csv-download-ms.svg) 버튼을 클릭하면 변경된 조건으로 CSV 파일을 다운로드할 수 있습니다.
+
+  :::
 
 * 통계 목록에서 ![상세 보기 아이콘](/img/ico-detail-view.svg) <Cmdname sid="display_detail" className="uitext" /> 아이콘을 선택하면 건수와 평균 시간 차트를 확인할 수 있고, 에이전트 간 건수 및 에러 건수 비교, 응답 시간 비교 차트를 추가로 제공합니다. 해당 차트에서 조회를 원하는 시점을 선택하면 <Cmdname sid="side_txSearch" className="uitext" /> 메뉴로 이동합니다.
 

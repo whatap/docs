@@ -1,16 +1,22 @@
-## 프리셋
+## 프리셋 {#preset}
 
 <InDoc product="java,php,python,nodejs,dotnet,golang,redis,mongodb,oracle-dma">
 
-![프리셋](/img/apm-dashboard-preset-default.png)
+<ImgLang img="apm-dashboard-preset-list.png" desc="Preset" />
 
-대시보드에서 사용자가 설정한 위젯의 설정과 레이아웃 상태를 저장하고 불러올 수 있습니다. 기본 프리셋(<Cmdname sid="kube_default" className="uitext" />)은 변경할 수 없으며, 원하는 형식으로 위젯의 크기를 조절하고, 배치해 새로운 프리셋을 만들 수 있습니다.
+대시보드에서 사용자가 설정한 위젯의 설정과 레이아웃 상태를 저장하고 불러올 수 있습니다. 위젯의 크기를 조절하고, 원하는 위치에 배치해 새로운 프리셋을 만들 수 있습니다.
+
+:::note
+
+<Cmdname sid="default" className="uitext" />으로 설정된 프리셋은 변경할 수 없습니다.
+
+:::
 
 </InDoc>
 
 <InDoc product="postgresql,mysql">
 
-대시보드에서 사용자가 설정한 위젯의 설정과 레이아웃 상태를 저장하고 불러올 수 있습니다. 기본 프리셋(<Cmdname sid="kube_default" className="uitext" />)은 변경할 수 없으며, 원하는 형식으로 위젯의 크기를 조절하고, 배치해 새로운 프리셋을 만들 수 있습니다.
+대시보드에서 사용자가 설정한 위젯의 설정과 레이아웃 상태를 저장하고 불러올 수 있습니다. 위젯의 크기를 조절하고, 원하는 위치에 배치해 새로운 프리셋을 만들 수 있습니다.
 
 <ImgLang img='db-preset-list.png' desc='프리셋' />
 
@@ -20,9 +26,15 @@
 
 * ***Default(rds)***: AWS RDS CloudWatch 지표와 주요 DB 지표로 구성된 프리셋입니다.
 
+:::note
+
+기본 프리셋(<Cmdname sid="kube_default" className="uitext" />)은 변경할 수 없습니다.
+
+:::
+
 </InDoc>
 
-### 새로운 프리셋 만들기
+### 새로운 프리셋 만들기 {#newpreset}
 
 1. 대시보드에서 원하는 형식으로 위젯을 배치해 보세요. 크기를 조절하고 자주 확인하는 위젯만 배치할 수도 있습니다.
 
@@ -44,10 +56,26 @@
 
 * 대시보드의 변경 사항을 저장하지 않고 다른 메뉴로 이동하면 변경 사항은 저장되지 않습니다.
 
+<InDoc product="java,php,python,golang,nodejs,dotnet">
+
+* 프리셋은 프로젝트 단위로 저장되어 다른 사용자와 공유할 수 있습니다.
+
+</InDoc>
+
+<Xclude product="java,php,python,golang,nodejs,dotnet">
+
 * 프리셋은 사용자 계정으로 저장되며 현재는 다른 사용자와 공유할 수 없습니다. 더 나은 기능을 제공하도록 업데이트 예정입니다.
+
+</Xclude>
 
 :::
 
-### 프리셋 삭제하기
+### 프리셋 삭제하기 {#removepreset}
 
 사용하지 않는 프리셋이 있다면 프리셋 목록에서 삭제할 수 있습니다. 프리셋 목록에서 삭제하려는 항목의 오른쪽에 ![삭제 아이콘](/img/ico-remove.svg) 버튼을 선택하세요.
+
+:::note
+
+<UI>Default</UI> 프리셋은 삭제할 수 없습니다.
+
+:::

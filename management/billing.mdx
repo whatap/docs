@@ -2,30 +2,41 @@
 id: billing
 title: 결제
 description: 와탭 모니터링 서비스를 유료 전환해 사용하는 방법을 소개합니다.
+toc_max_heading_level: 3
 tags: [ 관리, 결제 ]
 ---
+
+import CreditcardNotd from "../common-items/_billing-credit-card-note.mdx";
 
 와탭 모니터링 서비스의 무료 이용 기간이 지났거나 서비스에 따른 무료 이용 기준을 초과한 상태에서 이용을 계속 원한다면 결제 정보를 등록하고 유료 전환해야 합니다.
 
 ## 결제 정보 등록 {#register-pay}
 
-결제는 카드 정기 결제, 세금계산서 발행 두 가지 중 하나를 선택할 수 있습니다. 결제를 진행하기 전에 다음의 사항을 미리 준비하세요.
+결제 정보는 청구 통화 종류에 따라 제공하는 방식이 다릅니다. 결제 정보를 등록하는 사용자는 <Cmdname sid="billing" className="b600" /> 권한을 소유하고 있어야 합니다.
 
-* **결제** 권한 계정
+결제를 진행하기 전에 다음 사항을 미리 준비하세요.
 
-* 카드 결제의 경우, 지불할 카드 번호 및 유효 기간
+* **KRW**
 
-* 세금계산서 발행의 경우, 사업자 등록증, 계산서 수신 이메일
+    * <Cmdname sid="payment_type_card_iamport" className="uitext" />: 지불할 카드 번호 및 유효 기간
+    * <Cmdname sid="payment_type_banktransfer" className="uitext" />: 사업자 등록증, 세금계산서 수신 이메일
+
+* **JPY**, **USD**
+
+    * <Cmdname sid="payment_type_card_stripe" className="uitext" />: 지불할 카드 번호 및 유효 기간
+    * <Cmdname sid="payment_type_banktransfer_abroad" className="uitext" />: 청구서 수신 이메일
 
 :::note
 
-**결제** 권한에 대한 자세한 내용은 [다음 문서](../project/project-structure#project-auth)를 참조하세요.
+<Cmdname sid="billing" className="b600" /> 권한에 대한 자세한 내용은 [다음 문서](../project/project-structure#project-auth)를 참조하세요.
 
 :::
 
-### 신용 카드 {#credit}
+### 결제 수단 등록하기
 
-1. [와탭 모니터링 서비스](https://service.whatap.io)에서 **결제** 권한을 가진 계정으로 로그인하세요.
+결제 수단을 처음 등록한다면 다음 단계를 수행하세요.
+
+1. [와탭 모니터링 서비스](https://service.whatap.io)에서 <Cmdname sid="billing" className="b600" /> 권한을 가진 계정으로 로그인하세요.
 
 1. 홈 화면 오른쪽 위에 프로필 아이콘을 선택하세요.
 
@@ -33,88 +44,73 @@ tags: [ 관리, 결제 ]
 
     <ImgLang img='billing-select-my-usage.png' desc='이용 내역' />
 
-1. <Cmdname sid="payment_information" className="uitext" /> 페이지로 이동하면 <Cmdname sid="register_billing_info" className="uitext" /> 버튼을 선택하세요.
+1. <Cmdname sid="payment_information" className="uitext" /> 섹션에서 <Cmdname sid="register_billing_info" className="uitext" /> 버튼을 선택하세요.
 
-1. <Cmdname sid="register_billing_info" className="uitext" /> 창이 나타나면 먼저 국가를 선택하세요.
+1. 세부 항목을 차례로 설정하세요. <span class="vslow">*</span> 표시는 필수 항목입니다.
 
-1. 회사명 또는 법인명을 입력하세요.
+    <ImgLang img="billing-payment-information.png" desc="결제 정보" />
 
-1. <Cmdname sid="phone" className="uitext" />와 <Cmdname sid="TTL06768" className="uitext" /> 항목을 확인하고 필요한 경우 변경하세요.
+1. <Cmdname sid="payment_method" className="uitext" /> 항목에서 원하는 결제 수단을 등록하세요.
 
-1. 부서명을 입력하세요. 필수 사항은 아닙니다.
+    * [<Cmdname sid="payment_type_card_iamport" className="uitext" />](#payment_type_card_iamport)
+    * [<Cmdname sid="payment_type_banktransfer" className="uitext" />](#payment_type_banktransfer)
+    * [<Cmdname sid="payment_type_card_stripe" className="uitext" />](#payment_type_card_stripe)
+    * [<Cmdname sid="payment_type_banktransfer_abroad" className="uitext" />](#payment_type_banktransfer_abroad)
 
-1. <Cmdname sid="next" className="uitext" /> 버튼을 선택하세요.
+:::note
 
-#### 국내 사용자 {#inneruser}
+지원하는 결제 통화는 <UI>KRW</UI>, <UI>JPY</UI>, <UI>USD</UI>입니다. 변경한 통화에 따라 <Cmdname sid="payment_method" className="uitext" />이 변경됩니다.
 
-1. 결제 수단을 <Cmdname sid="credit_card_iamport" className="uitext" />로 선택하고 <Cmdname sid="next" className="uitext" /> 버튼을 선택하세요.
+:::
 
-1. 신용카드의 카드 번호, 유효기간, 비밀번호 앞 2자리 숫자를 차례로 입력하세요. 
+### 신용카드(나이스페이) {#payment_type_card_iamport}
+
+<Cmdname sid="payment_method" className="uitext" /> 항목에서 <Cmdname sid="payment_type_card_iamport" className="uitext" />를 선택했다면 다음 단계를 수행하세요.
+
+<ImgLang img="billing-add-payment-credit.png" desc="신용카드" />
+
+1. <Cmdname sid="register_billing_info" className="uitext" /> 창이 나타나면 신용카드의 카드 번호, 유효기간, 비밀번호 앞 2자리 숫자를 차례로 입력하세요.
 
 1. <Cmdname sid="card_type" className="uitext" /> 항목에서 <Cmdname sid="corporation" className="uitext" /> 또는 <Cmdname sid="individual" className="uitext" />을 선택하세요.
 
     * <Cmdname sid="corporation" className="uitext" />: 법인 카드로, 카드 실물에 회사명이 입력되어 있습니다. 사업자 등록 번호와 상호명을 입력해야 합니다.
     * <Cmdname sid="individual" className="uitext" />: 개인 카드로, 카드 실물에 카드 소유주의 이름이 입력되어 있습니다. 회사로부터 지급 받은 경우에도 개인 이름이 명시되어 있으면 개인 카드입니다. 생년월일 8자리를 입력하세요.
 
-1. 카드 정보 입력을 완료하면 <Cmdname sid="bill_recipient_setting" className="uitext" /> 버튼을 선택하세요.
+1. 체크된 약관 정보를 확인하세요.
 
-1. 청구서를 받을 담당자 정보를 차례로 입력한 다음 <Cmdname sid="complete" className="uitext" /> 버튼을 선택하세요.
+1. 카드 정보를 모두 입력했다면 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요. 이전 화면으로 돌아갑니다.
 
-:::note
+1. 청구서를 수신할 담당자 정보를 차례로 입력한 다음 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
 
-다수의 이메일로 청구서를 받으려면 이메일을 쉼표(,)를 구분자로 여러개 입력할 수 있습니다. 예시, a@whatap.io, b@whatap.io, c@whatap.io
+<CreditcardNotd />
 
-:::
 
-#### 해외 사용자 {#outteruser}
+### 신용카드 (Stripe) {#payment_type_card_stripe}
 
-1. 결제 수단을 <Cmdname sid="payment_type_card_stripe" className="uitext" />로 선택하고 <Cmdname sid="next" className="uitext" /> 버튼을 선택하세요.
+<Cmdname sid="payment_method" className="uitext" /> 항목에서 <Cmdname sid="payment_type_card_stripe" className="uitext" />를 선택했다면 다음 단계를 수행하세요.
 
-1. 신용카드 소유자 이름과 신용카드 번호, 유효 기간, CVC 번호를 차례로 입력하세요.
+<ImgLang img="billing-add-payment-credit-stripe.png" desc="신용카드" />
+
+1. <Cmdname sid="register_billing_info" className="uitext" /> 창이 나타나면 신용카드 소유자 이름과 신용카드 번호, 유효 기간, CVC 번호를 차례로 입력하세요.
 
 1. 체크된 약관 정보를 확인하세요.
 
-1. 카드 정보 입력을 완료하면 <Cmdname sid="bill_recipient_setting" className="uitext" /> 버튼을 선택하세요.
+1. 카드 정보를 모두 입력했다면 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요. 이전 화면으로 돌아갑니다.
 
-1. 청구서를 받을 담당자 정보를 차례로 입력한 다음 <Cmdname sid="complete" className="uitext" /> 버튼을 선택하세요.
+1. 청구서를 수신할 담당자 정보를 차례로 입력한 다음 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
 
-:::note
-
-다수의 이메일로 청구서를 받으려면 이메일을 쉼표(,)를 구분자로 여러개 입력할 수 있습니다. 예시, a@whatap.io, b@whatap.io, c@whatap.io
-
-:::
+<CreditcardNotd />
 
 
-### 세금계산서 {#taxinvoice}
+### 계산서 발행 {#payment_type_banktransfer}
 
-1. [와탭 모니터링 서비스](https://service.whatap.io)에서 **결제** 권한을 가진 계정으로 로그인하세요.
+<Cmdname sid="payment_method" className="uitext" /> 항목에서 <Cmdname sid="payment_type_banktransfer" className="uitext" />을 선택했다면 다음 단계를 수행하세요.
 
-1. 홈 화면 오른쪽 위에 프로필 아이콘을 선택하세요.
+<ImgLang img="billin-add-payment-tax.png" desc="계산서 발행" />
 
-1. 드롭다운 메뉴가 나타나면 <Cmdname sid="my_usage" className="uitext" />을 선택하세요.
+1. <Cmdname sid="register_billing_info" className="uitext" /> 창이 나타나면 계산서 발행 정보를 입력하세요.
 
-    <ImgLang img='billing-select-my-usage.png' desc='이용 내역' />
-
-1. <Cmdname sid="payment_information" className="uitext" /> 페이지로 이동하면 <Cmdname sid="register_billing_info" className="uitext" /> 버튼을 선택하세요.
-
-1. <Cmdname sid="register_billing_info" className="uitext" /> 창이 나타나면 먼저 국가를 선택하세요.
-
-1. 회사명 또는 법인명을 입력하세요.
-
-1. <Cmdname sid="phone" className="uitext" />와 <Cmdname sid="TTL06768" className="uitext" /> 항목을 확인하고 필요한 경우 변경하세요.
-
-1. 부서명을 입력하세요. 필수 사항은 아닙니다.
-
-1. <Cmdname sid="next" className="uitext" /> 버튼을 선택하세요.
-
-
-#### 국내 사용자 {#inneruserinvoice}
-
-1. 결제 수단을 <Cmdname sid="payment_type_banktransfer" className="uitext" />으로 선택하고 <Cmdname sid="next" className="uitext" /> 버튼을 선택하세요.
-
-1. 계산서 발행 정보를 입력하세요.
-
-    * 사업자 등록증 상의 법인명, 대표자명, 사업자 등록 번호, 전자 세금 계산서 발행 메일 등을 차례로 입력하세요.
+    * 사업자 등록증 상의 대표자 명, 사업자 등록 번호, 전자 세금계산서 발행 메일 등을 차례로 입력하세요.
     
     * 세금계산서 발행일은 기준은 다음과 같습니다.
     
@@ -124,70 +120,159 @@ tags: [ 관리, 결제 ]
 
     * 필요한 경우 종목과 업태를 입력하세요.
 
-1. 계산서 입력을 완료하면 <Cmdname sid="bill_recipient_setting" className="uitext" /> 버튼을 선택하세요.
+1. 계산서 발행 정보를 모두 입력했다면 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요. 이전 화면으로 돌아갑니다.
 
-1. 청구서를 받을 담당자 정보를 차례로 입력한 다음 <Cmdname sid="complete" className="uitext" /> 버튼을 선택하세요.
+1. 청구서를 수신할 담당자 정보를 차례로 입력한 다음 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
 
-    <Cmdname sid="invoice_cc" className="uitext" /> 항목에 함께 받을 이메일 주소를 추가할 수 있습니다. 2개 이상 입력할 경우 쉼표(,)를 구분자로 이용하세요.
+계산서 발행 정보를 완료하면 청구서 수신 담당자에게 와탭랩스의 사업자 등록증과 통장 사본을 메일로 자동 발송합니다. 메일 내용을 확인한 다음 billing@whatap.io로 사업자 등록증을 회신해 주세요.
 
 :::note
 
 * 사업자 등록 번호를 입력한 다음 <Cmdname sid="BTN06501" className="uitext" /> 버튼을 선택해 인증을 진행하세요.
 
-* 세금계산서 역발행을 원한다면 billing@whatap.io로 문의해 주세요.
+* 다수의 이메일로 청구서를 받으려면 <Cmdname sid="invoice_cc" className="uitext" /> 항목에 쉼표(,)를 구분자로 여러 개의 이메일을 입력할 수 있습니다. 예시, a@whatap.io,b@whatap.io,c@whatap.io
+
+* 세금계산서 역발행을 원한다면 billing@whatap.io로 문의하세요.
 
 :::
 
-#### 해외 사용자 {#outteruserinvoice}
+### 청구서 발송 {#payment_type_banktransfer_abroad}
 
-1. 결제 수단을 <Cmdname sid="payment_type_banktransfer_abroad" className="uitext" />으로 선택하고 <Cmdname sid="next" className="uitext" /> 버튼을 선택하세요.
+<Cmdname sid="payment_method" className="uitext" /> 항목에서 <Cmdname sid="payment_type_banktransfer_abroad" className="uitext" />을 선택했다면 다음 단계를 수행하세요.
+
+<ImgLang img="billing-add-payment-tax-abroad.png" desc="청구서 발송" />
+
+1. <Cmdname sid="register_billing_info" className="uitext" /> 창이 나타나면 청구서 발송 정보를 입력하세요.
 
 1. <Cmdname sid="TTL06687" className="uitext" />과 <Cmdname sid="email" className="uitext" /> 항목을 확인하세요. 필요한 경우 수정할 수 있습니다. 
 
     <Cmdname sid="invoice_cc" className="uitext" /> 항목에 함께 받을 이메일 주소를 추가할 수 있습니다. 2개 이상 입력할 경우 쉼표(,)를 구분자로 이용하세요.
 
-1. 청구서 발행일을 선택하세요. 기준은 다음과 같습니다.
-
-    * <Cmdname sid="date.25" className="uitext" />: 사용 월의 25일자로 청구서 발행합니다.
-
-    * <Cmdname sid="date.-1" className="uitext" />: 사용 월의 마지막 날짜로 청구서를 발행합니다.
-    
-    * <Cmdname sid="date.0" className="uitext" />: 사용 월 기준 익월 초 청구서 발송 날자입니다.
-
 1. <Cmdname sid="company_address" className="uitext" /> 항목을 입력하세요.
 
-1. <Cmdname sid="BTN07117" className="uitext" /> 버튼을 선택하세요.
+1. 청구서 발송 정보를 모두 입력했다면 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요. 이전 화면으로 돌아갑니다.
 
-
-## 청구서 수신 메일 주소 수정하기 {#editemail}
-
-<Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="payment_information" className="uitext" />
-
-<ImgLang img='invoice_mail_1.png' desc='결제 계정 수정' />
-
-담당자가 변경되어 청구서 수신인을 변경하려면 결제 계정을 수정하세요. 
-
-<Cmdname sid="payment_information" className="uitext" /> 중 ***청구서 수신 정보***에서 이메일 주소 오른쪽의 <LinkImage img="ico-edit.svg" className='ico' /> <Cmdname sid="edit" className="uitext" /> 버튼을 선택하세요. <Cmdname sid="billing_info_edit" className="uitext" /> 창이 나타나면 담당자 정보(<Cmdname sid="invoice_name" className="uitext" />, <Cmdname sid="email" className="uitext" />, <Cmdname sid="invoice_cc" className="uitext" />)를 차례로 수정한 다음 <Cmdname sid="registration" className="uitext" /> 버튼을 선택하세요.
+1. 모든 설정을 완료했다면 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
 
 :::note
 
-다수의 이메일로 청구서를 받으려면 이메일을 쉼표(,)를 구분자로 여러개 입력할 수 있습니다. 쉼표 사이에 공백 없이 입력해야 합니다. 예시, a@whatap.io,b@whatap.io,c@whatap.io
+* 청구서는 매월 25일에 발송합니다.
+
+* 다수의 이메일로 청구서를 받으려면 <Cmdname sid="invoice_cc" className="uitext" /> 항목에 쉼표(,)를 구분자로 여러 개의 이메일을 입력할 수 있습니다. 예시, a@whatap.io,b@whatap.io,c@whatap.io
 
 :::
 
-## 세금 계산서 수신 메일 주소 수정하기 {#editemail-tax}
+## 기본 정보 수정하기
 
-<Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="payment_information" className="uitext" />
+결제 정보를 등록할 때 설정했던 <Cmdname sid="TTL06080" className="uitext" /> 및 <Cmdname sid="phone" className="uitext" />, <Cmdname sid="TTL06768" className="uitext" /> 등의 기본 정보를 수정할 수 있습니다.
 
-<ImgLang img='billing-edit-mail-tax.png' desc='전자 세금 계산서 계정 수정 sc' />
+1. 홈 화면 오른쪽 위에 프로필 아이콘을 선택하세요.
 
-세금 계산서 수신 메일 주소를 변경하려면 결제 정보 중 ***결제 수단*** 정보를 수정하세요. 
+1. 드롭다운 메뉴가 나타나면 <Cmdname sid="my_usage" className="uitext" />을 선택하세요.
 
-<Cmdname sid="payment_information" className="uitext" /> 중 ***결제 수단*** 오른쪽의 <LinkImage img="ico-edit.svg" className='ico' /> <Cmdname sid="edit" className="uitext" /> 버튼을 선택하세요. <Cmdname sid="billing_info_edit" className="uitext" /> 창이 나타나면 ***전자세금계산서 발행메일***을 수정 후 <Cmdname sid="registration" className="uitext" /> 버튼을 선택하세요. 
+1. <Cmdname sid="side_paymentInformation" className="uitext" /> 메뉴의 <Cmdname sid="TTL08029" className="uitext" /> 섹션에서 ![수정 아이콘](/img/ico-edit.svg) <Cmdname sid="edit" className="uitext" /> 버튼을 선택하세요.
+
+1. 원하는 항목을 수정한 다음 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+    <ImgLang img="billing-payment-basic.png" desc="기본 정보" />
+
+:::note
+
+* <span class="vslow">*</span> 표시는 필수 항목입니다.
+
+* 수정 사항을 저장하지 않으려면 <Cmdname sid="BTN06760" className="uitext" /> 버튼을 선택하세요.
+
+:::
+
+## 결제 정보 수정하기
+
+### 결제 수단 변경하기
+
+등록한 결제 수단 또는 청구 통화를 변경할 수 있습니다.
+
+1. 홈 화면 오른쪽 위에 프로필 아이콘을 선택하세요.
+
+1. 드롭다운 메뉴가 나타나면 <Cmdname sid="my_usage" className="uitext" />을 선택하세요.
+
+1. <Cmdname sid="side_paymentInformation" className="uitext" /> 메뉴의 <Cmdname sid="payment_information" className="uitext" /> 섹션에서 ![수정 아이콘](/img/ico-edit.svg) <Cmdname sid="edit" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="invoice_currency" className="uitext" /> 또는 <Cmdname sid="payment_method" className="uitext" /> 항목을 변경하세요.
+
+    * <Cmdname sid="invoice_currency" className="uitext" /> 항목을 변경하면 결제 수단 옵션이 변경됩니다.
+
+    * 이미 등록한 신용카드를 다른 카드 정보로 변경하려면 <Cmdname sid="BTN08031" className="uitext" /> 버튼을 선택하세요.
+
+        <ImgLang img="billing-edit-payment-info-credit.png" desc="재등록" />
+
+    * <Cmdname sid="payment_type_banktransfer" className="uitext" /> 또는 <Cmdname sid="payment_type_banktransfer_abroad" className="uitext" /> 정보를 변경하려면 ![수정 아이콘](/img/ico-edit.svg) 버튼을 선택하세요.
+
+        <ImgLang img="billing-edit-payment-info-tax.png" desc="수정" />
+
+    * 결제 수단을 신용카드에서 <Cmdname sid="payment_type_banktransfer" className="uitext" /> 또는 <Cmdname sid="payment_type_banktransfer_abroad" className="uitext" />으로 선택할 수 있습니다.
+
+1. <Cmdname sid="billing_info_edit" className="uitext" /> 창이 나타나면 필요한 정보를 설정한 다음 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요. 이전 화면으로 돌아갑니다.
+
+1. <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+1. 결제 정보 변경 메시지가 나타나면 내용을 확인한 다음 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+* <span class="vslow">*</span> 표시는 필수 항목입니다.
+
+* 결제 수단을 변경하면 이전에 입력한 정보는 저장되지 않습니다.
+
+* 수정 사항을 저장하지 않으려면 <Cmdname sid="BTN06760" className="uitext" /> 버튼을 선택하세요.
+
+:::
+
+### 세금계산서 수신 메일 주소 수정하기 {#editemail-tax}
+
+세금계산서 수신 메일 주소를 변경하려면 다음 단계를 수행하세요.
+
+1. 홈 화면 오른쪽 위에 프로필 아이콘을 선택하세요.
+
+1. 드롭다운 메뉴가 나타나면 <Cmdname sid="my_usage" className="uitext" />을 선택하세요.
+
+1. <Cmdname sid="side_paymentInformation" className="uitext" /> 메뉴의 <Cmdname sid="payment_information" className="uitext" /> 섹션에서 ![수정 아이콘](/img/ico-edit.svg) <Cmdname sid="edit" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="payment_method" className="uitext" />의 <Cmdname sid="payment_type_banktransfer" className="uitext" /> 오른쪽에 ![수정 아이콘](/img/ico-edit.svg) 버튼을 선택하세요.
+
+1. <Cmdname sid="billing_info_edit" className="uitext" /> 창이 나타나면 <Cmdname sid="tax_bill_recipient_email" className="uitext" /> 항목을 수정하세요.
+
+    <ImgLang img="billing-edit-mail-tax.png" desc="결제 정보 수정" />
+
+1. <Cmdname sid="apply" className="uitext" /> 버튼을 선택하면 이전 화면으로 돌아갑니다.
+
+1. <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
 
 :::note 
 
-세금 계산서 수신 메일의 경우 수신자 메일 주소를 1개만 지정할 수 있습니다. 
+세금계산서 수신 메일의 경우 수신자 메일 주소를 1개만 등록할 수 있습니다. 
+
+:::
+
+## 청구서 수신 정보 수정하기 {#editemail}
+
+담당자가 변경되어 청구서 수신인을 변경하려면 다음 단계를 수행하세요.
+
+1. 홈 화면 오른쪽 위에 프로필 아이콘을 선택하세요.
+
+1. 드롭다운 메뉴가 나타나면 <Cmdname sid="my_usage" className="uitext" />을 선택하세요.
+
+1. <Cmdname sid="side_paymentInformation" className="uitext" /> 메뉴의 <Cmdname sid="billing_reception_info" className="uitext" /> 섹션에서 ![수정 아이콘](/img/ico-edit.svg) <Cmdname sid="edit" className="uitext" /> 버튼을 선택하세요.
+
+1. 담당자 정보(<Cmdname sid="invoice_name" className="uitext" />, <Cmdname sid="email" className="uitext" />, <Cmdname sid="invoice_cc" className="uitext" />)를 차례로 수정하세요.
+
+1. 필요한 정보를 모두 입력했다면 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+* <span class="vslow">*</span> 표시는 필수 항목입니다.
+
+* 다수의 이메일로 청구서를 받으려면 <Cmdname sid="invoice_cc" className="uitext" /> 항목에 쉼표(,)를 구분자로 여러 개의 이메일을 입력할 수 있습니다. 예시, a@whatap.io,b@whatap.io,c@whatap.io
+
+* 수정 사항을 저장하지 않으려면 <Cmdname sid="BTN06760" className="uitext" /> 버튼을 선택하세요.
 
 :::
 
@@ -218,37 +303,6 @@ tags: [ 관리, 결제 ]
 * 유료 전환 시점으로부터 7일 이후인 프로젝트를 삭제할 수 있는 <Cmdname sid="delete_project" className="uitext" /> 버튼을 제공합니다.
 
 :::
-
-## 결제 정보 확인 {#checkpayinfo}
-
-<Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="payment_information" className="uitext" />
-
-<ImgLang img='credit_card_8.png' desc='결제 정보' />
-
-사용자가 등록한 결제 정보를 확인할 수 있습니다. <Cmdname sid="edit" className="uitext" /> 버튼을 선택해 다른 결제 수단으로 수정할 수 있습니다. 결제 정보 등록에 대한 자세한 내용은 [다음 문서](#register-pay)를 참조하세요.
-
-지불할 금액에 대한 청구서가 매월 영업일 기준 5일 이내 발송하며 실제 결제는 25일에 진행합니다. 25일까지 입금해야 합니다.
-
-
-## 청구 통화 변경하기 {#changecurrency}
-
-사용자가 결제 정보 등록 시 <Cmdname sid="TTL06080" className="uitext" /> 항목에서 선택한 국가에 따라 청구 금액의 청구 통화가 결정됩니다. 
-
-<ImgLang img='billing-currency-change.png' desc='청구 통화 변경' />
-
-1. <Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="payment_information" className="uitext" /> 메뉴로 이동하세요.
-
-1. <Cmdname sid="payment_method" className="uitext" /> 항목에서 <Cmdname sid="edit" className="uitext" /> 버튼을 선택하세요.
-
-1. <Cmdname sid="billing_info_edit" className="uitext" /> 창이 나타나면 <Cmdname sid="change_payment_method" className="uitext" />, <Cmdname sid="TTL06690" className="uitext" />을 차례로 선택하세요.
-
-1. <Cmdname sid="TTL06080" className="uitext" /> 항목에서 원하는 국가를 선택하세요.
-
-1. <Cmdname sid="next" className="uitext" /> 버튼을 차례로 선택한 다음 결제 정보를 입력하세요.
-
-1. <Cmdname sid="BTN07117" className="uitext" /> 버튼을 선택하세요.
-
-변경한 청구 통화는 <Cmdname sid="projectSubscription" className="uitext" />, <Cmdname sid="paymentHistory" className="uitext" />, <Cmdname sid="billingPreview" className="uitext" /> 메뉴에서 확인할 수 있습니다. 
 
 
 ## 청구 및 납부 내역 {#historybilling}
@@ -350,6 +404,6 @@ tags: [ 관리, 결제 ]
 
 ## 와탭 상품의 이용 요금 계산 방식 {#countbilling}
 
-와탭 상품은 후불제 청구 방식을 적용하고 있습니다. 매월 영업일 기준 5일 이내 전월 이용분 청구서를 **결제** 권한을 가진 계정의 이메일로 받을 수 있습니다. 전월 이용분은 1일에서 말일까지 이용한 내용입니다. 청구서는 계정별로 계정에 등록한 유료 상품 목록을 토대로 작성합니다.
+와탭 상품은 후불제 청구 방식을 적용하고 있습니다. 매월 영업일 기준 5일 이내 전월 이용분 청구서를 <Cmdname sid="billing" className="b600" /> 권한을 가진 계정의 이메일로 받을 수 있습니다. 전월 이용분은 1일에서 말일까지 이용한 내용입니다. 청구서는 계정별로 계정에 등록한 유료 상품 목록을 토대로 작성합니다.
 
 만약 유료 상품 가입 시기가 월 중일 때는 이용한 기간을 일할 계산하여 청구합니다.

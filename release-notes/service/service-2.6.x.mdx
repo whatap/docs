@@ -1,0 +1,337 @@
+---
+id: service-2_6_x
+title: Service 2.6.0
+toc_max_heading_level: 3
+pagination_next: release-notes/service/service-2_5_x
+displayed_sidebar: releaseSidebar
+---
+
+2024년 06월 26일
+
+### `공통`
+
+#### <Cmdname sid="side_flexboard" /> / <Cmdname sid="side_integratedFlexboard" />
+
+- <Status>Feature</Status> 위젯에 <Cmdname sid="TTL07769" className="uitext" /> 표시 기능 추가: 위젯에 데이터를 호출할 프로젝트의 목록 확인 가능
+
+- <Status>Fixed</Status> 리치 텍스트 위젯에서 텍스트를 수정하면 간헐적으로 마지막 문자가 사라지는 문제 수정
+
+- <Status>Fixed</Status> 위젯 삭제 팝업이 비정상적으로 닫히면 다시 열리지 않는 문제 수정
+
+- <Status>Fixed</Status> 반응형 대시보드가 가득찬 상태에서 그룹 위젯 하위에 위젯을 추가하면 잘못된 알림 팝업이 나타나는 문제 수정
+
+#### <Cmdname sid="side_analysis" />
+
+<Status>Changed</Status> <Cmdname sid="side_metricsML" className="uitext" /> 메뉴의 상세 데이터 조회 및 표시 기준 변경
+
+:::note
+
+- **기존**: 차트 영역을 드래그한 기간에 대해 조회
+
+- **변경**: 최대 6시간 기간만 조회
+
+:::
+
+#### <Cmdname sid="side_event" />
+
+<Status>Fixed</Status> <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 이상치 탐지 상승/하락 패턴의 잘못 설정된 민감/둔감의 score 수정
+
+#### <Cmdname sid="MNU07361" />
+
+- <Status>Feature</Status> 결제 수단 등록/수정 메뉴의 UI/UX 개편 (프로필 아이콘 &gt; <Cmdname sid="MNU07361" className="uitext" /> &gt; <Cmdname sid="side_paymentInformation" className="uitext" />)
+
+  :::note
+
+  결제 정보 등록 및 수정에 대한 자세한 내용은 [다음 문서](../../management/billing.mdx)를 참조하세요.
+
+  :::
+
+- <Status>Changed</Status> <Cmdname sid="side_projectSubscription" className="uitext" /> 메뉴에서 <Cmdname sid="status" className="uitext" /> 컬럼의 <Cmdname sid="subscribe" className="uitext" /> 버튼을 컬럼 분리해 표시하도록 수정
+
+  ![Example](/img/release/release-usage-subcribe-column.png)
+
+#### 기타
+
+- <Status>Changed</Status> <Cmdname sid="side_integratedDashboard" className="uitext" />, <Cmdname sid="side_integratedMetricsBoard" className="uitext" /> 메뉴의 서비스 종료 안내 메시지 변경
+
+- <Status>Changed</Status> 프로젝트 생성을 위한 상품 선택 화면에서 검색 결과가 없을 때의 안내 문구 개선
+
+- <Status>Fixed</Status> 사이드 메뉴에서 상품 소개 링크로 이동하면 선택한 조직이 해제되는 문제 수정
+
+---
+
+### `Application`
+
+#### <Cmdname sid="side_dashboard" />
+
+- <Status>Feature</Status> <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 기본 프리셋 변경 기능 추가
+
+  :::note
+
+  기본 프리셋 변경에 대한 자세한 내용은 [다음 문서](../../java/dashboard#changepreset)를 참조하세요.
+
+  :::
+
+- <Status>Feature</Status> <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 에이전트 검색 기능 추가
+
+  :::note
+
+  에이전트 검색에 대한 자세한 내용은 [다음 문서](../../java/dashboard#searchagents)를 참조하세요.
+
+  :::
+
+- <Status>Feature</Status> <Cmdname sid="side_transaction_map" className="uitext" /> 메뉴에서 <UI>TOP 30</UI> 필터 내 항목을 직접 검색해 추가하는 <Cmdname sid="custom" className="uitext" /> 기능 추가 
+
+  ![Custom](/img/release/release-apm-dashboard-tx-map-custom.png)
+
+  :::note
+
+  <Cmdname sid="custom" className="uitext" /> 기능에 대한 자세한 내용은 [다음 문서](../../java/dashboard-transactionmap#custom)를 참조하세요.
+
+  :::
+
+- <Status>Changed</Status> 구버전의 <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴 제거 예정
+
+  - <Cmdname sid="sitemap" className="uitext" /> 메뉴에 <Status>Deprecated</Status> 태그 추가 
+
+  - <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> <code class='old'>Old</code> 메뉴를 진입하면 제거 예정 안내 메시지 표시
+
+- <Status>Fixed</Status> <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 위젯의 ![정보 아이콘](/img/ic-info-circle.svg) 버튼을 클릭해 안내 창을 열면 로딩 표시가 해당 위젯에서도 적용되는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 <Cmdname sid="clientOs" className="uitext" />, <Cmdname sid="clientName" className="uitext" />, <Cmdname sid="status" className="uitext" />에 대한 문자열이 번역 key 값으로 노출되는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 스텝 타임라인 그래프를 선택하면 해당 스텝으로 이동하지 않는 문제 수정
+
+#### <Cmdname sid="side_topology" />
+
+- <Status>Fixed</Status> <Cmdname sid="side_appTopology" className="uitext" /> 메뉴에서 화면 위에 <Cmdname sid="node_selection" className="uitext" /> 버튼을 선택하면 오른쪽에 노출되는 다이어그램의 스타일이 정상 적용되지 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_appStatTopology" className="uitext" /> 메뉴에서 시간 선택 옵션을 클릭해도 기능이 작동하지 않는 문제 수정 및 시간 선택 옵션의 UI 변경
+
+#### <Cmdname sid="side_statistics" />
+
+- <Status>Feature</Status> <Cmdname sid="side_statistics" className="uitext" /> 하위 메뉴의 기능 개선 
+
+  - 마지막으로 조회한 에이전트 선택 옵션의 선택값을 저장합니다.
+
+  - 각 메뉴로 진입했을 때 자동 조회하지 않도록 변경합니다.
+
+  - 각 메뉴의 최초 조회 기간을 **금일**에서 **전일**로 변경합니다.
+
+  - <Cmdname sid="side_tx" className="uitext" />, <Cmdname sid="side_statSql" className="uitext" /> 메뉴의 기본 정렬 순서를 <Cmdname sid="TTL06963" className="uitext" />으로 변경합니다.
+
+- <Status>Changed</Status> <Cmdname sid="side_statistics" className="uitext" /> 하위 메뉴에서 필터를 적용한 후 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하지 않아도, CSV 파일을 다운로드하면 필터가 적용되도록 수정
+
+- <Status>Fixed</Status> 다음 메뉴 경로에서 ![컬럼 설정 아이콘](/img/ico-column.svg) <Cmdname sid="BTN06441" className="uitext" /> 기능을 통해 전체 컬럼을 선택하면 화이트아웃 현상이 발생하는 문제 수정
+
+  - <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_tx" className="uitext" />
+  - <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_statUseragentDetail" className="uitext" />
+
+#### <Cmdname sid="side_analysis" />
+
+- <Status>Fixed</Status> <Cmdname sid="side_perfTrend" className="uitext" /> 메뉴로 진입 시 간헐적으로 전체 에이전트가 선택되지 않고 특정 에이전트가 선택되는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_counter" className="uitext" /> 메뉴에서 위젯의 차트 영역을 드래그한 후 ![상세 아이콘](/img/ico-detail.svg) <Cmdname sid="detail" className="uitext" /> 버튼을 선택해 열리는 화면의 조회 시간이 위젯의 조회 시간과 다르게 표시되는 문제 수정
+
+#### Java
+
+<Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 **JVM 옵션 추가** 섹션에서 Jetty 설치 가이드 내용 수정: <code>JAVA_OPTS</code> → <code>JAVA_OPTIONS</code>
+
+#### 기타
+
+- <Status>Changed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_loadedClasses" className="uitext" /> 메뉴에서 클래스 조회 창의 제목 수정(<Cmdname sid="class_signature" className="b500" /> → <Cmdname sid="TTL08085" className="uitext" />)
+
+- <Status>Fixed</Status> 에이전트 선택(<Cmdname sid="application" className="uitext" />) 옵션에서 에이전트 목록이 화면의 세로 크기보다 많을 경우 스크롤이 적용되지 않는 문제 수정
+
+---
+
+### `Server`
+
+- <Status>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에 **Oracle Solaris OS** 설치 안내 페이지 추가
+
+- <Status>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 브라우저 창 크기를 줄이면 차트 범례 텍스트가 위치를 벗어나는 문제 수정
+
+---
+
+### `Kubernetes`
+
+#### <Cmdname sid="side_containerMap" />
+
+- <Status>Feature</Status> 요약 보기의 <Cmdname sid="TTL06782" className="uitext" /> 탭에 <UI>Containter State</UI> 표시 및 설명 추가
+
+- <Status>Changed</Status> 요약 보기의 <Cmdname sid="TTL06782" className="uitext" /> 탭에서 다른 목록 메뉴로 이동하는 링크를 노출하도록 스타일 수정
+
+- <Status>Changed</Status> 요약 보기에서 <Cmdname sid="log" className="uitext" /> &gt; <Cmdname sid="BTN07827" className="uitext" /> 탭의 카테고리 정렬 순서 변경
+
+  ![Category](/img/release/k8s-container-map-log-category-sort-change.png)
+
+- <Status>Changed</Status> 요약 보기, 상세 보기에서 <Cmdname sid="trace" className="uitext" />, <Cmdname sid="metrics" className="uitext" /> 탭이 깜빡이는 현상 개선
+
+- <Status>Changed</Status> 그룹을 선택할 때 요약 보기 상단에 다른 목록 메뉴로 이동 버튼을 노출하도록 수정
+
+- <Status>Fixed</Status> 요약 보기에서 <Cmdname sid="log" className="uitext" /> &gt; <Cmdname sid="BTN07827" className="uitext" /> 탭의 조회 결과가 <Cmdname sid="BTN06342" className="uitext" />의 조회 결과와 일치하지 않는 문제 수정
+
+- <Status>Fixed</Status> ***Container*** 뷰에서 블록이 정상 개수로 표시되지 않는 문제 수정
+
+#### <Cmdname sid="side_cluster" />
+
+- <Status>Feature</Status> <Cmdname sid="side_nodeList" className="uitext" /> 메뉴에서 <Cmdname sid="TTL06705" className="uitext" /> 하위 컬럼으로 <UI>capacityType</UI> 추가
+
+  :::note
+
+  이 기능은 클러스터 프로젝트에만 적용됩니다.
+
+  :::
+
+- <Status>Changed</Status> <Cmdname sid="side_nodeDetail" className="uitext" /> 메뉴의 <Cmdname sid="product_type_cpm" className="uitext" /> 테이블을 <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_containerList" className="uitext" /> 메뉴의 테이블과 일치하도록 수정
+
+- <Status>Changed</Status> <Cmdname sid="side_nodeDetail" className="uitext" /> 메뉴에서 노드 내 각 컨테이너에 대한 다음 지표의 합계 데이터를 <Cmdname sid="product_type_cpm" className="uitext" /> 테이블 상단에 표시
+
+  `cpu_quota`, `cpu_request`, `cpu_total_milli`, `mem_limit`, `mem_request`, `mem_working_set`
+
+  ![Node details](/img/release/release-node-details-container-table.png)
+
+- <Status>Changed</Status> 목록형 메뉴의 용어 표기를 다음과 같이 변경
+
+  - <Cmdname sid="TTL06702" className="b500" /> → <UI>Memory</UI>
+
+  - <Cmdname sid="TTL06703" className="b500" /> → <UI>Network</UI>
+
+  - <Cmdname sid="TTL06706" className="b500" /> → <UI>Disk</UI>
+
+  :::note
+
+  언어 설정이 <UI>English</UI>일 때는 변동 사항 없습니다.
+
+  :::
+
+- <Status>Fixed</Status> <Cmdname sid="side_nodeList" className="uitext" /> 메뉴에서 컬럼 선택 드롭다운의 체크박스가 아래 목록의 체크박스와 겹치면 체크박스를 선택할 수 없는 문제 수정
+
+#### <Cmdname sid="side_workload" />
+
+- <Status>Feature</Status> Pending 상태의 Pod를 빠르게 파악할 수 있는 <Cmdname sid="side_pendingPod" className="uitext" /> 메뉴 추가 (<Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="pendingPod" className="uitext" /> 메뉴에서 <Cmdname sid="side_workload" className="uitext" /> 하위 메뉴로 이동)
+
+  :::note
+
+  이 기능은 쿠버네티스 마스터 에이전트 1.7.0 버전 이상에서 지원합니다.
+
+  :::
+
+- <Status>Changed</Status> <Cmdname sid="side_containerList" className="uitext" /> 메뉴의 컬럼 분류 변경
+
+- <Status>Changed</Status> <Cmdname sid="side_containerizedAppList" className="uitext" /> 메뉴의 <UI>Oname</UI> 컬럼 이름을 <UI>ApplicationName</UI>으로 변경
+
+#### <Cmdname sid="side_management" />
+
+- <Status>Changed</Status> <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 Java 에이전트 설정 옵션 관련 설명 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_agentInstall" className="uitext" /> &gt; <Cmdname sid="TTL07944" className="uitext" />에서 PHP 에이전트 다운로드 명령어 수정
+
+- <Status>Changed</Status> <Cmdname sid="side_agentInstall" className="uitext" /> &gt; <Cmdname sid="TTL07944" className="uitext" />에서 Go 에이전트 다운로드 명령어 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_correlatedProjectManagement" className="uitext" /> 메뉴의 <Cmdname sid="TTL07016" className="uitext" />에서 <Cmdname sid="view_and_analysis" className="b600" /> 권한이 없는 연계 프로젝트는 목록에 표시하지 않도록 않도록 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_kubernetesAgentList" className="uitext" /> 메뉴에서 에이전트가 활성화 상태일 때만 ![상세 보기 아이콘](/img/ico-detail-view.svg) <Cmdname sid="BTN06342" className="uitext" /> 버튼을 활성화하도록 수정
+
+- <Status>Deprecated</Status> <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴에서 <Cmdname sid="goto_previous_version" className="uitext" /> 버튼 제거
+
+#### 기타
+
+<Status>Changed</Status> 다음 메뉴 경로에서 <Cmdname sid="TTL06366" className="b500" /> 컬럼을 <Cmdname sid="thread_cpu_time" className="uitext" />으로 변경, 천 단위마다 쉼표(,)로 구분자 표시
+
+- <Cmdname sid="side_appl" className="uitext" /> &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" />
+- <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_kubernetesAgentList" className="uitext" />
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbParameter" className="uitext" /> 메뉴에서 <Cmdname sid="reference_date" className="uitext" />와 <Cmdname sid="comparison_date" className="uitext" />를 모두 오늘 날짜로 설정하면 실시간 데이터와 저장된 마지막 데이터를 조회해 비교하는 기능 추가
+
+  :::note
+
+  이 기능은 **Redis**, **MongoDB** 상품에는 적용되지 않습니다.
+
+  :::
+
+- <Status>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbParameter" className="uitext" /> 메뉴에서 테이블의 헤더에 수집 시간을 표시하도록 수정
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 <Cmdname sid="instance" className="uitext" /> 옵션에서 하나의 인스턴스만 선택할 수 있도록 수정
+
+  :::note
+
+  다음 상품의 메뉴에서도 동일한 변경 사양을 적용합니다.
+
+  - **MySQL**: <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_mysqlStat" className="uitext" /> 
+
+  - **PostgreSQL**: <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_pgStat" className="uitext" /> 
+
+  :::
+
+- <Status>Fixed</Status> 대시보드의 <Cmdname sid="active_sessions" className="uitext" /> 테이블에서 <Cmdname sid="session_detail" className="uitext" /> 창을 열었을 때 종료된 세션이면 실시간 조회를 종료하며 시간 선택자를 선택할 수 없도록 수정
+
+- <Status>Fixed</Status> 대시보드의 <Cmdname sid="active_sessions" className="uitext" /> 테이블에서 <Cmdname sid="session_detail" className="uitext" /> 창을 열었을 때 종료된 세션이면 <Cmdname sid="TTL07046" className="uitext" /> 버튼을 노출하지 않도록 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 필터가 적용되지 않는 문제 수정
+
+- <Status>Fixed</Status> 다른 메뉴 화면에서 필터값을 포함한 링크를 클릭해 <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴로 이동하면 <Cmdname sid="filter" className="uitext" /> 항목에 `s_equal` 문자열이 확인되는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 데이터가 없으면 토스트 메시지가 출력되는 문제 수정
+
+#### MySQL
+
+- <Status>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 설치 안내 스타일 및 구성 개선
+
+- <Status>Changed</Status> 프로젝트 설치 화면에서 상품 카드 문구의 지원 버전 항목에 MariaDB 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 기본 컬럼에서 <UI>elapse wait</UI> 항목을 보이지 않도록 수정
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 <UI>sqlHash</UI> 컬럼 항목을 가장 오른쪽으로 이동
+
+#### MongoDB
+
+<Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴의 <UI>DB Status</UI> 위젯에서 에이전트 선택 상태를 즉시 반영하도록 수정
+
+---
+
+### `Log`
+
+- <Status>Changed</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 로그 조회 시 누적된 건수 표기 방식 변경
+
+  - 다음 페이지를 조회할 수 있으면 가능하면 <UI>숫자+</UI>, 조회할 수 없으면 <UI>숫자</UI>로 표기
+
+  - 다음 페이지 조회 시 <UI>9999+</UI>, <UI>19999+</UI>, <UI>29999+</UI>로 누적된 건수 표기
+
+- <Status>Changed</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSetting" className="uitext" /> 메뉴에서 **데이터 유지 기간**, <Cmdname sid="sms_summary_data_period" className="b600" /> 항목의 명칭을 <Cmdname sid="data_retention" className="uitext" />으로 통일
+
+---
+
+### `Browser`
+
+<Status>Feature</Status> <Cmdname sid="side_rumPageLoadHitmap" className="uitext" />, <Cmdname sid="side_ajaxAnalytics" className="uitext" />, <Cmdname sid="side_userSessionEventSearch" className="uitext" /> 메뉴에 사용자가 웹 사이트에서 수행하는 모든 이벤트를 기록하고 재생할 수 있는 <Cmdname sid="TTL08103" className="uitext" /> 기능 추가
+
+:::note
+
+<Cmdname sid="TTL08103" className="uitext" /> 기능에 대한 자세한 내용은 [다음 문서](../../browser/session-replay)를 참조하세요.
+
+:::
+
+---
+
+### `URL` 
+
+- <Status>Changed</Status> <Cmdname sid="side_urlList" className="uitext" /> 메뉴의 User Interface 개선
+
+  - <Cmdname sid="edit_url" className="uitext" /> 창의 UI 변경
+
+  - 시간 선택 옵션 변경
+
+  - 프로젝트 **수정** 권한이 없는 사용자에게 사용 불가 버튼을 노출하지 않도록 변경
+
+  - 데이터 시간 기준이 아닌 차트 조회 시간 기준으로 차트를 생성하도록 수정
+
+  - <Cmdname sid="TTL07886" className="uitext" /> 버튼의 위치를 <Cmdname sid="edit_url" className="uitext" /> 창에서 목록으로 이동
+
+- <Status>Fixed</Status> URL 프로젝트 화면 위에 ![알림 아이콘](/img/ico-noti.svg) <Cmdname sid="sms_alert_status" className="uitext" /> 아이콘이 사라지는 문제 수정

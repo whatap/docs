@@ -68,6 +68,14 @@ import Transactionprofileactivecolor from "../common-items/_transaction-profile-
   hook_method_patterns=a.b.C1.*
   ```
 
+  :::note
+
+  * 이 옵션을 통해 등록한 메소드는 <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 Method 스텝으로 확인할 수 있습니다.
+
+  * 가급적 국소 범위에 적용할 것을 권장합니다. 광범위한 범위로 적용할 경우 애플리케이션의 성능 저하를 유발할 수 있습니다.
+
+  :::
+
 * **hook_method_supers** <span class='type'>String</span>
 
   특정 클래스를 상속받은 메소드의 응답시간을 측정하고자 할 때 Super Class를 설정합니다. 클래스 FullName을 설정하며 대상이 여러 개인 경우 쉼표(,)로 구분합니다.
@@ -127,122 +135,3 @@ import Transactionprofileactivecolor from "../common-items/_transaction-profile-
   기본값 `true`
 
   `trace_basetime` 또는 `profile_basetime` 옵션과 무관하게 에러가 있는 상세 트레이스에 대한 수집 여부를 설정합니다.
-
-## 예외 처리 {#exception}
-
-* **biz_exceptions** <span class='type'>String</span>
-
-  Business Exception을 등록합니다.
-
-  :::tip
-
-  에러 클래스 수집 / 히트맵 표시 레벨: <span class="normal">INFO</span>(파란색) / 에러 통계 포함
-
-  :::
-  
-  :::note
-
-  Java 에이전트 [v2.2.20](../release-notes/java/java-2_2_20) 이상에서는 등록한 비즈니스 Exception을 에러 통계로 수집합니다. v2.2.20 미만에서는 등록한 비즈니스 Exception을 에러 통계에서 제외합니다. 다만 트레이스 상세에서는 나타납니다.
-
-  :::
-
-* **biz_exceptions_status** <span class='type'>String</span> <code class='my'>Java Agent v2.2.20 or later</code>
-
-  Business Exception 발생 시 이벤트 알림을 억제할 Business Exception과 Status를 설정합니다. 이 옵션에서 설정한 **Business Exception:Status**에 대해서는 이벤트 레벨이 <span class="normal">INFO</span>로 변경됩니다. Business Exception과 Status는 콜론(:)으로 구분하며, 하나의 Business Exception에 여러 개의 Status를 사용하는 경우 앰퍼샌드(&)로 구분합니다. 쉼표를 구분자로 이용해 여러 개를 설정할 수 있습니다.
-
-  ```ini title='whatap.conf'
-  # example
-  biz_exceptions_status=java.util.concurrent.TimeoutException:400&404&408,java.lang.Exception:200
-  ```
-
-  :::tip
-
-  에러 클래스 수집 / 히트맵 표시 레벨: <span class="normal">INFO</span>(파란색) / 에러 통계 포함
-
-  :::
-
-* **ignore_exceptions** <span class='type'>String</span>
-
-  등록한 Exception의 에러 자체를 무시합니다.
-
-  :::tip
-
-  에러 클래스 무시 / 히트맵 표시 레벨: <span class="normal">INFO</span>(파란색) / 에러 통계 미포함
-
-  :::
-
-* **transaction_status_error_enable** <span class='type'>Boolean</span>
-
-  기본값 `true`
-
-  HTTP 401, 403과 같이 정상 응답이 아닌 HTTP 상태 코드를 반환하는 경우 에러로 처리할지 여부를 설정합니다.
-
-* **status_ignore** <span class='type'>String</span>
-
-  무시하려는 HTTP 상태 코드를 설정할 수 있습니다. 여러 값을 대상으로 할 경우 쉼표(,)를 구분자로 사용하세요.
-
-  ```ini title='whatap.conf'
-  # example
-  status_ignore=408,500
-  ```
-
-  :::tip
-
-  Status 에러 무시 / 히트맵 표시 레벨: <span class="normal">INFO</span>(파란색) / 에러 통계 미포함
-
-  :::
-
-* **status_ignore_set** <span class='type'>String</span>
-
-  `whatap.error.STATUS_ERROR`를 무시합니다. 여러 값을 대상으로 할 경우 쉼표(,)를 구분자로 사용하세요.
-
-  ```ini title='whatap.conf'
-  # example
-  status_ignore_set=/api/test/timeout/{time}:408,/api/test/timeout:200,/error:500
-  ```
-
-  :::tip
-
-  Status 에러 세트 무시 / 히트맵 표시 레벨: <span class="normal">INFO</span>(파란색) / 에러 통계 미포함
-
-  :::
-
-* **httpc_status_error_enable** <span class='type'>Boolean</span>
-
-  기본값 `true`
-
-  HTTP 상태 코드가 에러인 경우 수집 여부를 설정합니다. 클라이언트 에러 응답(`400` 이상), 서버 에러 응답(`500` 이상)이 해당됩니다.
-
-  :::note
-
-  HTTP 상태 코드에 대한 자세한 내용은 [다음 링크](https://developer.mozilla.org/docs/Web/HTTP/Status)를 참조하세요.
-
-  :::
-
-* **httpc_status_ignore** <span class='type'>String</span>
-
-  HTTP 상태 코드가 에러(`HTTPC_ERROR`)인 경우 무시할 수 있습니다. 여러 값을 대상으로 할 경우 쉼표(,)를 구분자로 사용하세요.
-
-  :::tip
-
-  HTTP 상태 에러 코드 무시 / 에러 통계 미포함
-
-  :::
-
-* **httpc_status_url_ignore_set** <span class='type'>String</span>
-
-  `whatap.error.HTTPC_ERROR`를 무시합니다. 여러 값을 대상으로 할 경우 쉼표(,)를 구분자로 사용하세요.
-
-  `httpc_status_url_ignore_set=/a/b/c:400,/a/ab/c:404`와 같이 설정하세요. 이때 url은 통계/에러 분석에서 `HTTPC_URL` 값을 입력합니다.
-
-  :::tip
-
-  HTTP 상태 에러 코드 무시 / 에러 통계 미포함
-
-  :::
-
-* **trace_sql_exception_enabled** <span class='type'>Boolean</span>
-
-  기본값 `true`
-
-  JDBC 드라이버에서 SqlException 발생 시 추적 여부를 설정합니다. 옵션 값을 `false`로 설정하면 사용자 정의 예외 처리로 `biz_exceptions` 처리할 수 있습니다.

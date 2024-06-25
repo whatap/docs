@@ -1,0 +1,58 @@
+---
+id: golang-0_4_0
+title: Go Agent v0.4.0
+toc_max_heading_level: 2
+pagination_next: release-notes/golang/golang-0_3_3
+displayed_sidebar: releaseSidebar
+---
+
+2024년 06월 19일
+
+- <Status>New</Status> linux aarch64 지원
+
+- <Status>Changed</Status> 기존 *paramkey.txt* 대신 *security.conf* 파일 사용
+
+  기존 *security.conf* 파일의 `paramkey` 키의 값을 사용합니다. 기본값은 무작위값이 아닌 `WHATAP`으로 지정도록 변경합니다. `WHATAP` 지정되면 키 입력없이 복호화할 수 있습니다.
+
+- <Status>Changed</Status> SQL 문장의 정규화 옵션 설정 변경
+
+  - SQL 문장에서 파라미터를 분리하여 정규화하는 기능을 항상 활성화하세요. `trace_sql_normalize_enabled` 옵션을 항상 `true`로 설정하세요.
+
+  - 이미 정규화 옵션을 비활성화(정규화 중지 설정)한 상태라면, 정규화해서 파라미터를 별도 표기하는 설정을 활성화하세요.
+
+    - `profile_sql_param_enabled` 옵션을 `true`로 설정하세요.
+    - 정규화된 파라미터를 별도 암호화하여 수집합니다.
+    - *security.conf*의 `paramkey`로 복호화하여 데이터를 확인할 수 있습니다.
+
+- <Status>Changed</Status> 모니터링 중지 기능 변경
+  
+  - `trace.Init()` 함수 호출이 없을 경우(주석 및 삭제) 모니터링 기능을 시작하지 않습니다.
+  
+  - `enabled` 옵션 설정(`true`): 정보 수집 기능을 중지합니다. 에이전트의 내부 백그라운드 모듈은 유지됩니다.
+
+  - `shutdown` 옵션 설정(`true`): 모든 에이전트 기능을 중지합니다. 다시 시작하려면 `shutdown` 옵션을 `true`로 변경하고 애플리케이션을 재시작해야 합니다.
+
+- <Status>Fixed</Status> 에이전트가 설치된 서버의 IP를 127.0.0.1로 수집하는 문제 수정, 와탭 서버와 TCP 연결된 Local address IP 정보로 수집
+
+:::info
+
+**다운로드**
+
+* go-api(import library)
+
+  ```bash
+  go get github.com/whatap/go-api@latest
+  ```
+
+* 서비스 에이전트
+
+  | OS | 파일 형식 | 아키텍처 | 다운로드 |
+  | - | :-: | :-: | :-: |
+  | Red Hat / CentOS / Amazon linux | RPM | x86 x64 |[다운로드](https://repo.whatap.io/centos/6/x86_64/whatap-agent-0.4-0.x86_64.rpm) |
+  | \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/centos/7/aarch64/whatap-agent-0.4-0.aarch64.rpm) |
+  | Ubuntu 12 and above / Debian | DEB | amd64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-agent_0.4.0_amd64.deb) |
+  | \^ | \^ | arm64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-agent_0.4.0.arm64.deb) |
+  | Alpine linux | tar gzip | x86 x64 | [다운로드](https://repo.whatap.io/alpine/x86_64/whatap-agent-0.4.0.tar.gz) |
+  | \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/alpine/aarch64/whatap-agent-0.4.0.tar.gz) |
+
+:::

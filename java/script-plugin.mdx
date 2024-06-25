@@ -37,7 +37,7 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
   whatap.bytecode.instrument.PluginTestA.testA,whatap.bytecode.instrument.PluginTestB.testB
   ```
 
-* **패키지와 메소드 이름을 *로 치환하는 경우**
+* **패키지와 메소드 이름을 `*`로 치환하는 경우**
 
   ```java
   *PluginTestA.testA,whatap.bytecode.instrument.PluginTestB.*
@@ -71,20 +71,20 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
 
 1. Java 에이전트 `hook_trace_helper_patterns` 옵션에 적용할 메소드를 *whatap.conf* 파일에 작성하세요.
 
-  ```ini title='$WHATAP_HOME/whatap.conf'
-  hook_trace_helper_patterns=org.apache.catalina.connector.RequestFacade.*
-  ```
+    ```ini title='$WHATAP_HOME/whatap.conf'
+    hook_trace_helper_patterns=org.apache.catalina.connector.RequestFacade.*
+    ```
 
 2. *TraceHelperStart.x* 파일에 플러그인 코드를 작성하세요.
 
-  ```java title='$WHATAP_HOME/plugin/TraceHelperStart.x'
-  // String prefix에 클래스명, 메소드명을 대입하세요.
-  String prefix = $point.class1 + "." + $point.method;
-  // 와탭 트레이스 속성 명칭을 `prefix` + "st" 로 현재 시간을 설정하세요.
-  $ctx.setAttribute(prefix + "st", new Long(System.currentTimeMillis()));
-  // 트레이스 정보에 현재 시간을 추가하세요.
-  $ctx.profile(prefix + " Start", new java.util.Date().toString()); 
-  ```
+    ```java title='$WHATAP_HOME/plugin/TraceHelperStart.x'
+    // String prefix에 클래스명, 메소드명을 대입하세요.
+    String prefix = $point.class1 + "." + $point.method;
+    // 와탭 트레이스 속성 명칭을 `prefix` + "st" 로 현재 시간을 설정하세요.
+    $ctx.setAttribute(prefix + "st", new Long(System.currentTimeMillis()));
+    // 트레이스 정보에 현재 시간을 추가하세요.
+    $ctx.profile(prefix + " Start", new java.util.Date().toString()); 
+    ```
 
 트레이스 내역에 메소드 시작시간을 다음과 같이 표시합니다.
 
@@ -94,22 +94,22 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
 
 1. Java 에이전트 `hook_trace_helper_patterns` 옵션에 적용할 메소드를 *whatap.conf* 파일에 작성하세요.
 
-  ```ini title='$WHATAP_HOME/whatap.conf'
-  hook_trace_helper_patterns=org.apache.catalina.connector.RequestFacade.*
-  ```
+    ```ini title='$WHATAP_HOME/whatap.conf'
+    hook_trace_helper_patterns=org.apache.catalina.connector.RequestFacade.*
+    ```
 
 1. *TraceHelperEnd.x* 파일에 플러그인 코드를 작성하세요.
 
-  ```java title='$WHATAP_HOME/plugin/TraceHelperEnd.x' {3,8} showLineNumbers
-  String prefix = $point.class1 + "." + $point.method;
-  // TraceHelperStart.x 파일에서 추가한 트레이스 속성을 가져오세요.
-  long st = ((Long) $ctx.getAttribute(prefix + "st")).longValue(); 
-  long gap = System.currentTimeMillis() - st;
-  StringBuilder sb = new StringBuilder();
-  sb.append(new java.util.Date().toString() + " (Gap:" + gap + " milliseconds)");
-  // 트레이스 정보에 시작 시간과의 현재 시간과의 Gap(수행시간)을 추가하세요.
-  $ctx.profile(prefix + " End", sb.toString()); 
-  ```
+    ```java title='$WHATAP_HOME/plugin/TraceHelperEnd.x' {3,8} showLineNumbers
+    String prefix = $point.class1 + "." + $point.method;
+    // TraceHelperStart.x 파일에서 추가한 트레이스 속성을 가져오세요.
+    long st = ((Long) $ctx.getAttribute(prefix + "st")).longValue(); 
+    long gap = System.currentTimeMillis() - st;
+    StringBuilder sb = new StringBuilder();
+    sb.append(new java.util.Date().toString() + " (Gap:" + gap + " milliseconds)");
+    // 트레이스 정보에 시작 시간과의 현재 시간과의 Gap(수행시간)을 추가하세요.
+    $ctx.profile(prefix + " End", sb.toString()); 
+    ```
 
 트레이스 내역에 메소드 종료시간과 수행시간을 다음과 같이 표시합니다.
 

@@ -1,0 +1,58 @@
+---
+id: otel-v0_2_0
+title: OTEL Agent v0.2.0
+toc_max_heading_level: 2
+displayed_sidebar: releaseSidebar
+---
+
+2024년 06월 19일
+
+- <Status>New</Status> linux aarch64 지원
+
+- <Status>New</Status> span events에서 에러 정보 추가 수집
+
+  - 에러 내용이 `attribute`가 아닌 `event`로 유입되는 경우를 위해 수집합니다.
+  
+  - `event`에서 에러를 찾기 위한 에이전트 설정 옵션을 추가하세요.
+
+    ```ini title="whatap.conf"
+    otel_events_exception_keys=exception.type
+    otel_events_error_message_keys=exception.message
+    otel_events_error_stack_keys=exception.stacktrace
+    otel_events_error_esc_keys=exception.escaped
+    ```
+
+- <Status>Changed</Status> 기존 *paramkey.txt* 대신 *security.conf* 파일 사용
+
+  기존 *security.conf* 파일의 `paramkey` 키의 값을 사용합니다. 기본값은 무작위값이 아닌 `WHATAP`으로 지정도록 변경합니다. `WHATAP` 지정되면 키 입력없이 복호화할 수 있습니다.
+
+- <Status>Changed</Status> SQL 문장의 정규화 옵션 설정 변경
+
+  - SQL 문장에서 파라미터를 분리하여 정규화하는 기능을 항상 활성화하세요. `trace_sql_normalize_enabled` 옵션을 항상 `true`로 설정하세요.
+
+  - 이미 정규화 옵션을 비활성화(정규화 중지 설정)한 상태라면, 정규화해서 파라미터를 별도 표기하는 설정을 활성화하세요.
+
+    - `profile_sql_param_enabled` 옵션을 `true`로 설정하세요.
+    - 정규화된 파라미터를 별도 암호화하여 수집합니다.
+    - *security.conf*의 `paramkey`로 복호화하여 데이터를 확인할 수 있습니다.
+
+:::info
+
+**다운로드**
+
+| OS | 파일 형식 | 아키텍처 | 다운로드 |
+| - | :-: | :-: | :-: |
+| Red Hat / CentOS / Amazon linux | RPM | x86 x64 | [다운로드](https://repo.whatap.io/centos/6/x86_64/whatap-otel-0.2-0.x86_64.rpm) |
+| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/centos/7/aarch64/whatap-otel-0.2-0.aarch64.rpm) |
+| Ubuntu 12 and above / Debian | DEB | amd64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-otel_0.2.0_amd64.deb) |
+| \^ | \^ | arm64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-otel_.2.0_arm64.deb) |
+| Alpine linux | tar gzip | x86 x64 | [다운로드](https://repo.whatap.io/alpine/x86_64/whatap-otel-0.2.0.tar.gz) |
+| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/alpine/aarch64/whatap-otel-0.2.0.tar.gz) |
+
+:::
+
+:::note
+
+**OpenTelemetry**로 수집한 데이터를 와탭 모니터링 서비스에서 확인하는 방법에 대한 자세한 내용은 [다음 문서](../../opentelemetry/introduction)를 참조하세요.
+
+:::

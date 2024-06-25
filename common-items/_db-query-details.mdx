@@ -12,23 +12,17 @@
 
 </InDoc>
 
-<InDoc product="oracle-dma">
+<InDoc pages="slow-query">
 
-<ImgLang img="db-sql-details-oracle-dma.png" desc="SQL 상세" />
-
-</InDoc>
-
-<InDoc product="postgresql,mysql">
-
-<ImgLang img="db-sql-details-postgresql.png" desc="SQL 상세" />
+현재 수행 중인 세션의 SQL 쿼리 정보를 확인하려면 ***Slow Query List*** 섹션의 <span class="uitext">SQL</span> 컬럼 항목을 선택하세요. <Cmdname sid="TTL06224" className="uitext" /> 창이 나타납니다. SQL 쿼리문과 Plan 정보를 확인할 수 있습니다.
 
 </InDoc>
 
-<Xclude product="postgresql,mysql,oracle-dma">
+<InDoc product="oracle-dma"><ImgLang img="db-sql-details-oracle-dma.png" desc="SQL 상세" /></InDoc>
 
-<ImgLang img="db-sql-details-common.png" desc="SQL 상세" />
+<InDoc product="postgresql,mysql"><ImgLang img="db-sql-details-postgresql.png" desc="SQL 상세" /></InDoc>
 
-</Xclude>
+<Xclude product="postgresql,mysql,oracle-dma"><ImgLang img="db-sql-details-common.png" desc="SQL 상세" /></Xclude>
 
 * <Cmdname sid="BTN06225" className="uitext" />: 해당 SQL 쿼리문과 관련한 통계 정보를 확인할 수 있는 <Cmdname sid="statistics_sql" className="uitext" /> 메뉴로 이동할 수 있습니다.
 

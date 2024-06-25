@@ -67,6 +67,16 @@ import Apmdashboardpreset from "../common-items/_apm-dashboard-preset.mdx";
 
   Master 인스턴스와 Slave 인스턴스의 현황을 확인할 수 있습니다.
 
+  :::note
+
+  ***Clusters*** 위젯을 이용하려면 DBX 에이전트(*whatap.conf*)의 다음 옵션을 설정해야 합니다. 자세한 내용은 [다음 문서](agent-dbx-settings#cluster-set)를 참조하세요.
+
+  ```ini title="whatap.conf"
+  cluster_name={cluster_name}
+  ```
+
+  :::
+
 * ***Instantaneous Ops Per Sec***
 
   ![Instantaneous Ops Per Sec](/img/db-dashboard-instaneous-widget.png)
@@ -205,3 +215,13 @@ Redis 클러스터의 상태와 구성 정보를 테이블 형식으로 제공�
 * ***link status***: 각 인스턴스의 연결 상태입니다.
 
 * ***slots***: 클러스터에서 사용되는 슬롯(slot) 정보입니다. 각 슬롯은 클러스터 내에서 데이터의 일부를 담당합니다. 이 정보를 통해 클러스터의 데이터 분산 및 로드 밸런싱 상태를 파악할 수 있습니다.
+
+:::note
+
+***Cluster Info*** 위젯을 이용하려면 DBX 에이전트(*whatap.conf*)의 다음 옵션을 설정해야 합니다. 자세한 내용은 [다음 문서](agent-dbx-settings#cluster-set)를 참조하세요.
+
+```ini title="whatap.conf"
+cluster_name={cluster_name}
+```
+
+:::

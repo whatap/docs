@@ -1,12 +1,12 @@
-### SQL 파라미터 조회{#transaction-parameter}
+### SQL 파라미터 조회 {#transaction-parameter}
 
-***테이블 뷰*** 탭에서 SQL 스텝을 선택하거나 ***트리 뷰*** 탭에서 ![팝업 아이콘](/img/ic-popup.svg) 버튼을 선택하세요. 파라미터를 조회할 수 있는 ***SQL*** 창이 나타납니다.
+<Cmdname sid="TTL06126" className="uitext" /> 탭에서 SQL 스텝을 선택하거나 <Cmdname sid="TTL06127" className="uitext" /> 탭에서 ![팝업 아이콘](/img/ic-popup.svg) 버튼을 선택하세요. 파라미터를 조회할 수 있는 <UI>SQL</UI> 창이 나타납니다.
 
 <ImgLang img='sql-parameter-query.png' desc='SQL' />
 
-<Xclude product='java'>
+<Xclude product='java,php,golang'>
 
-* ***비밀번호***: 복호화된 파라미터 값을 확인할 수 있습니다. 비밀번호는 *`WHATAP_HOME`/paramkey.txt* 파일 내 6자리 문자열입니다. 다른 문자열로 변경 가능합니다.
+* <Cmdname sid="BTN06764" className="uitext" />: 복호화된 파라미터 값을 확인할 수 있습니다. 비밀번호는 *`WHATAP_HOME`/paramkey.txt* 파일 내 6자리 문자열입니다. 다른 문자열로 변경 가능합니다.
 
   :::note
 
@@ -18,21 +18,33 @@
 
 <InDoc product='java'>
 
-* ***비밀번호***: 복호화된 파라미터 값을 확인할 수 있습니다. 비밀번호는 *`WHATAP_HOME`/security.conf*(*paramkey.txt*) 파일 내 6자리 문자열입니다. 다른 문자열로 변경 가능합니다.
+* <Cmdname sid="BTN06764" className="uitext" />: 복호화된 파라미터 값을 확인할 수 있습니다. 비밀번호는 *`WHATAP_HOME`/security.conf* 파일 내 6자리 문자열(`paramkey`)입니다. 다른 문자열로 변경 가능합니다.
 
   :::note
 
-  ***비밀번호***는 SQL 변수 조회, HTTP 쿼리 조회, Thread 중지에 필요합니다. 자세한 내용은 [다음 문서](install-agent#security)를 참조하세요.
+  <Cmdname sid="BTN06764" className="uitext" />는 SQL 변수 조회, HTTP 쿼리 조회, Thread 중지에 필요합니다. 자세한 내용은 [다음 문서](install-agent#security)를 참조하세요.
 
   :::
 
 </InDoc>
 
-* ***SQL 포맷팅***: SQL 문장을 들여쓰기 및 포맷팅하여 가독성을 높일 수 있습니다.
+<InDoc product='php,golang'>
+
+* <Cmdname sid="BTN06764" className="uitext" />: 복호화된 파라미터 값을 확인할 수 있습니다. 비밀번호는 *`WHATAP_HOME`/security.conf* 파일 내 6자리 문자열(`paramkey`)입니다. 다른 문자열로 변경 가능합니다.
+
+  :::note
+
+  에이전트 버전에 따라 비밀번호 설정 파일이 다를 수 있습니다. *security.conf* 파일 또는 *paramkey.txt* 파일 내 문자열을 변경하세요.
+
+  :::
+
+</InDoc>
+
+* <Cmdname sid="format" className="uitext" />: SQL 문장을 들여쓰기 및 포맷팅하여 가독성을 높일 수 있습니다.
 
 * ![복사 아이콘](/img/ico-copy.svg): SQL 문장을 클립보드에 복사할 수 있습니다.
 
-* ***통계***: ***통계/보고서*** > ***통계*** 메뉴의 ***SQL*** 탭으로 이동합니다.
+* <Cmdname sid="statistics" className="uitext" />: <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_statSql" className="uitext" /> 메뉴로 이동합니다.
 
 <Xclude product='kubernetes'>
 
@@ -44,6 +56,20 @@ SQL 변수와 HTTP 쿼리를 조회하려면 다음 옵션을 에이전트 설�
 
 * HTTP 파라미터 정보 기록과 관련한 에이전트 설정은 [다음 문서](agent-transaction#profile_http_parameter)를 참조하세요.
 
+<InDoc product="php">
+
+```ini title='whatap.conf'
+# SQL 파라미터 조회 옵션: 옵션이 적용되면 SQL 파라미터를 암호화하여 수집합니다.
+whatap.profile_sql_param_enabled=true 
+
+# HTTP 파라미터 조회 옵션: 옵션이 적용되면 HTTP 쿼리 파라미터를 암호화하여 수집합니다.
+whatap.profile_http_parameter_enabled=true 
+```
+
+</InDoc>
+
+<Xclude product="php">
+
 ```ini title='whatap.conf'
 # SQL 파라미터 조회 옵션: 옵션이 적용되면 SQL 파라미터를 암호화하여 수집합니다.
 profile_sql_param_enabled=true 
@@ -51,6 +77,8 @@ profile_sql_param_enabled=true
 # HTTP 파라미터 조회 옵션: 옵션이 적용되면 HTTP 쿼리 파라미터를 암호화하여 수집합니다.
 profile_http_parameter_enabled=true 
 ```
+
+</Xclude>
 
 :::
 

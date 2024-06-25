@@ -1,0 +1,39 @@
+import Csvdownload from "../common-items/_csv-download.mdx";
+
+## 주간 애플리케이션 보고서 {#A100_AppWeeklyReport}
+
+애플리케이션의 한 주간 주요 지표를 종합적으로 분석할 수 있는 보고서입니다.
+
+:::note
+
+주요 용어 및 지표에 대한 자세한 내용은 [다음 문서](#metricdesc)를 참조하세요.
+
+:::
+
+* <Cmdname sid="overview" className="b600" report />: 한주간 총 방문자와 트랜잭션 건수를 제공합니다.
+
+* <Cmdname sid="operating_rate" className="b600" report/>: 애플리케이션이 주어진 시간 동안 동작한 시간을 백분율로 나타낸 것입니다. 예를 들어, 가동률이 100%라면 해당 애플리케이션이 조회 기간에 단 한 번도 중단되지 않고 계속 동작했음을 의미합니다. 반면에 가동률이 낮으면 해당 애플리케이션이 조회 기간에 중단되었거나 비정상적으로 동작한 시간이 있었음을 나타냅니다.
+
+* <Cmdname sid="performance_trend_chart" className="b600" report/>: 시스템의 주요 지표들을 시각적으로 표현한 시계열 차트입니다. 시간의 흐름에 따라 주요 지표들의 수치를 확인할 수 있습니다. 시스템의 안정성 및 성능을 평가하는데 중요한 지표입니다.
+
+  :::note
+
+  * 일별 변화량과 일별 평균 및 최댓값을 제공합니다.
+
+  * <Csvdownload />
+
+  :::
+
+* <Cmdname sid="transaction" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/>: <Cmdname sid="txcount" className="b600" report/>, <Cmdname sid="error_cnt" className="b600" report/>, <Cmdname sid="res_time_avg" className="b600" report/> 기준으로 상위 10개의 트랜잭션을 확인할 수 있습니다. 각 트랜잭션의 일주일 전과 조회 주의 실행 건수, 증감 건을 제공합니다.
+
+* <Cmdname sid="top_stack" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/>: 스택 트레이스 상위 10개를 일주일 전과 조회 주간의 퍼센트와 건수를 비교한 목록입니다. 가장 많이 호출되는 스택 항목을 식별할 수 있습니다.
+
+  :::note
+
+  <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> &gt; <Cmdname sid="topstack" className="uitext" /> 메뉴에서 스택 상세 내용을 조회할 수 있습니다.
+
+  :::
+
+* <Cmdname sid="sql_res_time" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/> <Cmdname sid="sql_res_time_support" className="b600" report/>: SQL 평균응답시간을 기준으로 상위 10개의 SQL 문을 비교한 목록입니다. 각 SQL 문에 대해 일주일 전과 조회 주의 실행 건수, 평균 응답 시간, 증감 시간을 제공합니다.
+
+* <Cmdname sid="errors_in_project2" className="b600" report/>: 한 주간의 프로젝트의 에러 통계를 에러 클래스와 에러 메시지 기준으로 제공하는 통계 정보입니다.

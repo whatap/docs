@@ -1,0 +1,120 @@
+import Csvdownload from "../common-items/_csv-download.mdx";
+
+## 일간 보고서
+
+하루 동안 애플리케션 성능의 변화를 확인할 수 있는 보고서를 제공합니다. 일간 보고서로 제공하는 보고서 양식은 다음과 같습니다.
+
+* [<Cmdname sid="A001_AppDailyReport" className="uitext" report/>](#A001_AppDailyReport)
+
+* [<Cmdname sid="A004_AppDailyProjectPerfReport" className="uitext" report/>](#A004_AppDailyProjectPerfReport)
+
+* [<Cmdname sid="A006_AppUserStatReport" className="uitext" report/>](#A006_AppUserStatReport)
+
+* [<Cmdname sid="A00_DailyReportTag" className="uitext" report/>](#A00_DailyReportTag)
+
+* [<Cmdname sid="A012_AppDailyOidCustomReport" className="uitext" report/>](#A012_AppDailyOidCustomReport)
+
+### 일간 애플리케이션 보고서 {#A001_AppDailyReport}
+
+하루 동안 애플리케이션 성능에 대한 주요 지표를 종합적으로 분석할 수 있는 보고서입니다.
+
+:::note
+
+주요 용어 및 지표에 대한 자세한 내용은 [다음 문서](#metricdesc)를 참조하세요.
+
+:::
+
+* <Cmdname sid="overview" className="b600" report />: 애플리케이션의 주요 성능 지표를 확인할 수 있습니다.
+
+* <Cmdname sid="peaktime_performance_summary" className="b600" report/>: 하루 동안 처리량(TPS)이 가장 높았던 시간과 해당 시간의 지푯값을 확인할 수 있습니다.
+
+* <Cmdname sid="avg_max_by_metrics" className="b600" report/>: 하루 동안 주요 지표별 평균값과 발생 시간 기준 최댓값을 확인할 수 있습니다.
+
+* <Cmdname sid="performance_trend_chart" className="b600" report/>: 시스템의 주요 지표들을 시각적으로 표현한 시계열 차트입니다. 시간의 흐름에 따라 주요 지표들의 수치를 확인할 수 있습니다. 시스템의 안정성 및 성능을 평가하는데 중요한 지표입니다.
+
+  :::note
+
+  * <Cmdname sid="A100_AppWeeklyReport" className="b600" report/>는 일별 변화량을 추가 제공합니다.
+
+  * <Csvdownload />
+
+  :::
+
+* <Cmdname sid="daily_hitmap" className="b600" report/>: 하루 동안 시간대별 트랜잭션 분포와 에러 발생 상황을 한눈에 파악할 수 있습니다. 그래프의 x축은 각 트랜잭션의 종료 시각, y축은 응답시간(초)을 의미합니다. 정상 트랜잭션의 경우 <span class='ntrs'>파란색</span>으로 표시되고, 에러가 발생한 경우 <span class='etrs'>빨간색</span>으로 표시됩니다.
+
+  <ImgLang img='app_daily_report_03.png' desc='' />
+
+* <Cmdname sid="application_summary" className="b600" report/>: 모니터링 대상 에이전트별 현황을 확인할 수 있습니다. <Cmdname sid="active_cnt" className="b600" report/>는 진행 중인 트랜잭션 건수입니다.
+
+* <Cmdname sid="transaction" className="b600" report/> **TOP 10**: <Cmdname sid="txcount" className="b600" report/>, <Cmdname sid="error_cnt" className="b600" report/>, <Cmdname sid="res_time_avg" className="b600" report/> 기준으로 상위 10개의 트랜잭션을 확인할 수 있습니다.
+
+* <Cmdname sid="top_stack" className="b600" report/> **TOP 10**: Stack Trace 상의 스텝을 기준으로 스텝 간의 호출 빈도를 비율로 계산한 정보를 간소화하여 볼 수 있습니다.
+
+  :::note
+
+  <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> &gt; <Cmdname sid="topstack" className="uitext" /> 메뉴에서 스택 상세 내용을 조회할 수 있습니다.
+
+  :::
+
+* <Cmdname sid="sql_res_time" className="b600" report/> **TOP 10**: 사용된 SQL 쿼리문에 대해 평균 응답시간을 기준으로 정렬한 통계 정보입니다.
+
+  :::note
+
+  * **증가%**: 조회 전일까지 3일간의 평균 데이터와 조회 당일 데이터를 비교하여 증가한 비율을 계산한 수치입니다.
+
+    > 예, `4월 25일 00시 00분` \~ `23시 59분` 데이터 조회 → `4월 22일 00시 00분` \~ `4월 24일 23시 59분` 데이터와 비교  
+    해당 수치가 10% 이상인 경우 <span class='ov10'>붉은색</span>으로, 5%\~10% 사이인 경우 <span class='ov5ud10'>주황색</span>으로 표시됩니다. 5% 미만의 증가율은 표시하지 않습니다.
+
+  * <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_statSql" className="uitext" /> 메뉴에서 각 쿼리의 발생 시간 및 성능을 상세 조회할 수 있습니다.
+
+  :::
+
+### 애플리케이션 피크 성능 비교 {#A004_AppDailyProjectPerfReport}
+
+모니터링 대상 에이전트별로 애플리케이션의 최대 성능 지표를 일간(<span class="vslow">빨간색</span>), 전일(<span class="normal">파란색</span>), 그리고 지난주(<span class="snormal">녹색</span>) 데이터와 비교하여 제공합니다. 각 지표는 특정 시간대의 최대값과 그에 대응하는 시간의 지푯값을 함께 표시합니다. 이를 통해 각 애플리케이션의 성능 변동을 한눈에 파악할 수 있습니다.
+
+:::note
+
+주요 용어 및 지표에 대한 자세한 내용은 [다음 문서](#metricdesc)를 참조하세요.
+
+:::
+
+### 일간 애플리케이션 사용자 통계 {#A006_AppUserStatReport}
+
+10초, 5분, 30분 단위 동시 접속 사용자와 1시간 방문자 수를 시계열 차트로 제공하는 보고서입니다. 이 보고서는 사용 패턴을 이해하고 사용자 트래픽을 효과적으로 관리하는 데 중요한 데이터로 활용할 수 있습니다.
+
+* **10s** <Cmdname sid="realtime_user" className="b600" report/>: 실시간 트래픽 변화를 세밀하게 모니터링하여 사용자 수가 갑작스럽게 증가하는 시간대를 확인할 수 있습니다. 또한 사용자가 집중되는 시간대에 콘텐츠 및 서비스를 제공하는 전략을 수립할 수도 있습니다.
+
+* **5m** / **30m** <Cmdname sid="realtime_user" className="b600" report/>: 중단기적 사용자 패턴을 분석하여 서버 자원 및 네트워크 대역폭을 효율적으로 배분할 수 있습니다. 피크 시간대를 예측하여 해당 시간대에 더 많은 자원을 할당하는 계획을 수립할 수 도 있습니다.
+
+* **1h** <Cmdname sid="visitor" className="b600" report/>: 시간별로 사용자의 방문 패턴을 분석해 마케팅 전략 및 운영 계획에 활용할 수 있습니다.
+
+### 일간 메트릭 추이현황(Avg/Max) {#A00_DailyReportTag}
+
+애플리케이션의 다양한 성능 지표를 시계열 차트로 제공하는 보고서입니다. 각 지표의 평균 및 최댓값을 시각적으로 표현합니다. 이를 통해 시스템의 성능 추이를 모니터링하고 성능 최적화 및 문제 해결에 필요한 데이터로 활용할 수 있습니다.
+
+차트의 제목은 **Category[Field]** 형식으로 구성되어 있습니다. 애플리케이션의 성능 지표에 대한 자세한 내용은 [다음 문서](metrics-app)를 참조하세요.
+
+:::note
+
+* <UI>Avg.</UI>: <span class="normal">파란색</span> 선으로 표시되며, 각 시간대의 평균값입니다.
+
+* <UI>Max.</UI>: <span class="vslow">빨간색</span> 선으로 표시되며, 각 시간대의 최댓값입니다.
+
+:::
+
+### 일간 애플리케이션 사용자정의 보고서 {#A012_AppDailyOidCustomReport}
+
+사용자가 원하는 지표를 선택해 보고서를 생성할 수 있습니다. 선택한 지표를 기준으로 시계열 차트를 제공하는 보고서를 만들 수 있습니다.
+
+![Custom report](/img/apm-custom-report.png)
+
+1. 화면 위에 <Cmdname sid="report" className="uitext" />에서 <Cmdname sid="A012_AppDailyOidCustomReport" className="uitext" report />를 선택하세요.
+
+1. <Cmdname sid="layout_setting" className="uitext" />에서 원하는 단수를 설정하세요.
+
+1. 원하는 지표를 선택하세요. 전체를 선택하려면 <Cmdname sid="select_all" className="uitext" />을 클릭하세요.
+
+1. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+보고서가 생성됩니다.

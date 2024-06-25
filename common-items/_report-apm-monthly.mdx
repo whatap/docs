@@ -1,0 +1,35 @@
+import Csvdownload from "../common-items/_csv-download.mdx";
+
+## 월간 애플리케이션 보고서 {#A200_AppMonthlyReport}
+
+한 달간 애플리케이션 성능에 대한 주요 지표를 종합적으로 분석할 수 있는 보고서입니다.
+
+:::note
+
+주요 용어 및 지표에 대한 자세한 내용은 [다음 문서](#metricdesc)를 참조하세요.
+
+:::
+
+* <Cmdname sid="overview" className="b600" report />: 애플리케이션의 주요 성능 지표를 확인할 수 있습니다.
+
+* <Cmdname sid="application_summary" className="b600" report/>: 에이전트별 <Cmdname sid="ip_address" className="b600" report/>, <Cmdname sid="os_info" className="b600" report/>, <Cmdname sid="operating_rate" className="b600" report/>을 확인할 수 있습니다.
+
+* <Cmdname sid="performance_trend_chart" className="b600" report/>: 시스템의 주요 지표들을 시각적으로 표현한 시계열 차트입니다. 시간의 흐름에 따라 주요 지표들의 수치를 확인할 수 있습니다. 시스템의 안정성 및 성능을 평가하는데 중요한 지표입니다.
+
+  :::note
+
+  <Csvdownload />
+
+  :::
+
+* <Cmdname sid="transaction" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/>: <Cmdname sid="txcount" className="b600" report/>, <Cmdname sid="error_cnt" className="b600" report/>, <Cmdname sid="res_time_avg" className="b600" report/> 기준으로 상위 10개의 트랜잭션을 확인할 수 있습니다. 각 트랜잭션의 한달 전과 조회 당월의 실행 건수, 증감 건을 제공합니다.
+
+* <Cmdname sid="top_stack" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/>: 스택 트레이스 상위 10개를 한달 전과 조회 당월의 퍼센트와 건수를 비교한 목록입니다. 가장 많이 호출되는 스택 항목을 식별할 수 있습니다.
+
+  :::note
+
+  <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> &gt; <Cmdname sid="topstack" className="uitext" /> 메뉴에서 스택 상세 내용을 조회할 수 있습니다.
+
+  :::
+
+* <Cmdname sid="sql_res_time" className="b600" report/> **TOP 10** <Cmdname sid="comparison" className="b600" report/>: SQL 평균 응답 시간을 기준으로 상위 10개의 SQL 문을 비교한 목록입니다. 각 SQL 문에 대해 한달 전과 조회 당월의 실행 건수, 평균 응답 시간, 증감 시간을 제공합니다.

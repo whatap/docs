@@ -12,24 +12,24 @@ tags: [ Server, 보고서, 분석하기, UI ]
 
 */}
 
-홈 화면 > 프로젝트 선택 > ***보고서***
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_report" className="uitext" />
 
-와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 프로젝트 메뉴 하위에 ***보고서***를 선택하세요. 보고서 화면에서 ![down-arrow](/img/down-arrow.svg) 버튼을 클릭하면 일간, 주간, 월간으로 분류된 각종 분석 보고서를 확인할 수 있습니다.
+화면 위에 <Cmdname sid="report" className="uitext" />에서 ![down-arrow](/img/down-arrow.svg) 버튼을 클릭하면 일간, 주간, 월간으로 분류된 각종 분석 보고서를 확인할 수 있습니다. 원하는 보고서 양식을 선택한 다음 조회하길 원하는 날짜와 시간, 필터 옵션을 설정하세요. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하면 선택한 보고서를 확인할 수 있습니다.
 
-## ***일간 서버 보고서***
+## 일간 서버 보고서 {#S001_ServerDaily_TagReport}
 
-***일간 서버 보고서***는 하루 동안의 서버 자원 사용량을 확인할 수 있는 보고서입니다. 시작일, 시작 시간, 종료 시간을 직접 설정하여 조회할 수 있습니다.
+<Cmdname sid="S001_ServerDaily_TagReport" className="uitext" report />는 하루 동안의 서버 자원 사용량을 확인할 수 있는 보고서입니다. 시작일, 시작 시간, 종료 시간을 직접 설정하여 조회할 수 있습니다.
 
-### 개요
+### 개요 {#overview}
 
 <ImgLang img='server_daily_report_01.png' desc='일간 서버 보고서 개요'/>
 
 프로젝트 이름과 호스트 수, 발생한 알림 건수를 요약해서 볼 수 있습니다. 호스트 건수와 알림 건수의 경우 전날과 비교하여 얼마나 변동이 있었는지를 함께 확인할 수 있습니다.
 
-* **호스트 건수** : 조회 기간 동안의 총 서버 개수입니다.
-* **알림 건수** : 조회 기간 동안 발생한 알림의 전체 건수입니다.
+* <Cmdname sid="host_count" className="b600" report/>: 조회 기간 동안의 총 서버 개수입니다.
+* <Cmdname sid="alert_count" className="b600" report/>: 조회 기간 동안 발생한 알림의 전체 건수입니다.
 
-### 서버 목록
+### 서버목록 {#server_list}
 
 <ImgLang img='server_daily_report_02.png' desc='일간 서버 보고서 서버 목록'/>
 
@@ -43,13 +43,13 @@ CPU, 메모리의 평균, 최댓값이 90% 이상인 경우 <span class='loger'>
 
 :::
 
-### 알림 기록
+### 알림 기록 {#alert_history}
 
 <ImgLang img='server_daily_report_03.png' desc='알림 목록'/>
 
 조회한 시간 동안 발생한 알림 기록에 대해 발생 시간, 등급, 발생한 서버 이름, 해당 알림이 발생한 원인을 확인할 수 있습니다.
-각 알림에 대한 상세 정보는 ***경고 알림*** > ***이벤트 기록*** 메뉴에서 조회할 수 있습니다.
-해당 프로젝트에 대해 알림 기록이 없는 경우 '해당 기간에 데이터가 존재하지 않습니다'라는 안내 문구가 뜰 수 있습니다.
+각 알림에 대한 상세 정보는 <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventHistory" className="uitext" /> 메뉴에서 조회할 수 있습니다.
+해당 프로젝트에 대해 알림 기록이 없는 경우 <Cmdname sid="no_data" className="uitext" report />라는 안내 문구가 뜰 수 있습니다.
 
 :::note
 
@@ -57,15 +57,15 @@ CPU, 메모리의 평균, 최댓값이 90% 이상인 경우 <span class='loger'>
 
 :::
 
-## ***주간 서버 보고서***
+## 주간 서버 보고서 {#S100_ServerWeeklyReport}
 
-***주간 서버 보고서***는 일주일간 서버의 CPU, Memory 사용량을 확인할 수 있는 보고서입니다.
+<Cmdname sid="S100_ServerWeeklyReport" className="uitext" report/>는 일주일간 서버의 CPU, Memory 사용량을 확인할 수 있는 보고서입니다.
 시작일을 직접 설정할 수 있으며, 조회 당일 기준 7일 전부터 조회 가능합니다.
 시작일로부터 7일간의 데이터를 조회합니다.
 
-### 전체 자원 사용 목록
+### 전체 자원 사용 목록 {#total_resource_used_list}
 
-#### CPU
+#### <Cmdname sid="_cpu" report/>
 
 <ImgLang img='server_weekly_report_cpu.png' desc='주간 전체 자원 사용 목록 CPU'/>
 
@@ -80,14 +80,14 @@ CPU, 메모리의 평균, 최댓값이 90% 이상인 경우 <span class='loger'>
 
 :::
 
-#### 메모리
+#### <Cmdname sid="_mem" report/>
 
 <ImgLang img='server_weekly_report_memory.png' desc='주간 전체 자원 사용 목록 메모리'/>
 
 조회 기간 동안 각 서버의 메모리 사용량을 일별로 조회합니다.
 조회되는 항목으로는 메모리 사용 평균값, 최댓값이 있으며, 각 수치는 백분율로 표시됩니다.
 
-#### 디스크
+#### <Cmdname sid="_disk" report/>
 
 <ImgLang img='server_weekly_report_disk.png' desc='주간 전체 자원 사용 목록 디스크'/>
 
@@ -101,35 +101,35 @@ CPU, 메모리의 평균, 최댓값이 90% 이상인 경우 <span class='loger'>
 
 :::
 
-## ***월간 서버 보고서***
+## 월간 서버 보고서 {#S200_ServerMonthlyReport}
 
-***월간 서버 보고서***는 한 달 동안의 서버의 자원 사용량 및 정보를 확인할 수 있는 보고서입니다.
+<Cmdname sid="S200_ServerMonthlyReport" className="uitext" report />는 한 달 동안의 서버의 자원 사용량 및 정보를 확인할 수 있는 보고서입니다.
 시작일을 직접 설정할 수 있으며, 조회 당일 기준 30일 전부터 조회 가능합니다.
 
-### 개요
+### 개요 {#overview}
 
 <ImgLang img='server_monthly_report_01.png' desc='월간 서버 보고서 개요'/>
 
 한 달 동안 서버의 전체 자원 사용 내역을 취합하여 볼 수 있습니다.
 
-* **전체 호스트** : 조회 기간 동안의 총 서버 개수입니다.
-* **전체 코어** : 조회 기간 동안 사용된 총 코어 개수입니다.
-* **전체 디스크** : 조회 기간 동안 마운트 된 총 파일 시스템 크기입니다.
-* **전체 알림** : 조회 기간 동안 발생한 알림의 전체 건수입니다.
+* <Cmdname sid="total_host" className="b600" report/>: 조회 기간 동안의 총 서버 개수입니다.
+* <Cmdname sid="total_core" className="b600" report/>: 조회 기간 동안 사용된 총 코어 개수입니다.
+* <Cmdname sid="total_disk" className="b600" report/>: 조회 기간 동안 마운트 된 총 파일 시스템 크기입니다.
+* <Cmdname sid="total_alarms" className="b600" report/>: 조회 기간 동안 발생한 알림의 전체 건수입니다.
 
-### 서버 정보
+### 서버정보 {#server_info}
 
 <ImgLang img='server_monthly_report_02.png' desc='서버 정보'/>
 
 조회 기간 동안 가동된 서버의 IP 주소, OS 정보, CPU 정보, 메모리 사용량을 보여줍니다.
 
-### 알림 내역
+### 알림내역 {#alarms_list}
 
 <ImgLang img='server_monthly_report_03.png' desc='알림 내역'/>
 
 조회 기간의 전체 서버에 대한 총 알림 건수를 확인할 수 있으며, 서버별로 발생한 알림을 주 단위로 나누어 볼 수 있습니다.
 
-### 서버 사용 목록
+### 서버 사용 목록 {#server_usage_history}
 
 <ImgLang img='server_monthly_report_04.png' desc='서버 사용 목록'/>
 

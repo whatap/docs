@@ -14,7 +14,6 @@ EKS Fargate는 지원 예정입니다.
 
 PHP 애플리케이션 도커 이미지 빌드 시 whatap-php 패키지를 설치하세요.
 
-
 <Tabs>
 <TabItem value="x64" label="x64" default>
 
@@ -125,7 +124,7 @@ Supervisor로 애플리케이션을 시작하는 경우 다음 코드를 참조�
 ```docker
 
 RUN echo "[program:whatap-php]" >> /etc/supervisor/conf.d/whatap.conf
-RUN echo "command = /usr/whatap/php/whatap-php start" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "command = sh -c ‘/usr/whatap/php/whatap-php start’" >> /etc/supervisor/conf.d/whatap.conf
 RUN echo "user = root" >> /etc/supervisor/conf.d/whatap.conf
 RUN echo "startsecs = 0" >> /etc/supervisor/conf.d/whatap.conf
 RUN echo "autostart = true" >> /etc/supervisor/conf.d/whatap.conf

@@ -174,7 +174,7 @@ Supervisor로 애플리케이션을 시작하는 경우 다음 코드를 참조�
 
 ```docker
 RUN echo "[program:whatap-agent]" >> /etc/supervisor/conf.d/whatap.conf
-RUN echo "command = /usr/whatap/agent/whatap-agent start" >> /etc/supervisor/conf.d/whatap.conf
+RUN echo "command = sh -c ‘/usr/whatap/agent/whatap-agent start’" >> /etc/supervisor/conf.d/whatap.conf
 RUN echo "user = root" >> /etc/supervisor/conf.d/whatap.conf
 RUN echo "startsecs = 0" >> /etc/supervisor/conf.d/whatap.conf
 RUN echo "autostart = true" >> /etc/supervisor/conf.d/whatap.conf

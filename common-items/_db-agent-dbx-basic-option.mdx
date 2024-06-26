@@ -8,7 +8,7 @@
 
   에이전트가 수집한 데이터를 전송할 와탭 수집 서버의 IP 주소를 설정하세요. 수집 서버 이중화로 2개 이상의 IP를 가진 경우 쉼표(,)를 구분자로 사용하세요. 설정한 IP 주소에는 수집 서버 proxy 데몬이 리스닝 상태로 서비스돼야 합니다.
 
-<Xclude product="oracle-dma">
+<Xclude product="oracle-pro">
 
 * **whatap.server.port** <span class='type'>String</span>
 
@@ -28,9 +28,9 @@
 
 </Xclude>
 
-<InDoc product="oracle-dma">
+<InDoc product="oracle-pro">
 
-* **ipc_key** <span class='type'>String</span>
+* **ipckey** <span class='type'>String</span>
 
   `ipcs -m` 명령어를 통해 얻을 수 있습니다. 모니터링할 오라클의 Key 값(16진수)입니다.
 
@@ -50,7 +50,7 @@
 
 </InDoc>
 
-<Xclude product="oracle-dma">
+<Xclude product="oracle-pro">
 
 * **db_ip** <span class='type'>String</span>
 
@@ -58,7 +58,7 @@
 
 </Xclude>
 
-<Xclude product='cubrid,oracle-dma'>
+<Xclude product='cubrid,oracle-pro'>
 
 * **db_port** <span class='type'>String</span>
 

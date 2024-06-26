@@ -1,42 +1,51 @@
-### app_proc_counter {#2906a15634d6cd021d6aff54d886d9c5}
----
+## app_proc_counter {#appproccounter}
 
-애플리케이션 프로세스 지표입니다.
+애플리케이션 프로세스 지표를 수집한 데이터의 카테고리입니다.
 
-* 수집 간격 : 5초
-* 통계 데이터 : 5분, 1시간
+* 수집 간격: 5초
+* 통계 데이터: 5분, 1시간
 
-#### Tags {#667f1f457e1051e615455d0ecf95b947}
+### Tags {#appproccounter-tags}
+
+<div className="c3-30-60-10">
 
 |태그명|설명|비고|
 |----|----|----|
-|container|컨테이너 이름|고유값|
-|containerKey|컨테이너 키 값|고유값|
-|host_ip|Host IP|고유값|
-|okindName|애플리케이션 종류명|-|
-|oname|에이전트 이름|고유값|
-|onodeName|애플리케이션 노드명|-|
-|pid|애플리케이션 PID|-|
-|type|애플리케이션 유형|언어 이름|
+|`alias`|애플리케이션 별칭|고유값|
+|`container`|컨테이너 이름|고유값|
+|`containerKey`|컨테이너 키값|고유값|
+|`host_ip`|호스트 IP 주소|고유값|
+|`okindName`|`whatap.okind`로 분류된 그룹 이름|-|
+|`oname`|에이전트 이름|고유값|
+|`onodeName`|`whatap.onode`로 분류된 그룹 이름|-|
+|`pid`|특정프로세스의 고유 식별자(ID)|-|
+|`type`|플랫폼 유형(애플리케이션 개발 언어)|언어 이름|
 
-#### Fields {#9a189c13b76ce8b9d1784cf1c790f766}
+</div>
+
+### Fields {#appproccounter-fields}
+
+<div className="c4-20-10-50-10">
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
-|cputime|밀리 세컨드|트랜잭션 cpu 시간|-|
-|db_num_active|정수|DB Connection Pool Active 수|-|
-|db_num_idle|정수|DB Connection Pool Idel 수|-|
-|gc_count|회수|GC 발생 회수|-|
-|gc_oldgen_count|건수|Old Generation GC 건수|-|
-|gc_time|밀리 세컨드|GC 수행 시간|-|
-|heap_max|바이트|힙 최대량|-|
-|heap_perm|바이트|Perm 사용량|-|
-|heap_tot|바이트|힙 총량|-|
-|heap_use|바이트|힙 사용량|-|
-|pending_finalization|정수|GC 중 fianlize 수행을 위해 대기 중인 객체 수|-|
-|proc_fd|정수|프로세스 fd 사용수|-|
-|proc_fd_max|정수|프로세스 fd 최대수|-|
-|thread_count|정수|JVM 실행중인 스레드 수|-|
-|thread_daemon|정수|JVM 데몬 스레드 수|-|
-|thread_peak_count|정수|JVM 최대 스레드 수|-|
-|thread_total_started|정수|JVM 실행 이후 총 start된 스레드 수|-|
+| `cputime` | 밀리초(ms) | 트랜잭션 cpu 시간 | - |
+| `db_num_active` | count | DB Connection Pool Active 수 | - |
+| `db_num_idle` | count | DB Connection Pool Idel 수 | - |
+| `gc_count` | count | GC 발생 횟수 | - |
+| `gc_oldgen_count` | count | Old Generation GC 건수 | - |
+| `gc_time` | 밀리초(ms) | GC 수행 시간 | - |
+| `heap_max` | byte | 힙 메모리의 최댓값 | - |
+| `heap_perm` | byte | Perm 영역의 메모리 사용량 | - |
+| `heap_tot` | byte | 현재 할당된 힙 메모리의 총량 | - |
+| `heap_use` | byte | 현재 사용 중인 힙 메모리의 양 | - |
+| `pending_finalization` | count | GC 중 finalize 수행을 위해 대기 중인 객체 수 | - |
+| `proc_fd` | count 프로세스가 열고 있는 파일 디스크립터(file descriptors)의 수 | - |
+| `proc_fd_max` | count | 프로세스가 열 수 있는 최대 파일 디스크립터 수 | - |
+| `thread_count` | count | JVM에서 실행 중인 스레드의 총 수 | - |
+| `thread_daemon` | count | JVM에서 실행 중인 데몬 스레드의 수 | - |
+| `thread_peak_count` | count | JVM이 실행되는 동안 관찰된 스레드 수의 최댓값 | - |
+| `thread_total_started` | count | JVM이 시작된 이후 생성된 총 스레드 수 | - |
+| `threadpool_activeCount` | count | 현재 실행 중인 스레드 풀의 스레드 수 | - |
+
+</div>

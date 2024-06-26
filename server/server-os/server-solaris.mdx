@@ -1,0 +1,48 @@
+---
+id: server-solaris
+title: Oracle Solaris
+description: Oracle Solaris 환경에서 에이전트를 설치하는 방법을 제공합니다.
+tags: [ Server, 설치하기, Solaris ]
+hide_table_of_contents: true
+draft: true
+---
+
+:::note 
+
+Oracle Solaris 11.2 버전 이상부터 지원합니다.
+
+:::
+
+신규 생성한 서버 모니터링 프로젝트를 선택하면 <Cmdname sid="side_agentInstall" className="uitext" /> 화면이 나타납니다. 프로젝트 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴를 통해서도 가능합니다.
+
+<ImgLang img='server-install-oracle-solaris.png' desc='서버 모니터링 Solaris'/>
+
+<Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 운영체제 선택 화면에서 ***Oracle Solaris*** 선택 후 프로젝트 액세스 키를 확인했다면 다음 안내대로 설치를 진행하세요. 
+
+1. 다운로드 명령어를 실행하거나 <Cmdname sid="TTL07853" className="uitext" /> 탭에서 설치 파일을 다운로드하세요. 
+
+    * 다음 명령어를 통해 에이전트 설치 파일을 다운로드하세요. 
+
+    ```bash 
+    wget https://repo.whatap.io/sunos/11/whatap-infra.latest.SPARC.pkg.tar.gz
+    ```
+
+    * *whatap_infra.zip* 버튼을 선택해 에이전트 설치 파일을 다운로드하세요.
+
+1. <Cmdname sid="server_installAgent_aix_runSetup" className="uitext" /> 탭으로 이동해 다음의 실행 명령어를 확인 후 패키지를 실행하세요.
+
+    ```bash 
+    tar xzvf whatap-infra.latest.SPARC.pkg.tar.gz
+    pkgadd -d .
+    ```
+
+### 에이전트 실행 
+
+다음 명령어를 실행해 서버 모니터링을 시작하세요. 애플리케이션 서버가 실행되면 에이전트가 모니터링 정보를 수집하기 시작합니다. 
+
+```bash 
+echo "license=x4t2322hcqshs-x1q9rv0b9rjvs6-x4jnrqfl5ce5g" |tee /usr/whatap/infra/conf/whatap.conf
+echo "whatap.server.host=127.0.0.1" |tee -a /usr/whatap/infra/conf/whatap.conf
+echo "createdtime=`date +%s%S`" |tee -a /usr/whatap/infra/conf/whatap.conf
+/etc/init.d/whatap-infra start
+```

@@ -8,7 +8,7 @@
 
 </InDoc>
 
-<Xclude product ='redis,mongodb'>
+<Xclude product ='redis,mongodb,oracle'>
 
 * **long_run_session_sec** <span class='type'>Second</span>
 
@@ -24,7 +24,7 @@
 
 </Xclude>
 
-<InDoc product='oracle,tibero,oracle-dma'>
+<InDoc product='tibero'>
 
 * **tables_min_size** <span class='type'>Int</span>
 
@@ -104,7 +104,7 @@
 
 </InDoc>
 
-<InDoc product='oracle,oracle-dma'>
+<InDoc product='oracle'>
 
 * **ora_ratio** <span class='type'>Boolean</span> <code class="my">DBX agent v1.6.11 or later</code>
 
@@ -126,6 +126,42 @@
   기본값 `true`
 
   에이전트에서 5초 단위로 수집한 데이터를 초 단위(`delta` 1초 값)로 환산해 보고하는 옵션입니다.
+
+* **segments** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  세그먼트 사이즈 정보를 수집합니다. <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴에서 해당 데이터베이스 또는 테이블스페이스를 선택하면 사이즈 정보를 확인할 수 있습니다.
+
+* **segments_hour** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  세그먼트 사이즈 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
+
+* **segments_min_size** <span class='type'>Int</span>
+
+  기본값 `10`
+
+  세그먼트 사이즈 정보를 수집하는 최소 단위로 기본값은 10MB 입니다. 세그먼트 사이즈 정보를 수집할 때 설정한 값보다 작은 크기의 세그먼트 사이즈 정보는 수집하지 않습니다.
+
+* **segments_exclude_sys** <span class='type'>Int</span>
+
+  기본값 `1`
+
+  sys에 해당하는 계정을 제외하고 사이즈 정보를 수집합니다.
+
+* **segments_sys** <span class='type'>String</span>
+
+  기본값 'SYS', 'OUTLN', 'SYSTEM', 'AUDSYS', 'DBSNMP', 'GSMADMIN_INTERNAL', 'XDB', 'WMSYS', 'OJVMSYS', 'CTXSYS', 'ORDSYS', 'ORDDATA', 'MDSYS', 'LBACSYS', 'DVSYS', 'DBSFWUSER', 'APPQOSSYS', 'OLAPSYS'
+
+  sys에 해당하는 계정 목록입니다. 위 계정에 추가하고 싶으면 `segment_sys += 'xxx'`로 추가할 수 있습니다.
+
+* **segments_max_count** <span class='type'>Int</span>
+
+  기본값 `50`
+
+  테이블스페이스 별로 사이즈가 큰 세그먼트 50개만 수집하여 저장합니다.
 
 </InDoc>
 

@@ -55,7 +55,38 @@ toc_max_heading_level: 2
 
 ### `Database`
 
-<Status>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴의 <Cmdname sid="database" className="uitext" /> 탭에서 <Cmdname sid="instance" className="uitext" /> 항목의 기본값이 <Cmdname sid="BTN07329" className="uitext" />로 설정되는 문제 수정
+#### 공통
+
+- <Status>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 일부 위젯의 이름 변경
+
+  - **Active sessions** → ***Active Session Count***
+
+  - **Long Active Sessions** → ***Long Active Session Count***
+
+- <Status>Changed</Status> 다음 메뉴 경로에서 <Cmdname sid="active_sessions" className="uitext" /> 섹션의 항목을 선택하면 나타나는 <Cmdname sid="session_detail" className="uitext" /> 창을 통해 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_sessionHistory" className="uitext" /> 메뉴로 이동하면 해당 세션이 수행되는 시간의 전후 30분을 기본 조회하도록 변경
+
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" />
+
+- <Status>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴의 <Cmdname sid="database" className="uitext" /> 탭에서 <Cmdname sid="instance" className="uitext" /> 항목의 기본값이 <Cmdname sid="BTN07329" className="uitext" />로 설정되는 문제 수정
+
+#### Oracle DMA
+
+- <Status>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 일부 위젯의 이름 변경
+
+  - **Bandwidth**  → ***[RAC] Interconnect Bandwidth***
+  - **Load Balance** → ***[RAC] Load Balance***
+  - ***Load Balance*** 위젯의 **physical reads** 필드 이름을 ***session logical reads*** 필드로 변경
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴에서 차트의 범례를 표시하는 방식 변경
+
+  - Multidb이면 중간 구분자를 언더바(\_) 에서 하이픈(\-)으로 변경
+
+  - Multidb가 아니면 중간 구분자를 표시하지 않도록 변경
+
+- <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 ***Interconnect Bandwidth*** 위젯과 ***Load Balance*** 위젯의 인스턴스 순서를 인스턴스 셀렉터의 순서와 동일하게 보여지도록 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_sessionHistory" className="uitext" /> 메뉴에서 차트 데이터와 테이블 데이터가 일치하지 않는 문제 수정
 
 </div>
 

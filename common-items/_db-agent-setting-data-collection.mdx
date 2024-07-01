@@ -18,7 +18,13 @@
 
 </InDoc>
 
-<Xclude product ='redis,mongodb,oracle'>
+<Xclude product ='redis,mongodb,oracle,oracle-v2'>
+
+* **tables_hour** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  테이블 사이즈 정보를 저장하기 위해 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
 
 * **tables_hour** <span class='type'>Int</span>
 
@@ -114,7 +120,7 @@
 
 </InDoc>
 
-<InDoc product='oracle'>
+<InDoc product='oracle,oracle-v2'>
 
 * **ora_ratio** <span class='type'>Boolean</span> <code class="my">DBX agent v1.6.11 or later</code>
 

@@ -15,6 +15,8 @@ import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
 
 <Youtube ko='e_UpCgapfQY' en='MIo3HRIOt8M' ja='MIo3HRIOt8M' />
 
+<Steps>
+
 import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
 <Createprojectv2 />
@@ -56,22 +58,28 @@ import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-acc
 
 <Dbcreatemonitoringaccount />
 
-{/* Oracle */}
-```bash showLineNumbers
-# 일반적인 경우
-create user whatap identified by DB_PASSWORD; ## 원하는 password를 입력하세요.
-grant create session to whatap;
-grant select any dictionary to whatap;
- 
-# 12c 이상에서 멀티태넌트의 경우 (접두어 c##)
-create user c##whatap identified by DB_PASSWORD; ## 원하는 password를 입력하세요.
-grant create session to c##whatap;
-grant select any dictionary to c##whatap;
-alter user c##whatap set container_data = ALL container = CURRENT;
- 
-# kill session 기능 사용시
-grant alter system to whatap
-```
+* 일반적인 경우
+
+  ```sql
+  create user whatap identified by DB_PASSWORD;
+  grant create session to whatap;
+  grant select any dictionary to whatap;
+  ```
+
+* 12c 이상에서 멀티태넌트의 경우 (접두어 c##)
+
+  ```sql
+  create user c##whatap identified by DB_PASSWORD;
+  grant create session to c##whatap;
+  grant select any dictionary to c##whatap;
+  alter user c##whatap set container_data = ALL container = CURRENT;
+  ```
+
+* kill session 기능을 사용하는 경우
+
+  ```sql
+  grant alter system to whatap
+  ```
 
 <details>
 
@@ -147,3 +155,9 @@ import Dbrunagent from "../common-items/_db-run-agent.mdx";
 import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
 
 <Dbinstallxosagent /> 
+
+</Steps>
+
+import NextStep from "../common-items/_db-next-step.mdx";
+
+<NextStep />

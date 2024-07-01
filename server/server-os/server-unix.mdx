@@ -1,0 +1,144 @@
+---
+id: server-unix
+title: Unix
+description: Unix 환경에서 와탭 서버 모니터링 에이전트를 설치하는 방법을 제공합니다.
+toc_max_heading_level: 2
+tags: [ Server, 설치하기, Unix, Aix, Oracle Solaris, FreeBSD ]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## FreeBSD
+
+신규 생성한 서버 모니터링 프로젝트를 선택하면 <Cmdname sid="side_agentInstall" className="uitext" /> 화면이 나타납니다. 프로젝트 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴를 통해서도 가능합니다.
+
+<ImgLang img='server-install-lx-unx.png' desc='서버 모니터링 Linux Unix'/>
+
+<Cmdname sid="side_agentInstall" className="uitext" /> 화면에서 원하는 운영체제 선택 후 프로젝트 액세스 키를 확인했다면 다음 안내대로 설치를 진행하세요. 
+
+1. 와탭 **리포지토리**를 등록하세요.  
+
+    <Cmdname sid="server_installAgent_add_whatapRepo" className="uitext" /> 탭에서 해당하는 명령어를 복사하여 입력합니다.
+
+    ```bash title=SH
+    wget http://repo.whatap.io/freebsd/10/whatap-infra.txz
+    ```
+
+1. 다음 명령어를 통해 **패키지**를 설치하세요.
+
+    <Cmdname sid="server_installAgent_installPackages" className="uitext" /> 탭에서 해당하는 명령어를 복사해 입력합니다.
+
+    ```bash title=SH
+    pkg install whatap-infra.txz
+    ```
+
+1. **설정 스크립트**를 실행하세요.
+
+    <Cmdname sid="server_installAgent_startMonitoring" className="uitext" /> 탭으로 이동해 명령어를 발급받거나, 하단의 명령어에 프로젝트 액세스 키와 서버 IP를 추가해 실행하세요.
+
+    ```bash
+    echo "license=[발급된 프로젝트 액세스 키]" |sudo tee /usr/whatap/infra/conf/whatap.conf
+    echo "whatap.server.host=[할당된 와탭 서버 IP]" |sudo tee -a /usr/whatap/infra/conf/whatap.conf
+    echo "createdtime=`date +%s%N`" |sudo tee -a /usr/whatap/infra/conf/whatap.conf
+    sudo service whatap-infra restart
+    ```
+
+import Svtcp6600 from "../../common-items/_sv-tcp6600.mdx";
+
+<Svtcp6600 />  
+
+<details>
+<summary>서버 에이전트 파일 구성</summary>
+
+import Svcpf from "../../common-items/_sv-cpf.mdx";
+
+<Svcpf />
+
+import Svlfcpf from "../../common-items/_sv-lf-cpf.mdx";
+
+<Svlfcpf />
+
+</details>
+
+## Aix 
+
+:::note 
+
+AIX 6.1 버전 이상부터 지원합니다.
+
+:::
+
+신규 생성한 서버 모니터링 프로젝트를 선택하면 <Cmdname sid="side_agentInstall" className="uitext" /> 화면이 나타납니다. 프로젝트 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴를 통해서도 가능합니다.
+
+<ImgLang img='server-install-unx-aix.png' desc='서버 모니터링 AIX'/>
+
+<Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 운영체제 선택 화면에서 ***AIX*** 선택 후 프로젝트 액세스 키를 확인했다면 다음 안내대로 설치를 진행하세요. 
+
+1. <Cmdname sid="TTL07853" className="uitext" /> 탭에서 *whatap-infra-latest.noarch.rpm* 버튼을 선택해 에이전트 설치 파일을 다운로드하세요.
+
+1. <Cmdname sid="server_installAgent_aix_runSetup" className="uitext" /> 탭으로 이동해 다음의 실행 명령어를 확인 후 패키지를 실행하세요.
+
+    ```bash 
+    rpm -Uvh whatap-infra-latest.noarch.rpm
+    ```
+
+:::note 
+
+서버 보안을 위해 **설치 파일**은 다운로드 형식으로만 제공합니다.
+
+:::
+
+### 에이전트 실행 
+
+다음 명령어를 실행해 서버 모니터링을 시작하세요. 애플리케이션 서버가 실행되면 에이전트가 모니터링 정보를 수집하기 시작합니다. 
+
+```bash 
+echo "license=x4t2322hcqshs-x1q9rv0b9rjvs6-x4jnrqfl5ce5g" |tee /usr/whatap/infra/conf/whatap.conf
+echo "whatap.server.host=127.0.0.1" |tee -a /usr/whatap/infra/conf/whatap.conf
+echo "createdtime=date +%s%S" |tee -a /usr/whatap/infra/conf/whatap.conf
+stopsrc -s whatap-infra
+startsrc -s whatap-infra
+```
+
+## Oracle Solaris
+
+:::note 
+
+Oracle Solaris 11.2 버전 이상부터 지원합니다.
+
+:::
+
+신규 생성한 서버 모니터링 프로젝트를 선택하면 <Cmdname sid="side_agentInstall" className="uitext" /> 화면이 나타납니다. 프로젝트 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴를 통해서도 가능합니다.
+
+<ImgLang img='server-install-oracle-solaris.png' desc='서버 모니터링 Solaris'/>
+
+<Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 운영체제 선택 화면에서 ***Oracle Solaris*** 선택 후 프로젝트 액세스 키를 확인했다면 다음 안내대로 설치를 진행하세요. 
+
+1. 다운로드 명령어를 실행하거나 <Cmdname sid="TTL07853" className="uitext" /> 탭에서 설치 파일을 다운로드하세요. 
+
+    * 다음 명령어를 통해 에이전트 설치 파일을 다운로드하세요. 
+
+        ```bash 
+        wget https://repo.whatap.io/sunos/11/whatap-infra.latest.SPARC.pkg.tar.gz
+        ```
+
+    * *whatap_infra.zip* 버튼을 선택해 에이전트 설치 파일을 다운로드하세요.
+
+1. <Cmdname sid="server_installAgent_aix_runSetup" className="uitext" /> 탭으로 이동해 다음의 실행 명령어를 확인 후 패키지를 실행하세요.
+
+    ```bash 
+    tar xzvf whatap-infra.latest.SPARC.pkg.tar.gz
+    pkgadd -d .
+    ```
+
+### 에이전트 실행 
+
+다음 명령어를 실행해 서버 모니터링을 시작하세요. 애플리케이션 서버가 실행되면 에이전트가 모니터링 정보를 수집하기 시작합니다. 
+
+```bash 
+echo "license=x4t2322hcqshs-x1q9rv0b9rjvs6-x4jnrqfl5ce5g" |tee /usr/whatap/infra/conf/whatap.conf
+echo "whatap.server.host=127.0.0.1" |tee -a /usr/whatap/infra/conf/whatap.conf
+echo "createdtime=`date +%s%S`" |tee -a /usr/whatap/infra/conf/whatap.conf
+/etc/init.d/whatap-infra start
+```

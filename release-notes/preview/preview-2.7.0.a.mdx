@@ -14,6 +14,81 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.7.0.a3
+
+2024년 07월 04일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Feature</Status> 사이드 메뉴에서 <Cmdname sid="all_projects" className="uitext" />를 선택해 프로젝트 목록을 펼치면, 프로젝트 검색 입력란에 자동 포커스되는 기능 추가
+
+- <Status>Changed</Status> ![사이트맵 아이콘](/img/ic-sitemap.svg) <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_netstatTopology" className="uitext" /> 메뉴의 예시 이미지를 영문으로 변경
+
+---
+
+### `Appication`
+
+- <Status>Feature</Status> 다음 메뉴 경로에서 조회 내용을 CSV 파일 다운로드 기능 추가
+
+  - <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_libraryVersion" className="uitext" />
+  - <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_bootEnvironmentVariable" className="uitext" />
+
+- <Status>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴에서 경로에서 선택한 에이전트의 에이전트 설정(*whatap.conf*) 파일 다운로드 기능 추가
+
+---
+
+### `Server`
+
+<Status>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴의 <Cmdname sid="sms_alert_info_mem" className="uitext" /> <Cmdname sid="detail" className="uitext" />에서 3시간 이상 조회하면 <Cmdname sid="memory_swapused" className="uitext" /> 차트가 표시되지 않는 문제 수정
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status>Feature</Status> 특정 날짜를 기준으로 설정된 시간대의 SQL의 추이를 비교하고 등락을 확인할 수 있는 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTopSqlComparison" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 다음 상품에서만 이용할 수 있습니다. 
+  
+  * [PostgreSQL](https://whatap.github.io/whatap-docs/postgresql/analysis-compare-top-sql)
+  * [MySQL](https://whatap.github.io/whatap-docs/mysql/analysis-compare-top-sql)
+  * [Oracle V2](https://whatap.github.io/whatap-docs/oracle-v2/analysis-compare-top-sql)
+  * [Oracle Pro](https://whatap.github.io/whatap-docs/oracle-pro/analysis-compare-top-sql)
+
+  :::
+
+- <Status>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 메뉴의 XOS2 지표 대체 안내 메시지가 더 이상 나타나지 않도록 변경
+
+- <Status>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 위젯 이름 변경(**Active Sessions Count** → ***Active Session***)
+
+#### Oracle <code className="my">V2</code>
+
+- <Status>New</Status> Oracle V2 서비스 오픈, 새로운 기능에 대한 자세한 내용은 [다음 문서](https://whatap.github.io/whatap-docs/oracle-v2/monitoring-intro#new-feature)를 참조하세요.
+
+- <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 메뉴에서 에이전트 업데이트 및 버전 변경 안내 팝업 추가
+
+- <Status>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_projectManagement" className="uitext" /> 메뉴에서 버전 선택을 할 수 있는 기능 추가
+
+- <Status>Feature</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 선택한 쿼리에 대한 통계 요약 정보를 제공하는 ***Runtime Plan*** 탭 추가
+
+#### Oracle Pro
+
+- <Status>Feature</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 `bind` 변수를 수정하고 조회할 수 있는 ***Explain Plan*** 탭 추가
+
+- <Status>Feature</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 선택한 쿼리에 대한 통계 요약 정보를 제공하는 ***Runtime Plan*** 탭 추가
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 특정 쿼리에 대한 테이블 데이터와 시리즈 데이터의 값이 맞지 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 시리즈 데이터가 제대로 표시되지 않는 문제 수정
+
+</div>
+
+
 ## Preview 2.7.0.a2
 
 2024년 06월 27일

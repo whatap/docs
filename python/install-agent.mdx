@@ -46,43 +46,35 @@ python setup.py install
 
 :::
 
-:::note
+### 에이전트 구성 파일
 
-에이전트 파일 구성에 대한 자세한 설명은 Python 에이전트 구성 파일을 참조하세요.
+Python 에이전트 파일은 애플리케이션 모니터링에 필요한 정보를 추출해 와탭 수집 서버로 전달하는 트레이서와 트레이서가 데이터를 보낼 수 있도록 돕는 요소로 구성되어 있습니다. 에이전트 파일 구성은 다음을 참조하세요.
 
-:::
+<Filetree name="whatap">
 
-<details>
+  <FiletreeItem name="agent" type="folder">애플리케이션 서버의 다양한 성능 지표를 수집해 서버에 전송하는 모니터링 에이전트 파일로 구성된 디렉터리입니다.</FiletreeItem>
 
-<summary>Python 에이전트 구성 파일</summary>
+  <FiletreeItem name="bootstrap" type="folder">Python 에이전트의 각종 데이터를 수집하는 역할의 파일로 구성된 디렉터리입니다. Python 에이전트가 시작할 때 실행됩니다.</FiletreeItem>
 
-Python 에이전트 파일은 애플리케이션 모니터링에 필요한 정보를 추출해 와탭 수집 서버로 전달하는 트레이서와 트레이서가 데이터를 보낼 수 있도록 돕는 요소로 구성되어 있습니다.
+  <FiletreeItem name="conf / control" type="folder">Python 에이전트의 설정과 제어를 담당하는 파일로 구성된 디렉터리입니다.</FiletreeItem>
 
-* *whatap*
+  <FiletreeItem name="net / pack" type="folder">UDP 통신과 관련한 파일로 구성된 디렉터리입니다. 수집한 데이터를 서버로 전송하는 역할을 수행합니다.</FiletreeItem>
 
-  * *agent*: 애플리케이션 서버의 다양한 성능 지표를 수집해 서버에 전송하는 모니터링 에이전트 파일로 구성된 디렉터리입니다.
+  <FiletreeItem name="trace" type="folder">애플리케이션별로 각종 트랜잭션 정보를 수집하는 파일로 구성된 디렉터리입니다.</FiletreeItem>
 
-  * *bootstrap*: Python 에이전트의 각종 데이터를 수집하는 역할의 파일로 구성된 디렉터리입니다. Python 에이전트가 시작할 때 실행됩니다.
+  <FiletreeItem name="paramkey.txt" type="file">
+  
+  추적한 트랜잭션의 트레이스 정보로 수집한 HTTP와 SQL 데이터의 파라미터 정보를 확인할 때 사용합니다. 보안 키를 파일에 저장하고 실제 수집된 데이터를 브라우저에서 확인하고자 할 때 파일에 저장해 둔 보안 키를 입력해야 조회할 수 있습니다. 파일의 내용을 직접 변경하여 보안 키를 수정할 수 있습니다. 관련 옵션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-  * *conf* / *control*: Python 에이전트의 설정과 제어를 담당하는 파일로 구성된 디렉터리입니다.
+  [profile_http_parameter_enabled](agent-transaction#profile_http_parameter)
 
-  * *net* / *pack*: UDP 통신과 관련한 파일로 구성된 디렉터리입니다. 수집한 데이터를 서버로 전송하는 역할을 수행합니다.
+  [profile_sql_param_enabled](agent-dbsql#profile-sql-param)
 
-  * *trace*: 애플리케이션별로 각종 트랜잭션 정보를 수집하는 파일로 구성된 디렉터리입니다.
+  </FiletreeItem>
 
-  * *whatap.conf*: 에이전트 설정 기본 필수 파일입니다. 에이전트와 관련된 옵션은 모두 *whatap.conf* 파일에서 설정 가능합니다.
+  <FiletreeItem name="setup.py" type="file">whatap 디렉터리 패키징을 위한 정의 파일입니다.</FiletreeItem>
 
-  * *paramkey.txt*: 추적한 트랜잭션의 트레이스 정보로 수집한 HTTP와 SQL 데이터의 파라미터 정보를 확인할 때 사용합니다. 
-    
-    보안 키를 파일에 저장하고 실제 수집된 데이터를 브라우저에서 확인하고자 할 때 파일에 저장해 둔 보안 키를 입력해야 조회할 수 있습니다. 파일의 내용을 직접 변경하여 보안 키를 수정할 수 있습니다. 관련 옵션에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-    * [profile_http_parameter_enabled](agent-transaction#profile_http_parameter)
-    
-    * [profile_sql_param_enabled](agent-dbsql#profile-sql-param)
-
-* *setup.py*: whatap 디렉터리 패키징을 위한 정의 파일입니다.
-
-</details>
+</Filetree>
 
 ### Docker
 

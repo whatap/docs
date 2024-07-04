@@ -1,0 +1,89 @@
+## 스레드 목록/덤프 {#side_threadList}
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" />
+
+<ImgLang img='ipa-thread-list-java.png' desc='스레드 목록/덤프' />
+
+{/* 이를 통해 Java 애플리케이션의 성능 문제를 진단하는데 이용할 수 있습니다. * ***상태***: 해당 스레드의 현재 상태를 확인할 수 있습니다. 또한 Java 애플리케이션 성능 문제를 진단하는데 활용할 수 있습니다.  */}
+
+Java 프로세스의 모든 스레드 상태에 대한 스냅샷 정보를 제공합니다. ***스레드 목록/덤프***는 CPU 최적화 작업에 핵심적인 메뉴입니다. 프로세스가 아닌 스레드 단위로 상태를 확인함으로써 CPU 자원을 더욱 세밀하게 관리할 수 있습니다. 예를 들어 조회 시점에 CPU를 가장 많이 사용하고 있는 스레드 특정 후 해당 스레드의 스택 정보를 확인해 성능 문제를 식별할 수 있습니다.
+
+* ***스레드 덤프***: 상단 오른쪽의 <code class='my'>스레드 덤프</code> 버튼을 클릭해 전체 스레드 덤프를 생성할 수 있습니다. 전체 스레드 덤프 생성 후 스레드 목록 하단에서 해당 정보를 확인할 수 있습니다. 
+
+* 개별 스레드 덤프: 각 스레드마다 ![확장 아이콘](/img/ico-expander.svg) 아이콘 선택 시 개별 스레드 덤프 정보를 확인할 수 있습니다. ***스택*** 및 ***Stack 추적***에서 스레드 상태와 실행 경로에 대한 세부 정보 및 스택 트레이스를 조회할 수 있습니다. ![새로고침 아이콘](/img/ico-refresh.png) 새로고침 해 확인할 수 있습니다. 자세한 내용은 [다음 문서](#thread-details)를 참조하세요.
+
+* ***스레드 CPU 시간***: 해당 스레드가 CPU를 점유한 누적 시간을 의미합니다. 밀리초 단위 시간을 사용합니다. 
+
+* ***증가량***: 스레드 목록 상단에서 ![새로고침 아이콘](/img/ico-refresh.png) 새로고침 아이콘을 클릭하면 기존 스레드 CPU 시간과 현재 스레드의 CPU 시간의 차잇값이 추가됩니다. 
+
+:::tip
+
+***스레드 CPU 시간***은 해당 스레드가 CPU를 점유한 총 누적 시간이기 때문에 조회 시점에 가장 많이 CPU를 사용하고 있는 스레드를 특정하기 위해서는 ***증가량*** 값 확인이 필요합니다. 자세한 내용은 [다음 문서](../best-practice-guides/about-instance-performance-analysis#advanced-use-thread-list-dump)를 참조하세요.
+
+:::
+
+:::note 
+
+**CPU 사용량 급증 유형**
+
+* 힙 메모리가 가득 찬 경우: 잦은 GC로 CPU 사용량 급증 
+
+* 실제 요청이 많은 경우: 대량의 클라이언트 요청 처리로 CPU 사용량 급증 
+
+* 잘못된 코드 로직: 비효율적인 알고리즘이나 무한 루프로 CPU 사용량 급증
+
+:::
+
+### 스레드 덤프 분석하기 {#thread-details}
+
+<Cmdname sid="thread_list" className="uitext" /> 메뉴에서 확인할 수 있는 개별 스레드 덤프 정보에 대해 안내합니다. 
+{/* <ScrollToLink anchor='thread-details' /> */}
+
+#### 스레드 상태 {#stateofthread}
+
+스레드의 상태는 `java.lang.Thread` 클래스 내부에 `State`라는 이름의 Enumerated Types(열거형)으로 선언된 항목들입니다.
+
+* `NEW`: 스레드가 생성되었지만 아직 실행되지 않은 상태입니다.
+
+* `RUNNABLE`: 현재 CPU를 점유하고 작업을 수행 중인 상태입니다. 운영체제의 자원 분배로 `WAITING` 상태가 될 수도 있습니다.
+
+* `WAITING`: `wait()`, `join()`, `park()` 메소드 등를 이용해 대기하고 있는 상태입니다.
+
+* `TIMED_WAITING`: `sleep()`, `wait()`, `join()`, `park()` 메소드 등을 이용해 대기하고 있는 상태, `WAITING` 상태와 다른 점은 주어진 시간 동안 대기하고 있는 상태입니다. 외부적인 변화 뿐만 아니라 시간에 의해서도 대기 상태가 해제될 수 있습니다.
+
+* `BLOCKED`: 사용하려는 개체의 락(Lock)이 풀릴 때까지 대기하고 있는 상태입니다.
+
+* `TERMINATED`: 실행을 마친 상태입니다.
+
+#### 스레드 덤프 정보
+
+스레드 목록에서 각 스레드의 <LinkImage img="ico-expander-black.svg" className="ico black" /> 버튼을 선택하면 개별 스레드 덤프 정보를 확인할 수 있습니다.
+
+<ImgLang img='ipa-java-thread-list.png' desc='스레드 덤프 정보' />
+
+##### <Cmdname sid="stack" />
+
+| 항목 | 속성 | 설명 |
+| -- | -- | -- |
+| <Cmdname sid="thread_id" className="uitext" /> | `threadId` | 스레드에 할당된 고유 ID |
+| <Cmdname sid="lock_owner_id" className="uitext" /> | `lockOwnerId` | 스레드가 차단된 개체의 모니터(Monitor) 잠금을 유지하는 스레드 ID |
+| <Cmdname sid="waited_count" className="uitext" /> | `waitedCount` | 스레드가 `WAITING` 또는 `TIMED_WAITING` 상태가 된 총 횟수 |
+| <Cmdname sid="blocked_count" className="uitext" /> | `blockedCount` | 스레드가 `BLOCKED` 상태가 된 총 횟수 |
+| <Cmdname sid="waited_time" className="uitext" /> | `waitedTime` | 스레드가 `WAITING` 상태를 지속한 경과 시간(밀리초), 스레드 경합 모니터링이 비활성화된 경우 `-1` 반환 |
+| <Cmdname sid="thread_cpu_time" className="uitext" /> | `threadCpuTime` | 스레드의 CPU 시간 합계(나노초)를 밀리초로 계산하여 표시, CPU 시간 측정을 비활성화한 경우 `-1` 반환 |
+| <Cmdname sid="status" className="uitext" /> | `threadstate` | 스레드 상태 |
+| <Cmdname sid="blocked_time" className="uitext" /> | `blockedTime` | 스레드가 `BLOCKED` 상태가 된 후 경과 시간(밀리초), 스레드 경합 모니터링이 비활성화된 경우 `-1` 반환 |
+| <Cmdname sid="thread_name" className="uitext" /> | `threadName` | 스레드 고유 이름 |
+| <Cmdname sid="lock_name" className="uitext" /> | `lockName` | 스레드의 입력이 차단되거나 `Object.wait` 메소드를 통해 통지를 기다리는 모니터 잠금을 표시한 문자열 |
+| <Cmdname sid="lock_owner_name" className="uitext" /> | `lockOwnerName` | 스레드가 차단되는 객체의 모니터 잠금을 수용하는 스레드 이름 |
+| <Cmdname sid="thread_user_time" className="uitext" /> | `threadUserTime` | 스레드가 사용자 모드에서 실행한 CPU 시간(나노초)을 밀리초로 계산하여 표시 |
+
+:::note
+
+스레드 정보에 대한 자세한 내용은 [다음 링크](https://docs.oracle.com/javase/8/docs/api/java/lang/management/ThreadInfo.html)를 참조하세요.
+
+:::
+
+##### <Cmdname sid="stack_trace" />
+
+예외가 발생했을 때 스택(Stack) 추적을 표시합니다. 스택 프레임 목록으로 코드가 호출한 메소드 정보가 포함되어 있습니다.

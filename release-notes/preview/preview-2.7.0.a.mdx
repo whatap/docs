@@ -37,6 +37,22 @@ toc_max_heading_level: 2
 
 - <Status>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴에서 경로에서 선택한 에이전트의 에이전트 설정(*whatap.conf*) 파일 다운로드 기능 추가
 
+- <Status>Changed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_heapDump" className="uitext" /> 메뉴에서 일본어 안내 메시지 변경
+
+- <Status>Changed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" />의 하위 메뉴에서 에이전트를 선택한 상태로 다른 하위 메뉴로 이동하면 에이전트 선택 사항을 유지하도록 변경
+
+- <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 메트릭스 이벤트 템플릿을 다음과 같이 변경했습니다.
+
+  - <Status>Deprecated</Status> 중복되는 **WARNING_OLD_GENARATION_GC** 템플릿 삭제
+
+  - <Status>Deprecated</Status> 불필요한 **WARNING_TPS_DELTA** 이벤트 삭제
+
+  - <Status>Changed</Status> ***TOO_MANY_ACTX*** 이벤트 조건 변경
+
+    - **기존**: `endsWith(okindName, 'ote-virtual-0') && startsWith(onodeName, 'node-0') && type == 'java'`
+
+    - **변경**: `active_tx_count > 100`
+
 ---
 
 ### `Server`

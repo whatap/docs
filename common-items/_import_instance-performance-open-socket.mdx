@@ -6,16 +6,16 @@
 
 Java 애플리케이션이 TCP 기능을 수행하기 위해 오픈한 소켓(Socket) 정보를 확인할 수 있습니다 이를 통해 애플리케이션 인스턴스가 데이터베이스와 같은 어떤 외부 시스템에 의존하는지 네트워크 의존성(Network Dependency)을 조회할 수 있습니다. 또한 누구와 아웃바운드 호출을 하고 있는지 추적할 수 있습니다. 이러한 정보는 TCP 통신의 효율성, 안정성 및 성능 최적화를 위해 중요합니다. 
 
-* ***건수***: 외부 시스템에 대한 연결 시도 횟수를 의미합니다. 
+* <Cmdname sid="count" className="uitext" />: 외부 시스템에 대한 연결 시도 횟수를 의미합니다. 
 
-* ***스택***: ***스택 확보***를 선택하여 다음 연결 시 확보한 스택을 조회 및 삭제할 수 있습니다. 
+* <Cmdname sid="stack" className="uitext" />: <Cmdname sid="get_stack" className="uitext" />를 선택하여 다음 연결 시 확보한 스택을 조회 및 삭제할 수 있습니다. 
 
-***건수*** 기준으로 정렬 후 ***호스트*** 및 ***포트***를 확인하여 어떤 서비스 또는 시스템과 연결이 많은지 확인할 수 있습니다. 이후 ***스택***을 확보해 상세 내용을 조회해 보세요. 
+<Cmdname sid="count" className="uitext" /> 기준으로 정렬 후 <Cmdname sid="host" className="uitext" /> 및 <Cmdname sid="port" className="uitext" />를 확인하여 어떤 서비스 또는 시스템과 연결이 많은지 확인할 수 있습니다. 이후 <Cmdname sid="stack" className="uitext" />을 확보해 상세 내용을 조회해 보세요. 
 
 :::note 
 
 **데이터베이스와 커넥션 풀**
 
-예를 들어 3306 ***포트***의 ***건수***가 증가 시 커넥션 풀을 사용하지 않거나 또는 커넥션 풀을 빈번하게 끊고 다시 만드는 등 MySQL의 커넥션 관리가 올바르게 이루어지지 않는 상황일 가능성이 있습니다. 해당 3306 ***포트***가 어떤 코드 경로에서 사용되고 있는지 파악하기 위해 ***스택***을 확보하여 추적할 수 있습니다.
+예를 들어 3306 <Cmdname sid="port" className="uitext" />의 <Cmdname sid="count" className="uitext" />가 증가 시 커넥션 풀을 사용하지 않거나 또는 커넥션 풀을 빈번하게 끊고 다시 만드는 등 MySQL의 커넥션 관리가 올바르게 이루어지지 않는 상황일 가능성이 있습니다. 해당 3306 <Cmdname sid="port" className="uitext" />가 어떤 코드 경로에서 사용되고 있는지 파악하기 위해 <Cmdname sid="stack" className="uitext" />을 확보하여 추적할 수 있습니다.
 
 :::

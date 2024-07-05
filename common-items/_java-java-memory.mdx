@@ -1,0 +1,36 @@
+## java_memory {#javamemory}
+
+애플리케이션이 실행되는 동안 JVM의 메모리 사용 상태에 대한 지표를 수집한 데이터의 카테고리입니다. 
+
+* 수집 간격: 5초
+* 통계 데이터: 5분, 1시간
+
+### Tags {#javamemory-tags}
+
+<div className="c3-30-60-10">
+
+|태그명|설명|비고|
+|----|----|----|
+|`host_ip`|호스트 IP 주소|고유값|
+|`okindName`|`whatap.okind`로 분류된 그룹 이름|-|
+|`oname`|에이전트 이름|고유값|
+|`onodeName`|`whatap.onode`로 분류된 그룹 이름|-|
+|`pid`|특정프로세스의 고유 식별자(ID)|-|
+
+</div>
+
+### Fields {#javamemory-fields}
+
+<div className="c4-20-10-50-10">
+
+|필드명|단위|설명|비고|
+|----|----|----|----|
+| `nonheap_committed` | byte | 비 힙 메모리 영역에서 OS로부터 할당받아 사용 가능한 메모리 양 | - |
+| `nonheap_init` | byte | JVM이 시작될 때 비 힙 메모리에 할당된 초기 크기 | - |
+| `nonheap_max` | byte | 비 힙 메모리 영역에서 설정된 최대 크기 | - |
+| `nonheap_used` | byte | 현재 사용 중인 비 힙 메모리의 양 | - |
+| `objectPendingFinalizationCount` | count | - | - |
+
+</div>
+
+{/* 수집 간격, 통계 데이터 시간 및 objectPendingFinalizationCount 정확한 정의, 다른 필드 검수 필요 */}

@@ -1,17 +1,96 @@
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" />
 
-각 테이블 스페이스별 최대 용량과 사용량을 시간의 흐름에 따라 조회할 수 있습니다. 그래프 차트 형태로 제공하며 1일에서 최대 3주 전까지 추이 정보를 확인할 수 있습니다.
+데이터베이스 테이블스페이스의 사용 현황을 모니터링하고 관리할 수 있는 메뉴입니다. 이 메뉴는 테이블스페이스의 전체 크기와 사용량을 시각적으로 제공하며, 세부적인 사용 내역을 확인할 수 있습니다.
 
-<ProdImg img='db-stat-table-space.png' desc='' />
+* 테이블스페이스의 크기와 사용량 변화를 시간대별로 시각적으로 확인할 수 있습니다.
 
-1. <Cmdname sid="time" className="uitext" /> 에서 조회하고 싶은 시간을 설정하세요.
+* 각 테이블스페이스의 전체 크기, 사용 크기, 사용 비율을 상세히 제공합니다.
 
-2. 인스턴스에서 추이 정보를 조회하려는 인스턴스 이름을 선택하세요.
+* 상위 50개의 세그먼트 크기를 확인할 수 있습니다.
+
+테이블스페이스의 사용 현황을 실시간으로 모니터링함으로써 사용량을 확인하고 적절한 용량 관리를 할 수 있습니다. 사용량이 높은 테이블스페이스와 세그먼트를 추적해 용량 관리와 성능 최적화를 위한 조치를 취하세요. 또한 테이블스페이스의 과도한 사용을 사전에 감지하고 대응할 수 있습니다.
+
+## 사용하기 전에
+
+테이블스페이스 사이즈 데이터를 수집하기 위해서는 데이터베이스 권한 설정과 에이전트 옵션 설정이 필요합니다. 세그먼트 사이즈 데이터는 하루에 한 번 수집하며, 다음과 같이 설정을 완료해야 합니다.
+
+### DB 권한 설정
+
+세그먼트 사이즈 데이터를 수집하려면 모니터링 유저에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어를 사용하여 권한을 설정하세요.
+
+```sql title="SQL"
+grant select any dictionary to monitoring_user;
+-- or --
+grant select on dba_segments to monitoring_user;
+```
+
+### 에이전트 설정
+
+에이전트 옵션을 통해 세그먼트 사이즈 데이터 수집 기준을 설정할 수 있습니다. 기본 설정은 10MB 이상의 세그먼트를 매일 새벽 5시에 수집하는 것입니다.
+
+```ini title="whatap.conf"
+segments_min_size=10
+segments_hour=5
+```
+
+## 기본 화면 안내
+
+<ProdImg img='db-stat-table-space.png' desc='Tablespace size' />
+
+1. <Cmdname sid="time" className="uitext" />에서 분석할 기간을 설정하세요.
+
+2. <Cmdname sid="instance" className="uitext" />에서 분석할 데이터베이스 인스턴스를 선택하세요.
 
 3. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
 
 :::note
 
-조회 시간은 최대 3주까지 선택할 수 있습니다. 임의의 날짜와 시간을 조회하려면 시계 표시 부분을 선택하세요. 날짜와 시간 텍스트 영역을 클릭하면 날짜와 시간을 선택할 수 있는 옵션이 나타납니다.
+* 조회 시간은 최대 62일까지 설정할 수 있습니다. 3일 이상 조회할 경우 그래프에는 1일 평균으로 표시됩니다
+
+* 조회 시간은 최대 3주까지 선택할 수 있습니다. 임의의 날짜와 시간을 조회하려면 시계 표시 부분을 선택하세요. 날짜와 시간 텍스트 영역을 클릭하면 날짜와 시간을 선택할 수 있는 옵션이 나타납니다.
 
 :::
+
+## 테이블스페이스 사이즈 변화 확인하기 {#table_space}
+
+<Cmdname sid="table_space" className="uitext" /> 섹션에서는 시간대별로 테이블스페이스의 전체 크기와 사용량 변화를 시각적으로 확인할 수 있습니다.
+
+<ImgLang img="db-stat-table-space-check-trend-oracle-pro.png" desc="Tablespace size" />
+
+각 색상은 개별 테이블스페이스를 나타냅니다. 차트에서 특정 시간대의 데이터를 확인하려면 마우스를 차트 위로 오버한 상태에서 이동하세요. 해당 시간대의 상세 정보를 팝업으로 확인할 수 있습니다.
+
+## 테이블스페이스 사이즈 상세 확인하기 {#table_space_detail}
+
+<Cmdname sid="table_space_detail" className="uitext" /> 섹션에서는 각 테이블스페이스의 상세 정보를 제공합니다.
+
+<ImgLang img="db-stat-table-space-size-details-oracle-pro.png" desc="Tablespace size" />
+
+최초 조회한 시간과 현재 시간을 비교하여 각 테이블스페이스의 사용량 변화를 확인할 수 있습니다. 테이블스페이스의 세부 내역을 확인하려면 테이블스페이스 이름 옆의 ![화살표 아이콘](/img/ic-caret-right.svg) 버튼을 선택하세요.
+
+* <Cmdname sid="table_space_total" className="uitext" />: 테이블스페이스의 전체 크기입니다.
+
+* <Cmdname sid="table_space_used" className="uitext" />: 현재 사용 중인 크기입니다.
+
+* <Cmdname sid="table_space_usage" className="uitext" />: 전체 크기 대비 사용 비율입니다.
+
+* <Cmdname sid="table_space_changed_amount" className="uitext" />: 최초 조회한 시간 대비 현재 시간의 사용량 변화입니다.
+
+## 세그먼트 사이즈 확인하기 {#TTL08164}
+
+<Cmdname sid="TTL08164" className="uitext" /> 섹션에서는 상위 50개의 세그먼트 크기를 나열하여 세부 사용 내역을 제공합니다.
+
+<ImgLang img="db-stat-table-space-size-top50-oracle-pro.png" desc="Tablespace size" />
+
+* <Cmdname sid="TTL08165" className="uitext" />: 세그먼트가 속한 컨테이너 이름입니다.
+
+* <Cmdname sid="TTL08166" className="uitext" />: 세그먼트가 속한 테이블스페이스 이름입니다.
+
+* <Cmdname sid="TTL08167" className="uitext" />: 세그먼트를 소유하고 있는 사용자 또는 스키마입니다.
+
+* <Cmdname sid="TTL08168" className="uitext" />: 세그먼트의 이름입니다.
+
+* <Cmdname sid="TTL08169" className="uitext" />: 세그먼트의 유형입니다. (예: TABLE, INDEX)
+
+* <Cmdname sid="TTL08177" className="uitext" />: 해당하는 경우 세그먼트의 파티션 이름입니다.
+
+* <Cmdname sid="table_space_size" className="uitext" />: 세그먼트의 크기입니다.

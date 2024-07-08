@@ -25,9 +25,9 @@
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
-| `nonheap_committed` | byte | 비 힙 메모리 영역에서 OS로부터 할당받아 사용 가능한 메모리 양 | - |
-| `nonheap_init` | byte | JVM이 시작될 때 비 힙 메모리에 할당된 초기 크기 | - |
-| `nonheap_max` | byte | 비 힙 메모리 영역에서 설정된 최대 크기 | - |
+| `nonheap_committed` | byte | JVM에서 사용하기 위해 보장된 비 힙 메모리 크기 | - |
+| `nonheap_init` | byte | JVM이 시작 시 OS로부터 요청하는 초기 비 힙 메모리 크기 | - |
+| `nonheap_max` | byte | 메모리 관리에 사용할 수 있는 최대 비 힙 메모리 크기 | - |
 | `nonheap_used` | byte | 현재 사용 중인 비 힙 메모리의 양 | - |
 | `objectPendingFinalizationCount` | count | GC 중 finalize 수행을 위해 대기 중인 객체의 수 | - |
 

@@ -45,20 +45,19 @@ import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
 
 1. ***Finish*** 버튼을 클릭해 설치를 완료하세요.
 
-<details>
-<summary>.NET 에이전트 설치 후 구성 파일</summary>
+에이전트는 모니터링 정보를 수집하기 위한 트레이서, 수집한 정보를 서버에 전송하기 위한 파일로 구성되어 있습니다. 에이전트 파일에 대한 자세한 내용은 다음을 참조하세요.
 
-모니터링 정보를 수집하기 위한 트레이서, 수집한 정보를 서버에 전송하기 위한 에이전트로 구성합니다.
+<Filetree name="whatap">
 
-* *WhaTap.ClrProfiler.dll*: .NET CLR Profiler입니다. .NET 트레이싱 API와 연결됩니다.
+  <FiletreeItem name="WhaTap.ClrProfiler.dll" type="file">.NET CLR Profiler입니다. .NET 트레이싱 API와 연결됩니다.</FiletreeItem>
 
-* *WhaTap.Trace.dll*: 프로파일러에서 전달하는 데이터를 처리하고 에이전트로 전송합니다.
+  <FiletreeItem name="WhaTap.Trace.dll" type="file">프로파일러에서 전달하는 데이터를 처리하고 에이전트로 전송합니다.</FiletreeItem>
 
-* *whatap_dotnet.exe*: 에이전트, 트레이서에서 전달된 정보를 수집 서버로 전송하는 프로그램입니다.
+  <FiletreeItem name="whatap_dotnet.exe" type="file">에이전트, 트레이서에서 전달된 정보를 수집 서버로 전송하는 프로그램입니다.</FiletreeItem>
 
-* *whatap.conf*: 에이전트 환경 설정 파일입니다.
+  <FiletreeItem name="whatap.conf" type="file">에이전트 환경 설정 파일입니다.</FiletreeItem>
 
-</details>
+</Filetree>
 
 ## 모니터링 시작하기
 

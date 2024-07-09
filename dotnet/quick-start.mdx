@@ -1,0 +1,251 @@
+---
+id: quick-start
+title: 빠른 설치 및 문제 해결
+description: 와탭 .NET 모니터링 서비스 기능을 빠르게 사용할 수 있도록 안내를 제공합니다.
+toc_max_heading_level: 2
+tags: [ 애플리케이션, .NET, 에이전트 설치, 트러블슈팅, 빠른 시작하기 ]
+---
+
+
+## 에이전트 설치 시
+
+에이전트 설치의 경우 프로젝트 생성부터 모니터링 활성화 단계까지 [다음 문서](install-agent)를 참조하세요. 에이전트 설치 후 **IIS**가 **재시작**됩니다.
+
+### 윈도우 서버 2008 또는 .NET 4.6.1 미만 버전 사용할 경우
+
+와탭 .NET 에이전트는 윈도우 서버 2012 이상 및 .NET Framework 4.6.1 이상 사용을 권장합니다. 그 이하의 버전을 사용하는 경우 다음 링크의 설치 프로그램을 사용하세요. 
+
+* [설치 프로그램](https://repo.whatap.io/windows/whatap_dotnet_450.exe)
+
+## 에이전트 설치 후
+
+:::note 
+
+**오류 및 로그 전달**
+
+* 오류 발생 시 오류 화면을 캡쳐한 이미지 또는 해당 텍스트를 전달해 주세요. 
+
+* 에이전트 로그 파일을 전달해 주세요. 다음 경로에서 로그 파일을 확인할 수 있습니다. 해당 오류가 없는 경우 폴더가 존재하지 않을 수 있습니다. 
+
+  * *C:\Program Files\WhaTap .NET\logs*
+
+  * *C:\ProgramData\WhaTap*
+
+:::
+
+### 데이터가 수집되지 않는 경우 
+
+<ImgLang img='dotnet-trst01.png' desc='데이터 미수집' />
+
+예시와 같이 <Cmdname sid="TTL07975" className="uitext" />에서 모든 정보가 정상적으로 수집되지 않는 경우 다음을 확인하세요. 
+
+* 액세스 키와 수집 서버 정보가 정확하게 입력되어있는지 확인하세요. 
+
+* 해당 서버의 방화벽 설정을 확인하세요. 아웃바운드 **6600** 포트가 열려있어야 합니다.
+
+### 히트맵 데이터가 수집되지 않는 경우 
+
+<ImgLang img='dotnet-trst02.png' desc='히트맵 데이터 미수집' />
+
+예시와 같이 히트맵 정보가 정상적으로 수집되지 않는 경우 대상 애플리케이션이 지원 환경에 해당하는지 확인하세요. 지원 환경은 [다음 문서](https://docs.whatap.io/dotnet/supported-spec)를 참조하세요. 
+
+### 지원 환경 확인이 어렵거나 지원 대상인 경우 
+
+* 대상 애플리케이션의 *web.config* 파일을 전달해 주세요. 
+
+* 대상 애플리케이션의 프로젝트 파일(*\*.csproj*)을 전달해 주세요.
+
+* 다음 링크를 통해 .NET 에이전트 지원 환경에 해당하는지 AI를 활용하여 확인할 수 있습니다.
+
+  * [.NET 에이전트 지원 환경 분석](https://whatap-dotnet.s3.ap-northeast-2.amazonaws.com/analysis.html)
+
+### 기타 
+
+위에서 안내한 방법으로 오류가 해결되지 않을 경우 상세한 디버깅 정보를 전달해 주세요. 디버깅 데이터 수집 과정은 다음과 같습니다. 
+
+1. 디버깅용 에이전트를 다음 링크에서 다운 후 설치하세요.
+
+    * [디버깅용 에이전트](https://whatap-dotnet.s3.ap-northeast-2.amazonaws.com/whatap_dotnet_debug.exe)
+
+1. 다음 링크에서 모니터링 프로그램(*UdpMonitor.exe*)을 다운 후 실행하세요. 
+
+    * [모니터링 프로그램](https://whatap-dotnet.s3.ap-northeast-2.amazonaws.com/UdpMonitor.exe)
+
+1. 트랜잭션을 발생시키세요. 
+
+1. 트랜잭션을 충분히 유발한 경우 *UdpMonitor.exe*를 종료하세요.
+
+1. *UdpMonitor.exe*와 동일한 폴더에 *UdpMonitor.txt*가 생성됩니다. 
+
+1. *UdpMonitor.txt* 파일을 담당자에게 전달해 주세요. 
+
+1. 디버깅 완료 시 디버깅용 에이전트를 제거하세요.
+
+## WCF 및 공식 미지원 라이브러리 모니터링 
+
+WCF(Windows Communication Foundation)와 같이 와탭 .NET 에이전트가 공식적으로 지원하지 않는 라이브러리를 모니터링하려면 다음 안내를 확인하세요. 
+
+:::note 
+
+광범위한 설정 시 과도한 트래픽이 발생할 수 있습니다. 
+
+:::
+
+### 설정 옵션
+
+* **webservice_method_enabled** <span class='type'>Boolean</span> 
+
+  기본값 `false`
+
+  값을 `true`로 설정 시 웹 서비스를 추적할 수 있습니다. 
+
+  :::note 
+
+  
+  해당 옵션을 변경한 후에는 IIS를 다시 시작해야 변경 사항이 적용됩니다. 
+
+  :::
+
+* **webservice_method_prefix** <span class='type'>String</span>
+
+  값에 추적할 메소드가 정의되어있는 네임스페이스 및 클래스 이름을 입력하세요. 
+  
+  * 메소드가 소속된 클래스 이름까지 입력 시 해당 클래스 내의 모든 Public 메소드가 추적 대상이 됩니다. 
+
+  * 조건에 맞는 메소드가 웹 서비스를 사용하지 않아도 추적 대상이 됩니다. 이 옵션의 경우 WCF와 웹 서비스 모니터링을 위해 설계되었지만 다양한 목적으로 사용할 수 있습니다. 
+  
+  :::note 
+
+  해당 옵션을 변경한 후에는 IIS를 다시 시작해야 변경 사항이 적용됩니다. 
+
+  :::
+
+* **webservice_method_timeout** <span class='type'>Milliseconds</span>
+
+  기본값 `5000`
+
+  모니터링 대상이 되는 메소드가 특정 시간 내에 완료되지 않을 경우 자동으로 타임아웃을 설정합니다. 기본값은 5초(`5000`ms)입니다.
+  
+  {/* 모니터링 대상이 되는 메소드에서 예외가 처리되지 않는 경우 트랜잭션 종료 시점을 알 수 없습니다. 이런 상황에 대비하여 웹 서비스 모니터링은 기본적으로 5초 후에 타임아웃 처리됩니다.  */}
+
+### 사용 예시 
+
+#### whatap.conf 수정 
+
+```ini title='whatap.conf' {11,12} 
+license= ## 엑세스 키
+whatap.server.host=15.165.146.117
+whatap.server.port=6600
+app_process_name=w3wp.exe
+tag_counter_enabled=true
+perfcounter.enabled=true
+app_name= ## 애플리케이션 이름
+OID= ## 에이전트 ID
+
+webservice_method_enabled=true
+webservice_method_prefix=Whatap.Service.Controller, Whatap.DotNet.Examples.Service1
+webservice_method_timeout=10000
+```
+
+* `webservice_method_prefix` 옵션으로 추적할 네임스페이스 포함 메소드의 호출 경로를 지정했기 때문에 다음 중 하나일 경우 함수의 시작과 종료가 트랜잭션으로 처리됩니다.
+
+  * `Whatap.Service.Controller`
+  
+  * `Whatap.DotNet.Examples.Service1`
+
+* `webservice_method_timeout`를 `10000` 밀리초로 지정했기 때문에 10초가 지난 트랜잭션은 자동으로 종료 처리됩니다. 
+
+:::note 
+
+다음과 같이 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="agent_configuration" className="uitext" /> 메뉴를 통해 설정을 변경할 수도 있습니다. 
+
+<ImgLang img='dotnet-trst03.png' desc='에이전트 설정' />
+
+:::
+
+#### WCF 소스 코드
+
+다음은 모니터링 대상이 되는 WCF 소스 코드 예제입니다. 
+
+```c {3-13}
+namespace Whatap.DotNet.Examples
+{
+    public class Service1 : IService1
+    {
+        public string GetData(int value)
+        {
+            ...
+        }
+
+        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        {
+            ...
+        }
+
+        private string getFromDB()
+        {
+            ...
+        }
+
+        private string getFromHttp()
+        {
+            ...
+        }
+    }
+
+    public class Service2 : IService1
+    {
+        ...
+    }
+
+    public class Service3 : IService1
+    {
+        public string IwantToSeeOnlyThis(int value)
+        {
+            ...
+        }
+    }
+}
+```
+
+* **GetData** 
+
+  `GetData()` 메소드는 `Whatap.DotNet.Examples.Service1` 클래스에 속해 있습니다. 또한 Public 메소드이기 때문에 모니터링 대상이 됩니다. 이 메소드는 설정 파일의 `webservice_method_prefix` 옵션에 명시된 값에 포함되기 때문에 트랜잭션으로 처리됩니다. 메소드의 호출 경로는 다음과 같습니다. 
+
+    > `Whatap.DotNet.Examples.Service1.GetData`
+
+* **GetDataUsingDataContract**
+
+  `GetDataUsingDataContract()` 메소드는 Public 메소드이기 때문에 모니터링 대상이 됩니다. 메소드의 호출 경로는 다음과 같습니다. 
+
+    > `Whatap.DotNet.Examples.Service1.GetDataUsingDataContract`
+
+:::note 
+
+* `getFromDB()`, `getFromHttp()` 메소드는 Private 메소드이기 때문에 모니터링 대상이 아닙니다. 
+
+* `webservice_method_prefix` 옵션에 `Whatap.DotNet.Examples.Service3`를 추가할 경우 Public 메소드인 `IwantToSeeOnlyThis()` 메소드가 모니터링 대상이 될 수 있습니다.
+
+:::
+
+### 네임스페이스와 클래스 이름을 찾기 어려울 경우
+
+WCF 서버 메소드가 정의된 네임스페이스를 찾기 어려울 경우 다음 방법을 사용해 네임스페이스와 클래스 이름을 찾을 수 있습니다. 
+
+1. 다음 링크에서 *GetNamesapces.exe* 파일을 다운로드하세요. 
+
+    * [https://repo.whatap.io/windows/GetNamesapces.exe](https://repo.whatap.io/windows/GetNamesapces.exe)
+
+1. 다음과 같이 웹 애플리케이션의 폴더 경로를 파라미터로 전달해 *GetNamesapces.exe* 파일을 실행하세요. 
+
+    ```
+    C:...\> GetNamesapces.exe C:\inetpub
+    ```
+
+1. 실행이 완료되면 해당 폴더와 그 하위 폴더에 있는 모든 *dll* 파일을 스캔해 네임스페이스와 클래스 이름을 목록으로 출력합니다. 
+
+:::note 
+
+결과 적용이 어려울 경우 *GetNamesapces.exe* 실행 후 동일한 폴더에 생성된 *GetNamesapces.txt* 파일을 담당자에게 전달하세요. 
+
+:::

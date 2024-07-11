@@ -188,41 +188,41 @@ projectCode logCategiry dexBuildStartTime {area=areaEnum, city=cityEnum} dexBuil
 
 ### GROK 적용하기{#grok-applying}
 
-***로그 설정*** > ***로그 1차 파서 설정***
+<Cmdname sid="side_logSetting" className="uitext" /> &gt; <Cmdname sid="log_parser_setting_primary" className="uitext" />
 
-1. GROK 패턴 파서를 적용하려면 ***로그 설정*** 메뉴의 ***로그 1차 파서 설정*** 탭으로 이동하세요.
+1. GROK 패턴 파서를 적용하려면 <Cmdname sid="side_logSetting" className="uitext" /> 메뉴의 <Cmdname sid="log_parser_setting_primary" className="uitext" /> 탭으로 이동하세요.
 
     <ImgLang img='log-1st-parser-list.png' desc='로그 파서 목록'/>
 
-1. ***+ 추가하기***를 선택 후 ***파서*** 입력란에서 ***GROK*** 파서를 선택하세요.
+1. ***+*** <Cmdname sid="adding" className="uitext" />를 선택 후 <Cmdname sid="parser" className="uitext" /> 입력란에서 ***GROK*** 파서를 선택하세요.
 
     <ImgLang img='log-1st-grok.png' desc='GROK 파서 패턴 등록'/>
 
-1. ***카테고리*** 및 ***로그 검출 조건***, ***패턴***을 입력하세요. ***파서 추가*** 창의 구성 요소는 다음과 같습니다. 
+1. <Cmdname sid="category" className="uitext" /> 및 <Cmdname sid="ITM06439" className="uitext" />, <Cmdname sid="pattern" className="uitext" />을 입력하세요. <Cmdname sid="parser" className="uitext" /> <Cmdname sid="add" className="uitext" /> 창의 구성 요소는 다음과 같습니다. 
 
-    * ***카테고리*** 
-    
-      로그 카테고리를 선택하세요. ***카테고리***는 필수로 입력해야 합니다.
+    * <Cmdname sid="category" className="uitext" />
 
-    * ***로그 검출 조건*** 
+      로그 카테고리를 선택하세요. <Cmdname sid="category" className="uitext" />는 필수로 입력해야 합니다.
+
+    * <Cmdname sid="ITM06439" className="uitext" />
 
       * 조건에 만족하는 로그만 파서가 적용됩니다.
 
-      * ***검색 키***와 ***검색 값***을 선택하거나 직접 입력하세요.
+      * <Cmdname sid="ITM06429" className="uitext" />와 <Cmdname sid="ITM06430" className="uitext" />을 선택하거나 직접 입력하세요.
 
-      * ***로그 검출 조건***은 모든 파서가 수행되기 전에 적용됩니다. 즉 파서의 결과로 추가되는 ***태그***를 사용할 수 없습니다.
+      * <Cmdname sid="ITM06439" className="uitext" />은 모든 파서가 수행되기 전에 적용됩니다. 즉 파서의 결과로 추가되는 <Cmdname sid="tag" className="uitext" />를 사용할 수 없습니다.
 
-    * ***패턴***
+    * <Cmdname sid="pattern" className="uitext" />
     
       GROK 패턴을 지정하세요. 필수로 입력해야 합니다.
 
-1. ***추가*** 버튼을 선택해 파서를 등록하세요. 
+1. <Cmdname sid="add" className="uitext" /> 버튼을 선택해 파서를 등록하세요. 
 
 :::note
 
-* 로그 파서 목록에서 해당 파서의 ***적용 순서***를 변경하거나 ***활성화*** 및 ***수정***, ***삭제***할 수 있습니다. 
+* 로그 파서 목록에서 해당 파서의 <Cmdname sid="ITM06352" className="uitext" />를 변경하거나 <Cmdname sid="enable" className="uitext" /> 및 <Cmdname sid="edit" className="uitext" />, <Cmdname sid="delete" className="uitext" />할 수 있습니다. 
 
-* 파서를 등록하기 전에 ***시뮬레이션***을 통해 등록하려는 패턴이 정상적인지 확인할 수 있습니다. 
+* 파서를 등록하기 전에 <Cmdname sid="simulation" className="uitext" />을 통해 등록하려는 패턴이 정상적인지 확인할 수 있습니다. 
 
 :::
 
@@ -246,17 +246,17 @@ projectCode logCategiry dexBuildStartTime {area=areaEnum, city=cityEnum} dexBuil
 
 ### 시뮬레이션{#grok-simulation}
 
-***파서 시뮬레이션*** 창에서 ***로그***와 ***패턴***을 입력해 파싱 결과를 미리 확인할 수 있습니다. 
+<Cmdname sid="parser" className="uitext" /> <Cmdname sid="simulation" className="uitext" /> 창에서 <Cmdname sid="log" className="uitext" />와 <Cmdname sid="pattern" className="uitext" />을 입력해 파싱 결과를 미리 확인할 수 있습니다. 
 
-> ***로그*** 예시: `[2023-08-08 02:02:30,101 GMT][INFO ][i.w.y.l.c.LogSinkDexScheduleThread.realProcess(159)] 8 VirtualLog 20230808 02:01:00.000 {area=4, city=5} 56ms`
+> <Cmdname sid="log" className="uitext" /> 예시: `[2023-08-08 02:02:30,101 GMT][INFO ][i.w.y.l.c.LogSinkDexScheduleThread.realProcess(159)] 8 VirtualLog 20230808 02:01:00.000 {area=4, city=5} 56ms`
 
-> ***패턴*** 예시: `\[%{TIMESTAMP_ISO8601:date}\sGMT\]\[%{LOGLEVEL:level}\s\]\[%{DATA:caller}\]\s(?<projectCode>\d)\s(?<logCategory>\w*)\s(?<dexBuildStartTime>\d{8}\s\d{2}:\d{2}:\d{2}\.\d{3})\s\{area=(?<areaEnum>\d),\scity=(?<cityEnum>\d)\}\s(?<dexBuildElapsed>\d{2})ms`
+> <Cmdname sid="pattern" className="uitext" /> 예시: `\[%{TIMESTAMP_ISO8601:date}\sGMT\]\[%{LOGLEVEL:level}\s\]\[%{DATA:caller}\]\s(?<projectCode>\d)\s(?<logCategory>\w*)\s(?<dexBuildStartTime>\d{8}\s\d{2}:\d{2}:\d{2}\.\d{3})\s\{area=(?<areaEnum>\d),\scity=(?<cityEnum>\d)\}\s(?<dexBuildElapsed>\d{2})ms`
 
-1. ***파서 추가*** 창에서 ***시뮬레이션*** 버튼을 선택하세요. 
+1. <Cmdname sid="parser" className="uitext" /> <Cmdname sid="add" className="uitext" /> 창에서 <Cmdname sid="simulation" className="uitext" /> 버튼을 선택하세요. 
 
-1. ***파서 시뮬레이션*** 창에서 ***로그***와 ***패턴***을 입력하세요. 
+1. <Cmdname sid="parser" className="uitext" /> <Cmdname sid="simulation" className="uitext" /> 창에서 <Cmdname sid="log" className="uitext" />와 <Cmdname sid="pattern" className="uitext" />을 입력하세요. 
 
-1. ***로그***와 ***패턴*** 입력 후 ***시뮬레이션*** 버튼을 선택하세요. 다음과 같이 ***시뮬레이션 결과***를 확인할 수 있습니다.
+1. <Cmdname sid="log" className="uitext" />와 <Cmdname sid="pattern" className="uitext" /> 입력 후 <Cmdname sid="simulation" className="uitext" /> 버튼을 선택하세요. 다음과 같이 <Cmdname sid="simulation_result" className="uitext" />를 확인할 수 있습니다.
 
     <ImgLang img='log-grok-parser-simulation.png' desc='GROK 파서 시뮬레이션'/>
 
@@ -267,31 +267,31 @@ projectCode logCategiry dexBuildStartTime {area=areaEnum, city=cityEnum} dexBuil
 
 ### JSON 적용하기{#json-applying}
 
-***로그 설정*** > ***로그 1차 파서 설정***
+<Cmdname sid="side_logSetting" className="uitext" /> &gt; <Cmdname sid="log_parser_setting_primary" className="uitext" />
 
-1. JSON 패턴 파서를 적용하려면 ***로그 설정*** 메뉴의 ***로그 1차 파서 설정*** 탭으로 이동하세요.
+1. JSON 패턴 파서를 적용하려면 <Cmdname sid="side_logSetting" className="uitext" /> 메뉴의 <Cmdname sid="log_parser_setting_primary" className="uitext" /> 탭으로 이동하세요.
 
     <ImgLang img='log-1st-parser-list.png' desc='로그 파서 목록'/>
 
-1. ***+ 추가하기***를 선택 후 ***파서*** 입력란에서 ***JSON*** 파서를 선택하세요.
+1. ***+*** <Cmdname sid="adding" className="uitext" />를 선택 후 <Cmdname sid="parser" className="uitext" /> 입력란에서 ***JSON*** 파서를 선택하세요.
 
     <ImgLang img='log-1st-json.png' desc='Json 파서 패턴 등록'/>
 
-1. ***카테고리*** 및 ***로그 검출 조건***, ***패턴***을 입력하세요. ***파서 추가*** 창의 구성 요소는 다음과 같습니다. 
+1. <Cmdname sid="category" className="uitext" /> 및 <Cmdname sid="ITM06439" className="uitext" />, <Cmdname sid="pattern" className="uitext" />을 입력하세요. <Cmdname sid="parser" className="uitext" /> <Cmdname sid="add" className="uitext" /> 창의 구성 요소는 다음과 같습니다. 
 
-    * ***카테고리***
-   
-      로그 카테고리를 선택하세요. ***카테고리***는 필수로 입력해야 합니다.
+    * <Cmdname sid="category" className="uitext" />
 
-    * ***로그 검출 조건***
+      로그 카테고리를 선택하세요. <Cmdname sid="category" className="uitext" />는 필수로 입력해야 합니다.
+
+    * <Cmdname sid="ITM06439" className="uitext" />
 
       * 조건에 만족하는 로그만 파서가 적용됩니다.
 
-      * ***검색 키***와 ***검색 값***을 선택하거나 직접 입력하세요.
+      * <Cmdname sid="ITM06429" className="uitext" />와 <Cmdname sid="ITM06430" className="uitext" />을 선택하거나 직접 입력하세요.
 
-      * ***로그 검출 조건***은 모든 파서가 수행되기 전에 적용됩니다. 즉 파서의 결과로 추가되는 ***태그***를 사용할 수 없습니다.
+      * <Cmdname sid="ITM06439" className="uitext" />은 모든 파서가 수행되기 전에 적용됩니다. 즉 파서의 결과로 추가되는 <Cmdname sid="tag" className="uitext" />를 사용할 수 없습니다.
 
-    * ***패턴***
+    * <Cmdname sid="pattern" className="uitext" />
 
       * ***Prefix***
 
@@ -311,15 +311,15 @@ projectCode logCategiry dexBuildStartTime {area=areaEnum, city=cityEnum} dexBuil
         2023-08-08 02:43:28,615 -- {"host":"10.21.3.24","method":"POST","status":"200","url":"http://devote.whatap.io/yard/api/flush"} --
         ```
 
-        예시 로그에서 ***Prefix***와 ***Postfix***를 `--`로 지정하고 ***Ignore***에 `--`를 지정 시 `host`, `method`, `status` 3개의 ***태그***만 생성됩니다.
+        예시 로그에서 ***Prefix***와 ***Postfix***를 `--`로 지정하고 ***Ignore***에 `--`를 지정 시 `host`, `method`, `status` 3개의 <Cmdname sid="tag" className="uitext" />만 생성됩니다.
 
-1. ***추가*** 버튼을 선택해 파서를 등록하세요. 
+1. <Cmdname sid="add" className="uitext" /> 버튼을 선택해 파서를 등록하세요. 
 
 :::note
 
-* 로그 파서 목록에서 해당 파서의 ***적용 순서***를 변경하거나 ***활성화*** 및 ***수정***, ***삭제***할 수 있습니다. 
+* 로그 파서 목록에서 해당 파서의 <Cmdname sid="ITM06352" className="uitext" />를 변경하거나 <Cmdname sid="enable" className="uitext" /> 및 <Cmdname sid="edit" className="uitext" />, <Cmdname sid="delete" className="uitext" />할 수 있습니다. 
 
-* 파서를 등록하기 전에 ***시뮬레이션***을 통해 등록하려는 패턴이 정상적인지 확인할 수 있습니다. GROK 파서 등록 시뮬레이션 과정과 동일합니다. [다음 문서](#grok-simulation)를 참조하세요.
+* 파서를 등록하기 전에 <Cmdname sid="simulation" className="uitext" />을 통해 등록하려는 패턴이 정상적인지 확인할 수 있습니다. GROK 파서 등록 시뮬레이션 과정과 동일합니다. [다음 문서](#grok-simulation)를 참조하세요.
 
 :::
 
@@ -329,7 +329,7 @@ projectCode logCategiry dexBuildStartTime {area=areaEnum, city=cityEnum} dexBuil
 {"host":"10.21.3.24","method":"POST","status":"200","url":"http://devote.whatap.io/yard/api/flush"}
 ```
 
-위와 같은 샘플 로그가 수집된 경우 ***파서 추가*** 창에서 ***JSON*** 파서를 선택하세요. 복잡한 파싱 로직을 작성할 필요없이 로그 분석에 필요한 ***태그***를 다음과 같이 추출할 수 있습니다.
+위와 같은 샘플 로그가 수집된 경우 <Cmdname sid="parser" className="uitext" /> <Cmdname sid="add" className="uitext" /> 창에서 ***JSON*** 파서를 선택하세요. 복잡한 파싱 로직을 작성할 필요없이 로그 분석에 필요한 <Cmdname sid="tag" className="uitext" />를 다음과 같이 추출할 수 있습니다.
 
 ```javascript title='Tag extraction'
 - host : 10.21.3.24

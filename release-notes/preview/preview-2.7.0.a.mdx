@@ -62,13 +62,37 @@ toc_max_heading_level: 2
 
 ### `Database`
 
-#### Oracle V2 / Oracle Pro
+#### 공통
+
+- <Status>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 <Cmdname sid="BTN07592" className="uitext" /> 옵션의 기본 시간을 30초에서 1분으로 변경
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 소수점 값 기준으로 오름차순 또는 내림차순 정렬되지 않는 문제 수정
+
+#### Oracle <code className="my">V2</code> / Oracle Pro
 
 <Status>Feature</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 ***Runtime Plan***, ***Explain Plan*** 탭의 테이블에 ***Access Predicate*** 컬럼 추가
 
+#### Oracle <code className="my">V2</code>
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 <Cmdname sid="TTL07772" className="uitext" /> 옵션에 다음 컬럼으로 정렬할 수 있는 필드 추가
+
+  - ***physical reads***
+  - ***session logical reads***
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 기본 컬럼 순서 변경
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 ***plan_hash_value*** 컬럼의 값을 쉼표(,)로 구분하도록 수정
+
 #### Oracle Pro
 
-<Status>Feature</Status> 데이터베이스 모니터링 소개 페이지에 **Oracle Pro** 신규 출시를 알리는 튜토리얼 추가
+- <Status>Feature</Status> 데이터베이스 모니터링 소개 페이지에 **Oracle Pro** 신규 출시를 알리는 튜토리얼 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 <Cmdname sid="TTL07772" className="uitext" /> 옵션에 다음 컬럼으로 정렬할 수 있는 필드 추가
+
+  - ***cpu time***
+  - ***physical reads***
+  - ***session logical reads***
+  - ***redo size***
 
 </div>
 

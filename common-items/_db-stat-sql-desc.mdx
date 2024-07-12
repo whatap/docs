@@ -36,6 +36,22 @@
 
 * ***instance***: 인스턴스 이름
 
+<InDoc product="oracle-v2,oracle-pro">
+
+* ***physical reads***: 해당 SQL이 디스크에서 데이터를 읽어온 횟수
+
+* ***session logical reads***: 해당 SQL이 메모리 내에서 데이터를 읽은 횟수
+
+</InDoc>
+
+<InDoc product="oracle-pro">
+
+* ***cpu time***: 해당 SQL이 실행되는 동안 사용된 CPU 시간
+
+* ***redo size***: 해당 SQL이 발생시킨 트랜잭션 로그(redo log) 크기
+
+</InDoc>
+
 :::info
 
 <Cmdname sid="side_dbSqlStat" className="uitext" /> 기능은 리터럴 값을 제외한 SQL을 기준으로 통계를 산출합니다.

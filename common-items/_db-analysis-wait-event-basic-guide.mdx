@@ -1,0 +1,19 @@
+## 기본 화면 안내
+
+<ImgLang img='db-analysis-wait.png' desc='Wait 분석' />
+
+조회를 원하는 <Cmdname sid="time" className="uitext" />과 <Cmdname sid="instance" className="uitext" />를 선택하세요. 설정한 시간과 인스턴스에 해당하는 Wait 정보를 확인할 수 있습니다. 조회 기간 동안 대기(지연)가 자주 발생한 액티브 세션들이 있다면 어떤 종류의 Wait 이벤트가 발생했는지 분석하는데 활용할 수 있습니다.
+
+![Wait Event Top 5](/img/db-analysis-wait-top5.png)
+
+***Wait Event Top 5***에서 가장 많이 발생한 대기 이벤트를 확인할 수 있습니다. 위 이미지를 예시로 가장 많이 발생하는 대기 이벤트의 종류는 **Lock**입니다. 그래프 차트에서 ![숫자1](/img/number-01.png)상세 시간을 선택하면 해당 시간의 액티브 세션을 조회할 수 있고 Wait 이벤트가 발생한 SQL 문을 확인할 수 있습니다.
+
+:::note
+
+* ***Active Session*** 섹션 목록에서 ***instance*** 컬럼 항목을 선택하면 <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴로 이동합니다. <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](instance-monitoring)를 참조하세요.
+
+* ***Active Session*** 섹션 목록에서 세션 항목을 선택하면 <Cmdname sid="session_detail" className="uitext" /> 창이 나타납니다. <Cmdname sid="session_detail" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](multi-instance-monitoring#session-details)를 참조하세요.
+
+* ***Active Session*** 섹션 목록에서 ***query*** 컬럼 항목을 선택하면 <Cmdname sid="TTL06224" className="uitext" /> 창이 나타납니다. <Cmdname sid="TTL06224" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](multi-instance-monitoring#query-details)를 참조하세요.
+
+:::

@@ -5,13 +5,21 @@ description: MongoDB 상품의 개별 프로젝트에 대해 서비스 이용 �
 tags: [ MongoDB, 데이터베이스, 보고서 ]
 ---
 
-<!-- 개요 -->
-{@include: ../common-items/_report-intro-desc.mdx}
+{/* 개요 */}
+import Reportintrodesc from "../common-items/_report-intro-desc.mdx";
 
-<!-- ## 보고서의 종류 -->
-{@include: ../common-items/_report-intro-types.mdx}
+<Reportintrodesc />
 
-<!-- ## 메일 발송 예약 -->
-{@include: ../common-items/_report-intro-mail-schedule.mdx} 
+{/* ## 보고서의 종류 */}
+import Reportintrotypes from "../common-items/_report-intro-types.mdx";
 
-{@include: ../common-items/_db-report.mdx} 
+<Reportintrotypes />
+
+{/* ## 메일 발송 예약 */}
+import Reportintromailschedule from "../common-items/_report-intro-mail-schedule.mdx";
+
+<Reportintromailschedule /> 
+
+import Dbreport from "../common-items/_db-report.mdx";
+
+<Dbreport /> 

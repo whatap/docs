@@ -19,19 +19,25 @@ description: 와탭 모니터링 서비스 기능을 빠르게 사용할 수 있
 
 ### ![](/img/number-01.png) 와탭 회원 가입{#account}
 
-{@include: account/_create-account.mdx}   
+import Createaccount from "./account/_create-account.mdx";
+
+<Createaccount />   
 
 ----
 
 ### ![](/img/number-02.png) 프로젝트 생성{#cproject}
 
-{@include: getting-started/_create-project-intro-v2.mdx}
+import Createprojectintrov2 from "./getting-started/_create-project-intro-v2.mdx";
+
+<Createprojectintrov2 />
 
 ----
 
 ### ![](/img/number-03.png) 프로젝트 액세스 키 확인{#accesskey}
 
-{@include: getting-started/_accesskey-intro.mdx} 
+import Accesskeyintro from "./getting-started/_accesskey-intro.mdx";
+
+<Accesskeyintro /> 
 
 ----
 
@@ -139,19 +145,19 @@ description: 와탭 모니터링 서비스 기능을 빠르게 사용할 수 있
 
 * 애플리케이션은 <Cmdname sid="app_dashboard" className="uitext" />와 <Cmdname sid="transaction_map" className="uitext" />, <Cmdname sid="active_transaction" className="uitext" />, <Cmdname sid="application_topology" className="uitext" /> 그리고 <Cmdname sid="flexboard" className="uitext" />의 각 위젯에서 수집된 성능 지표를 확인할 수 있습니다.
 
-  {@video: https://whatap-landing-resource.s3.ap-northeast-2.amazonaws.com/app-activeTransection.mp4}
+  <Videos url="https://whatap-landing-resource.s3.ap-northeast-2.amazonaws.com/app-activeTransection.mp4" />
 
 * 서버는 <Cmdname sid="sms_resource_board" className="uitext" />와 <Cmdname sid="sms_compound_eye" className="uitext" /> 그리고 <Cmdname sid="flexboard" className="uitext" />의 각 위젯에서 수집된 성능 지표를 확인할 수 있습니다.
 
-  {@video: https://whatap-landing-resource.s3.ap-northeast-2.amazonaws.com/server-compound.mp4}
+  <Videos url="https://whatap-landing-resource.s3.ap-northeast-2.amazonaws.com/server-compound.mp4" />
 
 * 데이터베이스는 <Cmdname sid="instance_list" className="uitext" />과 <Cmdname sid="instance_monitoring" className="uitext" />, <Cmdname sid="multi_instance_monitoring" className="uitext" />, <Cmdname sid="slow_query" className="uitext" /> 그리고 <Cmdname sid="flexboard" className="uitext" />의 각 위젯에서 수집된 성능 지표를 확인할 수 있습니다.
 
-  {@video: https://img.whatap.io/23/11/06/031831DB_prd.mp4}
+  <Videos url="https://img.whatap.io/23/11/06/031831DB_prd.mp4" />
 
 * 쿠버네티스는 <Cmdname sid="containerMap" className="uitext" />의 각 위젯을 통해 노드, 컨테이너, 애플리케이션, 로그, 이벤트 정보를 동적으로 확인할 수 있습니다.
 
-  {@video: https://img.whatap.io/23/11/06/022318en_kubernetes_.mp4}
+  <Videos url="https://img.whatap.io/23/11/06/022318en_kubernetes_.mp4" />
 
 :::note
 

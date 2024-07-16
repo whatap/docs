@@ -7,15 +7,23 @@ tags: [ PostgreSQL, 데이터베이스, 문제 해결, 에이전트 ]
 
 데이터베이스 에이전트 설치 시 발생할 수 있는 문제를 확인해 보세요.
 
-{@include: ../common-items/_db-check-firewall-setting.mdx}
+import Dbcheckfirewallsetting from "../common-items/_db-check-firewall-setting.mdx";
 
-{@include: ../common-items/_db-how-to-check-firewal.mdx}
+<Dbcheckfirewallsetting />
+
+import Dbhowtocheckfirewal from "../common-items/_db-how-to-check-firewal.mdx";
+
+<Dbhowtocheckfirewal />
 
 ## 제약 사항
 
-{@include: ../common-items/_db-multi-region-cant-select-one-pr.mdx}
+import Dbmultiregioncantselectonepr from "../common-items/_db-multi-region-cant-select-one-pr.mdx";
 
-{@include: ../common-items/_db-cant-use-duplicated-name.mdx}
+<Dbmultiregioncantselectonepr />
+
+import Dbcantuseduplicatedname from "../common-items/_db-cant-use-duplicated-name.mdx";
+
+<Dbcantuseduplicatedname />
 
 
 ## DB 권한 및 에이전트 설정
@@ -30,9 +38,9 @@ DB 권한 및 및 에이전트 설정에 따라 데이터가 조회되지 않는
 
 | 메뉴      | DB 옵션 및 권한                      | 에이전트 설정 | 비고                            |
 | --------- | ------------------------------------ | ---------------------------- | ------------------------------- |
-| 기본 메뉴 | `grant PG_READ_ALL_STATS to whatap;` | - | PostgreSQL V2, DBX 에이전트 v1.6.15 이상 |
+| 기본 메뉴 | `grant pg_monitor to whatap;` | - | PostgreSQL V2, DBX 에이전트 v1.6.15 이상 |
 | <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="slow_query" className="uitext" /> | **DB 파라미터**:<br/>`log_min_duration_statement=500`<br/>(ex. 500ms 이상 소요되는 SQL 기록)<br/><br/>**DB 권한**<br/>`grant PG_READ_ALL_SETTINGS to whatap;` | *xos.conf*<br/>`slow_query_interval=30` (기본값 30초)<br/><br/>*whatap.conf*<br/>`slow_query_log=ON` | - |
-| <Cmdname sid="instance_monitoring" className="uitext" /> &gt; <Cmdname sid="session_kill" className="uitext" /> | `alter user whatap with SUPERUSER;`<br/><br/>**AWS RDS 사용 시**:<br/>`grant RDS_SUPERUSER to whatap;` | - | - |
+| <Cmdname sid="instance_monitoring" className="uitext" /> &gt; <Cmdname sid="session_kill" className="uitext" /> | `grant pg_signal_backend to whatap` | - | - |
 | <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="TTL07249" className="uitext" /> | `grant select on all tables in schema {schema_name} to whatap;` | *whatap.conf*<br/>`pg_object=true` | DBX 에이전트 v1.6.15 이상<br/>***Bloating***, ***Age*** 탭의 목록은 권한 및 에이전트 옵션이 설정되어 있어도 임계값(size, ratio)을 넘지 않는 경우 데이터가 조회되지 않을 수 있습니다. |
 | <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="db_size_increase" className="uitext" /> | `grant usage on schema {schema_name} to whatap;` | *whatap.conf*<br/>`tables=true` | <Cmdname sid="db_size_increase" className="uitext" /> 메뉴 화면 아래에 테이블 사이즈 조회를 위해 필요한 권한입니다. |
 | 오브젝트 정보(***Object detail***) 모달 창 | `grant select on all tables in schema {schema_name} to whatap;` | - | <Cmdname sid="TTL07249" className="uitext" />, <Cmdname sid="db_size_increase" className="uitext" />, <Cmdname sid="TTL06224" className="uitext" />(Plan) 메뉴에서 테이블 이름 클릭 시 뜨는 팝업창입니다. 권한이 없을 경우 Column list가 조회되지 않습니다. |

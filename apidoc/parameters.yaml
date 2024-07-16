@@ -1,0 +1,244 @@
+WhatapTokenHeader:
+  name: x-whatap-token
+  in: header
+  required: true
+  schema:
+    type: string
+  description: 프로젝트 API 토큰 {{PROJECT_API_TOKEN}}
+WhatapPcodeHeader:
+  name: x-whatap-pcode
+  in: header
+  required: true
+  schema:
+    type: string
+  description: 프로젝트 코드 {{projectCode}
+WhatapAccoutTokenHeader:
+  name: x-whatap-token
+  in: header
+  required: true
+  schema:
+    type: string
+  description: 계정 API 토큰 {{ACCOUNT_API_TOKEN}}
+GroupKeyPath:
+  name: groupKey
+  in: path
+  required: true
+  schema:
+    type: integer
+  description: 그룹 고유 식별자(ID)
+ProjectCodePath:
+  name: projectCode
+  in: path
+  required: true
+  schema:
+    type: integer
+  description: 프로젝트 코드
+StartTimePath:
+  name: stime
+  in: path
+  required: true
+  schema:
+    type: integer
+    format: int64
+    description: 조회 시작 시간(UNIX epoch time, millisecond)
+StartTimeQuery:
+  name: stime
+  in: query
+  required: true
+  schema:
+    type: integer
+    format: int64
+    description: 조회 시작 시간(UNIX epoch time, millisecond)
+EndTimePath:
+  name: etime
+  in: path
+  required: true
+  schema:
+    type: integer
+    format: int64
+    description: 조회 종료 시간(UNIX epoch time, millisecond)
+EndTimeQuery:
+  name: etime
+  in: query
+  required: true
+  schema:
+    type: integer
+    format: int64
+    description: 조회 종료 시간(UNIX epoch time, millisecond)
+TimeMergeQuery:
+  name: timeMerge
+  in: query
+  required: true
+  schema:
+    type: string
+    enum:
+      - avg
+    description: 데이터 집계 방식
+MetricTypePath:
+  name: metric_type
+  in: path
+  require: true
+  schema:
+    type: string
+    enum:
+        - thread_count
+        - thread_daemon
+        - thread_peak_count
+        - threadpool_active
+        - threadpool_queue
+        - apdex
+        - tx_caller
+    description: 조회할 수 있는 지표
+MetricTypeAvgPath:
+  name: metric_type
+  in: path
+  require: true
+  schema:
+    type: string
+    enum:
+        - thread_count
+        - thread_daemon
+        - thread_peak_count
+        - threadpool_active
+        - threadpool_queue
+        - apdex
+    description: 조회할 수 있는 지표
+CallStaticTypePath:
+  name: metric_type
+  in: path
+  require: true
+  schema:
+    type: string
+    enum:
+        - tx_caller
+        - tx_domain
+    description: 조회할 수 있는 지표
+OidPath:
+  name: oids
+  in: path
+  required: true
+  schema:
+    type: integer
+    format: int32
+    description: 에이전트 고유 식별자(ID), 쉼표(,)를 구분자로 여러 개 입력 가능
+OidQuery:
+  name: oids
+  in: query
+  required: true
+  schema:
+    type: integer
+    format: int32
+    description: 에이전트 고유 식별자(ID), 쉼표(,)를 구분자로 여러 개 입력 가능
+AOidQuery:
+  name: oid
+  in: query
+  required: true
+  schema:
+    type: integer
+    format: int32
+    description: 에이전트 고유 식별자(ID)
+FilterQuery:
+  name: filter
+  in: query
+  required: true
+  schema:
+    type: string
+    enum:
+      - m5
+      - s5
+      - h1
+FilterkeyPath:
+  name: filterkey
+  in: path
+  required: true
+  schema:
+    type: string
+    enum:
+      - caller_pcode
+      - caller_spec
+      - caller_url
+      - spec
+      - url
+    description: 조회 조건 키
+FiltervalPath:
+  name: filterval
+  in: path
+  required: true
+  schema:
+    type: string
+    description: 조회 조건 (`filterkey가` `caller_url` 또는 `url`인 경우 base64로 인코딩)
+BaseTimeQuery:
+  name: baeTime
+  in: query
+  required: true
+  schema:
+    type: string
+    format: yyyyMMdd
+    description: 기준 시간
+CompareTimeQuery:
+  name: comparisonTime
+  in: query
+  required: true
+  schema:
+    type: string
+    format: yyyyMMdd
+    description: 비교 시간
+PeriodQuery:
+  name: period
+  in: query
+  required: true
+  schema:
+    type: string
+    enum:
+      - day
+      - weak
+    description: 조회 기간
+DateQuery:
+  name: date
+  in: query
+  required: true
+  schema:
+    type: string
+    format: yyyyMMdd
+    description: 기준 시간
+TopNQuery:
+  name: topN
+  in: query
+  required: false
+  schema:
+    type: number
+    format: 1 -1000
+    default: 10
+    description: 상위 건수
+OrderQuery:
+  name: order
+  in: query
+  required: false
+  schema:
+    type: string
+    default: sql_execute_cnt
+    enum:
+      - sql_execute_cnt
+      - sql_elapse
+      - sql_elapse_max
+    description: 정렬 순서
+CategoryQuery:
+  name: category
+  in: query
+  required: false
+  schema:
+    type: string
+    default: ALL
+    enum:
+      - ALL
+      - DB
+      - HOST
+      - USER
+    description: 카테고리를 `USER`로 선택하면 사용자 기준으로 SQL 통계 데이터 응답
+NameInCategoryQuery:
+  name: nameInCategory
+  in: query
+  required: false
+  schema:
+    type: string
+  description: 파라미터로 `category`를 선택하면 추가

@@ -9,22 +9,18 @@ tags: [ Oracle, 데이터베이스 모니터링, 데이터베이스, 모니터�
 
 import InDoc from '@site/src/components/InDoc.js';
 import Xclude from '@site/src/components/XcludeDoc.js';
-import RdsCont from '../common-items/_import_db-specification-rds.mdx';
 import CommonCont from '../common-items/_import_db-specification-common.mdx';
+import Dbintroductiondesc from "../common-items/_db-introduction-desc.mdx";
 
-{@include: ../common-items/_db-introduction-desc.mdx} 
+<Dbintroductiondesc /> 
 
 ## Oracle 모니터링 특장점
 
-<Xclude product='mysql-rds'>
-  <CommonCont />
-</Xclude>
+<CommonCont />
 
-<InDoc product='mysql-rds'>
-  <RdsCont/>
-</InDoc>
+import Dbspecification from "../common-items/_db-specification.mdx";
 
-{@include: ../common-items/_db-specification.mdx}
+<Dbspecification />
 
 ## 지원 기능
 

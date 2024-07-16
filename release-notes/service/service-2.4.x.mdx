@@ -1,0 +1,263 @@
+---
+id: service-2_4_x
+title: Service 2.4.0
+toc_max_heading_level: 2
+pagination_next: release-notes/service/service-2_3_x
+displayed_sidebar: releaseSidebar
+---
+
+## Service 2.4.3
+
+2024년 05월 08일
+
+<div class='indentTab'>
+
+### `공통`
+
+<Status>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 또는 <Cmdname sid="side_integratedFlexboard" className="uitext" /> 메뉴에서 리치 텍스트 위젯 수정 시 대시보드 레이아웃 원복 현상 수정
+
+</div>
+
+## Service 2.4.2
+
+2024년 04월 26일
+
+<div class='indentTab'>
+
+### `Kubernetes`
+
+<Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_multiServiceHitmap" className="uitext" /> 메뉴에서 <Cmdname sid="start_time" className="uitext" />의 선택 창에 다크 테마가 적용되지 않은 문제 수정
+
+</div>
+
+
+## Service 2.4.1
+
+2024년 04월 25일
+
+<div class='indentTab'>
+
+### `Application`
+
+- <Status>Fixed</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_tx" className="uitext" /> 메뉴에서 <Cmdname sid="order_by" className="uitext" />를 <Cmdname sid="error" className="uitext" />로 설정하면 에러 순으로 정렬되지 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴의 히트맵 위젯에서 에이전트 필터링에 의해 발생한 차트에 빈 영역을 드래그하면 데이터가 조회되는 문제 수정
+
+---
+
+### `Database`
+
+- <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 <UI>Long Waiting Session Count</UI> 위젯의 데이터가 현재 시간을 기준으로 표시되도록 수정
+
+</div>
+
+
+## Service 2.4.0
+
+2024년 04월 24일
+
+<div class='indentTab'>
+
+### `공통`
+
+#### <Cmdname sid="side_flexboard" /> / <Cmdname sid="side_integratedFlexboard" />
+
+- <Status>Feature</Status> <b>통합 서비스 2</b> 대시보드 템플릿 추가
+
+- <Status>Changed</Status> <Cmdname sid="dashboard_list" className="uitext" />에서 대시보드에 선택된 상품 아이콘 표시하도록 수정
+
+- <Status>Changed</Status> 대시보드 템플릿 미리보기에 스크롤을 표시하도록 수정
+
+- <Status>Changed</Status> 프로젝트 내 대시보드 목록에서는 프로젝트 이름을 표기하지 않도록 수정
+
+- <Status>Changed</Status> 데이터베이스 상태 위젯에서 인스턴스를 클릭하면 해당 프로젝트 대시보드로 이동하도록 동작 변경
+
+- <Status>Changed</Status> 그룹 위젯에 하위 위젯을 추가할 경우 위젯 템플릿 목록이 닫히지 않도록 변경
+
+#### <Cmdname sid="side_event" />
+
+- <Status>Changed</Status> <Cmdname sid="side_eventSetting" className="uitext" /> <code class="newfunc">New</code> 메뉴에서 <Cmdname sid="BTN07761" className="uitext" /> 기능 이용 시 메트릭스(<code>METRICS</code>) 이벤트 속성의 <code>relatedPcode</code> 검증 로직 제거
+
+- <Status>Changed</Status> SMS 및 WhatsApp 알림을 사용할 수 없는 프로젝트는 <Cmdname sid="side_eventNoti" className="uitext" /> 메뉴의 <Cmdname sid="alert_receive_settings_by_member" className="uitext" /> 섹션에서 <Cmdname sid="sms_alert" className="uitext" /> 및 <Cmdname sid="TTL06620" className="uitext" /> 컬럼 항목을 보이지 않도록 수정
+
+- <Status>Changed</Status> <Cmdname sid="side_eventNoti" className="uitext" /> 메뉴의 <Cmdname sid="alert_receive_settings_by_member" className="uitext" /> 섹션에서 <Cmdname sid="member_management" className="b500" /> 권한이 있는 멤버에게 사용자 정보를 마스킹 처리하지 않도록 변경
+
+- <Status>Changed</Status> <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 실시간 로그 이벤트 또는 복합 로그 이벤트를 JSON 형식으로 불러올 경우 id 속성을 제외하고 추가 또는 덮어쓰기 하도록 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 메트릭스 이벤트를 JSON 에디터로 편집할 경우 <code>select</code> 속성을 필수값으로 검증하는 로직 제거
+
+- <Status>Fixed</Status> <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴의 복합 메트릭스 이벤트 설정에서, 최초 시뮬레이션을 실행한 다음 날짜를 변경하여 재실행하면 데이터가 정상 표기되지 않는 문제 수정
+
+#### <Cmdname sid="MNU07360" />
+
+<Status>Feature</Status> <Cmdname sid="MNU07360" className="uitext" /> 메뉴의 <Cmdname sid="account_user_phone" className="uitext" /> 섹션에서 일반 휴대전화에 국가 코드 선택 기능 추가
+
+:::note
+
+한국 및 일본 국가 코드만 입력할 수 있습니다.
+
+:::
+
+#### 기타
+
+- <Status>Changed</Status> 프로젝트 생성 페이지에서 리전 선택 동선 변경(지역 → CSP 선택 순으로 동선 변경)
+
+- <Status>Changed</Status> 다음 메뉴에서 목록 테이블에서 활성화 토글과 수정 버튼 컬럼 순서를 가장 왼쪽으로 변경
+
+  - <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_maintenancePlan" className="uitext" />
+  - <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="metrics" className="uitext" /> &gt; <Cmdname sid="goto_alertTemplate" className="uitext" />
+
+- <Status>Changed</Status> AWS Marketplace 계정 사용자의 경우 구독 취소 기능 제거 후 안내 메시지 추가
+
+- <Status>Deprecated</Status> 사이드 메뉴의 튜토리얼 버튼 제거
+
+---
+
+### `Application`
+
+#### 공통
+
+- <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴의 <Cmdname sid="AA016" className="uitext" /> 위젯에 비활성 에이전트 표시 옵션 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agents" className="uitext" /> 메뉴에서 <Cmdname sid="inactive_agent_deletion_time" className="b500" />을 <Cmdname sid="TTL07821" className="uitext" />으로 변경
+
+- <Status>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_perfTrend" className="uitext" /> 메뉴에서 다운로드한 CSV 파일의 헤더 컬럼에 단위 추가
+
+- <Status>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06126" className="uitext" /> 탭에서 <UI>TXT</UI> 또는 <UI>SQL</UI> 버튼을 선택해 다운로드한 파일에 기입된 시간이 UTC+9가 적용되는 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_statSql" className="uitext" /> 메뉴에서 <Cmdname sid="TTL07712" className="uitext" /> 컬럼의 버튼을 선택할 때, SQL 문에 특정 특수 문자가 포함되면 화이트 아웃 현상이 발생하는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> 메뉴의 에이전트 선택 목록에서 에이전트 이름이 긴 경우 줄임표(...)가 적용되는 현상 수정
+
+#### Java
+
+- <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 **JVM 옵션 추가 항목**에서 WebLogic 설치 가이드 내용 수정: <code>JAVA_OPTS</code> → <code>JAVA_OPTIONS</code>
+
+---
+
+### `Server`
+
+- <Status>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code class="newfunc">New</code> 메뉴에 <Cmdname sid="sm_log_event_tab" className="uitext" /> 설정 추가
+
+- <Status>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventHistory" className="uitext" /> 메뉴에서 이벤트 상세 정보 화면으로 이동하면, <Cmdname sid="before_after_event" className="uitext" /> 항목의 시간 설정에 따라 프로세스 차트의 시간 범위가 변경되도록 개선
+
+- <Status>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴의 서버 이벤트 추가/수정 창에서 포트 알림 안내 툴팁의 문구 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_serverSetting" className="uitext" /> &gt; <Cmdname sid="side_serverConfiguration" className="uitext" /> 메뉴를 사이드 메뉴와 사이트맵에서 제거(<Cmdname sid="side_serverBootEnvironmentVariable" className="uitext" /> 메뉴로 통합)
+
+- <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_integrationInstall" className="uitext" /> 메뉴에서 Windows의 지원 버전이 잘못 표기된 사항 수정: Windows 2008 SP2 이상 → <b>Windows Server 2008 R2 이상</b>
+
+- <Status>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 차트 아래에 라벨 항목이 많은 경우 화면 크기에 따라 레이아웃이 흔들리는 문제 수정
+
+---
+
+### `Kubernetes`
+
+- <Status>Feature</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_deploymentList" className="uitext" /> 메뉴의 <Cmdname sid="BTN06342" className="uitext" /> 화면에서 <Cmdname sid="resource" className="uitext" /> 탭에 ReplicaSet 목록 추가
+
+- <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴에서 <Cmdname sid="TTL07237" className="uitext" /> 탭 추가
+
+  :::tip
+
+  리소스 사이의 연결 관계를 시각적으로 확인할 수 있는 차트입니다. 선택한 블록과 관련한 Namespace와 Deployment, ReplicaSet, DaemonSet, Pod, Container, Application 들의 관계를 한눈에 파악하는데 유용합니다.
+  
+  :::
+
+- <Status>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_objectManifest" className="uitext" /> 메뉴에서 <Cmdname sid="side_kubeEventList" className="uitext" /> 연동 기능 추가
+
+  :::note
+
+  이 기능은 쿠버네티스 마스터 에이전트 1.6.1 버전 이상에서 지원합니다.
+
+  :::
+
+- <Status>Changed</Status> 목록형 화면에서 이동 버튼의 UI 변경
+
+- <Status>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 쿠버네티스 에이전트 설치 안내 문구 및 용어 수정
+
+- <Status>Changed</Status> 다음 메뉴 경로에서 아이콘 및 버튼 스타일을 규정에 맞게 수정
+
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" />
+
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_integratedContainerMap" className="uitext" />
+
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_objectManifest" className="uitext" />
+
+- <Status>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 블록 위에 마우스 오버 시 나타나는 UI 수정
+
+- <Status>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴에서 지표 옵션 사용 시 단위 표기 포함하도록 수정
+
+---
+
+### `Database`
+
+#### Database <code class="my">V2</code>
+
+<Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 <Cmdname sid="active_sessions" className="uitext" /> 테이블의 데이터를 1분 간격으로 조회할 수 있는 버튼 추가
+
+#### PostgreSQL
+
+- <Status>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbObjectInfo" className="uitext" /> 메뉴의 <UI>Age</UI> 탭에 <UI>per_to_wraparound</UI> 컬럼 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbObjectInfo" className="uitext" /> 메뉴에서 데이터가 없을 경우 표시되는 안내 문구 변경
+
+#### PostgreSQL / MySQL
+
+- <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 디스크 사용 추이를 확인할 수 있는 상세 팝아웃 추가
+
+- <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 위젯 추가
+
+  - <UI>Long Active Session Count</UI>
+  - <UI>Long Waiting Session Count</UI> 
+
+#### PostgreSQL / MySQL / MongoDB
+
+<Status>Changed</Status> cpu(xos) 지표를 <code>cpu_sys(xos)</code>, <code>cpu_user(xos)</code>, <code>cpu_iowait(xos)</code>으로 세분화하여 표시하도록 변경
+
+---
+
+### `Cloud`
+
+#### Amazon ECS
+
+- <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 <Cmdname sid="agent-setup-guide" className="uitext" /> 섹션에서 언어별로 다른 사항을 동일한 기준으로 수정
+
+- <Status>Fixed</Status> 다국어가 적용이 되지 않은 지표 이름을 언어 환경에 맞게 표시하도록 수정
+
+#### Amazon CloudWatch
+
+- <Status>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 Role ARN 입력 필드에 대한 라벨을 버튼 형식에서 텍스트 형식으로 변경 
+
+- <Status>Fixed</Status> 언어 설정을 일본어로 설정한 상태에서, <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 <Cmdname sid="pricing" className="uitext" /> 탭에서 <Cmdname sid="price_policy" className="uitext" /> 링크를 선택하면 한국어 페이지가 아닌 일본어 페이지로 이동하도록 수정
+
+- <Status>Fixed</Status> 다국어가 적용이 되지 않은 지표 이름을 언어 환경에 맞게 표시하도록 수정
+
+---
+
+### `Network`
+
+<p><Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_npmDashboard" className="uitext" /> 메뉴에서 노드의 테두리 색상이 의도와 다르게 적용되는 문제 수정</p>
+
+:::note
+
+Outbound 트래픽을 발생시키는 노드는 녹색으로, Inbound 트래픽을 발생시키는 노드는 회색으로 테두리를 표시합니다.
+
+:::
+
+---
+
+### `URL`
+
+- <Status>Changed</Status> <Cmdname sid="side_integratedFlexboard" className="uitext" /> 메뉴에서 URL 목록 위젯의 UI 개편
+
+  ![URL list](/img/release/url-widget-changed.png)
+
+- <Status>Changed</Status> URL 상세 창을 팝아웃으로 표시하도록 변경
+
+---
+
+### `Log`
+
+<Status>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴의 <Cmdname sid="log" className="uitext" /> 탭에서 실시간 로그 이벤트의 <Cmdname sid="ITM06430" className="uitext" /> 필드에 공백을 포함할 수 있도록 수정
+
+</div>

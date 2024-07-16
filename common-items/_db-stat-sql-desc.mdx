@@ -1,8 +1,24 @@
-홈 화면 > 프로젝트 선택 > ***통계/보고서*** > ***SQL 통계***
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" />
 
 에이전트가 수집한 액티브 세션 내의 SQL을 실행 횟수, 수행 시간, 대기 시간 등을 기준으로 통계를 산출하고, 조회한 기간 동안의 Top SQL 목록을 제공합니다. 평균 및 최대 수행 시간을 통해 자주 수행되는 SQL 성능을 분석할 수 있는 근거를 제공합니다.
 
+<InDoc product="postgresql">
+
 빠른 성능 분석을 위해 자주 분석하는 카테고리(DB, Application, USER, HOST) 별로 Top SQL을 조회할 수 있습니다. 주요 조회 기준은 다음과 같습니다.
+
+</InDoc>
+
+<InDoc product="mysql">
+
+빠른 성능 분석을 위해 자주 분석하는 카테고리(DB, USER, HOST) 별로 Top SQL을 조회할 수 있습니다. 주요 조회 기준은 다음과 같습니다.
+
+</InDoc>
+
+<InDoc product="oracle-pro">
+
+빠른 성능 분석을 위해 자주 분석하는 카테고리(DB, USERNAME, MACHINE, PROGRAM) 별로 Top SQL을 조회할 수 있습니다. 주요 조회 기준은 다음과 같습니다.
+
+</InDoc>
 
 * ***execute count***: 해당 SQL의 실행 회수
 
@@ -12,12 +28,16 @@
 
 * ***elapse max (sec)***: 해당 SQL의 최대 수행 시간(초)
 
+<Xclude product="mysql">
+
 * ***elapse wait (sec)***: 해당 SQL의 대기 시간 합계(초)
+
+</Xclude>
 
 * ***instance***: 인스턴스 이름
 
 :::info
 
-SQL 통계 기능은 리터럴 값을 제외한 SQL을 기준으로 통계를 산출합니다.
+<Cmdname sid="side_dbSqlStat" className="uitext" /> 기능은 리터럴 값을 제외한 SQL을 기준으로 통계를 산출합니다.
 
 :::

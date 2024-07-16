@@ -1,55 +1,87 @@
 ---
 id: trs-profile
 title: 트랜잭션 트레이싱
-description: 트랜잭션 트레이싱을 안내합니다. 
-tags: [ 트랜잭션, UI, Java ]
+description: 애플리케이션에서 세부적인 트랜잭션 프로파일링을 구성하는 방법을 안내합니다. 트랜잭션 프로파일링을 통해 사용자는 애플리케이션 내부의 각각의 트랜잭션에 대한 성능 데이터를 수집하고 분석할 수 있으며, 이를 통해 애플리케이션의 성능을 개선하는 데 도움을 받을 수 있습니다.
+tags: [ 애플리케이션, Java, 분석, 히트맵, 트랜잭션 ]
 ---
 
-<!--## 트랜잭션 트레이싱이란?-->
-{@include: ../common-items/_transaction-profile-desc.mdx}
+{/*## 트랜잭션 트레이싱이란?*/}
+import Transactionprofiledesc from "../common-items/_transaction-profile-desc.mdx";
 
-<!--## 상세 분석-->
-{@include: ../common-items/_transaction-profile-details.mdx}
+<Transactionprofiledesc />
 
-<!--### 트랜잭션 정보 창 안내-->
-{@include: ../common-items/_transaction-profile-info-window.mdx}
+{/*## 상세 분석*/}
+import Transactionprofiledetails from "../common-items/_transaction-profile-details.mdx";
 
-<!--### 테이블 뷰-->
-{@include: ../common-items/_dashboard-hitmap-trace-table-view.mdx} 
+<Transactionprofiledetails />
 
-<!--### 레코드 요약-->
-{@include: ../common-items/_dashboard-hitmap-trace-record-summary.mdx} 
+{/*### 트랜잭션 정보 창 안내*/}
+import Transactionprofileinfowindow from "../common-items/_transaction-profile-info-window.mdx";
 
-{@include: ../common-items/_dashboard-hitmap-trace-record-summary-attribute.mdx} 
+<Transactionprofileinfowindow />
 
-<!--### 트리뷰-->
-{@include: ../common-items/_dashboard-hitmap-trace-treeview.mdx}
+{/*### 테이블 뷰*/}
+import Dashboardhitmaptracetableview from "../common-items/_dashboard-hitmap-trace-table-view.mdx";
 
-<!--### 액티브 스택-->
-{@include: ../common-items/_dashboard-hitmap-active-stack.mdx}
+<Dashboardhitmaptracetableview /> 
 
-<!--### 멀티 트랜잭션-->
-{@include: ../common-items/_dashboard-hitmap-trace-multi-tx.mdx}
+{/*### 레코드 요약*/}
+import Dashboardhitmaptracerecordsummary from "../common-items/_dashboard-hitmap-trace-record-summary.mdx";
 
-<!--### 메소드 요약-->
-{@include: ../common-items/_dashboard-hitmap-trace-method.mdx}
+<Dashboardhitmaptracerecordsummary /> 
 
-<!--### SQL 요약-->
-{@include: ../common-items/_dashboard-hitmap-trace-sql.mdx}
+import Dashboardhitmaptracerecordsummaryattribute from "../common-items/_dashboard-hitmap-trace-record-summary-attribute.mdx";
 
-<!--### HTTP Call 요약-->
-{@include: ../common-items/_dashboard-hitmap-trace-http-call.mdx}
+<Dashboardhitmaptracerecordsummaryattribute /> 
 
-<!--### 트랜잭션 로그-->
-{@include: ../common-items/_dashboard-hitmap-trace-tracsaction-log.mdx}  
+{/*### 트리뷰*/}
+import Dashboardhitmaptracetreeview from "../common-items/_dashboard-hitmap-trace-treeview.mdx";
 
-<!--#### 키워드 하이라이트 설정하기, 삭제-->
-{@include: ../common-items/_dashboard-hitmap-trace-tx-log-keyword.mdx}
+<Dashboardhitmaptracetreeview />
+
+{/*### 액티브 스택*/}
+import Dashboardhitmapactivestack from "../common-items/_dashboard-hitmap-active-stack.mdx";
+
+<Dashboardhitmapactivestack />
+
+{/*### 멀티 트랜잭션*/}
+import Dashboardhitmaptracemultitx from "../common-items/_dashboard-hitmap-trace-multi-tx.mdx";
+
+<Dashboardhitmaptracemultitx />
+
+{/*### 메소드 요약*/}
+import Dashboardhitmaptracemethod from "../common-items/_dashboard-hitmap-trace-method.mdx";
+
+<Dashboardhitmaptracemethod />
+
+{/*### SQL 요약*/}
+import Dashboardhitmaptracesql from "../common-items/_dashboard-hitmap-trace-sql.mdx";
+
+<Dashboardhitmaptracesql />
+
+{/*### HTTP Call 요약*/}
+import Dashboardhitmaptracehttpcall from "../common-items/_dashboard-hitmap-trace-http-call.mdx";
+
+<Dashboardhitmaptracehttpcall />
+
+{/*### 트랜잭션 로그*/}
+import Dashboardhitmaptracetracsactionlog from "../common-items/_dashboard-hitmap-trace-tracsaction-log.mdx";
+
+<Dashboardhitmaptracetracsactionlog />  
+
+{/*#### 키워드 하이라이트 설정하기, 삭제*/}
+import Dashboardhitmaptracetxlogkeyword from "../common-items/_dashboard-hitmap-trace-tx-log-keyword.mdx";
+
+<Dashboardhitmaptracetxlogkeyword />
 
 ## 부가 기능
 
-<!--### http 파라미터 조회-->
-{@include: ../common-items/_search-http-parameter.mdx}  
+{/*### http 파라미터 조회*/}
+import Searchhttpparameter from "../common-items/_search-http-parameter.mdx";
 
-<!--### 트랜잭션 파라미터 조회-->
-{@include: ../common-items/_search-transaction-parmeter.mdx} 
+<Searchhttpparameter />  
+
+{/*### 트랜잭션 파라미터 조회*/}
+import Searchtransactionparmeter from "../common-items/_search-transaction-parmeter.mdx";
+
+<Searchtransactionparmeter /> 

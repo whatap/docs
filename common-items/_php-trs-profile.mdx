@@ -1,3 +1,5 @@
+import Phprestartapply from "./_php-restart-apply.mdx";
+
 * **whatap.profile_step_normal_count** <span class='type'>Int</span>
 
   기본값 `1000`
@@ -16,7 +18,7 @@
 
   기본 스텝의 수집 개수가 초과되면, 실행 시간이 `profile_step_heavy_time`을 초과하는 스텝만 수집합니다. 해당 스텝의 수집 가능한 개수를 설정합니다. Default 설정일 경우 `profile_step_normal_count`가 800 이면 최대 200개의 스텝이 수집됩니다.
 
-* **whatap.profile_step_heavy_time** <span class='type'>Millisecond</span> <!-- 문장 부자연스러움 -->
+* **whatap.profile_step_heavy_time** <span class='type'>Millisecond</span> {/* 문장 부자연스러움 */}
 
   기본값 `100`
 
@@ -44,7 +46,7 @@
 
   `compile_file`, `compile_string` 함수의 추적 여부를 설정합니다. PHP 내부 함수인 `compile_file`, `compile_string` 함수는 스크립트 실행 전에 컴파일하는 함수로 Main, include, require 및 autoload 스크립트의 컴파일 시점 및 스크립트 파일 경로와 실행 시간을 확인할 수 있습니다.
 
-{@include: ../common-items/_php-restart-apply.mdx}
+  <Phprestartapply />
 
 * **whatap.profile_compile_file_basetime** <span class='type'>Millisecond</span>
 
@@ -58,7 +60,7 @@
   
   :::
 
-{@include: ../common-items/_php-restart-apply.mdx}
+  <Phprestartapply />
 
 * **whatap.profile_method_enabled** <span class='type'>Boolean</span>
 
@@ -66,7 +68,7 @@
 
   실행 시간이 `whatap.profile_method_time` 설정값(기본값 `1초`)을 초과하는 사용자 함수의 정보를 트랜잭션 상세 정보에서 확인할 수 있습니다.
 
-{@include: ../common-items/_php-restart-apply.mdx}
+  <Phprestartapply />
 
 * **whatap.profile_method_time** <span class='type'>Milliseconds</span>
 
@@ -74,7 +76,7 @@
 
   `whatap.profile_method_enabled` 설정으로 수집되는 함수의 실행 시간을 설정합니다. 
 
-{@include: ../common-items/_php-restart-apply.mdx}
+  <Phprestartapply />
 
 * **whatap.profile_method_stack_enabled** <span class='type'>Boolean</span>
 
@@ -82,23 +84,29 @@
 
   사용자 함수의 스택 정보를 트랜잭션 상세 정보에서 확인할 수 있습니다.
 
-{@include: ../common-items/_php-restart-apply.mdx}
+  <Phprestartapply />
 
 * **whatap.profile_internal_method_enabled** <span class='type'>Boolean</span>
 
-  기본값 `true`
+  기본값 `false`
 
-  PHP 내부 함수의 추적 여부를 설정합니다. `whatap.profile_internal_method_time` 설정값(기본값 `1초`)보다 오래 걸리는 경우만 추적합니다. 
+  PHP 내부 함수의 추적 여부를 설정합니다. `whatap.profile_internal_method_time` 설정값(기본값 `1초`)보다 오래 걸리는 경우만 추적합니다.
+
+  :::caution
+
+  이 옵션은 사용자 정의 함수가 아닌 PHP의 내장 함수를 모두 확인하므로 성능에 부하가 발생할 수 있습니다.
+
+  :::
   
-{@include: ../common-items/_php-restart-apply.mdx}
+  <Phprestartapply />
 
-* **whatap.profile_internal_method_time** <span class='type'>Milliseconds</span> <!-- 두 개가 어떻게 다른지? 0309 수정완-->
+* **whatap.profile_internal_method_time** <span class='type'>Milliseconds</span> {/* 두 개가 어떻게 다른지? 0309 수정완*/}
 
   기본값 `1000`
 
   PHP 내부 함수를 추적할 때(`whatap.profile_internal_method_enabled`) 함수의 실행 시간을 설정합니다. 
 
-{@include: ../common-items/_php-restart-apply.mdx}
+  <Phprestartapply />
 
 * **whatap.profile_internal_method_param_enabled** <span class='type'>Milliseconds</span>
 
@@ -106,7 +114,7 @@
 
   PHP 내부 함수를 추적할 때(`whatap.profile_internal_method_enabled`) 부가적으로 함수 파라미터 정보를 수집합니다.
 
-{@include: ../common-items/_php-restart-apply.mdx}
+  <Phprestartapply />
 
 * **whatap.net_udp_flush_start** <span class='type'>Boolean</span>
 
@@ -172,11 +180,11 @@
 
   동시에 설정된 경우 우선 순위는 다음과 같습니다. 
 
-  1. split
+  1\. split
 
-  1. large
+  2\. large
 
-  1. circular
+  3\. circular
 
   :::
 
@@ -192,11 +200,11 @@
 
   * 동시에 설정된 경우 우선 순위는 다음과 같습니다. 
 
-    1. split
+    1\. split
 
-    1. large
+    2\. large
 
-    1. circular
+    3\. circular
 
   :::
 
@@ -210,11 +218,11 @@
 
   동시에 설정된 경우 우선 순위는 다음과 같습니다. 
 
-  1. split
+  1\. split
 
-  1. large
+  2\. large
 
-  1. circular
+  3\. circular
 
   :::
 

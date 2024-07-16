@@ -5,13 +5,15 @@ description: Windows 환경에서 와탭 서버 모니터링 에이전트를 설
 tags: [ Server, 설치하기, Windows ]
 ---
 
-신규 생성한 서버 모니터링 프로젝트를 선택하면 ***에이전트 설치*** 화면이 나타납니다. 프로젝트 ***관리*** > ***에이전트 설치*** 메뉴를 통해서도 가능합니다.
+신규 생성한 서버 모니터링 프로젝트를 선택하면 <Cmdname sid="side_agentInstall" className="uitext" /> 화면이 나타납니다. 프로젝트 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴를 통해서도 가능합니다.
 
 <ImgLang img='server-install-windows.png' desc='서버 모니터링 윈도우즈'/>
 
+<Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 운영체제 선택 화면에서 ***Windows*** 선택 후 프로젝트 액세스 키를 확인했다면 다음 안내대로 설치를 진행하세요. 
+
 1. **에이전트 파일**을 다운로드하세요.
 
-    ***관리*** > ***에이전트 설치***  화면 상단 영역의 ![number-s](/img/number-01.png) OS 탭에서 서버 OS를 선택하세요. ![number-s](/img/number-02.png) ***설치 파일 다운로드*** 탭에서 *whatap_infra.exe* 혹은 *whatap_infra.zip* 버튼을 선택해 에이전트 설치 파일을 다운로드 하세요.  
+    <Cmdname sid="server_installAgent_win_download" className="uitext" /> 탭에서 *whatap_infra.exe* 혹은 *whatap_infra.zip* 버튼을 선택해 에이전트 설치 파일을 다운로드 하세요.  
 
     :::note
 
@@ -24,7 +26,7 @@ tags: [ Server, 설치하기, Windows ]
 
 1. 다운로드한 **설치 파일**을 두 번 클릭해 실행하세요.  
 
-1. ![number-s](/img/number-03.png) ***설치 파일 실행*** 탭으로 이동하여 발급받은 프로젝트 액세스 키와 서버 IP를 확인하세요.
+1. ![number-s](/img/number-03.png) <Cmdname sid="server_installAgent_win_runSetup" className="uitext" /> 탭으로 이동하여 발급받은 프로젝트 액세스 키와 서버 IP를 확인하세요.
 
 1. 화면의 안내에 따라 ***License Key*** 항목에는 프로젝트 액세스 키를, ***WhaTap IP*** 항목에는 와탭 서버의 IP 주소를 입력하세요.
 
@@ -39,8 +41,12 @@ tags: [ Server, 설치하기, Windows ]
 <details>
 <summary>서버 에이전트 파일 구성</summary>
 
-{@include: ../../common-items/_sv-cpf.mdx}
+import Svcpf from "../../common-items/_sv-cpf.mdx";
 
-{@include: ../../common-items/_sv-w-cpf.mdx}
+<Svcpf />
+
+import Svwcpf from "../../common-items/_sv-w-cpf.mdx";
+
+<Svwcpf />
 
 </details>

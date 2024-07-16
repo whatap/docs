@@ -44,14 +44,14 @@
 
 |     연산자     | 사용법                       | 설명                                                                                            |
 | :------------: | ---------------------------- | ----------------------------------------------------------------------------------------------- |
-|       ==       | operand1 == operand2         | operand1과 operand2의 값이 동일한지 확인합니다.                                                 |
-|       !=       | operand1 != operand2         | operand1과 operand2의 값이 다른지 확인합니다.                                                   |
-| <span>></span> | operand1 &gt; operand2          | operand1의 값이 operand2의 값보다 큰지 확인합니다.                                              |
-|       >=       | operand1 >= operand2         | operand1의 값이 operand2의 값보다 큰거나 같은지 확인합니다.                                     |
-|       <       | operand1 < operand2          | operand1의 값이 operand2의 값보다 작은지 확인합니다.                                            |
-|       <=       | operand1 <= operand2         | operand1의 값이 operand2의 값보다 작거나 같은지 확인합니다.                                     |
+|       \=\=       | operand1\=\= operand2         | operand1과 operand2의 값이 동일한지 확인합니다.                                                 |
+|       !\=       | operand1 !\= operand2         | operand1과 operand2의 값이 다른지 확인합니다.                                                   |
+| <span>\></span> | operand1 &gt; operand2          | operand1의 값이 operand2의 값보다 큰지 확인합니다.                                              |
+|      \>\=       | operand1 \>\= operand2         | operand1의 값이 operand2의 값보다 큰거나 같은지 확인합니다.                                     |
+|       \<       | operand1 \< operand2          | operand1의 값이 operand2의 값보다 작은지 확인합니다.                                            |
+|       \<\=       | operand1 \<\= operand2         | operand1의 값이 operand2의 값보다 작거나 같은지 확인합니다.                                     |
 |      like      | operand1 like operand2       | operand1에 operand2가 포함되어 있는 지를 패턴으로 검색합니다.                        |
-|       &&       | expression1 && expression2   | expression1과 expression2이 모두 `true`인지 확인합니다.                                           |
+|       \&\&       | expression1 \&\& expression2   | expression1과 expression2이 모두 `true`인지 확인합니다.                                           |
 |      and       | expression1 and expression2  | expression1과 expression2이 모두 `true`인지 확인합니다.<br/>**&&**와 동일한 역할을 수행하는 연산자입니다. |
 |      \|\|      | expression1 \|\| expression2 | expression1 또는 expression2이 `true`인지 확인합니다.                                             |
 |       or       | expression1 or expression2   | expression1 또는 expression2이 `true`인지 확인합니다.<br/>**\|\|**와 동일한 역할을 수행하는 연산자입니다. |
@@ -108,7 +108,7 @@
 | 함수       | 사용법                     | 설명                                                                      |
 | ---------- | -------------------------- | ------------------------------------------------------------------------- |
 | [startsWith](#startwith) | startsWith(param1, param2) | param1을 Key로 하는 Value가 param2로 시작하면 `true`, 반대의 경우 `false` |
-| [endsWith](#endsWith)   | endsWith(param1, param2)   | param1을 Key로 하는 Value가 param2로 끝나면 `true`, 반대의 경우 `false`   |
+| [endsWith](#endswith)   | endsWith(param1, param2)   | param1을 Key로 하는 Value가 param2로 끝나면 `true`, 반대의 경우 `false`   |
 | [isNull](#isnull)     | isNull(param1)             | param1이 `null`이면 `true`, 반대의 경우 `false`                           |
 | [isNotNull](#isnotnull)  | isNotNull(param1)          | param1이 `null`이 아니면 `true`, 반대의 경우 `false`                      |
 | [isEmpty](#isempty)    | isEmpty(param1)            | param1이 `null` 또는 `EmptyString("")`이면 `true`, 반대의 경우 `false`    |

@@ -4,7 +4,9 @@ title: Red Hat/CentOS
 description: Red Hat/CentOS
 tags: [ Red Hat, CentOSX, Linux, PHP ]
 ---
- 
+
+import Phpinstallscript from "../../common-items/_php-install-script.mdx"
+
 1. 와탭 **리포지토리**를 등록하세요.
 
     ```bash title=SH
@@ -16,9 +18,11 @@ tags: [ Red Hat, CentOSX, Linux, PHP ]
     ```bash title=SH
     $ sudo yum install whatap-php
     ```
-1. {@include: ../../common-items/_php-install-script.mdx}
+1. <Phpinstallscript />
 
-{@include: ../../common-items/_php-extension-whatap.mdx} 
+import Phpextensionwhatap from "../../common-items/_php-extension-whatap.mdx";
+
+<Phpextensionwhatap /> 
 
 :::note
 

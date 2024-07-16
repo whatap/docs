@@ -5,9 +5,13 @@ description: 모니터링 대상을 구별하기 위한 애플리케이션 서�
 tags: [ Java, 애플리케이션, 에이전트, whatap.conf ]
 ---
 
-{@include: ../common-items/_apm-name-description.mdx}
+import Apmnamedescription from "../common-items/_apm-name-description.mdx";
 
-{@include: ../common-items/_agent-name-warning.mdx}
+<Apmnamedescription />
+
+import Agentnamewarning from "../common-items/_agent-name-warning.mdx";
+
+<Agentnamewarning />
 
 :::note
 
@@ -45,10 +49,24 @@ JVM 옵션으로 `whatap.oname` 설정이 없는 경우 에이전트 이름을 �
 
 시작 스크립트에 JVM 옵션을 추가해 자동으로 부여한 이름 대신 직접 이름을 설정할 수 있습니다.
 
-| 우선순위 | 옵션           | 설정 위치   | 설명                                                                         |
-| -------- | -------------- | ----------- | ---------------------------------------------------------------------------- |
-| 1        | -Dwhatap.name  | JVM Options | 에이전트 이름을 패턴으로 설정하세요.<br/>default: `{type}-{ip2}-{ip3}-{port}` |
-| 2        | -Dwhatap.oname | JVM Options | 에이전트 이름을 고정값으로 설정합니다.<br/>`-Dwhatap.oname=front-{ip3}-{port}` |
+<div class="c4-name">
+
+| 옵션           | 설정 위치   | 설명                                                                         |
+| -------------- | ----------- | ---------------------------------------------------------------------------- |
+| `-Dwhatap.name`  | JVM Options | 에이전트 이름을 패턴으로 설정합니다.<br/>기본값 `{type}-{ip2}-{ip3}-{port}` |
+| `-Dwhatap.oname` | JVM Options | 에이전트 이름을 고정값으로 설정합니다.<br/>`-Dwhatap.oname=java-sales-01` <br/>옵션을 설정하지 않으면 `-Dwhatap.name` 옵션에 설정된 패턴으로 적용됩니다.<br/> |
+
+</div>
+
+:::tip
+
+IP 주소가 10.11.12.13이고, 포트 번호가 8000인 환경에서
+
+* **-Dwhatap.oname 옵션을 적용하지 않은 경우**: **whatap.oname**은 `-Dwhatap.name`에 설정된 패턴에 따라 `JAVA-12-13-8000`으로 기본 설정됩니다.
+
+* **-Dwhatap.oname 옵션을 적용한 경우**: `-Dwhatap.name` 옵션을 무시하고 `-Dwhatap.oname` 옵션에 설정한 값으로 에이전트 이름이 적용됩니다.
+
+:::
 
 :::note
 
@@ -59,4 +77,6 @@ JVM 옵션으로 `whatap.oname` 설정이 없는 경우 에이전트 이름을 �
 
 다음은 *whatap.conf* 파일에 에이전트 이름으로 적용할 수 있는 옵션입니다.
 
-{@include: ../common-items/_java-agent-name.mdx} 
+import Javaagentname from "../common-items/_java-agent-name.mdx";
+
+<Javaagentname /> 

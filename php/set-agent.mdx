@@ -15,41 +15,55 @@ PHP 에이전트는 필요한 설정을 *whatap.ini* 파일에 작성하고 변�
 
 import ProdImg from '@site/src/components/ChangeImgName.js';
 
-<!--서비스 화면에서 에이전트 설정하기 start-->
+{/*서비스 화면에서 에이전트 설정하기 start*/}
 ## 서비스 화면에서 에이전트 설정하기{#set-agent-service}
 
-홈 화면 > 프로젝트 선택 > ***관리*** > ***에이전트 설정***
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" />
 
 import Desc from '../common-items/_import_set-agent-desc-okind.mdx';
 
 <Desc name='whatap.ini'/>
 
-<!--Notes-->
-{@include: ../common-items/_set-agent-in-service-desc-notes.mdx}
+{/*Notes*/}
+import Setagentinservicedescnotes from "../common-items/_set-agent-in-service-desc-notes.mdx";
 
-<!--옵션추가하기-->
-{@include: ../common-items/_set-agent-in-service-add-options.mdx}
+<Setagentinservicedescnotes />
 
-<!--옵션 수정 또는 삭제 -->
-{@include: ../common-items/_set-agent-in-service-modify-options.mdx} 
+{/*옵션추가하기*/}
+import Setagentinserviceaddoptions from "../common-items/_set-agent-in-service-add-options.mdx";
 
-<!-- 여러에이전트 동시 적용 -->
-{@include: ../common-items/_set-agent-in-service-muli-agent.mdx} 
+<Setagentinserviceaddoptions />
 
-<!-- 에이전트 기본값 적용 -->
-{@include: ../common-items/_set-agent-in-service-apply-dafault-desc.mdx} 
+{/*옵션 수정 또는 삭제 */}
+import Setagentinservicemodifyoptions from "../common-items/_set-agent-in-service-modify-options.mdx";
+
+<Setagentinservicemodifyoptions /> 
+
+{/* 여러에이전트 동시 적용 */}
+import Setagentinservicemuliagent from "../common-items/_set-agent-in-service-muli-agent.mdx";
+
+<Setagentinservicemuliagent /> 
+
+{/* 에이전트 기본값 적용 */}
+import Setagentinserviceapplydafaultdesc from "../common-items/_set-agent-in-service-apply-dafault-desc.mdx";
+
+<Setagentinserviceapplydafaultdesc /> 
 
 import DefaultItems from '../common-items/_import_set-agent-in-service-default-item.mdx';
 
 <DefaultItems name='whatap.ini'/>
 
-<!--Notes-->
-{@include: ../common-items/_set-agent-in-service-default-notes.mdx}
+{/*Notes*/}
+import Setagentinservicedefaultnotes from "../common-items/_set-agent-in-service-default-notes.mdx";
 
-<!--설정 공유하기-->
-{@include: ../common-items/_set-agent-sharing.mdx}  
+<Setagentinservicedefaultnotes />
 
-<!--서비스 화면에서 에이전트 설정하기 end-->
+{/*설정 공유하기*/}
+import Setagentsharing from "../common-items/_set-agent-sharing.mdx";
+
+<Setagentsharing />  
+
+{/*서비스 화면에서 에이전트 설정하기 end*/}
 
 ## 에이전트 설정 옵션 안내
 

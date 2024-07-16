@@ -5,7 +5,7 @@ description: 브라우저 모니터링은 브라우저의 프론트 엔드(Front
 tags: [ 브라우저 모니터링, 분석, 에러 추적 ]
 ---
 
-홈 화면 > 프로젝트 선택 > ***분석*** > ***에러 추적***
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_browserErrorTracking" className="uitext" />
 
 브라우저 모니터링은 브라우저의 프론트 엔드(Front-End) 에러를 수집합니다. 에러 메시지 및 에러 스택 정보, 브라우저, OS, 디바이스, 페이지 URL 정보를 포함하고 있습니다.
 
@@ -57,11 +57,11 @@ tags: [ 브라우저 모니터링, 분석, 에러 추적 ]
 - ***stack***: 에러 스택 정보입니다. 에러 스택은 기본적으로 난독화된 파일명과 라인, 컬럼 정보를 포함합니다.
 
 
-## 소스맵 업로드 및 에러 코드 제공{#check-errorcode}
+## 소스맵 업로드 및 에러 코드 제공 {#check-errorcode}
 
 배포된 프론트엔드 코드가 난독화 또는 압축된 경우 수집된 브라우저 에러의 스택 정보를 실제 코드 레벨로 제공하기 어렵습니다. 프론트엔드 코드를 배포하는 시점에 빌드된 source-map을 통해 브라우저 에러가 발생한 파일, 코드 라인에 접근할 수 있습니다.
 
-1. ***에러 스택*** 컬럼의 ***분석*** 버튼을 선택하세요.
+1. <Cmdname sid="exception_stack" className="uitext" /> 컬럼의 <Cmdname sid="analysis" className="uitext" /> 버튼을 선택하세요.
 
     <ImgLang img='browser-error-stack-btn-analysis.png' desc='에러 로그' />
 
@@ -91,22 +91,17 @@ tags: [ 브라우저 모니터링, 분석, 에러 추적 ]
 
 ## 테이블 컬럼 설정
 
-### 테이블 컬럼 표시하거나 숨기기
+{/* #### 테이블 컬럼 표시하거나 숨기기 */}
+import Displayorhidetablecolumn from "../common-items/_display-or-hide-table-column.mdx";
 
-브라우저 에러 목록 테이블의 컬럼 헤더 항목을 표시하거나 숨길 수 있습니다.
+<Displayorhidetablecolumn level={3} /> 
 
-{@include: ../common-items/_display-or-hide-table-column.mdx}
+{/* ### 테이블 컬럼 순서 바꾸기 */}
+import Changeordertablecolumn from "../common-items/_change-order-table-column.mdx";
 
-### 테이블 컬럼 순서 바꾸기
+<Changeordertablecolumn level={3} /> 
 
-브라우저 에러 목록 테이블에서 컬럼 헤더의 순서를 변경할 수 있습니다.
+{/* #### 테이블 콘텐츠 표시 설정 */}
+import Setdisplaytablecontents from "../common-items/_set-display-table-contents.mdx";
 
-{@include: ../common-items/_change-order-table-column.mdx}
-
-
-## 테이블 콘텐츠 표시 설정
-
-브라우저 에러 목록에 표시하는 콘텐츠의 내용을 설정할 수 있습니다. 너무 많은 정보가 표시되어 보기 불편하거나 필요한 내용을 추가하고 싶은 경우 이용할 수 있습니다.
-
-{@include: ../common-items/_set-display-table-contents.mdx}
-
+<Setdisplaytablecontents level={2} /> 

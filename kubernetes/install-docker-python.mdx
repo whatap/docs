@@ -71,7 +71,7 @@ whatap-setting-config \
 # 다음 주석은 에이전트 그룹화 및 로그 수집 활성화 등의 추가 설정입니다. 필요한 경우에만 사용하세요.
 
 # 에이전트 그룹화
-#echo "okind=$okind" >> whatap.conf
+#echo "whatap.okind=$whatap.okind" >> whatap.conf
 
 # 로그 수집 활성화
 #echo "logsink_enabled=true" >> whatap.conf
@@ -147,7 +147,7 @@ CMD ["./entrypoint.sh"]
 * **에이전트 그룹화** 
 
   ```bash 
-  echo "okind=$okind" >> whatap.conf
+  echo "whatap.okind=$whatap.okind" >> whatap.conf
   ```
 
 * **로그 수집 활성화** 
@@ -163,23 +163,23 @@ CMD ["./entrypoint.sh"]
 Docker 빌드 후 쿠버네티스 환경 내 **컨테이너 환경변수**를 설정하세요. 애플리케이션 배포 *yaml* 파일에 다음 내용을 추가하세요. 
 
 ```yaml
-	  env:
-		- name: license
-			value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
-		- name: whatap_server_host
-			value: XXX.XXX.XXX.XXX
-		- name: app_name
-			value: {YOUR_APP_NAME}
-		- name: app_process_name
-		  value: {YOUR_PROCESS_NAME}
-		- name: okind
-			value: {YOUR_GROUP_NAME}
-		- name: NODE_IP
-		  valueFrom: {fieldRef: {fieldPath: status.hostIP}}
-		- name: NODE_NAME
-		  valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
-		- name: POD_NAME
-		  valueFrom: {fieldRef: {fieldPath: metadata.name}}
+    env:
+    - name: license
+      value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
+    - name: whatap_server_host
+      value: XXX.XXX.XXX.XXX
+    - name: app_name
+      value: {YOUR_APP_NAME}
+    - name: app_process_name
+      value: {YOUR_PROCESS_NAME}
+    - name: whatap.okind
+      value: {YOUR_GROUP_NAME}
+    - name: NODE_IP
+      valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+    - name: NODE_NAME
+      valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+    - name: POD_NAME
+      valueFrom: {fieldRef: {fieldPath: metadata.name}}
 ```
 
 다음 예시를 참조하세요. 
@@ -199,23 +199,23 @@ spec:
       labels:
         app: python-fastapi-pod
   containers:
-	- name: agent-python-fastapi
+  - name: agent-python-fastapi
     image: whatap/agent-python-fastapi
-	  env:
-		- name: license
-			value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
-		- name: whatap_server_host
-			value: XXX.XXX.XXX.XXX
-		- name: app_name
-			value: "myapp-python-fastapi"
-		- name: app_process_name
-		  value: "uvicorn"
-		- name: NODE_IP
-		  valueFrom: {fieldRef: {fieldPath: status.hostIP}}
-		- name: NODE_NAME
-		  valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
-		- name: POD_NAME
-		  valueFrom: {fieldRef: {fieldPath: metadata.name}}
+    env:
+    - name: license
+      value: XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX
+    - name: whatap_server_host
+      value: XXX.XXX.XXX.XXX
+    - name: app_name
+      value: "myapp-python-fastapi"
+    - name: app_process_name
+      value: "uvicorn"
+    - name: NODE_IP
+      valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+    - name: NODE_NAME
+      valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+    - name: POD_NAME
+      valueFrom: {fieldRef: {fieldPath: metadata.name}}
 ```
 
 :::note
@@ -230,7 +230,7 @@ spec:
 
 - `app_process_name`: CPU, Heap Memory 등 수집할 대상 프로세스를 설정합니다. 예로 uwsgi, gunicorn 등이 있습니다.
 
-- `okind`(선택사항) : Pod에 해당하는 애플리케이션들을 그룹화합니다. 디플로이먼트(Deployment) 이름으로 설정 시 해당하는 Pod들을 하나로 그룹화합니다.
+- `whatap.okind`(선택사항) : Pod에 해당하는 애플리케이션들을 그룹화합니다. 디플로이먼트(Deployment) 이름으로 설정 시 해당하는 Pod들을 하나로 그룹화합니다.
 
 - `NODE_IP`: 현재 Pod가 호스팅된 노드(Node)의 IP 주소를 수집합니다.
 

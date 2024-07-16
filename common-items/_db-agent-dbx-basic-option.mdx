@@ -8,6 +8,8 @@
 
   에이전트가 수집한 데이터를 전송할 와탭 수집 서버의 IP 주소를 설정하세요. 수집 서버 이중화로 2개 이상의 IP를 가진 경우 쉼표(,)를 구분자로 사용하세요. 설정한 IP 주소에는 수집 서버 proxy 데몬이 리스닝 상태로 서비스돼야 합니다.
 
+<Xclude product="oracle-pro">
+
 * **whatap.server.port** <span class='type'>String</span>
 
   기본값 `6600`
@@ -24,6 +26,22 @@
 
   :::
 
+</Xclude>
+
+<InDoc product="oracle-pro">
+
+* **ipckey** <span class='type'>String</span>
+
+  `ipcs -m` 명령어를 통해 얻을 수 있습니다. 모니터링할 오라클의 Key 값(16진수)입니다.
+
+  :::note
+
+  `ipcs` 명령은 프로세스 간 통신(IPC)에 대한 정보를 제공합니다. `-m` 옵션은 공유 메모리 자원을 조회합니다.
+
+  :::
+
+</InDoc>
+
 <InDoc product='cubrid'>
 
 * **db** <span class='type'>String</span>
@@ -32,11 +50,15 @@
 
 </InDoc>
 
+<Xclude product="oracle-pro">
+
 * **db_ip** <span class='type'>String</span>
 
   모니터링할 데이터베이스 서버의 IP 주소를 설정합니다.
 
-<Xclude product='cubrid'>
+</Xclude>
+
+<Xclude product='cubrid,oracle-pro'>
 
 * **db_port** <span class='type'>String</span>
 

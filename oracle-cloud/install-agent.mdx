@@ -10,7 +10,9 @@ import ProdImg from '@site/src/components/ChangeImgName.js';
 
 와탭 Oracle Cloud Monitor는 API 연동을 통해 메트릭을 주기적으로 수집합니다. 수집을 원하는 서비스에 해당하는 Oracle Cloud Monitor 네임스페이스를 5분 기간으로 원하는 스탯을 취사선택해 수집합니다. 모니터링 시작 시 모든 리전의 사용자 자원을 검색하여 원클릭으로 모니터링을 시작할 수 있습니다. Oracle Cloud API 등록 시 필요한 ssh 공개 키를 자동 생성하여 안전하고 편리하게 사용할 수 있습니다. 
 
-{@include: ../getting-started/_create-project-cloud.mdx}
+import Createprojectcloud from "../getting-started/_create-project-cloud.mdx";
+
+<Createprojectcloud />
 
 ## 모니터링 절차
 
@@ -47,10 +49,8 @@ import ProdImg from '@site/src/components/ChangeImgName.js';
         > * Allow group `{그룹}` to read metrics in compartment `{컴파트먼트}`
         > * Allow group `{그룹}` to inspect metrics in compartment `{컴파트먼트}`
 
-1. Identity & Security 메뉴 하단 Users를 선택해 **User**를 생성하거나 선택하세요.
+1. 오른쪽 상단의 Identity 메뉴에서 My profile을 선택하세요. 
 
-    * Create User를 선택해 신규 User를 생성하거나 User를 선택하세요.
-    * User Details 화면에서 해당 유저를 3에서 선택한 Group에 추가하세요.
     * 왼쪽 하단의 API Keys를 선택하세요.
     * Add API Key 버튼을 선택하세요.
     * 라디오 버튼의 Paste Public Key를 선택하여 2단계에서 받은 **RSA Public Key**를 입력하세요.
@@ -64,11 +64,15 @@ import ProdImg from '@site/src/components/ChangeImgName.js';
 
 ### 네임스페이스 및 수집 주기 선택
 
-{@include: ../common-items/_namespace-collect.mdx}  
+import Namespacecollect from "../common-items/_namespace-collect.mdx";
+
+<Namespacecollect />  
 
 #### 와탭 수집 주기
 
-{@include: ../common-items/_collecting-period.mdx}
+import Collectingperiod from "../common-items/_collecting-period.mdx";
+
+<Collectingperiod />
 
 #### 네임스페이스
 
@@ -120,8 +124,10 @@ import ProdImg from '@site/src/components/ChangeImgName.js';
 * WAF
 
 ### 리전, 메트릭스, 스탯 선택
- 
-![number 2](/img/number-02.png) {@include: ../common-items/_region-metric-stats.mdx} 
+
+import Regionmetricstats from "../common-items/_region-metric-stats.mdx";
+
+<Regionmetricstats />
 
 <ImgLang img='oci_region.png' desc='Oracle Cloud Monitor - Region, Metric, Stats' />
 

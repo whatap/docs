@@ -5,19 +5,22 @@ description: whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내�
 tags: [ MySQL, 데이터베이스 모니터링, DBX 에이전트 ]
 ---
 
-import CurProd from '@site/src/components/GetProductName.js';
 import AWSRDSdesc from '../common-items/_import_aws-rds-desc.mdx';
 
 DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
 
 ## 기본 옵션
 
-{@include: ../common-items/_db-agent-dbx-basic-option.mdx}
+import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
+
+<Dbagentdbxbasicoption />
 
 
 ## 데이터 수집
 
-{@include: ../common-items/_db-agent-setting-data-collection.mdx} 
+import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data-collection.mdx";
+
+<Dbagentsettingdatacollection /> 
 
 * **trx_rseg_history_len** <span class='type'>Boolean</span> <code class="my">MySQL 5.7 or later</code> <code class="my">DBX agent v1.6.15 or later</code>
 
@@ -46,18 +49,68 @@ DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다.
   variables_metric=uptime,version
   ```
 
+## 액티브 세션 제외 설정
 
-## AWS RDS CloudWatch 적용{#using-aws-rds}
+DBX 에이전트는 MySQL의 액티브 세션 목록을 수집하지만 특정 세션을 제외할 수 있는 옵션을 제공합니다. 제외한 세션은 `total_runtime`을 계산할 때 포함하지 않으며 <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서도 해당 SQL은 표시되지 않습니다.
+
+* **skip_command** <span class='type'>String</span>
+
+  액티브 세션 수집 시 옵션값으로 설정한 `command`에 해당하는 세션은 수집하지 않습니다. 예를 들어, 다음과 같이 설정하면 `Daemon`과 `Sleep` 상태의 세션은 수집에서 제외할 수 있습니다.
+
+  ```ini title="whatap.conf"
+  skip_command=Daemon,Sleep
+  ```
+
+  :::note
+
+  옵션값으로 설정할 수 있는 `command`에 대한 자세한 내용은 [다음 링크](https://dev.mysql.com/doc/refman/8.4/en/thread-commands.html)를 참조하세요.
+
+  :::
+
+* **skip_sys_session** <span class='type'>Int</span>
+
+  기본값 `1`
+
+  * `0`: sys 세션(root, system user)을 액티브 세션 수집과 `total_runtime`에 포함합니다.
+
+  * `1`: sys 세션을 액티브 세션 수집에 포함하지만 `total_runtime`에서는 제외합니다. 
+  
+  * `2`: sys 세션을 액티브 세션 수집과 `total_runtime`에서 제외합니다.
+
+* **skip_user** <span class='type'>String</span>
+
+  옵션값으로 설정한 사용자 계정을 액티브 세션과 `total_runtime`에서 제외합니다. 예를 들어, 다음과 같이 설정하면 `root`, `system user`, `event_scheduler` 계정에 대한 수집을 제외할 수 있습니다.
+
+  ```ini title="whatap.conf"
+  skip_user=root,system user,event_scheduler
+  ```
+
+* **skip_whatap_session** <span class='type'>Int</span>
+
+  기본값 `0`
+
+  옵션값을 `1`로 설정하면 와탭의 수집 쿼리를 액티브 세션 수집과 `total_runtime`에서 제외합니다.
+
+
+## AWS RDS CloudWatch 적용 {#using-aws-rds}
 
 <AWSRDSdesc name='db_mysql_counter' />
 
-{@include: ../common-items/_db-agent-aws.mdx}
+import Dbagentaws from "../common-items/_db-agent-aws.mdx";
 
-<!-- AES 256 암호화 적용 -->
-{@include: ../common-items/_db-aes-256-encrypt.mdx}  
+<Dbagentaws />
+
+{/* AES 256 암호화 적용 */}
+import Dbaes256encrypt from "../common-items/_db-aes-256-encrypt.mdx";
+
+<Dbaes256encrypt />  
 
 ## 에이전트 이름 식별{#naming}
 
-{@include: ../common-items/_db-setting-agent-name-details.mdx}
+import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
 
-{@include: ../common-items/_db-agent-dbx-naming.mdx} 
+<Dbsettingagentnamedetails />
+
+import Dbagentdbxnaming from "../common-items/_db-agent-dbx-naming.mdx";
+
+<Dbagentdbxnaming /> 

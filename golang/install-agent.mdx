@@ -19,13 +19,17 @@ tags: [ Go, 에이전트 설치 ]
 
 1. whatap-agent 서비스를 실행하세요.
 
-![Go Monitoring](/img/golang_system.png)
+<ImgLang img="golang_system.png" desc="Go Monitoring" />
 
 와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다.
 
-{@include: ../getting-started/_create-project-v2.mdx}
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
-{@include: ../getting-started/_accesskey-v2.mdx} 
+<Createprojectv2 />
+
+import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
+
+<Accesskeyv2 /> 
 
 ## 에이전트 다운로드
 
@@ -77,47 +81,53 @@ $ sudo yum install whatap-agent
 
 [whatap-agent.tar.gz](https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz) 파일을 다운받고 '/' 디렉터리 기준으로 압축을 해제하세요. */usr/whatap/agent* 경로에 모니터링 파일을 생성합니다.
 
-```bash title='SH'
-$ wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz
-$ tar -xvzf whatap-agent.tar.gz -C /
+<Tabs>
+
+<TabItem value="x64" label="x64" default>
+
+```docker title='x64'
+wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz
+tar -xvzf whatap-agent.tar.gz -C /
 ```
 
 </TabItem>
-<TabItem value="al-docker" label="Alpine Linux Docker">
 
-[whatap-agent.tar.gz](https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz) 파일을 다운받고 */usr/whatap/agent* 경로에 압축을 해제하세요.
+<TabItem value="aarch64" label="AArch64" default>
 
-```bash title='SH'
-FROM alpine
-
-RUN apk update && apk upgrade
-
-# Install WhaTap Go monitoring agent
-RUN wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz
-RUN tar -xvzf whatap-agent.tar.gz -C /
+```docker title='AArch64'
+wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/aarch64/whatap-agent.tar.gz
+tar -xvzf whatap-agent.tar.gz -C /
 ```
 
 </TabItem>
+
 </Tabs>
 
-<details>
-<summary>에이전트 구성 파일</summary>
+</TabItem>
 
-모니터링 정보를 수집하기 위한 트레이서, 수집한 정보를 서버에 전송하기 위한 에이전트, 트레이서와 에이전트를 서버에 동적으로 적용하기 위한 설치 스크립트 파일로 구성합니다.
+</Tabs>
 
-* *whatap-agent*: 에이전트, 트레이서에서 UDP로 전달한 정보를 수집 서버로 전송하는 프로그램입니다.
+에이전트는 모니터링 정보를 수집하기 위한 트레이서, 수집한 정보를 서버에 전송하기 위한 에이전트, 트레이서와 에이전트를 서버에 동적으로 적용하기 위한 설치 스크립트 파일로 구성합니다. 에이전트 파일에 대한 자세한 설명은 다음을 참조하세요.
 
-* */etc/init.d/whatap-agent*: 서비스 스크립트 파일입니다.
+<Filetree name="whatap">
 
-* *whatap_agent*: 서비스 실행 파일입니다.
+  <FiletreeItem name="whatap-agent" type="file">에이전트, 트레이서에서 UDP로 전달한 정보를 수집 서버로 전송하는 프로그램입니다.</FiletreeItem>
 
-* *whatap.conf*: 설정 정보 및 수집 서버 IP, 액세스 키를 입력하는 파일입니다.
+  <FiletreeItem name="whatap_agent" type="file">서비스 실행 파일입니다.</FiletreeItem>
+  
+  <FiletreeItem name="whatap.conf" type="file">설정 정보 및 수집 서버 IP, 액세스 키를 입력하는 파일입니다.</FiletreeItem>
 
-* *whatap-boot-`yyyymmdd`.log*: 에이전트 로그 파일입니다. (경로: */usr/whata/agent/log*)
+  <FiletreeItem name="whatap-boot-yyyymmdd.log" type="file">에이전트 로그 파일입니다. (경로: */usr/whata/agent/log*)</FiletreeItem>
 
-</details>
+  <FiletreeItem name="/etc/init.d" type="folder">
+  
+    <FiletreeItem name="whatap-agent" type="file">서비스 스크립트 파일입니다.</FiletreeItem>
+  
+  </FiletreeItem>
 
-## 에이전트 설정{#set-agent}
+</Filetree>
+
+## 에이전트 설정 {#set-agent}
 
 ### 기본 설정하기
 
@@ -194,8 +204,10 @@ WHATAP_HOME=./whatap_home1 ./app
 
 ```
 
-<!--Go 라이브러리 설정하기-->
-{@include: ../common-items/_go-docker-setting-library.mdx}
+{/*Go 라이브러리 설정하기*/}
+import Godockersettinglibrary from "../common-items/_go-docker-setting-library.mdx";
+
+<Godockersettinglibrary />
 
 
 ## 모니터링 시작하기

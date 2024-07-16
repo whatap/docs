@@ -35,7 +35,7 @@ auto_thread_kill_elapsed=0
 auto_thread_kill_enabled=false
 ```
 
-### Collection 모니터링 수정
+### Collection 모니터링 수정 {#collectionmonitor}
 
 Collection 클래스를 hooking 하는 기존 방식에서 CollectionHolder를 통해 간접적으로 Collection 클래스 정보를 조회 할 수 있도록 수정하였습니다.
 
@@ -94,14 +94,6 @@ jmx pool object의 기본값을 수정하였습니다. jmx pool의 데이터소�
 ```ini title='whatap.conf'
 jmx_pool_dsname_enabled=false
 jmx_pool_object="*:type=DataSource,class=*,name=*"
-```
-
-### heapdump 파일 경로 옵션 추가
-
-heapdump 파일 경로를 지정할 수 있도록 log_root 옵션을 추가하였습니다.
-
-```ini title='whatap.conf'
-log_root=${WHATAP_HOME}/dump
 ```
 
 ### 배치 에이전트 active 시작 부분 수정
@@ -201,77 +193,6 @@ logsink_rt_enabled=false
 logsink_rt_error_interval=5000
 logsink_rt_ok_interval=30000
 ```
-
-### External Call 에러 알림 기능 추가
-
-Http, Database 호출시에 에러가 발생하거나 응답이 지정된 시간보다 느린 경우 알림을 받을 수 있도록 기능을 추가하였습니다.
-
-* `exception_alert_enabled` 옵션을 true로 설정하여 기능을 활성화 할 수 있습니다.
-
-* `exception_alert_stack_size` 옵션으로 에러 스택 길이를 지정하여 알림 메세지로 받을 수 있습니다.
-
-* `exception_alert_silent_time` 옵션으로 지정한 기간만큼 에러 알림을 비활성화할 수 있습니다.
-
-* 알림 메세지에는 url, `status_code`, `error_message`, `error_stack` 등을 표시합니다.
-
-```ini title='whatap.conf'
-# 에러 알림 기능 활성화 여부
-exception_alert_enabled=false
-
-# 에러 알림 메세지에 표시한 스택의 길이
-exception_alert_stack_size=50
-
-# 기본값 5분 (30000ms)
-exception_alert_silent_time=300000
-
-# 트랜잭션 에러 알림 활성화 여부
-exception_alert_service_enabled=false
-
-# http 호출시 에러 알림 활성화 여부
-exception_alert_httpc_enabled=false
-
-# jdbc 호출시 에러 알림 활성화 여부
-exception_alert_jdbc_enabled=false
-
-# 트랜잭션 에러 알림에서 무시할 status code
-status_alert_ignore=403
-
-# 트랜잭션 에러 알림에서 무시할 url:status_code 조합
-status_alert_ignore_set=/api/test/timeout:408
-
-# http call 에러 알림에서 무시한 status code
-httpc_status_alert_ignore=408,500
-
-# http call 에러 알림에서 무시한 url:status code 조합
-httpc_status_url_alert_ignore_set=/api/test/timeout:408
-```
-
-### 트랜잭션, http 호출의 에러 수준 조정 기능
-
-트랜잭션이나 http 호출의 상태를 정상 호출로 인식할 수 있도록 기능을 추가하였습니다. 트랜잭션이나 http 호출의 상태를 info로 설정하게 되면 Spring Framework의 ExceptionHandler에서 처리하지 않은 에러를 정상으로 인식할 수 있도록 버전 기능을 추가하였습니다. 조건에 해당하는 경우 히트맵에 ErrorLevel에 INFO로 표시하고 에러 통계에는 포함합니다.
-
-```ini title='whatap.conf'
-# 기본값 (default)
-transaction_status_mode=normal
-httpc_status_mode=normal
-
-# 에러 무시
-transaction_status_mode=info
-httpc_status_mode=info
-
-# 트랜잭션 에러 알림에서 무시할 status code info로 인식
-status_alert_ignore=403
-
-# 트랜잭션 에러 알림에서 무시할 url:status_code 조합을 info로 인식
-status_alert_ignore_set=/api/test/timeout:408
-
-# http call 에러 알림에서 무시한 status code info로 인식
-httpc_status_alert_ignore=408,500
-
-# http call 에러 알림에서 무시한 url:status code 조합을 info로 인식
-httpc_status_url_alert_ignore_set=/api/test/timeout:408
-```
-
 
 ### Alibaba Druid ConnectionPool 추적 기능 추가
 

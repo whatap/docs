@@ -5,18 +5,33 @@ description: 와탭 Focus의 사용 예시를 안내합니다.
 tags: [ Focus, 사용 예시 ]
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Focus를 활용해 자주 사용하는 명령 및 기타 활용 사례를 안내합니다. 이를 통해 개발 및 운영 시 확인할 수 있는 데이터를 시계열로 확인할 수 있도록 하여 개발 운영에 도움이 되었으면 합니다.
 
 ## 프로젝트 액세스 키 및 수집 서버 IP 확인
 
-{@include: ../common-items/_check-pak-ip.mdx}
+import Checkpakip from "../common-items/_check-pak-ip.mdx";
+
+<Checkpakip />
+
+## 필터를 위한 특정 태그 추가 {#addtagfilter}
+
+다음 예시를 참조해 와탭 모니터링 서비스 화면에서 수집된 데이터를 해당 태그의 이름 및 값으로 필터링할 수 있습니다.
+
+```bash title="SH" showLineNumbers {5,6}
+# -tag.[사용자 태그 키 이름][공백][사용자태그 값]
+
+./focus -license $WHATAP_LICENSE \
+    -pcode $WHATAP_PCODE -server.host $WHATAP_HOST \
+    -tag.CustomTagName CustomTagValue \
+    -tag.MyServer1 server_01 \
+    ...
+```
 
 ## TOP 명령어 pid 별 CPU, Memory 수집
 
-{@include: ../common-items/_top-collect-cpu-memory.mdx}
+import Topcollectcpumemory from "../common-items/_top-collect-cpu-memory.mdx";
+
+<Topcollectcpumemory />
 
 ## NETSTAT 활용
 

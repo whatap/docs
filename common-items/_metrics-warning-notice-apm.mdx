@@ -1,22 +1,26 @@
-## 템플릿{#template}
+## 템플릿 {#template}
 
 ### 메트릭스 이벤트
 
-***경고 알림*** > ***이벤트 설정*** > ***메트릭스*** 섹션에서 ***+ 이벤트 추가*** 버튼을 선택하세요. ***템플릿***에서 원하는 항목을 선택하세요.
+<Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="metrics" className="uitext" /> 섹션에서 <Cmdname sid="add_notification" className="uitext" /> 버튼을 선택하세요. <Cmdname sid="template" className="uitext" />에서 원하는 항목을 선택하세요.
 
-* ***WARNING_OLD_GENARATION_GC***
+* <Cmdname sid="application_alert_template_1" className="uitext" />
 
   힙 메모리(Heap Memory)의 Old Generation 영역에서 GC가 발생하면 경고 알림을 보냅니다.
 
-* ***TOO_SLOW_SQL***
+* <Cmdname sid="application_alert_template_2" className="uitext" />
 
   수행 중인 쿼리가 5초 이상으로 너무 느린 쿼리가 발생할 경우 경고 알림을 보냅니다.
 
-* ***TOO_MANY_ACTX***
+* <Cmdname sid="application_alert_template_3" className="uitext" />
 
   8초 초과 구간의 액티브 트랜잭션 수가 너무 많을 경우 경고 알림을 보냅니다.
 
-* ***APDEX***
+* <Cmdname sid="application_alert_template_5" className="uitext" />
+
+  TPS 수치가 급격하게 떨어지면 경고 알림을 보냅니다.
+
+* <Cmdname sid="normal_alert_template_1" className="uitext" />
 
   **APDEX** 수치가 0.7보다 작을 경우 경고 알림을 보냅니다.
 
@@ -24,21 +28,23 @@
 
 * ***Inactive agents has been found.***
 
-  조건: `num_of_current_agents` < 6
+  조건: `num_of_current_agents` \< 6
   
   프로젝트에 포함된 모든 에이전트 중 정상 상태의 에이전트 수가 6개 미만으로 떨어지는 이벤트가 발생하면 경고 알림을 보냅니다.
 
 * ***Very slow active transactions detected.***
 
-  조건: `very_slow_tx_cnt_m5_avg` > 10
+  조건: `very_slow_tx_cnt_m5_avg` \> 10
 
   프로젝트에 포함된 특정 `okind`에 속한 에이전트에서 8초 이상 소요되는 트랜잭션의 수의 합이 10개 초과 발생하면 경고 알림을 보냅니다.
 
 * ***TPS has changed by more than 30% compared to the previous week.***
 
-  조건: `one_week_diff_abs` > `current_tps` * 0.3
+  조건: `one_week_diff_abs` \> `current_tps` * 0.3
 
   프로젝트에 포함된 특정 `okind`에 속한 에이전트들의 TPS합이 7일 전과 비교했을 때 30% 초과 달라지면 경고 알림을 보냅니다.
+
+:::tip
 
 여러 에이전트에서 수신된 데이터에 대해서 종합적 이벤트 판정해야할 때 다음의 복합 메트릭스 템플릿을 설정하세요.
 
@@ -48,3 +54,5 @@
 과거 데이터와 현재 데이터를 비교해서 이벤트를 판정해야할 때 다음의 복합 메트릭스 템플릿을 설정하세요.
 
 * ***TPS has changed by more than 30% compared to the previous week.***
+
+:::

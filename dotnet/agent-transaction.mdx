@@ -5,13 +5,49 @@ description: 에이전트에서 트랜잭션 성능을 추적해 설정할 수 �
 tags: [ .NET, 트랜잭션 ]
 ---
 
-{@include: ../common-items/_transaction.mdx}
+import Transaction from "../common-items/_transaction.mdx";
 
-에이전트에서 트랜잭션 성능을 추적해 설정할 수 있는 옵션을 다음과 같이 제공합니다.
+<Transaction />
 
-### 트랜잭션 트레이싱
+## 트랜잭션 트레이싱
 
-{@include: ../common-items/_dotnet-transaction-profile.mdx} 
+다음은 애플리케이션 내의 각 트랜잭션의 실행 경로를 상세하게 추적할 수 있는 에이전트 옵션입니다.
+
+* **trace_active_transaction_slow_time** <span class='type'>Millisecond</span>
+
+  기본값 `3000`
+
+  수집 정보를 확인하는 대시보드의 엑티브 트랜잭션 아크이퀄라이저 그래프에서 slow 구간으로 표기할 수 있는 트랜잭션 응답 시간의 기준을 설정합니다. 트랜잭션의 응답 시간이 설정 시간을 초과할 경우 slow 액티브 트랜잭션의 개수에 포함합니다.
+
+* **trace_active_transaction_very_slow_time** <span class='type'>Millisecond</span>
+
+  기본값 `8000`
+
+  수집 정보를 확인하는 대시보드의 엑티브 트랜잭션 아크이퀄라이저 그래프에서 very slow 구간으로 표기할 수 있는 트랜잭션 응답 시간의 기준을 설정합니다. 트랜잭션의 응답 시간이 설정 시간을 초과할 경우 very slow 액티브 트랜잭션의 개수에 포함합니다.
+
+* **trace_active_transaction_lost_time** <span class='type'>Millisecond</span>
+
+  기본값 `300000`
+
+  트랜잭션 종료를 기다리는 제한 시간입니다. 5분 안에 트랜잭션이 끝나지 않는 경우 트랜잭션을 정보를 더 이상 수집하지 않습니다. 트랜잭션의 트레이스 정보에서 'Lost Connection'를 확인할 수 있습니다.
+
+* **prepend_app_pool_name** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  옵션값을 `true`로 설정하면 트랜잭션의 URL 앞에 애플리케이션의 전체 이름을 표시합니다.
+
+* **trace_db_command_methods** <span class='type'>String</span>
+
+  `System.Data.Common.DbCommand` 클래스에서 모니터링할 메소드 이름을 입력하세요. 2개 이상의 값을 설정하려면 쉼표(,)를 구분자로 이용하세요. 모든 메소드를 모니터링하려면 아래와 같이 적용하세요.
+
+  ```ini title="whatap.conf"
+  trace_db_command_methods=ExecuteReader, ExecuteReaderAsync, ExecuteNonQuery, ExecuteNonQueryAsync, ExecuteScalar, ExecuteScalarAsync
+  ```
+
+## 예외 처리 {#exception}
+
+다음은 애플리케이션에서 발생하는 예외를 관리하고 모니터링하기 위한 옵션입니다. 비즈니스 예외를 등록하고 관련 통계를 수집하여 애플리케이션의 안정성을 확인할 수 있습니다. 또한 특정 예외를 무시하거나 HTTP 상태 코드가 에러인 경우 에러로 처리할지 여부를 설정할 수도 있습니다. 예외로 처리된 항목들은 <Cmdname sid="side_hitmap" className="uitext" /> 또는 <Cmdname sid="TTL06209" className="uitext" /> 창에서 정상 트랜잭션으로 표시됩니다.
 
 * **transaction_status_error_enable** <span class='type'>Boolean</span>
     
@@ -28,6 +64,12 @@ tags: [ .NET, 트랜잭션 ]
   status_ignore=408,500
   ```
 
+  :::tip
+
+  Status 에러 무시 / 히트맵 표시 레벨: <span class="normal">INFO</span>(파란색) / 에러 통계 미포함
+
+  :::
+
 * **status_ignore_set** <span class='type'>String</span>
 
   `whatap.error.STATUS_ERROR`를 무시합니다. 여러 값을 대상으로 할 경우 쉼표(,)를 구분자로 이용하세요.
@@ -36,6 +78,12 @@ tags: [ .NET, 트랜잭션 ]
   # example
   status_ignore_set=/api/test/timeout/{time}:408,/api/test/timeout:200,/error:500
   ```
+
+  :::tip
+
+  Status 에러 세트 무시 / 히트맵 표시 레벨: <span class="normal">INFO</span>(파란색) / 에러 통계 미포함
+
+  :::
 
 * **httpc_status_error_enable** <span class='type'>Boolean</span>
   
@@ -53,35 +101,78 @@ tags: [ .NET, 트랜잭션 ]
 
   HTTP 상태 코드가 에러(`HTTPC_ERROR`)인 경우 무시할 수 있습니다. 여러 값을 대상으로 할 경우 쉼표(,)를 구분자로 사용하세요.
 
+  :::tip
+
+  HTTP 상태 에러 코드 무시 / 에러 통계 미포함
+
+  :::
+
 * **httpc_status_ignore_set** <span class='type'>String</span>
 
   `whatap.error.HTTPC_ERROR`를 무시합니다. 여러 값을 대상으로 할 경우 쉼표(,)를 구분자로 이용하세요.
 
-  :::note
-
   `httpc_status_ignore_set=/a/b/c:400,/a/ab/c:404`와 같이 설정하세요. 이때 url은 통계/에러 분석에서 `HTTPC_URL` 값을 입력합니다.
 
+  ```ini title="whatap.conf"
+  httpc_status_ignore_set=/a/b/c:400,/a/ab/c:404
+  ```
+
+  :::tip
+
+  HTTP 상태 에러 코드 무시 / 에러 통계 미포함
+
   :::
+
+## HTTP 트랜잭션 추적
+
+다음은 HTTP 요청 및 응답에 관련된 다양한 정보를 추적하고 기록하는 에이전트 옵션입니다. 이를 통해 사용자는 애플리케이션의 HTTP 트랜잭션을 세밀하게 모니터링하고 분석할 수 있습니다. 트랜잭션 이름에 파라미터 값을 추가하거나 특정 URL이나 HTTP 메소드를 제외할 수 있습니다. 또한 HTTP 헤더 정보와 파라미터 정보를 포함하여 트랜잭션을 보다 상세하게 기록할 수 있습니다.
 
 * **profile_http_parameter_keys** <span class='type'>String</span>
 
   설정된 키에 해당하는 파라미터 정보만 기록합니다. 여러 개를 등록할 때는 쉼표(,)를 구분자로 이용하세요.
 
-* **trace_active_transaction_slow_time** <span class='type'>Millisecond</span>
+* **profile_http_header_enabled** <span class='type'>Boolean</span>
 
-  기본값 `3000`
+  기본값 `false`
+  
+  트레이스 내역에 http 헤더 정보를 기록하려면 `true`로 설정하세요.
 
-  수집 정보를 확인하는 대시보드의 엑티브 트랜잭션 아크이퀄라이저 그래프에서 slow 구간으로 표기할 수 있는 트랜잭션 응답 시간의 기준을 설정합니다. 트랜잭션의 응답 시간이 설정 시간을 초과할 경우 slow 액티브 트랜잭션의 개수에 포함합니다.
+* **profile_http_parameter_enabled** <span class='type'>Boolean</span><ScrollToLink anchor='profile_http_parameter' />
 
-* **trace_active_transaction_very_slow_time** <span class='type'>Millisecond</span>
+  기본값 `false`
 
-  기본값 `8000`
+  트레이스 내역에 http 파라미터 정보를 기록하려면 `true`로 설정하세요. 파라미터는 별도 보안키를 입력해야 조회할 수 있습니다.
 
-  수집 정보를 확인하는 대시보드의 엑티브 트랜잭션 아크이퀄라이저 그래프에서 very slow 구간으로 표기할 수 있는 트랜잭션 응답 시간의 기준을 설정합니다. 트랜잭션의 응답 시간이 설정 시간을 초과할 경우 very slow 액티브 트랜잭션의 개수에 포함합니다.
+  :::note
 
-* **trace_active_transaction_lost_time** <span class='type'>Millisecond</span>
+  보안 키는 WAS 서버 *`%PROGRAMFILES%`\WhaTap .NET\paramkey.txt* 파일 내에 6자리로 설정합니다. *paramkey.txt* 파일이 존재하지 않는 경우 랜덤 값으로 자동 생성합니다.
 
-  기본값 `30000`
+  :::
 
-  트랜잭션 종료를 기다리는 제한 시간입니다. 5분 안에 트랜잭션이 끝나지 않는 경우 트랜잭션을 정보를 더 이상 수집하지 않습니다. 트랜잭션의 트레이스 정보에서 'Lost Connection'를 확인할 수 있습니다.
+* **profile_http_parameter_url_prefix** <span class='type'>String</span>
 
+  트레이스 내역에 http 파라미터 정보를 기록할 대상 URL의 prefix를 정의할 때 사용합니다.
+
+* **profile_http_body_url_prefix** <span class='type'>String</span>
+
+  트레이스 내역에 http body 정보를 기록할 대상 URL의 prefix를 정의할 때 사용합니다.
+
+* **trace_ignore_url_set** <span class='type'>String</span>
+
+  트랜잭션 추적에서 제외할 URL을 설정합니다. 2개 이상의 값을 설정하려면 쉼표(,)를 구분자로 이용하세요.
+
+  :::note
+
+  이 옵션을 통해 등록한 URL은 <Cmdname sid="side_hitmap" className="uitext" />, <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 수집 제외됩니다.
+
+  :::
+
+* **trace_ignore_url_prefix** <span class='type'>String</span>
+
+  트랜잭션 수집 예외 URL prefix를 설정합니다. 설정한 값과 앞부분이 일치하는 url은 트랜잭션 성능을 수집하지 않습니다. 2개 이상의 값을 설정하려면 쉼표(,)를 구분자로 이용하세요.
+
+  :::note
+
+  이 옵션을 통해 등록한 URL은 <Cmdname sid="side_hitmap" className="uitext" />, <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 수집 제외됩니다.
+
+  :::

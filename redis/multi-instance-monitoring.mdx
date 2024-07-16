@@ -5,31 +5,47 @@ description: 다수의 데이터베이스 인스턴스 핵심 지표를 통합�
 tags: [ Redis, 인스턴스, 대시보드, 데이터베이스, 멀티 인스턴스 모니터링 ]
 ---
 
-<!-- 개요-->
-{@include: ../common-items/_db-v2-mulit-instance-monitoring-desc.mdx} 
+{/* 개요*/}
+import Dbv2mulitinstancemonitoringdesc from "../common-items/_db-v2-mulit-instance-monitoring-desc.mdx";
+
+<Dbv2mulitinstancemonitoringdesc /> 
 
 <ProdImg img='db-multi-instance.png' desc='멀티 인스턴스 모니터링' />
 
-<!-- Notes-->
-{@include: ../common-items/_db-multi-instance-monitoring-desc-notes.mdx} 
+{/* Notes*/}
+import Dbmultiinstancemonitoringdescnotes from "../common-items/_db-multi-instance-monitoring-desc-notes.mdx";
 
-<!-- 과거 데이터 조회하기-->
-{@include: ../common-items/_apm-dashboard-set-past-time.mdx} 
+<Dbmultiinstancemonitoringdescnotes /> 
 
-<!-- 에이전트 확인하기-->
-{@include: ../common-items/_apm-dashboard-check-agent.mdx}
+{/* 과거 데이터 조회하기*/}
+import Apmdashboardsetpasttime from "../common-items/_apm-dashboard-set-past-time.mdx";
 
-<!-- 클러스터별 에이전트-->
-{@include: ../common-items/_db-dashboard-select-agent-category.mdx}
+<Apmdashboardsetpasttime /> 
 
-<!-- 위젯 편집하기-->
-{@include: ../common-items/_apm-dashborad-edit-widget.mdx}
+{/* 에이전트 확인하기*/}
+import Apmdashboardcheckagent from "../common-items/_apm-dashboard-check-agent.mdx";
 
-<!-- 위젯 옵션 이용하기-->
-{@include: ../common-items/_apm-dashboard-widget-options.mdx}
+<Apmdashboardcheckagent />
 
-<!-- 프리셋-->
-{@include: ../common-items/_apm-dashboard-preset.mdx} 
+{/* 클러스터별 에이전트*/}
+import Dbdashboardselectagentcategory from "../common-items/_db-dashboard-select-agent-category.mdx";
+
+<Dbdashboardselectagentcategory />
+
+{/* 위젯 편집하기*/}
+import Apmdashboradeditwidget from "../common-items/_apm-dashborad-edit-widget.mdx";
+
+<Apmdashboradeditwidget />
+
+{/* 위젯 옵션 이용하기*/}
+import Apmdashboardwidgetoptions from "../common-items/_apm-dashboard-widget-options.mdx";
+
+<Apmdashboardwidgetoptions />
+
+{/* 프리셋*/}
+import Apmdashboardpreset from "../common-items/_apm-dashboard-preset.mdx";
+
+<Apmdashboardpreset /> 
 
 ## 주요 위젯 알아보기 {#about-widget}
 
@@ -50,6 +66,16 @@ tags: [ Redis, 인스턴스, 대시보드, 데이터베이스, 멀티 인스턴�
 * ***Clusters***
 
   Master 인스턴스와 Slave 인스턴스의 현황을 확인할 수 있습니다.
+
+  :::note
+
+  ***Clusters*** 위젯을 이용하려면 DBX 에이전트(*whatap.conf*)의 다음 옵션을 설정해야 합니다. 자세한 내용은 [다음 문서](agent-dbx-settings#cluster-set)를 참조하세요.
+
+  ```ini title="whatap.conf"
+  cluster_name={cluster_name}
+  ```
+
+  :::
 
 * ***Instantaneous Ops Per Sec***
 
@@ -135,28 +161,42 @@ tags: [ Redis, 인스턴스, 대시보드, 데이터베이스, 멀티 인스턴�
 
   데이터베이스 서버가 클라이언트에게 전송한 모든 네트워크 트래픽의 양을 표시한 위젯입니다. 서버가 클라이언트에 데이터를 전송하는 활동을 추적할 수 있습니다. 이를 통해 서버의 응답 속도 및 클라이언트 요청에 대한 처리 성능을 평가할 수 있습니다.
 
-<!-- Session Table-->
-{@include: ../common-items/_db-v2-mim-activesession-desc.mdx} 
+{/* Session Table*/}
+import Dbv2mimactivesessiondesc from "../common-items/_db-v2-mim-activesession-desc.mdx";
 
-{@include: ../common-items/_db-v2-mim-activesession-note.mdx}
+<Dbv2mimactivesessiondesc /> 
+
+import Dbv2mimactivesessionnote from "../common-items/_db-v2-mim-activesession-note.mdx";
+
+<Dbv2mimactivesessionnote />
 
 ### 테이블 데이터 필터링하기
 
-{@include: ../common-items/_db-table-data-filtering.mdx} 
+import Dbtabledatafiltering from "../common-items/_db-table-data-filtering.mdx";
+
+<Dbtabledatafiltering /> 
 
 ### 테이블 컬럼 설정하기{#change-column}
 
-{@include: ../common-items/_db-v2-data-edit-column.mdx}
+import Dbv2dataeditcolumn from "../common-items/_db-v2-data-edit-column.mdx";
+
+<Dbv2dataeditcolumn />
 
 ### 컬럼 정보 안내 {#column-info}
 
-{@include: ../common-items/_db-redis-info-of-column.mdx} 
+import Dbredisinfoofcolumn from "../common-items/_db-redis-info-of-column.mdx";
 
-<!-- 조회 목록 다운로드하기-->
-{@include: ../common-items/_db-dashboard-session-table-download.mdx}
+<Dbredisinfoofcolumn /> 
 
-<!-- 새창으로 보기-->
-{@include: ../common-items/_db-dashboard-session-table-new.mdx}
+{/* 조회 목록 다운로드하기*/}
+import Dbdashboardsessiontabledownload from "../common-items/_db-dashboard-session-table-download.mdx";
+
+<Dbdashboardsessiontabledownload />
+
+{/* 새창으로 보기*/}
+import Dbdashboardsessiontablenew from "../common-items/_db-dashboard-session-table-new.mdx";
+
+<Dbdashboardsessiontablenew />
 
 ## Cluster Info 위젯
 
@@ -175,3 +215,13 @@ Redis 클러스터의 상태와 구성 정보를 테이블 형식으로 제공�
 * ***link status***: 각 인스턴스의 연결 상태입니다.
 
 * ***slots***: 클러스터에서 사용되는 슬롯(slot) 정보입니다. 각 슬롯은 클러스터 내에서 데이터의 일부를 담당합니다. 이 정보를 통해 클러스터의 데이터 분산 및 로드 밸런싱 상태를 파악할 수 있습니다.
+
+:::note
+
+***Cluster Info*** 위젯을 이용하려면 DBX 에이전트(*whatap.conf*)의 다음 옵션을 설정해야 합니다. 자세한 내용은 [다음 문서](agent-dbx-settings#cluster-set)를 참조하세요.
+
+```ini title="whatap.conf"
+cluster_name={cluster_name}
+```
+
+:::

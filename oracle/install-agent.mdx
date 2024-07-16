@@ -12,17 +12,25 @@ import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
-{@include: ../common-items/_agent-signup-guide.mdx}   
+import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+
+<Agentsignupguide />   
 
 <Youtube ko='e_UpCgapfQY' en='MIo3HRIOt8M' ja='MIo3HRIOt8M' />
 
-{@include: ../getting-started/_create-project-v2.mdx}
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
-{@include: ../getting-started/_accesskey.mdx}
+<Createprojectv2 />
+
+import Accesskey from "../getting-started/_accesskey.mdx";
+
+<Accesskey />
 
 ## 와탭 데이터베이스 에이전트 다운로드
 
-{@include: ../common-items/_db-install-agent-steps.mdx} 
+import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
+
+<Dbinstallagentsteps /> 
 
 3. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
 
@@ -42,13 +50,17 @@ import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
     
     **Oracle 10g R2 버전 이상**: https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html
 
-<!-- 공통 Notes -->
-{@include: ../common-items/_db-install-agent-common-notes.mdx}
+{/* 공통 Notes */}
+import Dbinstallagentcommonnotes from "../common-items/_db-install-agent-common-notes.mdx";
 
-<!-- 모니터링용 계정 생성 -->
-{@include: ../common-items/_db-create-monitoring-account.mdx}
+<Dbinstallagentcommonnotes />
 
-<!-- Oracle -->
+{/* 모니터링용 계정 생성 */}
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+
+<Dbcreatemonitoringaccount />
+
+{/* Oracle */}
 ```bash showLineNumbers
 # 일반적인 경우
 create user whatap identified by DB_PASSWORD; ## 원하는 password를 입력하세요.
@@ -65,15 +77,77 @@ alter user c##whatap set container_data = ALL container = CURRENT;
 grant alter system to whatap
 ```
 
+<details>
+
+<summary>권한에 따른 지원 기능 살펴보기</summary>
+
+**기본 권한** 외의 권한은 사용자의 환경에 따라 부여하지 않아도 됩니다. 단, 일부 기능이 동작하지 않을 수 있습니다.
+
+<div className="c5-10-25-25-15-25">
+
+| 권한 | command (Single DB) | command (Multitenant DB) | 메뉴 및 기능 | 상세 내역 |
+| -- | -- | -- | -- | -- |
+| 기본 권한 | `grant create session to whatap;` | `grant create session to c##whatap;` | 접속 | - |
+| \^ | <code>grant <span class="vslow">select any dictionary</span> to whatap;</code> | <code>grant <span class="vslow">select any dictionary</span> to c##whatap;</code> | <Cmdname sid="side_dbMonitoring" className="uitext" /> / <Cmdname sid="side_multiInstance" className="uitext" /> / <Cmdname sid="side_dbSqlStat" className="uitext" /> | 개별 권한 부여 시 다음 표 내용 참조 |
+| \^ | - | `alter user c##whatap set container_data = ALL container = CURRENT;` | \^ | 멀티태넌트 DB를 사용하는 경우(12C 이상) pdb 조회를 위한 필수 권한임 |
+| <Cmdname sid="session_kill" className="uitext" /> | `grant alter system to whatap;` | `grant alter system to c##whatap;` | <Cmdname sid="active_sessions" className="uitext" /> &gt; <Cmdname sid="session_kill" className="uitext" /> | - |
+| 히든 파라미터 조회 | \> | `create view sys.DB_User_vw_ksppi as select * from sys.x$ksppi;`<br/>`grant select on sys.DB_User_vw_ksppi to DB_User;`<br/>`create synonym DB_User.DB_User_vw_ksppi for sys.DB_User_vw_ksppi;` | 파라미터 조회 메뉴에 히든 파라미터 내용 포함 | 히든 파라미터를 조회하려면 별도의 뷰/시노님 생성 및 권한 부여 필요 |
+| \^ | \> | `create view sys.DB_User_vw_ksppcv as select * from sys.x$ksppcv;`<br/>`grant select on sys.DB_User_vw_ksppcv to DB_User;`<br/>`create synonym DB_User.DB_User_vw_ksppcv for sys.DB_User_vw_ksppcv;` | \^ | \^ |
+
+</div>
+
+<code><span class="vslow">select any dictionary</span></code> 대신 다음 권한을 개별로 부여해도 됩니다.
+
+<div className="c3-3">
+
+| 권한 | command (Single DB) | command (Multitenant DB) |
+| -- | -- | --|
+| <Cmdname sid="active_sessions" /> / <Cmdname sid="lock_tree" /> / 지표 정보 | `grant select on v_$sqlarea to whatap;` | `grant select on v_$sqlarea to c##whatap;` |
+| \^ | `grant select on v_$transaction to whatap;` | `grant select on v_$transaction to c##whatap;` |
+| \^ | `grant select on v_$instance to whatap;` | `grant select on v_$instance to c##whatap;` |
+| \^ | `grant select on v_$sysstat to whatap;` | `grant select on v_$sysstat to c##whatap;` |
+| \^ | `grant select on v_$lock to whatap;` | `grant select on v_$lock to c##whatap;` |
+| \^ | `grant select on v_$sesstat to whatap;` | `grant select on v_$sesstat to c##whatap;` |
+| \^ | `grant select on v_$event_name to whatap;` | `grant select on v_$event_name to c##whatap;` |
+| \^ | `grant select on v_$session to whatap;` | `grant select on v_$session to c##whatap;` |
+| \^ | `grant select on v_$sql to whatap;` | `grant select on v_$sql to c##whatap;` |
+| \^ | `grant select on v_$process to whatap;` | `grant select on v_$process to c##whatap;` |
+| \^ | `grant select on v_$statname to whatap;` | `grant select on v_$statname to c##whatap;` |
+| \^ | `grant select on v_$system_event to whatap;` | `grant select on v_$system_event to c##whatap;` |
+| \^ | `grant select on v_$osstat to whatap;` | `grant select on v_$osstat to c##whatap;` |
+| \^ | `grant select on v_$px_session to whatap;` | `grant select on v_$px_session to c##whatap;` |
+| \^ | `grant select on v_$sga to whatap;` | `grant select on v_$sga to c##whatap;` |
+| \^ | - | `grant select on v_$con_sysstat to c##whatap;` |
+| 파라미터 정보 | `grant select on v_$parameter to whatap;` | `grant select on v_$parameter to c##whatap;` |
+| Wait 정보 / Event 정보 | `grant select on v_$event_name to whatap;` | `grant select on v_$event_name to c##whatap;` |
+| \^ | `grant select on v_$system_event to whatap` | `grant select on v_$con_system_event to c##whatap;` |
+| \^ | `grant select on v_$system_wait_class to whatap;` | `grant select on v_$system_wait_class to c##whatap;` |
+| \^ | - | `grant select on v_$con_system_wait_class to c##whatap;` |
+| Tablespace 정보 | `grant select on dba_data_files to whatap;` | `grant select on cdb_data_files to c##whatap;` |
+| \^ | `grant select on dba_free_space to whatap;` | `grant select on cdb_free_space to c##whatap;` |
+| \^ | `grant select on dba_temp_files to whatap;` | `grant select on v_$sort_segment to c##whatap;` |
+| \^ | `grant select on v_$temp_extent_pool to whatap;` | `grant select on v_$tempfile to c##whatap;` |
+| \^ | `grant select on v_$containers to whatap;` (12c 이상) | `grant select on v_$containers to c##whatap;` |
+
+</div>
+
+</details>
+
 ## DB 유저 파일 생성{#create-db-user}
 
-<DBuserDesc name='default'/>
+<DBuserDesc />
 
-{@include: ../common-items/_db-create-db-user-file-body.mdx} 
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+
+<Dbcreatedbuserfilebody /> 
 
 
-<!--## 에이전트 실행-->
-{@include: ../common-items/_db-run-agent.mdx} 
+{/*## 에이전트 실행*/}
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
 
-<!--## XOS 에이전트 설치-->
-{@include: ../common-items/_db-install-xos-agent.mdx} 
+<Dbrunagent /> 
+
+{/*## XOS 에이전트 설치*/}
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+
+<Dbinstallxosagent /> 

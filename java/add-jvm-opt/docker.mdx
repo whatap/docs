@@ -5,6 +5,14 @@ description: 도커(Docker) 환경에서 Java 애플리케이션에 와탭 자�
 tags: [ Java, Docker, 애플리케이션, 에이전트 ]
 ---
 
+Docker는 컨테이너 기반의 가상화 플랫폼으로 Java 애플리케이션을 Docker 컨테이너 내에서 실행할 때 JVM 옵션을 추가하여 애플리케이션의 성능 및 자원 사용을 조정할 수 있습니다. 이 문서에서는 Dockerfile을 수정하여 JVM 옵션을 추가하는 방법을 안내합니다.
+
+:::note
+
+Docker가 설치되어 있어야 하며, Java 애플리케이션의 Docker 이미지를 빌드할 수 있어야 합니다.
+
+:::
+
 ## 에이전트 적용하기
 
 기존 Docker 이미지를 바탕으로 와탭 에이전트 설정을 추가한 이미지를 빌드하세요.
@@ -15,58 +23,68 @@ tags: [ Java, Docker, 애플리케이션, 에이전트 ]
 
 :::
 
-1. Docker 빌드 디렉터리를 생성하세요.
+### Docker 빌드 디렉터리 생성하기
 
-    ```bash
-    mkdir -p {Docker build dir}
-    ```
+Docker 빌드 디렉터리를 생성하세요.
 
-1. *whatap.conf* 파일을 생성하세요.
+```bash
+mkdir -p {Docker build dir}
+```
 
-    ```docker {3,5} showLineNumbers
-    cat >{Docker build Dir}/whatap.conf <<EOL
-    # 액세스 키를 입력하세요.
-    license=XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX 
-    # 수집 서버 IP 정보를 입력하세요.
-    whatap.server.host=xx.xx.xx.xx/yy.yy.yy.yy 
-    EOL
-    ```
+### 에이전트 설정 파일 생성하기
 
-1. Dockerfile을 생성하세요.
+*whatap.conf* 파일을 생성하세요.
 
-    이미지를 빌드할 경우 와탭 이미지에서 ```-javaagent``` 옵션에 적용할 jar 파일을 복사할 수 있습니다.
-    
-    ```docker
-    cat >/home/silver/whatap/docker/Dockerfile <<EOL
-    FROM whatap/kube_mon as build
-    ## 실제 이미지 생성 (기존 이미지에 Whatap 추가)
-    ## $Image_Name(이미지명)
-    FROM $Image_Name
-    RUN mkdir -p /whatap
-    COPY --from=build /data/agent/micro/whatap.agent-*.jar /whatap
-    COPY ./whatap.conf /whatap/
-    #...
-    EOL
-    ```
+```docker {3,5} showLineNumbers
+cat >{Docker build Dir}/whatap.conf <<EOL
+# 액세스 키를 입력하세요.
+license=XXXXXXXXXXXXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXX 
+# 수집 서버 IP 정보를 입력하세요.
+whatap.server.host=xx.xx.xx.xx/yy.yy.yy.yy 
+EOL
+```
 
-1. ```JAVA_OPT```에 다음 내용을 추가하세요.
+### Dockerfile 생성하기
 
-    ```bash
-    WHATAP_HOME=/whatap
-    WHATAP_JAR=ls ${WHATAP_HOME}/whatap.agent-*.jar | sort -V | tail -1
-    export JAVA_OPTS="-javaagent:${WHATAP_JAR} "
-    ```
+이미지를 빌드하려면 와탭 이미지에서 `-javaagent` 옵션에 적용할 jar 파일을 복사할 수 있습니다.
 
-1. Docker를 빌드하세요.
+```docker
+cat >/home/silver/whatap/docker/Dockerfile <<EOL
+FROM whatap/kube_mon as build
+## 실제 이미지 생성 (기존 이미지에 Whatap 추가)
+## $Image_Name(이미지명)
+FROM $Image_Name
+RUN mkdir -p /whatap
+COPY --from=build /data/agent/micro/whatap.agent-*.jar /whatap
+COPY ./whatap.conf /whatap/
+#...
+EOL
+```
 
-    ```bash
-    cd docker
-    docker build -t $Image_Name
-    ```
+### `JAVA_OPTS` 적용하기
+
+`JAVA_OPT`에 다음 내용을 추가하세요.
+
+```bash
+WHATAP_HOME=/whatap
+WHATAP_JAR=ls ${WHATAP_HOME}/whatap.agent-*.jar | sort -V | tail -1
+export JAVA_OPTS="-javaagent:${WHATAP_JAR} "
+```
+
+### Docker 빌드하기
+
+Docker를 빌드하세요.
+
+```bash
+cd docker
+docker build -t $Image_Name
+```
 
 :::note
 
-{@include: _java-17.mdx}
+import Java17 from "./_java-17.mdx";
+
+<Java17 />
 
 :::
 
@@ -82,8 +100,11 @@ java -cp whatap.agent-X.Y.Z.jar whatap.agent.setup.Rename -from whatap.agent-X.Y
 
 :::
 
-{@include: _set-heap-memory.mdx} 
+import Setheapmemory from "./_set-heap-memory.mdx";
 
-## 모니터링 시작하기
+<Setheapmemory /> 
 
-{@include: ../../common-items/_start-apm.mdx} 
+{/* 다음 단계 */}
+import Nextstep from "../../common-items/_apm-next-step.mdx";
+
+<Nextstep />

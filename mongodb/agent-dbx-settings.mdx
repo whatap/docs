@@ -5,32 +5,47 @@ description: MongoDB 데이터베이스에서 whatap.conf 파일에 설정할 �
 tags: [ MongoDB, 데이터베이스, 에이전트 ]
 ---
 
-import CurProd from '@site/src/components/GetProductName.js';
 import AWSRDSdesc from '../common-items/_import_aws-rds-desc.mdx';
 
 DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
 
 ## 기본 옵션
 
-{@include: ../common-items/_db-agent-dbx-basic-option.mdx}
+import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
 
+<Dbagentdbxbasicoption />
+
+{/* 클러스터 구성 */}
+import ClusterSet from "../common-items/_db-agent-setting-cluster.mdx";
+
+<ClusterSet />
 
 ## 데이터 수집
 
-{@include: ../common-items/_db-agent-setting-data-collection.mdx} 
+import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data-collection.mdx";
+
+<Dbagentsettingdatacollection /> 
 
 
 ## AWS RDS CloudWatch 적용{#using-aws-rds}
 
 <AWSRDSdesc name='db_redis_counter' />
 
-{@include: ../common-items/_db-agent-aws.mdx}
+import Dbagentaws from "../common-items/_db-agent-aws.mdx";
 
-<!-- AES 256 암호화 적용 -->
-{@include: ../common-items/_db-aes-256-encrypt.mdx} 
+<Dbagentaws />
+
+{/* AES 256 암호화 적용 */}
+import Dbaes256encrypt from "../common-items/_db-aes-256-encrypt.mdx";
+
+<Dbaes256encrypt /> 
 
 ## 에이전트 이름 식별{#naming}
 
-{@include: ../common-items/_db-setting-agent-name-details.mdx}
+import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
 
-{@include: ../common-items/_db-agent-dbx-naming.mdx} 
+<Dbsettingagentnamedetails />
+
+import Dbagentdbxnaming from "../common-items/_db-agent-dbx-naming.mdx";
+
+<Dbagentdbxnaming /> 

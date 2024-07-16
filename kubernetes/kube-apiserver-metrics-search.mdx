@@ -8,7 +8,9 @@ toc_max_heading_level: 2
 
 홈 화면 > 클러스터 프로젝트 선택 > <Cmdname sid="cluster" className="uitext" /> > ***kube-apiserver 메트릭스 조회***
 
-{@include: ../common-items/_k8s-kube-apiserver-common.mdx}
+import K8skubeapiservercommon from "../common-items/_k8s-kube-apiserver-common.mdx";
+
+<K8skubeapiservercommon />
 
 kube-apiserver는 **컨트롤 플레인**(Control Plane) 내/외부 요청을 처리하는 컴포넌트입니다. ***kube-apiserver 메트릭스 조회*** 메뉴를 통해 kube-apiserver에서 수집되는 지표의 원본 데이터 정합성(Data Consistency)을 확인할 수 있습니다. 
 
@@ -28,12 +30,18 @@ kube-apiserver는 **컨트롤 플레인**(Control Plane) 내/외부 요청을 �
 
 ### 필터 
 
-{@include: ../common-items/_k8s-list-filter.mdx}
+import K8slistfilter from "../common-items/_k8s-list-filter.mdx";
+
+<K8slistfilter />
 
 ## kube-apiserver 모니터링 활성화 
 
-{@include: ../common-items/_k8s-kube-apiserver-monitoring.mdx}
+import K8skubeapiservermonitoring from "../common-items/_k8s-kube-apiserver-monitoring.mdx";
+
+<K8skubeapiservermonitoring />
 
 ## kube-apiserver 메트릭
 
-{@include: ../common-items/_k8s-kube-apiserver-metric.mdx}
+import K8skubeapiservermetric from "../common-items/_k8s-kube-apiserver-metric.mdx";
+
+<K8skubeapiservermetric />

@@ -5,52 +5,86 @@ description: 프로젝트에 포함하는 멤버들의 경고 알림 수신과 �
 tags: [ PostgreSQL, 경고 알림, 이벤트 수신 태그, 데이터베이스 모니터링 ]
 ---
 
-{@include: ../common-items/_set-receive-event-description.mdx} 
+import Setreceiveeventdescription from "../common-items/_set-receive-event-description.mdx";
 
-<!-- 수신 수단 선택하기 -->
-{@include: ../common-items/_set-receive-event-select-method.mdx}
+<Setreceiveeventdescription /> 
 
-<!-- SMS 알림 수신 추가하기 -->
-{@include: ../common-items/_set-receive-event-sms.mdx} 
+{/* 수신 수단 선택하기 */}
+import Setreceiveeventselectmethod from "../common-items/_set-receive-event-select-method.mdx";
 
-<!-- WhatsApp 알림 수신-->
-{@include: ../common-items/_set-receive-event-whatsapp.mdx} 
+<Setreceiveeventselectmethod />
 
-<!-- 모바일 알림 수신 추가하기 -->
-<!-- {@include: ../common-items/_set-receive-event-mobile.mdx} -->
+{/* SMS 알림 수신 추가하기 */}
+import Setreceiveeventsms from "../common-items/_set-receive-event-sms.mdx";
 
-<!-- 수신 레벨 선택하기 -->
-{@include: ../common-items/_set-receive-event-level.mdx} 
+<Setreceiveeventsms /> 
 
-<!-- 요일 및 시간별 알람 설정하기 -->
-{@include: ../common-items/_set-receive-event-day-time.mdx}
+{/* WhatsApp 알림 수신*/}
+import Setreceiveeventwhatsapp from "../common-items/_set-receive-event-whatsapp.mdx";
 
-<!-- 경고 알림 반복 설정하기 -->
-{@include: ../common-items/_set-receive-event-repeate-notice.mdx}
+<Setreceiveeventwhatsapp /> 
 
-<!-- 팀별, 사용자별 알림 설정하기 -->
-{@include: ../common-items/_set-receive-event-set-tag.mdx} 
+{/* 모바일 알림 수신 추가하기 */}
+import Setreceiveeventmobile from "../common-items/_set-receive-event-mobile.mdx";
 
-<!-- 이벤트 수신 태그 추가하기 -->
-{@include: ../common-items/_set-receive-event-add-tag.mdx} 
+<Setreceiveeventmobile />
 
-<!-- 이벤트 수신 태그 해제하기 -->
-{@include: ../common-items/_set-receive-event-disable-tag.mdx} 
+{/* 수신 레벨 선택하기 */}
+import Setreceiveeventlevel from "../common-items/_set-receive-event-level.mdx";
 
-<!-- 이벤트 수신 태그 수정 및 삭제하기 -->
-{@include: ../common-items/_set-receive-event-modify-tag.mdx} 
+<Setreceiveeventlevel /> 
 
-<!-- 수신 태그 미설정 알림 -->
-{@include: ../common-items/_set-receive-event-notset-tag-noti.mdx}
+{/* 요일 및 시간별 알람 설정하기 */}
+import Setreceiveeventdaytime from "../common-items/_set-receive-event-day-time.mdx";
 
-<!-- 3rd 파티 플러그인 알림 추가하기 -->
-{@include: ../common-items/_set-receive-event-3rdparty.mdx}
+<Setreceiveeventdaytime />
 
-<!-- 대량 알림 발생 방지 -->
-{@include: ../common-items/_set-receive-event-stop-mass-event.mdx}
+{/* 경고 알림 반복 설정하기 */}
+import Setreceiveeventrepeatenotice from "../common-items/_set-receive-event-repeate-notice.mdx";
 
-<!-- 경고 알림 사용자 설정하기 -->
-{@include: ../common-items/_set-receive-event-modify-profile.mdx}
+<Setreceiveeventrepeatenotice />
 
-<!-- 경고 알림 언어 설정 -->
-{@include: ../common-items/_set-receive-event-change-language.mdx} 
+{/* 팀별, 사용자별 알림 설정하기 */}
+import Setreceiveeventsettag from "../common-items/_set-receive-event-set-tag.mdx";
+
+<Setreceiveeventsettag /> 
+
+{/* 이벤트 수신 태그 추가하기 */}
+import Setreceiveeventaddtag from "../common-items/_set-receive-event-add-tag.mdx";
+
+<Setreceiveeventaddtag /> 
+
+{/* 이벤트 수신 태그 해제하기 */}
+import Setreceiveeventdisabletag from "../common-items/_set-receive-event-disable-tag.mdx";
+
+<Setreceiveeventdisabletag /> 
+
+{/* 이벤트 수신 태그 수정 및 삭제하기 */}
+import Setreceiveeventmodifytag from "../common-items/_set-receive-event-modify-tag.mdx";
+
+<Setreceiveeventmodifytag /> 
+
+{/* 수신 태그 미설정 알림 */}
+import Setreceiveeventnotsettagnoti from "../common-items/_set-receive-event-notset-tag-noti.mdx";
+
+<Setreceiveeventnotsettagnoti />
+
+{/* 3rd 파티 플러그인 알림 추가하기 */}
+import Setreceiveevent3rdparty from "../common-items/_set-receive-event-3rdparty.mdx";
+
+<Setreceiveevent3rdparty />
+
+{/* 대량 알림 발생 방지 */}
+import Setreceiveeventstopmassevent from "../common-items/_set-receive-event-stop-mass-event.mdx";
+
+<Setreceiveeventstopmassevent />
+
+{/* 경고 알림 사용자 설정하기 */}
+import Setreceiveeventmodifyprofile from "../common-items/_set-receive-event-modify-profile.mdx";
+
+<Setreceiveeventmodifyprofile />
+
+{/* 경고 알림 언어 설정 */}
+import Setreceiveeventchangelanguage from "../common-items/_set-receive-event-change-language.mdx";
+
+<Setreceiveeventchangelanguage /> 

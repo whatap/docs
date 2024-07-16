@@ -5,23 +5,73 @@ description: 자바(Java) 애플리케이션 내 각 트랜잭션의 성능 데�
 tags: [ Java, 애플리케이션, Transaction, 트랜잭션, 에이전트 ]
 ---
 
-{@include: ../common-items/_transaction.mdx}
+import Transaction from "../common-items/_transaction.mdx";
+
+<Transaction />
 
 ## 트랜잭션 트레이싱
 
-{@include: ../common-items/_transaction-profiling-common.mdx} 
+다음은 애플리케이션 내의 각 트랜잭션의 실행 경로를 상세하게 추적할 수 있는 에이전트 옵션입니다. 최소 응답 시간부터 트랜잭션의 실행 스텝 수까지 다양한 측면을 조정할 수 있습니다.
 
-{@include: ../common-items/_java-transaction-profiling.mdx} 
+import Transactionprofilingcommon from "../common-items/_transaction-profiling-common.mdx";
 
-{@include: ../common-items/_java-http-transaction.mdx} 
+<Transactionprofilingcommon /> 
 
-{@include: ../common-items/_java-non-http-transaction.mdx} 
+import Javatransactionprofiling from "../common-items/_java-transaction-profiling.mdx";
 
-{@include: ../common-items/_java-trace-transaction.mdx} 
+<Javatransactionprofiling />
+
+## 예외 처리 {#exception}
+
+다음은 애플리케이션에서 발생하는 예외를 관리하고 모니터링하기 위한 옵션입니다. 비즈니스 예외를 등록하고 관련 통계를 수집하여 애플리케이션의 안정성을 확인할 수 있습니다. 또한 특정 예외를 무시하거나 HTTP 상태 코드가 에러인 경우 에러로 처리할지 여부를 설정할 수도 있습니다. 예외로 처리된 항목들은 <Cmdname sid="side_hitmap" className="uitext" /> 또는 <Cmdname sid="TTL06209" className="uitext" /> 창에서 정상 트랜잭션으로 표시됩니다.
+
+:::note
+
+Java 에이전트의 예외 처리 기준에 대한 자세한 내용은 [다음 문서](trs-view#java-agent-exception)를 참조하세요.
+
+:::
+
+import JavaException from "../common-items/_java-exception-options.mdx";
+
+<JavaException />
+
+## HTTP 트랜잭션 추적
+
+다음은 HTTP 요청 및 응답에 관련된 다양한 정보를 추적하고 기록하는 에이전트 옵션입니다. 이를 통해 사용자는 애플리케이션의 HTTP 트랜잭션을 세밀하게 모니터링하고 분석할 수 있습니다. 트랜잭션 이름에 파라미터 값을 추가하거나 특정 URL이나 HTTP 메소드를 제외할 수 있습니다. 또한 HTTP 헤더 정보와 파라미터 정보를 포함하여 트랜잭션을 보다 상세하게 기록할 수 있습니다.
+
+import Transactiontracecommon from "../common-items/_transaction-trace-common.mdx";
+
+<Transactiontracecommon />
+
+import Transactionprofilehttp from "../common-items/_transaction-profile-http.mdx";
+
+<Transactionprofilehttp />
+
+import Javahttptransaction from "../common-items/_java-http-transaction.mdx";
+
+<Javahttptransaction /> 
+
+## NON HTTP 트랜잭션 추적
+
+다음은 HTTP 이외의 트랜잭션을 추적하고 모니터링하기 위한 옵션입니다. 이 옵션을 통해 사용자는 백그라운드 작업이나 다른 프로토콜에 대한 트랜잭션을 세밀하게 추적할 수 있습니다.
+
+import Javanonhttptransaction from "../common-items/_java-non-http-transaction.mdx";
+
+<Javanonhttptransaction /> 
+
+## 멀티 트랜잭션 추적
+
+다음은 애플리케이션 간 호출을 추적하고 모니터링하기 위한 옵션입니다. 이 옵션을 통해 사용자는 여러 애플리케이션 간의 상호작용을 이해하는 데 도움이 받을 수 있습니다. 제공하는 다양한 옵션을 통해 멀티 트랜잭션 추적의 세부적인 동작을 조정할 수 있습니다.
+
+import Javatracetransaction from "../common-items/_java-trace-transaction.mdx";
+
+<Javatracetransaction /> 
 
 ## 트레이스 데이터 샘플링
 
-<code class="my">Java Agent v2.2.4 or later</code>
+다음은 트레이스 데이터의 샘플링을 조절하고, 데이터의 전송 여부를 설정하는 옵션입니다. 이 옵션을 통해 사용자는 애플리케이션의 성능과 데이터 전송량을 관리할 수 있습니다.
+
+에이전트 지원 범위: <code class="my">Java Agent v2.2.4 or later</code>
 
 * **trace_sampling_enabled** <span class='api'>Boolean</span>
 
@@ -77,6 +127,8 @@ tags: [ Java, 애플리케이션, Transaction, 트랜잭션, 에이전트 ]
   ```
 
 ## HttpURLConnection 추적하기
+
+다음은 `HttpURLConnection` 클래스를 사용하여 HTTP 호출을 추적하기 위한 옵션입니다.
 
 * **HttpURLConnection** <span class='type'>Boolean</span>
 

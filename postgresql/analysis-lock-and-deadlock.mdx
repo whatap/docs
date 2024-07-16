@@ -5,15 +5,23 @@ description: 하루 동안 발생한 Lock 추이를 분석하고 교착 상태�
 tags: [ PostgreSQL, 데이터베이스, Lock, 락 트리 ]
 ---
 
-<!-- 개요 -->
-{@include: ../common-items/_analysis-lock-desc.mdx}
+{/* 개요 */}
+import Analysislockdesc from "../common-items/_analysis-lock-desc.mdx";
 
-<!-- 락트리 -->
-{@include: ../common-items/_db-locktree-desc.mdx}
+<Analysislockdesc />
+
+{/* 락트리 */}
+import Dblocktreedesc from "../common-items/_db-locktree-desc.mdx";
+
+<Dblocktreedesc />
 
 ## 기본 화면 안내
 
-{@include: ../common-items/_db-locktree-using-basic.mdx}  
+import Dblocktreeusingbasic from "../common-items/_db-locktree-using-basic.mdx";
 
-<!-- 락트리 컬럼 정보 -->
-{@include: ../common-items/_db_postgresql-column.mdx} 
+<Dblocktreeusingbasic />  
+
+{/* 락트리 컬럼 정보 */}
+import Postgresqlcolumn from "../common-items/_db_postgresql-column.mdx";
+
+<Postgresqlcolumn level={2} /> 

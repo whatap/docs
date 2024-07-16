@@ -1,52 +1,52 @@
 <Xclude product='amazon-cloudwatch,amazon-ecs,azure,ncloud,browser'>
 
-홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="tag_count" className="uitext" />
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" />
 
 </Xclude>
 
 <InDoc product='amazon-cloudwatch,amazon-ecs,azure,ncloud'>
 
-홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="metrics" className="uitext" /> &gt; <Cmdname sid="tag_count" className="uitext" />
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_metrics" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" />
 
 </InDoc>
 
 <InDoc product="browser">
 
-홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="laboratory" className="uitext" /> &gt; <Cmdname sid="tag_count" className="uitext" />
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" />
 
 </InDoc>
 
-***메트릭스 조회*** 메뉴에서 태그 기반으로 특정 메트릭스를 조회할 수 있습니다. 
+<Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 태그 기반으로 특정 메트릭스를 조회할 수 있습니다. 
 
 <ImgLang img='metrics-search.png' desc='메트릭스 조회' />
 
 ## ![](/img/number-01.png) 시간과 카테고리 선택
 
-![number 1](/img/number-01.png) 영역에서 메트릭스가 수집된 ***시간***과 ***최대 개수*** 및 ***카테고리***를 지정할 수 있습니다. ***시간***과 ***카테고리***는 반드시 지정해야 합니다.
+![number 1](/img/number-01.png) 영역에서 메트릭스가 수집된 <Cmdname sid="time_selector" className="uitext" />과 <Cmdname sid="max_count" className="uitext" /> 및 <Cmdname sid="category" className="uitext" />를 지정할 수 있습니다. <Cmdname sid="time_selector" className="uitext" />과 <Cmdname sid="category" className="uitext" />는 반드시 지정해야 합니다.
 
-* ***시간***: 메트릭스가 수집된 시간을 지정해 조회할 수 있습니다. 기본값은 `1시간`입니다. 기본 옵션으로 제공하는 조회 시간 외 사용자가 직접 ***시간*** 탭을 선택해 날짜와 시간을 지정할 수 있습니다.
+* <Cmdname sid="time_selector" className="uitext" />: 메트릭스가 수집된 시간을 지정해 조회할 수 있습니다. 기본값은 `1시간`입니다. 기본 옵션으로 제공하는 조회 시간 외 사용자가 직접 <Cmdname sid="time_selector" className="uitext" /> 탭을 선택해 날짜와 시간을 지정할 수 있습니다.
 
-* ***최대 개수***: ![number 3](/img/number-03.png) 목록에 조회할 메트릭스 최대 개수를 지정할 수 있습니다. `10`, `50`, `100`, `200`, `300`, `1000`, `2000`, `3000` 개까지 설정할 수있습니다.
+* <Cmdname sid="max_count" className="uitext" />: ![number 3](/img/number-03.png) 목록에 조회할 메트릭스 최대 개수를 지정할 수 있습니다. `10`, `50`, `100`, `200`, `300`, `1000`, `2000`, `3000` 개까지 설정할 수있습니다.
 
-* ***카테고리***: 유관 지표들의 분류 단위입니다. ***카테고리*** 탭을 선택해 원하는 ***카테고리***를 지정할 수 있습니다.
+* <Cmdname sid="category" className="uitext" />: 유관 지표들의 분류 단위입니다. <Cmdname sid="category" className="uitext" /> 탭을 선택해 원하는 <Cmdname sid="category" className="uitext" />를 지정할 수 있습니다.
 
-* ![새로고침 아이콘](/img/ic-refresh-w-bg.svg) ***새로 고침***: ***새로 고침*** 아이콘을 선택하면 ***카테고리***, ***태그*** 및 ***필드*** 옵션을 다시 불러올 수 있습니다.
+* ![새로고침 아이콘](/img/ic-refresh-w-bg.svg) <Cmdname sid="refresh_tag_options" className="uitext" />: <Cmdname sid="category" className="uitext" />, <Cmdname sid="tags" className="uitext" /> 및 <Cmdname sid="field" className="uitext" /> 옵션을 다시 불러올 수 있습니다.
 
 ## ![](/img/number-02.png) 태그와 필드 선택
 
-![number 2](/img/number-02.png) 영역에서 ***태그***와 ***필드***를 선택합니다. 사용자가 개별적으로 지정하지 않는다면 기본 설정은 전체 선택입니다. 
+![number 2](/img/number-02.png) 영역에서 <Cmdname sid="tags" className="uitext" />와 <Cmdname sid="field" className="uitext" />를 선택합니다. 사용자가 개별적으로 지정하지 않는다면 기본 설정은 전체 선택입니다. 
 
-* ***태그***: 수집된 대상을 구분할 수 있는 고유 정보 데이터입니다.
+* <Cmdname sid="tags" className="uitext" />: 수집된 대상을 구분할 수 있는 고유 정보 데이터입니다.
 
-* ***필드***: 모니터링 대상으로부터 수집된 지표입니다.
+* <Cmdname sid="field" className="uitext" />: 모니터링 대상으로부터 수집된 지표입니다.
 
-* ***필터***: ![필터링 아이콘](/img/ico-filter.svg) ***태그값으로 필터링*** 버튼을 선택하고 태그 값을 설정해 필터링할 수 있습니다.
+* <Cmdname sid="filter" className="uitext" />: ![필터링 아이콘](/img/ico-filter.svg) <Cmdname sid="filter_by_tag_value" className="uitext" /> 버튼을 선택하고 태그 값을 설정해 필터링할 수 있습니다.
 
   > 예시, `oname`의 값을 `demo-8101`로 설정해 필터링한 데이터를 조회할 수 있습니다.
 
-* ![검색 아이콘](/img/ic-search-on-press.svg) ***검색***: 조건을 설정 후 ***검색*** 아이콘을 선택하면 ![number 3](/img/number-03.png) 영역에서 해당 메트릭스의 원본 데이터를 조회할 수 있습니다. 
+* ![검색 아이콘](/img/ic-search-on-press.svg) <Cmdname sid="search" className="uitext" />: 조건을 설정 후 <Cmdname sid="search" className="uitext" /> 아이콘을 선택하면 ![number 3](/img/number-03.png) 영역에서 해당 메트릭스의 원본 데이터를 조회할 수 있습니다. 
 
-* ![CSV 다운로드 아이콘](/img/ic-csv-download-ms.svg) ***CSV 다운로드***: ***CSV 다운로드*** 버튼을 선택해 해당 메트릭스 원본 데이터를 CSV 파일로 다운로드할 수 있습니다.
+* ![CSV 다운로드 아이콘](/img/ic-csv-download-ms.svg) : 해당 메트릭스 원본 데이터를 CSV 파일로 다운로드할 수 있습니다.
 
 <InDoc product="npm">
 
@@ -60,13 +60,13 @@
 
 ## ![](/img/number-03.png) 메트릭스 테이블
 
-수집되는 메트릭스를 사전에 특정할 수 없기에 수집 중인 모든 메트릭스의 원본 데이터를 확인하는 것이 중요합니다.  위의 조건 영역에서 원하는 조건을 설정 후 ![number 3](/img/number-03.png) 영역에서 해당 메트릭스의 원본 데이터를 테이블 형식으로 조회할 수 있습니다. 사용자가 ***태그***와 ***필드*** 각 조건을 지정함에 따라 테이블의 컬럼이 변경됩니다.
+수집되는 메트릭스를 사전에 특정할 수 없기에 수집 중인 모든 메트릭스의 원본 데이터를 확인하는 것이 중요합니다. 위의 조건 영역에서 원하는 조건을 설정 후 ![number 3](/img/number-03.png) 영역에서 해당 메트릭스의 원본 데이터를 테이블 형식으로 조회할 수 있습니다. 사용자가 <Cmdname sid="tags" className="uitext" />와 <Cmdname sid="field" className="uitext" /> 각 조건을 지정함에 따라 테이블의 컬럼이 변경됩니다.
 
 :::note
 
-* 메트릭스 조회 시 ***시간***과 ***카테고리***는 반드시 지정해야 합니다. 
+* 메트릭스 조회 시 <Cmdname sid="time_selector" className="uitext" />과 <Cmdname sid="category" className="uitext" />는 반드시 지정해야 합니다. 
 
-* 메트릭스 조회 시 ***태그***와 ***필드*** 지정은 선택 사항입니다.
+* 메트릭스 조회 시 <Cmdname sid="tags" className="uitext" />와 <Cmdname sid="field" className="uitext" /> 지정은 선택 사항입니다.
 
 <InDoc product="npm">
 

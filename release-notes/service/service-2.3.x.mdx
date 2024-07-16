@@ -6,6 +6,83 @@ pagination_next: release-notes/service/service-2_2_x
 displayed_sidebar: releaseSidebar
 ---
 
+## Service 2.3.15
+
+2024년 04월 23일
+
+<div class='indentTab'>
+
+### `Application`
+
+- <Status>Fixed</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_statSql" className="uitext" /> 메뉴에서 <Cmdname sid="TTL07712" className="uitext" /> 컬럼의 버튼을 선택할 때, SQL 문에 특정 특수 문자가 포함되면 화이트 아웃 현상이 발생하는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> 메뉴의 에이전트 선택 목록에서 에이전트 이름이 긴 경우 줄임표(...)가 적용되는 현상 수정
+
+</div>
+
+
+## Service 2.3.14
+
+2024년 04월 09일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code class="newfunc">New</code> 메뉴에서 기존 이벤트 설정 메뉴의 이벤트 탭을 표시하고, <Cmdname sid="BTN07761" className="uitext" />, <Cmdname sid="BTN07762" className="uitext" /> 기능 추가
+
+  :::note
+
+  이 기능은 `Cloud` 및 `URL` 상품을 제외한 모든 상품에 적용됩니다.
+
+  :::
+
+- <Status>Feature</Status> 사이드 메뉴에서 프로젝트 목록의 너비를 조절할 수 있는 기능 추가 
+
+- <Status>Fixed</Status> 사이드 메뉴의 프로젝트 목록에서 그룹/프로젝트 이름이 긴 경우 정렬이 흐트러지는 문제 수정
+
+</div>
+
+## Service 2.3.13
+
+2024년 04월 08일
+
+<div class='indentTab'>
+
+### `Application`
+
+<Status>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> 메뉴에서 선택한 에이전트의 개수가 많은 경우 스크롤이 생기지 않는 문제 수정
+
+</div>
+
+
+## Service 2.3.12
+
+2024년 04월 05일
+
+<div class='indentTab'>
+
+### `Application`
+
+- <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dailyAppStat" className="uitext" /> 메뉴에서 데이터 조회가 완료되기 전 검색 버튼을 선택해 다시 조회가 가능한 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴의 <Cmdname sid="today_tps" className="uitext" /> 및 <Cmdname sid="today_user" className="uitext" /> 위젯에서 조회 기간을 변경해도 데이터가 유지되는 문제 수정
+
+</div>
+
+
+## Service 2.3.11
+
+2024년 04월 04일
+
+<div class='indentTab'>
+
+### `Application`
+
+<p><Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 <Cmdname sid="today_tps" className="uitext" /> 및 <Cmdname sid="today_user" className="uitext" /> 위젯의 데이터는 에이전트 필터와 상관없이 항상 전체 데이터를 조회하도록 수정</p>
+
+</div>
+
 ## Service 2.3.10
 
 2024년 04월 03일
@@ -306,8 +383,6 @@ Service 2.3.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status>Changed</Status> 프로젝트 생성에서 그룹 추가 시 프로젝트 생성 화면으로 이동하도록 변경
 
-- <Status>Changed</Status> <b>수정</b> 또는 <b>알림 설정</b> 권한을 가진 멤버가 <Cmdname sid="side_maintenancePlan" className="uitext" /> 메뉴를 이용할 수 있도록 권한 조정
-
 - <Status>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 테이블 목록을 스크롤하면 헤더는 고정된 상태로 유지되도록 변경
 
 - <Status>Fixed</Status> 메뉴 진입 시 헤더 요소에 메뉴 이름이 아닌 다른 값이 표시되는 문제 수정
@@ -365,6 +440,8 @@ Service 2.3.0 릴리스에 포함된 신규 기능을 소개합니다.
 ### `Server`
 
 - <Status>Feature</Status> <Cmdname sid="event_setting" className="uitext" /> 메뉴의 <Cmdname sid="sm_log_event_tab" className="uitext" /> 탭에서 수신자 태그 설정 기능 추가
+
+- <Status>Changed</Status> <b>수정</b> 또는 <b>알림 설정</b> 권한을 가진 멤버가 <Cmdname sid="side_maintenancePlan" className="uitext" /> 메뉴를 이용할 수 있도록 권한 조정
 
 - <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_resourceEqualizer" className="uitext" /> 메뉴에서 <Cmdname sid="disk_iops" className="uitext" /> 차트의 y축 최댓값이 제대로 표시되지 않는 문제 수정
 

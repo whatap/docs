@@ -5,47 +5,48 @@ description: 서버 목록 메뉴를 안내합니다.
 tags: [ 서버 목록, 분석하기, UI, Server ]
 ---
 
-홈 화면 > 프로젝트 선택 > ***서버 목록*** > ***서버 목록***
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" />
 
-와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 프로젝트 메뉴 하위에 ***서버 목록*** > ***서버 목록*** 메뉴를 선택하세요. ***서버 목록***은 수집 서버의 전체 현황을 나타내며 서버 관리기능 및 서버 간 비교 기능을 제공합니다.
+와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴를 선택하세요. <Cmdname sid="side_serverList" className="uitext" />은 수집 서버의 전체 현황을 나타내며 서버 관리기능 및 서버 간 비교 기능을 제공합니다.
 
 <ImgLang img='server-list.png' desc='서버 목록'/>
 
-## ![](/img/number-01.png) 서버 상태
+## ![](/img/number-01.png) 데이터 갱신 및 서버 상태
 
-수집 서버의 상태별 현황을 나타냅니다. 상태는 1분 간격으로 갱신합니다.
-
-* ![비활성 아이콘](/img/ico-disable-agent.svg)**비활성** : 에이전트가 해당 서버의 데이터 수집이 불가한 상태입니다.
-
-* ![위험 아이콘](/img/ic-warning-critical.svg)**위험** : 수집 서버에서 위험 이벤트가 발생한 상태입니다.
-
-* ![경고 아이콘](/img/ic-warning-filled.svg)**경고** : 수집 서버에서 경고 이벤트가 발생한 상태입니다.
-
-* ![정상 아이콘](/img/ic-check-circle-filled.svg)**정상** : 에이전트가 수집 서버에서 정상적으로 작동 중인 상태입니다.
-
-* ![아이콘](/img/ic-s-pause.svg)**일시정지** : 에이전트에서 데이터 수집을 일시적으로 중지한 상태입니다.
-
-## ![](/img/number-02.png) 데이터 갱신
+### 데이터 갱신 
 
 서버 목록 페이지의 데이터는 60초마다 자동으로 갱신합니다.
 
 * ![일시정지 아이콘](/img/ic-s-pause.svg)***일시정지*** : 사용자는 데이터의 자동 갱신을 중지할 수 있습니다. 
 * ![재생 아이콘](/img/ic-play-grn.svg)***재생*** : 사용자는 중지한 자동 갱신을 재시작할 수 있습니다.
-* ![새로고침 아이콘](/img/ic-refresh2.svg)***새로고침*** : 사용자는 현재 시간을 기준으로 데이터를 갱신할 수 있습니다.
+
+### 서버 상태
+
+수집 서버의 상태별 현황을 나타냅니다. 상태는 1분 간격으로 갱신합니다.
+
+* ![비활성 아이콘](/img/ico-disable-agent.svg) <Cmdname sid="status_inactive" className="b600" />: 에이전트가 해당 서버의 데이터 수집이 불가한 상태입니다.
+
+* ![위험 아이콘](/img/ic-warning-critical.svg) <Cmdname sid="status_fatal" className="b600" />: 수집 서버에서 위험 이벤트가 발생한 상태입니다.
+
+* ![경고 아이콘](/img/ic-warning-filled.svg) <Cmdname sid="status_warning" className="b600" />: 수집 서버에서 경고 이벤트가 발생한 상태입니다.
+
+* ![정상 아이콘](/img/ic-check-circle-filled.svg) <Cmdname sid="status_ok" className="b600" />: 에이전트가 수집 서버에서 정상적으로 작동 중인 상태입니다.
+
+* ![아이콘](/img/ic-s-pause.svg) <Cmdname sid="status_paused" className="b600" />: 에이전트에서 데이터 수집을 일시적으로 중지한 상태입니다.
+
+## ![](/img/number-02.png) 검색
+
+상단 오른쪽 ![number-s](/img/number-02.png) ***검색창***을 활용해 서버 이름(ONAME), 서버 아이디(OID), 태그 중에서 입력값이 포함된 서버 목록을 필터링할 수 있습니다.
 
 ## ![](/img/number-03.png) 서버 현황
 
-에이전트가 할당된 전체 서버의 현황을 나타냅니다. 목록에서 에이전트를 선택하면 ***서버 상세*** 페이지로 이동합니다. ***서버 상세*** 메뉴에 대한 자세한 내용은 [다음 문서](server-detail)를 참조하세요.
+에이전트가 할당된 전체 서버의 현황을 나타냅니다. 목록에서 에이전트를 선택하면 <Cmdname sid="side_serverDetail" className="uitext" /> 페이지로 이동합니다. <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](server-detail)를 참조하세요.
 
-### 검색
+### 컬럼 설정
 
-![number-s](/img/number-03.png) 영역 상단 오른쪽 ***검색창***을 활용해 서버 이름(ONAME), 서버 아이디(OID), 태그 중에서 입력값이 포함된 서버 목록을 필터링할 수 있습니다.
+* ![컬럼 아이콘](/img/ic-column.svg) <Cmdname sid="column_settings" className="uitext" />
 
-### 컬럼
-
-* ![컬럼 아이콘](/img/ic-column.svg) ***컬럼 선택***
-
-  ![number-s](/img/number-03.png) 영역 상단 메뉴에서 ![컬럼 아이콘](/img/ic-column.svg)***컬럼 선택***  버튼을 클릭하면 다음과 같이 테이블에 표시할 컬럼을 선택할 수 있습니다.
+  ![number-s](/img/number-03.png) 영역 상단 메뉴에서 ![컬럼 아이콘](/img/ic-column.svg) <Cmdname sid="column_settings" className="uitext" /> 버튼을 클릭하면 다음과 같이 테이블에 표시할 컬럼을 선택할 수 있습니다.
 
   <ImgLang img='server-list-cl.png' desc='서버 목록 컬럼'/>
 
@@ -69,9 +70,13 @@ tags: [ 서버 목록, 분석하기, UI, Server ]
   
   :::
 
+### 새로고침
+
+![새로고침 아이콘](/img/ic-refresh2.svg) <Cmdname sid="refresh" className="uitext" /> 버튼을 클릭하면 사용자는 현재 시간을 기준으로 데이터를 갱신할 수 있습니다.
+
 ### 필터 
 
-![number-s](/img/number-03.png) 영역 상단 메뉴에서 ![필터 아이콘](/img/ico-filter.svg)***필터*** 버튼을 클릭하면 태그를 통해 서버를 필터링할 수 있습니다. 
+![number-s](/img/number-03.png) 영역 상단 메뉴에서 ![필터 아이콘](/img/ico-filter.svg) <Cmdname sid="filter" className="uitext" /> 버튼을 클릭하면 태그를 통해 서버를 필터링할 수 있습니다. 
 
 태그는 에이전트를 설치할 때 자동으로 부여됩니다. 사용자 입력값을 추가할 수 있습니다. 태그를 통해 수집 서버를 식별하거나 서버 현황을 필터링합니다.
 
@@ -83,17 +88,17 @@ tags: [ 서버 목록, 분석하기, UI, Server ]
 
 ### 모니터링 관리
 
-에이전트 명령을 통해 서버를 관리하는 기능입니다. ![서버 관리 아이콘](/img/ico-setting.svg)***관리*** 버튼을 클릭하고 목록에서 관리 기능을 적용할 서버를 선택하세요. 오른쪽에 ***일시정지***, ***재시작***, ***해지하기*** 버튼이 활성화됩니다.
+에이전트 명령을 통해 서버를 관리하는 기능입니다. ![서버 관리 아이콘](/img/ico-setting.svg) <Cmdname sid="sms_management" className="uitext" /> 버튼을 클릭하고 목록에서 관리 기능을 적용할 서버를 선택하세요. 오른쪽에 <Cmdname sid="paused_agent" className="uitext" />, <Cmdname sid="resume_agent" className="uitext" />, <Cmdname sid="closed_agent" className="uitext" /> 버튼이 활성화됩니다.
 
-* ![일시정지 아이콘](/img/ic-s-pause.svg)***일시정지*** : 해당 에이전트의 데이터 수집을 일시 중지합니다. 서버 목록에서 일시 중지 상태로 표시됩니다.
+* ![일시정지 아이콘](/img/ic-s-pause.svg) <Cmdname sid="paused_agent" className="uitext" /> : 해당 에이전트의 데이터 수집을 일시 중지합니다. 서버 목록에서 일시 중지 상태로 표시됩니다.
 
-* ![재시작 아이콘](/img/ic-caret-right.svg)***재시작*** : 에이전트를 다시 시작합니다.
+* ![재시작 아이콘](/img/ic-caret-right.svg) <Cmdname sid="resume_agent" className="uitext" /> : 에이전트를 다시 시작합니다.
 
-* ![해지 아이콘](/img/ic-delete-critical.svg)***해지하기*** : 에이전트의 작동을 중지합니다. 서버 목록에서 제외되며 서버 현황을 확인할 수 없습니다.
+* ![해지 아이콘](/img/ic-delete-critical.svg) <Cmdname sid="closed_agent" className="uitext" /> : 에이전트의 작동을 중지합니다. 서버 목록에서 제외되며 서버 현황을 확인할 수 없습니다.
 
 ### 에이전트 이전
 
-![이전 아이콘](/img/ic-swap.svg)***에이전트 이전*** 버튼을 선택해 에이전트를 다른 프로젝트로 이전할 수 있습니다.
+![이전 아이콘](/img/ic-swap.svg) <Cmdname sid="BTN07897" className="uitext" /> 버튼을 선택해 에이전트를 다른 프로젝트로 이전할 수 있습니다.
 
 <ImgLang img='server-list-agent-transfer.png' desc='서버 목록 에이전트 이전'/>
 
@@ -103,7 +108,7 @@ tags: [ 서버 목록, 분석하기, UI, Server ]
 
 1. ![right-arrow](/img/right-arrow.svg) ***오른쪽 화살표*** 버튼를 클릭해 대상 프로젝트로 이전합니다.
 
-1. ***저장*** 버튼을 누르면 이전이 완료됩니다.
+1. <Cmdname sid="save" className="uitext" /> 버튼을 누르면 이전이 완료됩니다.
 
 :::note
 
@@ -115,15 +120,15 @@ tags: [ 서버 목록, 분석하기, UI, Server ]
 
 ### 서버 간 비교
 
-서버 간 비교 차트를 다음과 같이 제공합니다. 
+![차트 비교 아이콘](/img/ic-multiline-chart2.svg) <Cmdname sid="TTL06636" className="uitext" /> 버튼을 클릭하면 서버 간 비교 차트를 다음과 같이 제공합니다. 
 
 <ImgLang img='server-list-compare.png' desc='서버 간 비교 sc'/>
 
-1. ![차트 비교 아이콘](/img/ic-multiline-chart2.svg) ***비교하기*** 버튼을 선택하세요.
+1. ![차트 비교 아이콘](/img/ic-multiline-chart2.svg) <Cmdname sid="TTL06636" className="uitext" /> 버튼을 선택하세요.
 
-1. ![number-s](/img/number-06.png)과 같이 서버 목록 왼쪽에 ***비교*** 컬럼이 추가된 것을 확인하세요.
+1. ![number-s](/img/number-06.png)과 같이 서버 목록 왼쪽에 <Cmdname sid="TTL06636" className="uitext" /> 컬럼이 추가된 것을 확인하세요.
 
-1. ***비교*** 컬럼에서 비교를 원하는 서버를 선택하세요.
+1. <Cmdname sid="TTL06636" className="uitext" /> 컬럼에서 비교를 원하는 서버를 선택하세요.
 
 1. 비교 기능이 활성화되면 ![number-s](/img/ic-number-07.svg) 영역에서 비교 차트를 조회할 수 있습니다.
 
@@ -131,8 +136,8 @@ tags: [ 서버 목록, 분석하기, UI, Server ]
 
 * 비교 서버는 5개까지 선택 가능합니다.
 
-* 서버별 고유색이 할당됩니다. 고유색은 ![number-s](/img/ic-number-07.svg) ***비교 차트***에서 서버 구별을 위해 사용됩니다.
+* 서버별 고유색이 할당됩니다. 고유색은 ![number-s](/img/ic-number-07.svg) <Cmdname sid="compare" className="uitext" />에서 서버 구별을 위해 사용됩니다.
 
-* ***기간 조회*** 버튼을 선택하면 과거 데이터를 조회할 수 있습니다.
+* <Cmdname sid="check_period" className="uitext" /> 버튼을 선택하면 과거 데이터를 조회할 수 있습니다.
 
 :::

@@ -14,6 +14,211 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.7.0.a5
+
+2024년 07월 12일
+
+<div class='indentTab'>
+
+### `Kubernetes`
+
+<Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 요약 또는 상세 보기에서, **Node.js** 애플리케이션 에이전트가 설치된 블록은 <Cmdname sid="log" className="uitext" /> &gt; <Cmdname sid="BTN07827" className="uitext" /> 탭에서 **Application 로그**를 표시하지 않도록 수정(**Node.js** 상품 로그 모니터링 미지원)
+
+</div>
+
+
+## Preview 2.7.0.a4
+
+2024년 07월 11일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventHistory" className="uitext" /> 메뉴의 <Cmdname sid="column_select" className="uitext" /> 팝오버에서 <Cmdname sid="initialize_default" className="uitext" /> 버튼 동작 버그 수정
+
+- <Status>Deprecated</Status> <Cmdname sid="side_integratedDashboard" className="uitext" /> / <Cmdname sid="side_integratedMetricsBoard" className="uitext" />
+
+---
+
+### `Application`
+
+- <Status>Changed</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_statCaller" className="uitext" /> 메뉴의 CSV 다운로드 기능으로 다운로드할 수 있는 최대 건수 변경(10만 건 → 1만 건)
+
+- <Status>Changed</Status> <Cmdname sid="side_statistics" className="uitext" /> 하위 메뉴에서 검색 입력란의 너비 증가
+
+---
+
+### `Server`
+
+<Status>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴에서 테이블의 <UI>Private IP</UI> 컬럼 데이터 표시 방식 변경
+
+- IP 별 개행되어 표시하던 방식을 한 줄로 표시하도록 수정
+
+- 컬럼 너비에 따라 말 줄임표(…) 처리 추가
+
+- 127.0.0.1을 가장 나중에 표시하고 Private IP를 먼저 노출하도록 변경
+
+---
+
+### `Kubernetes`
+
+- <Status>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeDetail" className="uitext" /> 메뉴에 파드 목록 추가
+
+- <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 <Cmdname sid="log" className="uitext" /> &gt; <Cmdname sid="BTN07827" className="uitext" /> 탭(요약 또는 상세 보기)에서 <Cmdname sid="side_logTail" className="uitext" /> 메뉴로 이동할 수 있는 링크 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeDetail" className="uitext" /> 메뉴의 컨테이너 목록에서 컨테이너 상세 버튼의 UI 개선
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 <Cmdname sid="BTN07592" className="uitext" /> 옵션의 기본 시간을 30초에서 1분으로 변경
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 소수점 값 기준으로 오름차순 또는 내림차순 정렬되지 않는 문제 수정
+
+#### Oracle <code className="my">V2</code> / Oracle Pro
+
+<Status>Feature</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 ***Runtime Plan***, ***Explain Plan*** 탭의 테이블에 ***Access Predicate*** 컬럼 추가
+
+#### Oracle <code className="my">V2</code>
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 <Cmdname sid="TTL07772" className="uitext" /> 옵션에 다음 컬럼으로 정렬할 수 있는 필드 추가
+
+  - ***physical reads***
+  - ***session logical reads***
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 기본 컬럼 순서 변경
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 ***plan_hash_value*** 컬럼의 값을 쉼표(,)로 구분하도록 수정
+
+#### Oracle Pro
+
+- <Status>Feature</Status> 데이터베이스 모니터링 소개 페이지에 **Oracle Pro** 신규 출시를 알리는 튜토리얼 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 <Cmdname sid="TTL07772" className="uitext" /> 옵션에 다음 컬럼으로 정렬할 수 있는 필드 추가
+
+  - ***cpu time***
+  - ***physical reads***
+  - ***session logical reads***
+  - ***redo size***
+
+</div>
+
+
+## Preview 2.7.0.a3
+
+2024년 07월 04일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status>Feature</Status> 사이드 메뉴에서 <Cmdname sid="all_projects" className="uitext" />를 선택해 프로젝트 목록을 펼치면, 프로젝트 검색 입력란에 자동 포커스되는 기능 추가
+
+- <Status>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_projectMember" className="uitext" /> 메뉴에서 테마 변경 시 이름/소속 태그 색상이 반영되지 않는 문제 수정
+
+---
+
+### `Appication`
+
+- <Status>Feature</Status> 다음 메뉴 경로에서 조회 내용을 CSV 파일 다운로드 기능 추가
+
+  - <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_libraryVersion" className="uitext" />
+  - <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_bootEnvironmentVariable" className="uitext" />
+
+- <Status>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴에서 경로에서 선택한 에이전트의 에이전트 설정(*whatap.conf*) 파일 다운로드 기능 추가
+
+- <Status>Changed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_heapDump" className="uitext" /> 메뉴에서 일본어 안내 메시지 변경
+
+- <Status>Changed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" />의 하위 메뉴에서 에이전트를 선택한 상태로 다른 하위 메뉴로 이동하면 에이전트 선택 사항을 유지하도록 변경
+
+- <Status>Changed</Status> ![사이트맵 아이콘](/img/ic-sitemap.svg) <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_netstatTopology" className="uitext" /> 메뉴의 예시 이미지를 영문으로 변경
+
+- <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 메트릭스 이벤트 템플릿을 다음과 같이 변경했습니다.
+
+  - <Status>Deprecated</Status> 중복되는 **WARNING_OLD_GENARATION_GC** 템플릿 삭제
+
+  - <Status>Deprecated</Status> 불필요한 **WARNING_TPS_DELTA** 이벤트 삭제
+
+  - <Status>Changed</Status> ***TOO_MANY_ACTX*** 이벤트 조건 변경
+
+    - **기존**: `endsWith(okindName, 'ote-virtual-0') && startsWith(onodeName, 'node-0') && type == 'java'`
+
+    - **변경**: `active_tx_count > 100`
+
+- <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsChart" className="uitext" /> 메뉴에서 다음 위젯 표기 수정
+
+  - Heap 크기(<code>heap_tot</code>) → <UI>Heap 총 사용량</UI>(<code>heap_tot</code>)
+
+  - Heap 최대 사용량(<code>heap_max</code>) → <UI>Heap 최대 크기</UI>(<code>heap_max</code>)
+
+---
+
+### `Server`
+
+<Status>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴의 <Cmdname sid="sms_alert_info_mem" className="uitext" /> <Cmdname sid="detail" className="uitext" />에서 3시간 이상 조회하면 <Cmdname sid="memory_swapused" className="uitext" /> 차트가 표시되지 않는 문제 수정
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status>Feature</Status> 특정 날짜를 기준으로 설정된 시간대의 SQL의 추이를 비교하고 등락을 확인할 수 있는 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTopSqlComparison" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 다음 상품에서만 이용할 수 있습니다. 
+  
+  * [PostgreSQL](https://whatap.github.io/whatap-docs/postgresql/analysis-compare-top-sql)
+  * [MySQL](https://whatap.github.io/whatap-docs/mysql/analysis-compare-top-sql)
+  * [Oracle V2](https://whatap.github.io/whatap-docs/oracle-v2/analysis-compare-top-sql)
+  * [Oracle Pro](https://whatap.github.io/whatap-docs/oracle-pro/analysis-compare-top-sql)
+
+  :::
+
+- <Status>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 메뉴의 XOS2 지표 대체 안내 메시지가 더 이상 나타나지 않도록 변경
+
+- <Status>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 위젯 이름 변경(**Active Sessions Count** → ***Active Session***)
+
+#### Oracle <code className="my">V2</code>
+
+- <Status>New</Status> Oracle V2 서비스 오픈, 새로운 기능에 대한 자세한 내용은 [다음 문서](https://whatap.github.io/whatap-docs/oracle-v2/monitoring-intro#new-feature)를 참조하세요.
+
+- <Status>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 메뉴에서 에이전트 업데이트 및 버전 변경 안내 팝업 추가
+
+- <Status>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_projectManagement" className="uitext" /> 메뉴에서 버전 선택을 할 수 있는 기능 추가
+
+#### Oracle Pro
+
+- <Status>Changed</Status> 상품명 변경: Oracle DMA → **Oracle Pro**
+
+- <Status>Feature</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 `bind` 변수를 수정하고 조회할 수 있는 ***Explain Plan*** 탭 추가
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 특정 쿼리에 대한 테이블 데이터와 시리즈 데이터의 값이 맞지 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 시리즈 데이터가 제대로 표시되지 않는 문제 수정
+
+- <Status>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 탭 명칭 변경 
+
+  - **USERNAME** → ***SCHEMANAME***
+  
+  - ***MODULE***, ***OSUSER*** 추가
+
+- <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 <Cmdname sid="active_sessions" className="uitext" /> 테이블의 쿼리를 선택한 다음, <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴로 이동하면 `sql_id`로 필터를 기본 설정하도록 수정
+
+#### Oracle <code className="my">V2</code> / Oracle Pro
+
+- <Status>Feature</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 선택한 쿼리에 대한 통계 요약 정보를 제공하는 ***Runtime Plan*** 탭 추가
+
+- <Status>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴의 <Cmdname sid="table_space_detail" className="uitext" /> 섹션 목록에서 항목을 선택하면 세그먼트 사이즈(TOP 50)를 표시하는 기능 추가
+
+</div>
+
+
 ## Preview 2.7.0.a2
 
 2024년 06월 27일

@@ -52,22 +52,23 @@ import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
 
 호스트(`whatap.server.host`) 주소는 와탭 proxy를 설치한 서버의 주소입니다. 슬래시('/')를 구분자로 이용해 와탭 서버 중 proxy 서버가 실행 중인 서버의 모든 주소를 입력할 수 있습니다.
 
-<details>
-<summary>Node.js 에이전트 구성 파일</summary>
+에이전트 구성 파일은 다음을 참조하세요.
 
-Node.js 모니터링 서비스를 구성하는 각 파일의 역할은 다음과 같습니다.
+<Filetree name="whatap">
 
-* *whatap.conf*: 에이전트 설정 파일 샘플입니다. 해당 파일을 복사해서 액세스 키를 입력하세요.
+  <FiletreeItem name="whatap.conf" type="file">에이전트 설정 파일 샘플입니다. 해당 파일을 복사해서 액세스 키를 입력하세요.</FiletreeItem>
 
-* *lib*: 에이전트, 트레이서 프로그램입니다.
+  <FiletreeItem name="README.md" type="file">에이전트 설치에 관한 안내 문서입니다.</FiletreeItem>
 
-* *README.md*: 에이전트 설치에 관한 안내 문서입니다.
+  <FiletreeItem name="package.json" type="file">npm 모듈 환경 구성 파일입니다.</FiletreeItem>
 
-* *package.json*: npm 모듈 환경 구성 파일입니다.
+  <FiletreeItem name="index.js" type="file">main export 선언 파일입니다.</FiletreeItem>
 
-* *index.js*: main export 선언 파일입니다.
+  <FiletreeItem name="paramkey.txt" type="file">SQL 변수, HTTP 쿼리를 조회하거나 Thread 중지 기능을 이용할 때 입력하는 보안키를 저장합니다.</FiletreeItem>
 
-</details>
+  <FiletreeItem name="lib" type="folder">에이전트, 트레이서 프로그램입니다.</FiletreeItem>
+
+</Filetree>
 
 :::tip
 

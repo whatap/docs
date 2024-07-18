@@ -5,24 +5,35 @@ description: 데이터베이스 운용 추이를 확인하고 비교할 수 있�
 tags: [ Oracle, 데이터베이스, 분석, 카운트 추이 ]
 ---
 
-import ProdImg from '@site/src/components/ChangeImgName.js';
+{/* description*/}
+import Dbv2counttrenddesc from "../common-items/_db-v2-count-trend-desc.mdx";
 
-{/* 카운트 추이 */}
-import Dbcounttrenddesc from "../common-items/_db-count-trend-desc.mdx";
+<Dbv2counttrenddesc />
 
-<Dbcounttrenddesc />  
+{/* ## 기본 화면 안내*/}
+import Dbv2counttrendbasicusage from "../common-items/_db-v2-count-trend-basic-usage.mdx";
 
-{/* 카운트 추이 비교 */}
-import Dbcomparecounttrendv2 from "../common-items/_db-compare-count-trend-v2.mdx";
+<Dbv2counttrendbasicusage /> 
 
-<Dbcomparecounttrendv2 />  
+{/* ### 비교 대상 선택하기*/}
+import Dbv2counttrendselectinstance from "../common-items/_db-v2-count-trend-select-instance.mdx";
 
+<Dbv2counttrendselectinstance /> 
 
-{/* 차트 및 액티브 세션 영역 활용하기 */}
-import Dbusingchartactivesessionarea from "../common-items/_db-using-chart-activesession-area.mdx";
+{/* ### 액티브 세션 정보 비교하기*/}
+import Dbv2counttrendcompare from "../common-items/_db-v2-count-trend-compare.mdx";
 
-<Dbusingchartactivesessionarea />  
+<Dbv2counttrendcompare /> 
 
+{/* ### 특정 시간 비교하기*/}
+import Dbv2counttrendcomparetime from "../common-items/_db-v2-count-trend-compare-time.mdx";
+
+<Dbv2counttrendcomparetime />
+
+{/*## 프리셋*/}
+import Dbv2counttrendspreset from "../common-items/_db-v2-count-trends-preset.mdx";
+
+<Dbv2counttrendspreset /> 
 
 {/* 컬럼 정보 안내 */}
 import Oraclecolumn from "../common-items/_db_oracle-column.mdx";

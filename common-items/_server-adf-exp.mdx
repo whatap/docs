@@ -8,7 +8,7 @@ MySQL/MariaDB 모니터링 에이전트를 이용할 수 있습니다.
 
 와탭 인프라 에이전트가 주어진 웹 주소로 접속하여 접속 여부 및 응답 시간을 수집합니다. 수집된 웹 URL 성능은 <Cmdname sid="category" className="uitext" /> `server_webcheck`에서 확인할 수 있습니다. 다음 명령으로 체크할 웹 주소를 추가하세요. URL 모니터링 서비스에 대한 자세한 내용은 [다음 문서](../url/url-intro)를 참조하세요.
 
-<Tabs>
+<Tabs groupId='server-user-script'>
 <TabItem value="lxs" label="Linux Shell">
 
 ```bash title=SH
@@ -57,8 +57,8 @@ Restart-Service "Whatap Infra"
 
 와탭 인프라 에이전트가 주어진 Redis 주소로 접속하여 연결 개수를 포함한 여러 개의 성능 지수를 수집합니다. 수집된 성능 정보는 <Cmdname sid="category" className="uitext" /> `server_redis`에서 확인할 수 있습니다. 다음 명령으로 체크할 Redis 서버의 접속 정보를 추가할 수 있습니다.
 
-<Tabs>
-<TabItem value="lxs2" label="Linux Shell">
+<Tabs groupId='server-user-script'>
+<TabItem value="lxs" label="Linux Shell">
 
 ```bash title=SH
 sudo echo "addr=Redis 주소:포트" | sudo tee /usr/whatap/infra/conf/redis.conf
@@ -67,7 +67,7 @@ sudo service whatap-infra restart
 ```
 
 </TabItem>
-<TabItem value="wps2" label="Windows Powershell">
+<TabItem value="wps" label="Windows Powershell">
 
 ```bash title=SH
 Add-Content -Path "C:\Program Files\WhatapInfra\redis.conf" -Value "addr=Redis 주소:포트"
@@ -82,8 +82,8 @@ Restart-Service "Whatap Infra"
 
 와탭 인프라 에이전트가 주어진 Memcached 주소로 접속하여 연결 개수를 포함한 여러 개의 성능 지수를 수집합니다. 수집된 정보는 <Cmdname sid="category" className="uitext" /> `server_memcached`에서 확인할 수 있습니다. 다음 명령으로 체크할 Memcached 서버의 접속 정보를 추가할 수 있습니다.
 
-<Tabs>
-<TabItem value="lxs3" label="Linux Shell">
+<Tabs groupId='server-user-script'>
+<TabItem value="lxs" label="Linux Shell">
 
 ```bash title=SH
 sudo echo "addr=Memcached 주소:포트" | sudo tee /usr/whatap/infra/conf/memcached.conf
@@ -92,7 +92,7 @@ sudo service whatap-infra restart
 ```
 
 </TabItem>
-<TabItem value="wps3" label="Windows Powershell">
+<TabItem value="wps" label="Windows Powershell">
 
 ```bash title=SH
 Add-Content -Path "C:\Program Files\WhatapInfra\memcached.conf" -Value "addr=Memcached 주소"

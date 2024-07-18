@@ -13,6 +13,8 @@ import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
 
 <Youtube ko="MWDFeegF6mQ" en="MWDFeegF6mQ" ja="MWDFeegF6mQ" />
 
+<Steps>
+
 import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
 <Createprojectv2 />
@@ -39,8 +41,8 @@ pip install whatap-python
 pip 명령으로 설치할 수 없다면 [pypi 와탭 페이지](https://pypi.org/project/whatap-python/#files)에서 설치 파일을 다운로드하세요. 다운로드한 파일을 압축 해제한 다음 설치를 진행하세요.
 
 ```bash
-tar xzvf whatap-python-1.x.x.tar.gz \
-cd whatap-python-1.X.Y.Z \
+tar xzvf whatap_python-1.x.x.tar.gz \
+cd whatap_python-1.X.Y.Z \
 python setup.py install
 ```
 
@@ -76,41 +78,6 @@ Python 에이전트 파일은 애플리케이션 모니터링에 필요한 정�
 
 </Filetree>
 
-### Docker
-
-Docker 컨테이너로 서비스되는 애플리케이션의 경우 다음 내용을 *DockerFile*에 추가하세요.
-
-1. **Python 에이전트**를 설치하세요.
-
-    ```docker title='Dockerfile' {3}
-    ENV WHATAP_HOME /whatap
-    RUN mkdir -p /whatap
-    RUN pip install whatap-python
-    ```
-
-    :::note
-    
-    *requirements.txt*를 사용한다면 해당 파일에 **whatap-python**을 추가하세요.
-    
-    :::
-
-1. **액세스 키** 및 **수집 서버 IP** 설정을 등록하세요.
-
-    ```docker title='Dockerfile'
-    RUN touch /whatap/whatap.conf
-    RUN echo "license=[ ACCESS_KEY ]" > /whatap/whatap.conf
-    RUN echo "whatap.server.host=[ COLLECTION_SERVER_IP ]" >> /whatap/whatap.conf
-    RUN echo "app_name=[ AGENT_NAME ]" >> /whatap/whatap.conf
-    RUN echo "app_process_name=[ APPLICATION_PROCESS_NAME(uwsgi, gunicorn etc..) ]" >> /whatap/whatap.conf
-    ```
-
-1. 기존 실행 커맨드 `python manage.py runserver`앞에 `whatap-start-agent`를 추가하세요.
-
-    ```docker title='Dockerfile'
-    #ENTRYPOINT python manage.py runserver
-    ENTRYPOINT whatap-start-agent python manage.py runserver
-    ```
-
 ## 에이전트 설정
 
 ### WHATAP_HOME 기본 경로 설정
@@ -123,10 +90,10 @@ $ export WHATAP_HOME=[PATH]
 
 ### 액세스 키 및 수집 서버 IP 설정
 
-다음 명령어를 실행하면 `$WHATAP_HOME`에 지정한 경로에 바로 *whatap.conf* 파일이 생성 및 설정됩니다.
+액세스 키 및 수집 서버 IP 설정을 위해 `whatap-setting-config` 명령어를 실행하세요.
 
 ```bash
-whatap-setting-config \
+$ whatap-setting-config \
 --host [ COLLECTION_SERVER_IP ] \
 --license [ ACCESS_KEY ] \
 --app_name [ USER_DEFINED_AGENT_NAME ] \
@@ -135,10 +102,21 @@ whatap-setting-config \
 
 ### 설정 확인
 
-다음과 같이 설정 파일이 잘 생성되었는지 확인하세요.
+`$WHATAP_HOME`에 지정한 경로로 *whatap.conf* 파일이 생성되고 설정됩니다. 다음 명령어를 실행해 *whatap.conf* 파일이 생성됐는지 확인하세요.
 
 ```bash
 $ cat $WHATAP_HOME/whatap.conf
+```
+
+```ini title="whatap.conf"
+license=[ACCESS_KEY]
+whatap.server.host=[COLLECTION_SERVER_IP]
+
+# application name
+app_name=[ USER_DEFINED_AGENT_NAME ]
+
+# middleware process name ex)uwsgi, gunicorn ..
+app_process_name=[ APPLICATION_PROCESS_NAME(uwsgi, gunicorn etc..) ]
 ```
 
 :::note
@@ -159,7 +137,11 @@ echo `sudo chmod -R 777 $WHATAP_HOME`
 
 ## 애플리케이션 서버 환경별 적용하기
 
-### Command
+애플리케이션 서버 환경에 따라 적용하는 방법이 다를 수 있습니다. 사용자의 환경에 맞는 적용 방법을 진행하세요.
+
+<Tabs>
+
+<TabItem value="command" label="Command">
 
 **Command** 환경에서는 다음과 같이 `whatap-start-agent` 명령어를 애플리케이션 시작 명령어(Application start command) 앞에 추가하세요.
 
@@ -168,7 +150,9 @@ echo `sudo chmod -R 777 $WHATAP_HOME`
 $ whatap-start-agent python manage.py runserver
 ```
 
-### uWSGI
+</TabItem>
+
+<TabItem value="uwsgi" label="uWSGI">
 
 **uWSGI** 환경에서는 다음과 같이 `whatap-start-agent` 명령어를 `uwsgi` 명령어 앞에 추가하세요.
 
@@ -216,7 +200,9 @@ do_start(){
 
 :::
 
-### Gunicorn
+</TabItem>
+
+<TabItem value="gunicorn" label="Gunicorn">
 
 **Gunicorn** 환경에서는 다음과 같이 `whatap-start-agent` 명령어를 `Gunicorn` 명령어 앞에 추가하세요.
 
@@ -265,7 +251,11 @@ do_start(){
 
 :::
 
-### Supervisor
+</TabItem>
+
+<TabItem value="supervisor" label="Supervisor">
+
+**Supervisor** 환경에서는 적용하기 위해 *supervisor.conf* 파일에 다음 설정을 추가하세요.
 
 ```ini title="supervisor.conf"
 [program:app-uwsgi]
@@ -288,7 +278,11 @@ command = /usr/sbin/nginx
 
 :::
 
-### WSGI 애플리케이션 직접 구현하기
+</TabItem>
+
+<TabItem value="wsgi" label="WSGI">
+
+WSGI 애플리케이션을 직접 구현하는 방법을 안내합니다. 다음을 참조하세요.
 
 ```python title="PYTHON"
 import whatap
@@ -302,16 +296,59 @@ def simple_app(environ, start_response):
     return ['Hello world!\n']
 ```
 
-### 코드(Code)로 적용하기
+</TabItem>
+
+<TabItem value="docker" label="Docker">
+
+Docker 컨테이너로 서비스되는 애플리케이션의 경우 다음 내용을 *DockerFile*에 추가하세요.
+
+1. **Python 에이전트**를 설치하세요.
+
+    ```docker title='Dockerfile' {3}
+    ENV WHATAP_HOME /whatap
+    RUN mkdir -p /whatap
+    RUN pip install whatap-python
+    ```
+
+    :::note
+    
+    *requirements.txt*를 사용한다면 해당 파일에 **whatap-python**을 추가하세요.
+    
+    :::
+
+1. **액세스 키** 및 **수집 서버 IP** 설정을 등록하세요.
+
+    ```docker title='Dockerfile'
+    RUN touch /whatap/whatap.conf
+    RUN echo "license=[ ACCESS_KEY ]" > /whatap/whatap.conf
+    RUN echo "whatap.server.host=[ COLLECTION_SERVER_IP ]" >> /whatap/whatap.conf
+    RUN echo "app_name=[ AGENT_NAME ]" >> /whatap/whatap.conf
+    RUN echo "app_process_name=[ APPLICATION_PROCESS_NAME(uwsgi, gunicorn etc..) ]" >> /whatap/whatap.conf
+    ```
+
+1. 기존 실행 커맨드 `python manage.py runserver`앞에 `whatap-start-agent`를 추가하세요.
+
+    ```docker title='Dockerfile'
+    CMD ["whatap-start-agent", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+    ```
+
+</TabItem>
+
+<TabItem value="code" label="Code">
 
 코드 가장 윗줄에 API를 직접 호출하는 코드를 다음과 같이 추가해 에이전트를 적용할 수 있습니다.
 
 ```python title="PYTHON"
 import whatap
-whatap.agent
+whatap.agent()
 ```
 
+</TabItem>
+
+</Tabs>
+
 애플리케이션 서버를 실행하면 에이전트가 모니터링 데이터를 수집하기 시작합니다.
+
 
 ## 서비스 실행 확인
 
@@ -320,6 +357,8 @@ whatap.agent
 ```bash
 ps -ef | grep whatap_python
 ```
+
+</Steps>
 
 ## 다음 단계
 

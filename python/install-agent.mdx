@@ -171,7 +171,11 @@ echo `sudo chmod -R 777 $WHATAP_HOME`
 
 ## 애플리케이션 서버 환경별 적용하기
 
-### Command
+애플리케이션 서버 환경에 따라 적용하는 방법이 다를 수 있습니다. 사용자의 환경에 맞는 적용 방법을 진행하세요.
+
+<Tabs>
+
+<TabItem value="command" label="Command">
 
 **Command** 환경에서는 다음과 같이 `whatap-start-agent` 명령어를 애플리케이션 시작 명령어(Application start command) 앞에 추가하세요.
 
@@ -180,7 +184,9 @@ echo `sudo chmod -R 777 $WHATAP_HOME`
 $ whatap-start-agent python manage.py runserver
 ```
 
-### uWSGI
+</TabItem>
+
+<TabItem value="uwsgi" label="uWSGI">
 
 **uWSGI** 환경에서는 다음과 같이 `whatap-start-agent` 명령어를 `uwsgi` 명령어 앞에 추가하세요.
 
@@ -228,7 +234,9 @@ do_start(){
 
 :::
 
-### Gunicorn
+</TabItem>
+
+<TabItem value="gunicorn" label="Gunicorn">
 
 **Gunicorn** 환경에서는 다음과 같이 `whatap-start-agent` 명령어를 `Gunicorn` 명령어 앞에 추가하세요.
 
@@ -277,7 +285,11 @@ do_start(){
 
 :::
 
-### Supervisor
+</TabItem>
+
+<TabItem value="supervisor" label="Supervisor">
+
+**Supervisor** 환경에서는 적용하기 위해 *supervisor.conf* 파일에 다음 설정을 추가하세요.
 
 ```ini title="supervisor.conf"
 [program:app-uwsgi]
@@ -300,7 +312,11 @@ command = /usr/sbin/nginx
 
 :::
 
-### WSGI 애플리케이션 직접 구현하기
+</TabItem>
+
+<TabItem value="wsgi" label="WSGI">
+
+WSGI 애플리케이션을 직접 구현하는 방법을 안내합니다. 다음을 참조하세요.
 
 ```python title="PYTHON"
 import whatap
@@ -314,7 +330,9 @@ def simple_app(environ, start_response):
     return ['Hello world!\n']
 ```
 
-### 코드(Code)로 적용하기
+</TabItem>
+
+<TabItem value="code" label="Code">
 
 코드 가장 윗줄에 API를 직접 호출하는 코드를 다음과 같이 추가해 에이전트를 적용할 수 있습니다.
 
@@ -323,7 +341,12 @@ import whatap
 whatap.agent()
 ```
 
+</TabItem>
+
+</Tabs>
+
 애플리케이션 서버를 실행하면 에이전트가 모니터링 데이터를 수집하기 시작합니다.
+
 
 ## 서비스 실행 확인
 

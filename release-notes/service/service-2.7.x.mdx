@@ -121,6 +121,12 @@ Service 2.7.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status>Changed</Status> ![사이트맵 아이콘](/img/ic-sitemap.svg) <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_netstatTopology" className="uitext" /> 메뉴의 예시 이미지를 영문으로 변경
 
+- <Status>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴의 ***TOO_MANY_ACTX*** 이벤트 템플릿 조건 변경
+
+  - **기존**: `endsWith(okindName, 'ote-virtual-0') && startsWith(onodeName, 'node-0') && type == 'java'`
+
+  - **변경**: `active_tx_count > 100`
+
 - <Status>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsChart" className="uitext" /> 메뉴에서 다음 위젯 표기 수정
 
   - Heap 크기(<code>heap_tot</code>) → <UI>Heap 총 사용량</UI>(<code>heap_tot</code>)
@@ -133,17 +139,9 @@ Service 2.7.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_transaction_map" className="uitext" /> 메뉴에서 과거 시점으로 필터를 적용한 후 실시간 조회로 변경하면 이전 조회 시점의 필터가 적용되는 문제 수정
 
-- <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 메트릭스 이벤트 템플릿을 다음과 같이 변경했습니다.
+- <Status>Deprecated</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 중복되는 **WARNING_OLD_GENARATION_GC** 이벤트 템플릿 삭제
 
-  - <Status>Deprecated</Status> 중복되는 **WARNING_OLD_GENARATION_GC** 템플릿 삭제
-
-  - <Status>Deprecated</Status> 불필요한 **WARNING_TPS_DELTA** 이벤트 삭제
-
-  - <Status>Changed</Status> ***TOO_MANY_ACTX*** 이벤트 조건 변경
-
-    - **기존**: `endsWith(okindName, 'ote-virtual-0') && startsWith(onodeName, 'node-0') && type == 'java'`
-
-    - **변경**: `active_tx_count > 100`
+- <Status>Deprecated</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 불필요한 **WARNING_TPS_DELTA** 이벤트 템플릿 삭제
 
 - <Status>Deprecated</Status> 구버전의 <Cmdname sid="app_dashboard" className="uitext" /> 제거
 

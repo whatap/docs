@@ -1,0 +1,13 @@
+---
+id: test
+title: import release json
+displayed_sidebar: releaseSidebar
+---
+
+import ImportJson from "@site/src/components/ImportJson";
+import Service26x from "./service-2.6.x.json";
+import Service25x from "./service-2.5.x.json";
+
+<ImportJson filePath={Service26x} sort="product"/>
+
+<ImportJson filePath={Service25x} />

@@ -5,6 +5,8 @@ description: 모니터링 대상을 식별하기 위해 에이전트 이름 설�
 tags: [ Node.js, 에이전트 이름 ]
 ---
 
+import OkindNodename from "../common-items/_agent-name-okind-onode-desc.mdx";
+
 ## 에이전트 이름 식별{#agentname}
 
 import Apmnamedescription from "../common-items/_apm-name-description.mdx";
@@ -83,14 +85,6 @@ var whatap=require('whatap').NodeAgent;
 
 Node.js 에이전트 이름 설정에 관한 자세한 설명은 [다음 문서](#agentname)를 참조하세요.
 
-* **whatap.okind** <span class='type'>String</span>
-
-  에이전트가 속한 그룹 단위를 설정합니다. 여러 에이전트를 같이 설정해 해당 그룹명으로 토폴로지를 확인할 수 있습니다.
-
-* **whatap.onode** <span class='type'>String</span>
-
-  에이전트가 속한 노드 단위를 설정합니다.
-
 * **auto_oname_enabled** <span class='type'>Boolean</span>
 
   기본값 `false`
@@ -108,3 +102,5 @@ Node.js 에이전트 이름 설정에 관한 자세한 설명은 [다음 문서]
   기본값 `0`
 
   서버로부터 새로운 에이전트 이름을 부여받기 위해 수정합니다. 한번 정해진 에이전트 이름은 Node.js가 다시 시작할 때까지 유지합니다. 리셋을 원할 때 `auto_oname_reset` 값을 수정하세요. 현재 설정 값과 다른 값으로 변경하면 적용됩니다.
+
+<OkindNodename />

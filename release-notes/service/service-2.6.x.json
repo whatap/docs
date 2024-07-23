@@ -2,7 +2,7 @@
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_6_x",
     "ver": "Service 2.6.4",
-    "date": "2024년 06월 28일",
+    "date": "2024-06-28",
     "Lists": [
       {
         "ver": "Service 2.6.4",
@@ -16,7 +16,7 @@
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_6_x",
     "ver": "Service 2.6.3",
-    "date": "2024년 06월 27일",
+    "date": "2024-06-27",
     "Lists": [
       {
         "ver": "Service 2.6.3",
@@ -31,7 +31,7 @@
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_6_x",
     "ver": "Service 2.6.2",
-    "date": "2024년 06월 27일",
+    "date": "2024-06-27",
     "Lists": [
       {
         "ver": "Service 2.6.2",
@@ -45,7 +45,7 @@
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_6_x",
     "ver": "Service 2.6.1",
-    "date": "2024년 06월 26일",
+    "date": "2024-06-26",
     "Lists": [
       {
         "ver": "Service 2.6.1",
@@ -73,7 +73,7 @@
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_6_x",
     "ver": "Service 2.6.0",
-    "date": "2024년 06월 26일",
+    "date": "2024-06-26",
     "Lists": [
       {
         "ver": "Service 2.6.0",
@@ -541,22 +541,6 @@
         "hash": "service-260",
         "product": "Database",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> 대시보드의 <span class=\"uitext\">액티브 세션</span> 테이블에서 <span class=\"uitext\">세션 상세 정보</span> 창을 열었을 때 종료된 세션이면 실시간 조회를 종료하며 시간 선택자를 선택할 수 없도록 수정</p>",
-        "category": "공통"
-      },
-      {
-        "ver": "Service 2.6.0",
-        "hash": "service-260",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> 대시보드의 <span class=\"uitext\">액티브 세션</span> 테이블에서 <span class=\"uitext\">세션 상세 정보</span> 창을 열었을 때 종료된 세션이면 <span class=\"uitext\">연계 분석</span> 버튼을 노출하지 않도록 수정</p>",
-        "category": "공통"
-      },
-      {
-        "ver": "Service 2.6.0",
-        "hash": "service-260",
-        "product": "Database",
-        "type": "Fixed",
         "desc": "<p><code class=\"Fixed\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 메뉴에서 필터가 적용되지 않는 문제 수정</p>",
         "category": "공통"
       },
@@ -615,6 +599,22 @@
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴의 <span class=\"uitext\">DB Status</span> 위젯에서 에이전트 선택 상태를 즉시 반영하도록 수정</p>",
         "category": "MongoDB"
+      },
+      {
+        "ver": "Service 2.6.0",
+        "hash": "service-260",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 대시보드의 <span class=\"uitext\">액티브 세션</span> 테이블에서 <span class=\"uitext\">세션 상세 정보</span> 창을 열었을 때 종료된 세션이면 실시간 조회를 종료하며 시간 선택자를 선택할 수 없도록 수정</p>",
+        "category": "PostgreSQL V2"
+      },
+      {
+        "ver": "Service 2.6.0",
+        "hash": "service-260",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 대시보드의 <span class=\"uitext\">액티브 세션</span> 테이블에서 <span class=\"uitext\">세션 상세 정보</span> 창을 열었을 때 종료된 세션이면 <span class=\"uitext\">연계 분석</span> 버튼을 노출하지 않도록 수정</p>",
+        "category": "PostgreSQL V2"
       },
       {
         "ver": "Service 2.6.0",

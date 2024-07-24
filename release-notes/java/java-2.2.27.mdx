@@ -24,24 +24,7 @@ displayed_sidebar: releaseSidebar
 
 - <Status>Feature</Status> <code>OracleCallableStatement</code> 추적 추가
 
-- <Status>Changed</Status> Lettuce 드라이버 사용 시 Redis의 key 수집 범위 추가
-
-  ```ini title="whatap.conf"
-  # requires agent restart
-  weaving=Lettuce-6.2
-  ```
-
-- <Status>Changed</Status> Lettuce 드라이버 사용 시 Redis의 key 수집 여부 수정
-
-  ```ini title="whatap.conf"
-  # default: false
-  trace_sql_param_enabled=true
-  
-  # default: false
-  trace_redis_Lettuce_key_enabled=true
-  ```
-
-- <Status>Changed</Status> Lettuce 드라이버 사용 시 Redis의 key 수집 숫자를 제한
+- <Status>Deprecated</Status> Lettuce 드라이버 사용 시 Redis의 key 수집 중단
 
 - <Status>Fixed</Status> spring-boot에서 netty 사용 시 request의 URL에서 querystring 분리
 

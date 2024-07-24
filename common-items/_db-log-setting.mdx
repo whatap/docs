@@ -43,7 +43,17 @@ file=/home/oracle/diag/rdbms/ora18/ORA18/trace/alert_ORA18.log
 
 :::note
 
+<InDoc product='mysql,postgresql,oracle-v2'>
+
 적용하기 전에 XOS 에이전트를 설치하고 에이전트 설정을 진행해야 합니다. 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
+
+</InDoc>
+
+<InDoc product="oracle-pro">
+
+**Oracle Pro** 상품의 경우 XOS 에이전트가 내장되어 있어 별도 설치 과정이 필요없습니다.
+
+</InDoc>
 
 :::
 
@@ -208,4 +218,6 @@ AWS는 RDS의 모니터링을 위해서 다양한 정보들을 제공하지만 �
 
 모든 설정을 완료한 후에 <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSetting" className="uitext" /> 메뉴로 진입해 로그 모니티링을 활성화하세요.
 
-<ImgLang img='log-start-db.png' desc='로그 모니터링 시작하기'/>
+<Xclude product="oracle-pro"><ImgLang img='log-start-db.png' desc='로그 모니터링 시작하기'/></Xclude>
+
+<InDoc product="oracle-pro"><ImgLang img='log-start-db-oracle-pro.png' desc='로그 모니터링 시작하기'/></InDoc>

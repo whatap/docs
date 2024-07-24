@@ -346,15 +346,7 @@ a 인스턴스가 어디와 네트워크 의존성을 가지나?
 
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_methodStat" className="uitext" />
 
-Java 애플리케이션에서 수행 된 메소드(Method)의 성능 통계 정보를 제공합니다. 
-
-:::note 
-
-***에이전트 설정*** <code class='oldfunc'>Old</code> 메뉴에서 다음과 같이 사용자 정의 옵션을 추가하세요. 
-
-> `hook_method_stat_patterns=io.home.test.baseapp.app.post.mapper.PostMapperImpl.*`
-
-:::
+Java 애플리케이션에서 수행 중인 메소드(Method)의 상세 정보를 확인할 수 있습니다.
 
 #### <Cmdname sid="side_dataSourceStatus" />
 
@@ -411,15 +403,13 @@ Heap 메모리 사용량이 지속적으로 상승할 때 메모리 누수의 �
 
 <ImgLang img='ipa-heap-dump-java.png' desc='힙 덤프' />
 
-Java 애플리케이션 실행 중 메모리 누수 등의 문제가 발생하면 관련된 문제를 정리하여 덤프 파일을 생성할 수 있습니다. <Cmdname sid="dump_heap" className="uitext" /> 버튼을 선택하세요. 
-
-생성된 덤프 파일은 애플리케이션 서버에 저장됩니다. 에이전트를 설치한 경로 하위의 *dump* 디렉터리에서 확인할 수 있습니다.
+Java 애플리케이션 실행 중 메모리 누수 등의 문제가 발생하면 관련된 문제를 정리하여 덤프 파일을 생성할 수 있습니다. <Cmdname sid="dump_heap" className="uitext" /> 버튼을 선택하세요.
 
 :::note
 
 이 기능은 Java 에이전트 1.5.2 버전 이상에서 지원합니다. 에이전트 설정에서 `heapdump_enabled` 옵션을 `true`로 설정하세요. <Cmdname sid="dump_heap" className="uitext" /> 버튼을 선택해 힙 덤프 파일을 만드는 기능을 활성화합니다. 매번 힙 덤프를 자동 생성하지 않으며 해당 옵션이 성능에 영향을 주진 않습니다. 그러나 덤프 확보 작업은 성능에 영향을 미칠 수 있습니다.
 
-**힙 덤프 확보** 작업은 **부하**가 큰 작업에 속합니다. 부하와 별개로 힙 덤프가 모두 추출될 때까지 애플리케이션의 코드는 실행이 중지(stop the world)되기 때문에 사용자가 느끼는 성능 차이는 더 심할 수 있습니다.
+**힙 덤프 확보** 작업은 **부하**가 **큰 작업**에 속합니다. 부하와 별개로 힙 덤프가 모두 추출될 때까지 **애플리케이션**의 **코드**는 **실행**이 **중지**(stop the world)되기 때문에 사용자가 느끼는 성능 차이는 더 심할 수 있습니다.
 
 :::
 

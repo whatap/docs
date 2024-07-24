@@ -45,6 +45,13 @@
         "product": "Application",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 메뉴의 히트맵 위젯에서 에이전트 필터링에 의해 발생한 차트에 빈 영역을 드래그하면 데이터가 조회되는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.4.1",
+        "hash": "service-241",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴에서 <span class=\"uitext\">Long Waiting Session Count</span> 위젯의 데이터가 현재 시간을 기준으로 표시되도록 수정</li>"
       }
     ]
   },
@@ -237,6 +244,14 @@
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\">Fixed</code> <span class=\"uitext\">인스턴스 성능 관리</span> 메뉴의 에이전트 선택 목록에서 에이전트 이름이 긴 경우 줄임표(...)가 적용되는 현상 수정</p>",
         "category": "공통"
+      },
+      {
+        "ver": "Service 2.4.0",
+        "hash": "service-240",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴의 <strong>JVM 옵션 추가 항목</strong>에서 WebLogic 설치 가이드 내용 수정: <code>JAVA_OPTS</code> → <code>JAVA_OPTIONS</code></li>",
+        "category": "Java"
       },
       {
         "ver": "Service 2.4.0",

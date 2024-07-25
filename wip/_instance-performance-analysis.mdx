@@ -1,0 +1,436 @@
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" />
+
+애플리케이션의 환경을 확인하고 성능과 관련한 설정을 확인할 수 있습니다.
+
+## 에이전트 목록
+
+화면 왼쪽에 애플리케이션 목록에서는 프로젝트에 할당된 에이전트 목록을 확인할 수 있습니다. 개별 에이전트 항목을 선택하면 오른쪽 화면에 설정된 환경 변수 및 에이전트 설정, 성능과 관련한 정보를 조회할 수 있습니다.
+
+<ImgLang img='ipa-agent-list.png' desc='에이전트 목록' width="400" height="auto" />
+
+에이전트 목록을 갱신하거나 비활성화된 에이전트를 재기동한 다음 목록에 자동으로 표시되지 않는다면 ![새로 고침 아이콘](/img/ico-refresh.svg) 버튼을 선택하세요.
+
+
+## 에이전트 및 애플리케이션 상세 정보
+
+화면 오른쪽에서는 에이전트 및 애플리케이션과 관련한 상세 정보를 확인할 수 있습니다. 
+
+* 오른쪽 위에 텍스트 입력란을 통해 원하는 항목을 필터링할 수 있습니다. 
+
+* 모니터링 대상 서버에 위치한 에이전트 및 애플리케이션의 변경 사항이 자동 반영되지 않는다면 ![새로 고침 아이콘](/img/ico-refresh.svg) <Cmdname sid="refresh" className="uitext" /> 버튼을 선택하세요.
+
+### 에이전트 관련 항목
+
+#### <Cmdname sid="runtime_boot_env" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_bootEnvironmentVariable" className="uitext" />
+
+<ProdImg img="ipa-run-env-var.png" desc="실행 환경 변수" />
+
+에이전트 실행과 관련한 환경 변수를 조회할 수 있습니다. 환경 변수 중 중요한 정보 또는 애플리케이션의 상태 정보를 와탭 서버에 저장해 에이전트가 다운되더라도 조회가 가능합니다. 에이전트 버전 및 설치 경로, 이름, IP 주소 등을 확인할 수 있습니다. 주요 확인 사항은 다음과 같습니다. 
+
+* `(애플리케이션).version`: 애플리케이션 버전을 확인할 수 있습니다. 
+
+* `file.encoding`: `utf-8`과 같은 파일 인코딩 형식을 확인할 수 있습니다.
+
+* `os.name`: OS를 확인할 수 있습니다.
+
+* `user.language`: 사용자 언어를 확인할 수 있습니다.
+
+* `-Xms`, `-Xms`: 힙 메모리 설정 관련 환경 변수를 확인할 수 있습니다. 
+
+* `(애플리케이션).start`: 애플리케이션 시작 시간을 확인할 수 있습니다. 
+
+<InDoc product="golang,php">
+
+#### <Cmdname sid="agent_status" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentStatus" className="uitext" />
+
+<ProdImg img="ipa-agent-status.png" desc="에이전트 상태" />
+
+지난 하루 동안 에이전트가 사용한 리소스 사용량을 확인할 수 있습니다.
+
+</InDoc>
+
+#### <Cmdname sid="agent_log"/>
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentLog" className="uitext" />
+
+<ProdImg img="ipa-agent-log.png" desc="에이전트 로그" />
+
+모니터링 대상 서버에 저장된 에이전트 로그를 조회할 수 있습니다. 로그 파일의 이름은 *whatap-`YYYYMMDD`.log* 형식입니다. 각 로그를 선택해 로그에 캡쳐되는 오류 및 이벤트에 대한 정보를 액세스할 수 있습니다.
+
+:::note
+
+로그와 관련한 에이전트 설정은 [다음 문서](agent-log)를 참조하세요.
+
+:::
+
+<InDoc product="java,nodejs">
+
+#### <Cmdname sid="agent_configuration" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> <code class="oldfunc">Old</code>
+
+모니터링 대상 서버에 위치한 *whatap.conf* 파일을 직접 수정하지 않고 에이전트 설정 옵션을 추가하거나 수정, 삭제할 수 있습니다.
+
+:::info
+
+에이전트 설정 기능은 사용성과 기능을 개선한 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴를 이용할 것을 권장합니다. 화면 오른쪽 위에 <Cmdname sid="new_agents_setting" className="uitext" /> 버튼을 선택하세요. 자세한 내용은 [다음 문서](set-agent#set-agent-service)를 참조하세요.
+
+:::
+
+</InDoc>
+
+### 애플리케이션 관련 항목
+
+#### <Cmdname sid="side_environmentVariable" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_environmentVariable" className="uitext" />
+
+<ProdImg img="ipa-env-var.png" desc="환경 변수" />
+
+애플리케이션 실행과 관련한 환경 변수 정보를 조회할 수 있습니다. ***환경 변수*** 메뉴는 조회 시점의 환경 변수 정보를 수집해 제공합니다. `System.getProperty()`를 사용해 매개변수로 전달된 키의 값을 조회합니다. 주요 확인 사항은 다음과 같습니다. 
+
+* `(애플리케이션).version`: 애플리케이션 버전을 확인할 수 있습니다. 
+
+* `file.encoding`: `utf-8`과 같은 파일 인코딩 형식을 확인할 수 있습니다.
+
+* 애플리케이션 상태 정보: 예를 들어 `catalina.home` 환경 변수가 조회될 경우 tomcat 환경임을 파악할 수 있습니다.
+
+* OS 환경 변수: 예를 들어 `(env) LANG` 환경 변수와 같이 접미사 `(env)` 형식으로 제공됩니다.
+
+<InDoc product="java">
+
+#### <Cmdname sid="side_heapHistogram" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_heapHistogram" className="uitext" />
+
+<ImgLang img='ipa-heap-histogram-java.png' desc='힙 히스토그램' />
+
+JVM(자바 가상 머신)의 메모리에 올라가 있는 Heap 점유 객체 현황(힙 메모리상의 객체별 사이즈)을 조회할 수 있습니다. 즉 객체의 순수 크기를 조회합니다. ***건수*** 컬럼을 통해 주요 객체들의 개수 확인이 용이합니다. 
+
+:::note 
+
+GC 전까지 유지되는 객체의 개수를 조회하기 때문에 실제로 사용되고 있지 않더라도 해당 목록에는 표시됩니다. 정확한 조회를 위해 ***시스템 GC*** 실행 후 해당 목록을 확인하는 것을 권장합니다. ***시스템 GC***에 대한 자세한 내용은 [다음 문서](#system-gc)를 참조하세요.
+
+:::
+
+:::note
+
+Java 6 ~ 8 버전에서는 JVM 옵션 없이 기본 지원하지만, 일부 Java 버전에 따라 다음과 같이 JVM 옵션을 적용해야 합니다.
+
+* Java 9 ~ Java 15 버전
+
+  ```bash
+  -Djdk.attach.allowAttachSelf=true
+  ```
+
+  ```bash title="example"
+  java -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true -jar {application.jar}
+  ```
+
+* Java 16 버전 이상
+
+  ```bash
+  -Djdk.attach.allowAttachSelf=true
+  --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED
+  ```
+
+  ```bash title="example"
+  java -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED -jar {application.jar}
+  ```
+
+* Java 5 버전 이하, IBM Java는 지원하지 않습니다.
+
+:::
+
+#### <Cmdname sid="side_loadedClasses" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_loadedClasses" className="uitext" />
+
+<ImgLang img='ipa-loaded-class-java.png' desc='로딩된 클래스' />
+
+Java 애플리케이션에 로딩된 클래스 정보를 확인할 수 있습니다. ***로딩된 클래스*** 메뉴를 통해 애플리케이션에서 로딩된 클래스 목록과 관련 상세 데이터를 조회하고, 중단없이 클래스의 동작을 변경할 수 있습니다.
+
+{/* ***로딩된 클래스*** 메뉴는 애플리케이션 성능 최적화 및 메모리 관리와 클래스 종속성 문제 등의 해결을 도울 수 있습니다. */}
+
+* ***클래스 상세***: ***조회*** 컬럼에서 ![상세 보기 아이콘](/img/ico-detail-view-gr.svg) 아이콘 클릭 시 ***클래스 상세***를 확인할 수 있습니다. ***클래스 상세***는 클래스 내 메소드 및 상속 관계 정보를 제공합니다. 
+
+* ***재정의***: ***재정의*** 컬럼에서 ![수정 아이콘](/img/ico-edit.svg) 아이콘 클릭 시 해당 클래스를 재정의할 수 있습니다. 런타임에 이미 로딩된 클래스를 다시 로딩 후 바이트 코드 삽입(BCI)을 통해 애플리케이션 중단없이 해당 클래스의 동작 변경이 가능합니다. 
+
+  {/* :::note 
+
+  **BCI(ByteCode Instrumentation)**
+
+  자바 바이트 코드는 플랫폼 독립적인 중간 코드로 JVM에서 실행됩니다. **BCI** 즉 바이트 코드 삽입은 런타임 또는 빌드 타임에 바이트 코드를 동적으로 변경하여 추가 기능을 구현하는 기술입니다. 
+
+  ::: */}
+
+{/* * ***클래스***: 현재 로딩된 클래스 이름을 확인할 수 있습니다. 
+
+* ***슈퍼 클래스***: 해당 클래스의 슈퍼 클래스 이름을 확인할 수 있습니다. 
+
+* ***인터페이스***: 해당 클래스가 구현하고 있는 인터페이스 이름을 확인할 수 있습니다.  */}
+
+* ***리소스***: 해당 클래스가 물리적으로 어느 파일에서 로딩되었는지 확인할 수 있습니다. 애플리케이션의 복잡한 다계층 구조 특성상 클래스가 정확히 어느 *jar* 파일에서 로딩되었는지 파악하는 ***리소스*** 정보 확인이 필요합니다.
+
+:::tip
+
+***재정의*** 기능과 ***리소스*** 정보 확인 활용에 대한 자세한 내용은 [다음 문서](../best-practice-guides/about-instance-performance-analysis#advanced-use-loaded-classes)를 참조하세요. 
+
+:::
+
+:::note 
+
+**BCI(ByteCode Instrumentation)**
+
+자바 바이트 코드는 플랫폼 독립적인 중간 코드로 JVM에서 실행됩니다. **BCI** 즉 바이트 코드 삽입은 소스 파일 수정 없이 런타임 또는 빌드 타임에 바이트 코드를 동적으로 변경하여 추가 기능을 구현하는 기술입니다. 자세한 내용은 다음 문서를 참조하세요. 
+
+* [Java SE Specifications](https://docs.oracle.com/javase/specs/)
+
+* [Java Package Summary](https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/package-summary.html)
+
+:::
+
+{/* :::note 
+
+**클래스 다계층 구조와 리소스**
+
+자바 애플리케이션의 다계층 구조 특성상 ***리소스*** 정보 확인이 필요합니다. 예를 들어 톰캣 서버와 같은 복잡한 애플리케이션 환경에서 클래스가 정확히 어느 *jar* 파일에서 로딩되었는지 파악하는 것으로 클래스간 충돌 방지, 디버깅, 성능 최적화 등을 도울 수 있습니다. 
+
+* **클래스 충돌 방지** 
+
+  동일한 클래스가 여러 *jar* 파일에 존재할 경우 클래스가 정확히 어느 *jar* 파일에서 로딩되었는지 확인해 클래스 충돌을 방지할 수 있습니다. 
+  
+* **디버깅** 
+
+  특정 클래스가 예상한 *jar* 파일이 아닌 다른 *jar* 파일에서 로딩된 경우 의도하지 않은 동작이나 버그가 발생할 수 있습니다. 이를 확인하는 것은 디버깅에 용이합니다. 
+  
+* **성능 최적화** 
+
+  클래스 로딩 시 성능 문제가 발생하는 경우 어떤 *jar* 파일에서 클래스가 과도하게 로딩되고 있는지 여부를 파악해 성능을 관리할 수 있습니다. 
+
+::: */}
+
+{/* Instrumentation 클래스의 Redefine 함수를 호출해 클래스를 재정의하도록 합니다. 자세한 건 활용안내 문서로 추가 작성 */}
+
+#### <Cmdname sid="side_libraryVersion" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_libraryVersion" className="uitext" />
+
+<ImgLang img='library-version-java.png' desc='라이브러리 버전' />
+
+{/* <ImgLang img='ipa-library-version-java.png' desc='라이브러리 버전' /> */}
+
+{/* Java 애플리케이션을 구성하는 라이브러리의 버전을 확인할 수 있습니다.  */}
+
+Java 애플리케이션에 배포된 컴포넌트 목록을 조회할 수 있습니다. 해당 *jar* 파일명 및 버전 정보를 제공합니다. 오픈 소스 라이브러리를 많이 사용하는 환경에서는 *jar* 파일의 버전 정보를 확인하여 호환성 문제를 신속히 식별하고 해결할 수 있습니다. 또한 버전 정보 확인은 보안 취약점이 있는 버전을 찾아 패치하는 등 보안 관리에도 용이합니다. 
+
+#### <Cmdname sid="side_threadList" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" />
+
+<ImgLang img='ipa-thread-list-java.png' desc='스레드 목록/덤프' />
+
+{/* 이를 통해 Java 애플리케이션의 성능 문제를 진단하는데 이용할 수 있습니다. * ***상태***: 해당 스레드의 현재 상태를 확인할 수 있습니다. 또한 Java 애플리케이션 성능 문제를 진단하는데 활용할 수 있습니다.  */}
+
+Java 프로세스의 모든 스레드 상태에 대한 스냅샷 정보를 제공합니다. ***스레드 목록/덤프***는 CPU 최적화 작업에 핵심적인 메뉴입니다. 프로세스가 아닌 스레드 단위로 상태를 확인함으로써 CPU 자원을 더욱 세밀하게 관리할 수 있습니다. 예를 들어 조회 시점에 CPU를 가장 많이 사용하고 있는 스레드 특정 후 해당 스레드의 스택 정보를 확인해 성능 문제를 식별할 수 있습니다.
+
+* ***스레드 덤프***: 상단 오른쪽의 <code class='my'>스레드 덤프</code> 버튼을 클릭해 전체 스레드 덤프를 생성할 수 있습니다. 전체 스레드 덤프 생성 후 스레드 목록 하단에서 해당 정보를 확인할 수 있습니다. 
+
+* 개별 스레드 덤프: 각 스레드마다 ![확장 아이콘](/img/ico-expander.svg) 아이콘 선택 시 개별 스레드 덤프 정보를 확인할 수 있습니다. ***스택*** 및 ***Stack 추적***에서 스레드 상태와 실행 경로에 대한 세부 정보 및 스택 트레이스를 조회할 수 있습니다. ![새로고침 아이콘](/img/ico-refresh.png) 새로고침 해 확인할 수 있습니다. 자세한 내용은 [다음 문서](#thread-details)를 참조하세요.
+
+* ***스레드 CPU 시간***: 해당 스레드가 CPU를 점유한 누적 시간을 의미합니다. 밀리초 단위 시간을 사용합니다. 
+
+* ***스레드 CPU 시간 델타***: 스레드 목록 상단에서 ![새로고침 아이콘](/img/ico-refresh.png) 새로고침 아이콘을 클릭하면 스레드의 CPU 시간 델타를 표시하는 새로운 컬럼이 생성됩니다. 해당 컬럼은 현재 스레드 CPU 시간과 이전 스레드 CPU 시간의 차이값을 의미합니다. 
+
+:::tip
+
+***스레드 CPU 시간***은 해당 스레드가 CPU를 점유한 총 누적 시간이기 때문에 조회 시점에 가장 많이 CPU를 사용하고 있는 스레드를 특정하기 위해서는 ***스레드 CPU 시간 델타*** 값 확인이 필요합니다. 자세한 내용은 [다음 문서](../best-practice-guides/about-instance-performance-analysis#advanced-use-thread-list-dump)를 참조하세요.
+
+:::
+
+:::note 
+
+**CPU 사용량 급증 유형**
+
+* 힙 메모리가 가득 찬 경우: 잦은 GC로 CPU 사용량 급증 
+
+* 실제 요청이 많은 경우: 대량의 클라이언트 요청 처리로 CPU 사용량 급증 
+
+* 잘못된 코드 로직: 비효율적인 알고리즘이나 무한 루프로 CPU 사용량 급증
+
+:::
+
+{/* 기술 방식 선택 필요 다음 내용을 활용 안내로? */}
+
+{/* 델타값 추가 시 이미지 교체 필요! 
+
+다음에서 힙 메모리가 가득 찬 경우, 실제 요청이 많은 경우, 그리고 로직 문제인 경우 세 가지 유형으로 나누어 안내하겠습니다.
+
+*/}
+
+{/* CPU 사용률이 급증한 경우는 여러가지 원인에 기인할 수 있습니다. 이를 힙 메모리가 가득 찬 경우, 실제 요청이 많은 경우, 그리고 로직 문제인 경우 세 가지 유형으로 분류할 수 있습니다.
+
+가장 먼저 확인하는 것은 식별이 용이한 힙 메모리입니다. 힙 메모리가 가득 찬 경우 JVM이 GC를 빈번히 실행해 CPU 사용률이 급증할 수 있습니다. 특히 Full GC 발생 시 애플리케이션이 일시적으로 멈추며 CPU 사용률이 크게 상승합니다. 예를 들어 애플리케이션에서 객체가 적절히 해제되지 않고 메모리를 점유하는 메모리 누수가 발생한 경우 힙 메모리가 부족할 수 있습니다. 메모리를 회수하기 위해 JVM이 GC를 반복적으로 실행하여 CPU 사용률이 급격히 증가하게 됩니다. 
+
+두 번째는 실제 요청이 많은 경우로 애플리케이션이 많은 수의 클라이언트 요청을 처리해 CPU 사용률이 높아진 상황입니다. 각 요청은 자바 스레드를 생성해 처리되기에 CPU가 많은 작업을 수행하게 됩니다. 
+
+쇼핑몰 사이트의 대규모 할인 이벤트 등으로 웹 서퍼 트래픽이 급증한 경우를 예로 들 수 있습니다. 많은 사용자가 웹 페이지를 방문해 서버가 다수의 HTTP 요청을 처리하기 위해 마찬가지로 많은 스레드를 생성해 CPU 사용률이 크게 상승하게 됩니다.
+
+세 번째는 잘못된 코드 로직으로 문제가 발생한 경우입니다. 애플리케이션 코드에 비효율적인 알고리즘이나 무한 루프 등이 포함되어 있을 경우 CPU 사용률이 비정상적으로 높아질 수 있습니다. */}
+
+
+#### <Cmdname sid="side_openSocket" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_openSocket" className="uitext" />
+
+<ImgLang img='ipa-open-socket-java.png' desc='소켓 오픈 개수' /> 
+
+Java 애플리케이션이 TCP 기능을 수행하기 위해 오픈한 소켓(Socket) 정보를 확인할 수 있습니다 이를 통해 애플리케이션 인스턴스가 데이터베이스와 같은 어떤 외부 시스템에 의존하는지 네트워크 의존성(Network Dependency)을 조회할 수 있습니다. 또한 누구와 아웃바운드 호출을 하고 있는지 추적할 수 있습니다. 이러한 정보는 TCP 통신의 효율성, 안정성 및 성능 최적화를 위해 중요합니다. 
+
+* ***건수***: 외부 시스템에 대한 연결 시도 횟수를 의미합니다. 
+
+* ***스택***: ***스택 확보***를 선택하여 다음 연결 시 확보한 스택을 조회 및 삭제할 수 있습니다. 
+
+***건수*** 기준으로 정렬 후 ***호스트*** 및 ***포트***를 확인하여 어떤 서비스 또는 시스템과 연결이 많은지 확인할 수 있습니다. 이후 ***스택***을 확보해 상세 내용을 조회해 보세요. 
+
+:::note 
+
+**데이터베이스와 커넥션 풀**
+
+예를 들어 3306 ***포트***의 ***건수***가 높다면 커넥션 풀을 사용하지 않거나 또는 커넥션 풀을 빈번하게 끊고 다시 만드는 등 MySQL의 커넥션 관리가 올바르게 이루어지지 않는 상황일 가능성이 있습니다. 해당 3306 ***포트***가 어떤 코드 경로에서 사용되고 있는지 파악하기 위해 ***스택***을 확보하여 추적할 수 있습니다.
+
+:::
+
+{/* 
+
+관련 활용 예시 노션에 녹음은 39분
+
+예를 들어 ***건수***가 높은 포트가 어떤 로직에 의해 사용되는지 확인하기 위해 ***스택***을 확보 후 상세 내용을 조회할 수 있습니다. 
+
+예를 들어 주로 MySQL이 사용하는 3306 포트의 ***건수***가 높을 경우 커넥션 관리
+
+연결 시도 횟수를 의미하는 ***건수***와 
+
+특정 외부 시스템에 대한 연결 시도 횟수(***건수***)가 많을 경우 해당 
+
+Java 애플리케이션이 TCP 기능을 수행하기 위해 오픈한 소켓(Socket) 정보를 확인할 수 있습니다. 애플리케이션 인스턴스가 어떤 외부 시스템에 의존하는지 확인하는 네트워크 의존성(Network Dependency)을 조회는 TCP 통신의 효율성, 안정성 및 성능 최적화를 위해 중요합니다.
+
+##### TCP 소켓 정보 확인 
+
+* 연결된 호스트 및 포트 추적 
+
+* 연결 시도 횟수 추적 
+
+* 프로파일 조회 시간
+
+##### 포트 사용 및 스택 추적 
+
+##### 커넥션 풀 사용 여부 확인 
+
+34분 듣는 중 
+
+a 인스턴스가 어디와 네트워크 의존성을 가지나?
+
+연결 시도 횟수 추적
+
+커넥션 풀 관리 36분
+
+*/}
+
+
+#### <Cmdname sid="side_methodStat" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_methodStat" className="uitext" />
+
+Java 애플리케이션에서 수행 중인 메소드(Method)의 상세 정보를 확인할 수 있습니다.
+
+#### <Cmdname sid="side_dataSourceStatus" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_dataSourceStatus" className="uitext" />
+
+<ImgLang img='ipa-datasource-java.png' desc='데이터소스 상태' />
+
+데이터소스(DataSource)의 상태를 확인할 수 있습니다. 애플리케이션이 사용하는 데이터베이스 커넥션 풀의 현재 상태와 구성, 연결 설정 정보, 연결 상태 및 설정 불일치 여부 등의 정보를 제공합니다. 
+
+:::note 
+
+커넥션 풀 객체의 생성과 동시에 모니터링이 시작되기 때문에 해당 객체가 사용되고 있지 않더라도 데이터소스 상태 정보에 나타날 수 있습니다. 
+
+:::
+
+{/* 커넥션 풀의 객체가 생성될 때 추적하기 때문에 실제로 사용되지 않고 있는 객체라도 해당 데이터소스가 로딩될 수 있습니다. 
+풀 객체가 new가 되면 추적해서 실제로 사용되지 않아도 로딩될 수 있다 
+
+애플리케이션이 사용하는 데이터베이스 커넥션 풀의 성능과 상태를 확인해 관련 작업에 대한 효율성과 안정성을 보장합니다
+
+*/}
+
+#### <Cmdname sid="side_systemGarbageCollection" /> {#system-gc}
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_systemGarbageCollection" className="uitext" />
+
+<ImgLang img='ipa-system-gc-java.png' desc='시스템 GC' />
+
+`System.gc()`를 호출해 JVM(자바 가상 머신)의 Heap 영역에서 동적으로 할당했던 메모리 중 필요없게 된 메모리 객체(garbage)를 모아 제거할 수 있습니다. ***GC 실행*** 버튼을 선택하면 GC 프로세스를 실행하게 되며, 실행 전과 실행 후의 메모리 용량을 확인할 수 있습니다.
+
+:::note 
+
+**시스템 GC와 메모리 누수**
+
+Heap 메모리 사용량이 지속적으로 상승할 때 메모리 누수의 가능성을 확인하고 정확하게 진단하기 위해 ***시스템 GC***가 필요합니다. 
+
+* **메모리 요청 유무**: 애플리케이션이 지속적으로 메모리를 요청하고 있는 상태인지 확인합니다. 메모리 요청 증가가 예상치 이상인지 또는 메모리 해제가 정확히 이루어지고 있는지 살펴봅니다.
+
+* **메모리 사용량 확인**: 실제로 메모리가 과다하게 사용되고 있는 상태인지 확인합니다. GC 수행으로 필요하지 않은 객체를 해제하고 메모리 사용량 변화를 살펴봅니다. 
+
+* **GC 주기**: 메모리가 충분히 비어있는 상황임에도 GC가 수행되지 않는 상태인지 확인합니다. GC 주기 또는 설정을 살펴봅니다. 
+
+:::
+
+:::note 
+
+`-XX:+DisableExplicitGC`와 같이 명시적인 GC 요청을 비활성화하는 옵션이 설정된 경우 ***시스템 GC***가 동작하지 않습니다. 
+
+:::
+
+#### <Cmdname sid="side_heapDump" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_heapDump" className="uitext" />
+
+<ImgLang img='ipa-heap-dump-java.png' desc='힙 덤프' />
+
+Java 애플리케이션 실행 중 메모리 누수 등의 문제가 발생하면 관련된 문제를 정리하여 덤프 파일을 생성할 수 있습니다. <Cmdname sid="dump_heap" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+이 기능은 Java 에이전트 1.5.2 버전 이상에서 지원합니다. 에이전트 설정에서 `heapdump_enabled` 옵션을 `true`로 설정하세요. <Cmdname sid="dump_heap" className="uitext" /> 버튼을 선택해 힙 덤프 파일을 만드는 기능을 활성화합니다. 매번 힙 덤프를 자동 생성하지 않으며 해당 옵션이 성능에 영향을 주진 않습니다. 그러나 덤프 확보 작업은 성능에 영향을 미칠 수 있습니다.
+
+**힙 덤프 확보** 작업은 **부하**가 **큰 작업**에 속합니다. 부하와 별개로 힙 덤프가 모두 추출될 때까지 **애플리케이션**의 **코드**는 **실행**이 **중지**(stop the world)되기 때문에 사용자가 느끼는 성능 차이는 더 심할 수 있습니다.
+
+:::
+
+#### <Cmdname sid="side_throttlingConfiguration" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_throttlingConfiguration" className="uitext" />
+
+<ImgLang img='ipa-set-throttling-java.png' desc='쓰로틀링 설정' />
+
+Java 애플리케이션의 부하량 제어와 관련한 에이전트 설정을 확인하고 옵션을 설정할 수 있습니다. 부하량 제어와 관련한 에이전트 설정에 대한 자세한 내용은 [다음 문서](agent-load-amount)를 참조하세요.
+
+</InDoc>
+
+<InDoc product="php,nodejs,python">
+
+#### <Cmdname sid="side_moduleDependency" />
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_moduleDependency" className="uitext" />
+
+<ProdImg img="ipa-dependency-module.png" desc="모듈 의존성" />
+
+애플리케이션에서 사용 중인 모듈 관련 정보를 조회할 수 있습니다.
+
+</InDoc>

@@ -1,0 +1,27 @@
+## 시스템 GC {#side_systemGarbageCollection}
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_systemGarbageCollection" className="uitext" />
+
+<ImgLang img='ipa-system-gc-java.png' desc='시스템 GC' />
+
+`System.gc()`를 호출해 JVM(자바 가상 머신)의 Heap 영역에서 동적으로 할당했던 메모리 중 필요없게 된 메모리 객체(garbage)를 모아 제거할 수 있습니다. <Cmdname sid="BTN07740" className="uitext" /> 버튼을 선택하면 GC 프로세스를 실행하게 되며, 실행 전과 실행 후의 메모리 용량을 확인할 수 있습니다.
+
+:::note 
+
+`-XX:+DisableExplicitGC`와 같이 명시적인 GC 요청을 비활성화하는 옵션이 설정된 경우 <Cmdname sid="side_systemGarbageCollection" className="uitext" />가 동작하지 않습니다. 
+
+:::
+
+:::note 
+
+**시스템 GC와 메모리 누수**
+
+Heap 메모리 사용량이 지속적으로 상승할 때 메모리 누수의 가능성을 확인하고 정확하게 진단하기 위해 ***시스템 GC***가 필요합니다. 
+
+* **메모리 요청 유무**: 애플리케이션이 지속적으로 메모리를 요청하고 있는 상태인지 확인합니다. 메모리 요청 증가가 예상치 이상인지 또는 메모리 해제가 정확히 이루어지고 있는지 살펴봅니다.
+
+* **메모리 사용량 확인**: 실제로 메모리가 과다하게 사용되고 있는 상태인지 확인합니다. GC 수행으로 필요하지 않은 객체를 해제하고 메모리 사용량 변화를 살펴봅니다. 
+
+* **GC 주기**: 메모리가 충분히 비어있는 상황임에도 GC가 수행되지 않는 상태인지 확인합니다. GC 주기 또는 설정을 살펴봅니다. 
+
+:::

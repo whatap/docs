@@ -2,63 +2,99 @@
 id: instance-performance-analysis
 title: 인스턴스 성능 관리
 description: Java 애플리케이션의 환경을 확인하고 성능과 관련한 설정을 확인할 수 있습니다.
+toc_max_heading_level: 2
 tags: [ Java, 애플리케이션, 인스턴스 성능 관리 ]
 ---
 
-import Instanceperformanceanalysis from "../common-items/_instance-performance-analysis.mdx";
+{/* 인스턴스 성능 관리 공통 */}
 
-<Instanceperformanceanalysis /> 
+import Instanceperformancecommon from "../common-items/_import_instance-performance-common.mdx";
 
-## 스레드 덤프 분석하기 {#thread-details}
+<Instanceperformancecommon /> 
 
-<Cmdname sid="thread_list" className="uitext" /> 탭에서 확인할 수 있는 정보에 대해 안내합니다.
+{/* 실행 환경 변수 {#side_agentsConfiguration} */}
 
-### 스레드 상태 {#stateofthread}
+import Instanceperformancerunenv from "../common-items/_import_instance-performance-run-env.mdx";
 
-스레드의 상태는 `java.lang.Thread` 클래스 내부에 `State`라는 이름의 Enumerated Types(열거형)으로 선언된 항목들입니다.
+<Instanceperformancerunenv /> 
 
-* `NEW`: 스레드가 생성되었지만 아직 실행되지 않은 상태입니다.
+{/* 환경 변수 {#side_environmentVariable} */}
 
-* `RUNNABLE`: 현재 CPU를 점유하고 작업을 수행 중인 상태입니다. 운영체제의 자원 분배로 `WAITING` 상태가 될 수도 있습니다.
+import Instanceperformanceenv from "../common-items/_import_instance-performance-env.mdx";
 
-* `WAITING`: `wait()`, `join()`, `park()` 메소드 등를 이용해 대기하고 있는 상태입니다.
+<Instanceperformanceenv /> 
 
-* `TIMED_WAITING`: `sleep()`, `wait()`, `join()`, `park()` 메소드 등을 이용해 대기하고 있는 상태, `WAITING` 상태와 다른 점은 주어진 시간 동안 대기하고 있는 상태입니다. 외부적인 변화 뿐만 아니라 시간에 의해서도 대기 상태가 해제될 수 있습니다.
+{/* 힙 히스토그램 {#side_heapHistogram} */}
 
-* `BLOCKED`: 사용하려는 개체의 락(Lock)이 풀릴 때까지 대기하고 있는 상태입니다.
+import Instanceperformanceheap from "../common-items/_import_instance-performance-heap.mdx";
 
-* `TERMINATED`: 실행을 마친 상태입니다.
+<Instanceperformanceheap /> 
+
+{/* 로딩된 클래스 */}
+
+import Instanceperformanceloaded from "../common-items/_import_instance-performance-loaded-class.mdx";
+
+<Instanceperformanceloaded /> 
+
+{/* 라이브러리 버전 {#side_libraryVersion} */}
+
+import Instanceperformancelibrary from "../common-items/_import_instance-performance-library-version.mdx";
+
+<Instanceperformancelibrary /> 
+
+{/* 스레드 목록/덤프 {#side_threadList} */}
+
+import Instanceperformancethread from "../common-items/_import_instance-performance-thread-dump.mdx";
+
+<Instanceperformancethread /> 
+
+{/* 소켓 오픈 개수 {#side_openSocket} */}
+
+import Instanceperformanceopensocket from "../common-items/_import_instance-performance-open-socket.mdx";
+
+<Instanceperformanceopensocket /> 
+
+{/* 메소드 성능 상태 {#side_methodStat} */}
+
+import Instanceperformancemethodstat from "../common-items/_import_instance-performance-method-stat.mdx";
+
+<Instanceperformancemethodstat /> 
+
+{/* 데이터소스 상태 {#dataSourceStatus} */}
+
+import InstanceperformancedataSourceStatus from "../common-items/_import_instance-performance-datasource.mdx";
+
+<InstanceperformancedataSourceStatus /> 
+
+{/* 에이전트 로그 {#agent_log} */}
+
+import Instanceperformanceagent_log from "../common-items/_import_instance-performance-agent-log.mdx";
+
+<Instanceperformanceagent_log /> 
+
+{/* 시스템 GC {#side_systemGarbageCollection} */}
+
+import InstanceperformancesystemGarbageCollection from "../common-items/_import_instance-performance-system-gc.mdx";
+
+<InstanceperformancesystemGarbageCollection /> 
 
 
-### 스레드 덤프 정보
+{/* 힙 덤프 {#side_heapDump} */}
 
-스레드 목록에서 각 스레드의 <LinkImage img="ico-expander-black.svg" className="ico black" /> 버튼을 선택하면 스레드 덤프 정보를 확인할 수 있습니다.
+import InstanceperformancesystemheapDump from "../common-items/_import_instance-performance-heap-dump.mdx";
 
-<ImgLang img='ipa-java-thread-list.png' desc='스레드 덤프 정보' />
+<InstanceperformancesystemheapDump /> 
 
-#### <Cmdname sid="stack" />
 
-| 항목 | 속성 | 설명 |
-| -- | -- | -- |
-| <Cmdname sid="thread_id" className="uitext" /> | `threadId` | 스레드에 할당된 고유 ID |
-| <Cmdname sid="lock_owner_id" className="uitext" /> | `lockOwnerId` | 스레드가 차단된 개체의 모니터(Monitor) 잠금을 유지하는 스레드 ID |
-| <Cmdname sid="waited_count" className="uitext" /> | `waitedCount` | 스레드가 `WAITING` 또는 `TIMED_WAITING` 상태가 된 총 횟수 |
-| <Cmdname sid="blocked_count" className="uitext" /> | `blockedCount` | 스레드가 `BLOCKED` 상태가 된 총 횟수 |
-| <Cmdname sid="waited_time" className="uitext" /> | `waitedTime` | 스레드가 `WAITING` 상태를 지속한 경과 시간(밀리초), 스레드 경합 모니터링이 비활성화된 경우 `-1` 반환 |
-| <Cmdname sid="thread_cpu_time" className="uitext" /> | `threadCpuTime` | 스레드의 CPU 시간 합계(나노초)를 밀리초로 계산하여 표시, CPU 시간 측정을 비활성화한 경우 `-1` 반환 |
-| <Cmdname sid="status" className="uitext" /> | `threadstate` | 스레드 상태 |
-| <Cmdname sid="blocked_time" className="uitext" /> | `blockedTime` | 스레드가 `BLOCKED` 상태가 된 후 경과 시간(밀리초), 스레드 경합 모니터링이 비활성화된 경우 `-1` 반환 |
-| <Cmdname sid="thread_name" className="uitext" /> | `threadName` | 스레드 고유 이름 |
-| <Cmdname sid="lock_name" className="uitext" /> | `lockName` | 스레드의 입력이 차단되거나 `Object.wait` 메소드를 통해 통지를 기다리는 모니터 잠금을 표시한 문자열 |
-| <Cmdname sid="lock_owner_name" className="uitext" /> | `lockOwnerName` | 스레드가 차단되는 객체의 모니터 잠금을 수용하는 스레드 이름 |
-| <Cmdname sid="thread_user_time" className="uitext" /> | `threadUserTime` | 스레드가 사용자 모드에서 실행한 CPU 시간(나노초)을 밀리초로 계산하여 표시 |
+{/* 쓰로틀링 설정 {#side_throttlingConfiguration} */}
 
-:::note
+import Instanceperformancethrottling from "../common-items/_import_instance-performance-throttling.mdx";
 
-스레드 정보에 대한 자세한 내용은 [다음 링크](https://docs.oracle.com/javase/8/docs/api/java/lang/management/ThreadInfo.html)를 참조하세요.
+<Instanceperformancethrottling /> 
 
-:::
 
-#### <Cmdname sid="stack_trace" />
+{/* 에이전트 설정 <code class='oldfunc'>Old</code> {#agent_configuration} */}
 
-예외가 발생했을 때 스택(Stack) 추적을 표시합니다. 스택 프레임 목록으로 코드가 호출한 메소드 정보가 포함되어 있습니다.
+import Instanceperformanceagentconfig from "../common-items/_import_instance-performance-agent-config.mdx";
+
+<Instanceperformanceagentconfig /> 

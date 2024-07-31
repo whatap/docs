@@ -70,7 +70,7 @@ kubectl delete clusterrole whatap
 
 {/* 다음 단계를 통해 와탭 쿠버네티스 모니터링을 재설치하세요. */}
 
-1. ***관리***  > ***에이전트 설치*** 화면에서 최신 *YAML* 파일을 다운로드하세요.
+1. <Cmdname sid="side_management" className="uitext" />  > <Cmdname sid="agentInstall" className="uitext" /> 화면에서 최신 *YAML* 파일을 다운로드하세요.
 
 1. 사용자 쿠버네티스 환경에서 다운로드한 *YAML* 파일을 사용하여 에이전트를 설치하세요. 
 
@@ -80,11 +80,11 @@ kubectl delete clusterrole whatap
 
     :::note 
 
-    사용자 쿠버네티스 환경 및 ***워크로드*** > ***Pod 목록*** 메뉴에서 확인하세요.
+    사용자 쿠버네티스 환경 및 <Cmdname sid="side_workload" className="uitext" /> > <Cmdname sid="side_podList" className="uitext" /> 메뉴에서 확인하세요.
 
     :::
 
-1. ***관리*** > ***쿠버네티스 에이전트 목록*** 메뉴에서 각 모니터링 에이전트에서 발생하는 로그를 확인하세요.
+1. <Cmdname sid="side_management" className="uitext" /> > <Cmdname sid="side_kubernetesAgentList" className="uitext" /> 메뉴에서 각 모니터링 에이전트에서 발생하는 로그를 확인하세요.
 
 </div>
 
@@ -109,7 +109,7 @@ kubectl delete clusterrole whatap
 
 ##### 추가 환경변수 설정
 
-에이전트 버전 업데이트 이후에도 ***컨테이너 맵***에 Java 애플리케이션 정보가 표시되지 않는 경우 사용자 환경변수를 추가하여 문제를 해결할 수 있습니다. 이 설정은 Java APM이 설치된 컨테이너 매니페스트(*YAML*)의 환경변수에 해당 컨테이너 내 Java 에이전트의 절대 경로를 나타내는 `WHATAP_JAVA_AGENT_PATH` 옵션을 추가합니다. 
+에이전트 버전 업데이트 이후에도 <Cmdname sid="side_containerMap" className="uitext" />에 Java 애플리케이션 정보가 표시되지 않는 경우 사용자 환경변수를 추가하여 문제를 해결할 수 있습니다. 이 설정은 Java APM이 설치된 컨테이너 매니페스트(*YAML*)의 환경변수에 해당 컨테이너 내 Java 에이전트의 절대 경로를 나타내는 `WHATAP_JAVA_AGENT_PATH` 옵션을 추가합니다. 
 
 다음은 Java APM이 설치된 컨테이너 환경변수에 해당 옵션을 추가한 예시입니다. 
 
@@ -137,6 +137,6 @@ env:
 
 컨테이너와 애플리케이션이 정상 매핑되었는지 확인하는 방법은 다음과 같습니다. 
 
-* ***대시보드*** &gt; ***컨테이너 맵*** 메뉴에서 ***컨테이너 맵*** 블록 내부에 흰색 마이크로 컨테이너가 존재할 경우 정상적으로 매핑된 상태입니다. 
+* <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴에서 <Cmdname sid="side_containerMap" className="uitext" /> 블록 내부에 흰색 마이크로 컨테이너가 존재할 경우 정상적으로 매핑된 상태입니다. 
 
-* ***분석*** &gt; ***메트릭스 조회*** 메뉴에서 `app_counter` 카테고리의 `container` 필드에 애플리케이션이 실행 중인 컨테이너 ID가 기록된 경우 정상적으로 매핑된 상태입니다. 
+* <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 `app_counter` 카테고리의 `container` 필드에 애플리케이션이 실행 중인 컨테이너 ID가 기록된 경우 정상적으로 매핑된 상태입니다. 

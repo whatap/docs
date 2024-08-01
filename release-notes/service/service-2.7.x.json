@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.5",
+    "date": "2024-08-01",
+    "Lists": [
+      {
+        "ver": "Service 2.7.5",
+        "hash": "service-275",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴의 <span class=\"uitext\">컨테이너 요약 분석</span>에서 이미지 리소스 정보 오류 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
     "ver": "Service 2.7.4",
     "date": "2024-07-29",
     "Lists": [

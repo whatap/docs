@@ -46,7 +46,11 @@ toc_max_heading_level: 2
 
 ### `Application`
 
-<Status priority='1'>Changed</Status> 사용자 설정 언어가 영어일 때, <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 <UI>Apdex</UI> 위젯 안내 모달의 가독성 향상을 위해 크기 수정
+- <Status priority='1'>Changed</Status> <Cmdname sid="TTL06209" className="uitext" /> 팝업창의 필터링 선택 상자를 그룹 형식의 버튼으로 변경
+
+  ![changes](/img/release/release-trace-analysis-filter-changes.png)
+
+- <Status priority='1'>Changed</Status> 사용자 설정 언어가 영어일 때, <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 <UI>Apdex</UI> 위젯 안내 모달의 가독성 향상을 위해 크기 수정
 
 
 ---
@@ -67,9 +71,17 @@ toc_max_heading_level: 2
 
 ### `Database`
 
+#### PostgreSQL
+
+<Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에 현재 진행 중인 vacuum 프로세스 수를 확인할 수 있는 <UI>Vacuum Sessions</UI> 위젯 추가
+
 #### Oracle <code className="my">V2</code>, Oracle Pro
 
-<Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 상세 차트의 elapse time 값이 비정상적으로 높은 문제 수정
+- <Status priority='1'>Feature</Status> <Cmdname sid="TTL06224" className="uitext" /> 팝업창의 <UI>Runtime Plan</UI>, <UI>Explain Plan</UI> 테이블에 <UI>FILTER_PREDICATES</UI> 컬럼 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 <Cmdname sid="TTL06224" className="uitext" /> 팝업창으로 진입했을 때 <UI>OBJECT_NAME</UI> 컬럼의 링크가 활성화되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 상세 차트의 elapse time 값이 비정상적으로 높은 문제 수정
 
 </div>
 

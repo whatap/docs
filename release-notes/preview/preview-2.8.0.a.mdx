@@ -67,13 +67,25 @@ toc_max_heading_level: 2
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_containerizedAppList" className="uitext" /> 메뉴에서 매핑된 컨테이너 정보가 없는 경우 경고 메시지가 표시되지 않는 버그 수정
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 <Cmdname sid="TTL08230" className="uitext" />에서 이미지 리소스 정보 오류 수정
+
 ---
 
 ### `Database`
 
+#### 공통
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="session_kill" className="uitext" /> 기능을 성공하거나 실패하면 사용자 행위로 기록하는 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_projectMember" className="uitext" /> 메뉴에서 <Cmdname sid="invite_help_whatap_account" className="uitext" /> 기능 사용 시 dbx@whatap.io 계정이 함께 초대되지 않도록 수정
+
 #### PostgreSQL
 
 <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에 현재 진행 중인 vacuum 프로세스 수를 확인할 수 있는 <UI>Vacuum Sessions</UI> 위젯 추가
+
+#### MySQL
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_deadLock" className="uitext" /> 메뉴에서 조회한 데이터가 없을 때 표시되는 메시지가 절반만 표시되는 문제 수정
 
 #### Oracle <code className="my">V2</code>, Oracle Pro
 
@@ -82,6 +94,12 @@ toc_max_heading_level: 2
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 <Cmdname sid="TTL06224" className="uitext" /> 팝업창으로 진입했을 때 <UI>OBJECT_NAME</UI> 컬럼의 링크가 활성화되지 않는 문제 수정
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 상세 차트의 elapse time 값이 비정상적으로 높은 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 메뉴에 Cluster Name을 표기하도록 수정
+
+#### Redis <code className="my">V1</code>, MongoDB <code className="my">V1</code>
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 메뉴에 Cluster Name을 표기하지 않도록 수정
 
 </div>
 

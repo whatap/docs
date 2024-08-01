@@ -1,0 +1,30 @@
+---
+id: java-2_2_37
+title: Java Agent v2.2.37
+toc_max_heading_level: 2
+pagination_next: release-notes/java/java-2_2_36
+displayed_sidebar: releaseSidebar
+---
+
+2024년 07월 31일
+
+- <Status priority='1'>Feature</Status> spring-boot ExceptionHandler를 통과하는 예외(exception)가 발생하면 이전에 발생한 예외를 대체
+
+  <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06125" className="uitext" /> 탭에서 예외(exception)를 spring-boot의 ExceptionHandler에 등록한 예외(exception)로 표시할 수 있습니다.
+
+  ```ini title="whatap.conf"ㅓ
+  # default: true
+  trace_exception_handler_overwrite_enabled=true
+  ```
+    
+- <Status priority='1'>Changed</Status> `trace_http_parameter_enabled` 옵션의 값이 `true`일 때, HTTP 파라미터 키에 해당하는 값(value)가 없거나 HTTP 파라미터가 없는 경우 <Cmdname sid="TTL06209" className="uitext" /> 창에서 HTTP 파라미터 스텝을 생성하지 않도록 수정
+
+- <Status priority='0'>Fixed</Status> Windows 환경에서 기본 CPU 수집이 안 되는 문제 수정
+
+- <Status priority='0'>Fixed</Status> Windows 환경에서 sigar 라이브러리를 활용할 때 모니터링 지표가 수집되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> Windows 환경에서 oshi 라이브러리를 활용할 때 모니터링 지표가 수집되지 않는 문제 수정
+
+import DownloadJava from './_import_dl-java-agent.mdx';
+
+<DownloadJava ver="2.2.37" />

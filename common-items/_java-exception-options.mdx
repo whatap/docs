@@ -134,3 +134,9 @@
   기본값 `true`
 
   JDBC 드라이버에서 SqlException 발생 시 추적 여부를 설정합니다. 옵션 값을 `false`로 설정하면 사용자 정의 예외 처리로 `biz_exceptions` 처리할 수 있습니다.
+
+* **trace_exception_handler_overwrite_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  spring-boot ExceptionHandler를 통과하는 예외(exception)가 발생하면 이전에 발생한 예외를 대체할 수 있습니다. <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06125" className="uitext" /> 탭에서 예외(exception)를 spring-boot의 ExceptionHandler에 등록한 예외로 표시할 수 있습니다.

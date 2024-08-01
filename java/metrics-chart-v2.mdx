@@ -1,0 +1,92 @@
+---
+id: metrics-chart-v2
+title: 메트릭스 차트
+description: 메트릭스 데이터를 차트로 조회할 수 있습니다.
+tags: [ 메트릭스, 메트릭스 차트]
+---
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_counter" className="uitext" /> <code className="newfunc">New</code>
+
+<Cmdname sid="side_counter" className="uitext" /> <code className="newfunc">New</code> 메뉴는 와탭 모니터링 솔루션의 핵심 기능으로, 다양한 모니터링 대상으로부터 수집한 데이터를 시계열 차트로 시각화하여 제공합니다. 이를 통해 사용자는 시스템 성능을 효과적으로 모니터링하고 이상 징후를 빠르게 식별하여 문제 해결에 필요한 인사이트를 얻을 수 있습니다.
+
+<ImgLang img="metrics-chart-new-main-apm.png" desc="Metrics Chart" />
+
+* 다양한 지표를 시계열 차트를 통해서 시각적으로 확인할 수 있으며, 장애 발생 시점의 여러 지표를 한번에 분석할 수 있습니다.
+
+* 특정 시간 범위를 선택하여 과거 데이터를 조회하고, 해당 기간 동안의 성능을 분석할 수 있습니다.
+
+* 특정 시간대나 조건에 맞는 데이터를 필터링하여 보다 정확한 분석을 수행할 수 있습니다.
+
+* 사용자는 원하는 차트를 화면에 배치하고 레이아웃을 자유롭게 조정할 수 있습니다.
+
+* 사용자가 원하는 지표들을 배치하고 프리셋으로 저장하여 필요 시 불러올 수 있습니다.
+
+:::note
+
+기존 <Cmdname sid="side_counter" className="uitext" /> 메뉴와의 차이점
+
+Service 2.8.0 업데이트 이후 변경 사항은 다음과 같습니다.
+
+:::
+
+## 차트 추가하기
+
+화면에 지표를 추가하려면 화면 왼쪽 상단에 <Cmdname sid="add_chart" className="uitext" /> 버튼을 선택하세요.
+
+### 조회 시간 설정하기
+
+<Cmdname sid="time" className="uitext" />에서 지표를 조회할 날짜와 시간을 설정하세요.
+
+<ImgLang img="metrics-chart-new-set-time.png" desc="시간 설정" />
+
+* 가장 오른쪽의 녹색 버튼을 선택하면 다양한 시간 범위를 선택할 수 있습니다. 
+
+  <ImgLang img="metrics-chart-new-set-time-select-options.png" className="width-600" desc="시간 설정" />
+
+* ![왼쪽 방향 아이콘](/img/left-arrow.svg) 또는 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택해 시간을 이동할 수 있습니다. 이동 간격은 오른쪽에 설정된 시간 간격입니다.
+
+* 원하는 날짜와 시간을 직접 선택하려면 날짜 및 시간 영역을 클릭하세요.
+
+  <ImgLang img="metrics-chart-new-set-custom-time.png" desc="시간 설정" />
+
+### 대상 선택하기
+
+<Columns>
+
+<Column className="text--left width--40">
+
+<ImgLang img="metrics-chart-new-select-agent.png" desc="대상 선택" />
+
+</Column>
+
+<Column className="text--left">
+
+프로젝트에 포함된 에이전트 중 원하는 대상을 선택하세요. 개별 에이전트를 선택하거나 에이전트 설정을 통해 분류한 그룹 단위로 선택할 수 있습니다.
+
+* <Cmdname sid="ITM06005" className="uitext" />: 개별 에이전트를 선택하거나 모두 선택할 수 있습니다.
+
+* <Cmdname sid="ITM06006" className="uitext" />: 에이전트 설정에서 <code>whatap.okind</code>로 분류된 그룹 단위로 에이전트를 모니터링합니다.
+
+* <Cmdname sid="ITM06007" className="uitext" />: 에이전트 설정에서 <code>whatap.onode</code>로 분류된 그룹 단위로 에이전트를 모니터링합니다.
+
+:::note
+
+* 설정한 시간과 날짜에 따라 선택할 수 있는 대상이 변경될 수 있습니다.
+
+* 에이전트 목록에서 마우스 클릭해 대상을 선택하거나 해제할 수 있습니다. `Shift` 키를 이용해 여러 개의 에이전트를 한번에 선택할 수도 있습니다.
+
+* <Cmdname sid="select_all" className="uitext" /> 또는 <Cmdname sid="deselect_all" className="uitext" /> 버튼을 선택하면 관련 하위 대상들을 한번에 선택 또는 해제할 수 있습니다.
+
+* 원하는 에이전트가 목록에 보이지 않는다면 <Cmdname sid="refresh" className="uitext" /> 버튼을 선택하세요.
+
+* <Cmdname sid="BTN06285" className="uitext" /> 또는 <Cmdname sid="BTN06286" className="uitext" /> 버튼을 선택해 그룹 단위로 목록을 감추거나 펼칠 수 있습니다.
+
+:::
+
+</Column>
+
+</Columns>
+
+### 지표 선택하기
+
+

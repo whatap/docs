@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.7",
+    "date": "2024-08-05",
+    "Lists": [
+      {
+        "ver": "Service 2.7.7",
+        "hash": "service-277",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">SQL 상세</span> 창에서 라이브러리 포맷팅 오류 발생 시 포맷팅 불가능하도록 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
     "ver": "Service 2.7.6",
     "date": "2024-08-02",
     "Lists": [
@@ -9,14 +23,14 @@
         "hash": "service-276",
         "product": "Database",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 메뉴에서 소문자 true, false가 쿼리에 포함되어있을 경우 <span class=\"uitext\">SQL 상세</span> 조회 시 화이트 아웃 현상 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 메뉴에서 소문자 true, false가 쿼리에 포함되어 있을 경우 <span class=\"uitext\">SQL 상세</span> 조회 시 화이트 아웃 현상이 발생하는 문제 수정</p>"
       },
       {
         "ver": "Service 2.7.6",
         "hash": "service-276",
         "product": "Application, Database, Server, Kubernetes",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">실험실</span> &gt; <span class=\"uitext\">알림 메시지</span> 메뉴에서 조직 내 알림 설정 권한이 있는 프로젝트에 알림 설정 복사 불가 오류 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">실험실</span> &gt; <span class=\"uitext\">알림 메시지</span> 메뉴에서 조직 내 알림 설정 권한이 있는 프로젝트에 알림 설정 복사할 수 없는 문제 수정</p>"
       }
     ]
   },

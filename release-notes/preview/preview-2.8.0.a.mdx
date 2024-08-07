@@ -44,6 +44,18 @@ toc_max_heading_level: 2
 
 ---
 
+### `Database`
+
+#### Oracle <code className="my">V2</code>
+
+<Status priority='0'>Fixed</Status> 다음 메뉴 경로에서 같은 sid의 holder와 waiter가 락(Lock)으로 표기되는 오류 수정
+
+- <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴의 <Cmdname sid="lock_tree" className="uitext" /> 테이블
+
+- <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" />
+
+---
+
 ### `Browser`
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_rumErrorDashboard" className="uitext" /> &gt; <Cmdname sid="error_message" className="uitext" /> <Cmdname sid="table" className="uitext" /> 섹션의 UI 개선
@@ -55,6 +67,17 @@ toc_max_heading_level: 2
 ### `Network`
 
 <Status priority='0'>Changed</Status> 사용자 언어가 영어일 때, <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 <Cmdname sid="TTL07943" className="uitext" /> 섹션에서 <b>Version</b>을 <UI>Kernel Version</UI>으로 수정
+
+---
+
+### `Log`
+
+<Status priority='0'>Fixed</Status> 다음 메뉴 경로에서 <Cmdname sid="BTN06441" className="uitext" />을 진행하면 로그 원문이 노출되지 않는 문제 수정
+
+- <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" />
+- <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logExplorer" className="uitext" />
+- <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSearch" className="uitext" />
+- <Cmdname sid="TTL06209" className="uitext" /> &gt; <Cmdname sid="TTL06128" className="uitext" />
 
 </div>
 

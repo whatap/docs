@@ -2,195 +2,195 @@
 
 1. `whatap-master-agent` deployment의 spec 하위에 kube-apiserver 모니터링을 위한 에이전트 컨테이너 spec을 추가하세요.
 
-  ```yaml
-  containers:
-    - name: whatap-control-plane-helper
-      image: whatap/kube_mon
-      imagePullPolicy: Always
-      ports:
-        - containerPort: 9496
-      command: ["/data/agent/master/whatap_control_plane_helper"]
-      args: ["-collect_control_plane_monitoring_enabled=true"]
-  ```
+    ```yaml
+    containers:
+      - name: whatap-control-plane-helper
+        image: whatap/kube_mon
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 9496
+        command: ["/data/agent/master/whatap_control_plane_helper"]
+        args: ["-collect_control_plane_monitoring_enabled=true"]
+    ```
 
-  다음 예시를 참조하세요. 
+    다음 예시를 참조하세요. 
 
-  ```yaml {17-23}
-  apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    name: whatap-master-agent
-    namespace: whatap-monitoring
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
-        name: whatap-master-agent
-    template:
-      metadata:
-        labels:
+    ```yaml {17-23}
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: whatap-master-agent
+      namespace: whatap-monitoring
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
           name: whatap-master-agent
-      spec:
-        containers:
-          - name: whatap-control-plane-helper
-            image: whatap/kube_mon
-            imagePullPolicy: Always
-            ports:
-              - containerPort: 9496
-            command: ["/data/agent/master/whatap_control_plane_helper"]
-            args: ["-collect_control_plane_monitoring_enabled=true"]
-          - name: whatap-master-agent
-            image: whatap/kube_mon
-            imagePullPolicy: Always
-            resources:
-              requests:
-                memory: 300Mi
-                cpu: 100m
-              limits:
-                memory: 350Mi
-                cpu: 200m
-            ports:
-              - containerPort: 6600
-            command: ['/bin/entrypoint.sh']
-            env:
-              - name: WHATAP_LICENSE
-                value: "xxxxxxxx-12345xxxxxx-x00e000000xxx8"
-              - name: WHATAP_HOST
-                value: "13.124.11.223/13.209.172.35"
-              - name: WHATAP_PORT
-                value: "6600"
-              - name: WHATP_MEM_LIMIT
-                valueFrom:
-                  resourceFieldRef:
-                    containerName: whatap-master-agent
-                    resource: limits.memory
-            volumeMounts:
-              - name: start-script-volume
-                mountPath: /bin/entrypoint.sh
-                readOnly: true
-                subPath: entrypoint.sh
-              - mountPath: /whatap_conf
-                name: whatap-config-volume
-        volumes:
-          - name: start-script-volume
-            configMap:
-              defaultMode: 0700
-              name: master-start-script
-          - name: whatap-config-volume
-            emptyDir: {}
-        serviceAccount: whatap
-  ```
+      template:
+        metadata:
+          labels:
+            name: whatap-master-agent
+        spec:
+          containers:
+            - name: whatap-control-plane-helper
+              image: whatap/kube_mon
+              imagePullPolicy: Always
+              ports:
+                - containerPort: 9496
+              command: ["/data/agent/master/whatap_control_plane_helper"]
+              args: ["-collect_control_plane_monitoring_enabled=true"]
+            - name: whatap-master-agent
+              image: whatap/kube_mon
+              imagePullPolicy: Always
+              resources:
+                requests:
+                  memory: 300Mi
+                  cpu: 100m
+                limits:
+                  memory: 350Mi
+                  cpu: 200m
+              ports:
+                - containerPort: 6600
+              command: ['/bin/entrypoint.sh']
+              env:
+                - name: WHATAP_LICENSE
+                  value: "xxxxxxxx-12345xxxxxx-x00e000000xxx8"
+                - name: WHATAP_HOST
+                  value: "13.124.11.223/13.209.172.35"
+                - name: WHATAP_PORT
+                  value: "6600"
+                - name: WHATP_MEM_LIMIT
+                  valueFrom:
+                    resourceFieldRef:
+                      containerName: whatap-master-agent
+                      resource: limits.memory
+              volumeMounts:
+                - name: start-script-volume
+                  mountPath: /bin/entrypoint.sh
+                  readOnly: true
+                  subPath: entrypoint.sh
+                - mountPath: /whatap_conf
+                  name: whatap-config-volume
+          volumes:
+            - name: start-script-volume
+              configMap:
+                defaultMode: 0700
+                name: master-start-script
+            - name: whatap-config-volume
+              emptyDir: {}
+          serviceAccount: whatap
+    ```
 
 1. `whatap-master-agent` deployment의 `whatap-master-agent` 컨테이너 spec에서 env 설정에 다음 내용을 추가하세요. 
 
-  ```yaml 
-  env:
-    - name: collect_control_plane_monitoring_enabled
-      value: "true"
-  ```
+    ```yaml 
+    env:
+      - name: collect_control_plane_monitoring_enabled
+        value: "true"
+    ```
 
-  다음 예시를 참조하세요. 
+    다음 예시를 참조하세요. 
 
-  ```yaml {38-39}
-  apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    name: whatap-master-agent
-    namespace: whatap-monitoring
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
-        name: whatap-master-agent
-    template:
-      metadata:
-        labels:
+    ```yaml {38-39}
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: whatap-master-agent
+      namespace: whatap-monitoring
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
           name: whatap-master-agent
-      spec:
-        containers:
-          - name: whatap-control-plane-helper
-            image: whatap/kube_mon
-            imagePullPolicy: Always
-            ports:
-              - containerPort: 9496
-            command: ["/data/agent/master/whatap_control_plane_helper"]
-            args: ["-collect_control_plane_monitoring_enabled=true"]
-          - name: whatap-master-agent
-            image: whatap/kube_mon
-            imagePullPolicy: Always
-            resources:
-              requests:
-                memory: 300Mi
-                cpu: 100m
-              limits:
-                memory: 350Mi
-                cpu: 200m
-            ports:
-              - containerPort: 6600
-            command: ['/bin/entrypoint.sh']
-            env:
-              - name: collect_control_plane_monitoring_enabled
-                value: "true"
-              - name: WHATAP_LICENSE
-                value: "xxxxxxxx-12345xxxxxx-x00e000000xxx8"
-              - name: WHATAP_HOST
-                value: "13.124.11.223/13.209.172.35"
-              - name: WHATAP_PORT
-                value: "6600"
-              - name: WHATP_MEM_LIMIT
-                valueFrom:
-                  resourceFieldRef:
-                    containerName: whatap-master-agent
-                    resource: limits.memory
-            volumeMounts:
-              - name: start-script-volume
-                mountPath: /bin/entrypoint.sh
-                readOnly: true
-                subPath: entrypoint.sh
-              - mountPath: /whatap_conf
-                name: whatap-config-volume
-        volumes:
-          - name: start-script-volume
-            configMap:
-              defaultMode: 0700
-              name: master-start-script
-          - name: whatap-config-volume
-            emptyDir: {}
-        serviceAccount: whatap
-  ```
+      template:
+        metadata:
+          labels:
+            name: whatap-master-agent
+        spec:
+          containers:
+            - name: whatap-control-plane-helper
+              image: whatap/kube_mon
+              imagePullPolicy: Always
+              ports:
+                - containerPort: 9496
+              command: ["/data/agent/master/whatap_control_plane_helper"]
+              args: ["-collect_control_plane_monitoring_enabled=true"]
+            - name: whatap-master-agent
+              image: whatap/kube_mon
+              imagePullPolicy: Always
+              resources:
+                requests:
+                  memory: 300Mi
+                  cpu: 100m
+                limits:
+                  memory: 350Mi
+                  cpu: 200m
+              ports:
+                - containerPort: 6600
+              command: ['/bin/entrypoint.sh']
+              env:
+                - name: collect_control_plane_monitoring_enabled
+                  value: "true"
+                - name: WHATAP_LICENSE
+                  value: "xxxxxxxx-12345xxxxxx-x00e000000xxx8"
+                - name: WHATAP_HOST
+                  value: "13.124.11.223/13.209.172.35"
+                - name: WHATAP_PORT
+                  value: "6600"
+                - name: WHATP_MEM_LIMIT
+                  valueFrom:
+                    resourceFieldRef:
+                      containerName: whatap-master-agent
+                      resource: limits.memory
+              volumeMounts:
+                - name: start-script-volume
+                  mountPath: /bin/entrypoint.sh
+                  readOnly: true
+                  subPath: entrypoint.sh
+                - mountPath: /whatap_conf
+                  name: whatap-config-volume
+          volumes:
+            - name: start-script-volume
+              configMap:
+                defaultMode: 0700
+                name: master-start-script
+            - name: whatap-config-volume
+              emptyDir: {}
+          serviceAccount: whatap
+    ```
 
 1. 컨트롤 플레인 모니터링 성능 지표를 수집하기 위해 `whatap` ClusterRole에 다음의 권한을 추가하세요. 
 
-  ```yaml 
-  rules:
-    - nonResourceURLs: ["/metrics"]
-      verbs: ["*"]
-  ```
+    ```yaml 
+    rules:
+      - nonResourceURLs: ["/metrics"]
+        verbs: ["*"]
+    ```
 
-  다음 예시를 참조하세요. 
+    다음 예시를 참조하세요. 
 
-  ```yaml {18-19} 
-  apiVersion: rbac.authorization.k8s.io/v1
-  kind: ClusterRole
-  metadata:
-    annotations:
-      rbac.authorization.kubernetes.io/autoupdate: "true"
-    name: whatap
-    namespace: whatap-monitoring
-  rules:
-    - apiGroups: ["*"]
-      resources: ["namespaces", "pods", "pods/log", "configmaps","services", "endpoints","daemonsets","ingresses","deployments","nodes","persistentvolumes","persistentvolumeclaims", "events", "replicasets", "roles", "rolebindings", "clusterroles", "clusterrolebindings", "jobs", "cronjobs", "statefulsets", "serviceaccounts", "configmaps", "storageclasses", "horizontalpodautoscalers" ]
-      verbs: ["get","list","watch"]
-    - apiGroups: [""]
-      resources: ["pods/exec"]
-      verbs: ["create"]
-    - apiGroups: [""]
-      resources: ["configmaps"]
-      verbs: ["*"]
-    - nonResourceURLs: ["/metrics"]
-      verbs: ["*"]
-  ---
-  ```
+    ```yaml {18-19} 
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    metadata:
+      annotations:
+        rbac.authorization.kubernetes.io/autoupdate: "true"
+      name: whatap
+      namespace: whatap-monitoring
+    rules:
+      - apiGroups: ["*"]
+        resources: ["namespaces", "pods", "pods/log", "configmaps","services", "endpoints","daemonsets","ingresses","deployments","nodes","persistentvolumes","persistentvolumeclaims", "events", "replicasets", "roles", "rolebindings", "clusterroles", "clusterrolebindings", "jobs", "cronjobs", "statefulsets", "serviceaccounts", "configmaps", "storageclasses", "horizontalpodautoscalers" ]
+        verbs: ["get","list","watch"]
+      - apiGroups: [""]
+        resources: ["pods/exec"]
+        verbs: ["create"]
+      - apiGroups: [""]
+        resources: ["configmaps"]
+        verbs: ["*"]
+      - nonResourceURLs: ["/metrics"]
+        verbs: ["*"]
+    ---
+    ```
 
 :::note 
 

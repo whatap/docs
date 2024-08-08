@@ -30,9 +30,11 @@ Flex 보드에서 대시보드에 배치할 수 있는 위젯의 종류를 안�
 
 ### ![](/img/ico-normal-graph.svg) 시계열 {#timeseries}
 
+시계열 차트 위젯을 사용하여 시간 경과에 따른 지표 변화를 확인할 수 있습니다. 
+
 ![시계열 차트](/img/fb-time-series-widget.png)
 
-시계열 차트 위젯을 사용하여 시간 경과에 따른 지표 변화를 확인할 수 있습니다. 시계열 차트 위젯은 이전 시간과 비교할 수 있는 기능을 제공합니다. 위젯 오른쪽 위에 ![History 아이콘](/img/ic-history.svg) 버튼을 선택하세요.
+시계열 차트 위젯은 이전 시간과 비교할 수 있는 기능을 제공합니다. 위젯 오른쪽 위에 ![History 아이콘](/img/ic-history.svg) 버튼을 선택하세요.
 
 <ImgLang img="fb-time-series-widget-compare-time.png" desc="이전 시간과 비교" />
 
@@ -42,16 +44,20 @@ Flex 보드에서 대시보드에 배치할 수 있는 위젯의 종류를 안�
 
 * 데이터 병합 옵션에 대한 자세한 내용은 [다음 문서](flexboard-widget-manage#datamerge-option)를 참조하세요.
 
-* 위젯에 따라 <Cmdname sid="compare_with_previous_time" className="uitext" /> 기능은 제공하지 않을 수 있습니다.
+* 위젯에 따라 <Cmdname sid="compare_with_previous_time" className="uitext" /> 기능은 제공하지 않을 수 있습니다. 이 기능은 <Cmdname sid="edit_mode" className="uitext" />에서 이용할 수 있습니다.
 
 :::
 
 
 ### ![](/img/ico-topn-graph.svg) TopN 시계열 {#topn}
 
+시간에 따른 지표 변화와 함께 모니터링 대상의 지표 순위를 확인할 수 있는 위젯입니다.
+
 ![TopN 시계열 차트](/img/fb-time-series-topn-widget.png)
 
-시간에 따른 지표 변화와 함께 모니터링 대상의 지표 순위를 확인할 수 있는 위젯입니다.
+차트에 표시할 상위 N개의 수를 설정할 수 있습니다. <Cmdname sid="edit_mode" className="uitext" />에서 위젯의 오른쪽 상단에 더보기(![아이콘](/img/ico-more.svg)) 버튼을 선택한 다음 <Cmdname sid="top_rank" className="uitext" /><UI>N</UI> 항목을 클릭하세요.
+
+<ImgLang img="fb-time-series-topn-widget-setting.png" desc="TopN" />
 
 ### ![](/img/ic-pie-chart.svg) 원형 {#piechart}
 
@@ -73,19 +79,114 @@ Flex 보드에서 대시보드에 배치할 수 있는 위젯의 종류를 안�
 
 ### ![](/img/ic-dashboard-hitmap.svg) 히트맵 {#hitmap}
 
-* ![히트맵 아이콘](/img/ic-dashboard-hitmap.svg) : 종료된 트랜잭션 응답시간을 분포도로 표현한 <Cmdname sid="AA005" className="uitext" /> 위젯입니다.
+종료된 트랜잭션 응답시간을 분포도로 표현한 <Cmdname sid="AA005" className="uitext" /> 위젯입니다.
+
+<ImgLang img="fb-hitmap-widget.png" desc="Hitmap" />
+
+<Cmdname sid="AA005" className="uitext" /> 차트는 종료된 트랜잭션 응답시간을 분포도로 표현합니다. 가로축은 트랜잭션 종료 시간입니다. 세로축은 수행 시간입니다. 수행 시간이 긴 트랜잭션은 분포도 상단에 위치합니다. <Cmdname sid="AA005" className="uitext" /> 내의 차트 영역을 드래그하면 세부 트랜잭션 정보를 확인할 수 있는 <Cmdname sid="TTL06209" className="uitext" /> 창이 나타납니다. 
+
+<InDoc product="java,php,python,nodejs,dotnet,golang,kubernetes">
+
+:::note
+
+* <Cmdname sid="AA005" className="uitext" /> 위젯에 대한 자세한 내용은 [다음 문서](dashboard#AA005)를 참조하세요.
+
+* <Cmdname sid="TTL06209" className="uitext" />에 대한 자세한 내용은 [다음 문서](dashboard-hitmap-trace)를 참조하세요.
+
+:::
+
+</InDoc>
 
 ### ![](/img/ic-equalizer-chart.svg) 막대 {#bar}
 
-* ![차트 아이콘](/img/ic-equalizer-chart.svg): 막대 차트 위젯입니다. 모니터링 대상에서 수집되는 데이터의 현황을 비교하는데 유용합니다.
+<Columns>
+
+<Column className="text--left width--50">
+
+![세로형 막대 차트](/img/fb-bar-chart-vertical.png)
+
+</Column>
+
+<Column className="text--left">
+
+모니터링 대상에서 수집되는 데이터의 현황을 비교하는데 유용한 막대 차트 위젯입니다.
+
+</Column>
+
+</Columns>
+
+<Columns>
+
+<Column className="text--left width--50">
+
+![가로형 막대 차트](/img/fb-bar-chart-horizon.png)
+
+</Column>
+
+<Column className="text--left">
+
+세로형 막대 차트를 기본 제공하지만 가로형으로 변경할 수 있습니다. <Cmdname sid="edit_mode" className="uitext" />에서 위젯의 오른쪽 상단에 더보기(![아이콘](/img/ico-more.svg)) 버튼을 선택한 다음 ![가로형 아이콘](/img/ic-bar-chart-h.svg) 버튼을 클릭하세요.
+
+</Column>
+
+</Columns>
 
 ### ![](/img/ic-ark-chart.svg) 아크 {#arc}
 
-* ![아크 차트 아이콘](/img/ic-ark-chart.svg) : 아크 이퀄라이저 차트 위젯입니다. 모니터링 대상에서 발생하는 트랜잭션 현황을 에이전트 별로 비교할 수 있도록 시각화하는 위젯입니다.
+모니터링 대상에서 발생하는 트랜잭션 현황을 에이전트 별로 비교할 수 있도록 시각화한 아크 이퀄라이저 차트 위젯입니다.
+
+<Columns>
+
+<Column className="text--left width--50">
+
+![아크 이퀄라이저 차트](/img/fb-arc-equlizer-chart-widget.png)
+
+</Column>
+
+<Column className="text--left">
+
+![이퀄라이저 차트](/img/fb-bar-equlizer-chart-widget.png)
+
+</Column>
+
+</Columns>
+
+아크 이퀄라이저 차트를 기본 제공하지만 세로형 막대 그래프로 변경할 수 있습니다. <Cmdname sid="edit_mode" className="uitext" />에서 위젯의 오른쪽 상단에 더보기(![아이콘](/img/ico-more.svg)) 버튼을 선택한 다음 ![세로형 아이콘](/img/ic-equalizer-chart.svg) 버튼을 클릭하세요.
+
+<InDoc product="java,php,python,nodejs,dotnet,golang,kubernetes">
+
+:::note
+
+아크 이퀄라이저 차트는 애플리케이션 모니터링 상품군에서 이용할 수 있는 <Cmdname sid="AA002" className="uitext" /> 위젯으로 자세한 내용은 [다음 문서](dashboard#active-trs)를 참조하세요.
+
+:::
+
+</InDoc>
+
 
 ### ![](/img/ic-grid-chart.svg) 트리맵 {#treemap}
 
-* ![그리드 아이콘](/img/ic-grid-chart.svg) : 서버의 디스크 또는 메모리 사용량을 시각적으로 확인할 수 있는 위젯입니다. 각 블록의 크기와 색상은 사용량과 상태를 의미합니다.
+서버의 디스크 또는 메모리 사용량을 시각적으로 확인할 수 있는 위젯입니다. 각 블록의 크기와 색상은 사용량과 상태를 의미합니다.
+
+<Columns>
+
+<Column className="text--left width--50">
+
+![Treemap chart](/img/fb-treemap-chart-widget.png)
+
+</Column>
+
+<Column className="text--left">
+
+![Grid chart](/img/fb-grid-chart-widget.png)
+
+</Column>
+
+</Columns>
+
+기본 제공하는 차트에서 마우스 포인터를 블록으로 가져가면 해당 블록의 수치를 확인할 수 있는 툴팁이 표시됩니다. 개별 블록의 수치가 표시된 형태의 차트로 변경하려면 위젯의 오른쪽 상단에 더보기(![아이콘](/img/ico-more.svg)) 버튼을 선택한 다음 ![아이콘](/img/ic-pageload.svg) 버튼을 클릭하세요.
+
+
 
 ### ![](/img/ic-dot-chart.svg) 분포도 {#scatter}
 

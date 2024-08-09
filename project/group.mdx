@@ -22,13 +22,13 @@ tags: [ 관리, 그룹 ]
 
     <ImgLang img="group-add.png" desc="그룹 추가" />
 
-1. 생성하려는 그룹의 이름을 ***그룹 명***에 입력하세요.
+1. <Cmdname sid="side_addGroup" className="uitext" /> 화면에서 생성하려는 그룹의 이름을 <Cmdname sid="group_name" className="uitext" />에 입력하세요.
 
-1. 그룹에 대한 설명을 ***그룹 설명***에 입력하세요. ***그룹 설명***은 필수 입력 사항이 아닙니다.
+1. 그룹에 대한 설명을 <Cmdname sid="group_description" className="uitext" />에 입력하세요. <Cmdname sid="group_description" className="uitext" />은 필수 입력 사항이 아닙니다.
 
-1. ***프로젝트 추가*** 목록에서 그룹에 추가할 프로젝트를 선택하세요. 프로젝트를 검색해 선택할 수도 있습니다.
+1. <Cmdname sid="add_project" className="uitext" /> 목록에서 그룹에 추가할 프로젝트를 선택하세요. 프로젝트를 검색해 선택할 수도 있습니다.
 
-1. 프로젝트 추가를 완료했다면 ***그룹 추가*** 버튼을 선택하세요.
+1. 프로젝트 추가를 완료했다면 <Cmdname sid="add_group" className="uitext" /> 버튼을 선택하세요.
 
 :::note
 
@@ -38,43 +38,86 @@ tags: [ 관리, 그룹 ]
 
 ## 그룹에 프로젝트 추가하기
 
-1. 홈 화면의 ***프로젝트 목록***에서 프로젝트 항목 오른쪽 위에 ![설정 아이콘](/img/ico-setting.svg) 버튼을 선택하세요. 
+1. 홈 화면의 <Cmdname sid="side_projectList" className="uitext" />에서 프로젝트 항목 오른쪽 위에 ![설정 아이콘](/img/ico-setting.svg) 버튼을 선택하세요. 
 
     <ImgLang img='project-add-group.png' desc='프로젝트 설정' />
 
-1. ***그룹에 추가***를 선택하세요.
+1. <Cmdname sid="add_to_group" className="uitext" />를 선택하세요.
 
 1. 프로젝트를 추가하려는 그룹을 선택하세요.
 
-1. ***그룹에 추가*** 버튼을 선택하세요.
+1. <Cmdname sid="add_to_group" className="uitext" /> 버튼을 선택하세요.
 
 ## 선택한 그룹의 프로젝트 목록 보기
 
-홈 화면에서 ***전체 프로젝트*** 메뉴 선택 시 메뉴 우측에 그룹 및 프로젝트 목록 패널이 나타납니다. 해당 패널에서 조회를 원하는 하위 그룹을 선택하세요. 선택한 그룹에 포함된 프로젝트만 목록 화면에 나타납니다. 
-
 <ImgLang img='project-select-group.png' desc='프로젝트 그룹 선택하기' />
 
-그룹에 속하지 않은 프로젝트를 확인하려면 목록 패널을 아래로 스크롤하세요. ***그룹에 속하지 않은 프로젝트*** 목록을 확인할 수 있습니다. 다시 전체 프로젝트 목록을 확인하려면 메뉴 하단의 ![전체 프로젝트 목록으로 이동 아이콘](/img/ic-home.svg) ***전체 프로젝트 목록으로 이동*** 아이콘을 선택하세요. 
+1. 사이드 메뉴의 <Cmdname sid="BTN07332" className="uitext" /> 메뉴를 선택해 그룹 및 프로젝트 목록 패널을 여세요.
 
-## 그룹에서 프로젝트 삭제하기
+1. 패널에서 조회를 원하는 그룹의 오른쪽에 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하세요.
 
-1. 홈 화면의 ***프로젝트 목록***에서 프로젝트 항목 오른쪽 위에 ![설정 아이콘](/img/ico-setting.svg) 버튼을 선택하세요. 
+    선택한 그룹에 포함된 프로젝트만 목록 화면에 나타납니다. 이 상태에서 <Cmdname sid="side_groupMember" className="uitext" /> 또는 <Cmdname sid="side_groupManagement" className="uitext" /> 메뉴를 이용할 수 있습니다.
+
+1. 다시 전체 프로젝트 목록을 확인하려면 사이드 메뉴 하단의 ![홈 아이콘](/img/ic-home.svg) <Cmdname sid="TLT07384" className="uitext" /> 버튼을 선택하세요. 
+
+:::note
+
+그룹에 속하지 않은 프로젝트를 확인하려면 목록 패널을 아래로 스크롤하세요.
+
+:::
+
+## 그룹에서 프로젝트 제외하기
+
+### 홈 화면에서 제외하기
+
+1. 홈 화면의 <Cmdname sid="side_projectList" className="uitext" />에서 프로젝트 항목 오른쪽 위에 ![설정 아이콘](/img/ico-setting.svg) 버튼을 선택하세요. 
 
     <ImgLang img='remove-project-from-group.png' desc='그룹에서 삭제' />
 
-1. ***그룹에서 삭제***를 선택하세요.
+1. <Cmdname sid="delete_from_group" className="uitext" />를 선택하세요.
 
-1. ***그룹에서 프로젝트 삭제*** 창이 나타나면 ***확인*** 버튼을 클릭하세요.
+1. <Cmdname sid="delete_project_from_group" className="uitext" /> 창이 나타나면 <Cmdname sid="ok" className="uitext" /> 버튼을 클릭하세요.
+
+### 그룹 관리에서 제외하기
+
+그룹에 소속된 프로젝트를 다른 프로젝트로 이동하거나 제외할 수 있습니다.
+
+1. 사이드 메뉴의 <Cmdname sid="BTN07332" className="uitext" /> 메뉴를 선택해 그룹 및 프로젝트 목록 패널을 여세요.
+
+1. 패널에서 삭제하려는 그룹의 오른쪽에 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하세요.
+
+1. 사이드 메뉴에서 <Cmdname sid="side_groupManagement" className="uitext" />를 선택하세요.
+
+1. <Cmdname sid="group_management" className="uitext" /> 섹션에서 제외하려는 프로젝트를 선택하세요.
+
+    <ImgLang img="group-exclude-project.png" desc="그룹 관리" />
+
+1. <Cmdname sid="BTN08282" type="project" replace="({count})" className="uitext" /> 버튼이 표시되면 버튼을 선택하세요.
+
+1. <Cmdname sid="group_management_move" type="project" className="uitext" /> 창이 나타나면 <Cmdname sid="select_group" className="uitext" /> 항목에서 이동할 그룹을 선택하거나 <Cmdname sid="no_group_projects" className="uitext" />를 선택하세요.
+
+1. <Cmdname sid="confirm" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+<Cmdname sid="select_group" className="uitext" /> 항목에서 <Cmdname sid="no_group_projects" className="uitext" />를 선택하면 해당 프로젝트는 소속된 그룹에서 제외됩니다.
+
+:::
+
 
 ## 그룹 삭제하기
 
-1. 홈 화면에서 ***전체 프로젝트*** 메뉴 하위 그룹 중 하나를 선택하세요.
+1. 사이드 메뉴의 <Cmdname sid="BTN07332" className="uitext" /> 메뉴를 선택해 그룹 및 프로젝트 목록 패널을 여세요.
 
-1. ***그룹 관리***를 선택하세요.
+1. 패널에서 삭제하려는 그룹의 오른쪽에 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하세요.
 
-1. ***그룹 정보*** 섹션의 오른쪽 위에 ***그룹 삭제***를 선택하세요.
+1. 사이드 메뉴에서 <Cmdname sid="side_groupManagement" className="uitext" />를 선택하세요.
 
-1. ***그룹 삭제*** 메시지 창의 내용을 확인한 다음 ***삭제*** 버튼을 선택하세요.
+1. <Cmdname sid="group_info" className="uitext" /> 섹션에서 <Cmdname sid="delete_group" className="uitext" />를 선택하세요.
+
+    <ImgLang img="group-remove.png" desc="그룹 삭제" />
+
+1. <Cmdname sid="delete_group" className="uitext" /> 메시지 창의 내용을 확인한 다음 <Cmdname sid="delete" className="uitext" /> 버튼을 선택하세요.
 
 :::caution
 
@@ -84,67 +127,99 @@ tags: [ 관리, 그룹 ]
 
 :::
 
-## 그룹 멤버 초대하기{#add-member}
+## 그룹 멤버 초대하기 {#add-member}
 
-1. 홈 화면에서 ***전체 프로젝트*** 메뉴 하위 그룹 중 하나를 선택하세요.
+1. 사이드 메뉴의 <Cmdname sid="BTN07332" className="uitext" /> 메뉴를 선택해 그룹 및 프로젝트 목록 패널을 여세요.
 
-1. ***그룹 멤버*** 메뉴를 선택하세요.
+1. 패널에서 멤버를 초대하려는 그룹의 오른쪽에 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하세요.
 
-1. 화면 오른쪽 위에 ***멤버 초대*** 버튼을 선택하세요.
+1. 사이드 메뉴에서 <Cmdname sid="side_groupMember" className="uitext" />를 선택하세요.
 
-1. ***그룹*** 항목에서 하위 프로젝트 단위를 선택해 멤버를 추가할 수도 있습니다.
+1. 화면 오른쪽 상단의 <Cmdname sid="invite_member" className="uitext" /> 버튼을 선택하세요.
 
-1. ***사용자 권한*** 항목에서 초대할 사용자의 권한을 설정한 다음 ***적용*** 버튼을 선택하세요.
+1. <Cmdname sid="group" className="uitext" /> 항목에서 하위 프로젝트 단위를 선택해 멤버를 추가할 수도 있습니다.
 
-1. ***이메일*** 항목에서 초대할 사용자의 이메일을 입력한 다음 ***추가*** 버튼을 선택하세요. 다른 사용자를 계속해서 추가할 수 있습니다.
+1. <Cmdname sid="user_role" className="uitext" /> 항목에서 초대할 사용자의 권한을 설정한 다음 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
 
-1. 초대하려는 사용자를 모두 추가했으면 ***완료*** 버튼을 선택하세요.
+1. 이메일 입력란에서 초대할 사용자의 이메일을 입력한 다음 <Cmdname sid="add" className="uitext" /> 버튼을 선택하세요. 다른 사용자를 계속해서 추가할 수 있습니다.
 
-:::note
+1. 초대하려는 사용자를 모두 추가했으면 <Cmdname sid="complete" className="uitext" /> 버튼을 선택하세요.
 
-초대를 완료하기 전에 취소하려는 초대 멤버가 있다면 ***초대 멤버 목록***에서 ![삭제 아이콘](/img/ico-trash-red.svg) 버튼을 선택하세요.
+import InviteMemberNotes from "../common-items/_invite-member-notes.mdx";
 
-:::
+<InviteMemberNotes />
 
 ## 프로젝트별 멤버 확인하기
 
-<ImgLang img='group-memer-by-project.png' desc='프로젝트별 멤버 확인' />
+<ImgLang img="group-member-by-project.png" desc="그룹 멤버" />
 
-홈 화면에서 ***전체 프로젝트*** 메뉴 하위 그룹 중 하나를 선택하세요. ***그룹 멤버*** 메뉴를 선택하세요. 그룹 하위에 프로젝트를 선택하면 프로젝트에 속한 멤버를 확인할 수 있습니다.
+1. 사이드 메뉴에서 <Cmdname sid="BTN07332" className="uitext" /> 메뉴를 선택해 그룹 및 프로젝트 목록 패널을 여세요. 
+
+1. 패널에서 멤버 목록을 확인하려는 그룹의 오른쪽에 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하세요.
+
+1. 사이드 메뉴에서 <Cmdname sid="side_groupMember" className="uitext" />를 선택하세요.
+
+1. 그룹에 소속된 프로젝트를 선택하면 프로젝트에 속한 멤버를 확인할 수 있습니다.
 
 ## 그룹 멤버 권한 수정하기
 
-1. 홈 화면에서 ***전체 프로젝트*** 메뉴 하위 그룹 중 하나를 선택하세요.
+1. 사이드 메뉴의 <Cmdname sid="BTN07332" className="uitext" /> 메뉴를 선택해 그룹 및 프로젝트 목록 패널을 여세요.
 
-1. ***그룹 멤버*** 메뉴를 선택하세요.
+1. 패널에서 권한을 수정할 멤버가 포함된 그룹의 오른쪽에 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하세요.
 
-1. ***그룹 멤버*** 목록에서 권한을 수정하려는 멤버의 오른쪽에 ![편집 아이콘](/img/ico-edit.svg) 버튼을 선택하세요. 
+1. 사이드 메뉴에서 <Cmdname sid="side_groupMember" className="uitext" />를 선택하세요.
 
-1. ***멤버 권한 수정*** 창이 나타나면 ***멤버 권한***과 ***그룹의 프로젝트별 사용자 권한***을 설정하세요.
+1. <Cmdname sid="side_groupMember" className="uitext" /> 목록에서 권한을 수정하려는 멤버의 오른쪽에 ![편집 아이콘](/img/ico-edit.svg) 버튼을 선택하세요. 
 
-    * ***멤버 권한***: 해당 그룹과 그룹에 속한 프로젝트에서 허용하는 권한을 설정할 수 있습니다.
-    * ***그룹의 프로젝트별 사용자 권한***: 선택한 멤버의 권한을 그룹에 속한 프로젝트별로 설정할 수 있습니다.
+1. <Cmdname sid="edit_member_role" className="uitext" /> 창이 나타나면 <Cmdname sid="member_role" className="uitext" />과 <Cmdname sid="user_role_per_project_of_group" className="uitext" />을 설정하세요.
 
-1. 모든 설정을 완료하면 ***적용*** 버튼을 선택하세요.
+    * <Cmdname sid="member_role" className="uitext" />: 해당 그룹과 그룹에 속한 프로젝트에서 허용하는 권한을 설정할 수 있습니다.
+    * <Cmdname sid="user_role_per_project_of_group" className="uitext" />: 선택한 멤버의 권한을 그룹에 속한 프로젝트별로 설정할 수 있습니다.
+
+1. 모든 설정을 완료하면 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
 
 :::note
 
-멤버 권한에 대한 자세한 내용은 [다음 문서](project-structure#project-auth)를 참조하세요.
+멤버 권한 수정 기능은 <Cmdname sid="member_management" className="b600" /> 권한이 있는 사용자만 이용할 수 있습니다. 멤버 권한에 대한 자세한 설명은 [다음 문서](project-structure#project-auth)를 참조하세요.
 
 :::
 
 ## 그룹 멤버 삭제하기
 
-1. 홈 화면에서 ***전체 프로젝트*** 메뉴 하위 그룹 중 하나를 선택하세요.
+1. 사이드 메뉴의 <Cmdname sid="BTN07332" className="uitext" /> 메뉴를 선택해 그룹 및 프로젝트 목록 패널을 여세요.
 
-1. ***그룹 멤버*** 메뉴를 선택하세요.
+1. 패널에서 삭제할 멤버가 포함된 그룹의 오른쪽에 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하세요.
 
-1. ***그룹 멤버*** 목록에서 삭제하려는 멤버의 오른쪽에 ![삭제 아이콘](/img/ico-trash-red.svg) 버튼을 선택하세요.
+1. 사이드 메뉴에서 <Cmdname sid="side_groupMember" className="uitext" />를 선택하세요.
 
-1. 메시지 창이 나타나면 ***삭제*** 버튼을 선택하세요.
+1. <Cmdname sid="side_groupMember" className="uitext" /> 목록에서 삭제하려는 멤버의 오른쪽에 ![삭제 아이콘](/img/ico-trash-red.svg) 버튼을 선택하세요.
+
+1. 메시지 창이 나타나면 <Cmdname sid="delete" className="uitext" /> 버튼을 선택하세요.
 
 :::note
 
-하위 프로젝트에서도 멤버를 삭제하려면 메시지 창에서 체크박스를 클릭한 다음 ***삭제*** 버튼을 선택하세요.
+* 하위 프로젝트에서도 멤버를 삭제하려면 메시지 창에서 체크박스를 클릭한 다음 ***삭제*** 버튼을 선택하세요.
+
+* <Cmdname sid="member_management" className="b600" /> 권한이 없는 경우 다른 멤버을 삭제할 수 없습니다. 멤버 권한에 대한 자세한 설명은 [다음 문서](project-structure#project-auth)를 참조하세요.
+
+:::
+
+## 멤버 목록 다운로드하기 {#downlaodmemberlist}
+
+멤버 목록을 CSV 형식의 파일로 다운로드하려면 다음 단계를 따르세요.
+
+1. 사이드 메뉴의 <Cmdname sid="BTN07332" className="uitext" /> 메뉴를 선택해 그룹 및 프로젝트 목록 패널을 여세요.
+
+1. 패널에서 삭제할 멤버가 포함된 그룹의 오른쪽에 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하세요.
+
+1. 사이드 메뉴에서 <Cmdname sid="side_groupMember" className="uitext" />를 선택하세요.
+
+1. 화면 오른쪽 상단에 ![CSV icon](/img/ic-csv-download-ms.svg) 버튼을 선택하세요.
+
+멤버 목록을 CSV 파일 형식으로 사용자의 로컬 디스크에 저장합니다.
+
+:::note
+
+멤버 목록 다운로드 기능은 <Cmdname sid="member_management" className="b600" /> 권한이 있는 사용자만 이용할 수 있습니다. 멤버 권한에 대한 자세한 설명은 [다음 문서](project-structure#project-auth)를 참조하세요.
 
 :::

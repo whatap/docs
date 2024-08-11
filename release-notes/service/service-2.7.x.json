@@ -1,6 +1,29 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.11",
+    "date": "2024-08-09",
+    "Lists": [
+      {
+        "ver": "Service 2.7.11",
+        "hash": "service-2711",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴에서 TPS 변화량에 대한 복합 메트릭스 템플릿(<span class=\"uitext\">TPS has changed by more than 30% compared to the previous week.</span>)의 알림 오류 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.11",
+        "hash": "service-2711",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다음 메뉴 경로에서 holder type, waiter type 값이 표시되지 않는 문제 수정</p>",
+        "category": "Oracle V2, Oracle Pro",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴의 <span class=\"uitext\">락 트리</span> 테이블</p>\n</li>\n<li>\n<p><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span></p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
     "ver": "Service 2.7.10",
     "date": "2024-08-07",
     "Lists": [
@@ -9,7 +32,7 @@
         "hash": "service-2710",
         "product": "Database",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다음 메뉴 경로에서 같은 sid의 holder와 waiter가 락(Lock)으로 표기되는 오류 수정</p>",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다음 메뉴 경로에서 같은 sid의 holder와 waiter가 락(Lock)으로 표기되는 문제 수정</p>",
         "category": "Oracle V2",
         "details": "<ul>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴의 <span class=\"uitext\">락 트리</span> 테이블</p>\n</li>\n<li>\n<p><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span></p>\n</li>\n</ul>"
       }

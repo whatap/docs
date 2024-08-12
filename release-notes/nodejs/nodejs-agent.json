@@ -1,5 +1,49 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_0",
+    "ver": "v0.5.0",
+    "date": "2024-08-12",
+    "Lists": [
+      {
+        "ver": "v0.5.0",
+        "hash": "v050",
+        "product": "Node.js Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> whatap 에이전트 로그 파일의 경로를 설정하는 에이전트 옵션 추가</p>",
+        "details": "<blockquote>\n<p><strong>log_root</strong> <span class=\"type\">String</span>, 기본값 없음</p>\n</blockquote>"
+      },
+      {
+        "ver": "v0.5.0",
+        "hash": "v050",
+        "product": "Node.js Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> Node.js 내장 함수인 <code>fetch</code>에 대한 모니터링 기능 추가</p>"
+      },
+      {
+        "ver": "v0.5.0",
+        "hash": "v050",
+        "product": "Node.js Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> Redis 모니터링 패키지 추가(ioredis)</p>"
+      },
+      {
+        "ver": "v0.5.0",
+        "hash": "v050",
+        "product": "Node.js Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> 빌드 파일 모니터링 무시 옵션 명칭 수정</p>",
+        "details": "<ul><li><p><code>ignore_nextjs_build_file_enabled</code> → <code>ignore_build_file_enabled</code></p></li><li><p><code>ignore_nextjs_build_file_path</code> → <code>ignore_build_file_path</code></p></li></ul>"
+      },
+      {
+        "ver": "v0.5.0",
+        "hash": "v050",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> <code>auto_oname_prefix</code> 옵션의 값이 <code>false</code>임에도 <code>true</code>로 적용되는 오류 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_4_94",
     "ver": "v0.4.94",
     "date": "2024-03-07",

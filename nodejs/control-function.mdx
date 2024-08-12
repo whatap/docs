@@ -11,18 +11,18 @@ import Nodejscontrolfunction from "../common-items/_nodejs-control-function.mdx"
 
 <Nodejscontrolfunction />  
 
-* **ignore_nextjs_build_file_enabled** <span class='type'>Boolean</span> <code class="my">Node.js Agent v0.4.96 or later</code>
+* **ignore_build_file_enabled** <span class='type'>Boolean</span> <code class="my">Node.js Agent v0.4.96 or later</code>
 
   기본값 `true`
 
   *Next.js* 빌드 파일에 대한 모니터링 여부를 설정합니다. 이 옵션값을 `true`로 설정하면 *Next.js* 빌드 파일을 모니터링하지 않습니다.
 
-* **ignore_nextjs_build_file_path** <span class='type'>String</span> <code class="my">Node.js Agent v0.4.96 or later</code>
+* **ignore_build_file_path** <span class='type'>String</span> <code class="my">Node.js Agent v0.4.96 or later</code>
 
   기본값 `/next/`
   
-  모니터링에서 제외할 *Next.js* 빌드 파일의 시작 경로를 지정할 수 있습니다. `ignore_nextjs_build_file_enabled` 값이 `true`일 경우에 적용됩니다. 쉼표(,)를 구분자로 여러 개의 경로를 설정할 수 있습니다.
+  모니터링에서 제외할 *Next.js* 빌드 파일의 시작 경로를 지정할 수 있습니다. `ignore_build_file_enabled` 값이 `true`일 경우에 적용됩니다. 쉼표(,)를 구분자로 여러 개의 경로를 설정할 수 있습니다.
 
   ```ini title="whatap.conf"
-  ignore_nextjs_build_file_path=/next/abc/,/next/def/
+  ignore_build_file_path=/next/abc/,/next/def/
   ```

@@ -1,0 +1,47 @@
+---
+id: nodejs-0_5_0
+title: Node.js Agent v0.5.0
+toc_max_heading_level: 2
+pagination_next: release-notes/nodejs/nodejs-0_4_98
+displayed_sidebar: releaseSidebar
+---
+
+2024년 08월 12일
+
+- <Status>New</Status> whatap 에이전트 로그 파일의 경로를 설정하는 에이전트 옵션 추가
+
+  > **log_root** <span class='type'>String</span> 기본값 없음
+
+  - `log_root` 옵션에 설정된 경로 하위에 *logs* 폴더를 생성하며 해당 폴더에 whatap 로그 파일이 생성됩니다.
+
+  - 다음 예제와 같이 에이전트 옵션을 설정하면 whatap 로그 파일의 생성 경로는 다음과 같습니다.
+
+    > <em>/Users/sample_user/workspace/nodejs_application/whatap_logs/logs/</em>
+
+    ```ini title="whatap.conf"
+    log_root=/Users/sample_user/workspace/nodejs_application/whatap_logs/
+    ```
+
+- <Status priority='1'>Feature</Status> Node.js 내장 함수인 `fetch`에 대한 모니터링 기능 추가
+
+- <Status priority='1'>Feature</Status> Redis 모니터링 패키지 추가([ioredis](https://www.npmjs.com/package/ioredis))
+
+- <Status priority='1'>Changed</Status> 빌드 파일 모니터링 무시 옵션 명칭 수정
+
+  - `ignore_nextjs_build_file_enabled` → `ignore_build_file_enabled`
+  - `ignore_nextjs_build_file_path` → `ignore_build_file_path`
+
+
+- <Status priority='0'>Fixed</Status>  `auto_oname_prefix` 옵션의 값이 `false`임에도 `true`로 적용되는 오류 수정
+
+:::info
+
+* 패키지 정보: https://www.npmjs.com/package/whatap
+
+* 설치 및 적용 방법
+
+  ```bash
+  npm i whatap
+  ```
+
+:::

@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://docs.whatap.io/release-notes/browser/browser-v1_3_6",
+    "ver": "v1.3.6",
+    "date": "2024-05-30",
+    "Lists": [
+      {
+        "ver": "v1.3.6",
+        "hash": "v136",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 브라우저 에이전트의 번들 사이즈 개선</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/browser/browser-v1_3_5",
+    "ver": "v1.3.5",
+    "date": "2024-03-21",
+    "Lists": [
+      {
+        "ver": "v1.3.5",
+        "hash": "v135",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 사용자 정의 이벤트 수집 인터페이스 추가</p>"
+      },
+      {
+        "ver": "v1.3.5",
+        "hash": "v135",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 클릭 이벤트 수집 옵션 추가</p>"
+      },
+      {
+        "ver": "v1.3.5",
+        "hash": "v135",
+        "product": "Browser Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> Angular 프레임워크 <b>zone.js</b> 관련 대응</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/browser/browser-v1_3_4",
+    "ver": "v1.3.4",
+    "date": "2024-02-19",
+    "Lists": [
+      {
+        "ver": "v1.3.4",
+        "hash": "v134",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 페이지 로드, AJAX 이벤트 발생 시 <b>Network Information API</b>의 다음 지표를 추가 수집</p>",
+        "details": "<ul>\n<li>downlink</li>\n<li>effectiveType</li>\n<li>rtt</li>\n</ul>"
+      },
+      {
+        "ver": "v1.3.4",
+        "hash": "v134",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 리소스 이벤트 발생 시 다음 지표를 추가 수집</p>",
+        "details": "<ul>\n<li>deliveryType</li>\n<li>responseStatus</li>\n</ul>"
+      },
+      {
+        "ver": "v1.3.4",
+        "hash": "v134",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> Content Security Policy(CSP) 에러 수집 기능 추가</p>"
+      }
+    ]
+  }
+]

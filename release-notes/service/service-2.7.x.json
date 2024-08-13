@@ -1,0 +1,666 @@
+[
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.12",
+    "date": "2024-08-12",
+    "Lists": [
+      {
+        "ver": "Service 2.7.12",
+        "hash": "service-2712",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계</span>의 하위 메뉴에서 <span class=\"uitext\">컬럼 설정</span>을 통해 컬럼을 추가한 후 CSV 파일을 다운로드하면 컬럼 설정이 반영되지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.11",
+    "date": "2024-08-09",
+    "Lists": [
+      {
+        "ver": "Service 2.7.11",
+        "hash": "service-2711",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴에서 TPS 변화량에 대한 복합 메트릭스 템플릿(<span class=\"uitext\">TPS has changed by more than 30% compared to the previous week.</span>)의 알림 오류 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.11",
+        "hash": "service-2711",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다음 메뉴 경로에서 holder type, waiter type 값이 표시되지 않는 문제 수정</p>",
+        "category": "Oracle V2, Oracle Pro",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴의 <span class=\"uitext\">락 트리</span> 테이블</p>\n</li>\n<li>\n<p><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span></p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.10",
+    "date": "2024-08-07",
+    "Lists": [
+      {
+        "ver": "Service 2.7.10",
+        "hash": "service-2710",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다음 메뉴 경로에서 같은 sid의 holder와 waiter가 락(Lock)으로 표기되는 문제 수정</p>",
+        "category": "Oracle V2",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴의 <span class=\"uitext\">락 트리</span> 테이블</p>\n</li>\n<li>\n<p><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span></p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.9",
+    "date": "2024-08-07",
+    "Lists": [
+      {
+        "ver": "Service 2.7.9",
+        "hash": "service-279",
+        "product": "Log",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다음 메뉴 경로에서 <span class=\"uitext\">컬럼 설정</span>을 진행하면 로그 원문이 노출되지 않는 문제 수정</p>",
+        "details": "<ul>\n<li><span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">라이브 테일</span></li>\n<li><span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 트렌드</span></li>\n<li><span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 검색</span></li>\n<li><span class=\"uitext\">트레이스 분석</span> &gt; <span class=\"uitext\">트랜잭션 로그</span></li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.7",
+    "date": "2024-08-05",
+    "Lists": [
+      {
+        "ver": "Service 2.7.7",
+        "hash": "service-277",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">SQL 상세</span> 창에서 라이브러리 포맷팅 오류 발생 시 포맷팅할 수 없도록 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.6",
+    "date": "2024-08-02",
+    "Lists": [
+      {
+        "ver": "Service 2.7.6",
+        "hash": "service-276",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 메뉴에서 소문자 true, false가 쿼리에 포함되어 있을 경우 <span class=\"uitext\">SQL 상세</span> 조회 시 화이트 아웃 현상이 발생하는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.6",
+        "hash": "service-276",
+        "product": "Application, Database, Server, Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">실험실</span> &gt; <span class=\"uitext\">알림 메시지</span> 메뉴에서 조직 내 알림 설정 권한이 있는 프로젝트에 알림 설정 복사할 수 없는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.5",
+    "date": "2024-08-01",
+    "Lists": [
+      {
+        "ver": "Service 2.7.5",
+        "hash": "service-275",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴의 <span class=\"uitext\">컨테이너 요약 분석</span>에서 이미지 리소스 정보 오류 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.4",
+    "date": "2024-07-29",
+    "Lists": [
+      {
+        "ver": "Service 2.7.4",
+        "hash": "service-274",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통합 Flex 보드</span> 메뉴에서 읽기 전용으로 공유 받은 대시보드의 그룹 위젯에 포함된 위젯들이 데이터를 호출하지 못하는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.3",
+    "date": "2024-07-26",
+    "Lists": [
+      {
+        "ver": "Service 2.7.3",
+        "hash": "service-273",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code class=\"my\">V1</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 지표 선택 창이 나타나지 않는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.7.3",
+        "hash": "service-273",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 권한 관련 안내 문구 추가</p>",
+        "category": "MySQL"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.2",
+    "date": "2024-07-25",
+    "Lists": [
+      {
+        "ver": "Service 2.7.2",
+        "hash": "service-272",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">히트맵</span> 메뉴의 <span class=\"uitext\">애플리케이션</span> 옵션에서 2개 이상의 에이전트를 선택할 수 없는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.1",
+    "date": "2024-07-24",
+    "Lists": [
+      {
+        "ver": "Service 2.7.1",
+        "hash": "service-271",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">워크로드</span> &gt; <span class=\"uitext\">컨테이너 애플리케이션 목록</span> 메뉴에서 매핑된 컨테이너 정보가 없는 경우 경고 메시지가 표시되지 않는 버그 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.1",
+        "hash": "service-271",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴의 <span class=\"uitext\">리소스 관계</span> 탭에서 적절하지 않은 서비스가 표시되는 버그 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.0",
+    "date": "2024-07-24",
+    "Lists": [
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>Oracle V2</strong> 서비스 시작!!</p>",
+        "category": "Database",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">대시보드</span> 메뉴의 UI 및 기능 대폭 개선했습니다.</p>\n</li>\n<li>\n<p><span class=\"uitext\">대시보드</span> 메뉴에서 데이터베이스의 성능 지표 정보를 확인할 수 있습니다.</p>\n</li>\n<li>\n<p>데이터베이스 로그를 검색하고 추이를 확인할 수 있는 <span class=\"uitext\">로그</span> 메뉴를 추가했고, 로그 관련 알림을 설정할 수 있습니다.</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>Oracle Pro</strong> 서비스 시작!!</p>",
+        "category": "Database",
+        "details": "<p>Direct Memory Access(DMA) 기술을 활용한 접근 방식으로 서버의 메모리에 직접 접근하여 필요한 데이터를 추출합니다. 이 방법은 데이터베이스 서버에 부하를 최소화하거나 발생시키지 않습니다. 메모리에 직접 접근함으로써 데이터를 거의 실시간으로 수집할 수 있으며, 시스템의 성능을 더욱 세밀하게 모니터링하고 문제 발생 시 즉시 대응할 수 있습니다.</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Kubernetes 클러스터 내에서 실행 중인 모든 서비스들의 상태와 정보를 종합적으로 제공하는 <span class=\"uitext\">Service 목록</span> 메뉴 추가</p>",
+        "category": "Kubernetes"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 노드 관점에서 디스크 모니터링을 위한 <span class=\"uitext\">노드 디스크 목록</span> 메뉴 추가</p>",
+        "category": "Kubernetes"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 사이드 메뉴에서 <span class=\"uitext\">전체 프로젝트</span>를 선택해 프로젝트 목록을 펼치면, 프로젝트 검색 입력란에 자동 포커스되는 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 사이드 메뉴의 통합 검색에서 에이전트를 IP 주소로 검색할 수 있는 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "공통",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">보고서</span> 메뉴의 <span class=\"uitext\">보고서 메일 발송 예약</span> 창에서 시간 문구를 타임존이 포함된 문구로 안내하도록 변경</p>",
+        "details": "<blockquote>\n<p>예, 04~06 → (UTC+9) 04~06</p>\n</blockquote>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "공통",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 사이드 메뉴의 조직 목록에 조직 아이콘 노출하도록 변경</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "공통",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">계정 관리</span> 또는 <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 수신 설정</span> 메뉴에서 모바일 기기 알림 테스트 시 표시되는 성공 메시지 문구 변경</p>",
+        "details": "<blockquote>\n<p><span class=\"b500\">모바일 기기와 성공적으로 연결되었습니다.</span> → <span class=\"uitext\">테스트 메시지를 모바일 기기로 전송 요청 하였습니다.</span></p>\n</blockquote>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 기록</span> 메뉴의 <span class=\"uitext\">컬럼 선택</span> 팝오버에서 <span class=\"uitext\">초기화(기본값)</span> 버튼 동작 버그 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"2\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 수신 설정</span> 메뉴에서 사용자 본인 계정이 아닌 다른 사용자의 모바일 기기 테스트 및 삭제 버튼을 선택할 수 없도록 비활성화</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">프로젝트 멤버</span> 메뉴에서 테마 변경 시 이름/소속 태그 색상이 반영되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "공통",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\">Deprecated</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴의 <span class=\"uitext\">이상치 탐지</span> 탭에서 이벤트를 추가 또는 수정할 때 오브젝트 병합 선택 UI 제거</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "공통",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\">Deprecated</code> <span class=\"uitext\">통합 대시보드</span> / <span class=\"uitext\">통합 메트릭스 보드</span></p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 다음 메뉴 경로에서 조회 내용을 CSV 파일 다운로드 기능 추가</p>",
+        "details": "<ul>\n<li><span class=\"uitext\">인스턴스 성능 관리</span> &gt; <span class=\"uitext\">라이브러리 버전</span></li>\n<li><span class=\"uitext\">인스턴스 성능 관리</span> &gt; <span class=\"uitext\">실행 환경 변수</span></li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설정</span> 메뉴에서 경로에서 선택한 에이전트의 에이전트 설정(<em>whatap.conf</em>) 파일 다운로드 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">인스턴스 성능 관리</span> &gt; <span class=\"uitext\">스레드 목록/덤프</span> 메뉴의 테이블에서 CPU 시간 증가량을 표시하는 컬럼 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">트레이스 분석</span> 창의 <span class=\"uitext\">테이블 뷰</span> 및 <span class=\"uitext\">트리 뷰</span> 탭에서 트랜잭션 호스트 정보 없을 경우 포트 표시하지 않도록 변경</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">트레이스 분석</span> 창의 <span class=\"uitext\">멀티 트랜잭션</span> 탭에서 호스트 정보가 없으면 트랜잭션을 노출하지 않도록 변경</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">인스턴스 성능 관리</span>의 하위 메뉴에서 에이전트를 선택한 상태로 다른 하위 메뉴로 이동하면 에이전트 선택 사항을 유지하도록 변경</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">인스턴스 성능 관리</span> &gt; <span class=\"uitext\">힙 덤프</span> 메뉴에서 힙 덤프 확보 관련 안내 메시지가 항상 표시되도록 변경</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">통계</span> &gt; <span class=\"uitext\">Caller</span> 메뉴의 CSV 다운로드 기능으로 다운로드할 수 있는 최대 건수 변경(10만 건 → 1만 건)</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> <span class=\"uitext\">통계</span> 하위 메뉴에서 검색 입력란의 너비 증가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> <img decoding=\"async\" loading=\"lazy\" alt=\"사이트맵 아이콘\" src=\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNy45MDczNCAySDJWMjEuNjkxMUg3LjkwNzM0SDkuODc2NDVIMTEuODQ1NlYxOS43MjJIOS44NzY0NVY5Ljg3NjQ1SDE5LjcyMlYxMi44MzAxSDIxLjY5MTFWOS44NzY0NVY3LjkwNzM0VjJIOS44NzY0NUg3LjkwNzM0Wk03LjkwNzM0IDMuOTY5MTFIMy45NjkxMVYxOS43MjJINy45MDczNFYzLjk2OTExWk05Ljg3NjQ1IDMuOTY5MTFWNy45MDczNEgxOS43MjJWMy45NjkxMUg5Ljg3NjQ1Wk0xOS44MjM3IDE4LjQzMTNDMjAuNzE1NyAxNi45MjExIDIwLjUxMjggMTQuOTQzMyAxOS4yMTUzIDEzLjY0NThDMTcuNjc3MyAxMi4xMDc4IDE1LjE4MzcgMTIuMTA3OCAxMy42NDU4IDEzLjY0NThDMTIuMTA3OCAxNS4xODM3IDEyLjEwNzggMTcuNjc3MyAxMy42NDU4IDE5LjIxNTNDMTQuOTQzMyAyMC41MTI4IDE2LjkyMTEgMjAuNzE1NyAxOC40MzEzIDE5LjgyMzdMMjAuNjA3NiAyMkwyMiAyMC42MDc2TDE5LjgyMzcgMTguNDMxM1pNMTUuMDM4MSAxNy44MjI5QzE1LjgwNzEgMTguNTkxOSAxNy4wNTM5IDE4LjU5MTkgMTcuODIyOSAxNy44MjI5QzE4LjU5MTkgMTcuMDUzOSAxOC41OTE5IDE1LjgwNzEgMTcuODIyOSAxNS4wMzgxQzE3LjA1MzkgMTQuMjY5MSAxNS44MDcxIDE0LjI2OTEgMTUuMDM4MSAxNS4wMzgxQzE0LjI2OTEgMTUuODA3MSAxNC4yNjkxIDE3LjA1MzkgMTUuMDM4MSAxNy44MjI5WiIgZmlsbD0iIzc1NzU3NSIvPg0KPC9zdmc+DQo=\" width=\"24\" height=\"24\" class=\"img_ev3q\"> <span class=\"uitext\">사이트맵</span> &gt; <span class=\"uitext\">토폴로지</span> &gt; <span class=\"uitext\">Netstat 토폴로지</span> 메뉴의 예시 이미지를 영문으로 변경</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴의 <em><strong>TOO_MANY_ACTX</strong></em> 이벤트 템플릿 조건 변경</p>",
+        "details": "<ul>\n<li>\n<p><strong>기존</strong>: <code>endsWith(okindName, 'ote-virtual-0') &amp;&amp; startsWith(onodeName, 'node-0') &amp;&amp; type == 'java'</code></p>\n</li>\n<li>\n<p><strong>변경</strong>: <code>active_tx_count &gt; 100</code></p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">트랜잭션 맵</span> 메뉴의 <span class=\"uitext\">Top 30</span> 목록에서 키보드 이동 시 발생하는 딜레이 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">트랜잭션 맵</span> 메뉴에서 과거 시점으로 필터를 적용한 후 실시간 조회로 변경하면 이전 조회 시점의 필터가 적용되는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">액티브 트랜잭션</span> 메뉴에서 테이블의 스크롤이 동작하지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>Node.js</strong> 상품의 <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 에이전트 다운로드 관련 문구 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"2\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">메트릭스 차트</span> 메뉴에서 다음 위젯 표기 수정</p>",
+        "details": "<ul>\n<li>\n<p>Heap 크기(<code>heap_tot</code>) → <span class=\"uitext\">Heap 총 사용량</span>(<code>heap_tot</code>)</p>\n</li>\n<li>\n<p>Heap 최대 사용량(<code>heap_max</code>) → <span class=\"uitext\">Heap 최대 크기</span>(<code>heap_max</code>)</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\">Deprecated</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴에서 중복되는 <strong>WARNING_OLD_GENARATION_GC</strong> 이벤트 템플릿 삭제</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\">Deprecated</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴에서 불필요한 <strong>WARNING_TPS_DELTA</strong> 이벤트 템플릿 삭제</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\">Deprecated</code> 구버전의 <span class=\"uitext\">애플리케이션 대시보드</span> 제거</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Application",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\">Deprecated</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 메뉴의 안내 메시지 창 제거</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 목록</span> 메뉴에서 테이블의 <span class=\"uitext\">Private IP</span> 컬럼 데이터 표시 방식 변경</p>",
+        "details": "<ul>\n<li>\n<p>IP 별 개행되어 표시하던 방식을 한 줄로 표시하도록 수정</p>\n</li>\n<li>\n<p>컬럼 너비에 따라 말 줄임표(…) 처리 추가</p>\n</li>\n<li>\n<p>127.0.0.1을 가장 나중에 표시하고 Private IP를 먼저 노출하도록 변경</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"2\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 메뉴의 <span class=\"uitext\">메모리 사용률</span> <span class=\"uitext\">상세</span>에서 3시간 이상 조회하면 <span class=\"uitext\">Memory Swap Used</span> 차트가 표시되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 기록</span> 메뉴에서 검색 버튼을 선택할 때, 실제 검색 로직을 수행하는 경우에만 테이블 내부에 로딩 UI를 표시하도록 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴의 요약 보기에서 <span class=\"uitext\">대상 정보</span> 탭에 <span class=\"uitext\">컨테이너 요약 분석</span> 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴의 요약 보기에서 <span class=\"uitext\">대상 정보</span> 및 <span class=\"uitext\">리소스 관계</span> 탭에 <strong>Service</strong> 정보 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴의 <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 검색</span> 탭(요약 또는 상세 보기)에서 <span class=\"uitext\">라이브 테일</span> 메뉴로 이동할 수 있는 링크 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">컨테이너</span> &gt; <span class=\"uitext\">컨테이너 목록</span> 메뉴에서 다음 컬럼의 각 항목에 관련 목록 메뉴로 이동할 수 있는 버튼 추가</p>",
+        "details": "<ul>\n<li><span class=\"uitext\">Deployment</span> → <span class=\"uitext\">Deployment 목록</span></li>\n<li><span class=\"uitext\">Pod</span> → <span class=\"uitext\">Pod 목록</span></li>\n<li><span class=\"uitext\">Image</span>, <span class=\"uitext\">ImageId</span> → <span class=\"uitext\">컨테이너 이미지</span></li>\n<li><span class=\"uitext\">ApplicationName</span> → <span class=\"uitext\">컨테이너 애플리케이션 목록</span></li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">워크로드</span> &gt; <span class=\"uitext\">컨테이너 애플리케이션 목록</span> 메뉴에서 다음 컬럼의 각 항목에 관련 목록 메뉴로 이동할 수 있는 버튼 추가</p>",
+        "details": "<ul>\n<li><span class=\"uitext\">CotainerId</span> → <span class=\"uitext\">컨테이너 목록</span></li>\n<li><span class=\"uitext\">ContainerName</span> → <span class=\"uitext\">컨테이너 목록</span></li>\n<li><span class=\"uitext\">Pod</span> → <span class=\"uitext\">Pod 목록</span></li>\n<li><span class=\"uitext\">Node</span> → <span class=\"uitext\">노드 목록</span></li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">워크로드</span> &gt; <span class=\"uitext\">컨테이너 애플리케이션 목록</span> 메뉴의 <span class=\"uitext\">리소스</span> 그룹에 <span class=\"uitext\">Image</span> 컬럼 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">쿠버네티스 이벤트</span> 메뉴의 이벤트 목록 테이블에 <span class=\"uitext\">이벤트 최초 발생 시간</span>과 <span class=\"uitext\">이벤트 발생 건수</span> 컬럼 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">노드 상세</span> 메뉴에 파드 목록 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">트레이스 분석</span> 창의 <span class=\"uitext\">레코드 요약</span> 탭에서 <strong>Container Id</strong>, <strong>Pod Name</strong> 정보를 제공하고, 해당 정보를 클릭하면 각각 컨테이너 목록, 파드 목록 페이지로 이동하는 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 쿠버네티스 에이전트가 비활성화되면 사용자가 바로 인지할 수 있도록 화면 상단에 에이전트 상태 표시 추가</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">노드 상세</span> 메뉴의 컨테이너 목록에서 컨테이너 상세 버튼의 UI 개선</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴의 요약 또는 상세 보기에서, <strong>Node.js</strong> 애플리케이션 에이전트가 설치된 블록은 <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 검색</span> 탭에서 <strong>Application 로그</strong>를 표시하지 않도록 수정(<strong>Node.js</strong> 상품 로그 모니터링 미지원)</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴에 처음 진입하여 Pod 뷰 또는 컨테이너 뷰로 전환할 때 일시적으로 데이터가 잘못 출력되는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">노드 상세</span> 메뉴에서 상단 지표 타이틀 미표기 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 특정 날짜를 기준으로 설정된 시간대의 SQL의 추이를 비교하고 등락을 확인할 수 있는 <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">Top SQL 비교</span> 메뉴 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 플랜 조회를 위해 쿼리를 선택하면 표시되는 <span class=\"uitext\">SQL 상세</span> 창에서 Full Scan 부분을 빨간색으로 표시하도록 변경</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 다음 메뉴 경로의 화면 상단 옵션바에 데이터베이스 이름을 표시하도록 수정</p>",
+        "category": "공통",
+        "details": "<ul>\n<li><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span></li>\n<li><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">슬로우 쿼리</span></li>\n<li><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span></li>\n<li><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">데드락</span></li>\n<li><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">카운트 추이 비교</span></li>\n<li><span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> &gt; <span class=\"uitext\">데이터베이스</span></li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 플랜 조회 시 표시되는 오브젝트 상세 창에 에러 처리 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 목록</span> 메뉴의 XOS2 지표 대체 안내 메시지가 더 이상 나타나지 않도록 변경</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴에서 일부 위젯의 이름 변경</p>",
+        "category": "공통",
+        "details": "<p><strong>Long Active Sessions</strong> → <em><strong>Long Active Session Count</strong></em></p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 다음 메뉴 경로에서 <span class=\"uitext\">액티브 세션</span> 섹션의 항목을 선택하면 나타나는 <span class=\"uitext\">세션 상세 정보</span> 창을 통해 <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">세션 히스토리</span> 메뉴로 이동하면 해당 세션이 수행되는 시간의 전후 30분을 기본 조회하도록 변경</p>",
+        "category": "공통",
+        "details": "<ul>\n<li><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span></li>\n<li><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span></li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴에서 <span class=\"uitext\">에이전트 비활성 경고</span> 옵션의 기본 시간을 30초에서 1분으로 변경</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"2\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 메뉴에서 소수점 값 기준으로 오름차순 또는 내림차순 정렬되지 않는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴에 DB가 기동한 지 얼마나 시간이 지났는지 확인할 수 있는 <em><strong>Uptime</strong></em> 위젯 추가</p>",
+        "category": "PostgreSQL / MySQL"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "URL",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> URL 목록 안내 문구 디자인 변경</p>"
+      },
+      {
+        "ver": "Service 2.7.0",
+        "hash": "service-270",
+        "product": "Log",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 트렌드</span> 메뉴에서 조회 시간을 변경했을 때 조회 데이터가 없으면 이전 데이터가 남아 있는 문제 수정</p>"
+      }
+    ]
+  }
+]

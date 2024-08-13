@@ -6,6 +6,124 @@ pagination_next: release-notes/service/service-2_6_x
 displayed_sidebar: releaseSidebar
 ---
 
+## Service 2.7.12
+
+2024년 08월 12일
+
+<div class='indentTab'>
+
+### `Application`
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_statistics" className="uitext" />의 하위 메뉴에서 <Cmdname sid="BTN06441" className="uitext" />을 통해 컬럼을 추가한 후 CSV 파일을 다운로드하면 컬럼 설정이 반영되지 않는 문제 수정
+
+</div>
+
+
+## Service 2.7.11
+
+2024년 08월 09일
+
+<div class='indentTab'>
+
+### `Application`
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 TPS 변화량에 대한 복합 메트릭스 템플릿(<UI>TPS has changed by more than 30% compared to the previous week.</UI>)의 알림 오류 수정
+
+---
+
+### `Database`
+
+#### Oracle <code className="my">V2</code>, Oracle Pro
+
+<Status priority='0'>Fixed</Status> 다음 메뉴 경로에서 holder type, waiter type 값이 표시되지 않는 문제 수정
+
+- <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴의 <Cmdname sid="lock_tree" className="uitext" /> 테이블
+
+- <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" />
+
+</div>
+
+
+## Service 2.7.10
+
+2024년 08월 07일
+
+<div class='indentTab'>
+
+### `Database`
+
+#### Oracle <code className="my">V2</code>
+
+<Status priority='0'>Fixed</Status> 다음 메뉴 경로에서 같은 sid의 holder와 waiter가 락(Lock)으로 표기되는 문제 수정
+
+- <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴의 <Cmdname sid="lock_tree" className="uitext" /> 테이블
+
+- <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" />
+
+</div>
+
+
+## Service 2.7.9
+
+2024년 08월 07일
+
+<div class='indentTab'>
+
+### `Log`
+
+<Status priority='0'>Fixed</Status> 다음 메뉴 경로에서 <Cmdname sid="BTN06441" className="uitext" />을 진행하면 로그 원문이 노출되지 않는 문제 수정
+
+- <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" />
+- <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logExplorer" className="uitext" />
+- <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSearch" className="uitext" />
+- <Cmdname sid="TTL06209" className="uitext" /> &gt; <Cmdname sid="TTL06128" className="uitext" />
+
+</div>
+
+
+## Service 2.7.7
+
+2024년 08월 05일
+
+<div class='indentTab'>
+
+### `Database`
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 라이브러리 포맷팅 오류 발생 시 포맷팅할 수 없도록 수정 
+
+</div>
+
+## Service 2.7.6
+
+2024년 08월 02일
+
+<div class='indentTab'>
+
+### `Database`
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="statistics_sql" className="uitext" /> 메뉴에서 소문자 true, false가 쿼리에 포함되어 있을 경우 <Cmdname sid="TTL06224" className="uitext" /> 조회 시 화이트 아웃 현상이 발생하는 문제 수정
+
+---
+
+### `Application`, `Database`, `Server`, `Kubernetes`
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_alertTemplate" className="uitext" /> 메뉴에서 조직 내 알림 설정 권한이 있는 프로젝트에 알림 설정 복사할 수 없는 문제 수정
+
+</div>
+
+## Service 2.7.5
+
+2024년 08월 01일
+
+<div class='indentTab'>
+
+### `Kubernetes`
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 <Cmdname sid="TTL08230" className="uitext" />에서 이미지 리소스 정보 오류 수정
+
+</div>
+
+
 ## Service 2.7.4
 
 2024년 07월 29일

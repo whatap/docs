@@ -1,0 +1,247 @@
+[
+  {
+    "url": "https://docs.whatap.io/release-notes/browser/browser-v1_3_3",
+    "ver": "v1.3.3",
+    "date": "2023-12-27",
+    "Lists": [
+      {
+        "ver": "v1.3.3",
+        "hash": "v133",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> AJAX MTID 헤더 옵션 추가(APM 연계 기능)</p>"
+      },
+      {
+        "ver": "v1.3.3",
+        "hash": "v133",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> <code>ignoreErrors</code> 에러 필터링 옵션 추가</p>"
+      },
+      {
+        "ver": "v1.3.3",
+        "hash": "v133",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 유저 ID 설정 인터페이스 추가</p>"
+      },
+      {
+        "ver": "v1.3.3",
+        "hash": "v133",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 필수 수집 유저 ID 설정 인터페이스 추가</p>"
+      },
+      {
+        "ver": "v1.3.3",
+        "hash": "v133",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> <code>Iframe</code>으로 로드된 페이지의 경우 수집 대상에서 제외</p>"
+      },
+      {
+        "ver": "v1.3.3",
+        "hash": "v133",
+        "product": "Browser Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> AJAX 응답 값 중 <code>opaque</code> 타입의 상태 코드를 기존 0번에서 10번으로 변경</p>"
+      },
+      {
+        "ver": "v1.3.3",
+        "hash": "v133",
+        "product": "Browser Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> <code>MutaionObserver</code> 인터페이스의 attribute 옵션 제외(요소의 속성이 무한에 가깝게 변경하는 것을 감지함에 있어서 오버헤드가 발생함을 수정)</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/browser/browser-v1_3_1",
+    "ver": "v1.3.1",
+    "date": "2023-09-25",
+    "Lists": [
+      {
+        "ver": "v1.3.1",
+        "hash": "v131",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> <code>cookieSecure</code> 옵션 추가, 브라우저 에이전트가 브라우저 쿠키 스토리지에 user id, session id 등의 값을 저장할 때 secure 옵션을 설정할 수 있습니다.</p>"
+      },
+      {
+        "ver": "v1.3.1",
+        "hash": "v131",
+        "product": "Browser Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 특정 리소스를 수집하지 않는 옵션이 정상 작동하지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/browser/browser-v1_2_2",
+    "ver": "v1.2.2",
+    "date": "2023-08-08",
+    "Lists": [
+      {
+        "ver": "v1.2.2",
+        "hash": "v122",
+        "product": "Browser Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> fetch observer가 fetch api를 오버라이딩할 때 Request 객체를 만들어 리턴하지 않고 arguments를 패스 쓰루하여 리턴하도록 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/browser/browser-v1_3_2",
+    "ver": "v1.3.2",
+    "date": "2023-10-24",
+    "Lists": [
+      {
+        "ver": "v1.3.2",
+        "hash": "v132",
+        "product": "Browser Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> Fetch 에러 시 AJAX URL이 수집 안되는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/browser/browser-v1_3_0",
+    "ver": "v1.3.0",
+    "date": "2023-09-06",
+    "Lists": [
+      {
+        "ver": "v1.3.0",
+        "hash": "v130",
+        "product": "Browser Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> 데이터 수집 방법을 옵저버블 패턴 적용</p>"
+      },
+      {
+        "ver": "v1.3.0",
+        "hash": "v130",
+        "product": "Browser Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> 모든 디스패처에 대한 옵저버 관리 로직 개선 및 수정</p>"
+      },
+      {
+        "ver": "v1.3.0",
+        "hash": "v130",
+        "product": "Browser Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> 매소드 오버라이드 로직 개선</p>"
+      },
+      {
+        "ver": "v1.3.0",
+        "hash": "v130",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 페이지로드 중 이탈 시 데이터 수집</p>"
+      },
+      {
+        "ver": "v1.3.0",
+        "hash": "v130",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> AJAX 요청 헤더 수집 옵션 추가</p>"
+      },
+      {
+        "ver": "v1.3.0",
+        "hash": "v130",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> AJAX aborted 지표 수집</p>"
+      },
+      {
+        "ver": "v1.3.0",
+        "hash": "v130",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 페이지 로드 이벤트 처리 로직 개선(인터렉션 100ms)</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/browser/browser-v1_2_0",
+    "ver": "v1.2.0",
+    "date": "2023-06-21",
+    "Lists": [
+      {
+        "ver": "v1.2.0",
+        "hash": "v120",
+        "product": "Browser Agent",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\">Change</code> 일부 로직에 logger 추가</p>"
+      },
+      {
+        "ver": "v1.2.0",
+        "hash": "v120",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> pageloadID(페이지 전환 전까지 고유한 ID) 추가</p>"
+      },
+      {
+        "ver": "v1.2.0",
+        "hash": "v120",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 디스패처별 타임아웃 설정 및 최대 대기시간 5초로 설정</p>"
+      },
+      {
+        "ver": "v1.2.0",
+        "hash": "v120",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> pcode별 샘플링 강제 설정 옵션 추가</p>"
+      },
+      {
+        "ver": "v1.2.0",
+        "hash": "v120",
+        "product": "Browser Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 워커 압축 로직 개선</p>"
+      },
+      {
+        "ver": "v1.2.0",
+        "hash": "v120",
+        "product": "Browser Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> Firefox 브라우저에서 워커 생성 에러 발생 시 에러가 정상 처리 안되는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/browser/browser-v1_2_1",
+    "ver": "v1.2.1",
+    "date": "2023-07-06",
+    "Lists": [
+      {
+        "ver": "v1.2.1",
+        "hash": "v121",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 동일 에러의 경우 5초에 1번 수집하도록 설정</p>"
+      },
+      {
+        "ver": "v1.2.1",
+        "hash": "v121",
+        "product": "Browser Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 브라우저 에이전트 파일 내부에 버전 표기</p>"
+      },
+      {
+        "ver": "v1.2.1",
+        "hash": "v121",
+        "product": "Browser Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> AJAX Status 0에 대한 에러 처리가 포함되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "v1.2.1",
+        "hash": "v121",
+        "product": "Browser Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> Fetch api 수집 시 세부 시간이 정상 수집되지 않는 문제 수정</p>"
+      }
+    ]
+  }
+]

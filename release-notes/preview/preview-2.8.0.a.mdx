@@ -14,6 +14,107 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.8.0.a3
+
+2024년 08월 08일
+
+<div class='indentTab'>
+
+### `공통`
+
+<Status priority='0'>Fixed</Status> 일부 텍스트에 적용되는 테마가 누락된 문제 수정
+
+</div>
+
+
+## Preview 2.8.0.a2
+
+2024년 08월 08일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status priority='1'>Feature</Status> 다음 메뉴 경로에서 멤버 목록을 CSV 형식의 파일로 다운로드할 수 있는 기능 추가
+
+  - 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_projectMember" className="uitext" />
+  - 홈 화면 &gt; <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_integratedMemberManagement" className="uitext" />
+  - 홈 화면 &gt; <Cmdname sid="organization_management" className="uitext" /> &gt; <Cmdname sid="side_organizationMembers" className="uitext" />
+
+- <Status priority='0'>Changed</Status> 통합 그룹 관리 버튼 위치 및 UI 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_integratedFlexboard" className="uitext" /> 또는 <Cmdname sid="side_flexboard" className="uitext" /> 메뉴의 <Cmdname sid="rich_text" className="uitext" /> 위젯에서 수정 화면을 열고 닫는 과정에서 저장하지 않은 내용이 유지되는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_integratedFlexboard" className="uitext" /> 또는 <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 <Cmdname sid="rich_text" className="uitext" /> 위젯의 수정 화면에서 텍스트와 툴바 버튼의 툴팁이 겹쳐 보이지 않도록 툴팁 요소에 테마 설정
+
+- <Status priority='0'>Fixed</Status> 웹 브라우저의 화면 크기에 따라 사이드 메뉴에서 <Cmdname sid="organization" className="uitext" /> 목록의 스크롤 오류 수정 
+
+---
+
+### `Application`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 <Cmdname sid="AA016" className="b500" /> 위젯 이름을 <Cmdname sid="AA002" className="uitext" />으로 변경, 위젯 이름을 줄바꿈 없이 한 줄로 표시하도록 수정
+
+- <Status priority='0'>Fixed</Status> 트랜잭션의 SQL 문에서 치환된 변수 `#` 을 `$`로 치환해서 표시하지 않도록 수정
+
+---
+
+### `Server`
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_serverSetting" className="uitext" /> &gt; <Cmdname sid="side_bootEnvironmentVariable" className="uitext" /> 또는 <Cmdname sid="side_serverEnvironmentVariable" className="uitext" /> 메뉴에서 ![확장 아이콘](/img/ic-s-arrows-alt.svg) 에이전트 목록 확장 버튼을 선택하면 화면 상단의 메뉴명이 <Cmdname sid="side_agentLogViewer" className="b500" />로 변경되는 문제 수정 
+
+---
+
+### `Database`
+
+#### Oracle <code className="my">V2</code>, Oracle Pro
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 <UI>Main Waits</UI> 위젯의 데이터를 `active_session` 카테고리에서 조회하도록 변경
+
+- <Status priority='0'>Fixed</Status> 다음 메뉴 경로에서 holder type, waiter type 값이 표시되지 않는 오류 수정
+
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴의 <Cmdname sid="lock_tree" className="uitext" /> 테이블
+
+  - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" />
+
+#### Oracle <code className="my">V2</code>
+
+<Status priority='0'>Fixed</Status> 다음 메뉴 경로에서 같은 sid의 holder와 waiter가 락(Lock)으로 표기되는 오류 수정
+
+- <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴의 <Cmdname sid="lock_tree" className="uitext" /> 테이블
+
+- <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" />
+
+---
+
+### `Browser`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_rumErrorDashboard" className="uitext" /> &gt; <Cmdname sid="error_message" className="uitext" /> <Cmdname sid="table" className="uitext" /> 섹션의 UI 개선
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_rumErrorDashboard" className="uitext" /> &gt; <Cmdname sid="error_message" className="uitext" /> <Cmdname sid="table" className="uitext" /> &gt; <Cmdname sid="error" className="uitext" /> <Cmdname sid="detail" className="uitext" /> &gt; <Cmdname sid="TTL06188" className="uitext" /> 섹션의 UI 개선
+
+---
+
+### `Network`
+
+<Status priority='0'>Changed</Status> 사용자 언어가 영어일 때, <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 <Cmdname sid="TTL07943" className="uitext" /> 섹션에서 <b>Version</b>을 <UI>Kernel Version</UI>으로 수정
+
+---
+
+### `Log`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSetting" className="uitext" /> &gt; <Cmdname sid="getting_started_log_monitoring" className="uitext" />에서 <Cmdname sid="data_retention_per_category" className="uitext" /> 항목 중 `#`이 붙은 카테고리는 표시되지 않도록 처리
+
+- <Status priority='0'>Fixed</Status> 다음 메뉴 경로에서 <Cmdname sid="BTN06441" className="uitext" />을 진행하면 로그 원문이 노출되지 않는 문제 수정
+
+  - <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" />
+  - <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logExplorer" className="uitext" />
+  - <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSearch" className="uitext" />
+  - <Cmdname sid="TTL06209" className="uitext" /> &gt; <Cmdname sid="TTL06128" className="uitext" />
+
+</div>
+
+
 ## Preview 2.8.0.a1
 
 2024년 08월 01일
@@ -22,7 +123,9 @@ toc_max_heading_level: 2
 
 ### `공통`
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 메트릭스 타입 필터 내 조건 간 `OR` 선택지 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_integratedFlexboard" className="uitext" /> 또는 <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 메트릭스 타입 필터 내 조건 간 `OR` 선택지 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_integratedFlexboard" className="uitext" /> 또는 <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 리치(Rich) 텍스트 위젯의 글꼴 색상 선택 옵션 추가
 
 - <Status priority='1'>Changed</Status> 테마 색상 일부 변경
 
@@ -46,7 +149,11 @@ toc_max_heading_level: 2
 
 ### `Application`
 
-<Status priority='1'>Changed</Status> 사용자 설정 언어가 영어일 때, <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 <UI>Apdex</UI> 위젯 안내 모달의 가독성 향상을 위해 크기 수정
+- <Status priority='1'>Changed</Status> <Cmdname sid="TTL06209" className="uitext" /> 팝업창의 필터링 선택 상자를 그룹 형식의 버튼으로 변경
+
+  ![changes](/img/release/release-trace-analysis-filter-changes.png)
+
+- <Status priority='1'>Changed</Status> 사용자 설정 언어가 영어일 때, <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 <UI>Apdex</UI> 위젯 안내 모달의 가독성 향상을 위해 크기 수정
 
 
 ---
@@ -59,17 +166,43 @@ toc_max_heading_level: 2
 
 ### `Kubernetes`
 
-- <Status priority='1'>Changed</Status> <UI>ApplicationName</UI>, <UI>ApplicationId</UI> 컬럼을 <Cmdname sid="TTL08105" className="uitext" /> 컬럼 하위로 이동
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_containerizedAppList" className="uitext" /> 메뉴에서 <UI>ApplicationName</UI>, <UI>ApplicationId</UI> 컬럼을 <Cmdname sid="TTL08105" className="uitext" /> 컬럼 하위로 이동
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_containerizedAppList" className="uitext" /> 메뉴에서 매핑된 컨테이너 정보가 없는 경우 경고 메시지가 표시되지 않는 버그 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 <Cmdname sid="TTL08230" className="uitext" />에서 이미지 리소스 정보 오류 수정
 
 ---
 
 ### `Database`
 
+#### 공통
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="session_kill" className="uitext" /> 기능을 성공하거나 실패하면 사용자 행위로 기록하는 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_projectMember" className="uitext" /> 메뉴에서 <Cmdname sid="invite_help_whatap_account" className="uitext" /> 기능 사용 시 dbx@whatap.io 계정이 함께 초대되지 않도록 수정
+
+#### PostgreSQL
+
+<Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에 현재 진행 중인 vacuum 프로세스 수를 확인할 수 있는 <UI>Vacuum Sessions</UI> 위젯 추가
+
+#### MySQL
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_deadLock" className="uitext" /> 메뉴에서 조회한 데이터가 없을 때 표시되는 메시지가 절반만 표시되는 문제 수정
+
 #### Oracle <code className="my">V2</code>, Oracle Pro
 
-<Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 상세 차트의 elapse time 값이 비정상적으로 높은 문제 수정
+- <Status priority='1'>Feature</Status> <Cmdname sid="TTL06224" className="uitext" /> 팝업창의 <UI>Runtime Plan</UI>, <UI>Explain Plan</UI> 테이블에 <UI>FILTER_PREDICATES</UI> 컬럼 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 <Cmdname sid="TTL06224" className="uitext" /> 팝업창으로 진입했을 때 <UI>OBJECT_NAME</UI> 컬럼의 링크가 활성화되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 상세 차트의 elapse time 값이 비정상적으로 높은 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 메뉴에 Cluster Name을 표기하도록 수정
+
+#### Redis <code className="my">V1</code>, MongoDB <code className="my">V1</code>
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 메뉴에 Cluster Name을 표기하지 않도록 수정
 
 </div>
 

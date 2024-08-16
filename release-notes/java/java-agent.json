@@ -46,7 +46,7 @@
         "product": "Java Agent",
         "type": "Changed",
         "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> spring-kafka batch 추적 시 트랜잭션이름 수정</p>",
-        "details": "<ul>\n<li>\n<p>기존: <code>[kafka] {topic} (cnt: {Number of polls in kafka})</code></p>\n</li>\n<li>\n<p>수정: <code>[kafka-batch] {topic}</code></p>\n</li>\n</ul>"
+        "details": "<ul>\n<li>\n<p>기존: <code>[kafka] {topic} (cnt: {Number of polls in Kafka})</code></p>\n</li>\n<li>\n<p>수정: <code>[kafka-batch] {topic}</code></p>\n</li>\n</ul>"
       },
       {
         "ver": "v2.2.38",

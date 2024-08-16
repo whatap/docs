@@ -1,5 +1,93 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_36",
+    "ver": "v2.2.36",
+    "date": "2024-07-18",
+    "Lists": [
+      {
+        "ver": "v2.2.36",
+        "hash": "v2236",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 위빙 플러그인 컴파일 버전과 사용자 코드 타겟 버전이 차이가 나면 원본 클래스를 반환하는 설정 추가</p>"
+      },
+      {
+        "ver": "v2.2.36",
+        "hash": "v2236",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> System 로그를 남기는 경우 다른 트랜잭션에 해당 로그가 포함되는 문제 수정</p>",
+        "details": "<blockquote>\n<p>예, System.out, System.err, hibernate System 로그 (<code>org.hibernate.engine.jdbc.spi.SqlStatementLogger.logStatement</code>)</p>\n</blockquote>"
+      },
+      {
+        "ver": "v2.2.36",
+        "hash": "v2236",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> logback, log4j 사용 시 Exception stack을 포함한 로그가 발생했을 때 사용자의 로그 콘텐츠를 수집하지 못하는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_38",
+    "ver": "v2.2.38",
+    "date": "2024-08-14",
+    "Lists": [
+      {
+        "ver": "v2.2.38",
+        "hash": "v2238",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> spring-boot-3.2 추적</p>"
+      },
+      {
+        "ver": "v2.2.38",
+        "hash": "v2238",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> spring-kafka batch 추적 시 트랜잭션이름 수정</p>",
+        "details": "<ul>\n<li>\n<p>기존: <code>[kafka] {topic} (cnt: {Number of polls in kafka})</code></p>\n</li>\n<li>\n<p>수정: <code>[kafka-batch] {topic}</code></p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v2.2.38",
+        "hash": "v2238",
+        "product": "Java Agent",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\" type=\"1\">Deprecated</code> lettuce 드라이버의 key, param 추적 중단</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_32",
+    "ver": "v2.2.32",
+    "date": "2024-04-16",
+    "Lists": [
+      {
+        "ver": "v2.2.32",
+        "hash": "v2232",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> aws.mysql 라이브러리를 사용할 경우 <code>executeBatchInternal</code> 메소드 추적</p>",
+        "details": "<ul>\n<li>\n<code>software.aws.rds.jdbc.mysql.shading.com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchInternal</code>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v2.2.32",
+        "hash": "v2232",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> Spring-boot-2.7.x에서 사용자가 NettyRoutingFilter 클래스를 구현하여 사용하는 경우에도 연계 추적할 수 있도록 수정</p>",
+        "details": "<ul>\n<li>Class NettyRoutingFilter <code>org.springframework.cloud.gateway.filter.NettyRoutingFilter</code></li>\n</ul>"
+      },
+      {
+        "ver": "v2.2.32",
+        "hash": "v2232",
+        "product": "Java Agent",
+        "type": "Deprecate",
+        "desc": "<p><code class=\"Deprecate\">Deprecate</code> <span class=\"uitext\">인스턴스 성능 관리</span> &gt; <span class=\"uitext\">환경변수</span> 메뉴에서 <code>jvm.uptime</code> 데이터 수집 중단</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_37",
     "ver": "v2.2.37",
     "date": "2024-07-31",
@@ -43,6 +131,27 @@
     ]
   },
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_35",
+    "ver": "v2.2.35",
+    "date": "2024-06-20",
+    "Lists": [
+      {
+        "ver": "v2.2.35",
+        "hash": "v2235",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> spring-boot-3.0.5 이상 (spring-webflux-6.0.7 이상) 버전에서 WebClient 사용 시 연계 추적 기능 추가</p>"
+      },
+      {
+        "ver": "v2.2.35",
+        "hash": "v2235",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> spring-boot-2.5 미만에서 spring-cloud-gateway를 통해 트랜잭션을 호출하면 연결되지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_33",
     "ver": "v2.2.33",
     "date": "2024-05-28",
@@ -68,6 +177,27 @@
         "product": "Java Agent",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\">Fixed</code> <code>db_pool_detail</code> 카테고리의 메트릭스에서 <code>$okind</code>, <code>$onode</code> 값을 각각 <code>okindName</code>, <code>onodeName</code>으로 변경</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_34",
+    "ver": "v2.2.34",
+    "date": "2024-06-14",
+    "Lists": [
+      {
+        "ver": "v2.2.34",
+        "hash": "v2234",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> camel-cxf-3.15 플러그인 사용 시 에이전트 로그 수정</p>"
+      },
+      {
+        "ver": "v2.2.34",
+        "hash": "v2234",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> <code>heapdump_root</code> 옵션에 <code>log_root</code> 경로가 등록되는 문제 수정</p>"
       }
     ]
   },
@@ -137,107 +267,6 @@
     ]
   },
   {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_2_36",
-    "ver": "v2.2.36",
-    "date": "2024-07-18",
-    "Lists": [
-      {
-        "ver": "v2.2.36",
-        "hash": "v2236",
-        "product": "Java Agent",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\">Feature</code> 위빙 플러그인 컴파일 버전과 사용자 코드 타겟 버전이 차이가 나면 원본 클래스를 반환하는 설정 추가</p>"
-      },
-      {
-        "ver": "v2.2.36",
-        "hash": "v2236",
-        "product": "Java Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> System 로그를 남기는 경우 다른 트랜잭션에 해당 로그가 포함되는 문제 수정</p>",
-        "details": "<blockquote>\n<p>예, System.out, System.err, hibernate System 로그 (<code>org.hibernate.engine.jdbc.spi.SqlStatementLogger.logStatement</code>)</p>\n</blockquote>"
-      },
-      {
-        "ver": "v2.2.36",
-        "hash": "v2236",
-        "product": "Java Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> logback, log4j 사용 시 Exception stack을 포함한 로그가 발생했을 때 사용자의 로그 콘텐츠를 수집하지 못하는 문제 수정</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_2_35",
-    "ver": "v2.2.35",
-    "date": "2024-06-20",
-    "Lists": [
-      {
-        "ver": "v2.2.35",
-        "hash": "v2235",
-        "product": "Java Agent",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\">Feature</code> spring-boot-3.0.5 이상 (spring-webflux-6.0.7 이상) 버전에서 WebClient 사용 시 연계 추적 기능 추가</p>"
-      },
-      {
-        "ver": "v2.2.35",
-        "hash": "v2235",
-        "product": "Java Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> spring-boot-2.5 미만에서 spring-cloud-gateway를 통해 트랜잭션을 호출하면 연결되지 않는 문제 수정</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_2_34",
-    "ver": "v2.2.34",
-    "date": "2024-06-14",
-    "Lists": [
-      {
-        "ver": "v2.2.34",
-        "hash": "v2234",
-        "product": "Java Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> camel-cxf-3.15 플러그인 사용 시 에이전트 로그 수정</p>"
-      },
-      {
-        "ver": "v2.2.34",
-        "hash": "v2234",
-        "product": "Java Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> <code>heapdump_root</code> 옵션에 <code>log_root</code> 경로가 등록되는 문제 수정</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_2_32",
-    "ver": "v2.2.32",
-    "date": "2024-04-16",
-    "Lists": [
-      {
-        "ver": "v2.2.32",
-        "hash": "v2232",
-        "product": "Java Agent",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\">Feature</code> aws.mysql 라이브러리를 사용할 경우 <code>executeBatchInternal</code> 메소드 추적</p>",
-        "details": "<ul>\n<li>\n<code>software.aws.rds.jdbc.mysql.shading.com.mysql.cj.jdbc.ClientPreparedStatement.executeBatchInternal</code>\n</li>\n</ul>"
-      },
-      {
-        "ver": "v2.2.32",
-        "hash": "v2232",
-        "product": "Java Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> Spring-boot-2.7.x에서 사용자가 NettyRoutingFilter 클래스를 구현하여 사용하는 경우에도 연계 추적할 수 있도록 수정</p>",
-        "details": "<ul>\n<li>Class NettyRoutingFilter <code>org.springframework.cloud.gateway.filter.NettyRoutingFilter</code></li>\n</ul>"
-      },
-      {
-        "ver": "v2.2.32",
-        "hash": "v2232",
-        "product": "Java Agent",
-        "type": "Deprecate",
-        "desc": "<p><code class=\"Deprecate\">Deprecate</code> <span class=\"uitext\">인스턴스 성능 관리</span> &gt; <span class=\"uitext\">환경변수</span> 메뉴에서 <code>jvm.uptime</code> 데이터 수집 중단</p>"
-      }
-    ]
-  },
-  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_30",
     "ver": "v2.2.30",
     "date": "2024-03-21",
@@ -248,6 +277,76 @@
         "product": "Java Agent",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\">Fixed</code> Java 1.5 ~ 1.7 환경에서 Java 에이전트 2.2.28, 2.2.29 버전이 동작하지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_28",
+    "ver": "v2.2.28",
+    "date": "2024-02-27",
+    "Lists": [
+      {
+        "ver": "v2.2.28",
+        "hash": "v2228",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> logback-1.2.8 추적 시 appender 제외 옵션 추가</p>"
+      },
+      {
+        "ver": "v2.2.28",
+        "hash": "v2228",
+        "product": "Java Agent",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\">Deprecated</code> logback-1.2.8 추적 시 지정한 appender만 수집하는 옵션 사용 중단</p>"
+      },
+      {
+        "ver": "v2.2.28",
+        "hash": "v2228",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> log4j-2.17 추적 시 appender 제외 옵션 추가</p>"
+      },
+      {
+        "ver": "v2.2.28",
+        "hash": "v2228",
+        "product": "Java Agent",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\">Deprecated</code> log4j-2.17 추적 시 지정한 appender만 수집하는 옵션 사용 중단</p>"
+      },
+      {
+        "ver": "v2.2.28",
+        "hash": "v2228",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> 컨테이너 환경에서 Pod 이름을 설정하지 않은 경우 환경 변수(<code>env</code>)의 <code>HOSTNAME</code>에서 추출하도록 변경</p>"
+      },
+      {
+        "ver": "v2.2.28",
+        "hash": "v2228",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> JBoss Connection Pool 연결 시 로그 숫자 제한하도록 수정</p>"
+      },
+      {
+        "ver": "v2.2.28",
+        "hash": "v2228",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> 통계 데이터 전송 시 로그 수정</p>"
+      },
+      {
+        "ver": "v2.2.28",
+        "hash": "v2228",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> <code>trace_sampling_enabled</code> 옵션을 사용할 경우 TPS를 과하게 수집하는 문제 수정</p>"
+      },
+      {
+        "ver": "v2.2.28",
+        "hash": "v2228",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> spring-boot-3.x의 spring-security exception 수집 시 발생하는 에러 수정</p>"
       }
     ]
   },
@@ -346,76 +445,6 @@
         "product": "Java Agent",
         "type": "Deprecate",
         "desc": "<p><code class=\"Deprecate\">Deprecate</code> Lettuce 드라이버 사용 시 Redis의 value 수집 중단</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_2_28",
-    "ver": "v2.2.28",
-    "date": "2024-02-27",
-    "Lists": [
-      {
-        "ver": "v2.2.28",
-        "hash": "v2228",
-        "product": "Java Agent",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\">Feature</code> logback-1.2.8 추적 시 appender 제외 옵션 추가</p>"
-      },
-      {
-        "ver": "v2.2.28",
-        "hash": "v2228",
-        "product": "Java Agent",
-        "type": "Deprecated",
-        "desc": "<p><code class=\"Deprecated\">Deprecated</code> logback-1.2.8 추적 시 지정한 appender만 수집하는 옵션 사용 중단</p>"
-      },
-      {
-        "ver": "v2.2.28",
-        "hash": "v2228",
-        "product": "Java Agent",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\">Feature</code> log4j-2.17 추적 시 appender 제외 옵션 추가</p>"
-      },
-      {
-        "ver": "v2.2.28",
-        "hash": "v2228",
-        "product": "Java Agent",
-        "type": "Deprecated",
-        "desc": "<p><code class=\"Deprecated\">Deprecated</code> log4j-2.17 추적 시 지정한 appender만 수집하는 옵션 사용 중단</p>"
-      },
-      {
-        "ver": "v2.2.28",
-        "hash": "v2228",
-        "product": "Java Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> 컨테이너 환경에서 Pod 이름을 설정하지 않은 경우 환경 변수(<code>env</code>)의 <code>HOSTNAME</code>에서 추출하도록 변경</p>"
-      },
-      {
-        "ver": "v2.2.28",
-        "hash": "v2228",
-        "product": "Java Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> JBoss Connection Pool 연결 시 로그 숫자 제한하도록 수정</p>"
-      },
-      {
-        "ver": "v2.2.28",
-        "hash": "v2228",
-        "product": "Java Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> 통계 데이터 전송 시 로그 수정</p>"
-      },
-      {
-        "ver": "v2.2.28",
-        "hash": "v2228",
-        "product": "Java Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> <code>trace_sampling_enabled</code> 옵션을 사용할 경우 TPS를 과하게 수집하는 문제 수정</p>"
-      },
-      {
-        "ver": "v2.2.28",
-        "hash": "v2228",
-        "product": "Java Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> spring-boot-3.x의 spring-security exception 수집 시 발생하는 에러 수정</p>"
       }
     ]
   },

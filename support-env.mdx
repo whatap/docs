@@ -395,7 +395,7 @@ import Mobileapp from "./getting-started/_mobile-app.mdx";
 
 경고 알림과 관련해 모니터링 플랫폼별 지원되는 이벤트 종류를 확인할 수 있습니다.
 
-| 기능 | 이벤트 발생시 수신 | <Link to="/server/set-receive-event#escalation" target='_blank'><Cmdname sid="TTL06149" /></Link> | <Link to="/server/set-event-history#scrollTo-alert-acknowledge" target='_blank'><Cmdname sid="sms_alert_acknowledge" /></Link><br/>(Acknowledge) | <Link to="/server/metric-warning-notice#scrollTo-event-pause" target='_blank'><Cmdname sid="event_pause" /></Link><br/>(무음) | <Link to="/server/metric-warning-notice#scrollTo-resolve-event" target='_blank'><Cmdname sid="resolved_event_notification" /></Link><br/>(Recovered) |
+| 기능 | 이벤트 발생시 수신 | <Link to="/server/set-receive-event#escalation" target='_blank'><Cmdname sid="TTL06149" /></Link> | <Link to="/server/set-event-history#scrollTo-alert-acknowledge" target='_blank'><Cmdname sid="sms_alert_acknowledge" /></Link><br/>(Acknowledge) | <Link to="/server/metric-warning-notice#scrollTo-event-pause" target='_blank'><Cmdname sid="event_pause" /></Link><br/>(무음) | <Link to="/server/metric-warning-notice#scrollTo-resolve-event" target='_blank'><Cmdname sid="CNT08320" /></Link><br/>(Recovered) |
 | --- | :-: | :-: | :-: | :-: | :-: |
 | 메트릭스 | ✅ | ✅ <sup><Link to="#stateful">(1)</Link></sup> | ✅ <sup><Link to="#acknowledge">(2)</Link></sup> | ✅ | ✅ |
 | 로그 | ✅ | ❌ | ❌ | ✅ | ❌ |
@@ -414,7 +414,7 @@ import Mobileapp from "./getting-started/_mobile-app.mdx";
 
 * <Cmdname sid="TTL06149" className="uitext" /> 기능은 <span class='vslow'>Critical</span> (또는 <Cmdname sid="fatal" className="vslow" />) 등급의 모든 이벤트를 대상으로 합니다. 이벤트 추가 시 설정한 <Cmdname sid="level" className="uitext" /> 항목을 참조하세요.
 
-* <a name="stateful">(1)</a>: 메트릭스의 반복 알림 기능은 <Cmdname sid="resolved_event_notification" className="uitext" /> 기능 활성화 시 동작합니다.
+* <a name="stateful">(1)</a>: 메트릭스의 반복 알림 기능은 <Cmdname sid="CNT08320" className="uitext" /> 기능 활성화 시 동작합니다.
 
 * <a name="acknowledge">(2)</a>: <Cmdname sid="sms_alert_acknowledge" className="uitext" /> 기능은 서버 프로젝트만 제공합니다. 처리 내역을 입력하면 <Cmdname sid="TTL06149" className="uitext" /> 기능은 일시 정지합니다.
 

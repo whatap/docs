@@ -27,10 +27,8 @@ Java 에이전트를 통해 추적하고 있는 프레임워크 또는 오픈소
 | hystrix | hystrix-1.5 이상  | `weaving=hystrix-1.5` | <Link to="../release-notes/java/java-2_0#v20_21" target="_blank">v2.0_21</Link> | - |
 | kafka | kafka-clients-2.4.0 이상 | `weaving=kafka-clients-2.4.0` | <Link to="../release-notes/java/java-2_2_15" target="_blank">v2.2.15</Link> | - |
 | ^ | reactor-kafka-1.3 이상 | `weaving=reactor-kafka-1.3` | <Link to="../release-notes/java/java-2_2_5" target="_blank">v2.2.5</Link> | - |
-| redis(jedis) | jedis-2.9.3 이상  | `weaving=jedis-2.9.3` | <Link to="../release-notes/java/java-2_0#v20_33" target="_blank">v2.0_33</Link> | - |
-| ^ | jedis-3.2 이상  | `weaving=jedis-3.2` | <Link to="../release-notes/java/java-2_0#v20_09" target="_blank">v2.0_09</Link> | - |
-| redis(lettuce) | lettuce-5.1 이상 | `weaving=lettuce-5.1` | <Link to="../release-notes/java/java-2_2_7" target="_blank">v2.2.7</Link> | - |
-| ^ | lettuce-6.2 이상 | `weaving=lettuce-6.2` | <Link to="../release-notes/java/java-2_2_16" target="_blank">v2.2.16</Link> | - |
+| logback | logback-1.2.8 이상 | `weaving=logback-1.2.8` | <Link to="../release-notes/java/java-2_2_28" target="_blank">v2.2.28</Link> | [특정 appender 제외하는 에이전트 옵션 제공](agent-log#excludeappender) |
+| log4j2 | log4j-2.17 이상 | `weaving=log4j-2.17` | <Link to="../release-notes/java/java-2_2_28" target="_blank">v2.2.28</Link> | [특정 appender 제외하는 에이전트 옵션 제공](agent-log#excludeappender) |
 | mongodb, mongodb-reactive | mongodb-3.8.2 이상 | `weaving=mongodb-3.8.2` | <Link to="../release-notes/java/java-2_2_11" target="_blank">v2.2.11</Link> | - |
 | ^ | mongodb-4.0.3 이상 | `weaving=mongodb-4.0.3` | <Link to="../release-notes/java/java-2_2_11" target="_blank">v2.2.11</Link> | - |
 | ^ | mongodb-4.4 이상 | `weaving=mongodb-4.4` | <Link to="../release-notes/java/java-2_2_11" target="_blank">v2.2.11</Link> | - |
@@ -38,15 +36,17 @@ Java 에이전트를 통해 추적하고 있는 프레임워크 또는 오픈소
 | mule framework | mule-3.9.5 이상 | `weaving=mule-3.9.5` | <Link to="../release-notes/java/java-2_2_23" target="_blank">v2.2.23</Link> | - |
 | ^ | mule-4.5 이상 | `weaving=mule-4.5` | <Link to="../release-notes/java/java-2_2_23" target="_blank">v2.2.23</Link> | - |
 | okhttp | okhttp-2.7 이상 | `weaving=okhttp-2.7` | <Link to="../release-notes/java/java-2_0#v20_15" target="_blank">v2.0_15</Link> | - |
-| ^ | okhttp3 이상 | `weaving=okhttp3` | <Link to="../release-notes/java/java-2_0#v20_15" target="_blank">v2.0_15</Link> | - |
-| ^ | okhttp3-4.4 | `weaving=okhttp3-4.4` | <Link to="../release-notes/java/java-2_2_9" target="_blank">v2.2.9</Link> | - |
 | quarkus, quarkus-reactive | quarkus-reactive-1.13 이상 | `weaving=quarkus-reactive-1.13` | <Link to="../release-notes/java/java-2_2_19" target="_blank">v2.2.19</Link> | - |
 | ^ | quarkus-reactive-2.10 이상 | `weaving=quarkus-reactive-2.10` | <Link to="../release-notes/java/java-2_2_19" target="_blank">v2.2.19</Link> | - |
+| redis(jedis) | jedis-2.9.3 이상  | `weaving=jedis-2.9.3` | <Link to="../release-notes/java/java-2_0#v20_33" target="_blank">v2.0_33</Link> | - |
+| ^ | jedis-3.2 이상  | `weaving=jedis-3.2` | <Link to="../release-notes/java/java-2_0#v20_09" target="_blank">v2.0_09</Link> | - |
+| redis(lettuce) | lettuce-5.1 이상 | `weaving=lettuce-5.1` | <Link to="../release-notes/java/java-2_2_7" target="_blank">v2.2.7</Link> | - |
+| ^ | lettuce-6.2 이상 | `weaving=lettuce-6.2` | <Link to="../release-notes/java/java-2_2_16" target="_blank">v2.2.16</Link> | - |
+| ^ | okhttp3 이상 | `weaving=okhttp3` | <Link to="../release-notes/java/java-2_0#v20_15" target="_blank">v2.0_15</Link> | - |
+| ^ | okhttp3-4.4 | `weaving=okhttp3-4.4` | <Link to="../release-notes/java/java-2_2_9" target="_blank">v2.2.9</Link> | - |
 | rabbitmq | reactor-rabbitmq-1.2 이상 | `weaving=reactor-rabbitmq-1.2` | <Link to="../release-notes/java/java-2_0#v20_06" target="_blank">v2.0_06</Link> | - |
 | retrofit | retrofit2-2.5 이상 | `weaving=retrofit-2.5` | - | (배포 예정) |
 | ribbon | ribbon | `weaving=ribbon` | <Link to="../release-notes/java/java-2_2_10" target="_blank">v2.2.10</Link> | - |
-| logback | logback-1.2.8 이상 | `weaving=logback-1.2.8` | <Link to="../release-notes/java/java-2_2_28" target="_blank">v2.2.28</Link> | [특정 appender 제외하는 에이전트 옵션 제공](agent-log#excludeappender) |
-| log4j2 | log4j-2.17 이상 | `weaving=log4j-2.17` | <Link to="../release-notes/java/java-2_2_28" target="_blank">v2.2.28</Link> | [특정 appender 제외하는 에이전트 옵션 제공](agent-log#excludeappender) |
 | spring-boot | spring-boot-2.1 이상 | `weaving=spring-boot-2.1` | <Link to="../release-notes/java/java-2_2_23" target="_blank">v2.2.23</Link> | kafka-clients, r2dbc-mysql, spring-cloud-gateway, spring-webflux, tomcat9, undertow 포함 |
 | ^ | spring-boot-2.5 이상 | `weaving=spring-boot-2.5` | <Link to="../release-notes/java/java-2_2_9" target="_blank">v2.2.9</Link> | kafka-clients, r2dbc-mysql, redis(lettuce), spring-cloud-gateway, spring-webflux, tomcat9, undertow 포함 |
 | ^ | spring-boot-2.7 이상 | `weaving=spring-boot-2.7` | <Link to="../release-notes/java/java-2_2_9" target="_blank">v2.2.9</Link> | jasync-r2dbc-mysql, kafka-clients, r2dbc-mysql, redis(lettuce), spring-cloud-gateway, spring-webflux, tomcat9, undertow 포함 |

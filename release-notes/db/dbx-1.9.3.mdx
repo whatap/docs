@@ -1,0 +1,20 @@
+---
+id: dbx-1_9_3
+title: DBX v1.9.3
+pagination_next: release-notes/db/dbx-1_9_2
+displayed_sidebar: releaseSidebar
+---
+
+2024년 08월 08일
+
+## Oracle
+
+- <Status priority='1'>Changed</Status> lock 정보 수집 시 holder와 waiter의 sid가 같을 경우 수집하지 않도록 수정
+
+- <Status priority='1'>Changed</Status> `DbAgentInfoPack` 카테고리에 `isV2` 필드 추가
+
+- <Status priority='0'>Fixed</Status> `pq_sessions`, `lock_wait_sessions` 지표 이름의 공백 제거
+
+## MySQL
+
+<Status priority='0'>Fixed</Status> `db_mysql_tables` 카테고리에서 ALL 값이 맞지 않는 버그 수정

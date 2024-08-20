@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java-batch/java-batch-2_2_25",
+    "ver": "v2.2.25",
+    "date": "2024-08-20",
+    "Lists": [
+      {
+        "ver": "v2.2.25",
+        "hash": "v2225",
+        "product": "Java Batch Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> <code>profile_expired_time</code> 옵션의 기본값을 30초로 수정</p>"
+      },
+      {
+        "ver": "v2.2.25",
+        "hash": "v2225",
+        "product": "Java Batch Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> 프로파일 정리 작업 시 에이전트 로그 일부 수정</p>"
+      },
+      {
+        "ver": "v2.2.25",
+        "hash": "v2225",
+        "product": "Java Batch Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 배치 작업이 끝난 후에도 추적 데이터 수집이 되지 않는 문제 방지</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java-batch/java-batch-2_2_24",
     "ver": "v2.2.24",
     "date": "2024-02-27",

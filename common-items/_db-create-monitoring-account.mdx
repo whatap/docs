@@ -2,9 +2,17 @@
 
 데이터베이스 모니터링을 하기 위해 필요한 권한을 가진 계정을 생성하세요. root(admin) 계정으로 로그인해 계정을 생성하세요.
 
+<InDoc product="altibase">
+
+```sql title="SQL"
+create user DB_User with password 'DB Password';
+```
+
+</InDoc>
+
 :::note
 
-<Xclude product="postgresql,mysql">
+<Xclude product="postgresql,mysql,altibase">
 
 * 이미 있는 계정을 사용하고 싶다면 [DB 유저 파일 생성](#create-db-user)으로 넘어가세요. 권한이 없을 경우 모니터링을 시작할 수 없습니다.
 
@@ -12,7 +20,7 @@
 
 </Xclude>
 
-<InDoc product="postgresql,mysql">
+<InDoc product="postgresql,mysql,altibase">
 
 * 권한을 가진 계정이 있다면 이 단계를 생략하고 [다음 단계](#check-accesskey)로 넘어가세요.
 

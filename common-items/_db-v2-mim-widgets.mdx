@@ -1,0 +1,250 @@
+## 주요 위젯 알아보기 {#about-widget}
+
+대시보드에 배치할 수 있는 위젯의 종류는 다음과 같습니다.
+
+### XOS 위젯
+
+* ***[XOS] CPU***
+
+  에이전트별 CPU 사용률을 실시간으로 확인할 수 있습니다.
+
+* ***[XOS] Memory***
+
+  에이전트별 메모리 사용률을 실시간으로 확인할 수 있습니다.
+
+* ***[XOS] Disk Usage***
+
+  에이전트별 디스크 사용률과 사용 가능 크기, 전체 크기 정보를 표시합니다. 
+  
+  * ![상세 아이콘](/img/ico-detail.svg) : <Cmdname sid="TTL07856" className="uitext" /> 팝업창이 나타납니다. 시간대별 디스크 사용량을 표시한 차트를 확인할 수 있습니다. 인스턴스별로 확인할 수 있으며, <UI>Size</UI>, <UI>Free</UI>, <UI>Used</UI> 버튼을 선택하면 전체 크기, 남은 크기, 사용 중인 크기를 확인할 수 있습니다. 
+
+  * ![확대 아이콘](/img/ic-fullscreen.svg) : 위젯에 표시된 테이블을 더 넓은 화면으로 펼쳐볼 수 있습니다.
+
+  :::tip
+
+  데이터가 표시되지 않는다면 *xos.conf* 파일에 다음 설정을 추가하세요.
+
+  ```ini title='xos.conf'
+  # disk usage 0 이면 off, 단위: 초
+  disk_usage_interval=60
+  ```
+
+  :::
+
+<InDoc product="postgresql,mysql">
+
+### AWS RDS CloudWatch 위젯
+
+* ***[RDS] CPUUtilization***
+
+  RDS 데이터베이스의 인스턴스별 CPU 사용률을 실시간으로 확인할 수 있습니다.
+
+* ***[RDS] FreeableMemory***
+
+  RDS 데이터베이스의 인스턴스별 메모리 사용률을 실시간으로 확인할 수 있습니다.
+
+* ***[RDS] FreeStorageSpace***
+
+  RDS 데이터베이스의 사용 가능한 저장 공간의 양을 실시간으로 확인할 수 있습니다.
+
+:::note
+
+AWS CloudWatch 지표 조회를 위한 에이전트 설정 방법은 [다음 문서](agent-dbx-settings#using-aws-rds)를 참조하세요.
+
+:::
+
+</InDoc>
+
+<InDoc product="oracle,oracle-pro">
+
+### Oracle RAC 위젯
+
+* ***[RAC] Load Balance***
+
+  Oracle RAC(Real Application Clusters) 데이터베이스에서 실행 중인 인스턴스의 리소스를 실시간으로 모니터링할 수 있습니다. 사용자는 데이터베이스의 부하 및 성능 지표를 시각적으로 모니터링할 수 있습니다. CPU 성능 및 액티브 세션, 물리적 읽기 작업, 사용 가능한 메모리 수치를 확인할 수 있습니다.
+
+* ***[RAC] Interconnect Bandwidth***
+
+  Oracle RAC(Real Application Clusters)에서 사용되는 인터커넥트(Interconnect) 대역폭을 모니터링하는 위젯입니다. 데이터베이스 노드 간의 통신 대역폭을 실시간으로 표시하여 클러스터 내 데이터베이스, 인스턴스 간의 네트워크 트래픽 상태를 모니터링할 수 있습니다.
+
+* ***[RAC] Main Waits***
+
+  Global Lock 상태와 각 이벤트의 대기 횟수를 파악할 수 있습니다. 이 위젯은 데이터베이스의 특정 카테고리에서 수집한 지표를 통해 각 이벤트의 총 대기 횟수를 조회하고, 각 에이전트(인스턴스)의 가장 최근 데이터를 추출합니다. 이를 통해 특정 시간에 발생한 데이터베이스 대기 이벤트 상태를 신속하게 파악할 수 있습니다.
+
+</InDoc>
+
+### Database 위젯
+
+<InDoc product="postgresql,mysql,oracle,oracle-pro,altibase">
+
+* ***Active Sessions***
+
+  시간에 따른 액티브 세션의 수치를 시계열 차트로 시각적으로 표시합니다. 데이터베이스에서 실행 중인 세션의 수를 시간별로 추적하여 그래프로 나타낸 위젯입니다. 세션의 사용 패턴 및 부하를 시각적으로 파악하는 데 유용합니다.
+
+* ***Lock Wait Sessions***
+
+  시간에 따른 락 대기 세션의 수치를 시계열 그래프로 시각적으로 표시합니다. 데이터베이스에서 락 대기 상태에 있는 세션의 수를 시간별로 추적하여 실시간 그래프로 표시한 위젯입니다.
+
+* ***Long Active Session Count***
+
+  데이터베이스에서 실행되는 활성 세션의 장기 실행에 관한 정보를 제공합니다. 세션의 실행 시간에 따라 그룹화되어 시간 단위로 집계된 정보를 차트로 표시합니다. 오랜 시간 실행되는 세션을 식별하여 데이터베이스의 성능 문제나 리소스 누수를 조기에 감지하거나, 세션 실행 시간에 따른 분류를 통해 어떤 세션이 장기간 활성 상태로 유지되고 있는지 시각적으로 파악할 수 있습니다.
+
+  3초 미만은 <span class="normal">파란색</span>, 3초 이상 10초 미만은 <span class="snormal">녹색</span>, 10초 이상 15초 미만은 <span class='slow'>주황색</span>, 15초 이상은 <span class='vslow'>빨간색</span>으로 표시합니다.
+
+* ***Long Waiting Session Count***
+
+  데이터베이스에서 락을 보유하거나 대기하는 세션의 장기 대기 시간에 대한 정보를 제공합니다. 락 정보와 활성 세션 정보를 결합하여 대기 중인 세션의 장기 대기 시간을 추적할 수 있습니다. 오랜 시간 동안 락을 보유하거나 대기하는 세션을 모니터링합니다. 어떤 세션이 오랜 시간 동안 락을 보유하거나 대기하고 있는지 시각적으로 파악할 수 있습니다.
+
+  5초 미만은 <span class="normal">파란색</span>, 5초 이상 10초 미만은 <span class="snormal">녹색</span>, 10초 이상 60초 미만은 <span class='slow'>주황색</span>, 60초 이상은 <span class='vslow'>빨간색</span>으로 표시합니다.
+
+* ***SQL Elapse Map***
+
+  실행 중인 쿼리의 경과 시간을 실시간 차트로 표시합니다. 차트의 특정 영역을 드래그하면 ***Query List*** 목록을 확인할 수 있습니다. ![위 방향 아이콘](/img/up-arrow.svg) 또는 ![아래 방향 아이콘](/img/down-arrow.svg) 버튼을 선택해 세로축의 범위를 확대 또는 축소할 수 있습니다.
+
+  :::note
+
+  쿼리의 실행 시간은 액티브 세션을 수집하여 계산합니다. 따라서 액티브 세션 수집 주기에 따라 오차 범위가 발생할 수 있습니다. 다음 그림을 참고하세요. 수집 주기 사이에 종료된 SQL 수행 시간은 계산되지 않습니다. 수집 주기가 짧을 수록 오차 범위는 줄어들 수 있지만 DB 부하를 고려해 일반적으로 5초로 셋팅했습니다. 장시간 수행되는 쿼리 모니터링에 유용합니다. ***SQL 통계*** 메뉴의 데이터도 동일합니다.
+
+  ![](/img/db-sql-elapse-map-example.png)
+
+  :::
+
+</InDoc>
+
+<InDoc product="oracle,oracle-pro">
+
+* ***Wait Event***
+
+  각 백엔드 프로세스가 현재 대기 중인 대기 이벤트 이름과 해당 이벤트의 발생 빈도를 실시간 그래프로 표시합니다. 주로 Application, Configuration, Administrative, Network 등과 관련된 항목의 대기 이벤트를 모니터링합니다. 각 대기 이벤트의 발생 빈도를 시각적으로 확인할 수 있으며, 그래프 위로 마우스를 가져가면 툴팁이 표시되어 각 대기 이벤트에 대한 자세한 정보를 제공합니다.
+
+* ***Physical Reads***
+
+  데이터베이스에서 발생하는 물리적인 읽기 작업(physical reads)을 모니터링하는 위젯입니다. 주로 데이터베이스가 디스크에서 데이터를 읽어오는 작업에 대한 통계를 제공하여 데이터베이스의 I/O 성능을 모니터링합니다.
+
+* ***Excute Count***
+
+  데이터베이스에서 실행된 쿼리 또는 프로시저의 실행 횟수를 모니터링하는 위젯입니다. 데이터베이스에 의해 실행된 쿼리나 프로시저의 실행 횟수를 실시간으로 추적하여 사용자에게 제공합니다.
+
+* ***Session Logical Reads***
+
+  데이터베이스 세션에서 수행된 논리적인 읽기 작업(logical reads)을 모니터링하는 위젯입니다. 데이터베이스 세션에서 수행된 논리적인 읽기 작업의 횟수를 실시간으로 추적하여 사용자에게 제공합니다.
+
+</InDoc>
+
+<InDoc product="altibase">
+
+* ***Logical Reads*** (data page gets)
+
+  시스템 또는 세션에서 래치를 사용하여 데이터 페이지에 접근한 횟수입니다. 버퍼의 Hit Ratio는 `(get pages + fix pages - read pages) / (get pages + fix pages)`로 계산합니다.
+
+* ***Physical Reads*** (data page read)
+
+  시스템 또는 세션에서 페이지를 읽은 횟수로, 버퍼에 적재되지 않은 페이지를 디스크에서 읽어오는 물리적인 읽기 횟수입니다. 물리적 읽기 횟수가 많을수록 시스템의 쿼리 처리 속도가 저하될 수 있습니다.
+
+* ***Memory Table Access*** (memory table access count)
+
+  시스템 또는 세션에서 메모리 테이블에 접근한 횟수입니다.
+
+* ***Disk Table Full Scan*** (disk table cursor full scan count)
+
+  시스템 또는 세션에서 디스크 테이블에 대한 풀 스캔 커서를 연 횟수입니다.
+
+* ***Commits*** (session commit)
+
+  시스템 또는 세션에서 발생한 커밋(Commit) 횟수입니다.
+
+* ***Undo Reads*** (undo page gets)
+
+  시스템 또는 세션에서 래치를 사용하여 UNDO 페이지에 접근한 횟수입니다.
+
+* ***Execute Count*** (execute success count)
+
+  시스템 또는 세션에서 쿼리가 성공적으로 실행된 횟수입니다. 트랜잭션 처리량을 평가할 때 `execute success count + prepare success count + prepare failure count`로 계산할 수 있습니다.
+
+* ***Prepare Count*** (prepare success count)
+
+  시스템 또는 세션에서 Prepare 단계가 성공한 횟수입니다. 이 단계는 쿼리 문법 오류 확인 및 실행 계획 수립을 포함하며, 전체 쿼리 처리 시간의 60-70%를 차지할 수 있습니다. 이 값이 지나치게 높다면 반복적인 Prepare 작업을 줄이도록 쿼리 최적화가 필요합니다.
+
+</InDoc>
+
+<InDoc product='postgresql'>
+
+* ***DML Tuples***
+
+  DML(Data Manipulation Language) 문법(statement)이 수행된 횟수를 실시간 차트로 표시합니다.
+
+* ***Slow Query***
+
+  시간대별 슬로우 쿼리를 실시간 차트로 표시합니다. 차트의 특정 영역을 드래그하면 ***Slow Query List*** 목록을 확인할 수 있습니다. ![위 방향 아이콘](/img/up-arrow.svg) 또는 ![아래 방향 아이콘](/img/down-arrow.svg) 버튼을 선택해 세로축의 범위를 확대 또는 축소할 수 있습니다.
+
+* ***Logical I/O***
+
+  `blks_hit` 지표로, 디스크 블록이 이미 버퍼 캐시에서 발견되어 읽기가 필요하지 않은 총 횟수입니다.
+
+* ***Physical I/O***
+
+  물리적인 disk에서 데이터를 읽은 횟수입니다.
+
+* ***Uptime***
+
+  에이전트(인스턴스)가 기동한 지 얼마나 시간이 지났는지 확인할 수 있습니다. 시간은 `{dd}d {hh:mm:ss}` 형식으로 표시합니다.
+
+* ***Commits***
+
+  시스템 또는 세션에서 발생한 커밋(Commit) 횟수입니다.
+
+* ***Replication Delay***
+
+  Replication 구조일 경우 replication DB에 반영되는 지연 시간을 실시간 차트로 표시합니다.
+
+* ***Wait Event***
+
+  각 백엔드 프로세스가 현재 대기 중인 대기 이벤트 이름과 해당 이벤트의 발생 빈도를 실시간 그래프로 표시합니다. 주로 Application, Configuration, Administrative, Network 등과 관련된 항목의 대기 이벤트를 모니터링합니다. 각 대기 이벤트의 발생 빈도를 시각적으로 확인할 수 있으며, 그래프 위로 마우스를 가져가면 툴팁이 표시되어 각 대기 이벤트에 대한 자세한 정보를 제공합니다.
+
+* ***Vacuum Sessions***
+
+  현재 진행 중인 vacuum 프로세스 수를 확인할 수 있습니다. 위젯 오른쪽 상단에 ![상세 아이콘](/img/ico-detail.svg) 버튼을 선택하면 <Cmdname sid="TTL08277" className="uitext" /> 창이 나타납니다. <Cmdname sid="TTL08277" className="uitext" />에서는 진행되었던 vacuum 프로세스의 상세 정보를 확인할 수 있습니다.
+
+</InDoc>
+
+<InDoc product="mysql">
+
+* ***Questions***
+
+  MySQL 서버에서 실행한 명령문 수입니다. Stored program 내에서 실행된 명령문을 계산하지 않는다는 점 에서 Queries와 다릅니다.
+
+* ***Slow Query***
+
+  시간대별 슬로우 쿼리를 실시간 차트로 표시합니다. 차트의 특정 영역을 드래그하면 ***Slow Query List*** 목록을 확인할 수 있습니다. ![위 방향 아이콘](/img/up-arrow.svg) 또는 ![아래 방향 아이콘](/img/down-arrow.svg) 버튼을 선택해 세로축의 범위를 확대 또는 축소할 수 있습니다.
+
+* ***Logical I/O***
+
+  물리적 읽기 포함한 논리적 읽기 요청 횟수입니다. `Inodb buffer pool hit` 백분율 계산을 다음과 같이 할 수 있으며, 90% 이상을 권장합니다. 만약 Hit Ratio가 낮다면 `Innodb_buffer_pool_size` 증설을 검토하세요.
+
+  > `Buffer Hit Ratio` = (1 - (`Innodb_buffer_pool_reads`/`Innodb_buffer_pool_read_requests`)) * 100
+
+* ***Physical I/O***
+
+  물리적인 disk에서 데이터를 읽은 횟수입니다.
+
+* ***Uptime***
+
+  에이전트(인스턴스)가 기동한 지 얼마나 시간이 지났는지 확인할 수 있습니다. 시간은 `{dd}d {hh:mm:ss}` 형식으로 표시합니다.
+
+* ***Commits***
+
+  시스템 또는 세션에서 발생한 커밋(Commit) 횟수입니다.
+
+* ***Replication Delay***
+
+  Replication 구조일 경우 replication DB에 반영되는 지연 시간입니다.
+
+* ***Select Full Join***
+
+  하나 이상의 테이블을 조인(`JOIN`)할 때 인덱스를 사용하지 않고 드리븐(Driven) 테이블에 대해 풀 스캔(Full Scan)이 수행된 횟수입니다.
+
+* ***Tmp Tables***
+
+  인스턴스별 명령문을 실행하는 동안 서버에 의해 생성된 내부 임시 테이블의 수입니다.
+
+</InDoc>

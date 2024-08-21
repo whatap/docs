@@ -63,4 +63,40 @@ whatap.trace_active_transaction_lost_time=300000
 trace_active_transaction_lost_time=300000
 ```
 
+### 동시 접속 사용자 수 / 방문자 수
+
+> 동시 접속 사용자 수와 방문자 수의 차이는 무엇인가요?
+
+**동시 접속 사용자 수**는 10초 간격으로 최근 5분 동안 요청을 보낸 사용자들을 중복 없이 집계한 값입니다. 이 값을 계산하기 위해 10초 간격으로 수집된 데이터를 활용합니다. 이 지표는 서버가 짧은 시간 동안 얼마나 많은 사용자를 처리하고 있는지를 보여주며 서버의 실시간 부하를 평가하는 데 중요한 역할을 합니다.
+
+**방문자 수**는 최근 5분 동안 요청을 보낸 사용자들을 중복 없이 1시간 동안 집계한 값입니다. 즉, 1시간 동안의 모든 5분 간격 데이터를 합산하여 **방문자 수**를 계산합니다. 이 지표는 일정 기간 동안 웹사이트나 애플리케이션에 방문한 고유 사용자 수를 측정하는 데 사용되며 주로 트래픽 분석과 사용자 참여도 평가에 활용됩니다.
+
+**동시 접속 사용자 수**와 **방문자 수**는 계산 방식과 그 목적에서 차이가 있습니다. 
+
+**동시 접속 사용자 수**는 특정 시점에서 애플리케이션에 활동 중인 사용자를 측정하며 짧은 시간 간격(5분)으로 집계됩니다. 이 지표는 주로 서버 부하 관리와 성능 평가에 사용됩니다.
+
+**방문자 수**는 특정 기간(1시간) 동안 애플리케이션을 방문한 고유 사용자 수를 측정하며 중복되지 않은 사용자 수를 기준으로 합산하여 계산됩니다. 이 지표는 트래픽 분석과 사용자 참여도 평가에 주로 사용됩니다.
+
+동시 접속 사용자 수와 방문자 수는 다음 메뉴 경로에서 확인할 수 있습니다.
+
+* <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" />
+
+  <Cmdname sid="dashboard_user" className="uitext" /> 위젯은 동시 접속 사용자 수를 실시간으로 확인할 수 있습니다.
+
+* <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsChart" className="uitext" />
+
+  <Cmdname sid="product_type_apm" className="uitext" /> 카테고리의 <Cmdname sid="user" className="uitext" /> 항목에서 <Cmdname sid="realtime_user" className="uitext" /> 또는 <Cmdname sid="visitor" className="uitext" />를 선택하세요.
+
+  :::note
+
+  <Cmdname sid="realtime_user" className="uitext" /> 차트의 지표는 5분 단위로 계산하며, 이 통계를 1시간 단위로 변환할 때는 5분 간격의 평균값을 사용합니다.
+
+  :::
+
+* <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" />
+  
+  * **동시 접속 사용자 수**: <Cmdname sid="category" className="uitext" /> 옵션에서 `app_user`를 선택하고 `realtime_user` 필드값을 확인하세요.
+
+  * **방문자 수**: <Cmdname sid="category" className="uitext" /> 옵션에서 `visitor`를 선택하고 `visit_user` 필드값을 확인하세요.
+
 </div>

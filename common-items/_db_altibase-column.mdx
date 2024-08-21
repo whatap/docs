@@ -1,0 +1,131 @@
+## 컬럼 정보 안내{#column-info}
+
+컬럼 정보에 대한 보다 자세한 내용은 [다음 링크](https://altibase.com/kr/learn/manuals.php)를 참조하세요.
+
+<Tabs groupId="db-columns">
+
+<TabItem value="activesession" label="Active session">
+
+| 항목 | 설명 |
+| -- | -- |
+| `action` | 현재 세션에서 실행 중인 작업 또는 명령입니다. |
+| `active_flag` | 세션이 활성화 상태인지 여부를 나타냅니다. |
+| `autocommit_flag` | 자동 커밋이 활성화되어 있는지 여부를 나타냅니다. |
+| `client_app_info` | 클라이언트 애플리케이션에 대한 정보입니다. |
+| `client_info` | 클라이언트의 사용자 정의 정보를 나타냅니다. |
+| `client_nls` | 클라이언트의 NLS(National Language Support) 설정입니다. |
+| `client_package_version` | 클라이언트 패키지의 버전입니다. |
+| `client_pid` | 클라이언트 프로세스의 ID입니다. |
+| `client_protocol_version` | 클라이언트와 서버 간에 사용되는 프로토콜의 버전입니다. |
+| `client_type` | 클라이언트의 유형을 나타냅니다. |
+| `comm_name` | 세션에서 사용 중인 커뮤니케이션 이름입니다. |
+| `commit_write_wait_mode` | 커밋 시 데이터 쓰기 대기 모드를 나타냅니다. |
+| `current_stmt_id` | 현재 실행 중인 SQL 문의 ID입니다. |
+| `data page gets` | 데이터 페이지를 읽기 위해 접근한 횟수입니다. |
+| `data page read` | 데이터 페이지를 물리적으로 읽은 횟수입니다. |
+| `db_username` | 데이터베이스에 연결된 사용자 이름입니다. |
+| `dblink_global_transaction_level` | DB 링크의 전역 트랜잭션 수준입니다. |
+| `dblink_remote_statement_autocommit` | DB 링크 원격 문서의 자동 커밋 여부를 나타냅니다. |
+| `dbname` | 현재 연결된 데이터베이스의 이름입니다. |
+| `ddl_time_limit` | DDL(데이터 정의 언어) 작업의 시간 제한입니다. |
+| `default_date_format` | 기본 날짜 형식입니다. |
+| `default_tbsid` | 세션의 기본 테이블스페이스 ID입니다. |
+| `default_temp_tbsid` | 세션의 기본 임시 테이블스페이스 ID입니다. |
+| `elapse_time` | 작업이 시작된 이후 경과한 시간입니다. |
+| `event` | 현재 또는 마지막으로 발생한 이벤트입니다. |
+| `execute success count` | 성공적으로 실행된 명령의 횟수입니다. |
+| `failover_source` | 페일오버 시 원본 서버의 정보입니다. |
+| `fetch_time_limit` | 데이터를 페치하는 데 걸리는 최대 시간입니다. |
+| `header_display_mode` | 헤더 정보의 표시 모드입니다. |
+| `id` | 세션의 고유 ID입니다. |
+| `idle_time_limit` | 세션의 유휴 시간 제한입니다. |
+| `isolation_level` | 현재 트랜잭션의 격리 수준입니다. |
+| `lob_cache_threshold` | LOB(Large Object) 캐시의 임계값입니다. |
+| `login_time` | 세션이 로그인한 시간입니다. |
+| `max_statements_per_session` | 세션당 최대 실행 가능한 문장 수입니다. |
+| `memory table access count` | 메모리 테이블에 접근한 횟수입니다. |
+| `module` | 현재 실행 중인 모듈 이름입니다. |
+| `nls_currency` | NLS 설정에서 사용하는 통화 기호입니다. |
+| `nls_iso_currency` | NLS 설정에서 사용하는 ISO 통화 코드입니다. |
+| `nls_numeric_characters` | NLS 설정에서 사용하는 숫자 문자입니다. |
+| `nls_territory` | NLS 설정에서 사용하는 지역 정보입니다. |
+| `oname` | 에이전트 또는 인스턴스의 이름입니다. |
+| `opened_stmt_count` | 열린 SQL 문장의 수입니다. |
+| `optimizer_mode` | 쿼리 최적화 모드입니다. |
+| `p1` | 이벤트의 첫 번째 매개변수입니다. |
+| `p2` | 이벤트의 두 번째 매개변수입니다. |
+| `p3` | 이벤트의 세 번째 매개변수입니다. |
+| `paralle_dml_mode` | 병렬 DML(데이터 조작 언어) 모드입니다. |
+| `query` | 실행된 SQL 쿼리입니다. |
+| `query_hash` | 쿼리의 해시 값입니다. |
+| `query_param` | 쿼리 실행 시 사용된 매개변수입니다. |
+| `query_rewrite_enable` | 쿼리 재작성 기능의 활성화 여부입니다. |
+| `query_time_limit` | 쿼리 실행의 시간 제한입니다. |
+| `rebuild count` | 재구성 작업의 횟수입니다. |
+| `replication_mode` | 복제 모드 설정입니다. |
+| `second_in_time` | 시간의 초 단위 표현입니다. |
+| `seqnum` | 세션의 시퀀스 번호입니다. |
+| `session_state` | 세션의 현재 상태입니다. |
+| `ssl_certificate_issuer` | SSL 인증서 발급자 정보입니다. |
+| `ssl_certificate_subject` | SSL 인증서의 주체 정보입니다. |
+| `ssl_cipher` | 사용 중인 SSL 암호화 방식입니다. |
+| `stack_size` | 세션의 스택 크기입니다. |
+| `sysdba_flag` | SYSDBA 권한 사용 여부를 나타냅니다. |
+| `task_state` | 현재 작업의 상태입니다. |
+| `time` | 작업이 수행된 시간입니다. |
+| `time_zone` | 세션의 시간대 설정입니다. |
+| `trans_id` | 현재 트랜잭션의 ID입니다. |
+| `transaction_mode` | 트랜잭션 모드를 나타냅니다. |
+| `trx_update_max_logsize` | 트랜잭션 업데이트 시 최대 로그 크기입니다. |
+| `utrans_time_limit` | 사용자 트랜잭션의 시간 제한입니다. |
+| `wait_time` | 세션이 대기 중인 시간입니다. |
+| `xa_associate_flag` | XA 트랜잭션 연관 플래그입니다. |
+| `xa_session_flag` | XA 트랜잭션 세션 플래그입니다. |
+
+</TabItem>
+
+<TabItem value="locktree" label="Lock tree">
+
+| 항목 | 설명 |
+| -- | -- |
+| `oname` | 에이전트 또는 인스턴스의 이름입니다. |
+| `id` | 세션의 고유 ID입니다. |
+| `db_username` | 데이터베이스에 연결된 사용자 이름입니다. |
+| `elapse_time` | 작업이 시작된 이후 경과한 시간입니다. |
+| `waiter type` | 현재 락을 대기 중인 엔티티의 유형을 나타냅니다. |
+| `holder type` | 현재 락을 소유하고 있는 엔티티의 유형을 나타냅니다. |
+| `holder desc` | 현재 락을 소유하고 있는 엔티티에 대한 상세 설명을 제공합니다. |
+| `waiter desc` | 현재 락을 대기 중인 엔티티에 대한 상세 설명을 제공합니다. 
+| `query` | 실행된 SQL 쿼리입니다. |
+| `query_param` | 쿼리 실행 시 사용된 매개변수입니다. |
+
+</TabItem>
+
+<TabItem value="process-info" label="Process information">
+
+다음 항목은 XOS 에이전트를 설치한 경우 수집되는 지표입니다.
+
+| 항목 | 설명 |
+| -- | -- |
+| `cputime` | CPU 사용 시간 |
+| `cpuusage` | CPU 사용률 |
+| `elapse` | CPU 사용 경과 시간 |
+| `vsize` | 가상 메모리 사이즈(Kb) |
+| `rss` | Resident Set Size(RSS), 프로세스와 관련한 물리적 페이지 수 |
+| `state` | 프로세스 상태 |
+| `ioread` | 블록을 읽는 데 소요된 실제 시간(milliseconds) |
+| `iowrite` | 블록을 쓰는 데 소요된 실제 시간(milliseconds) |
+| `pss` | 프로세스 고유 메모리 사용량 + 하나의 프로세스가 차지하는 공유 메모리 비율 |
+| `uid` | user id |
+| `cmd` | 수행 중인 명령어 |
+| `longcmd` | cmd의 전체 경로 |
+
+</TabItem>
+
+</Tabs>
+
+:::note
+
+와탭은 클라이언트와 관련한 정보를 기본 저장합니다.
+
+:::

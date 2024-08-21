@@ -77,23 +77,17 @@ displayed_sidebar: manageSidebar
 
     * **Single sign-on URL**: 와탭에서 발급 받은 SSO 정보 중 ***Sign-On URL*** 값을 입력하세요.
 
-    * **Audience URI (SP Entity ID)**: 와탭에서 발급 받은 SSO 정보 중 ***EntityID*** 값을 입력하세요.
+    * **Audience URI** (**SP Entity ID**): 와탭에서 발급 받은 SSO 정보 중 ***EntityID*** 값을 입력하세요.
 
     * **Application username** 목록에서 **Email**을 선택하세요.
 
-1. **Attribute Statements (optional)**에서 **Name** 항목에는 'email'을 입력한 다음, **Value** 항목에서는 **user.email**을 선택하세요.
+1. **Attribute Statements** (**optional**)에서 **Name** 항목에는 'email'을 입력한 다음, **Value** 항목에서는 **user.email**을 선택하세요.
 
     ![Okta - Attribute Statements](/img/okta-attribute-statements.png)
 
 1. **Next** 버튼을 선택하세요.
 
 1. 다음 화면에서 **I'm an Okta customer adding an internal app** 항목을 선택한 다음 **Finish** 버튼을 선택하세요.
-
-1. **Assignments** 탭을 클릭한 다음 **Assign** &gt; **Assign to People**을 선택하세요.
-
-1. 사용자를 할당(**Assign**)하고 **Save and Go Back** 버튼을 선택하세요.
-
-1. 모든 과정을 완료한 다음 **Done** 버튼을 선택하세요.
 
 
 ### Okta 메타데이터 복사하기 {#copymetadata}
@@ -126,6 +120,33 @@ displayed_sidebar: manageSidebar
 1. <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
 
 SSO 연동을 완료했습니다.
+
+
+## 사용자 할당하기
+
+1. **Okta 관리자 페이지**로 접속하세요.
+
+1. **Applcations** &gt; **Applications** 메뉴로 이동하세요.
+
+1. 목록에서 앞서 추가한 애플리케이션을 선택하세요.
+
+1. **Assignments** 탭을 선택하세요.
+
+1. **Assign** 버튼을 클릭한 다음 **Assign to People** (또는 **Assign to Groups**)을 선택하세요.
+
+    ![Assignments](/img/sso-assignments-assign.png)
+
+1. 원하는 사용자를 할당(**Assign**)하세요.
+
+    ![Assignments](/img/sso-assignments-assign-people.png)
+
+1. **Save and Go Back** 버튼을 선택하세요.
+
+    ![Assignments](/img/sso-assignments-assign-save.png)
+
+1. 모든 과정을 완료한 다음 **Done** 버튼을 선택하세요.
+
+    ![Assignments](/img/sso-assignments-assign-done.png)
 
 
 ## SSO 연동 확인하기 {#checksso}

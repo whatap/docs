@@ -1,0 +1,235 @@
+---
+id: metrics-data-list
+title: Altibase 지표
+description: Altibase 지표를 안내합니다.
+keywords: [ Altibase, 메트릭스, 데이터베이스, 데이터베이스 ]
+---
+
+데이터베이스 메트릭은 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집합니다. 와탭 모니터링 서비스는 지속적으로 메트릭을 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
+
+지표 정보에 대한 보다 자세한 내용은 [다음 링크](https://altibase.com/kr/learn/manuals.php)를 참조하세요.
+
+## db_altibase_counter {#db_altibase_counter}
+
+다음은 `db_altibase_counter` 카테고리에 수집되는 필드값입니다.
+
+<div class='metric'>
+
+| Metric | Description |
+| -- | -- |
+| `active_sessions` | 현재 활성화된 세션의 수입니다. |
+| `base time in second` | 기준 시간(초)로 측정된 값입니다. |
+| `byte received via IB `| InfiniBand를 통해 수신된 바이트 수입니다. |
+| `byte received via inet `| 인터넷을 통해 수신된 바이트 수입니다. |
+| `byte received via unix domain` | 유닉스 도메인을 통해 수신된 바이트 수입니다. |
+| `byte sent via IB `| InfiniBand를 통해 전송된 바이트 수입니다. |
+| `byte sent via inet `| 인터넷을 통해 전송된 바이트 수입니다. |
+| `byte sent via unix domain` | 유닉스 도메인을 통해 전송된 바이트 수입니다. |
+| `connect_error` | 연결 오류가 발생한 횟수입니다. |
+| `cpu_cores` | 시스템의 CPU 코어 수입니다. |
+| `data page create `| 데이터 페이지가 생성된 횟수입니다. |
+| `data page fix` | 데이터 페이지를 수정한 횟수입니다. |
+| `data page gets `| 데이터 페이지에 접근한 횟수입니다. |
+| `data page read `| 디스크에서 데이터 페이지를 읽은 횟수입니다. |
+| `data page write` | 디스크에 데이터 페이지를 쓴 횟수입니다. |
+| `db file multi page read time waited` | 여러 페이지를 읽는 동안 대기한 시간입니다. |
+| `db file single page read time waited `| 단일 페이지를 읽는 동안 대기한 시간입니다. |
+| `db file single page write time waited` | 단일 페이지를 쓰는 동안 대기한 시간입니다. |
+| `ddl sync timeout `| DDL 동기화 작업에서의 타임아웃 시간입니다. |
+| `ddl timeout` | DDL 작업에서의 타임아웃 시간입니다. |
+| `delete retry count `| 삭제 작업 재시도 횟수입니다. |
+| `disk table cursor GRID scan count` | 디스크 테이블에서 그리드 스캔 커서를 사용한 횟수입니다. |
+| `disk table cursor full scan count` | 디스크 테이블에 대해 풀 스캔 커서를 연 횟수입니다. |
+| `disk table cursor index scan count `| 디스크 테이블에서 인덱스 스캔 커서를 사용한 횟수입니다. |
+| `elapsed time: add hard-prepared plan to plan cache `| 하드 준비된 계획을 계획 캐시에 추가하는 데 소요된 시간입니다. |
+| `elapsed time: add hard-rebuild plan to plan cache` | 하드 리빌드된 계획을 계획 캐시에 추가하는 데 소요된 시간입니다. |
+| `elapsed time: allocate data slot in DML(disk)` | DML 작업 중 데이터 슬롯 할당에 소요된 시간입니다. |
+| `elapsed time: allocate tss in dml(disk)` | DML 작업 중 TSS 할당에 소요된 시간입니다. |
+| `elapsed time: allocate undopage in dml(disk) `| DML 작업 중 언두 페이지 할당에 소요된 시간입니다. |
+| `elapsed time: analyze values in DML(disk)` | DML 작업 중 값 분석에 소요된 시간입니다. |
+| `elapsed time: copying logs to replication log buffer (sender side)` | 로그를 복제 로그 버퍼로 복사하는 데 소요된 시간입니다. |
+| `elapsed time: create page(disk)` | 디스크에서 페이지를 생성하는 데 소요된 시간입니다. |
+| `elapsed time: creation time for child PCO` | 자식 PCO를 생성하는 데 소요된 시간입니다. |
+| `elapsed time: creation time for new child PCO by rebuild at execution` | 실행 시 리빌드로 새 자식 PCO를 생성하는 데 소요된 시간입니다. |
+| `elapsed time: creation time for new child PCO by rebuild at soft prepare` | 소프트 준비 시 리빌드로 새 자식 PCO를 생성하는 데 소요된 시간입니다. |
+| `elapsed time: creation time for parent PCO `| 부모 PCO를 생성하는 데 소요된 시간입니다. |
+| `elapsed time: fix page(disk) `| 디스크에서 페이지를 수정하는 데 소요된 시간입니다. |
+| `elapsed time: get page(disk) `| 디스크에서 페이지를 가져오는 데 소요된 시간입니다. |
+| `elapsed time: hard prepare time` | 하드 준비에 소요된 시간입니다. |
+| `elapsed time: hard rebuild `| 하드 리빌드에 소요된 시간입니다. |
+| `elapsed time: index operation in dml(disk) `| DML 작업 중 인덱스 작업에 소요된 시간입니다. |
+| `elapsed time: logical aging by tx in dml(disk) `| DML 작업 중 트랜잭션에 의한 논리적 에이징에 소요된 시간입니다. |
+| `elapsed time: matching time for child PCO` | 자식 PCO와 매칭하는 데 소요된 시간입니다. |
+| `elapsed time: moving time from cold region to hot region` | 콜드 리전에서 핫 리전으로 이동하는 데 소요된 시간입니다. |
+| `elapsed time: phyical aging by tx in dml(disk) `| DML 작업 중 트랜잭션에 의한 물리적 에이징에 소요된 시간입니다. |
+| `elapsed time: privilege checking time during soft prepare` | 소프트 준비 시 권한 검사에 소요된 시간입니다. |
+| `elapsed time: query execute` | 쿼리를 실행하는 데 소요된 시간입니다. |
+| `elapsed time: query fetch` | 쿼리 결과를 페치하는 데 소요된 시간입니다. |
+| `elapsed time: query optimize `| 쿼리를 최적화하는 데 소요된 시간입니다. |
+| `elapsed time: query parse` | 쿼리를 파싱하는 데 소요된 시간입니다. |
+| `elapsed time: query validate `| 쿼리를 검증하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) aborting transaction(s)` | 수신자가 트랜잭션을 중단하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) beginning transaction(s) `| 수신자가 트랜잭션을 시작하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) closing LOB cursor(s)` | 수신자가 LOB 커서를 닫는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) closing table cursor(s)` | 수신자가 테이블 커서를 닫는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) committing transaction(s)` | 수신자가 트랜잭션을 커밋하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) comparing images to check for conflicts` | 수신자가 충돌을 확인하기 위해 이미지를 비교하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) deleting rows` | 수신자가 행을 삭제하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) finish writing LOBs` | 수신자가 LOB 쓰기를 완료하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) inserting rows `| 수신자가 행을 삽입하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) opening lob cursor(s)` | 수신자가 LOB 커서를 여는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) opening table cursor(s)` | 수신자가 테이블 커서를 여는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) performing endian conversion` | 수신자가 엔디언 변환을 수행하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) preparing to write LOB(s)` | 수신자가 LOB을 쓰기 위해 준비하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) receiving xlogs from sender(s)` | 수신자가 발신자로부터 xlog를 받는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) sending ACK` | 수신자가 ACK를 보내는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) trim LOB(s)` | 수신자가 LOB을 트림하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) updating rows` | 수신자가 행을 업데이트하는 데 소요된 시간입니다. |
+| `elapsed time: receiver(s) writing LOB piece(s) `| 수신자가 LOB 조각을 쓰는 데 소요된 시간입니다. |
+| `elapsed time: record lock validation in DML(disk)` | DML 작업 중 레코드 락 검증에 소요된 시간입니다. |
+| `elapsed time: replace(plan cache)` | 계획 캐시에서 교체 작업에 소요된 시간입니다. |
+| `elapsed time: search time for child PCO` | 자식 PCO를 검색하는 데 소요된 시간입니다. |
+| `elapsed time: search time for parent PCO `| 부모 PCO를 검색하는 데 소요된 시간입니다. |
+| `elapsed time: sender(s) analyzing logs `| 발신자가 로그를 분석하는 데 소요된 시간입니다. |
+| `elapsed time: sender(s) checking whether logs are useful` | 발신자가 로그의 유용성을 확인하는 데 소요된 시간입니다. |
+| `elapsed time: sender(s) reading logs from log file(s)` | 발신자가 로그 파일에서 로그를 읽는 데 소요된 시간입니다. |
+| `elapsed time: sender(s) reading logs from replication log buffer` | 발신자가 복제 로그 버퍼에서 로그를 읽는 데 소요된 시간입니다. |
+| `elapsed time: sender(s) receiving ACK from receiver(s)` | 발신자가 수신자로부터 ACK를 받는 데 소요된 시간입니다. |
+| `elapsed time: sender(s) sending xlogs to receiver(s)` | 발신자가 수신자에게 xlog를 보내는 데 소요된 시간입니다. |
+| `elapsed time: sender(s) setting ACKed value` | 발신자가 ACK된 값을 설정하는 데 소요된 시간입니다. |
+| `elapsed time: sender(s) waiting for new logs `| 발신자가 새로운 로그를 기다리는 데 소요된 시간입니다. |
+| `elapsed time: soft prepare `| 소프트 준비에 소요된 시간입니다. |
+| `elapsed time: soft rebuild `| 소프트 리빌드에 소요된 시간입니다. |
+| `elapsed time: task schedule` | 작업 스케줄링에 소요된 시간입니다. |
+| `elapsed time: validation time for child PCO` | 자식 PCO 검증에 소요된 시간입니다. |
+| `elapsed time: victim free in replace(plan cache) `| 계획 캐시 교체에서 피해자를 해제하는 데 소요된 시간입니다. |
+| `elapsed time: waiting time for hard prepare` | 하드 준비를 기다리는 데 소요된 시간입니다. |
+| `elapsed time: waiting time for parent PCO when choosing plan cache replacement victim` | 계획 캐시 교체 피해자를 선택할 때 부모 PCO를 기다리는 데 소요된 시간입니다. |
+| `elapsed time: write undo record in DML(disk) `| DML 작업 중 언두 레코드를 쓰는 데 소요된 시간입니다. |
+| `enq: TX - allocate TXSEG entry time waited `| TXSEG 항목 할당 대기 시간입니다. |
+| `enq: TX - row lock contention, data row time waited` | 행 잠금 경합으로 인한 데이터 행 대기 시간입니다. |
+| `execute failure count` | 쿼리 실행 실패 횟수입니다. |
+| `execute success count` | 쿼리 실행 성공 횟수입니다. |
+| `execute success count : delete `| 삭제 쿼리 실행 성공 횟수입니다. |
+| `execute success count : insert `| 삽입 쿼리 실행 성공 횟수입니다. |
+| `execute success count : select `| 선택 쿼리 실행 성공 횟수입니다. |
+| `execute success count : update `| 업데이트 쿼리 실행 성공 횟수입니다. |
+| `fetch failure count` | 쿼리 결과 페치 실패 횟수입니다. |
+| `fetch success count` | 쿼리 결과 페치 성공 횟수입니다. |
+| `fetch timeout` | 쿼리 결과 페치 타임아웃 횟수입니다. |
+| `idle timeout `| 유휴 상태 타임아웃 횟수입니다. |
+| `latch free: drdb LRU list time waited` | DRDB LRU 목록에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb buffer bcb mutex time waited` | DRDB 버퍼 BCB 뮤텍스에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb buffer bcb read io mutex time waited` | DRDB 버퍼 BCB 읽기 IO 뮤텍스에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb buffer buffer manager expand mutex time waited` | DRDB 버퍼 관리자 확장 뮤텍스에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb buffer flush manager req job time waited` | DRDB 버퍼 플러시 관리자 요청 작업 대기 시간입니다. |
+| `latch free: drdb buffer flusher min recovery LSN time waited` | DRDB 버퍼 플러셔 최소 복구 LSN 대기 시간입니다. |
+| `latch free: drdb buffer hash mutex time waited `| DRDB 버퍼 해시 뮤텍스에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb checkpoint list time waited `| DRDB 체크포인트 목록에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb file io time waited `| DRDB 파일 IO에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb flush list time waited` | DRDB 플러시 목록에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb page list entry time waited `| DRDB 페이지 목록 항목에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb prepare list time waited` | DRDB 준비 목록에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb prepare list wait time waited `| DRDB 준비 목록 대기 시간에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb secondary bcb mutex time waited `| DRDB 보조 BCB 뮤텍스에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb secondary buffer block wait time waited` | DRDB 보조 버퍼 블록 대기 시간에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb secondary buffer checkpoint list time waited` | DRDB 보조 버퍼 체크포인트 목록에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb secondary buffer flush block mutex time waited` | DRDB 보조 버퍼 플러시 블록 뮤텍스에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb secondary buffer flush manager req job time waited` | DRDB 보조 버퍼 플러시 관리자 요청 작업 대기 시간입니다. |
+| `latch free: drdb secondary buffer flusher min recovery LSN time waited` | DRDB 보조 버퍼 플러셔 최소 복구 LSN 대기 시간입니다. |
+| `latch free: drdb secondary buffer io time waited `| DRDB 보조 버퍼 IO에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb secondary read io mutex time waited` | DRDB 보조 읽기 IO 뮤텍스에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb tbs creation time waited` | DRDB TBS 생성 대기 시간에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb tbs list time waited` | DRDB TBS 목록에서 래치 해제 대기 시간입니다. |
+| `latch free: drdb transaction segment freelist time waited` | DRDB 트랜잭션 세그먼트 프리리스트에서 래치 해제 대기 시간입니다. |
+| `latch free: others time waited `| 기타 작업에서 래치 해제 대기 시간입니다. |
+| `latch free: plan cache LRU List mutex time waited` | 계획 캐시 LRU 목록 뮤텍스에서 래치 해제 대기 시간입니다. |
+| `latch free: statement list mutex time waited `| SQL 문 목록 뮤텍스에서 래치 해제 대기 시간입니다. |
+| `latch: buffer busy waits time waited `| 버퍼 바쁜 대기 시간에서 래치 대기 시간입니다. |
+| `latch: drdb B-Tree index SMO by other session time waited` | 다른 세션에 의한 DRDB B-트리 인덱스 SMO 대기 시간에서 래치 대기 시간입니다. |
+| `latch: drdb B-Tree index SMO time waited `| DRDB B-트리 인덱스 SMO 대기 시간에서 래치 대기 시간입니다. |
+| `latch: drdb R-Tree index SMO time waited `| DRDB R-트리 인덱스 SMO 대기 시간에서 래치 대기 시간입니다. |
+| `lock acquired count` | 획득한 락의 횟수입니다. |
+| `lock released count` | 해제된 락의 횟수입니다. |
+| `lock row retry count `| 행 잠금 재시도 횟수입니다. |
+| `lock_wait_sessions `| 락 대기 중인 세션 수입니다. |
+| `logon cumulative `| 누적된 로그인 횟수입니다. |
+| `logon current` | 현재 로그인된 세션 수입니다. |
+| `long_running_sessions` | 장시간 실행 중인 세션 수입니다. |
+| `max time: task schedule` | 작업 스케줄링에 소요된 최대 시간입니다. |
+| `memory table access count` | 메모리 테이블에 접근한 횟수입니다. |
+| `memory table cursor GRID scan count` | 메모리 테이블에서 그리드 스캔 커서를 사용한 횟수입니다. |
+| `memory table cursor full scan count` | 메모리 테이블에 대해 풀 스캔 커서를 연 횟수입니다. |
+| `memory table cursor index scan count `| 메모리 테이블에서 인덱스 스캔 커서를 사용한 횟수입니다. |
+| `missing ppco x-trylatch count` | 누락된 PPCO x-trylatch 횟수입니다. |
+| `obj_invalid_cnt` | 유효하지 않은 객체 수입니다. |
+| `pq_sessions` | 병렬 쿼리 세션 수입니다. |
+| `prepare failure count` | Prepare 작업 실패 횟수입니다. |
+| `prepare success count` | Prepare 작업 성공 횟수입니다. |
+| `query timeout` | 쿼리 실행 타임아웃 횟수입니다. |
+| `read IB count` | InfiniBand를 통한 읽기 작업 횟수입니다. |
+| `read socket count` | 소켓을 통한 읽기 작업 횟수입니다. |
+| `rebuild count` | 리빌드 작업 횟수입니다. |
+| `rep_execute success count : delete `| 삭제 작업에서의 복제 실행 성공 횟수입니다. |
+| `rep_execute success count : insert `| 삽입 작업에서의 복제 실행 성공 횟수입니다. |
+| `rep_execute success count : update `| 업데이트 작업에서의 복제 실행 성공 횟수입니다. |
+| `replication after commit time waited `| 복제 작업 커밋 이후 대기 시간입니다. |
+| `replication before commit time waited` | 복제 작업 커밋 이전 대기 시간입니다. |
+| `secondary buffer file multi page read time waited` | 보조 버퍼 파일에서 여러 페이지를 읽는 동안 대기한 시간입니다. |
+| `secondary buffer file single page read time waited `| 보조 버퍼 파일에서 단일 페이지를 읽는 동안 대기한 시간입니다. |
+| `secondary buffer file single page write time waited` | 보조 버퍼 파일에서 단일 페이지를 쓰는 동안 대기한 시간입니다. |
+| `semop count for receiving via ipc` | IPC를 통해 수신된 semop 작업 횟수입니다. |
+| `semop count for sending via ipc` | IPC를 통해 전송된 semop 작업 횟수입니다. |
+| `service thread created count `| 생성된 서비스 스레드 수입니다. |
+| `session commit `| 세션 커밋 횟수입니다. |
+| `session rollback `| 세션 롤백 횟수입니다. |
+| `session terminated `| 종료된 세션 수입니다. |
+| `statement rebuild count` | SQL 문 리빌드 횟수입니다. |
+| `system internal time waited` | 시스템 내부 작업에서 대기한 시간입니다. |
+| `total_elapse_time` | 총 경과 시간입니다. |
+| `total_sessions `| 총 세션 수입니다. |
+| `undo page create `| 언두 페이지 생성 횟수입니다. |
+| `undo page fix` | 언두 페이지 수정 횟수입니다. |
+| `undo page gets `| 언두 페이지에 접근한 횟수입니다. |
+| `undo page read `| 언두 페이지를 읽은 횟수입니다. |
+| `undo page write` | 언두 페이지를 쓴 횟수입니다. |
+| `unique violation count `| 고유 위반 횟수입니다. |
+| `update retry count `| 업데이트 작업 재시도 횟수입니다. |
+| `utrans timeout `| 사용자 트랜잭션 타임아웃 횟수입니다. |
+| `wait_sessions` | 대기 중인 세션 수입니다. |
+| `write IB count `| InfiniBand를 통한 쓰기 작업 횟수입니다. |
+| `write redo log bytes `| 리두 로그에 기록된 바이트 수입니다. |
+| `write redo log count `| 리두 로그에 쓰기 작업 횟수입니다. |
+| `write socket count `| 소켓을 통한 쓰기 작업 횟수입니다. |
+
+</div>
+
+## XOS 관련 지표 {#xosmetrics}
+
+<div class='metric'>
+
+| Metric | Description |
+| -- | -- |
+| `cpu(xos2)` |  pct | cpu 사용율, `cpu_user` + `cpu_sys` + `cpu_iowait`의 합 |
+| `cpu_user(xos2)` |  pct | cpu가 사용자 코드를 실행하는데 소요한 시간 |
+| `cpu_sys(xos2)` |  pct | cpu가 kernel code를 수행한 시간 |
+| `cpu_iowait(xos2)` |  pct | cpu가 IO를 대기한 시간 |
+| `cpu_idle(xos2)` |  pct | cpu 프로세서 유휴 시간 |
+| `disk_reads(xos)` | block | 디스크로부터 읽은 데이터의 양 |
+| `disk_read_bytes(xos)` | byte | 디스크로부터 읽은 데이터의 양 |
+| `disk_writes(xos)` | block | 디스크로 쓰여진 데이터의 양 |
+| `disk_write_bytes(xos)` | byte | 디스크로 쓰여진 데이터의 양 |
+| `mem(xos)` |  pct | 메모리 사용율 |
+| `mem_total(xos)` |  MB | 전체 메모리양 |
+| `mem_free(xos)` |  MB | 시스템에서 사용하고 있지 않은 메모리양 |
+| `mem_used(xos)` |  MB | 시스템에서 사용하고 있는 메모리양 |
+| `mem_buffcache(xos)` |  MB | buff/cache로 사용중인 메모리양 |
+| `mem_swaptotal(xos)` |  MB | Swap 전체 사이즈, 물리메모리가 부족한 경우를 대비하여 설정합니다. |
+| `mem_swapfree(xos)` |  MB | Swap의 사용하지 않은 영역, Swap 영역은 디스크 공간에 확보되기 때문에 Swap을 사용하고 있다면 시스템 성능이 급격하게 떨어질 수 있습니다. |
+| `mem_available(xos)` |  MB | 메모리 가용영역 |
+| `net_recv_bytes(xos)` | byte | 네트워크로 수신된 데이터의 양 |
+| `net_recv_packets(xos)` |   - | 네트워크로 수신된 데이터 패킷의 수 |
+| `net_send_bytes(xos)` | byte | 네트워크로 전송한 데이터의 양 |
+| `net_send_packets(xos)` |   - | 네트워크로 전송한 데이터 패킷의 수 |
+
+</div>

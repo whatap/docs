@@ -55,7 +55,9 @@ segments_hour=5
 
 <Cmdname sid="table_space" className="uitext" /> 섹션에서는 시간대별로 테이블스페이스의 전체 크기와 사용량 변화를 시각적으로 확인할 수 있습니다.
 
-<ImgLang img="db-stat-table-space-check-trend-oracle-pro.png" desc="Tablespace size" />
+<InDoc product="oracle,oracle-pro,cubrid"><ImgLang img="db-stat-table-space-check-trend-oracle-pro.png" desc="Tablespace size" /></InDoc>
+
+<InDoc product="altibase"><ImgLang img="db-stat-table-space-check-trend-altibase.png" desc="Tablespace size" /></InDoc>
 
 각 색상은 개별 테이블스페이스를 나타냅니다. 차트에서 특정 시간대의 데이터를 확인하려면 마우스를 차트 위로 오버한 상태에서 이동하세요. 해당 시간대의 상세 정보를 팝업으로 확인할 수 있습니다.
 
@@ -74,6 +76,8 @@ segments_hour=5
 * <Cmdname sid="table_space_usage" className="uitext" />: 전체 크기 대비 사용 비율입니다.
 
 * <Cmdname sid="table_space_changed_amount" className="uitext" />: 최초 조회한 시간 대비 현재 시간의 사용량 변화입니다.
+
+<Xclude product="altibase">
 
 ## 세그먼트 사이즈 확인하기 {#TTL08164}
 
@@ -94,3 +98,5 @@ segments_hour=5
 * <Cmdname sid="TTL08177" className="uitext" />: 해당하는 경우 세그먼트의 파티션 이름입니다.
 
 * <Cmdname sid="table_space_size" className="uitext" />: 세그먼트의 크기입니다.
+
+</Xclude>

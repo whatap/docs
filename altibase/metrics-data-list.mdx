@@ -208,28 +208,28 @@ keywords: [ Altibase, 메트릭스, 데이터베이스, 데이터베이스 ]
 
 <div class='metric'>
 
-| Metric | Description |
-| -- | -- |
-| `cpu(xos2)` |  pct | cpu 사용율, `cpu_user` + `cpu_sys` + `cpu_iowait`의 합 |
-| `cpu_user(xos2)` |  pct | cpu가 사용자 코드를 실행하는데 소요한 시간 |
-| `cpu_sys(xos2)` |  pct | cpu가 kernel code를 수행한 시간 |
-| `cpu_iowait(xos2)` |  pct | cpu가 IO를 대기한 시간 |
-| `cpu_idle(xos2)` |  pct | cpu 프로세서 유휴 시간 |
+| Metric | Unit | Description |
+| -- | -- | -- |
+| `cpu(xos2)` | pct | cpu 사용율, `cpu_user` + `cpu_sys` + `cpu_iowait`의 합 |
+| `cpu_user(xos2)` | pct | cpu가 사용자 코드를 실행하는데 소요한 시간 |
+| `cpu_sys(xos2)` | pct | cpu가 kernel code를 수행한 시간 |
+| `cpu_iowait(xos2)` | pct | cpu가 IO를 대기한 시간 |
+| `cpu_idle(xos2)` | pct | cpu 프로세서 유휴 시간 |
 | `disk_reads(xos)` | block | 디스크로부터 읽은 데이터의 양 |
 | `disk_read_bytes(xos)` | byte | 디스크로부터 읽은 데이터의 양 |
 | `disk_writes(xos)` | block | 디스크로 쓰여진 데이터의 양 |
 | `disk_write_bytes(xos)` | byte | 디스크로 쓰여진 데이터의 양 |
-| `mem(xos)` |  pct | 메모리 사용율 |
-| `mem_total(xos)` |  MB | 전체 메모리양 |
-| `mem_free(xos)` |  MB | 시스템에서 사용하고 있지 않은 메모리양 |
-| `mem_used(xos)` |  MB | 시스템에서 사용하고 있는 메모리양 |
-| `mem_buffcache(xos)` |  MB | buff/cache로 사용중인 메모리양 |
-| `mem_swaptotal(xos)` |  MB | Swap 전체 사이즈, 물리메모리가 부족한 경우를 대비하여 설정합니다. |
-| `mem_swapfree(xos)` |  MB | Swap의 사용하지 않은 영역, Swap 영역은 디스크 공간에 확보되기 때문에 Swap을 사용하고 있다면 시스템 성능이 급격하게 떨어질 수 있습니다. |
-| `mem_available(xos)` |  MB | 메모리 가용영역 |
+| `mem(xos)` | pct | 메모리 사용율 |
+| `mem_total(xos)` | MB | 전체 메모리양 |
+| `mem_free(xos)` | MB | 시스템에서 사용하고 있지 않은 메모리양 |
+| `mem_used(xos)` | MB | 시스템에서 사용하고 있는 메모리양 |
+| `mem_buffcache(xos)` | MB | buff/cache로 사용중인 메모리양 |
+| `mem_swaptotal(xos)` | MB | Swap 전체 사이즈, 물리메모리가 부족한 경우를 대비하여 설정합니다. |
+| `mem_swapfree(xos)` | MB | Swap의 사용하지 않은 영역, Swap 영역은 디스크 공간에 확보되기 때문에 Swap을 사용하고 있다면 시스템 성능이 급격하게 떨어질 수 있습니다. |
+| `mem_available(xos)` | MB | 메모리 가용영역 |
 | `net_recv_bytes(xos)` | byte | 네트워크로 수신된 데이터의 양 |
-| `net_recv_packets(xos)` |   - | 네트워크로 수신된 데이터 패킷의 수 |
+| `net_recv_packets(xos)` | - | 네트워크로 수신된 데이터 패킷의 수 |
 | `net_send_bytes(xos)` | byte | 네트워크로 전송한 데이터의 양 |
-| `net_send_packets(xos)` |   - | 네트워크로 전송한 데이터 패킷의 수 |
+| `net_send_packets(xos)` | - | 네트워크로 전송한 데이터 패킷의 수 |
 
 </div>

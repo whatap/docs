@@ -19,7 +19,39 @@ import Dblocktreedesc from "../common-items/_db-locktree-desc.mdx";
 
 import Dblocktreeusingbasic from "../common-items/_db-locktree-using-basic.mdx";
 
-<Dblocktreeusingbasic />  
+<Dblocktreeusingbasic />
+
+## Global Lock 정보 확인하기
+
+클러스터로 구성된 Oracle 데이터베이스 환경에서 Global Lock 정보를 확인하는 것은 여러 가지 중요한 장점을 제공합니다. 특히, Oracle Real Application Clusters (RAC) 환경에서 이러한 정보는 성능 최적화와 문제 해결에 필수적입니다.
+
+클러스터로 구성된 환경이라면 <Cmdname sid="instance" className="uitext" />에서 클러스터를 선택할 수 있습니다.
+
+<ImgLang img="db-locktree-cluster-chart.png" desc="락 트리" />
+
+* ***Global Lock Wait Sessions***
+
+  선택한 시간 범위 내에서 발생한 Global Lock 대기 세션의 수를 시간대별로 시각화하여 표시합니다. 특정 시간에 얼마나 많은 락 대기가 발생했는지 한눈에 파악할 수 있습니다. 각 색상은 다른 인스턴스를 나타내며 락이 발생한 인스턴스별로 구분되어 표시합니다.
+
+* ***Global Lock Tree***
+
+  락과 관련한 세부 정보를 트리 구조로 확인할 수 있습니다. 락이 발생한 인스턴스, 세션 ID(<UI>sid</UI>), 세션 상태(<UI>status</UI>) 등 중요한 정보가 포함됩니다. 락의 홀더 타입(<UI>holder type</UI>)과 락 모드(<UI>lock mode</UI>), 그리고 락 대기 타입(<UI>waiter type</UI>)을 통해 락의 원인과 영향을 신속하게 파악할 수 있습니다.
+
+  트리 구조를 통해 어떤 세션이 락을 보유하고 있고 어떤 세션이 대기 중인지 파악할 수 있습니다.
+
+
+
+:::tip
+
+* RAC 환경에서 여러 인스턴스가 동일한 데이터에 동시에 접근할 수 있습니다. Global Lock 정보는 이러한 동시 접근 상황에서 데이터 일관성을 보장하기 위한 주요 메커니즘 중 하나입니다. 이를 모니터링함으로써 데이터 일관성 유지 여부를 확인할 수 있습니다.
+
+* Global Lock 대기 시간은 시스템 성능에 큰 영향을 미칠 수 있습니다. 클러스터의 여러 인스턴스 간에 발생하는 Global Lock 경합을 모니터링하면 성능 저하의 원인이 되는 병목 현상을 조기에 감지할 수 있습니다. 
+
+* Global Lock 정보는 트랜잭션이 클러스터 내에서 어떻게 처리되는지에 대한 중요한 통찰을 제공합니다. 동시성 제어가 적절히 이루어지지 않으면 트랜잭션 대기 시간이 길어지거나 데드락이 발생할 수 있습니다.
+
+* RAC 환경에서는 인스턴스 간 부하 분산이 매우 중요합니다. Global Lock 정보를 통해 어떤 인스턴스가 더 많은 경합을 겪고 있는지 파악할 수 있으며, 이를 기반으로 부하를 재분배하거나 리소스 관리를 개선할 수 있습니다.
+
+:::
 
 {/* 락트리 컬럼 정보 */}
 import Oraclecolumn from "../common-items/_db_oracle-column.mdx";

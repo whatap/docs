@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_3_1",
+    "ver": "v2.3.1",
+    "date": "2024-08-26",
+    "Lists": [
+      {
+        "ver": "v2.3.1",
+        "hash": "v231",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> 트랜잭션 외부에서 일어나는 트레이스 정보 수집 기능 추가</p>"
+      },
+      {
+        "ver": "v2.3.1",
+        "hash": "v231",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> DB 연결 정보 표시: 데이터베이스를 사용하는 트랜잭션은 데이터베이스 연결 정보를 표시하는 기능 추가</p>"
+      },
+      {
+        "ver": "v2.3.1",
+        "hash": "v231",
+        "product": ".NET Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"New\">Changed</code> 오류가 아닌 경우에도 트랜잭션의 상태 코드를 표시하도록 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_2_9",
     "ver": "v2.2.9",
     "date": "2024-07-05",

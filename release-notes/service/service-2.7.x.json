@@ -1,6 +1,74 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.12",
+    "date": "2024-08-12",
+    "Lists": [
+      {
+        "ver": "Service 2.7.12",
+        "hash": "service-2712",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계</span>의 하위 메뉴에서 <span class=\"uitext\">컬럼 설정</span>을 통해 컬럼을 추가한 후 CSV 파일을 다운로드하면 컬럼 설정이 반영되지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.11",
+    "date": "2024-08-09",
+    "Lists": [
+      {
+        "ver": "Service 2.7.11",
+        "hash": "service-2711",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴에서 TPS 변화량에 대한 복합 메트릭스 템플릿(<span class=\"uitext\">TPS has changed by more than 30% compared to the previous week.</span>)의 알림 오류 수정</p>"
+      },
+      {
+        "ver": "Service 2.7.11",
+        "hash": "service-2711",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다음 메뉴 경로에서 holder type, waiter type 값이 표시되지 않는 문제 수정</p>",
+        "category": "Oracle V2, Oracle Pro",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴의 <span class=\"uitext\">락 트리</span> 테이블</p>\n</li>\n<li>\n<p><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span></p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.10",
+    "date": "2024-08-07",
+    "Lists": [
+      {
+        "ver": "Service 2.7.10",
+        "hash": "service-2710",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다음 메뉴 경로에서 같은 sid의 holder와 waiter가 락(Lock)으로 표기되는 문제 수정</p>",
+        "category": "Oracle V2",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴의 <span class=\"uitext\">락 트리</span> 테이블</p>\n</li>\n<li>\n<p><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span></p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
+    "ver": "Service 2.7.9",
+    "date": "2024-08-07",
+    "Lists": [
+      {
+        "ver": "Service 2.7.9",
+        "hash": "service-279",
+        "product": "Log",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다음 메뉴 경로에서 <span class=\"uitext\">컬럼 설정</span>을 진행하면 로그 원문이 노출되지 않는 문제 수정</p>",
+        "details": "<ul>\n<li><span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">라이브 테일</span></li>\n<li><span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 트렌드</span></li>\n<li><span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 검색</span></li>\n<li><span class=\"uitext\">트레이스 분석</span> &gt; <span class=\"uitext\">트랜잭션 로그</span></li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_7_x",
     "ver": "Service 2.7.7",
     "date": "2024-08-05",
     "Lists": [
@@ -9,7 +77,7 @@
         "hash": "service-277",
         "product": "Database",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">SQL 상세</span> 창에서 라이브러리 포맷팅 오류 발생 시 포맷팅 불가능하도록 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">SQL 상세</span> 창에서 라이브러리 포맷팅 오류 발생 시 포맷팅할 수 없도록 수정</p>"
       }
     ]
   },
@@ -300,7 +368,7 @@
         "hash": "service-270",
         "product": "Application",
         "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> <img decoding=\"async\" loading=\"lazy\" alt=\"사이트맵 아이콘\" src=\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjkwNzM0IDJIMlYyMS42OTExSDcuOTA3MzRIOS44NzY0NUgxMS44NDU2VjE5LjcyMkg5Ljg3NjQ1VjkuODc2NDVIMTkuNzIyVjEyLjgzMDFIMjEuNjkxMVY5Ljg3NjQ1VjcuOTA3MzRWMkg5Ljg3NjQ1SDcuOTA3MzRaTTcuOTA3MzQgMy45NjkxMUgzLjk2OTExVjE5LjcyMkg3LjkwNzM0VjMuOTY5MTFaTTkuODc2NDUgMy45NjkxMVY3LjkwNzM0SDE5LjcyMlYzLjk2OTExSDkuODc2NDVaTTE5LjgyMzcgMTguNDMxM0MyMC43MTU3IDE2LjkyMTEgMjAuNTEyOCAxNC45NDMzIDE5LjIxNTMgMTMuNjQ1OEMxNy42NzczIDEyLjEwNzggMTUuMTgzNyAxMi4xMDc4IDEzLjY0NTggMTMuNjQ1OEMxMi4xMDc4IDE1LjE4MzcgMTIuMTA3OCAxNy42NzczIDEzLjY0NTggMTkuMjE1M0MxNC45NDMzIDIwLjUxMjggMTYuOTIxMSAyMC43MTU3IDE4LjQzMTMgMTkuODIzN0wyMC42MDc2IDIyTDIyIDIwLjYwNzZMMTkuODIzNyAxOC40MzEzWk0xNS4wMzgxIDE3LjgyMjlDMTUuODA3MSAxOC41OTE5IDE3LjA1MzkgMTguNTkxOSAxNy44MjI5IDE3LjgyMjlDMTguNTkxOSAxNy4wNTM5IDE4LjU5MTkgMTUuODA3MSAxNy44MjI5IDE1LjAzODFDMTcuMDUzOSAxNC4yNjkxIDE1LjgwNzEgMTQuMjY5MSAxNS4wMzgxIDE1LjAzODFDMTQuMjY5MSAxNS44MDcxIDE0LjI2OTEgMTcuMDUzOSAxNS4wMzgxIDE3LjgyMjlaIiBmaWxsPSIjNzU3NTc1Ii8+Cjwvc3ZnPgo=\" width=\"24\" height=\"24\" class=\"img_ev3q\"> <span class=\"uitext\">사이트맵</span> &gt; <span class=\"uitext\">토폴로지</span> &gt; <span class=\"uitext\">Netstat 토폴로지</span> 메뉴의 예시 이미지를 영문으로 변경</p>"
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> <img decoding=\"async\" loading=\"lazy\" alt=\"사이트맵 아이콘\" src=\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNy45MDczNCAySDJWMjEuNjkxMUg3LjkwNzM0SDkuODc2NDVIMTEuODQ1NlYxOS43MjJIOS44NzY0NVY5Ljg3NjQ1SDE5LjcyMlYxMi44MzAxSDIxLjY5MTFWOS44NzY0NVY3LjkwNzM0VjJIOS44NzY0NUg3LjkwNzM0Wk03LjkwNzM0IDMuOTY5MTFIMy45NjkxMVYxOS43MjJINy45MDczNFYzLjk2OTExWk05Ljg3NjQ1IDMuOTY5MTFWNy45MDczNEgxOS43MjJWMy45NjkxMUg5Ljg3NjQ1Wk0xOS44MjM3IDE4LjQzMTNDMjAuNzE1NyAxNi45MjExIDIwLjUxMjggMTQuOTQzMyAxOS4yMTUzIDEzLjY0NThDMTcuNjc3MyAxMi4xMDc4IDE1LjE4MzcgMTIuMTA3OCAxMy42NDU4IDEzLjY0NThDMTIuMTA3OCAxNS4xODM3IDEyLjEwNzggMTcuNjc3MyAxMy42NDU4IDE5LjIxNTNDMTQuOTQzMyAyMC41MTI4IDE2LjkyMTEgMjAuNzE1NyAxOC40MzEzIDE5LjgyMzdMMjAuNjA3NiAyMkwyMiAyMC42MDc2TDE5LjgyMzcgMTguNDMxM1pNMTUuMDM4MSAxNy44MjI5QzE1LjgwNzEgMTguNTkxOSAxNy4wNTM5IDE4LjU5MTkgMTcuODIyOSAxNy44MjI5QzE4LjU5MTkgMTcuMDUzOSAxOC41OTE5IDE1LjgwNzEgMTcuODIyOSAxNS4wMzgxQzE3LjA1MzkgMTQuMjY5MSAxNS44MDcxIDE0LjI2OTEgMTUuMDM4MSAxNS4wMzgxQzE0LjI2OTEgMTUuODA3MSAxNC4yNjkxIDE3LjA1MzkgMTUuMDM4MSAxNy44MjI5WiIgZmlsbD0iIzc1NzU3NSIvPg0KPC9zdmc+DQo=\" width=\"24\" height=\"24\" class=\"img_ev3q\"> <span class=\"uitext\">사이트맵</span> &gt; <span class=\"uitext\">토폴로지</span> &gt; <span class=\"uitext\">Netstat 토폴로지</span> 메뉴의 예시 이미지를 영문으로 변경</p>"
       },
       {
         "ver": "Service 2.7.0",

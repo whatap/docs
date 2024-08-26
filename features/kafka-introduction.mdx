@@ -4,9 +4,10 @@ title: KAFKA 모니터링
 description: 이 문서는 KAFKA 모니터링 상품에 대한 소개 페이지입니다.
 displyed_sidebar: featuremonitorSidebar
 toc_max_heading_level: 2
-tags: [KAFKA, Feature ]
+keywords: [KAFKA, Feature ]
 ---
-
+import InstallFeature from '../common-items/_import_feature-install-agent.mdx';
+import AlertFeature from '../common-items/_import_feature-alert.mdx';
 import TR from '@site/src/components/TR';
 
 :::note
@@ -54,25 +55,15 @@ import TR from '@site/src/components/TR';
 
 ### 피쳐 프로젝트 생성하기
 
-에이전트를 설치하기 전에 먼저 **피쳐 프로젝트**(<code class='Features'>Features</code>)를 생성하세요.
+import CreateFeature from "../common-items/_import_feature-project-create.mdx";
 
-1. [와탭 모니터링 서비스](https://service.whatap.io)로 이동한 다음 로그인하세요.
-
-1. 프로젝트를 생성하려면 화면 왼쪽 사이드 메뉴에서 <Cmdname sid="BTN07332" className="uitext" /> &gt; ***+*** <Cmdname sid='BTN06696' className='uitext'/> 버튼을 선택하세요.
-
-1. <Cmdname sid="TTL07073" className="uitext" /> 화면에서 프로젝트에 설치할 **피쳐 상품**을 선택하세요.
-
-1. <Cmdname sid="project_name" className="uitext" />, <Cmdname sid="data_server_region" className="uitext" />, <Cmdname sid="project_time_zone" className="uitext" /> 항목을 차례로 설정하세요.
-
-    <ImgLang img='create-project-v3.png' desc='프로젝트 생성'/>
-
-1. <Cmdname sid="TTL07727" className="uitext" />에서 경고 알림 메시지의 언어를 선택하세요.
-
-1. 모든 설정을 완료한 다음에는 <Cmdname sid="creating_a_project" className="uitext" /> 버튼을 선택하세요.
+<CreateFeature /> 
 
 ### 카프카 에이전트 설치 
 
-**피쳐 프로젝트**(<code class='Features'>Features</code>) 생성 후 자동으로 ***KAFKA 에이전트 설치*** 화면으로 이동합니다. 다음 안내대로 설치를 진행하세요. 
+<InstallFeature name='KAFKA 에이전트 설치' />
+
+{/* **피쳐 프로젝트**(<code class='Features'>Features</code>) 생성 후 자동으로 ***KAFKA 에이전트 설치*** 화면으로 이동합니다. 다음 안내대로 설치를 진행하세요. 
 
 1. **프로젝트 액세스 키**를 확인하세요. 
 
@@ -102,7 +93,7 @@ import TR from '@site/src/components/TR';
     sed -i '/^#!/a export KAFKA_OPTS='\''-javaagent:/usr/whatap/infra/feature/jolokia-agent-jvm-2.0.1-javaagent.jar=port=8778,host=127.0.0.1'\''' kafka-server-start.sh
     ./kafka-server-stop.sh
     ./kafka-server-start.sh
-    ```
+    ``` */}
 
 ## 주요 메뉴 알아보기
 
@@ -281,6 +272,9 @@ import TR from '@site/src/components/TR';
 
 ### 경고 알림 
 
+<AlertFeature name='KAFKA' />
+
+{/* 
 홈 화면 > **피쳐 프로젝트**(<code class='Features'>Features</code>) 선택 > ***경고 알림*** > ***이벤트 설정***
 
 와탭 카프카 모니터링은 ***복합 메트릭스*** 알림을 기본으로 제공합니다. 
@@ -289,4 +283,4 @@ import TR from '@site/src/components/TR';
 
 복합 메트릭스 이벤트에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/server/metric-warning-notice#composite-metrics-event)를 확인하세요. 
 
-:::
+::: */}

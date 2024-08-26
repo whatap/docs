@@ -2,7 +2,6 @@
 id: about-instance-performance-analysis
 title: 인스턴스 성능 관리 활용하기
 description: 애플리케이션 모니터링 메뉴 중 인스턴스 성능 관리 메뉴의 주요 기능 및 활용 예시를 안내합니다.
-tags: [ 애플리케이션, 애플리케이션 모니터링, APM, 고급 활용, 인스턴스 성능 관리  ]
 keywords: [ 애플리케이션, 애플리케이션 모니터링, APM, 인스턴스 성능 관리 ]
 toc_max_heading_level: 2
 displayed_sidebar: learningSidebar
@@ -22,7 +21,7 @@ displayed_sidebar: learningSidebar
 
 {/* 예를 들어 새로운 서비스 패턴 지정으로 추가적인 트랜잭션 시작점을 설정하여 응답 시간을 측정하는 등 트레이스 및 후킹과 관련된 와탭 설정 변경 시 해당 클래스를 목록에서 찾아 ![수정 아이콘](/img/ico-edit.svg) <Cmdname sid="redefine" className="uitext" />를 클릭하세요.  */}
 
-<ImgLang img='/best-p/about-instance-loaded-class1.png' desc='로딩된 클래스 재정의' />
+<ImgLang img='best-p/about-instance-loaded-class1.png' desc='로딩된 클래스 재정의' />
 
 {/* 해당 기능을 선택 해 재정의
 
@@ -73,11 +72,11 @@ displayed_sidebar: learningSidebar
 
 어떤 스레드가 CPU를 많이 사용하고 있는지 파악하는 것은 병목 발생 원인 식별에 있어 중요합니다. 특히 특정 시간대에 CPU 사용이 급증한 스레드 식별을 위해 시계열 데이터를 조회할 수 있어야 합니다. <Cmdname sid="side_threadList" className="uitext" /> 메뉴의 <Cmdname sid="thread_cpu_time" className="uitext" />은 해당 스레드가 CPU를 점유한 총 누적 시간을 의미합니다. ***새로 고침*** 시 현재 스레드 CPU 시간과 기존 스레드 CPU 시간의 차이인 <Cmdname sid="TTL08126" className="uitext" />을 제공하여 조회 시점에 가장 많이 CPU를 사용하고 있는 스레드를 특정할 수 있습니다. <Cmdname sid="TTL08126" className="uitext" /> 컬럼을 클릭해 내림차순 정렬 방식으로 증가량이 가장 높은 스레드를 확인해 보세요. 
 
-<ImgLang img='/best-p/about-instance-thread-list-dump3.png' desc='스레드 목록/덤프 델타값 sc' />
+<ImgLang img='best-p/about-instance-thread-list-dump3.png' desc='스레드 목록/덤프 델타값 sc' />
 
 이렇게 스레드 특정 후 해당 스레드 스냅샷을 확인해 자주 호출되거나 오래 실행되는 메소드 등을 찾아낼 수 있습니다. 이를 통해 이상 징후를 조기에 발견하고 대응하여 시스템을 안정적으로 관리할 수 있습니다.
 
-<ImgLang img='/best-p/about-instance-thread-list-dump4.png' desc='스레드 목록/덤프 개별 스레드 덤프' />
+<ImgLang img='best-p/about-instance-thread-list-dump4.png' desc='스레드 목록/덤프 개별 스레드 덤프' />
 
 {/* :::note 
 

@@ -7,6 +7,8 @@ keywords: [ CUBRID, 메트릭스, 데이터베이스, 데이터베이스 모니�
 
 데이터베이스 지표는 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집합니다. 와탭 모니터링 서비스는 지속적으로 지표를 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
 
+지표에 대한 자세한 내용은 [다음 문서](https://www.cubrid.org/manuals)를 참조하세요.
+
 ## db_cubrid_counter {#db_cubrid_counter}
 
 ### Tags {#db_cubrid_counter-tags}
@@ -15,88 +17,111 @@ keywords: [ CUBRID, 메트릭스, 데이터베이스, 데이터베이스 모니�
 
 | 태그명 | 설명 | 비고 |
 | -- | -- | -- |
+| `agentIp` | 에이전트 별 IP 주소입니다. | - |
+| `dbIsMulti` | Multitenant 지원 여부입니다. | - |
+| `dbName` | 데이터베이스 이름입니다. | - |
+| `dbType` | 데이터베이스 종류입니다. | - |
+| `dbVersion` | 이용 중인 데이터베이스의 버전입니다. | - |
 | `oname` | 에이전트 이름입니다. | 고유값 |
 
 ### Field {#db_cubrid_counter-filed}
 
 다음은 `db_cubrid_counter` 카테고리에 수집되는 필드값에 대한 안내입니다.
 
-<div class='db-metric-cubrid'>
+<div class='db-metric-3'>
 
-| 분류 | 항목 | 설명 |
-| -- | -- | -- |
-| File I/O 관련| `Num_file_removes` | 삭제한 파일 개수 |
-| ^ | `Num_file_creates` | 생성한 파일 개수 |
-| ^ | `Num_file_ioreads` | 디스크로부터 읽은 횟수 |
-| ^ | `Num_file_iowrites` | 디스크로 저장한 횟수 |
-| ^ | `Num_file_iosynches` | 디스크와 동기화를 수행한 횟수 |
-| 페이지 버퍼 관련| `Num_data_page_fetches` | 가져오기(fetch)한 페이지 수 |
-| ^ | `Num_data_page_dirties` | 더티 페이지 수 |
-| ^ | `Num_data_page_ioreads` | 디스크에서 읽은 페이지 수 (이 값이 클수록 덜 효율적이며, 히트율이 낮은 것과 상관됨) |
-| ^ | `Num_data_page_iowrites` | 디스크에서 기록한 페이지 수(이 값이 클수록 덜 효율적임) |
-| ^ | `Num_data_page_victims` | 데이터 버퍼에서 디스크로 내려 쓰기(flush)하는 스레드가 깨어나는 회수 (내려 쓰기되는 페이지의 또는 희생자(victim)의 개수가 아님) |
-| ^ | `Num_data_page_iowrites_for_replacement` | 후보로 선정되어 디스크로 쓰여진 데이터 페이지 수 |
-| ^ | `Num_adaptive_flush_pages` | 데이터 버퍼로부터 디스크로 내려 쓰기(flush)한 데이터 페이지 수 |
-| ^ | `Num_adaptive_flush_log_pages` | 로그 버퍼로부터 디스크로 내려 쓰기(flush)한 로그 페이지 수 |
-| ^ | `Num_adaptive_flush_max_pages` | 데이터 및 로그 버퍼로부터 디스크로 내려 쓰기(flush)를 허용하는 최대 페이지 수 |
-| ^ | `Num_sort_io_pages` | 정렬하는 동안 디스크에서 페치한 페이지 개수(이 값이 클수록 덜 효율적임) |
-| ^ | `Num_sort_data_pages` | 정렬하는 동안 페이지 버퍼에서 발견된 페이지 개수(이 값이 클수록 더 효율적임) |
-| 로그 관련| `Num_log_page_ioreads` | 읽은 로그 페이지의 수 |
-| ^ | `Num_log_page_iowrites` | 저장한 로그 페이지의 수 |
-| ^ | `Num_log_append_records` | 추가(append)한 로그 레코드의 수 |
-| ^ | `Num_log_archives` | 보관 로그의 개수 |
-| ^ | `Num_log_start_checkpoints` | 체크포인트 시작 횟수 |
-| ^ | `Num_log_end_checkpoints` | 체크포인트 종료 횟수 |
-| ^ | `Num_log_wals` | 현재 사용하지 않음 |
-| 트랜잭션 관련| `Num_tran_commits` | 커밋한 횟수 |
-| ^ | `Num_tran_rollbacks` | 롤백한 횟수 |
-| ^ | `Num_tran_savepoints` | 세이브포인트 횟수 |
-| ^ | `Num_tran_start_topops` | 시작한 top operation의 개수 |
-| ^ | `Num_tran_end_topops` | 종료한 top operation의 개수 |
-| ^ | `Num_tran_interrupts` | 인터럽트 개수 |
-| 동시성/잠금 관련| `Num_page_locks_acquired` | 페이지 잠금을 획득한 횟수 |
-| ^ | `Num_object_locks_acquired` | 오브젝트 잠금을 획득한 횟수 |
-| ^ | `Num_page_locks_converted` | 페이지 잠금 타입을 변환한 횟수 |
-| ^ | `Num_object_locks_converted` | 오브젝트 잠금 타입을 변환한 횟수 |
-| ^ | `Num_page_locks_re-requested` | 페이지 잠금을 재요청한 횟수 |
-| ^ | `Num_object_locks_re-requested` | 오브젝트 잠금을 재요청한 횟수 |
-| ^ | `Num_page_locks_waits` | 잠금을 대기하는 페이지 개수 |
-| ^ | `Num_object_locks_waits` | 잠금을 대기하는 오브젝트 개수 |
-| 인덱스 관련 | `Num_btree_inserts` | 삽입된 항목의 개수 |
-| ^ | `Num_btree_deletes` | 삭제된 항목의 개수 |
-| ^ | `Num_btree_updates` | 갱신된 항목의 개수 |
-| ^ | `Num_btree_covered` | 질의 시 인덱스가 데이터를 모두 포함한 경우의 개수 |
-| ^ | `Num_btree_noncovered` | 질의 시 인덱스가 데이터를 일부분만 포함하거나 전혀 포함하지 않은 경우의 개수 |
-| ^ | `Num_btree_resumes` | `index_scan_oid_buffer_pages`를 초과한 인덱스 스캔 횟수 |
-| ^ | `Num_btree_multirange_optimization` | `WHERE ... IN ... LIMIT` 조건 질의문에 대해 다중 범위 최적화(multi-range optimization)를 수행한 횟수 |
-| ^ | `Num_btree_splits` | B-tree 노드 분할 연산 회수 |
-| ^ | `Num_btree_merges` | B-tree 노드 합병 연산 회수 |
-| 쿼리 관련| `Num_query_selects` | SELECT 쿼리의 수행 횟수 |
-| ^ | `Num_query_inserts` | INSERT 쿼리의 수행 횟수 |
-| ^ | `Num_query_deletes` | DELETE 쿼리의 수행 횟수 |
-| ^ | `Num_query_updates` | UPDATE 쿼리의 수행 횟수 |
-| ^ | `Num_query_sscans` | 순차 스캔(풀 스캔) 횟수 |
-| ^ | `Num_query_iscans` | 인덱스 스캔 횟수 |
-| ^ | `Num_query_lscans` | LIST 스캔 횟수 |
-| ^ | `Num_query_setscans` | SET 스캔 횟수 |
-| ^ | `Num_query_methscans` | METHOD 스캔 횟수 |
-| ^ | `Num_query_nljoins` | Nested Loop 조인 횟수 |
-| ^ | `Num_query_mjoins` | 병합 조인 횟수 |
-| ^ | `Num_query_objfetches` | 객체를 가져오기(fetch)한 횟수 |
-| 네트워크 요청 관련 | `Num_network_requests` | 네트워크 요청 횟수 |
-| 질의 계획 캐시 관련| `Num_plan_cache_add` | 캐시 엔트리(entry)가 새로 추가된 횟수 |
-| ^ | `Num_plan_cache_lookup` | 특정 키를 사용하여 룩업(lookup)을 시도한 횟수 |
-| ^ | `Num_plan_cache_hit` | 질의 문자열 해시 테이블에서 엔트리를 찾은(hit) 횟수 |
-| ^ | `Num_plan_cache_miss` | 질의 문자열 해시 테이블에서 엔트리를 찾지 못한(miss) 횟수 |
-| ^ | `Num_plan_cache_full` | 캐시 엔트리의 개수가 허용된 최대 개수를 넘어 희생자(victim) 탐색을 시도한 횟수 |
-| ^ | `Num_plan_cache_delete` | 캐시 엔트리가 삭제된(victimized) 횟수 |
-| ^ | `Num_plan_cache_invalid_xasl_id` | `xasl_id` 해시 테이블에서 엔트리를 찾지 못한(miss) 횟수. 서버에서 특정 엔트리가 제거(victimized)되었는데, 해당 엔트리를 클라이언트에서 요청했을 때 발생하는 에러 횟수 |
-| ^ | `Num_plan_cache_query_string_hash_entries` | 질의 문자열 해시 테이블의 현재 엔트리 개수 |
-| ^ | `Num_plan_cache_xasl_id_hash_entries` | xasl id 해시 테이블의 현재 엔트리 개수 |
-| ^ | `Num_plan_cache_class_oid_hash_entries` | class oid 해시 테이블의 현재 엔트리 개수 |
-| 버퍼 히트율 관련| `Data_page_buffer_hit_ratio` | 페이지 버퍼의 히트율<br/>(`Num_data_page_fetches` - `Num_data_page_ioreads`)\*100 / `Num_data_page_fetches` |
-| HA 관련| `Time_ha_replication_delay` | 복제 지연 시간(초) |
-
+| Metrics | Description | Category |
+| --- | --- | --- |
+| `active_sessions` | 현재 활성화된 세션 수입니다. | Transaction |
+| `broker_count` | 브로커의 수입니다. | Network |
+| `connect_error` | 연결 오류 횟수입니다. | Network |
+| `data_page_buffer_hit_ratio` | 데이터 페이지의 버퍼 히트 비율입니다.<br/>산출 방식: (`Num_data_page_fetches` - `Num_data_page_ioreads`)\*100 / `Num_data_page_fetches` | Buffer hit rate |
+| `executions` | 수행된 쿼리 실행 횟수입니다. | Query |
+| `fatal_count` | 치명적 오류 발생 횟수입니다. | Transaction |
+| `lock_wait_sessions` | 잠금 대기 중인 세션 수입니다. | Concurrency/Lock |
+| `long_running_sessions` | 장시간 실행 중인 세션 수입니다. | Transaction |
+| `num_adaptive_flush_log_pages` | 로그 버퍼로부터 디스크로 내려 쓰기(flush)한 로그 페이지 수입니다. | Page buffer |
+| `num_adaptive_flush_max_pages` | 데이터 및 로그 버퍼로부터 디스크로 내려 쓰기(flush)를 허용하는 최대 페이지 수입니다. | Page buffer |
+| `num_adaptive_flush_pages` | 데이터 버퍼로부터 디스크로 내려 쓰기(flush)한 데이터 페이지 수입니다. | Page buffer |
+| `num_btree_covered` | 쿼리 시 인덱스가 데이터를 모두 포함한 경우의 수입니다. | Index |
+| `num_btree_deletes` | B-Tree에서 삭제된 항목 수입니다. | Index |
+| `num_btree_get_stats` | B-Tree 통계가 조회된 횟수입니다. | Index |
+| `num_btree_inserts` | B-Tree에 삽입된 항목 수입니다. | Index |
+| `num_btree_merges` | B-Tree 노드 병합 연수 횟수입니다. | Index |
+| `num_btree_multirange_optimization` | `WHERE ... IN ... LIMIT` 조건 쿼리문에 대해 다중 범위 최적화(multi-range optimization)를 수행한 횟수입니다. | Index |
+| `num_btree_noncovered` | 쿼리 시 인덱스가 데이터를 일부분만 포함하거나 전혀 포함하지 않은 경우의 수입니다. | Index |
+| `num_btree_resumes` | B-Tree에서 다시 시작된 작업의 횟수입니다. `index_scan_oid_buffer_pages`를 초과한 인덱스 스캔 횟수를 의미합니다. | Index |
+| `num_btree_splits` | B-Tree 노드 분할 연산 횟수입니다. | Index |
+| `num_btree_updates` | B-Tree에서 업데이트된 항목 수입니다. | Index |
+| `num_data_page_dirties` | 더티(dirty) 데이터 페이지 수입니다. | Page buffer |
+| `num_data_page_fetches` | 가져온 데이터 페이지 수입니다. | Page buffer |
+| `num_data_page_ioreads` | 디스크에서 읽은 데이터 페이지 수입니다. 이 값이 클수록 덜 효율적이며, 히트율이 낮은 것과 상관됩니다. | Page buffer |
+| `num_data_page_iowrites` | 디스크에 기록된 데이터 페이지 수입니다. 이 값이 클수록 덜 효율적입니다. | Page buffer |
+| `num_file_creates` | 생성된 파일 수입니다. | I/O |
+| `num_file_ioreads` | 디스크로부터 읽은 I/O 작업 수입니다. | I/O |
+| `num_file_iosynches` | 디스크와 동기화를 수행한 I/O 작업 수입니다. | I/O |
+| `num_file_iowrites` | 디스크로 저장한 I/O 작업 수입니다. | I/O |
+| `num_file_page_allocs` | 파일 페이지 할당 횟수입니다. | I/O |
+| `num_file_page_deallocs` | 파일 페이지 할당 해제 횟수입니다. | I/O |
+| `num_file_removes` | 제거된 파일 수입니다. | I/O |
+| `num_heap_stats_bestspace_entries` | 힙 통계에서 최고의 공간 항목 수입니다. | Page buffer |
+| `num_heap_stats_bestspace_maxed` | 최대 힙 공간 항목 수입니다. | Page buffer |
+| `num_log_append_records` | 추가된 로그 레코드 수입니다. | Log |
+| `num_log_archives` | 수행된 로그 아카이브 작업의 수입니다. | Log |
+| `num_log_page_ioreads` | 디스크에서 읽은 로그 페이지 수입니다. | Log |
+| `num_log_page_iowrites` | 디스크에 기록된 로그 페이지 수입니다. | Log |
+| `num_log_wals` | 로그에 기록된 WAL(Write-Ahead Logging) 수입니다. | Log |
+| `num_network_requests` | 네트워크 요청 수입니다. | Network |
+| `num_object_locks_acquired` | 획득한 오브젝트 잠금 수입니다. | Concurrency/Lock |
+| `num_object_locks_converted` | 변환된 오브젝트 잠금 수입니다. | Concurrency/Lock |
+| `num_object_locks_re_requested` | 재요청된 오브젝트 잠금 수입니다. | Concurrency/Lock |
+| `num_object_locks_waits` | 대기 중인 오브젝트 잠금 수입니다. | Concurrency/Lock |
+| `num_page_locks_acquired` | 획득한 페이지 잠금 수입니다. | Concurrency/Lock |
+| `num_page_locks_converted` | 변환된 페이지 잠금 수입니다. | Concurrency/Lock |
+| `num_page_locks_re_requested` | 재요청된 페이지 잠금 수입니다. | Concurrency/Lock |
+| `num_page_locks_waits` | 대기 중인 페이지 잠금 수입니다. | Concurrency/Lock |
+| `num_plan_cache_add` | 쿼리 계획 캐시에 추가된 항목 수입니다. | Query plan cache |
+| `num_plan_cache_class_oid_hash_entries` | 클래스 OID 해시 테이블의 엔트리 수입니다. | Query plan cache |
+| `num_plan_cache_delete` | 캐시 엔트리가 삭제된 횟수입니다. | Query plan cache |
+| `num_plan_cache_full` | 캐시 엔트리의 개수가 허용된 최대 개수를 넘어 후보(victim) 탐색을 시도한 횟수입니다. | Query plan cache |
+| `num_plan_cache_hit` | 쿼리 문자열 해시 테이블에서 엔트리를 찾은 횟수입니다. | Query plan cache |
+| `num_plan_cache_invalid_xasl_id` | `xasl_id` 해시 테이블에서 엔트리를 찾지 못한 횟수입니다. 서버에서 특정 엔트리가 제거(victimized)되었는데, 해당 엔트리를 클라이언트에서 요청했을 때 발생하는 에러 횟수를 의미합니다. | Query plan cache |
+| `num_plan_cache_lookup` | 특정 키를 사용하여 룩업(lookup)을 시도한 횟수입니다. | Query plan cache |
+| `num_plan_cache_miss` | 쿼리 문자열 해시 테이블에서 엔트리를 찾지 못한(miss) 횟수입니다. | Query plan cache |
+| `num_plan_cache_query_string_hash_entries` | 쿼리 문자열 해시 테이블의 현재 엔트리 개수입니다. | Query plan cache |
+| `num_plan_cache_xasl_id_hash_entries` | `xasl_id` 해시 테이블의 현재 엔트리 수입니다. | Query plan cache |
+| `num_prior_lsa_list_maxed` | 최대 LSA 목록 항목 수입니다. | Log |
+| `num_prior_lsa_list_removed` | 제거된 LSA 목록 항목 수입니다. | Log |
+| `num_prior_lsa_list_size` | LSA 목록 항목의 크기입니다. | Log |
+| `num_query_deletes` | 처리된 DELETE 쿼리 수입니다. | Query |
+| `num_query_holdable_cursors` | 처리된 보류 가능 커서의 수입니다. | Query |
+| `num_query_inserts` | 처리된 INSERT 쿼리 수입니다. | Query |
+| `num_query_iscans` | 처리된 인덱스 스캔 쿼리 수입니다. | Query |
+| `num_query_lscans` | 처리된 LIST 스캔 쿼리 수입니다. | Query |
+| `num_query_methscans` | 처리된 METHOD 스캔 쿼리 수입니다. | Query |
+| `num_query_mjoins` | 처리된 병합 조인 쿼리 수입니다. | Query |
+| `num_query_nljoins` | 처리된 중첩 루프(Nested loop) 조인 쿼리 수입니다. | Query |
+| `num_query_objfetches` | 처리된 오브젝트 페치 쿼리 수입니다. | Query |
+| `num_query_selects` | 처리된 SELECT 쿼리 수입니다. | Query |
+| `num_query_setscans` | 처리된 SET 스캔 쿼리 수입니다. | Query |
+| `num_query_sscans` | 처리된 순차 스캔(Full scan) 쿼리 수입니다. | Query |
+| `num_query_updates` | 처리된 UPDATE 쿼리 수입니다. | Query |
+| `num_sort_data_pages` | 정렬 작업하는 동안 페이지 버퍼에서 발견된 페이지 수입니다. 이 값이 클수록 덜 효율적입니다. | Page buffer |
+| `num_sort_io_pages` | 정렬 작업하는 동안 디스크에서 페치한 페이지 수입니다. 이 값이 클수록 덜 효율적입니다. | Page buffer |
+| `num_tran_commits` | 커밋한 트랜잭션 수입니다. | Transaction |
+| `num_tran_end_topops` | 종료된 상위 연산(top operation) 트랜잭션 수입니다. | Transaction |
+| `num_tran_interrupts` | 트랜잭션 중단 횟수입니다. | Transaction |
+| `num_tran_rollbacks` | 롤백된 트랜잭션 수입니다. | Transaction |
+| `num_tran_savepoints` | 세이브 포인트(save point)가 설정된 횟수입니다. | Transaction |
+| `num_tran_start_topops` | 시작된 상위 연산(top operation) 트랜잭션 수입니다. | Transaction |
+| `psize` | 페이지 크기입니다. | I/O |
+| `qps` | 초당 처리된 쿼리 수입니다. | Query |
+| `replication_delay` | 복제 지연 시간입니다. | HA |
+| `time_ha_replication_delay` | HA 복제 지연 시간(second)입니다. | HA |
+| `total_query_time` | 총 쿼리 실행 시간입니다. | Query |
+| `total_sessions` | 총 세션 수입니다. | Transaction |
+| `tps` | 초당 트랜잭션 수입니다. | Transaction |
+| `warning_count` | 경고 발생 횟수입니다. | Transaction |
 </div>
 
 import Xosmetrics from "../common-items/_db-xos-metrics.mdx";

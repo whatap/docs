@@ -52,11 +52,11 @@
 | `Select_full_join` | - | 하나 이상의 테이블을 조인할 경우 인덱스를 사용하지 않고 드리븐(driven) 테이블을 풀 스캔(full scan)한 횟수 | Throughput |
 | `Select_scan` | - | 드라이빙(driving) 테이블을 풀 스캔(full scan)한 횟수. 이 경우 실행 계획의 type 컬럼에 ALL이 표시됩니다. | Throughput |
 | `Writes` | - | write에 사용한 명령 횟수. `Com_insert` + `Com_update` + `Com_delete`와 같음 | Throughput |
-| `cpu(xos2)` |  pct | cpu 사용율, `cpu_user` + `cpu_sys` + `cpu_iowait`의 합 | XOS |
-| `cpu_user(xos2)` |  pct | cpu가 사용자 코드를 실행하는데 소요한 시간 | XOS |
-| `cpu_sys(xos2)` |  pct | cpu가 kernel code를 수행한 시간 | XOS |
-| `cpu_iowait(xos2)` |  pct | cpu가 IO를 대기한 시간 | XOS |
-| `cpu_idle(xos2)` |  pct | cpu 프로세서 유휴 시간 | XOS |
+| `cpu(xos)` |  pct | cpu 사용율, `cpu_user` + `cpu_sys` + `cpu_iowait`의 합 | XOS |
+| `cpu_user(xos)` |  pct | cpu가 사용자 코드를 실행하는데 소요한 시간 | XOS |
+| `cpu_sys(xos)` |  pct | cpu가 kernel code를 수행한 시간 | XOS |
+| `cpu_iowait(xos)` |  pct | cpu가 IO를 대기한 시간 | XOS |
+| `cpu_idle(xos)` |  pct | cpu 프로세서 유휴 시간 | XOS |
 | `mem(xos)` |  pct | 메모리 사용율 | XOS |
 | `mem_total(xos)` |  MB | 전체 메모리양 | XOS |
 | `mem_free(xos)` |  MB | 시스템에서 사용하고 있지 않은 메모리양 | XOS |

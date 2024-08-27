@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_6_7",
+    "ver": "v1.6.7",
+    "date": "2024-08-21",
+    "Lists": [
+      {
+        "ver": "v1.6.7",
+        "hash": "v167",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> TraceContext를 큐에 넣기 전에 깊은 복사(deep copy)하여 데이터가 덮어쓰이지 않도록 방지</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_6_4",
     "ver": "v1.6.4",
     "date": "2024-05-14",

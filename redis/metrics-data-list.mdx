@@ -5,76 +5,240 @@ description: 와탭 Redis에서 사용하는 중요 지표를 안내합니다.
 keywords: [ Redis, 메트릭스, 데이터베이스, 데이터베이스 모니터링 ]
 ---
 
-데이터베이스 메트릭은 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집합니다. 와탭 모니터링 서비스는 지속적으로 메트릭을 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
+데이터베이스 지표는 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집합니다. 와탭 모니터링 서비스는 지속적으로 지표를 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
 
 지표에 대한 자세한 내용은 [다음 문서](https://redis.io/commands/info/)를 참조하세요.
 
-| Metric | 설명 | Category |
+## db_redis_counter {#db_redis_counter}
+
+### Tags {#db_redis_counter-tags}
+
+다음은 `db_redis_counter` 카테고리에 수집되는 태그값에 대한 안내입니다.
+
+| 태그명 | 설명 | 비고 |
+| -- | -- | -- |
+| `oname` | 에이전트 이름입니다. | 고유값 |
+
+### Field {#db_redis_counter-filed}
+
+다음은 `db_redis_counter` 카테고리에 수집되는 필드값에 대한 안내입니다.
+
+<div className="db-metric-3">
+
+| Metrics | Description | Category |
 | --- | --- | --- |
-| `BLOCKED_CLIENTS` | BLPOP, BRPOP, BRPOPLPUSH 명령으로 대기중인 클라이언트 수 | CLIENTS |
-| `CONNECTED_CLIENTS` | 현재 접속해 있는 클라이언트의 수(슬레이브 노드 접속은 제외) | CLIENTS |
-| `TRACKING_CLIENTS` | Number of clients being tracked | CLIENTS |
-| `CMDSTAT_XXX_CALLS` | 레디스 명령 통계 정보를 보여줍니다.<br/>call: XXX Command 실행 횟수 | COMMANDSTATS |
-| `CMDSTAT_XXX_USEC` | 레디스 명령 통계 정보를 보여줍니다.<br/>usec : XXX Command 실행시간(microsecond) | COMMANDSTATS |
-| `CMDSTAT_XXX_USEC_PER_CALL` | 레디스 명령 통계 정보를 보여줍니다.<br/>`usec_per_call` : XXX Command 한번 실행하는데 걸린 평균 시간 (microsecond) | COMMANDSTATS |
-| `USED_CPU` | `used_cpu_sys` + `used_cpu_user` | CPU |
-| `USED_CPU_SYS` | 시스템 모드에서 사용한 CPU | CPU |
-| `USED_CPU_SYS_CHILDREN` | RDB/AOF 파일 저장 시 자식 프로세스가 시스템 모드에서 사용한 CPU | CPU |
-| `USED_CPU_USER` | 사용자 모드에서 사용한 CPU | CPU |
-| `USED_CPU_USER_CHILDREN` | RDB/AOF 파일 저장 시 자식 프로세스가 사용자 모드에서 사용한 CPU | CPU |
-| `AVG_TTL_DB0` | DB0에 Key가 남아있는 시간(millisecond) | KEYSPACE |
-| `AVG_TTL_DB1` | DB1에 Key가 남아있는 시간(millisecond) | KEYSPACE |
-| `EXPIRES_DB0` | DB0의 expire될 key 개수 | KEYSPACE |
-| `EXPIRES_DB1` | DB1의 expire될 key 개수 | KEYSPACE |
-| `KEYS_DB0` | DB0의 키의 갯수 | KEYSPACE |
-| `KEYS_DB1` | DB1의 키의 갯수 | KEYSPACE |
-| `KEYS_TOTAL` | KEYS_DBn의 합계 | KEYSPACE |
-| `MEM_FRAGMENTATION_RATIO` | `used_memory`와 `used_memory_rss` 비율 | MEMORY |
-| `USED_MEMORY` | Bytes | MEMORY |
-| `USED_MEMORY_PEAK` | 최대로 사용한 메모리(bytes) | MEMORY |
-| `USED_MEMORY_RSS` | Resident Set Size. 프로세스가 차지하는 실제 메모리(RAM) 사이즈 | MEMORY |
-| `AOF_ENABLED` | *redis.conf*에 appendonly 모드가 yes이면 1, no면 0 입니다. yes일 때는 레디스 서버 시작 시 *appendonly.aof*을 읽고, no이면 *dump.rdb* 파일을 읽습니다. | PERSISTENCE |
-| `AOF_LAST_REWRITE_TIME_SEC` | 마지막 AOF rewrite 소요 시간(초) | PERSISTENCE |
-| `AOF_REWRITE_IN_PROGRESS` | 현재 AOF 파일을 백그라운드로 저장 중이면 1로 표시됩니다. | PERSISTENCE |
-| `AOF_REWRITE_SCHEDULED` | AOF rewrite를 할 것으로 예정되어 있으면 1. RDB 파일을 저장 중이면 동시에 AOF 파일을 저장할 수 없으므로 예정(scheduled:1)해놓고, 저장이 완료되면 AOF rewrite를 시작합니다. | PERSISTENCE |
-| `RDB_BGSAVE_IN_PROGRESS` | RDB 파일 background save가 진행중일때 1로 표시됩니다. | PERSISTENCE |
-| `RDB_CHANGES_SINCE_LAST_SAVE` | RDB 파일을 마지막으로 저정한 이후로 입력된 데이터 건수 | PERSISTENCE |
-| `RDB_CURRENT_BGSAVE_TIME_SEC` | 현재 백그라운드로 RDB 파일을 저장중이라면 저장 시작부터 현재까지 소요된 시간 | PERSISTENCE |
-| `RDB_LAST_BGSAVE_TIME_SEC` | 마지막 백그라운드 RDB 파일 저장 소요 시간(초) | PERSISTENCE |
-| `RDB_LAST_SAVE_TIME` | 마지막 성공적으로 RDB 파일을 저장한 시간 | PERSISTENCE |
-| `CONNECTED_SLAVES` | 마스터일 경우 연결된 슬레이브 수 | REPLICATION |
-| `REPL_BACKLOG_ACTIVE` | 마스터일경우 1이고 슬레이브는 0입니다. | REPLICATION |
-| `REPL_BACKLOG_SIZE` | *redis.conf* 파일에 `repl-backlog-size` 설정값입니다. 슬레이브와 연결이 끊어졌을때 입력되는 데이터를 backlog-buffer에 저장했다가 다시 연결되면 전체 데이터를 다시 주고 받을 필요없이 backlog-buffer의 데이터를 슬레이브에 보내서 동기화합니다. | REPLICATION |
-| `EVICTED_KEYS` | maxmemory 제한에 의해 퇴출된 키 수 | STATS |
-| `EXPIRED_KEYS` | expire 명령으로 삭제된 키 수 | STATS |
-| `INSTANTANEOUS_INPUT_KBPS` | 현재 입력 kbps | STATS |
-| `INSTANTANEOUS_OPS_PER_SEC` | 현재 초당 처리한 명령 수, 현재 초당 몇 건씩 처리하고 있는지 알 수 있음 | STATS |
-| `INSTANTANEOUS_OUTPUT_KBPS` | 현재 출력 kbps | STATS |
-| `KEYSPACE_HITS` | `get key`해서 값이 나오면 1 증가 | STATS |
-| `KEYSPACE_MISSES` | `get key`해서 `nil`이 나오면 1 증가 | STATS |
-| `LATEST_FORK_USEC` | 마지막 `fork()`하는데 걸린 시간(microsecond) | STATS |
-| `MIGRATE_CACHED_SOCKETS` | 클러스터 migrate 관련 값 | STATS |
-| `PUBSUB_CHANNELS` | pub/sub channel로 연결된 channel 수 | STATS |
-| `PUBSUB_PATTERNS` | pub/sub pattern로 연결된 pattrn channel 수 | STATS |
-| `REJECTED_CONNECTIONS` | maxclients 제한으로 거부된 접속 수 | STATS |
-| `SYNC_FULL` | 마스터 노드일때 슬레이브 노드와 full sync 횟수 | STATS |
-| `SYNC_PARTIAL_ERR` | 마스터 노드일때 슬레이브 노드와 partial sync err 횟수 | STATS |
-| `SYNC_PARTIAL_OK` | 마스터 노드일때 슬레이브 노드와 partial sync ok 횟수 | STATS |
-| `TOTAL_COMMANDS_PROCESSED` | 서버 시작 후 처리한 총 명령 수(저장,조회 모두) | STATS |
-| `TOTAL_CONNECTIONS_RECEIVED` | 서버 시작 후 총 접속 수 | STATS |
-| `CPU_IDLE_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `CPU_IOWAIT_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `CPU_SYS_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `CPU_USER_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `CPU_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `MEM_AVAILABLE_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `MEM_BUFFCACHE_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `MEM_SWAPFREE_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `MEM_SWAPTOTAL_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `MEM_TOTAL_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `MEM_USED_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `MEM_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `NET_RECV_BYTES_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `NET_RECV_PACKETS_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `NET_SEND_BYTES_XOS` | XOS에서 수집하는 OS 지표 | XOS |
-| `NET_SEND_PACKETS_XOS` | XOS에서 수집하는 OS 지표 | XOS |
+| `active_defrag_hits` | 활성화된 조각 모음 작업 중 발생한 히트 수입니다. | Memory |
+| `active_defrag_key_hits` | 조각 모음 작업에서 히트한 키의 수입니다. | Memory |
+| `active_defrag_key_misses` | 조각 모음 작업에서 놓친 키의 수입니다. | Memory |
+| `active_defrag_misses` | 활성화된 조각 모음 작업 중 놓친 히트 수입니다. | Memory |
+| `active_defrag_running` | 현재 활성화된 조각 모음 작업의 상태입니다. | Memory |
+| `allocator_active` | 할당기에서 활성화된 메모리 양입니다. | Memory |
+| `allocator_allocated` | 할당기에서 할당된 메모리 양입니다. | Memory |
+| `allocator_frag_bytes` | 할당기에서 발생한 메모리 단편화 바이트 수입니다. | Memory |
+| `allocator_frag_ratio` | 할당기에서 발생한 메모리 단편화 비율입니다. | Memory |
+| `allocator_resident` | 할당기에서 실제로 사용 중인 메모리 양입니다. | Memory |
+| `allocator_rss_bytes` | 할당기에서 실제로 사용 중인 메모리의 바이트 수입니다. | Memory |
+| `allocator_rss_ratio` | 할당기에서 발생한 RSS 비율입니다. | Memory |
+| `aof_current_rewrite_time_sec` | 현재 AOF rewrite에 소요된 시간(초)입니다. | Persistence |
+| `aof_enabled` | AOF(Append Only File)의 활성화 상태 여부입니다. *redis.conf* 파일에 `appendonly` 모드가 `yes`일 때 `1`, `no`일 때 `0`입니다. `yes`일 때는 Redis 서버 시작 시 *appendonly.aof* 파일을 읽고, `no`일 때는 *dump.rdb* 파일을 읽습니다. | Persistence |
+| `aof_last_cow_size` | 마지막 AOF rewrite 시점의 COW(Copy On Write) 크기입니다. | Persistence |
+| `aof_last_rewrite_time_sec` | 마지막 AOF rewrite에 소요된 시간(초)입니다. | Persistence |
+| `aof_rewrite_in_progress` | 현재 AOF 파일을 백그라운드로 저장 중이면 `1`로 표시합니다. | Persistence |
+| `aof_rewrite_scheduled` | AOF rewrite를 할 것으로 예정되어 있으면 `1`입니다. RDB 파일을 저장 중이면 동시에 AOF 파일을 저장할 수 없으므로 예정(scheduled:1)해놓고, 저장이 완료되면 AOF rewrite를 시작합니다. | Persistence |
+| `aof_rewrites` | 수행된 AOF rewrite 작업의 수입니다. | Persistence |
+| `aof_rewrites_consecutive_failures` | 연속적으로 실패한 AOF rewrite 횟수입니다. | Persistence |
+| `async_loading` | 비동기 데이터 로딩이 진행 중인지 여부입니다. | Persistence |
+| `avg_ttl_db0` | DB0에 키(key)가 남아있는 시간(millisecond)입니다. | Keyspace |
+| `avg_ttl_db1` | DB1에 키(key)가 남아있는 시간(millisecond) | Keyspace |
+| `blocked_clients` | `BLPOP`, `BRPOP`, `BRPOPLPUSH` 명령으로 대기 중인 클라이언트 수입니다. | Clients |
+| `client_recent_max_input_buffer` | 클라이언트의 최근 최대 입력 버퍼 크기입니다. | Clients |
+| `client_recent_max_output_buffer` | 클라이언트의 최근 최대 출력 버퍼 크기입니다. | Clients |
+| `clients_in_timeout_table` | 타임아웃 테이블에 있는 클라이언트 수입니다. | Clients |
+| `cluster_connections` | 클러스터 내의 연결 수입니다. | Clients |
+| `cmdstat_auth_calls` | AUTH 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_auth_failed_calls` | 실패한 AUTH 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_auth_rejected_calls` | 거부된 AUTH 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_auth_usec` | AUTH 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_auth_usec_per_call` | AUTH 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_client\|list_calls` | CLIENT LIST 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_client\|list_failed_calls` | 실패한 CLIENT LIST 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_client\|list_rejected_calls` | 거부된 CLIENT LIST 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_client\|list_usec` | CLIENT LIST 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_client\|list_usec_per_call` | CLIENT LIST 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_cluster\|info_calls` | CLUSTER INFO 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_cluster\|info_failed_calls` | 실패한 CLUSTER INFO 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_cluster\|info_rejected_calls` | 거부된 CLUSTER INFO 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_cluster\|info_usec` | CLUSTER INFO 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_cluster\|info_usec_per_call` | CLUSTER INFO 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_cluster\|nodes_calls` | CLUSTER NODES 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_cluster\|nodes_failed_calls` | 실패한 CLUSTER NODES 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_cluster\|nodes_rejected_calls` | 거부된 CLUSTER NODES 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_cluster\|nodes_usec` | CLUSTER NODES 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_cluster\|nodes_usec_per_call` | CLUSTER NODES 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_command_calls` | COMMAND 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_command_failed_calls` | 실패한 COMMAND 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_command_rejected_calls` | 거부된 COMMAND 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_command_usec` | COMMAND 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_command_usec_per_call` | COMMAND 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_command\|docs_calls` | COMMAND DOCS 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_command\|docs_failed_calls` | 실패한 COMMAND DOCS 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_command\|docs_rejected_calls` | 거부된 COMMAND DOCS 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_command\|docs_usec` | COMMAND DOCS 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_command\|docs_usec_per_call` | COMMAND DOCS 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_config\|get_calls` | CONFIG GET 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_config\|get_failed_calls` | 실패한 CONFIG GET 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_config\|get_rejected_calls` | 거부된 CONFIG GET 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_config\|get_usec` | CONFIG GET 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_config\|get_usec_per_call` | CONFIG GET 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_info_calls` | INFO 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_info_failed_calls` | 실패한 INFO 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_info_rejected_calls` | 거부된 INFO 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_info_usec` | INFO 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_info_usec_per_call` | INFO 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_ping_calls` | PING 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_ping_failed_calls` | 실패한 PING 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_ping_rejected_calls` | 거부된 PING 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_ping_usec` | PING 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_ping_usec_per_call` | PING 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_psync_calls` | PSYNC 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_psync_failed_calls` | 실패한 PSYNC 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_psync_rejected_calls` | 거부된 PSYNC 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_psync_usec` | PSYNC 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_psync_usec_per_call` | PSYNC 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_quit_calls` | QUIT 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_quit_failed_calls` | 실패한 QUIT 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_quit_rejected_calls` | 거부된 QUIT 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_quit_usec` | QUIT 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_quit_usec_per_call` | QUIT 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_replconf_calls` | REPLCONF 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_replconf_failed_calls` | 실패한 REPLCONF 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_replconf_rejected_calls` | 거부된 REPLCONF 명령의 호출 횟수입니다. | Commandstats |
+| `cmdstat_replconf_usec` | REPLCONF 명령에 소요된 총 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `cmdstat_replconf_usec_per_call` | REPLCONF 명령 호출당 평균 마이크로초(microsecond) 시간입니다. | Commandstats |
+| `connect_error` | 연결 오류 수입니다. | Stats |
+| `connected_clients` | 현재 연결된 클라이언트 수입니다. (슬레이브 노드 접속은 제외) | Clients |
+| `connected_slaves` | 마스터일 경우 연결된 슬레이브 수입니다. | REPLICATION |
+| `cpu_cores` | 사용 가능한 CPU 코어 수입니다. | CPU |
+| `current_active_defrag_time` | 현재 활성화된 조각 모음 작업의 시간입니다. | Memory |
+| `current_cow_peak` | 현재 COW(Copy On Write)의 피크 크기입니다. | Memory |
+| `current_cow_size` | 현재 COW(Copy On Write)의 크기입니다. | Memory |
+| `current_cow_size_age` | 현재 COW 크기의 지속 시간입니다. | Memory |
+| `current_eviction_exceeded_time` | 현재 메모리 강제 추출이 초과된 시간입니다. | Memory |
+| `current_fork_perc` | 현재 포크 작업의 진행률(%)입니다. | Persistence |
+| `current_save_keys_processed` | 현재 저장 작업에서 처리된 키의 수입니다. | Persistence |
+| `current_save_keys_total` | 현재 저장 작업에서 처리할 총 키의 수입니다. | Persistence |
+| `dump_payload_sanitizations` | 덤프 페이로드에서 수행된 정리 작업 수입니다. | Persistence |
+| `errorstat_ERR` | ERR 유형의 에러 발생 수입니다. | Stats |
+| `errorstat_NOAUTH` | NOAUTH 유형의 에러 발생 수입니다. | Stats |
+| `evicted_clients` | 메모리 부족으로 추방된 클라이언트 수입니다. | Clients |
+| `evicted_keys` | 메모리 부족으로 추방된 키의 수입니다. | Keyspace |
+| `expire_cycle_cpu_milliseconds` | 만료 사이클에서 소요된 CPU 시간(밀리초)입니다. | CPU |
+| `expired_keys` | expire 명령으로 삭제된 키 수입니다. | Keyspace |
+| `expired_stale_perc` | 만료된 스테일 키의 비율(%)입니다. | Keyspace |
+| `expired_time_cap_reached_count` | 만료 시간 제한에 도달한 횟수입니다. | Keyspace |
+| `expires_db0` | DB0에서 만료될 키(key)의 수입니다. | Keyspace |
+| `expires_db0` | DB1에서 만료될 키(key)의 수입니다. | Keyspace |
+| `fatal_count` | 치명적 오류 수입니다. | Stats |
+| `instantaneous_input_kbps` | 순간 입력 속도(kbps)입니다. | Stats |
+| `instantaneous_input_repl_kbps` | 순간 입력 복제 속도(kbps)입니다. | Replication |
+| `instantaneous_ops_per_sec` | 초당 처리된 명령 수입니다. 현재 초당 몇 건씩 처리하고 있는지 알 수 있습니다. | Stats |
+| `instantaneous_output_kbps` | 순간 출력 속도(kbps)입니다. | Stats |
+| `instantaneous_output_repl_kbps` | 순간 출력 복제 속도(kbps)입니다. | Replication |
+| `io_threaded_reads_processed` | I/O 쓰레드에서 처리된 읽기 작업 수입니다. | Stats |
+| `io_threaded_writes_processed` | I/O 쓰레드에서 처리된 쓰기 작업 수입니다. | Stats |
+| `keys_db0` | DB0에서 관리되는 키(key)의 수입니다. | Keyspace |
+| `keys_db1` | DB1에서 관리되는 키(key)의 수입니다. | Keyspace |
+| `keys_total` | `keys_dbN`의 합계입니다. | Keyspace |
+| `keyspace_hits` | 키스페이스 히트(hit) 수입니다. `get key` 명령을 통해 값이 나오면 1 증가합니다. | Keyspace |
+| `keyspace_misses` | 키스페이스 미스(miss) 수입니다. `get key` 명령을 통해 `nil`이 나오면 1 증가합니다. | Keyspace |
+| `latest_fork_usec` | 마지막 포크 작업에 소요된 시간(마이크로초, microsecond)입니다. | Persistence |
+| `lazyfree_pending_objects` | Lazyfree 작업이 보류 중인 객체 수입니다. | Memory |
+| `lazyfreed_objects` | Lazyfree 작업으로 해제된 객체 수입니다. | Memory |
+| `loading` | Redis가 데이터를 로딩 중인지 여부입니다. | Stats |
+| `maxclients` | 허용된 최대 클라이언트 수입니다. | Clients |
+| `maxmemory` | Redis에서 사용할 수 있는 최대 메모리 양입니다. | Memory |
+| `mem_aof_buffer` | AOF 버퍼에서 사용 중인 메모리 양입니다. | Memory |
+| `mem_clients_normal` | 일반 클라이언트가 사용 중인 메모리 양입니다. | Memory |
+| `mem_clients_slaves` | 슬레이브 클라이언트가 사용 중인 메모리 양입니다. | Replication |
+| `mem_cluster_links` | 클러스터 링크가 사용 중인 메모리 양입니다. | Memory |
+| `mem_fragmentation_bytes` | 메모리 단편화로 인해 발생한 바이트 수입니다. | Memory |
+| `mem_fragmentation_ratio` | `used_memory` 및 `used_memory_rss` 비율입니다. | Memory |
+| `mem_not_counted_for_evict` | 강제 추출 대상이 아닌 메모리 양입니다. | Memory |
+| `mem_replication_backlog` | 복제 백로그가 사용 중인 메모리 양입니다. | Replication |
+| `mem_total_replication_buffers` | 복제 버퍼가 사용 중인 총 메모리 양입니다. | Replication |
+| `migrate_cached_sockets` | 마이그레이션된 소켓 수입니다. 클러스터 migrate 관련 값입니다. | Stats |
+| `module_fork_in_progress` | 모듈 포크가 진행 중인지 여부입니다. | Persistence |
+| `module_fork_last_cow_size` | 마지막 모듈 포크 시점의 COW 크기입니다. | Persistence |
+| `node_state` | Redis 노드의 현재 상태입니다. | Stats |
+| `number_of_cached_scripts` | 캐시된 스크립트의 수입니다. | Stats |
+| `number_of_functions` | 등록된 함수의 수입니다. | Stats |
+| `number_of_libraries` | 로드된 라이브러리의 수입니다. | Stats |
+| `pubsub_channels` | 활성화된 Pub/Sub 채널로 연결된 채널 수입니다. | Stats |
+| `pubsub_patterns` | 활성화된 Pub/Sub 패턴으로 연결된 패턴 채널 수입니다. | Stats |
+| `pubsubshard_channels` | 활성화된 Pub/Sub 샤드 채널의 수입니다. | Stats |
+| `rdb_bgsave_in_progress` | 백그라운드 RDB 저장 작업이 진행 중일 때 `1`로 표시합니다. | Persistence |
+| `rdb_changes_since_last_save` | RDB 파일을 마지막으로 저장한 이후로 입력된 데이터 건수입니다. | Persistence |
+| `rdb_current_bgsave_time_sec` | 현재 백그라운드 RDB 저장 중이라면 저장 시점부터 현재까지 소요된 시간(초)입니다. | Persistence |
+| `rdb_last_bgsave_time_sec` | 마지막 백그라운드 RDB 저장에 소요된 시간(초)입니다. | Persistence |
+| `rdb_last_cow_size` | 마지막 RDB 저장 시점의 COW 크기입니다. | Persistence |
+| `rdb_last_load_keys_expired` | 마지막 RDB 로드 시 만료된 키의 수입니다. | Persistence |
+| `rdb_last_load_keys_loaded` | 마지막 RDB 로드 시 로드된 키의 수입니다. | Persistence |
+| `rdb_last_save_time` | 마지막 RDB 저장 시각입니다. | Persistence |
+| `rdb_saves` | 수행된 RDB 저장 작업의 수입니다. | Persistence |
+| `rejected_connections` | `maxclients` 제한으로 거부된 연결 수입니다. | Stats |
+| `reply_buffer_expands` | 리플라이 버퍼가 확장된 횟수입니다. | Stats |
+| `reply_buffer_shrinks` | 리플라이 버퍼가 축소된 횟수입니다. | Stats |
+| `repl_backlog_active` | 마스터이면 `1`이고 슬레이브는 `0`입니다. | Replication |
+| `repl_backlog_size` | *redis.conf* 파일에 `repl-backlog-size` 설정값입니다. 슬레이브와 연결이 끊어졌을때 입력되는 데이터를 backlog-buffer에 저장합니다. 이후 다시 연결되면 전체 데이터를 다시 주고 받을 필요없이 backlog-buffer의 데이터를 슬레이브에 보내서 동기화합니다. | Replication |
+| `rss_overhead_bytes` | RSS 오버헤드 바이트 수입니다. | Memory |
+| `rss_overhead_ratio` | RSS 오버헤드 비율입니다. | Memory |
+| `slave_expires_tracked_keys` | 슬레이브에서 만료된 트래킹된 키의 수입니다. | Replication |
+| `sync_full` | 마스터 노드일때 슬레이브 노드와 완전한 동기화 횟수입니다. | Replication |
+| `sync_partial_err` | 마스터 노드일때 슬레이브 노드와 부분 동기화 오류 횟수입니다. | Replication |
+| `sync_partial_ok` | 마스터 노드일때 슬레이브 노드와 성공한 부분 동기화 횟수입니다. | Replication |
+| `total_active_defrag_time` | 활성화된 조각 모음 작업의 총 시간입니다. | Memory |
+| `total_commands_processed` | 서버 시작 후 처리한 총 명령 수(저장, 조회 모두)입니다. | Commandstats |
+| `total_connections_received` | 서버 시작 후 수신된 총 연결 수입니다. | Clients |
+| `total_error_replies` | 발생한 총 오류 응답 수입니다. | Stats |
+| `total_eviction_exceeded_time` | 메모리 강제 추출이 초과된 총 시간입니다. | Memory |
+| `total_forks` | 수행된 총 포크 작업 수입니다. | Persistence |
+| `total_net_input_bytes` | 수신된 총 네트워크 바이트 수입니다. | Stats |
+| `total_net_output_bytes` | 전송된 총 네트워크 바이트 수입니다. | Stats |
+| `total_net_repl_input_bytes` | 수신된 총 복제 네트워크 바이트 수입니다. | Replication |
+| `total_net_repl_output_bytes` | 전송된 총 복제 네트워크 바이트 수입니다. | Replication |
+| `total_reads_processed` | 처리된 총 읽기 작업 수입니다. | Stats |
+| `total_system_memory` | 사용 가능한 총 시스템 메모리입니다. | Memory |
+| `total_writes_processed` | 처리된 총 쓰기 작업 수입니다. | Stats |
+| `tracking_clients` | 트래킹을 사용하는 클라이언트 수입니다. | Clients |
+| `tracking_total_items` | 트래킹된 총 항목 수입니다. | Stats |
+| `tracking_total_keys` | 트래킹된 총 키 수입니다. | Keyspace |
+| `tracking_total_prefixes` | 트래킹된 총 프리픽스 수입니다. | Keyspace |
+| `unexpected_error_replies` | 예상치 못한 오류 응답 수입니다. | Stats |
+| `used_cpu` | Redis 서버가 사용한 총 CPU 시간(`used_cpu_sys` + `used_cpu_user`)입니다. | CPU |
+| `used_cpu_children` | 자식 프로세스에서 사용한 총 CPU 시간입니다. | CPU |
+| `used_cpu_sys` | 시스템 모드에서 사용된 총 CPU 시간입니다. | CPU |
+| `used_cpu_sys_children` | RDB/AOF 파일 저장 시 자식 프로세스가 시스템 모드에서 사용한 CPU 시간입니다. | CPU |
+| `used_cpu_user` | 사용자 모드에 사용된 총 CPU 시간입니다. | CPU |
+| `used_cpu_user_children` | RDB/AOF 파일 저장 시 자식 프로세스가 사용자 모드에서 사용한 CPU 시간입니다. | CPU |
+| `used_memory` | Redis 서버가 사용 중인 총 메모리 양(bytes)입니다. | Memory |
+| `used_memory_dataset` | 데이터셋에서 사용 중인 메모리 양(bytes)입니다. | Memory |
+| `used_memory_dataset_perc` | 데이터셋에서 사용 중인 메모리의 비율(%)입니다. | Memory |
+| `used_memory_functions` | 함수에서 사용 중인 메모리 양(bytes)입니다. | Memory |
+| `used_memory_lua` | Lua 스크립트에서 사용 중인 메모리 양(bytes)입니다. | Memory |
+| `used_memory_overhead` | 오버헤드에서 사용 중인 메모리 양(bytes)입니다. | Memory |
+| `used_memory_peak` | Redis 서버가 사용한 최대 메모리 양(bytes)입니다. | Memory |
+| `used_memory_peak_perc` | 사용된 메모리의 피크 비율(%)입니다. | Memory |
+| `used_memory_rss` | Resident Set Size. 프로세스가 차지하는 실제 메모리(RAM) 사이즈입니다. | Memory |
+| `used_memory_scripts` | 스크립트에서 사용 중인 메모리 양입니다. | Memory |
+| `used_memory_scripts_eval` | 평가된 스크립트에서 사용 중인 메모리 양입니다. | Memory |
+| `used_memory_startup` | Redis 서버가 시작 시 사용한 메모리 양입니다. | Memory |
+| `used_memory_vm_eval` | 가상 메모리에서 평가된 스크립트에 사용 중인 메모리 양입니다. | Memory |
+| `used_memory_vm_functions` | 가상 메모리에서 함수에 사용 중인 메모리 양입니다. | Memory |
+| `used_memory_vm_total` | 가상 메모리에서 사용 중인 총 메모리 양입니다. | Memory |
+| `warning_count` | 경고 메시지 수입니다. | Stats |
+
+</div>
+
+import Xosmetrics from "../common-items/_db-xos-metrics.mdx";
+
+<Xosmetrics />

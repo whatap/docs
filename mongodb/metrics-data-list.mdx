@@ -5,31 +5,121 @@ description: MongoDB 지표를 안내합니다.
 keywords: [ MongoDB, 메트릭스, 데이터베이스 ]
 ---
 
-데이터베이스 지표는 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집한 데이터입니다. 와탭 모니터링 서비스는 지속적으로 메트릭을 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
+데이터베이스 지표는 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집한 데이터입니다. 와탭 모니터링 서비스는 지속적으로 지표를 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
 
 MongoDB에서는 `db.serverStatus`로부터 주요 지표를 수집하며, 다음은 수집하는 주요 지표에 대한 설명입니다. 그외 지표에 대한 자세한 내용은 [다음 문서](https://www.mongodb.com/docs/manual/reference/command/serverStatus/#output)를 참조하세요.
 
-| 지표 | 설명 |
-| -- | -- |
-| `active$connections` | 현재 작업이 진행 중인 액티브 클라이언트 연결 수 |
-| `current$connections` | 서버에 연결되어 있는 클라이언트 수 |
-| `CPU` | `extra_info`의 `user_time_us`, `system_time_us` 값으로 계산한 CPU 사용율 |
-| `input_blocks$extra_info` | 시스템의 input block 값 |
-| `output_blocks$extra_info` | 시스템의 output block 값 |
-| `bytesIn$network` | MongoDB 클라이언트나 기타 인스턴스의 연결을 통해 서버가 수신한 총 바이트 수 |
-| `bytesOut$network` | MongoDB 클라이언트나 기타 인스턴스의 연결을 통해 서버가 보낸 총 바이트 수 |
-| `numRequests$network` | 서버가 수신한 요청의 총 수 |
-| `latency$reads$opLatencies` | 읽기 요청에 대한 지연 시간 |
-| `latency$writes$opLatencies` | 쓰기 작업에 대한 지연 시간 |
-| `latency$commands$opLatencies` | 데이터베이스 명령에 대한 대기 시간 |
-| `insert$opcounters` | insert 명령 수 |
-| `query$opcounters` | query 명령 수 |
-| `update$opcounters` | update 명령 수 |
-| `delete$opcounters` | delete 명령 수 |
-| `command$opcounters` | 데이터베이스에서 실행된 총 명령 수 |
+## db_mongodb_counter {#db_mongodb_counter}
+
+### Tags {#db_mongodb_counter-tags}
+
+다음은 `db_mongodb_counter` 카테고리에 수집되는 태그값에 대한 안내입니다.
+
+| 태그명 | 설명 | 비고 |
+| -- | -- | -- |
+| `oname` | 에이전트 이름입니다. | 고유값 |
+
+### Field {#db_mongodb_counter-filed}
+
+다음은 `db_mongodb_counter` 카테고리에 수집되는 필드값에 대한 안내입니다.
+
+<div className="db-metric">
+
+| Metrics | Description |
+| --- | --- |
+| `accepted$tcpFastOpen$network` | TCP Fast Open을 통해 수락된 네트워크 연결 수입니다. |
+| `active$connections` | 현재 작업이 진행 중인 액티브 클라이언트 연결 수입니다. |
+| `available$connections` | 사용할 수 있는 네트워크 연결 수입니다. |
+| `awaitingTopologyChanges$connections` | 토폴로지 변경을 기다리고 있는 연결 수입니다. |
+| `bytesIn$compressor$snappy$compression$network` | Snappy 압축을 통해 수신된 네트워크 바이트 수입니다. |
+| `bytesIn$compressor$zlib$compression$network` | zlib 압축을 통해 수신된 네트워크 바이트 수입니다. |
+| `bytesIn$compressor$zstd$compression$network` | zstd 압축을 통해 수신된 네트워크 바이트 수입니다. |
+| `bytesIn$decompressor$snappy$compression$network` | Snappy 압축 해제를 통해 수신된 네트워크 바이트 수입니다. |
+| `bytesIn$decompressor$zlib$compression$network` | zlib 압축 해제를 통해 수신된 네트워크 바이트 수입니다. |
+| `bytesIn$decompressor$zstd$compression$network` | zstd 압축 해제를 통해 수신된 네트워크 바이트 수입니다. |
+| `bytesIn$network` | MongoDB 클라이언트나 기타 인스턴스의 연결을 통해 서버가 수신한 총 네트워크 바이트 수입니다. |
+| `bytesOut$compressor$snappy$compression$network` | Snappy 압축을 통해 송신된 네트워크 바이트 수입니다. |
+| `bytesOut$compressor$zlib$compression$network` | zlib 압축을 통해 송신된 네트워크 바이트 수입니다. |
+| `bytesOut$compressor$zstd$compression$network` | zstd 압축을 통해 송신된 네트워크 바이트 수입니다. |
+| `bytesOut$decompressor$snappy$compression$network` | Snappy 압축 해제를 통해 송신된 네트워크 바이트 수입니다. |
+| `bytesOut$decompressor$zlib$compression$network` | zlib 압축 해제를 통해 송신된 네트워크 바이트 수입니다. |
+| `bytesOut$decompressor$zstd$compression$network` | zstd 압축 해제를 통해 송신된 네트워크 바이트 수입니다. |
+| `bytesOut$network` | MongoDB 클라이언트나 기타 인스턴스의 연결을 통해 서버가 보낸 총 네트워크 바이트 수입니다. |
+| `clientsInTotal$fixed$serviceExecutors$network` | 고정 서비스 실행기에서 처리된 총 클라이언트 수입니다. |
+| `clientsInTotal$passthrough$serviceExecutors$network` | 패스스루 서비스 실행기에서 처리된 총 클라이언트 수입니다. |
+| `clientsRunning$fixed$serviceExecutors$network` | 고정 서비스 실행기에서 실행 중인 클라이언트 수입니다. |
+| `clientsRunning$passthrough$serviceExecutors$network` | 패스스루 서비스 실행기에서 실행 중인 클라이언트 수입니다. |
+| `clientsWaitingForData$fixed$serviceExecutors$network` | 고정 서비스 실행기에서 데이터 대기 중인 클라이언트 수입니다. |
+| `clientsWaitingForData$passthrough$serviceExecutors$network` | 패스스루 서비스 실행기에서 데이터 대기 중인 클라이언트 수입니다. |
+| `command$opcounters` | 데이터베이스에서 실행된 총 명령 수입니다. |
+| `connect_error` | 연결 오류 수입니다. |
+| `cpu` | `extra_info` 지표의 `user_time_us` 및 `system_time_us` 값으로 계산한 CPU 사용률입니다. |
+| `cpu_cores` | 사용 가능한 CPU 코어 수입니다. |
+| `cpu_sys` | 시스템에서 사용된 CPU 시간입니다. |
+| `cpu_user` | 사용자 작업에 사용된 CPU 시간입니다. |
+| `current$connections` | 현재 서버에 연결된 총 클라이언트 수입니다. |
+| `delete$opcounters` | 처리된 삭제 명령 수입니다. |
+| `exhaustHello$connections` | exhaustHello 메시지와 관련된 연결 수입니다. |
+| `exhaustIsMaster$connections` | exhaustIsMaster 메시지와 관련된 연결 수입니다. |
+| `fatal count` | 치명적 오류의 발생 횟수입니다. |
+| `getmore$opcounters` | 처리된 getMore 작업 수입니다. |
+| `input_blocks$extra_info` | 시스템의 입력 블록 값입니다. |
+| `insert$opcounters` | 처리된 Insert 명령 수입니다. |
+| `involuntary_context_switches$extra_info` | 강제 컨텍스트 스위치 발생 횟수와 관련된 추가 정보입니다. |
+| `kernelSetting$tcpFastOpen$network` | TCP Fast Open에 대한 커널 설정 상태입니다. |
+| `latency$commands$opLatencies` | 데이터베이스 명령에 대한 대기 시간입니다. |
+| `latency$reads$opLatencies` | 읽기 작업에 소요된 지연 시간입니다. |
+| `latency$transactions$opLatencies` | 트랜잭션 처리에 소요된 지연 시간입니다. |
+| `latency$writes$opLatencies` | 쓰기 작업에 소요된 지연 시간입니다. |
+| `maximum_resident_set_kb$extra_info` | 최대 거주 세트 크기(KB)와 관련된 추가 정보입니다. |
+| `msg$asserts` | 발생한 메시지 단언(assert)의 수입니다. |
+| `node_state` | 노드의 현재 상태입니다. |
+| `numRequests$network` | 서버가 수신한 네트워크 총 요청 수입니다. |
+| `numSlowDNSOperations$network` | 느린 DNS 작업의 수입니다. |
+| `numSlowSSLOperations$network` | 느린 SSL 작업의 수입니다. |
+| `ops$commands$opLatencies` | 명령어 작업의 처리 횟수입니다. |
+| `ops$reads$opLatencies` | 읽기 작업의 처리 횟수입니다. |
+| `ops$transactions$opLatencies` | 트랜잭션 작업의 처리 횟수입니다. |
+| `ops$writes$opLatencies` | 쓰기 작업의 처리 횟수입니다. |
+| `output_blocks$extra_info` | 시스템의 출력 블록 값입니다.  |
+| `page_faults$extra_info` | 페이지 폴트와 관련된 추가 정보입니다. |
+| `page_reclaims$extra_info` | 페이지 재획득과 관련된 추가 정보입니다. |
+| `physicalBytesIn$network` | 수신된 물리적 바이트 수입니다. |
+| `physicalBytesOut$network` | 송신된 물리적 바이트 수입니다. |
+| `query$opcounters` | 처리된 쿼리 명령 수입니다. |
+| `readers$activeClients$globalLock` | 활성화된 읽기 클라이언트 수(global lock)입니다. |
+| `readers$currentQueue$globalLock` | 현재 대기 중인 읽기 클라이언트 수(global lock)입니다. |
+| `regular$asserts` | 발생한 일반 단언(assert)의 수입니다. |
+| `replication_delay_max` | 최대 복제 지연 시간입니다. |
+| `resident$mem` | 사용 중인 실제 메모리 크기입니다. |
+| `rollovers$asserts` | 발생한 롤오버 단언(assert)의 수입니다. |
+| `system_time_us$extra_info` | 시스템 시간(마이크로초)과 관련된 추가 정보입니다. |
+| `threaded$connections` | 스레드 기반 연결 수입니다. |
+| `threadsRunning$fixed$serviceExecutors$network` | 고정 서비스 실행기에서 실행 중인 스레드 수입니다. |
+| `threadsRunning$passthrough$serviceExecutors$network` | 패스스루 서비스 실행기에서 실행 중인 스레드 수입니다. |
+| `total$activeClients$globalLock` | 활성화된 총 클라이언트 수(global lock)입니다. |
+| `total$currentQueue$globalLock` | 현재 대기 중인 총 클라이언트 수(global lock)입니다. |
+| `totalCreated$connections` | 생성된 총 연결 수입니다. |
+| `totalTime$globalLock` | 글로벌 잠금(global lock)에 소요된 총 시간입니다. |
+| `tripwire$asserts` | 발생한 트립와이어 단언(assert)의 수입니다. |
+| `update$opcounters` | 처리된 업데이트 명령 수입니다. |
+| `user$asserts` | 발생한 사용자 단언(assert)의 수입니다. |
+| `user_time_us$extra_info` | 사용자 시간(마이크로초)과 관련된 추가 정보입니다. |
+| `virtual$mem` | 사용 중인 가상 메모리 크기입니다. |
+| `voluntary_context_switches$extra_info` | 자발적인 컨텍스트 스위치 발생 횟수와 관련된 추가 정보입니다. |
+| `warning count` | 경고 메시지 수입니다. |
+| `warning$asserts` | 발생한 경고 단언(assert)의 수입니다. |
+| `writers$activeClients$globalLock` | 활성화된 쓰기 클라이언트 수(global lock)입니다. |
+| `writers$currentQueue$globalLock` | 현재 대기 중인 쓰기 클라이언트 수(global lock)입니다. |
+
+</div>
 
 :::note
 
 와탭은 클라이언트와 관련한 정보를 기본 저장합니다.
 
 :::
+
+import Xosmetrics from "../common-items/_db-xos-metrics.mdx";
+
+<Xosmetrics />

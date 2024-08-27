@@ -1,46 +1,116 @@
-데이터베이스 메트릭은 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집합니다. 와탭 모니터링 서비스는 지속적으로 메트릭을 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
+데이터베이스 지표는 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집합니다. 와탭 모니터링 서비스는 지속적으로 지표를 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
 
 지표 정보에 대한 보다 자세한 내용은 [다음 링크](https://docs.oracle.com/)를 참조하세요.
 
-<div class='metric'>
+<InDoc product="oracle">
 
-| Metric | Description |
-| --- | --- |
-| `cpu_used_by_this_session` | 사용자 호출이 시작된 시점부터 종료될 때까지 세션에서 사용한 CPU 시간(10밀리초 단위) |
-| `db_time` | 데이터베이스의 사용자 수준의 호출을 수행하는 데 소요된 경과 시간(microseconds) |
-| `active_sessions` | 쿼리를 실행 중인 세션 수 |
-| `cpu` | CPU 사용률 |
-| `cpu_cores` | CPU 코어 수 |
-| `db_block_changes` | SGA의 블록에서 변경된 블록 수 |
-| `db_file_scattered_read_time_waited` | db file scattered read 이벤트를 대기한 총 시간 |
-| `db_file_scattered_read_total_timeouts` | db file scattered read 이벤트의 총 타임아웃 횟수 |
-| `db_file_scattered_read_total_waits` | db file scattered read 이벤트 대기 총 횟수 |
-| `db_file_sequential_read_time_waited` | db file sequential read 이벤트를 대기한 총 시간 |
-| `db_file_sequential_read_total_timeouts` | db file sequential read 이벤트의 총 타임아웃 횟수 |
-| `db_file_sequential_read_total_waits` | db file sequential read 이벤트 대기 총 횟수 |
-| `enqueue_waits` | 대기열 가져오기가 지연되어 대기열 변환 또는 가져오기 중에 발생한 총 대기 횟수 |
-| `excute_count` | SQL 문(statement)을 실행한 총 호출 수 |
-| `fatal_count` | 치명적인 오류가 발생한 횟수 |
-| `iowait_cpu` | CPU가 입출력을 대기하는데 사용한 시간의 비율 |
-| `lock_wait_sessions` | 현재 row lock을 획득하기 위해 대기 중인 수 |
-| `logons_current` | 현재 총 로그온 수 |
-| `long_running_sessions` | 오랫동안 실행 중인 세션 수 |
-| `memory` | 메모리 사용률 |
-| `opened_cursors_current` | 현재 열려있는 cursor의 개수 |
-| `parse_count_(hard)` | 총 구분 문석 호출 수(실제 구문 분석) |
-| `parse_count_(total)` | 총 구문 분석 호출 수(hard, soft, describe) |
-| `physical_reads` | 디스크에서 읽은 데이터 블록 수 | 
-| `physical_writes` | 데이터를 디스크에 기록한 블록 수, `physical writes direct`와 `physical writes from cache`의 합 |
-| `session_logical_reads` | 메모리에서 읽은 데이터 블록 수, `db block gets`과 `consistent gets`의 합 |
-| `sorts_(memory)` | 메모리에서 수행된 sort 작업 수 |
-| `sys_cpu` | session에 의해 사용된 cpu time의 합 |
-| `total_elapse_time` | 데이터베이스 인스턴스가 마지막으로 다시 시작된 이후 모든 요청의 누적 총 경과 시간입니다. |
-| `total_sessions` | 모든 세션 수 |
-| `txn_sessions` |  transaction이 있는 세션 수|
-| `user_commits` | 트랜잭션 당 수행된 사용자 커밋 수 |
-| `user_cpu` | user cpu 사용량(%) |
-| `wait_sessions` | 이벤트를 대기하고 있는 세션 수 |
-| `warning_count` | 모든 경고 수 |
+## db_oracle_counter {#db_oracle_counter}
+
+### Tags {#db_oracle_counter-tags}
+
+다음은 `db_oracle_counter` 카테고리에 수집되는 태그값에 대한 안내입니다.
+
+| 태그명 | 설명 | 비고 |
+| -- | -- | -- |
+| `agentIp` | 에이전트 별 IP 주소입니다. | - |
+| `dbIsMulti` | Multitenant 지원 여부입니다. | - |
+| `dbName` | 데이터베이스 이름입니다. | - |
+| `dbType` | 데이터베이스 종류입니다. | - |
+| `dbVersion` | 이용 중인 데이터베이스의 버전입니다. | - |
+| `oname` | 에이전트 이름입니다. | 고유값 |
+
+### Field {#db_oracle_counter-filed}
+
+다음은 `db_oracle_counter` 카테고리에 수집되는 필드값에 대한 안내입니다.
+
+</InDoc>
+
+<InDoc product="oracle-pro">
+
+## db_oracle_dma_counter {#db_oracle_dma_counter}
+
+### Tags {#db_oracle_dma_counter-tags}
+
+다음은 `db_oracle_dma_counter` 카테고리에 수집되는 태그값에 대한 안내입니다.
+
+| 태그명 | 설명 | 비고 |
+| -- | -- | -- |
+| `dbName` | 데이터베이스 이름입니다. | - |
+| `oname` | 에이전트 이름입니다. | 고유값 |
+
+### Field {#db_oracle_dma_counter-filed}
+
+다음은 `db_oracle_dma_counter` 카테고리에 수집되는 필드값에 대한 안내입니다.
+
+</InDoc>
+
+<div class='db-metric-3'>
+
+| Metrics | Description | Category |
+| --- | --- | --- |
+| `cpu_used_by_this_session` | 사용자 호출이 시작된 시점부터 종료될 때까지 세션에서 사용한 CPU 시간(10밀리초 단위)입니다. | Performance |
+| `db_time` | 데이터베이스의 사용자 수준의 호출을 수행하는 데 소요된 경과 시간(microseconds)입니다. | Performance |
+| `active_sessions` | 현재 활성화된 세션 수입니다. | Connection |
+| `connect_error` | 연결 오류 수입니다. | Connection |
+| `consistent_gets` | 일관된 데이터 블록 읽기 작업 횟수입니다. | I/O |
+| `cpu` | 데이터베이스에서 사용된 CPU 사용률입니다. | Performance |
+| `cpu_cores` | 사용 가능한 CPU 코어 수입니다. | Performance |
+| `data_blocks_consistent_reads_-_undo_records_applied` | 일관된 데이터 블록 읽기에서 적용된 Undo 레코드 수입니다. | I/O |
+| `db_block_changes` | SGA의 블록에서 변경된 블록 수입니다. | I/O |
+| `db_block_gets` | SGA의 블록에서 직접 읽기 작업 횟수입니다. | I/O |
+| `db_file_scattered_read_time_waited` | 스캐터드 읽기 이벤트를 대기한 시간입니다. | I/O |
+| `db_file_scattered_read_total_timeouts` | 스캐터드 읽기 이벤트에서 발생한 타임아웃 횟수입니다. | I/O |
+| `db_file_scattered_read_total_waits` | 스캐터드 읽기 이벤트에서 발생한 총 대기 횟수입니다. | I/O |
+| `db_file_sequential_read_time_waited` | 시퀀셜 읽기 이벤트에서 대기한 시간입니다. | I/O |
+| `db_file_sequential_read_total_timeouts` | 시퀀셜 읽기 이벤트에서 발생한 타임아웃 횟수입니다. | I/O |
+| `db_file_sequential_read_total_waits` | 시퀀셜 읽기 이벤트에서 발생한 총 대기 횟수입니다. | I/O |
+| `direct path read time waited` | 다이렉트 경로 읽기에서 대기한 시간입니다. | I/O |
+| `direct path read total timeouts` | 다이렉트 경로 읽기에서 발생한 타임아웃 횟수입니다. | I/O |
+| `direct path read total waits` | 다이렉트 경로 읽기에서 발생한 총 대기 횟수입니다. | I/O |
+| `direct path write time waited` | 다이렉트 경로 쓰기에서 대기한 시간입니다. | I/O |
+| `direct path write total timeouts` | 다이렉트 경로 쓰기에서 발생한 타임아웃 횟수입니다. | I/O |
+| `direct path write total waits` | 다이렉트 경로 쓰기에서 발생한 총 대기 횟수입니다. | I/O |
+| `enq:_TX_-_row_lock_contention_time_waited` | 행 잠금(row lock) 경쟁에서 대기한 시간입니다. | I/O |
+| `enq:_TX_-_row_lock_contention_total_timeouts` | 행 장금(row lock) 경쟁에서 발생한 타임아웃 횟수입니다. | I/O |
+| `enq:_TX_-_row_lock_contention_total_waits` | 행 장금(row lock) 경쟁에서 발생한 총 대기 횟수입니다. | I/O |
+| `enqueue_waits` | 대기열 가져오기가 지연되어 대기열 변환 또는 가져오기 중에 발생한 총 대기 횟수입니다. | I/O |
+| `execute_count` | SQL 문(statement)을 실행한 총 명령 수입니다. | Performance |
+| `fatal_count` | 치명적인 오류가 발생한 횟수입니다. | Info |
+| `iowait_cpu` | I/O 대기 상태에서 사용된 CPU 시간 비율입니다. | Performance |
+| `latch free time waited` | 래치 프리 상태에서 대기한 시간입니다. | I/O |
+| `latch free total timeouts` | 래치 프리 상태에서 발생한 타임아웃 횟수입니다. | I/O |
+| `latch free total waits` | 래치 프리 상태에서 발생한 총 대기 횟수입니다. | I/O |
+| `library cache lock time waited` | 라이브러리 캐시 잠금에서 대기한 시간입니다. | I/O |
+| `library cache lock total timeouts` | 라이브러리 캐시 잠금에서 발생한 타임아웃 횟수입니다. | I/O |
+| `library cache lock total waits` | 라이브러리 캐시 잠금에서 발생한 총 대기 횟수입니다. | I/O |
+| `library cache pin time waited` | 라이브러리 캐시 핀에서 대기한 시간입니다. | I/O |
+| `library cache pin total timeouts` | 라이브러리 캐시 핀에서 발생한 타임아웃 횟수입니다. | I/O |
+| `library cache pin total waits` | 라이브러리 캐시 핀에서 발생한 총 대기 횟수입니다. | I/O |
+| `lock_wait_sessions` | 현재 행 장금(row lock)을 획득하기 위해 대기 중인 수입니다. | Connection |
+| `logons_current` | 현재 활성화된 로그인 수입니다. | Connection |
+| `long_running_sessions` | 장시간 실행 중인 세션 수입니다. | Connection |
+| `memory` | 현재 사용 중인 메모리 비율입니다. | MySQL Resource |
+| `opened_cursors_current` | 현재 열려 있는 커서(cursor) 수입니다. | Connection |
+| `parse_count_(hard)` | 총 구문 분석 호출 수(실제 구문 분석)입니다. | Performance |
+| `parse_count_(total)` | 총 구문 분석 호출 수(hard, soft, describe)입니다. | Performance |
+| `physical_reads` | 디스크에서 읽은 데이터 블록 수입니다. | I/O |
+| `physical_writes` | 데이터를 디스크에 기록한 블록 수입니다. `physical writes direct` 및 `physical writes from cache`의 합계입니다. | I/O |
+| `pq_sessions` | 병렬 쿼리 세션 수입니다. | Connection |
+| `redo_entries` | 생성된 Redo 엔트리 수입니다. | I/O |
+| `rollback_changes_-_undo_records_applied` | 롤백 변경으로 인해 적용된 Undo 레코드 수입니다. | I/O |
+| `session_logical_reads` | 메모리에서 읽은 데이터 블록 수입니다. `db block gets` 및 `consistent gets`의 합계입니다. | I/O |
+| `sorts_(disk)` | 디스크에서 발생한 정렬 작업 수입니다. | I/O |
+| `sorts_(memory)` | 메모리에서 발생한 정렬 작업 수입니다. | I/O |
+| `sys_cpu` | 세션에 의해 사용된 cpu time의 합계입니다. | Performance |
+| `total_elapse_time` | 데이터베이스 인스턴스가 마지막으로 다시 시작된 이후 모든 요청의 누적 총 경과 시간입니다. | Performance |
+| `total_sessions` | 총 세션 수입니다. | Connection |
+| `transaction_tables_consistent_reads_-_undo_records_applied` | 트랜잭션 테이블에서 일관된 읽기 작업에 적용된 Undo 레코드 수입니다. | I/O |
+| `txn_sessions` | 트랜잭션 세션 수입니다. | Connection |
+| `user_commits` | 트랜잭션 당 수행된 사용자 커밋 작업 수입니다. | I/O |
+| `user_cpu` | 사용자 작업에 사용된 CPU 비율(%)입니다. | Performance |
+| `user_rollbacks` | 사용자 롤백 작업 수입니다. | I/O |
+| `wait_sessions` | 이벤트 대기 중인 세션 수입니다. | Connection |
+| `warning_count` | 모든 경고 수입니다. | Info |
 
 다음은 에이전트 설정에서 `ora_ratio` 옵션을 통해 수집하는 지표에 대한 설명입니다. 에이전트 옵션 설정에 대한 자세한 내용은 [다음 문서](agent-dbx-settings#collect-data)를 참조하세요.
 

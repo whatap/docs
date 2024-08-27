@@ -18,19 +18,17 @@
 
 </InDoc>
 
+<Xclude product ='redis,mongodb,oracle,oracle-v1,altibase'>
+
+* **tables_hour** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  테이블 사이즈 정보를 저장하기 위해 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
+
+</Xclude>
+
 <Xclude product ='redis,mongodb,oracle,oracle-v1'>
-
-* **tables_hour** <span class='type'>Int</span>
-
-  기본값 `5`
-
-  테이블 사이즈 정보를 저장하기 위해 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
-
-* **tables_hour** <span class='type'>Int</span>
-
-  기본값 `5`
-
-  테이블 사이즈 정보를 저장하기 위해 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
 
 * **long_run_session_sec** <span class='type'>Second</span>
 
@@ -66,7 +64,7 @@
 
 </InDoc>
 
-<Xclude product='cubrid,redis,mongodb'>
+<Xclude product='cubrid,redis,mongodb,altibase'>
 
 * **replication_name** <span class='type'>String</span>
 
@@ -206,5 +204,25 @@
   이 옵션과 관련한 <Cmdname sid="side_dbSize" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](database-size)를 참조하세요.
 
   :::
+
+</InDoc>
+
+<InDoc product="altibase">
+
+* **tablespace_lock** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  데이터 파일 추가나 테이블스페이스 변경 시 발생하는 테이블스페이스 락(tablespace lock)을 모니터링하려면, 해당 옵션값을 `true`로 변경하세요.
+
+</InDoc>
+
+<InDoc product="postgresql,mysql,oracle,oracle-pro,altibase">
+
+* **xview_min_sec** <span class='type'>Int</span>
+
+  기본값 `0`
+
+  xview 수집 시, 쿼리의 수행 시간이 설정된 시간보다 오래 걸릴 때만 수집합니다. 기본 설정으로는 수행 시간이 0초 이상인 모든 쿼리를 수집합니다.
 
 </InDoc>

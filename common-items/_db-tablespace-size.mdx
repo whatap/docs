@@ -6,9 +6,15 @@
 
 * 각 테이블스페이스의 전체 크기, 사용 크기, 사용 비율을 상세히 제공합니다.
 
+<Xclude product="altibase">
+
 * 상위 50개의 세그먼트 크기를 확인할 수 있습니다.
 
+</Xclude>
+
 테이블스페이스의 사용 현황을 실시간으로 모니터링함으로써 사용량을 확인하고 적절한 용량 관리를 할 수 있습니다. 사용량이 높은 테이블스페이스와 세그먼트를 추적해 용량 관리와 성능 최적화를 위한 조치를 취하세요. 또한 테이블스페이스의 과도한 사용을 사전에 감지하고 대응할 수 있습니다.
+
+<Xclude product="altibase">
 
 ## 사용하기 전에
 
@@ -33,9 +39,39 @@ segments_min_size=10
 segments_hour=5
 ```
 
+</Xclude>
+
 ## 기본 화면 안내
 
-<ProdImg img='db-stat-table-space.png' desc='Tablespace size' />
+<Xclude product="altibase"><ProdImg img='db-stat-table-space.png' desc='Tablespace size' /></Xclude>
+
+<InDoc product="altibase">
+
+Altibase 모니터링에서는 다른 DBMS와 달리 메모리 테이블스페이스를 제공합니다. <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴에서는 디스크와 메모리 테이블스페이스의 사용량과 추이를 확인할 수 있습니다.
+
+:::tip
+
+* 메모리 테이블스페이스는 디스크보다 훨씬 빠른 데이터 접근 속도를 제공합니다. 메모리 테이블스페이스의 사용량을 모니터링함으로써 데이터가 메모리에 적절히 로드되고 있는지, 메모리 자원이 효율적으로 사용되고 있는지를 확인할 수 있습니다.
+
+* 디스크와 메모리 테이블스페이스의 사용량을 동시에 모니터링하면 각각의 자원이 어떻게 사용되고 있는지 파악할 수 있습니다. 이를 통해 메모리와 디스크 자원의 균형을 맞추고 필요한 경우 적절한 리소스 조정을 통해 성능 저하를 방지할 수 있습니다.
+
+* 사용량의 추이를 분석하면 메모리나 디스크 테이블스페이스의 증설이 필요한 시점을 예측할 수 있습니다. 이를 통해 자원 고갈로 인한 성능 문제를 사전에 방지할 수 있고, 적절한 확장 계획을 수립할 수 있습니다.
+
+* 메모리 테이블스페이스와 디스크 테이블스페이스 간의 사용량을 비교함으로써 특정 워크로드가 과도하게 디스크나 메모리에 집중되지 않도록 로드 분산을 최적화할 수 있습니다.
+
+:::
+
+* 디스크(Disk) 테이블스페이스
+
+  <ImgLang img='db-stat-table-space-disk-altibase.png' desc='Tablespace size' />
+
+* 메모리(Memory) 테이블스페이스
+
+  <ImgLang img='db-stat-table-space-mem-altibase.png' desc='Tablespace size' />
+
+기본 사용법은 다음과 같습니다.
+
+</InDoc>
 
 1. <Cmdname sid="time" className="uitext" />에서 분석할 기간을 설정하세요.
 
@@ -55,13 +91,17 @@ segments_hour=5
 
 <Cmdname sid="table_space" className="uitext" /> 섹션에서는 시간대별로 테이블스페이스의 전체 크기와 사용량 변화를 시각적으로 확인할 수 있습니다.
 
-<ImgLang img="db-stat-table-space-check-trend-oracle-pro.png" desc="Tablespace size" />
+<InDoc product="oracle,oracle-pro,cubrid"><ImgLang img="db-stat-table-space-check-trend-oracle-pro.png" desc="Tablespace size" /></InDoc>
+
+<InDoc product="altibase"><ImgLang img="db-stat-table-space-check-trend-altibase.png" desc="Tablespace size" /></InDoc>
 
 각 색상은 개별 테이블스페이스를 나타냅니다. 차트에서 특정 시간대의 데이터를 확인하려면 마우스를 차트 위로 오버한 상태에서 이동하세요. 해당 시간대의 상세 정보를 팝업으로 확인할 수 있습니다.
 
 ## 테이블스페이스 사이즈 상세 확인하기 {#table_space_detail}
 
 <Cmdname sid="table_space_detail" className="uitext" /> 섹션에서는 각 테이블스페이스의 상세 정보를 제공합니다.
+
+<InDoc product="oracle,oracle-pro,cubrid">
 
 <ImgLang img="db-stat-table-space-size-details-oracle-pro.png" desc="Tablespace size" />
 
@@ -74,6 +114,48 @@ segments_hour=5
 * <Cmdname sid="table_space_usage" className="uitext" />: 전체 크기 대비 사용 비율입니다.
 
 * <Cmdname sid="table_space_changed_amount" className="uitext" />: 최초 조회한 시간 대비 현재 시간의 사용량 변화입니다.
+
+</InDoc>
+
+<InDoc product="altibase">
+
+<ImgLang img="db-stat-table-space-size-details-altibase.png" desc="Tablespace size" />
+
+최초 조회한 시간과 현재 시간을 비교하여 각 테이블스페이스의 사용량 변화를 확인할 수 있습니다. 테이블스페이스의 세부 내역을 확인하려면 테이블스페이스 이름 옆의 ![화살표 아이콘](/img/ic-caret-right.svg) 버튼을 선택하세요. Altibase에서 제공하는 테이블스페이스 및 데이터 파일 사이즈 정보는 `MAX`, `ALLOC`, `CURR`, `USED` 등 다양한 값을 포함합니다. 화면에 표시된 값은 이러한 항목을 기반으로 구성했습니다.
+
+### ![](/img/number-01.png) TABLESPACE TYPE
+
+DISK, MEMORY, TEMP, UNDO 등 `V$TABLESPACES.TYPE` 별로 테이블스페이스의 사이즈를 확인할 수 있습니다.
+
+* <UI>TOTAL</UI>: 테이블스페이스의 `TOTAL` 크기의 합계입니다
+
+* <UI>USED</UI>: 테이블스페이스의 `USED` 크기의 합계입니다.
+
+* <UI>USAGE</UI>: (`USED` / `TOTAL`) 🞨 100으로 계산된 사용 비율입니다.
+
+### ![](/img/number-02.png) TABLESPACE
+
+하나의 테이블스페이스는 여러 개의 데이터 파일로 구성됩니다.
+
+* <UI>TOTAL</UI>: 데이터 파일의 `TOTAL` 크기(`V$DATAFILES.CURRSIZE` 🞨 `PAGESIZE`)의 합계입니다.
+
+* <UI>USED</UI>: `X$SEGMENT.TOTAL_USED_SIZE`를 기반으로 계산된 사용된 크기입니다.
+
+* <UI>USAGE</UI>: (`USED` / `TOTAL` ) 🞨 100으로 계산된 사용 비율입니다.
+
+### ![](/img/number-03.png) DATAFILE
+
+<UI>TOTAL</UI>: 데이터 파일의 `TOTAL` 크기(`V$DATAFILES.CURRSIZE` 🞨 `PAGESIZE`)의 합계입니다.
+
+:::note
+
+Altibase에서는 데이터 파일 단위의 `USED` 및 `USAGE` 정보를 제공하지 않습니다.
+
+:::
+
+</InDoc>
+
+<Xclude product="altibase">
 
 ## 세그먼트 사이즈 확인하기 {#TTL08164}
 
@@ -94,3 +176,5 @@ segments_hour=5
 * <Cmdname sid="TTL08177" className="uitext" />: 해당하는 경우 세그먼트의 파티션 이름입니다.
 
 * <Cmdname sid="table_space_size" className="uitext" />: 세그먼트의 크기입니다.
+
+</Xclude>

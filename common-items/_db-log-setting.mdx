@@ -41,9 +41,33 @@ file=/home/oracle/diag/rdbms/ora18/ORA18/trace/alert_ORA18.log
 
 </InDoc>
 
+<InDoc product='redis'>
+
+```ini title='xos.conf'
+file=/var/log/redis.log
+```
+
+</InDoc>
+
+<InDoc product='mongodb'>
+
+```ini title='xos.conf'
+file=/var/log/mongodb/mongodb.log
+```
+
+</InDoc>
+
+<InDoc product='altibase'>
+
+```ini title='xos.conf'
+file=/home/altibase/altibase-server-x.y.z/trc/altibase_boot.log
+```
+
+</InDoc>
+
 :::note
 
-<InDoc product='mysql,postgresql,oracle'>
+<InDoc product='mysql,postgresql,oracle,altibase,redis,mongodb'>
 
 적용하기 전에 XOS 에이전트를 설치하고 에이전트 설정을 진행해야 합니다. 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
 
@@ -57,6 +81,7 @@ file=/home/oracle/diag/rdbms/ora18/ORA18/trace/alert_ORA18.log
 
 :::
 
+<Xclude product="altibase">
 
 ## AWS RDS Log에 적용하기
 
@@ -212,6 +237,8 @@ AWS는 RDS의 모니터링을 위해서 다양한 정보들을 제공하지만 �
 * **AWS EventBridge**
 
   Rule: AWS 이벤트 중 RDS와 관련된 이벤트가 발생하면 WhatapRDSLog를 실행시키는 규칙
+
+</Xclude>
 
 
 ## 로그 모니터링 시작하기

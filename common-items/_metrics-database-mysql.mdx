@@ -1,77 +1,519 @@
 데이터베이스 지표(메트릭스)는 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집합니다. 와탭 모니터링 서비스는 지속적으로 지표를 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
 
-<div class='db-metric-4'>
+## db_mysql_counter {#db_mysql_counter}
 
-| 지표 | 단위 | 설명 | 카테고리 |
-| --- | -- | --- | --- |
-| `Aborted_connects` | - | 서버 연결 실패 횟수 | Connection |
-| `active_sessions` | - | 쿼리를 실행 중인 세션 수. `Threads_running`과 같음 | Connection |
-| `Connection_errors_internal` | - | 서버 오류에 의해 거절된 커넥션 수 | Connection |
-| `Connection_errors_max_connections` | - | `max_connections의` 제한으로 거절된 커넥션의 수 | Connection |
-| `Connections` | - | DB 접속 시도 횟수 | Connection |
-| `Max_used_connections` | - | startup 이후 최대 사용 커넥션 수 | Connection |
-| `Threads_connected` | - | 현재 접속한 세션 수 | Connection |
-| `max_connections` | - | 최대 동시 클라이언트 연결 수, 커넥션 수가 부족할 경우 **Too ManyConnection Error**가 발생할 수 있습니다. | Info |
-| `Bytes_received` | - | DB 서버가 받은 데이터 `bytes`, `Bytes_received`가 높다면 이 서버는 쓰기 위주 작업(insert 등) 서버임을 알 수 있습니다. | MySQL Resource |
-| `Bytes_sent` | - | DB 서버가 보낸 데이터 `bytes`, `Bytes_sent`가 높다면 이 서버는 읽기 위주 작업(select) 서버임을 알 수 있습니다. `Questions`, `Uptime`과 함께 응용해보면 1개 쿼리당 평균 Byte, 시간당 처리 Byte 등을 계산 할 수 있습니다. | MySQL Resource |
-| `Created_tmp_disk_tables` | - | 명령문을 실행하는 동안 서버에서 디스크에 생성한 임시 테이블 개수. 디스크 사용은 성능을 저하시킬 수 있으므로 이 값이 커지면 `tmp_table_size` 또는 `max_heap_table_size` 값 조정을 검토합니다. | MySQL Resource |
-| `Created_tmp_files` | - | mysqld가 생성한 임시 파일 수 | MySQL Resource |
-| `Created_tmp_tables` | - | 명령문을 실행하는 동안 서버에 의해 생성된 내부 임시 테이블의 수. 일반적으로 쿼리에서 UNION ALL을 사용하거나 ORDER BY, GROUP BY, DISTINCT를 사용하는 몇가지 경우 임시테이블이 사용될 수 있습니다. 총 내부 임시테이블 수(`Created_tmp_disk_tables` + `Created_tmp_tables`) 대비 디스크상의 임시테이블 수(`Created_tmp_disk_tables`)가 높지 않은 것이 좋습니다.(10%미만) | MySQL Resource |
-| `Innodb_buffer_pool_bytes_dirty` | - | 버퍼풀의 데이터 중 변경된 바이트 수(더티 데이터 수) | MySQL Resource |
-| `Innodb_buffer_pool_pages_data` | - | 전체 버퍼풀에서 현재 사용 중인 버퍼풀 페이지 수 | MySQL Resource |
-| `Innodb_buffer_pool_pages_dirty` | - | 버퍼풀의 데이터 중 변경된 페이지 수(더티 페이지 수) | MySQL Resource |
-| `Innodb_buffer_pool_pages_flushed` | - | 플러시된 InnoDB 버퍼풀 페이지 수. 이는 버퍼풀의 더티 데이터를 디스크에 쓰는 과정으로 과도한 flush는 디스크에 부담을 줄 수 있으므로 디스크의 성능과 함께 모니터링해야 합니다. | MySQL Resource |
-| `Innodb_buffer_pool_pages_free` | - | 전체 버퍼풀에서 사용하지 않은(사용 가능한) 페이지 수 | MySQL Resource |
-| `Innodb_buffer_pool_pages_total` | - | 전체 버퍼풀의 페이지 수 | MySQL Resource |
-| `Innodb_buffer_pool_read_requests` | - | 논리적 읽기 요청 수(물리적 읽기를 포함). **Inodb buffer pool hit ratio** 계산을 다음과 같이 할 수 있으며, 90% 이상을 권장합니다. 만약 Hit Ratio가 낮다면 `Innodb_buffer_pool_size` 증설을 검토합니다.<br/>Buffer Hit Ratio = (1 - (`Innodb_buffer_pool_reads`/`Innodb_buffer_pool_read_requests`)) * 100 | MySQL Resource |
-| `Innodb_buffer_pool_reads` | - | 물리적(Disk) read 를 한 횟수. Innodb 버퍼풀에 없어서 디스크에서 직접 읽어야 하는 논리적 읽기 요청 수. | MySQL Resource |
-| `Innodb_data_reads` | - | InnoDB 읽기 작업의 수 (`InnoDB_Data_Read`와 혼동되지 않음). | MySQL Resource |
-| `Innodb_data_writes` | - | InnoDB 쓰기 작업의 수. | MySQL Resource |
-| `Innodb_dblwr_writes` | - | Innodb Doublewrite 버퍼에 대한 쓰기 수. | MySQL Resource |
-| `Innodb_log_waits` | - | 로그 버퍼가 작아서 플러시 될 때까지 기다린 횟수. Redo log 경합 비율은 (`Innodb_log_waits` / `Innodb_log_writes`) 로 계산할 수 있으며 1 미만 값을 권장합니다. `Wait`가 높다면 `innodb_log_buffer_size`를 늘리는 것을 검토하세요. | MySQL Resource |
-| `Innodb_log_writes` | - | innodb redo log file에 대한 물리적 쓰기 수 | MySQL Resource |
-| `Binlog_bytes_written` | - | 이진 로그에 기록 된 바이트 수. | Performance |
-| `Binlog_commits` | - | 이진 로그에 기록된 Commit 수. | Performance |
-| `Innodb_row_lock_time` | - | row lock 획득에 소비된 총 시간(milliseconds) | Performance |
-| `Innodb_row_lock_waits` | - | Innodb 스토리지 엔진 테이블에서 row lock을 기다려야 하는 횟수. Lock을 획득한 수가 아닌 lock을 얻기 위해 대기하는 횟수로, 이 지표가 평소보다 급증한다면 쿼리 대기가 발생(락 경합)하는 것으로 쿼리 튜닝이 필요합니다. | Performance |
-| `lock_wait_sessions` | - | 현재 row lock을 획득하기 위해 대기중인 수. `innodb_lock_waits`(`data_lock_waits`)의 건수입니다. | Performance |
-| `replication_delay` | - | Replication 구조일 경우 replication db에 반영되는 지연시간. Slave DB에서 측정되는 지표입니다. | Performance |
-| `Slaves_running` | - | 실행되는 슬레이브 SQL 스레드 수. | Performance |
-| `Slow_queries` | - | DB 파라미터 `long_query_time`(초)에 설정한 시간 이상으로 실행된 쿼리 수 | Performance |
-| `Sort_rows` | - | sort 처리한 row 수 | Performance |
-| `Com_commit` | - | commit 횟수 | Throughput |
-| `Com_delete` | - | 실행된 삭제 명령 수 `handler_delete`와는 다른 행이 테이블에서 삭제된 횟수를 계산합니다. | Throughput |
-| `Com_insert` | - | 실행된 삽입 명령 수 | Throughput |
-| `Com_rollback` | - | rollback 횟수 | Throughput |
-| `Com_select` | - | Select 명령을 실행한 횟수 | Throughput |
-| `Com_update` | - | 실행된 업데이트 명령 수 | Throughput |
-| `Innodb_rows_read` | - | select에서 처리된 row 수 | Throughput |
-| `Innodb_rows_writes` | - | write에 처리된 row 수. `Innodb_rows_inserted` + `Innodb_rows_updated` + `Innodb_rows_deleted`와 같음 | Throughput |
-| `Queries` | - | `com_ping` 및 `com_statistics`를 제외한 서버에서 실행한 명령문 수. Stored program 내에서 실행된 진술도 계산한다는 점에서 `Questions`과 다릅니다. | Throughput |
-| `Questions` | - | 실행된 query의 갯수 | Throughput |
-| `Select_full_join` | - | 하나 이상의 테이블을 조인할 경우 인덱스를 사용하지 않고 드리븐(driven) 테이블을 풀 스캔(full scan)한 횟수 | Throughput |
-| `Select_scan` | - | 드라이빙(driving) 테이블을 풀 스캔(full scan)한 횟수. 이 경우 실행 계획의 type 컬럼에 ALL이 표시됩니다. | Throughput |
-| `Writes` | - | write에 사용한 명령 횟수. `Com_insert` + `Com_update` + `Com_delete`와 같음 | Throughput |
-| `cpu(xos)` |  pct | cpu 사용율, `cpu_user` + `cpu_sys` + `cpu_iowait`의 합 | XOS |
-| `cpu_user(xos)` |  pct | cpu가 사용자 코드를 실행하는데 소요한 시간 | XOS |
-| `cpu_sys(xos)` |  pct | cpu가 kernel code를 수행한 시간 | XOS |
-| `cpu_iowait(xos)` |  pct | cpu가 IO를 대기한 시간 | XOS |
-| `cpu_idle(xos)` |  pct | cpu 프로세서 유휴 시간 | XOS |
-| `mem(xos)` |  pct | 메모리 사용율 | XOS |
-| `mem_total(xos)` |  MB | 전체 메모리양 | XOS |
-| `mem_free(xos)` |  MB | 시스템에서 사용하고 있지 않은 메모리양 | XOS |
-| `mem_used(xos)` |  MB | 시스템에서 사용하고 있는 메모리양 | XOS |
-| `mem_buffcache(xos)` |  MB | buff/cache로 사용중인 메모리양 | XOS |
-| `mem_swaptotal(xos)` |  MB | Swap 전체 사이즈, 물리메모리가 부족한 경우를 대비하여 설정합니다. | XOS |
-| `mem_swapfree(xos)` |  MB | Swap의 사용하지 않은 영역, Swap 영역은 디스크 공간에 확보되기 때문에 Swap을 사용하고 있다면 시스템 성능이 급격하게 떨어질 수 있습니다. | XOS |
-| `mem_available(xos)` |  MB | 메모리 가용영역 | XOS |
-| `disk_reads(xos)` | block | 디스크로부터 읽은 데이터의 양 | XOS |
-| `disk_read_bytes(xos)` | byte | 디스크로부터 읽은 데이터의 양 | XOS |
-| `disk_writes(xos)` | block | 디스크로 쓰여진 데이터의 양 | XOS |
-| `disk_write_bytes(xos)` | byte | 디스크로 쓰여진 데이터의 양 | XOS |
-| `net_recv_bytes(xos)` | byte | 네트워크로 수신된 데이터의 양 | XOS |
-| `net_recv_packets(xos)` |   - | 네트워크로 수신된 데이터 패킷의 수 | XOS |
-| `net_send_bytes(xos)` | byte | 네트워크로 전송한 데이터의 양 | XOS |
-| `net_send_packets(xos)` |   - | 네트워크로 전송한 데이터 패킷의 수 | XOS |
+### Tags {#db_mysql_counter-tags}
+
+다음은 `db_mysql_counter` 카테고리에 수집되는 태그값에 대한 안내입니다.
+
+| 태그명 | 설명 | 비고 |
+| -- | -- | -- |
+| `agentIp` | 에이전트 별 IP 주소입니다. | - |
+| `dbIsMulti` | Multitenant 지원 여부입니다. | - |
+| `dbName` | 데이터베이스 이름입니다. | - |
+| `dbType` | 데이터베이스 종류입니다. | - |
+| `dbVersion` | 이용 중인 데이터베이스의 버전입니다. | - |
+| `oname` | 에이전트 이름입니다. | 고유값 |
+
+### Field {#db_mysql_counter-filed}
+
+다음은 `db_mysql_counter` 카테고리에 수집되는 필드값에 대한 안내입니다.
+
+<div class='db-metric-3'>
+
+| Metrics | Description | Category |
+| --- | --- | --- |
+| `Aborted_clients` | 클라이언트 연결이 비정상적으로 종료된 횟수입니다. | Connection |
+| `Aborted_connects` | 클라이언트 연결 시도가 실패한 횟수입니다. | Connection |
+| `Acl_cache_items_count` | ACL(액세스 제어 목록) 캐시 항목의 수입니다. | Info |
+| `Binlog_bytes_written` | - | 이진 로그에 기록 된 바이트 수입니다. | Performance |
+| `Binlog_cache_disk_use` | 디스크에 기록된 바이너리 로그 캐시 사용 횟수입니다. | I/O |
+| `Binlog_cache_use` | 바이너리 로그 캐시가 사용된 횟수입니다. | I/O |
+| `Binlog_commits` | - | 이진 로그에 기록된 커밋 수입니다. | Performance |
+| `Binlog_stmt_cache_disk_use` | 디스크에 기록된 바이너리 로그 스테이트먼트 캐시 사용 횟수입니다. | I/O |
+| `Binlog_stmt_cache_use` | 바이너리 로그 스테이트먼트 캐시가 사용된 횟수입니다. | I/O |
+| `Bytes_received` | DB 서버가 수신한 데이터 총 바이트 수입니다. 이 값이 높다면 해당 서버는 쓰기 작업(insert 등) 위주의 서버임을 알 수 있습니다. | MySQL Resource |
+| `Bytes_sent` | DB 서버가 전송한 데이터 총 바이트 수입니다. 이 값이 높다면 이 서버는 읽기 작업(select) 위주의 서버임을 알 수 있습니다. `Questions`, `Uptime`과 함께 응용해보면 1개 쿼리당 평균 Byte, 시간당 처리 Byte 등을 계산 할 수 있습니다. | MySQL Resource |
+| `Com_admin_commands` | 실행된 관리 명령의 수입니다. | Performance |
+| `Com_alter_db` | ALTER DATABASE 명령 실행 횟수입니다. | Performance |
+| `Com_alter_event` | ALTER EVENT 명령 실행 횟수입니다. | Performance |
+| `Com_alter_function` | ALTER FUNCTION 명령 실행 횟수입니다. | Performance |
+| `Com_alter_instance` | ALTER INSTANCE 명령 실행 횟수입니다. | Performance |
+| `Com_alter_procedure` | ALTER PROCEDURE 명령 실행 횟수입니다. | Performance |
+| `Com_alter_resource_group` | ALTER RESOURCE GROUP 명령 실행 횟수입니다. | Performance |
+| `Com_alter_server` | ALTER SERVER 명령 실행 횟수입니다. | Performance |
+| `Com_alter_table` | ALTER TABLE 명령 실행 횟수입니다. | Performance |
+| `Com_alter_tablespace` | ALTER TABLESPACE 명령 실행 횟수입니다. | Performance |
+| `Com_alter_user` | ALTER USER 명령 실행 횟수입니다. | Performance |
+| `Com_alter_user_default_role` | ALTER USER DEFAULT ROLE 명령 실행 횟수입니다. | Performance |
+| `Com_analyze` | ANALYZE 명령 실행 횟수입니다. | Performance |
+| `Com_assign_to_keycache` | KEYCACHE에 할당된 명령 실행 횟수입니다. | Performance |
+| `Com_begin` | BEGIN 명령 실행 횟수입니다. | Performance |
+| `Com_binlog` | BINLOG 명령 실행 횟수입니다. | Performance |
+| `Com_call_procedure` | CALL PROCEDURE 명령 실행 횟수입니다. | Performance |
+| `Com_change_db` | CHANGE DATABASE 명령 실행 횟수입니다. | Performance |
+| `Com_change_master` | CHANGE MASTER 명령 실행 횟수입니다. | Performance |
+| `Com_change_repl_filter` | CHANGE REPLICATION FILTER 명령 실행 횟수입니다. | Performance |
+| `Com_change_replication_source` | CHANGE REPLICATION SOURCE 명령 실행 횟수입니다. | Performance |
+| `Com_check` | CHECK 명령 실행 횟수입니다. | Performance |
+| `Com_checksum` | CHECKSUM 명령 실행 횟수입니다. | Performance |
+| `Com_clone` | CLONE 명령 실행 횟수입니다. | Performance |
+| `Com_commit` | COMMIT 명령 실행 횟수입니다. | Throughput |
+| `Com_create_db` | CREATE DATABASE 명령 실행 횟수입니다. | Performance |
+| `Com_create_event` | CREATE EVENT 명령 실행 횟수입니다. | Performance |
+| `Com_create_function` | CREATE FUNCTION 명령 실행 횟수입니다. | Performance |
+| `Com_create_index` | CREATE INDEX 명령 실행 횟수입니다. | Performance |
+| `Com_create_procedure` | CREATE PROCEDURE 명령 실행 횟수입니다. | Performance |
+| `Com_create_resource_group` | CREATE RESOURCE GROUP 명령 실행 횟수입니다. | Performance |
+| `Com_create_role` | CREATE ROLE 명령 실행 횟수입니다. | Performance |
+| `Com_create_server` | CREATE SERVER 명령 실행 횟수입니다. | Performance |
+| `Com_create_spatial_reference_system` | CREATE SPATIAL REFERENCE SYSTEM 명령 실행 횟수입니다. | Performance |
+| `Com_create_table` | CREATE TABLE 명령 실행 횟수입니다. | Performance |
+| `Com_create_trigger` | CREATE TRIGGER 명령 실행 횟수입니다. | Performance |
+| `Com_create_udf` | CREATE UDF 명령 실행 횟수입니다. | Performance |
+| `Com_create_user` | CREATE USER 명령 실행 횟수입니다. | Performance |
+| `Com_create_view` | CREATE VIEW 명령 실행 횟수입니다. | Performance |
+| `Com_dealloc_sql` | DEALLOC SQL 명령 실행 횟수입니다. | Performance |
+| `Com_delete` | DELETE 명령 실행 횟수입니다. `handler_delete`와는 다른 행이 테이블에서 삭제된 횟수를 계산합니다. | Throughput |
+| `Com_delete_multi` | DELETE MULTI 명령 실행 횟수입니다. | Performance |
+| `Com_do` | DO 명령 실행 횟수입니다. | Performance |
+| `Com_drop_db` | DROP DATABASE 명령 실행 횟수입니다. | Performance |
+| `Com_drop_event` | DROP EVENT 명령 실행 횟수입니다. | Performance |
+| `Com_drop_function` | DROP FUNCTION 명령 실행 횟수입니다. | Performance |
+| `Com_drop_index` | DROP INDEX 명령 실행 횟수입니다. | Performance |
+| `Com_drop_procedure` | DROP PROCEDURE 명령 실행 횟수입니다. | Performance |
+| `Com_drop_resource_group` | DROP RESOURCE GROUP 명령 실행 횟수입니다. | Performance |
+| `Com_drop_role` | DROP ROLE 명령 실행 횟수입니다. | Performance |
+| `Com_drop_server` | DROP SERVER 명령 실행 횟수입니다. | Performance |
+| `Com_drop_spatial_reference_system` | DROP SPATIAL REFERENCE SYSTEM 명령 실행 횟수입니다. | Performance |
+| `Com_drop_table` | DROP TABLE 명령 실행 횟수입니다. | Performance |
+| `Com_drop_trigger` | DROP TRIGGER 명령 실행 횟수입니다. | Performance |
+| `Com_drop_user` | DROP USER 명령 실행 횟수입니다. | Performance |
+| `Com_drop_view` | DROP VIEW 명령 실행 횟수입니다. | Performance |
+| `Com_empty_query` | 빈 쿼리가 실행된 횟수입니다. | Performance |
+| `Com_execute_sql` | SQL 명령 실행 횟수입니다. | Performance |
+| `Com_explain_other` | EXPLAIN OTHER 명령 실행 횟수입니다. | Performance |
+| `Com_flush` | FLUSH 명령 실행 횟수입니다. | Performance |
+| `Com_get_diagnostics` | GET DIAGNOSTICS 명령 실행 횟수입니다. | Performance |
+| `Com_grant` | GRANT 명령 실행 횟수입니다. | Performance |
+| `Com_grant_roles` | GRANT ROLES 명령 실행 횟수입니다. | Performance |
+| `Com_group_replication_start` | GROUP REPLICATION START 명령 실행 횟수입니다. | Performance |
+| `Com_group_replication_stop` | GROUP REPLICATION STOP 명령 실행 횟수입니다. | Performance |
+| `Com_ha_close` | HA CLOSE 명령 실행 횟수입니다. | Performance |
+| `Com_ha_open` | HA OPEN 명령 실행 횟수입니다. | Performance |
+| `Com_ha_read` | HA READ 명령 실행 횟수입니다. | Performance |
+| `Com_help` | HELP 명령 실행 횟수입니다. | Info |
+| `Com_import` | IMPORT 명령 실행 횟수입니다. | Performance |
+| `Com_insert` | INSERT 명령 실행 횟수입니다. | Throughput |
+| `Com_insert_select` | INSERT SELECT 명령 실행 횟수입니다. | Performance |
+| `Com_install_component` | INSTALL COMPONENT 명령 실행 횟수입니다. | Performance |
+| `Com_install_plugin` | INSTALL PLUGIN 명령 실행 횟수입니다. | Performance |
+| `Com_kill` | KILL 명령 실행 횟수입니다. | Performance |
+| `Com_load` | LOAD 명령 실행 횟수입니다. | Performance |
+| `Com_lock_instance` | LOCK INSTANCE 명령 실행 횟수입니다. | Performance |
+| `Com_lock_tables` | LOCK TABLES 명령 실행 횟수입니다. | Performance |
+| `Com_optimize` | OPTIMIZE 명령 실행 횟수입니다. | Performance |
+| `Com_preload_keys` | PRELOAD KEYS 명령 실행 횟수입니다. | Performance |
+| `Com_prepare_sql` | SQL 명령 준비 횟수입니다. | Performance |
+| `Com_purge` | PURGE 명령 실행 횟수입니다. | Performance |
+| `Com_purge_before_date` | 특정 날짜 이전의 데이터를 정리한 횟수입니다. | Performance |
+| `Com_release_savepoint` | SAVEPOINT 릴리스 명령 실행 횟수입니다. | Performance |
+| `Com_rename_table` | RENAME TABLE 명령 실행 횟수입니다. | Performance |
+| `Com_rename_user` | RENAME USER 명령 실행 횟수입니다. | Performance |
+| `Com_repair` | REPAIR 명령 실행 횟수입니다. | Performance |
+| `Com_replace` | REPLACE 명령 실행 횟수입니다. | Performance |
+| `Com_replace_select` | REPLACE SELECT 명령 실행 횟수입니다. | Performance |
+| `Com_replica_start` | REPLICA START 명령 실행 횟수입니다. | Connection |
+| `Com_replica_stop` | REPLICA STOP 명령 실행 횟수입니다. | Connection |
+| `Com_reset` | RESET 명령 실행 횟수입니다. | Performance |
+| `Com_resignal` | RESIGNAL 명령 실행 횟수입니다. | Performance |
+| `Com_restart` | RESTART 명령 실행 횟수입니다. | Performance |
+| `Com_revoke` | REVOKE 명령 실행 횟수입니다. | Performance |
+| `Com_revoke_all` | REVOKE ALL 명령 실행 횟수입니다. | Performance |
+| `Com_revoke_roles` | REVOKE ROLES 명령 실행 횟수입니다. | Performance |
+| `Com_rollback` | ROLLBACK 명령 실행 횟수입니다. | Throughput |
+| `Com_rollback_to_savepoint` | 특정 SAVEPOINT로 ROLLBACK된 횟수입니다. | Performance |
+| `Com_savepoint` | SAVEPOINT 명령 실행 횟수입니다. | Performance |
+| `Com_select` | SELECT 명령 실행 횟수입니다. | Throughput |
+| `Com_set_option` | SET OPTION 명령 실행 횟수입니다. | Performance |
+| `Com_set_password` | SET PASSWORD 명령 실행 횟수입니다. | Performance |
+| `Com_set_resource_group` | SET RESOURCE GROUP 명령 실행 횟수입니다. | Performance |
+| `Com_set_role` | SET ROLE 명령 실행 횟수입니다. | Performance |
+| `Com_show_binlog_events` | SHOW BINLOG EVENTS 명령 실행 횟수입니다. | Info |
+| `Com_show_binlogs` | SHOW BINLOGS 명령 실행 횟수입니다. | Info |
+| `Com_show_charsets` | SHOW CHARSETS 명령 실행 횟수입니다. | Info |
+| `Com_show_collations` | SHOW COLLATIONS 명령 실행 횟수입니다. | Info |
+| `Com_show_create_db` | SHOW CREATE DATABASE 명령 실행 횟수입니다. | Info |
+| `Com_show_create_event` | SHOW CREATE EVENT 명령 실행 횟수입니다. | Info |
+| `Com_show_create_func` | SHOW CREATE FUNCTION 명령 실행 횟수입니다. | Info |
+| `Com_show_create_proc` | SHOW CREATE PROCEDURE 명령 실행 횟수입니다. | Info |
+| `Com_show_create_table` | SHOW CREATE TABLE 명령 실행 횟수입니다. | Info |
+| `Com_show_create_trigger` | SHOW CREATE TRIGGER 명령 실행 횟수입니다. | Info |
+| `Com_show_create_user` | SHOW CREATE USER 명령 실행 횟수입니다. | Info |
+| `Com_show_databases` | SHOW DATABASES 명령 실행 횟수입니다. | Info |
+| `Com_show_engine_logs` | SHOW ENGINE LOGS 명령 실행 횟수입니다. | Info |
+| `Com_show_engine_mutex` | SHOW ENGINE MUTEX 명령 실행 횟수입니다. | Info |
+| `Com_show_engine_status` | SHOW ENGINE STATUS 명령 실행 횟수입니다. | Info |
+| `Com_show_errors` | SHOW ERRORS 명령 실행 횟수입니다. | Info |
+| `Com_show_events` | SHOW EVENTS 명령 실행 횟수입니다. | Info |
+| `Com_show_fields` | SHOW FIELDS 명령 실행 횟수입니다. | Info |
+| `Com_show_function_code` | SHOW FUNCTION CODE 명령 실행 횟수입니다. | Info |
+| `Com_show_function_status` | SHOW FUNCTION STATUS 명령 실행 횟수입니다. | Info |
+| `Com_show_grants` | SHOW GRANTS 명령 실행 횟수입니다. | Info |
+| `Com_show_keys` | SHOW KEYS 명령 실행 횟수입니다. | Info |
+| `Com_show_master_status` | SHOW MASTER STATUS 명령 실행 횟수입니다. | Info |
+| `Com_show_open_tables` | SHOW OPEN TABLES 명령 실행 횟수입니다. | Info |
+| `Com_show_plugins` | SHOW PLUGINS 명령 실행 횟수입니다. | Info |
+| `Com_show_privileges` | SHOW PRIVILEGES 명령 실행 횟수입니다. | Info |
+| `Com_show_procedure_code` | SHOW PROCEDURE CODE 명령 실행 횟수입니다. | Info |
+| `Com_show_procedure_status` | SHOW PROCEDURE STATUS 명령 실행 횟수입니다. | Info |
+| `Com_show_processlist` | SHOW PROCESSLIST 명령 실행 횟수입니다. | Info |
+| `Com_show_profile` | SHOW PROFILE 명령 실행 횟수입니다. | Info |
+| `Com_show_profiles` | SHOW PROFILES 명령 실행 횟수입니다. | Info |
+| `Com_show_relaylog_events` | SHOW RELAYLOG EVENTS 명령 실행 횟수입니다. | Info |
+| `Com_show_replica_status` | SHOW REPLICA STATUS 명령 실행 횟수입니다. | Info |
+| `Com_show_replicas` | SHOW REPLICAS 명령 실행 횟수입니다. | Info |
+| `Com_show_slave_hosts` | SHOW SLAVE HOSTS 명령 실행 횟수입니다. | Info |
+| `Com_show_slave_status` | SHOW SLAVE STATUS 명령 실행 횟수입니다. | Info |
+| `Com_show_status` | SHOW STATUS 명령 실행 횟수입니다. | Info |
+| `Com_show_storage_engines` | SHOW STORAGE ENGINES 명령 실행 횟수입니다. | Info |
+| `Com_show_table_status` | SHOW TABLE STATUS 명령 실행 횟수입니다. | Info |
+| `Com_show_tables` | SHOW TABLES 명령 실행 횟수입니다. | Info |
+| `Com_show_triggers` | SHOW TRIGGERS 명령 실행 횟수입니다. | Info |
+| `Com_show_variables` | SHOW VARIABLES 명령 실행 횟수입니다. | Info |
+| `Com_show_warnings` | SHOW WARNINGS 명령 실행 횟수입니다. | Info |
+| `Com_shutdown` | SHUTDOWN 명령 실행 횟수입니다. | Performance |
+| `Com_signal` | SIGNAL 명령 실행 횟수입니다. | Performance |
+| `Com_slave_start` | SLAVE START 명령 실행 횟수입니다. | Connection |
+| `Com_slave_stop` | SLAVE STOP 명령 실행 횟수입니다. | Connection |
+| `Com_stmt_close` | STMT CLOSE 명령 실행 횟수입니다. | Performance |
+| `Com_stmt_execute` | STMT EXECUTE 명령 실행 횟수입니다. | Performance |
+| `Com_stmt_fetch` | STMT FETCH 명령 실행 횟수입니다. | Performance |
+| `Com_stmt_prepare` | STMT PREPARE 명령 실행 횟수입니다. | Performance |
+| `Com_stmt_reprepare` | STMT REPREPARE 명령 실행 횟수입니다. | Performance |
+| `Com_stmt_reset` | STMT RESET 명령 실행 횟수입니다. | Performance |
+| `Com_stmt_send_long_data` | STMT SEND LONG DATA 명령 실행 횟수입니다. | Performance |
+| `Com_truncate` | TRUNCATE 명령 실행 횟수입니다. | Performance |
+| `Com_uninstall_component` | UNINSTALL COMPONENT 명령 실행 횟수입니다. | Performance |
+| `Com_uninstall_plugin` | UNINSTALL PLUGIN 명령 실행 횟수입니다. | Performance |
+| `Com_unlock_instance` | UNLOCK INSTANCE 명령 실행 횟수입니다. | Performance |
+| `Com_unlock_tables` | UNLOCK TABLES 명령 실행 횟수입니다. | Performance |
+| `Com_update` | UPDATE 명령 실행 횟수입니다. | Throughput |
+| `Com_update_multi` | UPDATE MULTI 명령 실행 횟수입니다. | Performance |
+| `Com_xa_commit` | XA COMMIT 명령 실행 횟수입니다. | Performance |
+| `Com_xa_end` | XA END 명령 실행 횟수입니다. | Performance |
+| `Com_xa_prepare` | XA PREPARE 명령 실행 횟수입니다. | Performance |
+| `Com_xa_recover` | XA RECOVER 명령 실행 횟수입니다. | Performance |
+| `Com_xa_rollback` | XA ROLLBACK 명령 실행 횟수입니다. | Performance |
+| `Com_xa_start` | XA START 명령 실행 횟수입니다. | Performance |
+| `Connection_errors_accept` | 클라이언트 연결 수락 오류 횟수입니다. | Connection |
+| `Connection_errors_internal` | 내부 연결 오류 횟수입니다. | Connection |
+| `Connection_errors_max_connections` | `max_connections`의 제한으로 거절된 연결 오류 횟수입니다. | Connection |
+| `Connection_errors_peer_address` | 피어 주소 연결 오류 횟수입니다. | Connection |
+| `Connection_errors_select` | SELECT 연결 오류 횟수입니다. | Connection |
+| `Connection_errors_tcpwrap` | TCP WRAP 연결 오류 횟수입니다. | Connection |
+| `Connections` | 총 클라이언트 연결 수입니다. | Connection |
+| `Created_tmp_disk_tables` | 명령문을 실행하는 동안 서버에서 디스크에 생성한 임시 테이블 수입니다. 디스크 사용은 성능을 저하시킬 수 있으므로 이 값이 커지면 `tmp_table_size` 또는 `max_heap_table_size` 값 조정을 검토하세요. | MySQL Resource |
+| `Created_tmp_files` | mysqld가 생성한 임시 파일 수입니다. | MySQL Resource |
+| `Created_tmp_tables` | 명령문을 실행하는 동안 서버에 의해 생성된 내부 임시 테이블의 수입니다. 일반적으로 쿼리에서 UNION ALL을 사용하거나 ORDER BY, GROUP BY, DISTINCT를 사용하는 몇 가지 경우 임시 테이블이 사용될 수 있습니다. 총 내부 임시테이블 수(`Created_tmp_disk_tables` + `Created_tmp_tables`) 대비 디스크상의 임시 테이블 수(`Created_tmp_disk_tables`)가 높지 않은 것이 좋습니다. (10%미만) | MySQL Resource |
+| `Delayed_errors` | 지연된 삽입 중 오류 수입니다. | Performance |
+| `Delayed_insert_threads` | 지연된 삽입을 처리하는 스레드 수입니다. | Performance |
+| `Delayed_writes` | 지연된 삽입 작업 수입니다. | Performance |
+| `Deprecated_use_i_s_processlist_count` | 사용 중지된 INFORMATION_SCHEMA PROCESSLIST의 사용 횟수입니다. | Info |
+| `Deprecated_use_i_s_processlist_last_timestamp` | 마지막으로 사용된 사용 중지된 INFORMATION_SCHEMA PROCESSLIST 타임스탬프입니다. | Info |
+| `Error_log_buffered_bytes` | 버퍼된 오류 로그의 바이트 수입니다. | I/O |
+| `Error_log_buffered_events` | 버퍼된 오류 로그 이벤트 수입니다. | I/O |
+| `Error_log_expired_events` | 만료된 오류 로그 이벤트 수입니다. | I/O |
+| `Error_log_latest_write` | 마지막 오류 로그 기록 시간입니다. | Info |
+| `Flush_commands` | FLUSH 명령 실행 횟수입니다. | Performance |
+| `Global_connection_memory` | 전역 연결 메모리 사용량입니다. | MySQL Resource |
+| `Handler_commit` | COMMIT 작업 횟수입니다. | I/O |
+| `Handler_delete` | DELETE 작업 횟수입니다. | I/O |
+| `Handler_discover` | DISCOVER 작업 횟수입니다. | I/O |
+| `Handler_external_lock` | 외부 잠금 작업 횟수입니다. | I/O |
+| `Handler_mrr_init` | MRR(멀티 레인지 리드) 초기화 횟수입니다. | I/O |
+| `Handler_prepare` | PREPARE 작업 횟수입니다. | I/O |
+| `Handler_read_first` | 첫 번째 레코드 읽기 작업 횟수입니다. | I/O |
+| `Handler_read_key` | 키 읽기 작업 횟수입니다. | I/O |
+| `Handler_read_last` | 마지막 레코드 읽기 작업 횟수입니다. | I/O |
+| `Handler_read_next` | 다음 레코드 읽기 작업 횟수입니다. | I/O |
+| `Handler_read_prev` | 이전 레코드 읽기 작업 횟수입니다. | I/O |
+| `Handler_read_rnd` | 임의 레코드 읽기 작업 횟수입니다. | I/O |
+| `Handler_read_rnd_next` | 임의 다음 레코드 읽기 작업 횟수입니다. | I/O |
+| `Handler_rollback` | ROLLBACK 작업 횟수입니다. | I/O |
+| `Handler_savepoint` | SAVEPOINT 작업 횟수입니다. | I/O |
+| `Handler_savepoint_rollback` | SAVEPOINT ROLLBACK 작업 횟수입니다. | I/O |
+| `Handler_update` | UPDATE 작업 횟수입니다. | I/O |
+| `Handler_write` | WRITE 작업 횟수입니다. | I/O |
+| `Innodb_buffer_pool_bytes_data` | InnoDB 버퍼 풀에서 데이터가 포함된 바이트 수입니다. | MySQL Resource |
+| `Innodb_buffer_pool_bytes_dirty` | InnoDB 버퍼 풀에서 변경된 바이트 수(더티 데이터 수)입니다. | MySQL Resource |
+| `Innodb_buffer_pool_pages_data` | InnoDB 버퍼 풀에서 사용 중인 버퍼풀 페이지 수입니다. | MySQL Resource |
+| `Innodb_buffer_pool_pages_dirty` | InnoDB 버퍼 풀에서 변경된 페이지 수(더티 페이지 수)입니다. | MySQL Resource |
+| `Innodb_buffer_pool_pages_flushed` | InnoDB 버퍼 풀에서 플러시된 페이지 수입니다. 버퍼풀의 더티 데이터를 디스크에 쓰는 과정으로 과도한 flush는 디스크에 부담을 줄 수 있으므로 디스크의 성능과 함께 모니터링해야 합니다. | MySQL Resource |
+| `Innodb_buffer_pool_pages_free` | InnoDB 버퍼 풀에서 사용 가능한 페이지 수입니다. | MySQL Resource |
+| `Innodb_buffer_pool_pages_misc` | InnoDB 버퍼 풀에서 관리용 페이지 수입니다. | MySQL Resource |
+| `Innodb_buffer_pool_pages_total` | InnoDB 버퍼 풀의 총 페이지 수입니다. | MySQL Resource |
+| `Innodb_buffer_pool_read_ahead` | InnoDB 버퍼 풀에서 읽기 예측이 발생한 횟수입니다. | MySQL Resource |
+| `Innodb_buffer_pool_read_ahead_evicted` | 읽기 예측된 페이지가 버퍼 풀에서 제거된 횟수입니다. | MySQL Resource |
+| `Innodb_buffer_pool_read_ahead_rnd` | 무작위 읽기 예측이 발생한 횟수입니다. | MySQL Resource |
+| `Innodb_buffer_pool_read_requests` | InnoDB 버퍼 풀에서 논리적 읽기 요청 수입니다. **Inodb buffer pool hit ratio** 계산을 다음과 같이 할 수 있으며, 90% 이상을 권장합니다. 만약 Hit Ratio가 낮다면 `Innodb_buffer_pool_size` 증설을 검토하세요.<br/>산출 방식: Buffer Hit Ratio = (1 - (`Innodb_buffer_pool_reads` / `Innodb_buffer_pool_read_requests`)) * 100 | MySQL Resource |
+| `Innodb_buffer_pool_reads` | InnoDB 버퍼 풀에서 물리적 디스크로부터 읽기 작업이 발생한 횟수입니다. Innodb 버퍼풀에 데이터가 없어서 디스크로부터 직접 읽어야 하는 논리적 읽기 요청 수입니다. | MySQL Resource |
+| `Innodb_buffer_pool_resize_status_code` | InnoDB 버퍼 풀 크기 조정 상태 코드입니다. | MySQL Resource |
+| `Innodb_buffer_pool_resize_status_progress` | InnoDB 버퍼 풀 크기 조정 진행률입니다. | MySQL Resource |
+| `Innodb_buffer_pool_wait_free` | InnoDB 버퍼 풀이 가득 찼을 때 대기한 횟수입니다. | MySQL Resource |
+| `Innodb_buffer_pool_write_requests` | InnoDB 버퍼 풀에서 기록 요청 수입니다. | MySQL Resource |
+| `Innodb_data_fsyncs` | 데이터 파일 fsync 호출 수입니다. | MySQL Resource |
+| `Innodb_data_pending_fsyncs` | 대기 중인 fsync 작업 수입니다. | MySQL Resource |
+| `Innodb_data_pending_reads` | 대기 중인 읽기 작업 수입니다. | MySQL Resource |
+| `Innodb_data_pending_writes` | 대기 중인 쓰기 작업 수입니다. | MySQL Resource |
+| `Innodb_data_read` | InnoDB에서 읽은 총 데이터 바이트 수입니다. | MySQL Resource |
+| `Innodb_data_reads` | InnoDB에서 읽기 작업 수입니다. | MySQL Resource |
+| `Innodb_data_writes` | InnoDB에서 쓰기 작업 수입니다. | MySQL Resource |
+| `Innodb_data_written` | InnoDB에서 기록된 총 데이터 바이트 수입니다. | MySQL Resource |
+| `Innodb_dblwr_pages_written` | InnoDB 이중 쓰기(double write) 버퍼에서 기록된 페이지 수입니다. | MySQL Resource |
+| `Innodb_dblwr_writes` | InnoDB 이중 쓰기(double write) 버퍼에서 기록 작업 수입니다. | MySQL Resource |
+| `Innodb_log_waits` | 로그 버퍼가 작아서 플러시 될 때까지 기다린 횟수입니다. Redo log 경합 비율은 (`Innodb_log_waits` / `Innodb_log_writes`) 로 계산할 수 있으며 1 미만 값을 권장합니다. `Wait`가 높다면 `innodb_log_buffer_size`를 늘리는 것을 검토하세요. | MySQL Resource |
+| `Innodb_log_write_requests` | InnoDB 로그에 대한 기록 요청 수입니다. | MySQL Resource |
+| `Innodb_log_writes` | InnoDB Redo 로그 파일에 대한 물리적 쓰기 횟수입니다. | MySQL Resource |
+| `Innodb_num_open_files` | InnoDB에서 열린 파일 수입니다. | MySQL Resource |
+| `Innodb_os_log_fsyncs` | 운영 체제 로그 파일 fsync 호출 수입니다. | MySQL Resource |
+| `Innodb_os_log_pending_fsyncs` | 대기 중인 운영 체제 로그 파일 fsync 작업 수입니다. | MySQL Resource |
+| `Innodb_os_log_pending_writes` | 대기 중인 운영 체제 로그 파일 기록 작업 수입니다. | MySQL Resource |
+| `Innodb_os_log_written` | 운영 체제 로그 파일에 기록된 바이트 수입니다. | MySQL Resource |
+| `Innodb_page_size` | InnoDB 페이지 크기입니다. | MySQL Resource |
+| `Innodb_pages_created` | InnoDB에서 생성된 페이지 수입니다. | MySQL Resource |
+| `Innodb_pages_read` | InnoDB에서 읽은 페이지 수입니다. | MySQL Resource |
+| `Innodb_pages_written` | InnoDB에서 기록된 페이지 수입니다. | MySQL Resource |
+| `Innodb_redo_log_capacity_resized` | InnoDB Redo 로그 용량이 조정된 횟수입니다. | MySQL Resource |
+| `Innodb_redo_log_checkpoint_lsn` | InnoDB Redo 로그 체크포인트 LSN입니다. | MySQL Resource |
+| `Innodb_redo_log_current_lsn` | InnoDB Redo 로그의 현재 LSN입니다. | MySQL Resource |
+| `Innodb_redo_log_flushed_to_disk_lsn` | InnoDB Redo 로그가 디스크에 기록된 LSN입니다. | MySQL Resource |
+| `Innodb_redo_log_logical_size` | InnoDB Redo 로그의 논리적 크기입니다. | MySQL Resource |
+| `Innodb_redo_log_physical_size` | InnoDB Redo 로그의 물리적 크기입니다. | MySQL Resource |
+| `Innodb_redo_log_uuid` | InnoDB Redo 로그의 UUID입니다. | MySQL Resource |
+| `Innodb_row_lock_current_waits` | InnoDB 행 잠금(row lock) 현재 대기 수입니다. | MySQL Resource |
+| `Innodb_row_lock_time` | InnoDB 행 잠금(row lock) 획득에 소비된 총 시간(milliseconds)입니다. | Performance |
+| `Innodb_row_lock_time_avg` | InnoDB 행 잠금(row lock) 평균 시간입니다. | Performance |
+| `Innodb_row_lock_time_max` | InnoDB 행 잠금(row lock) 최대 시간입니다. | Performance |
+| `Innodb_row_lock_waits` | InnoDB 행 잠금(row lock) 대기 횟수입니다. lock을 획득한 수가 아닌 lock을 얻기 위해 대기하는 횟수로, 이 지표가 평소보다 급증한다면 쿼리 대기가 발생(락 경합)하는 것으로 쿼리 튜닝이 필요합니다. | Performance |
+| `Innodb_rows_deleted` | InnoDB에서 삭제된 행 수입니다. | MySQL Resource |
+| `Innodb_rows_inserted` | InnoDB에서 삽입된 행 수입니다. | MySQL Resource |
+| `Innodb_rows_read` | InnoDB에서 읽은 행 수(Select에서 처리된 행 수)입니다. | Throughput |
+| `Innodb_rows_updated` | InnoDB에서 업데이트된 행 수입니다. | MySQL Resource |
+| `Innodb_rows_writes` | InnoDB에서 기록된 행 수(Write에 처리된 행 수)입니다.<br/>`Innodb_rows_inserted` + `Innodb_rows_updated` + `Innodb_rows_deleted` 계산식과 같습니다. | Throughput |
+| `Innodb_sampled_pages_read` | InnoDB에서 샘플링된 페이지 수입니다. | MySQL Resource |
+| `Innodb_sampled_pages_skipped` | InnoDB에서 샘플링이 스킵된 페이지 수입니다. | MySQL Resource |
+| `Innodb_system_rows_deleted` | InnoDB 시스템에서 삭제된 행 수입니다. | MySQL Resource |
+| `Innodb_system_rows_inserted` | InnoDB 시스템에서 삽입된 행 수입니다. | MySQL Resource |
+| `Innodb_system_rows_read` | InnoDB 시스템에서 읽은 행 수입니다. | MySQL Resource |
+| `Innodb_system_rows_updated` | InnoDB 시스템에서 업데이트된 행 수입니다. | MySQL Resource |
+| `Innodb_truncated_status_writes` | InnoDB에서 잘린 상태 기록 수입니다. | MySQL Resource |
+| `Innodb_undo_tablespaces_active` | InnoDB에서 활성화된 언두 테이블스페이스 수입니다. | MySQL Resource |
+| `Innodb_undo_tablespaces_explicit` | InnoDB에서 명시적으로 생성된 언두 테이블스페이스 수입니다. | MySQL Resource |
+| `Innodb_undo_tablespaces_implicit` | InnoDB에서 암시적으로 생성된 언두 테이블스페이스 수입니다. | MySQL Resource |
+| `Innodb_undo_tablespaces_total` | InnoDB 언두 테이블스페이스의 총 수입니다. | MySQL Resource |
+| `Key_blocks_not_flushed` | 플러시되지 않은 키 블록 수입니다. | I/O |
+| `Key_blocks_unused` | 사용되지 않은 키 블록 수입니다. | I/O |
+| `Key_blocks_used` | 사용된 키 블록 수입니다. | I/O |
+| `Key_read_requests` | 키 읽기 요청 수입니다. | I/O |
+| `Key_reads` | 실제로 디스크에서 읽은 키 블록 수입니다. | I/O |
+| `Key_write_requests` | 키 쓰기 요청 수입니다. | I/O |
+| `Key_writes` | 실제로 디스크에 기록된 키 블록 수입니다. | I/O |
+| `Locked_connects` | 잠긴 연결 수입니다. | Connection |
+| `Max_execution_time_exceeded` | 최대 실행 시간을 초과한 쿼리 수입니다. | Performance |
+| `Max_execution_time_set` | 최대 실행 시간이 설정된 횟수입니다. | Performance |
+| `Max_execution_time_set_failed` | 최대 실행 시간 설정이 실패한 횟수입니다. | Performance |
+| `Max_used_connections` | startup 이후 사용된 최대 연결 수입니다. | Connection |
+| `Mysqlx_aborted_clients` | MySQL X Protocol에서 중단된 클라이언트 수입니다. | Connection |
+| `Mysqlx_bytes_received` | MySQL X Protocol에서 수신된 바이트 수입니다. | Throughput |
+| `Mysqlx_bytes_received_compressed_payload` | MySQL X Protocol에서 압축된 페이로드로 수신된 바이트 수입니다. | Throughput |
+| `Mysqlx_bytes_received_uncompressed_frame` | MySQL X Protocol에서 압축되지 않은 프레임으로 수신된 바이트 수입니다. | Throughput |
+| `Mysqlx_bytes_sent` | MySQL X Protocol에서 전송된 바이트 수입니다. | Throughput |
+| `Mysqlx_bytes_sent_compressed_payload` | MySQL X Protocol에서 압축된 페이로드로 전송된 바이트 수입니다. | Throughput |
+| `Mysqlx_bytes_sent_uncompressed_frame` | MySQL X Protocol에서 압축되지 않은 프레임으로 전송된 바이트 수입니다. | Throughput |
+| `Mysqlx_connection_accept_errors` | MySQL X Protocol에서 연결 수락 오류 수입니다. | Connection |
+| `Mysqlx_connection_errors` | MySQL X Protocol에서 발생한 연결 오류 수입니다. | Connection |
+| `Mysqlx_connections_accepted` | MySQL X Protocol에서 수락된 연결 수입니다. | Connection |
+| `Mysqlx_connections_closed` | MySQL X Protocol에서 닫힌 연결 수입니다. | Connection |
+| `Mysqlx_connections_rejected` | MySQL X Protocol에서 거부된 연결 수입니다. | Connection |
+| `Mysqlx_crud_create_view` | MySQL X Protocol에서 실행된 CREATE VIEW 명령 횟수입니다. | Performance |
+| `Mysqlx_crud_delete` | MySQL X Protocol에서 실행된 DELETE 명령 횟수입니다. | Performance |
+| `Mysqlx_crud_drop_view` | MySQL X Protocol에서 실행된 DROP VIEW 명령 횟수입니다. | Performance |
+| `Mysqlx_crud_find` | MySQL X Protocol에서 실행된 FIND 명령 횟수입니다. | Performance |
+| `Mysqlx_crud_insert` | MySQL X Protocol에서 실행된 INSERT 명령 횟수입니다. | Performance |
+| `Mysqlx_crud_modify_view` | MySQL X Protocol에서 실행된 MODIFY VIEW 명령 횟수입니다. | Performance |
+| `Mysqlx_crud_update` | MySQL X Protocol에서 실행된 UPDATE 명령 횟수입니다. | Performance |
+| `Mysqlx_cursor_close` | MySQL X Protocol에서 커서 닫기 명령 횟수입니다. | Performance |
+| `Mysqlx_cursor_fetch` | MySQL X Protocol에서 커서 가져오기 명령 횟수입니다. | Performance |
+| `Mysqlx_cursor_open` | MySQL X Protocol에서 커서 열기 명령 횟수입니다. | Performance |
+| `Mysqlx_errors_sent` | MySQL X Protocol에서 클라이언트로 전송된 오류 수입니다. | Info |
+| `Mysqlx_errors_unknown_message_type` | MySQL X Protocol에서 알 수 없는 메시지 유형 오류 수입니다. | Info |
+| `Mysqlx_expect_close` | MySQL X Protocol에서 EXPECT CLOSE 명령 횟수입니다. | Performance |
+| `Mysqlx_expect_open` | MySQL X Protocol에서 EXPECT OPEN 명령 횟수입니다. | Performance |
+| `Mysqlx_init_error` | MySQL X Protocol에서 초기화 오류 수입니다. | Info |
+| `Mysqlx_messages_sent` | MySQL X Protocol에서 클라이언트로 전송된 메시지 수입니다. | Info |
+| `Mysqlx_notice_global_sent` | MySQL X Protocol에서 전송된 글로벌 알림 수입니다. | Info |
+| `Mysqlx_notice_other_sent` | MySQL X Protocol에서 전송된 기타 알림 수입니다. | Info |
+| `Mysqlx_notice_warning_sent` | MySQL X Protocol에서 전송된 경고 알림 수입니다. | Info |
+| `Mysqlx_notified_by_group_replication` | MySQL X Protocol에서 그룹 복제로 알림된 횟수입니다. | Connection |
+| `Mysqlx_port` | MySQL X Protocol에서 사용된 포트입니다. | Info |
+| `Mysqlx_prep_deallocate` | MySQL X Protocol에서 준비된 SQL DEALLOCATE 명령 횟수입니다. | Performance |
+| `Mysqlx_prep_execute` | MySQL X Protocol에서 준비된 SQL EXECUTE 명령 횟수입니다. | Performance |
+| `Mysqlx_prep_prepare` | MySQL X Protocol에서 준비된 SQL PREPARE 명령 횟수입니다. | Performance |
+| `Mysqlx_rows_sent` | MySQL X Protocol에서 클라이언트로 전송된 행 수입니다. | Throughput |
+| `Mysqlx_sessions` | MySQL X Protocol에서 현재 활성 세션 수입니다. | Connection |
+| `Mysqlx_sessions_accepted` | MySQL X Protocol에서 수락된 세션 수입니다. | Connection |
+| `Mysqlx_sessions_closed` | MySQL X Protocol에서 닫힌 세션 수입니다. | Connection |
+| `Mysqlx_sessions_fatal_error` | MySQL X Protocol에서 치명적 오류로 인해 닫힌 세션 수입니다. | Connection |
+| `Mysqlx_sessions_killed` | MySQL X Protocol에서 강제로 종료된 세션 수입니다. | Connection |
+| `Mysqlx_sessions_rejected` | MySQL X Protocol에서 거부된 세션 수입니다. | Connection |
+| `Mysqlx_ssl_accepts` | MySQL X Protocol에서 SSL 연결 수락 수입니다. | Connection |
+| `Mysqlx_ssl_ctx_verify_depth` | MySQL X Protocol에서 SSL 검증 깊이입니다. | Info |
+| `Mysqlx_ssl_ctx_verify_mode` | MySQL X Protocol에서 SSL 검증 모드입니다. | Info |
+| `Mysqlx_ssl_finished_accepts` | MySQL X Protocol에서 완료된 SSL 연결 수입니다. | Connection |
+| `Mysqlx_stmt_create_collection` | MySQL X Protocol에서 실행된 CREATE COLLECTION 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_create_collection_index` | MySQL X Protocol에서 실행된 CREATE COLLECTION INDEX 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_disable_notices` | MySQL X Protocol에서 실행된 DISABLE NOTICES 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_drop_collection` | MySQL X Protocol에서 실행된 DROP COLLECTION 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_drop_collection_index` | MySQL X Protocol에서 실행된 DROP COLLECTION INDEX 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_enable_notices` | MySQL X Protocol에서 실행된 ENABLE NOTICES 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_ensure_collection` | MySQL X Protocol에서 실행된 ENSURE COLLECTION 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_execute_mysqlx` | MySQL X Protocol에서 실행된 EXECUTE MYSQLX 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_execute_sql` | MySQL X Protocol에서 실행된 EXECUTE SQL 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_execute_xplugin` | MySQL X Protocol에서 실행된 EXECUTE XPLUGIN 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_get_collection_options` | MySQL X Protocol에서 실행된 GET COLLECTION OPTIONS 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_kill_client` | MySQL X Protocol에서 실행된 KILL CLIENT 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_list_clients` | MySQL X Protocol에서 실행된 LIST CLIENTS 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_list_notices` | MySQL X Protocol에서 실행된 LIST NOTICES 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_list_objects` | MySQL X Protocol에서 실행된 LIST OBJECTS 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_modify_collection_options` | MySQL X Protocol에서 실행된 MODIFY COLLECTION OPTIONS 명령 횟수입니다. | Performance |
+| `Mysqlx_stmt_ping` | MySQL X Protocol에서 실행된 PING 명령 횟수입니다. | Performance |
+| `Mysqlx_worker_threads` | MySQL X Protocol에서 활성화된 워커 스레드 수입니다. | MySQL Resource |
+| `Mysqlx_worker_threads_active` | MySQL X Protocol에서 활성 상태인 워커 스레드 수입니다. | MySQL Resource |
+| `Not_flushed_delayed_rows` | 플러시되지 않은 지연된 행 수입니다. | I/O |
+| `Ongoing_anonymous_transaction_count` | 진행 중인 익명 트랜잭션 수입니다. | Connection |
+| `Open_files` | 열린 파일 수입니다. | I/O |
+| `Open_streams` | 열린 스트림 수입니다. | I/O |
+| `Open_table_definitions` | 열린 테이블 정의 수입니다. | I/O |
+| `Open_tables` | 열린 테이블 수입니다. | I/O |
+| `Opened_files` | 열린 파일 수입니다. | I/O |
+| `Opened_table_definitions` | 열린 테이블 정의 수입니다. | I/O |
+| `Opened_tables` | 열린 테이블 수입니다. | I/O |
+| `Performance_schema_accounts_lost` | 손실된 Performance Schema 계정 수입니다. | Info |
+| `Performance_schema_cond_classes_lost` | 손실된 Performance Schema 조건 클래스 수입니다. | Info |
+| `Performance_schema_cond_instances_lost` | 손실된 Performance Schema 조건 인스턴스 수입니다. | Info |
+| `Performance_schema_digest_lost` | 손실된 Performance Schema 다이제스트 수입니다. | Info |
+| `Performance_schema_file_classes_lost` | 손실된 Performance Schema 파일 클래스 수입니다. | Info |
+| `Performance_schema_file_handles_lost` | 손실된 Performance Schema 파일 핸들 수입니다. | Info |
+| `Performance_schema_file_instances_lost` | 손실된 Performance Schema 파일 인스턴스 수입니다. | Info |
+| `Performance_schema_hosts_lost` | 손실된 Performance Schema 호스트 수입니다. | Info |
+| `Performance_schema_index_stat_lost` | 손실된 Performance Schema 인덱스 통계 수입니다. | Info |
+| `Performance_schema_locker_lost` | 손실된 Performance Schema 락커 수입니다. | Info |
+| `Performance_schema_memory_classes_lost` | 손실된 Performance Schema 메모리 클래스 수입니다. | Info |
+| `Performance_schema_metadata_lock_lost` | 손실된 Performance Schema 메타데이터 잠금 수입니다. | Info |
+| `Performance_schema_mutex_classes_lost` | 손실된 Performance Schema 뮤텍스 클래스 수입니다. | Info |
+| `Performance_schema_mutex_instances_lost` | 손실된 Performance Schema 뮤텍스 인스턴스 수입니다. | Info |
+| `Performance_schema_nested_statement_lost` | 손실된 Performance Schema 중첩된 문장 수입니다. | Info |
+| `Performance_schema_prepared_statements_lost` | 손실된 Performance Schema 준비된 문장 수입니다. | Info |
+| `Performance_schema_program_lost` | 손실된 Performance Schema 프로그램 수입니다. | Info |
+| `Performance_schema_rwlock_classes_lost` | 손실된 Performance Schema 읽기/쓰기 잠금 클래스 수입니다. | Info |
+| `Performance_schema_rwlock_instances_lost` | 손실된 Performance Schema 읽기/쓰기 잠금 인스턴스 수입니다. | Info |
+| `Performance_schema_session_connect_attrs_longest_seen` | Performance Schema에서 본 세션 연결 속성의 최대 길이입니다. | Info |
+| `Performance_schema_session_connect_attrs_lost` | 손실된 Performance Schema 세션 연결 속성 수입니다. | Info |
+| `Performance_schema_socket_classes_lost` | 손실된 Performance Schema 소켓 클래스 수입니다. | Info |
+| `Performance_schema_socket_instances_lost` | 손실된 Performance Schema 소켓 인스턴스 수입니다. | Info |
+| `Performance_schema_stage_classes_lost` | 손실된 Performance Schema 스테이지 클래스 수입니다. | Info |
+| `Performance_schema_statement_classes_lost` | 손실된 Performance Schema 문장 클래스 수입니다. | Info |
+| `Performance_schema_table_handles_lost` | 손실된 Performance Schema 테이블 핸들 수입니다. | Info |
+| `Performance_schema_table_instances_lost` | 손실된 Performance Schema 테이블 인스턴스 수입니다. | Info |
+| `Performance_schema_table_lock_stat_lost` | 손실된 Performance Schema 테이블 잠금 통계 수입니다. | Info |
+| `Performance_schema_thread_classes_lost` | 손실된 Performance Schema 스레드 클래스 수입니다. | Info |
+| `Performance_schema_thread_instances_lost` | 손실된 Performance Schema 스레드 인스턴스 수입니다. | Info |
+| `Performance_schema_users_lost` | 손실된 Performance Schema 사용자 수입니다. | Info |
+| `Prepared_stmt_count` | 준비된 명령문 수입니다. | Performance |
+| `Queries` | `com_ping` 및 `com_statistics`를 제외한 서버에서 실행한 명령문 수입니다. Stored program 내에서 실행된 쿼리도 계산한다는 점에서 `Questions`과 다릅니다. | Throughput |
+| `Questions` | 실행된 쿼리 수입니다. | Throughput |
+| `Replica_open_temp_tables` | 열려 있는 임시 테이블 수입니다. | I/O |
+| `Secondary_engine_execution_count` | 보조 엔진에서 실행된 작업 수입니다. | I/O |
+| `Select_full_join` | 하나 이상의 테이블을 조인할 경우 인덱스를 사용하지 않고 드리븐(driven) 테이블을 풀 스캔(full scan)한 횟수입니다. | Throughput |
+| `Select_full_range_join` | 전체 범위 조인 작업 수입니다. | I/O |
+| `Select_range` | 범위 선택 작업 수입니다. | I/O |
+| `Select_range_check` | 범위 확인 작업 수입니다. | I/O |
+| `Select_scan` | 드라이빙(driving) 테이블을 풀 스캔(full scan)한 횟수입니다. 이 경우 실행 계획의 type 컬럼에 ALL이 표시됩니다. | Throughput |
+| `Slave_open_temp_tables` | 열려 있는 임시 테이블 수입니다. | I/O |
+| `Slaves_running` | 실행되는 슬레이브 SQL 스레드 수입니다. | Performance |
+| `Slow_launch_threads` | 느리게 시작된 스레드 수입니다. | Performance |
+| `Slow_queries` | DB 파라미터 `long_query_time`(second) 옵션에 설정한 시간 이상으로 실행된 쿼리 수입니다. | Performance |
+| `Sort_merge_passes` | 정렬 병합 작업 횟수입니다. | I/O |
+| `Sort_range` | 범위 정렬 작업 수입니다. | I/O |
+| `Sort_rows` | 정렬된 행 수입니다. | I/O |
+| `Sort_scan` | 스캔 정렬 작업 수입니다. | I/O |
+| `Ssl_accept_renegotiates` | SSL 연결 재협상 횟수입니다. | Connection |
+| `Ssl_accepts` | SSL 연결 수락 수입니다. | Connection |
+| `Ssl_callback_cache_hits` | SSL 콜백 캐시 히트 수입니다. | Performance |
+| `Ssl_client_connects` | SSL 클라이언트 연결 수입니다. | Connection |
+| `Ssl_connect_renegotiates` | SSL 연결 재협상 횟수입니다. | Connection |
+| `Ssl_ctx_verify_depth` | SSL 컨텍스트 검증 깊이입니다. | Info |
+| `Ssl_ctx_verify_mode` | SSL 컨텍스트 검증 모드입니다. | Info |
+| `Ssl_default_timeout` | SSL 기본 시간 초과입니다. | Info |
+| `Ssl_finished_accepts` | 완료된 SSL 연결 수입니다. | Connection |
+| `Ssl_finished_connects` | 완료된 SSL 클라이언트 연결 수입니다. | Connection |
+| `Ssl_session_cache_hits` | SSL 세션 캐시 히트 수입니다. | Performance |
+| `Ssl_session_cache_misses` | SSL 세션 캐시 미스 수입니다. | Performance |
+| `Ssl_session_cache_overflows` | SSL 세션 캐시 오버플로우 수입니다. | Performance |
+| `Ssl_session_cache_size` | SSL 세션 캐시 크기입니다. | MySQL Resource |
+| `Ssl_session_cache_timeout` | SSL 세션 캐시 시간 초과입니다. | Info |
+| `Ssl_session_cache_timeouts` | SSL 세션 캐시 시간 초과 횟수입니다. | Info |
+| `Ssl_sessions_reused` | 재사용된 SSL 세션 수입니다. | Connection |
+| `Ssl_used_session_cache_entries` | 사용된 SSL 세션 캐시 항목 수입니다. | Performance |
+| `Ssl_verify_depth` | SSL 검증 깊이입니다. | Info |
+| `Ssl_verify_mode` | SSL 검증 모드입니다. | Info |
+| `Table_locks_immediate` | 즉시 획득된 테이블 잠금 수입니다. | I/O |
+| `Table_locks_waited` | 대기 후 획득된 테이블 잠금 수입니다. | I/O |
+| `Table_open_cache_hits` | 테이블 열기 캐시 히트 수입니다. | I/O |
+| `Table_open_cache_misses` | 테이블 열기 캐시 미스 수입니다. | I/O |
+| `Table_open_cache_overflows` | 테이블 열기 캐시 오버플로우 수입니다. | I/O |
+| `Tc_log_max_pages_used` | 사용된 최대 Tc 로그 페이지 수입니다. | I/O |
+| `Tc_log_page_size` | Tc 로그 페이지 크기입니다. | Info |
+| `Tc_log_page_waits` | Tc 로그 페이지 대기 수입니다. | I/O |
+| `Threads_cached` | 캐시된 스레드 수입니다. | MySQL Resource |
+| `Threads_connected` | 연결된 스레드 수입니다. | Connection |
+| `Threads_created` | 생성된 스레드 수입니다. | Connection |
+| `Threads_running` | 실행 중인 스레드 수입니다. | Connection |
+| `Uptime` | 서버 가동 시간입니다. | Info |
+| `Uptime_since_flush_status` | 마지막 상태 플러시 이후 경과된 시간입니다. | Info |
+| `Writes` | Write에 사용한 명령 횟수입니다. `Com_insert` + `Com_update` + `Com_delete` 계산식과 같습니다. | Throughput |
+| `active_sessions` | 활성 세션 수입니다. `Threads_running` 지표와 같은 값입니다. | Connection |
+| `connect_error` | 연결 오류 수입니다. | Connection |
+| `fatal_count` | 치명적 오류 수입니다. | Connection |
+| `lock_wait_sessions` | 행 잠금(row lock)을 획득하기 위해 대기 중인 세션 수입니다. `innodb_lock_waits`(`data_lock_waits`)의 건수입니다. | Performance |
+| `long_running_sessions` | 장시간 실행 중인 세션 수입니다. | Connection |
+| `max_connections` | 최대 동시 클라이언트 연결 수입니다. Connection 수가 부족할 경우 **Too ManyConnection Error**가 발생할 수 있습니다. | Info |
+| `node_state` | Replication 관계로 구성된 데이터베이스이며 `1`: Master, `2`: Slave 를 의미합니다. | Info |
+| `replication_broken` | 복제 실패 여부입니다. | Connection |
+| `replication_delay` | 복제 지연 시간입니다. Replication 구조일 경우 replication 데이터베이스에 반영되는 지연시간으로, Slave DB에서 측정되는 지표입니다. | Performance |
+| `seconds_behind_master` | 마스터와의 지연 시간(초)입니다. | Connection |
+| `total_runtime` | 모든 쿼리의 총 실행 시간입니다. | Performance |
+| `wait/io/file/csv/data` | CSV 데이터 파일 대기 시간입니다. | I/O |
+| `wait/io/file/csv/metadata` | CSV 메타데이터 파일 대기 시간입니다. | I/O |
+| `wait/io/file/innodb/innodb_data_file` | InnoDB 데이터 파일 대기 시간입니다. | I/O |
+| `wait/io/file/innodb/innodb_dblwr_file` | InnoDB 이중 쓰기 파일 대기 시간입니다. | I/O |
+| `wait/io/file/innodb/innodb_log_file` | InnoDB 로그 파일 대기 시간입니다. | I/O |
+| `wait/io/file/innodb/innodb_temp_file` | InnoDB 임시 파일 대기 시간입니다. | I/O |
+| `wait/io/file/mysys/charset` | MySys 문자 세트 파일 대기 시간입니다. | I/O |
+| `wait/io/file/mysys/cnf` | MySys 구성 파일 대기 시간입니다. | I/O |
+| `wait/io/file/sql/ERRMSG` | SQL 오류 메시지 파일 대기 시간입니다. | I/O |
+| `wait/io/file/sql/binlog` | SQL 바이너리 로그 파일 대기 시간입니다. | I/O |
+| `wait/io/file/sql/binlog_index` | SQL 바이너리 로그 인덱스 파일 대기 시간입니다. | I/O |
+| `wait/io/file/sql/casetest` | SQL 케이스 테스트 파일 대기 시간입니다. | I/O |
+| `wait/io/file/sql/misc` | SQL 기타 파일 대기 시간입니다. | I/O |
+| `wait/io/file/sql/pid` | SQL PID 파일 대기 시간입니다. | I/O |
+| `wait/io/file/sql/relaylog` | SQL 릴레이 로그 파일 대기 시간입니다. | I/O |
+| `wait/io/file/sql/relaylog_index` | SQL 릴레이 로그 인덱스 파일 대기 시간입니다. | I/O |
+| `wait/io/file/sql/slow_log` | SQL 느린 로그 파일 대기 시간입니다. | I/O |
+| `wait/io/table/sql/handler` | SQL 핸들러 테이블 대기 시간입니다. | I/O |
+| `wait/lock/table/sql/handler` | SQL 핸들러 테이블 잠금 대기 시간입니다. | I/O |
+| `waiting_for_table_flush_sessions` | 테이블 플러시 대기 세션 수입니다. | I/O |
+| `warning_count` | 경고 수입니다. | Info |
 
 </div>

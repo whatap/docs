@@ -5,7 +5,21 @@ description: CUBRID 지표를 안내합니다.
 keywords: [ CUBRID, 메트릭스, 데이터베이스, 데이터베이스 모니터링 ]
 ---
 
-데이터베이스 메트릭은 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집합니다. 와탭 모니터링 서비스는 지속적으로 지표를 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
+데이터베이스 지표는 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집합니다. 와탭 모니터링 서비스는 지속적으로 지표를 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
+
+## db_cubrid_counter {#db_cubrid_counter}
+
+### Tags {#db_cubrid_counter-tags}
+
+다음은 `db_cubrid_counter` 카테고리에 수집되는 태그값에 대한 안내입니다.
+
+| 태그명 | 설명 | 비고 |
+| -- | -- | -- |
+| `oname` | 에이전트 이름입니다. | 고유값 |
+
+### Field {#db_cubrid_counter-filed}
+
+다음은 `db_cubrid_counter` 카테고리에 수집되는 필드값에 대한 안내입니다.
 
 <div class='db-metric-cubrid'>
 
@@ -84,3 +98,7 @@ keywords: [ CUBRID, 메트릭스, 데이터베이스, 데이터베이스 모니�
 | HA 관련| `Time_ha_replication_delay` | 복제 지연 시간(초) |
 
 </div>
+
+import Xosmetrics from "../common-items/_db-xos-metrics.mdx";
+
+<Xosmetrics />

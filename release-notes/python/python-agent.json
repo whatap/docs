@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_6_8",
+    "ver": "v1.6.8",
+    "date": "2024-08-27",
+    "Lists": [
+      {
+        "ver": "v1.6.8",
+        "hash": "v168",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> <b>graphql-core</b>의 다양한 버전을 지원하기 위해 모듈 트레이싱 기능 추가</p>"
+      },
+      {
+        "ver": "v1.6.8",
+        "hash": "v168",
+        "product": "Python Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> <em>trace_module_definition.py</em> 파일을 수정하여 <b>graphql-core</b> 버전에 따라 적절한 모듈 계측이 이루어지도록 변경(최신 버전과 구버전을 모두 지원)</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_6_7",
     "ver": "v1.6.7",
     "date": "2024-08-21",

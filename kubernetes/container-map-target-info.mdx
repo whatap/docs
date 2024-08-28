@@ -34,21 +34,11 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 대상 정보 ]
 {/* 
 ![지시선 2](/img/number-02.png)  **대상 정보 목록**에서 선택한 대상 좌측의 ![더보기 아이콘](/img/right-arrow.svg) ***더보기*** 아이콘을 선택하면 ![지시선 a](/img/char-a.svg) 이하와 같이 ***Node***, ***Namespace***, ***Deployment***, ***ReplicaSet***, ***Pod***, ***ContainerName***, ***ContainerId***, ***Image***, ***Application***, ***Service*** 등의 지표 정보를 조회하고 목록 메뉴로 이동할 수 있습니다. */}
 
-* ***Node***: ***노드 상세***, ***오브젝트 매니페스트*** 정보를 확인하고 [노드 상세](node-details) 및 [노드 목록](resource-node-list) 메뉴로 이동할 수 있습니다.
+import TargetInfo from "../common-items/_import_k8s-container-map-target-resource-info.mdx";
 
-* ***Deployment***: ***오브젝트 매니페스트*** 정보를 확인하고 [Deployment 목록](deployment-list) 메뉴로 이동할 수 있습니다.
+<TargetInfo />
 
-* ***ReplicaSet***: ***오브젝트 매니페스트*** 정보를 확인할 수 있습니다. 
-
-* ***Pod***: ***오브젝트 매니페스트*** 정보를 확인하고 [Pod 목록](resource-pod-list) 메뉴로 이동할 수 있습니다. 
-
-* ***ContainerId***: ***컨테이너 정보***, ***컨테이너 요약 분석*** 정보를 확인하고 [컨테이너 목록](resource-container-list) 메뉴로 이동할 수 있습니다.
-
-* ***Image***: 컨테이너 이미지 정보를 확인하고 [컨테이너 이미지](container-images) 메뉴로 이동할 수 있습니디ㅏ. 
-
-* ***ServiceName***: ***오브젝트 매니페스트*** 정보를 확인하고 [Service 목록](service-list) 메뉴로 이동할 수 있습니다. 
-
-### 컨테이너 요약 분석과 Pod 요약 분석 
+### 컨테이너 요약 분석과 Pod 요약 분석{#kube-object-summary-analysis}
 
 ***컨테이너 요약 분석***과 ***Pod 요약 분석***은 쿠버네티스 환경에서 각 컨테이너와 Pod의 성능과 자원에 대한 분석 보고서를 제공합니다. 클러스터와 네임스페이스의 컨테이너 및 Pod의 자원 할당 및 사용 현황을 실시간으로 모니터링하고 보고서 내 제안을 참고하여 효과적으로 대응할 수 있습니다. 
 
@@ -58,7 +48,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 대상 정보 ]
 
 :::
 
-#### 컨테이너 요약 분석 
+#### 컨테이너 요약 분석{#container-summary-analysis}
 
 * 기본 정보: 컨테이너의 기동 시간, 재기동 횟수, 속한 파드 및 네임스페이스 정보를 제공합니다.
 
@@ -68,7 +58,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 대상 정보 ]
 
 * 리소스 사용 현황: 컨테이너의 CPU 및 메모리 리소스 사용량, 설정된 한도(Limit) 및 요청(Request) 값과 비교한 사용률을 제공합니다.
 
-#### Pod 요약 분석 
+#### Pod 요약 분석{#pod-summary-analysis}
 
 * 기본 정보: Pod의 클러스터 이름, 네임스페이스, 기동 시간, 현재 상태(Phase) 등을 확인할 수 있습니다.
 

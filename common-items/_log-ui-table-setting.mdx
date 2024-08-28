@@ -1,29 +1,35 @@
 * <InDoc pages="log-search,aws-log-search,log-exp,aws-log-exp"><LinkImage img="number-03.png" className="ico" /> 영역 오른쪽</InDoc><InDoc pages="log-lt,aws-log-lt"><LinkImage img="number-02.png" className="ico" /> 영역 오른쪽</InDoc> <UI>테이블 설정</UI> 메뉴는 <Cmdname sid="logTail" className="uitext" />, <Cmdname sid="log_search" className="uitext" />, <Cmdname sid="logExplorer" className="uitext" />에서 사용할 수 있습니다. 
   
-* ![아이콘](/img/ic-setting.svg) <Cmdname sid="table_settings" className="uitext" /> 버튼을 선택하면 <Cmdname sid="column_settings" className="uitext" />과 <Cmdname sid="table_content_setting" className="uitext" /> 옵션 메뉴가 나타납니다. 
+* ![아이콘](/img/ic-setting.svg) <Cmdname sid="table_settings" className="uitext" /> 버튼을 선택하면 <Cmdname sid="column_settings" className="uitext" />과 <Cmdname sid="ITM08349" className="uitext" /> 옵션 메뉴가 나타납니다. 
     
-    <ImgLang img='log-table-contents-options.png' desc='로그 테이블 설정'/>
+    ![로그 테이블 설정](/img/log-table-contents-options.png)
 
-    1. **컬럼 설정** 
+    1. <Cmdname sid="column_settings" className="uitext" /> 
 
     * <Cmdname sid="add_a_column" className="uitext" />: 태그를 선택하여 테이블에 컬럼을 추가할 수 있습니다.
     
     * <Cmdname sid="column_order_setting" className="uitext" />: 컬럼을 추가하면 컬럼 순서 설정에 해당 컬럼이 추가됩니다. 원하는 컬럼을 드래그하여 컬럼의 순서를 변경하세요.
 
-    2. **테이블 설정**
+    :::note 
+
+    <Cmdname sid="add_a_column" className="uitext" /> 시 ***log*** 컬럼 선택을 해제할 경우 <Cmdname sid="ITM08349" className="uitext" />을 확인할 수 없습니다. 
+
+    :::
+
+    2. <Cmdname sid="ITM08349" className="uitext" />
 
     <ImgLang img='log-table-contents.png' desc='로그 테이블 컨텐츠 설정'/>
 
-    * <Cmdname sid="whether_display_content" className="uitext" />
+    * **로그 표시 여부**
     
-      * 체크 해제된 항목은 테이블에 표시되지 않습니다. 기본으로 <Cmdname sid="log" className="uitext" />, <Cmdname sid="tag" className="uitext" /> 모두 체크가 되어있으며 두 가지 항목 모두 표시합니다.
+      * 체크가 해제된 항목은 테이블에 표시되지 않습니다. 기본으로 ***content***, <Cmdname sid="tag" className="uitext" /> 모두 체크가 되어있으며 두 가지 항목 모두 표시합니다. 
 
       * 다음과 같이 <Cmdname sid="tag" className="uitext" />를 해제할 경우 테이블에서 로그의 <Cmdname sid="tag" className="uitext" />는 표시되지 않습니다.
       <ImgLang img='log-table-contents-remove-tag.png' desc='로그 테이블 태그 미표시 sc'/>
     
-    * <Cmdname sid="tag_management" className="uitext" />
+    * **태그 관리**
 
-      * 태그 관리 목록에 태그를 추가하면 추가한 순서대로 로그의 태그가 나열됩니다. 태그의 순서는 드래그하여 변경할 수 있습니다.
+      * <Cmdname sid="tag_management" className="uitext" /> 목록에 태그를 추가하면 추가한 순서대로 로그의 태그가 나열됩니다. 태그의 순서는 드래그하여 변경할 수 있습니다.
 
       * 추가한 태그를 비활성화하면 비활성화한 태그는 로그의 태그에 노출되지 않습니다. 
 

@@ -5,6 +5,8 @@ description: 에이전트 로그의 옵션을 설정할 수 있습니다.
 keywords: [ Node.js, 로그 ]
 ---
 
+## 로그 관리 옵션
+
 애플리케이션 서버가 실행되면 모니터링 정보를 수집합니다. 수집한 정보는 로그 파일에 저장합니다.
 
 * **log_rotation_enabled** <span class='type'>Boolean</span>
@@ -36,3 +38,45 @@ keywords: [ Node.js, 로그 ]
   ```ini title="whatap.conf"
   log_root=/Users/sample_user/workspace/nodejs_application/whatap_logs/
   ```
+
+## 로그싱크(LogSink) 설정
+
+[Node.js 에이전트 0.5.1 버전](../release-notes/nodejs/nodejs-0_5_1) 이상부터는 애플리케이션 서버를 통합 모니터링하는 로그싱크(LogSink) 기능을 제공합니다.
+
+- **logsink_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  로그 모니터링 활성화 여부를 설정합니다.
+
+  :::note
+
+  * 로그 모니터링 활성화 방법에 대한 자세한 내용은 [다음 문서](../log/log-nodejs)를 참조하세요.
+
+  * 로그 모니터링에 대한 자세한 내용은 [다음 문서](../log/learn-main-menu)를 참조하세요.
+
+  :::
+
+- **logsink_trace_txid_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  로그에 트랜잭션 ID를 삽입하여 <Cmdname sid="TTL06209" className="uitext" />의 <Cmdname sid="TTL06128" className="uitext" /> 탭 노출 여부를 설정합니다.
+
+  :::note
+
+   <Cmdname sid="TTL06209" className="uitext" />의 <Cmdname sid="TTL06128" className="uitext" /> 탭에 대한 자세한 내용은 [다음 문서](dashboard-hitmap-trace#anlaysis-trace-transaction-log)를 참조하세요.
+
+  :::
+
+- **logsink_limit_content_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  로그 메시지의 최대 크기 제한 여부를 설정합니다.
+
+- **logsink_limit_content_length** <span class='type'>Number</span>
+
+  기본값 `10,000`
+
+  로그 메시지의 최대 길이를 설정합니다. 이 옵션은 `logsink_limit_content_enabled` 옵션의 값이 `true`로 설정되었을 때만 적용됩니다.

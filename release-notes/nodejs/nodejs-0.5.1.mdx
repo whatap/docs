@@ -1,0 +1,53 @@
+---
+id: nodejs-0_5_1
+title: Node.js Agent v0.5.1
+toc_max_heading_level: 2
+pagination_next: release-notes/nodejs/nodejs-0_5_0
+displayed_sidebar: releaseSidebar
+---
+
+2024년 08월 28일
+
+* <Status priority='1'>New</Status> 포트(port) 번호를 추가하여 에이전트 이름(ONAME)을 생성하는 에이전트 옵션 추가 (예, NODE-14-103-3000)
+
+  > **oname_port_postfix_enabled** <span class='type'>Boolean</span> 기본값 `false`
+
+* <Status priority='1'>New</Status> 로그 모니터링을 위한 에이전트 옵션 추가
+
+  - **logsink_enabled** <span class='type'>Boolean</span>
+
+    기본값 `false`
+
+    로그 모니터링 활성화 여부를 설정합니다.
+
+  - **logsink_trace_txid_enabled** <span class='type'>Boolean</span>
+
+    기본값 `true`
+
+    로그에 트랜잭션 ID를 삽입하여 트랜잭션 트레이스의 로그 탭 노출 여부를 설정합니다.
+
+  - **logsink_limit_content_enabled** <span class='type'>Boolean</span>
+
+    기본값 `true`
+
+    로그 메시지의 최대 크기 제한 여부를 설정합니다.
+
+  - **logsink_limit_content_length** <span class='type'>Number</span>
+
+    기본값 `10,000`
+
+    로그 메시지의 최대 길이를 설정합니다. 이 값은 `logsink_limit_content_enabled` 옵션이 `true`로 설정된 경우에만 적용됩니다.
+
+- <Status priority='0'>Fixed</Status> Global 패키지의 fetch 함수 모니터링 중 예외 발생 시 오류 메세지를 출력되도록 수정
+
+:::info
+
+* 패키지 정보: https://www.npmjs.com/package/whatap
+
+* 설치 및 적용 방법
+
+  ```bash
+  npm i whatap
+  ```
+
+:::

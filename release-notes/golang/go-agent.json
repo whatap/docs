@@ -1,5 +1,40 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/golang/golang-0_4_1",
+    "ver": "v0.4.1",
+    "date": "2024-08-28",
+    "Lists": [
+      {
+        "ver": "v0.4.1",
+        "hash": "v041",
+        "product": "Go Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> Standard output 로그 수집</p>"
+      },
+      {
+        "ver": "v0.4.1",
+        "hash": "v041",
+        "product": "Go Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> 에이전트 설정 파일(<em>whatap.conf</em>)보다 환경 변수를 우선 처리하는 옵션 추가</p>"
+      },
+      {
+        "ver": "v0.4.1",
+        "hash": "v041",
+        "product": "Go Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> 에이전트 옵션의 기본값 수정</p>"
+      },
+      {
+        "ver": "v0.4.1",
+        "hash": "v041",
+        "product": "Go Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> <code>OKIND</code> 환경 변수 인식 오류 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/golang/golang-0_3_2",
     "ver": "v0.3.2",
     "date": "2024-03-06",

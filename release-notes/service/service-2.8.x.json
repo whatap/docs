@@ -9,15 +9,16 @@
         "hash": "service-282",
         "product": "Database",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 에이전트 다운로드 관련 수정</p>",
-        "category": "공통"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 다음 수정 사항 반영</p>",
+        "category": "공통",
+        "details": "<ul>\n<li>\n<p>ZIP 파일 다운로드 명령어 삭제</p>\n</li>\n<li>\n<p>TAR 파일 다운로드 명령어 수정</p>\n</li>\n<li>\n<p><strong>PostgreSQL</strong>, <strong>Oracle Pro</strong>, <strong>Altibase</strong>, <strong>MySQL</strong> 상품을 제외한 다른 상품에서 <span class=\"uitext\">ZIP</span> <span class=\"uitext\">다운로드</span> 버튼이 동작하지 않는 문제 수정</p>\n</li>\n</ul>"
       },
       {
-        "ver": "Service 2.8.1",
-        "hash": "service-281",
+        "ver": "Service 2.8.2",
+        "hash": "service-282",
         "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span> 메뉴에서 클러스터를 선택해 Global Lock 정보를 조회할 수 있는 최대 시간 범위를 3시간으로 변경</p>",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span> 메뉴에서 클러스터를 선택해 Global Lock 정보를 조회할 수 있는 최대 시간 범위를 3시간으로 변경</p>",
         "category": "Oracle Pro"
       }
     ]

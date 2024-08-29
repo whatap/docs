@@ -74,8 +74,7 @@
         "hash": "v041",
         "product": "Go Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> Standard output 로그 수집</p>",
-        "details": "<p>로그 데이터를 적당량으로 모아서 압축 전송합니다.</p>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Standard output 로그 수집 기능 추가</p>"
       },
       {
         "ver": "v0.4.1",

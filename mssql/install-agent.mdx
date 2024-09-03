@@ -45,7 +45,7 @@ import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
 
     :::note
 
-    **MS SQL 서버와 에이전트가 localhost에 설치되는 경우** (**default 1433 port**)
+    **SQL Server와 에이전트가 localhost에 설치되는 경우** (**default 1433 port**)
     
     ```ini title='whatap.conf'
     dbms=mssql
@@ -84,7 +84,7 @@ EXEC sp_configure 'show advanced options', 1;
 RECONFIGURE;
 EXEC sp_configure 'Ole Automation Procedures', 1;
 RECONFIGURE;
- 
+
 ## kill session 사용시 - SQL Server
 grant alter any connection to whatap;
 

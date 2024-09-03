@@ -2,13 +2,22 @@
 id: instance-list
 title: 인스턴스 목록
 description: 에이전트를 설치한 데이터베이스 서버들의 목록을 확인할 수 있습니다.
-keywords: [ SQL Server, 인스턴스, 대시보드, 데이터베이스 모니터링 ]
+keywords: [ SQL Server, 인스턴스, 대시보드, 데이터베이스 ]
 ---
 
-import Dbinstancelist from "../common-items/_db-instance-list.mdx";
+import Dbinstancelistdesc from "../common-items/_db-instance-list-desc.mdx";
 
-<Dbinstancelist /> 
+<Dbinstancelistdesc />
 
-import TipinstanceName from "../common-items/_db-instance-list-set-name-guide.mdx";
+{/* ## 기본 화면 안내 */}
+import Dbinstancelistbasicusage from "../common-items/_db-instance-list-basic-usage.mdx";
 
-<TipinstanceName />
+<Dbinstancelistbasicusage />
+
+import Dbcomapreinstanceperformance from "../common-items/_db-comapre-instance-performance.mdx";
+
+<Dbcomapreinstanceperformance /> 
+
+import Dbcolumndisplayhide from "../common-items/_db-column-display-hide.mdx";
+
+<Dbcolumndisplayhide /> 

@@ -10,13 +10,103 @@ import Dblocktreedesc from "../common-items/_db-locktree-desc.mdx";
 
 <Dblocktreedesc />
 
-## 기본 화면 안내
-
 import Dblocktreeusingbasic from "../common-items/_db-locktree-using-basic.mdx";
 
-<Dblocktreeusingbasic />  
+<Dblocktreeusingbasic level={2} />
 
 {/* 컬럼 정보 안내 */}
 import Mssqlcolumn from "../common-items/_db-mssql-column.mdx";
 
 <Mssqlcolumn level={2} />
+
+### wait_type {#waittype}
+
+`wait_type` 컬럼은 **SQL Server**에서 쿼리나 트랜잭션이 대기 중인 특정 리소스나 이벤트를 나타내는 값입니다. **SQL Server**는 내부적으로 다양한 대기 유형을 사용하여 시스템 성능을 관리하고 문제를 진단합니다.
+
+#### I/0 관련 대기
+
+* `PAGEIOLATCH_EX`: 데이터 페이지를 읽기 위해 배타적 잠금을 대기합니다.
+
+* `PAGEIOLATCH_SH`: 데이터 페이지를 읽기 위해 공유 잠금을 대기합니다.
+
+* `FILEIO`: 파일 I/O 작업 중 대기입니다.
+
+#### 락(Lock) 관련 대기
+
+* `LCK_M_X`: 배타적 잠금 대기입니다.
+
+* `LCK_M_S`: 공유 잠금 대기입니다.
+
+* `LCK_M_U`: 업데이트 잠금 대기입니다.
+
+* `RESOURCE_SEMAPHORE`': 리소스 세마포어 대기, 메모리 자원을 확보하기 위해 대기하는 경우입니다.
+
+#### 기타 대기
+
+* `CKPACKET`: 병렬 쿼리에서 스레드 간 동기화 대기입니다.
+
+* `ASYNC_NETWORK_IO`: 네트워크 10 작업 중 대기입니다.
+
+* `SLEEP_*`: `WAITFOR` 또는 `WAITFOR DELAY` 문으로 인해 대기 중입니다.
+
+* `BROKER_*` : Service Broker 메시지 대기입니다.
+
+* `LOCK_MANAGER`: 잠금 관리 대기, **SQL Server**의 잠금 관리자와 관련한 대기입니다.
+
+### wait_resource {#waitsresource}
+
+`wait_resource` 컬럼은 **SQL Server**에서 실행 중인 요청이 대기하고 있는 리소스에 대한 정보를 제공합니다. 요청이 특정 리소스를 기다리는 상황을 문자열 형식으로 표현하며, 대기 중인 리소스의 구체적인 식별자나 위치를 나타냅니다.
+
+주요 리소스 유형 및 예시는 다음을 참조하세요.
+
+* `PAGE: <file_id>:<page_id>`
+
+  데이터 페이지에 대한 대기를 나타냅니다. 
+
+  > 예, `PAGE: 1:12345`
+
+* `FILE: <file_id>`
+
+  데이터 파일 전체에 대한 대기를 나타냅니다.
+
+  > 예, `FILE: 1`
+
+* `0BJECT: <cobject_id>`
+
+  특정 테이블에 대한 대기를 나타냅니다.
+
+  > 예, `0BJECT: 123456`
+
+* `DATABASE: <database_id>`
+
+  특정 데이터베이스에 대한 대기를 나타냅니다.
+
+  > 예, `DATABASE: 5`
+
+* `KEY: <key_id>`
+
+  인덱스 키 또는 다른 데이터 구조의 키에 대한 대기를 나타냅니다.
+
+  > 예, `KEY: 67890`
+
+* `RID: <file_id>:<page_id>:<row_id>`
+
+  `wait_resource` 컬럼이 `RID`(Row Identifier)인 경우는 **SQL Server**의 특정 행(row)에 대한 대기를 나타냅니다. `RID`는 SQL Server에서 테이블의 특정 행을 식별하는 고유한 식별자입니다.
+
+  > 예, `RID: 1:1234:5678`
+
+:::note
+
+* `<file_id>`는 데이터 파일의 ID를 의미합니다.
+
+* `<page_id>`는 페이지의 ID를 의미합니다.
+
+* `<object_id>`는 테이블의 ID입니다.
+
+* `<database_1d>`는 데이터베이스의 ID입니다.
+
+* `<key_id>`는 키의 ID입니다.
+
+* `<row_id>`는 페이지 내에서 행을 식별하는 ID입니다.
+
+:::

@@ -2,12 +2,8 @@
 id: install-agent
 title: 에이전트 설치
 description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
-keywords: [ SQL Server, 데이터베이스 모니터링, 에이전트 ]
+keywords: [ SQL Server, 데이터베이스, 에이전트 ]
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import TR from '@site/src/components/TR';
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
@@ -45,7 +41,7 @@ import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
 
     :::note
 
-    **MS SQL 서버와 에이전트가 localhost에 설치되는 경우** (**default 1433 port**)
+    **SQL Server와 에이전트가 localhost에 설치되는 경우** (**default 1433 port**)
     
     ```ini title='whatap.conf'
     dbms=mssql
@@ -84,7 +80,7 @@ EXEC sp_configure 'show advanced options', 1;
 RECONFIGURE;
 EXEC sp_configure 'Ole Automation Procedures', 1;
 RECONFIGURE;
- 
+
 ## kill session 사용시 - SQL Server
 grant alter any connection to whatap;
 
@@ -107,3 +103,8 @@ import Dbrunagent from "../common-items/_db-run-agent.mdx";
 import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
 
 <Dbinstallxosagent /> 
+
+{/* ## 다음 단계 */}
+import NextStep from "../common-items/_db-next-step.mdx";
+
+<NextStep />

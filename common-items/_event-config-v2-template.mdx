@@ -548,19 +548,31 @@
 
 * ***Active Sessions***
 
-  카테고리: [`db_mssql_counter`](metrics-mssql)
+  카테고리: [`db_mssql_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
+* ***CPU***
+
+  카테고리: [`db_mssql_counter`](metrics-data-list)
+
+  CPU 사용률(`cpu`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Connection Failed***
+
+  카테고리: [`db_mssql_counter`](metrics-data-list)
+
+  데이터베이스 연결이 15회 이상 실패하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
 * ***Lock Wait Sessions***
 
-  카테고리: [`db_mssql_counter`](metrics-mssql)
+  카테고리: [`db_mssql_counter`](metrics-data-list)
 
-  현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+  현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 30를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Memory***
 
-  카테고리: [`db_mssql_counter`](metrics-mssql)
+  카테고리: [`db_mssql_counter`](metrics-data-list)
 
   메모리 사용률(`mem(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 

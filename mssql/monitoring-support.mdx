@@ -2,44 +2,32 @@
 id: monitoring-support
 title: 지원 환경
 description: 데이터베이스 모니터링을 시작하기 전에 지원하는 데이터베이스 종류에 대해서 알아보세요.
-keywords: [ SQL Server, 데이터베이스, 데이터베이스 모니터링 ]
+keywords: [ SQL Server, 데이터베이스 ]
 ---
 
-import Dbtypeofsupportdb from "../common-items/_db-type-of-support-db.mdx";
+import Desc from '../common-items/_import_db-support-env-desc.mdx';
 
-<Dbtypeofsupportdb />  
+<Desc name='SQL Server' />
 
-### 데이터베이스 지원 버전
+## 데이터베이스 지원 버전
 
-MS SQL - SQL Server 2005 버전 이상
+SQL Server 2005 버전 이상을 지원합니다.
 
+import DBsupportNote from "../common-items/_db-support-env-common.mdx";
 
-### 지원 기능
+<DBsupportNote />
 
-|카테고리|데이터베이스|MS SQL|
-|--|--|:-:|
-|Monitoring|Instance List|<span class='emoji-ok'>✅</span>|
-|^|Instancs Monitoring|<span class='emoji-ok'>✅</span>|
-|^|Multi DataBase (tenant)|<span class='emoji-ok'>✅</span>|
-|^|Slow Query|<span class='emoji-no'>❌</span>|
-|Analysis|Trends|<span class='emoji-ok'>✅</span>|
-|^|Trends Compare|<span class='emoji-ok'>✅</span>|
-|^|Lock Tree|<span class='emoji-ok'>✅</span>|
-|^|Parallel Query Tree|<span class='emoji-no'>❌</span>|
-|^|Dead Lock|<span class='emoji-no'>❌</span>|
-|^|DB Parameter|<span class='emoji-ok'>✅</span>|
-|Statistics|SQL Stat|<span class='emoji-ok'>✅</span>|
-|^|Table Size|지원 예정|
-|^|Database(TableSpace) Size|지원 예정|
-|^|SGA Size|<span class='emoji-no'>❌</span>|
-|Report|Daily / Weekly / Monthly Report|<span class='emoji-ok'>✅</span>|
-|Event|Event List|<span class='emoji-ok'>✅</span>|
-|^|Event Stat|<span class='emoji-ok'>✅</span>|
-|^|Event Setting|<span class='emoji-ok'>✅</span>|
-|^|Notification|<span class='emoji-ok'>✅</span>|
-|Management|Agent Setup|<span class='emoji-ok'>✅</span>|
-|^|Agent List|<span class='emoji-ok'>✅</span>|
-|^|Project Management|<span class='emoji-ok'>✅</span>|
+## 에이전트 구성
+
+import Dbsupportenvagentconstruction from "../common-items/_db-support-env-agent-construction.mdx";
+
+<Dbsupportenvagentconstruction />
+
+## 방화벽
+
+import Proxy from "../getting-started/_proxy.mdx";
+
+<Proxy />
 
 ## 브라우저 지원
 
@@ -47,14 +35,8 @@ import Supportedbrowser from "../getting-started/_supported-browser.mdx";
 
 <Supportedbrowser />
 
-## 방화벽
-
-import Proxy from "../getting-started/_proxy.mdx";
-
-<Proxy /> 
-
 ## 모바일 앱
 
 import Mobileapp from "../getting-started/_mobile-app.mdx";
 
-<Mobileapp />  
+<Mobileapp />

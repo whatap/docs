@@ -204,6 +204,14 @@
 
   트랜잭션의 평균 응답 시간(`resp_time`)이 10회 연속, 2,000ms(2초)를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
+* ***kube-apiserver CPU Limit Alert***
+
+  kube-apiserver의 CPU 사용률이 50%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 80%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***kube-apiserver Memory Limit Alert***
+
+  kube-apiserver의 메모리 사용량이 50%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 80%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
 :::note
 
 기본 이벤트 템플릿에 적용된 필드에 대한 자세한 내용은 [다음 문서](metrics-kubernetes)를 참조하세요.

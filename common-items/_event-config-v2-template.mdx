@@ -14,6 +14,18 @@
 
   액티브 트랜잭션 발생 건수(`active_tx_count`)가 100개를 초과한 상태하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
+* ***Apdex 100 by kind***
+
+  카테고리: [`app_counter`](metrics-app#app_counter)
+
+  에이전트 종류별 애플리케이션 성능 지표 백분률(`apdex100`)이 95% 미만이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90% 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Apdex 100 by kind***
+
+  카테고리: [`app_counter`](metrics-app#app_counter)
+
+  프로젝트 전체 에이전트의 애플리케이션 성능 지표 백분률(`apdex100`)이 95% 미만이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90% 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
 * ***Server CPU***
 
   카테고리: [`app_host_resource`](metrics-app#app_host_resource)
@@ -203,6 +215,14 @@
   카테고리: <Link to="../java/metrics-app#app_counter" target="_blank"><code>app_counter</code></Link>
 
   트랜잭션의 평균 응답 시간(`resp_time`)이 10회 연속, 2,000ms(2초)를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+* ***kube-apiserver CPU Limit Alert***
+
+  kube-apiserver의 CPU 사용률이 50%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 80%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***kube-apiserver Memory Limit Alert***
+
+  kube-apiserver의 메모리 사용량이 50%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 80%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 :::note
 

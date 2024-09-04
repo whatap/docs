@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_8_x",
+    "ver": "Service 2.8.4",
+    "date": "2024-09-03",
+    "Lists": [
+      {
+        "ver": "Service 2.8.4",
+        "hash": "service-284",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 수신 설정</span> 메뉴에서 3rd 파티 플러그인으로 <b>Teams Workflow</b>를 등록하면 <b>Teams</b>로 설정되는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_8_x",
     "ver": "Service 2.8.3",
     "date": "2024-08-30",
     "Lists": [
@@ -9,7 +23,8 @@
         "hash": "service-283",
         "product": "Cloud",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 role과 인증 유효 기간을 입력한 후 <span class=\"uitext\">확인</span> 버튼을 선택하면 발생하는 오류 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 role과 인증 유효 기간을 입력한 후 <span class=\"uitext\">확인</span> 버튼을 선택하면 발생하는 오류 수정</p>",
+        "category": "Amazon CloudWatch"
       }
     ]
   },

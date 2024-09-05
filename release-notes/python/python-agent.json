@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_6_10",
+    "ver": "v1.6.10",
+    "date": "2024-09-05",
+    "Lists": [
+      {
+        "ver": "v1.6.10",
+        "hash": "v1610",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Django 프레임워크에서 ASGI 지원</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_6_4",
     "ver": "v1.6.4",
     "date": "2024-05-14",

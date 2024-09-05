@@ -1,0 +1,141 @@
+<Title level={props.level} hashid="column-info" >컬럼 정보 안내</Title>
+
+<InDoc pages="instance-monitoring,multi-instance-monitoring,analysis-count-trend">
+
+컬럼 정보에 대한 보다 자세한 내용은 [다음 링크](https://technet.tmax.co.kr/upload/download/online/tibero/pver-20220224-000002/index.html)를 참조하세요.
+
+<Tabs groupId="db-columns">
+
+<TabItem value="activesession" label="Active session">
+
+| 항목 | 설명 |
+| -- | -- |
+| `action` | 현재 수행 중인 작업의 이름입니다. |
+| `block_updates` | 블록 업데이트 횟수입니다. |
+| `block_updates_sigma`| 총 블록 업데이트 횟수입니다. |
+| `client_identifier` | 클라이언트 식별자입니다. |
+| `client_info` | 클라이언트의 추가 정보입니다. |
+| `client_pid` | 클라이언트 프로세스의 PID입니다. |
+| `command` | 현재 세션에서 실행 중인 명령입니다. |
+| `consumed_cpu_time` | 세션에서 소비한 CPU 시간입니다. |
+| `consumer_group` | 세션이 속한 소비자 그룹입니다. |
+| `cpu(xos)` | CPU 사용률입니다. |
+| `cpuusage` | 세션에서 소비된 CPU 사용량입니다. |
+| `event_name` | 대기 이벤트의 이름입니다. |
+| `execute_count` | SQL이 실행된 횟수입니다. |
+| `execute_count_sigma`| 총 실행 횟수입니다. |
+| `id1` | 첫 번째 식별자 값입니다. |
+| `id2` | 두 번째 식별자 값입니다. |
+| `ioread(xos)` | 블록을 읽는 데 소요된 실제 시간(milliseconds)입니다. |
+| `iowrite(xos)` | 블록을 쓰는 데 소요된 실제 시간(milliseconds)입니다. |
+| `ipaddr` | 클라이언트의 IP 주소입니다. |
+| `logon_time` | 세션이 데이터베이스에 로그인한 시간입니다. |
+| `logical_reads` | 논리적 읽기 횟수입니다. |
+| `logical_reads_sigma`| 총 논리적 읽기 횟수입니다. |
+| `machine` | 세션이 실행 중인 머신의 이름입니다. |
+| `module` | 실행 중인 모듈의 이름입니다. |
+| `os_thr_id` | 운영 체제의 스레드 ID입니다. |
+| `osuser` | 세션을 실행 중인 운영 체제의 사용자입니다. |
+| `parse_count_hard` | 하드 파싱 횟수입니다. |
+| `parse_count_hard_sigma`| 총 하드 파싱 횟수입니다. |
+| `parse_count_total` | 총 파싱 횟수입니다. |
+| `parse_count_total_sigma`| 총 파싱 횟수입니다. |
+| `pdml_enabled` | 병렬 DML이 활성화되었는지 여부입니다. |
+| `pdml_status` | 병렬 DML의 상태입니다. |
+| `pddl_status` | 병렬 DDL의 상태입니다. |
+| `pga_used_mem` | 프로세스 전용 영역(PGA)에서 사용 중인 메모리 양입니다. |
+| `physical_reads` | 물리적 읽기 횟수입니다. |
+| `physical_reads_sigma`| 총 물리적 읽기 횟수입니다. |
+| `pid` | 데이터베이스 프로세스의 PID입니다. |
+| `pq_status` | 병렬 쿼리의 상태입니다. |
+| `prev_sql` | 이전에 실행된 SQL 문의 텍스트입니다. |
+| `prev_sql_id` | 이전에 실행된 SQL 문의 고유 ID입니다. |
+| `prev_sql_param` | 이전에 실행된 SQL의 파라미터입니다. |
+| `prog_name` | 세션을 실행하는 프로그램의 이름입니다. |
+| `pss(xos)` | 프로세스 고유 메모리 사용량 + 하나의 프로세스가 차지하는 공유 메모리 비율입니다. |
+| `row_wait_block_no` | 대기 중인 행의 블록 번호입니다. |
+| `row_wait_file_no` | 대기 중인 행의 파일 번호입니다. |
+| `row_wait_obj_id` | 대기 중인 행의 객체 ID입니다. |
+| `row_wait_row_no` | 대기 중인 행의 행 번호입니다. |
+| `rss(xos)` | Resident Set Size(RSS), 프로세스와 관련한 물리적 페이지 수입니다. |
+| `schemaname` | 세션이 사용 중인 스키마 이름입니다. |
+| `seq#` | 세션의 순번을 나타내는 값입니다. |
+| `sid` | 세션을 고유하게 식별하는 세션 ID입니다. |
+| `sql_et` | SQL 실행 시간입니다. |
+| `sql_hash` | SQL 문의 해시 값입니다. |
+| `sql_id` | 실행 중인 SQL 문의 고유 ID입니다. |
+| `sql_param` | SQL 실행에 사용된 파라미터입니다. |
+| `sql_text` | 실행 중인 SQL 문의 텍스트입니다. |
+| `sql_trace` | SQL 트레이싱 여부입니다. |
+| `state` | 세션의 현재 상태입니다. |
+| `status` | 세션의 상태입니다. |
+| `terminal` | 세션이 연결된 터미널의 이름입니다. |
+| `type` | 세션의 유형입니다. |
+| `usn` | 언두 세그먼트 번호입니다. |
+| `used_blk` | 사용된 블록 수입니다. |
+| `used_rec` | 사용된 레코드 수입니다. |
+| `wait_event` | 세션이 대기 중인 이벤트입니다. |
+| `wait_time` | 대기 중인 시간입니다. |
+| `wlock_wait` | 세션이 잠금을 기다리고 있는지 여부입니다. |
+| `wthr_id` | 세션의 작업 스레드 ID입니다. |
+
+</TabItem>
+
+<TabItem value="locktree" label="Lock tree">
+
+| 항목 | 설명 |
+| -- | -- |
+| `event` | 대기 이벤트의 이름입니다. |
+| `holder type` | 락을 소유하고 있는 세션의 유형입니다. |
+| `id1` | 첫 번째 식별자 값입니다. |
+| `id2` | 두 번째 식별자 값입니다. |
+| `lock mode` | 현재 세션에서 요청하거나 소유한 락 모드입니다. |
+| `lock request` | 세션에서 요청한 락의 상태입니다. |
+| `module` | 실행 중인 모듈의 이름입니다. |
+| `pid` | 데이터베이스 프로세스의 PID입니다. |
+| `prev_sql_id` | 이전에 실행된 SQL 문의 고유 ID입니다. |
+| `prev_sql_param` | 이전에 실행된 SQL의 파라미터입니다. |
+| `prev_sql_text` | 이전에 실행된 SQL 문의 텍스트입니다. |
+| `prog_name` | 세션을 실행하는 프로그램의 이름입니다. |
+| `serial#` | 동일한 세션의 반복적인 시도를 구분하는 일련번호입니다. |
+| `sid` | 세션을 고유하게 식별하는 세션 ID입니다. |
+| `sql_et` | SQL 실행 시간입니다. |
+| `sql_id` | 실행 중인 SQL 문의 고유 ID입니다. |
+| `sql_param` | SQL 실행에 사용된 파라미터입니다. |
+| `sql_text` | 실행 중인 SQL 문의 텍스트입니다. |
+| `status` | 세션의 상태입니다. |
+| `username` | 세션을 실행하는 사용자의 이름입니다. |
+| `waiter type` | 락을 기다리고 있는 세션의 유형입니다. |
+
+</TabItem>
+
+<TabItem value="process-info" label="Process information">
+
+다음 항목은 XOS 에이전트를 설치한 경우 수집되는 지표입니다.
+
+| 항목 | 설명 |
+| -- | -- |
+| `cputime` | CPU 사용 시간 |
+| `cpuusage` | CPU 사용률 |
+| `elapse` | CPU 사용 경과 시간 |
+| `vsize` | 가상 메모리 사이즈(Kb) |
+| `rss` | Resident Set Size(RSS), 프로세스와 관련한 물리적 페이지 수 |
+| `state` | 프로세스 상태 |
+| `ioread` | 블록을 읽는 데 소요된 실제 시간(milliseconds) |
+| `iowrite` | 블록을 쓰는 데 소요된 실제 시간(milliseconds) |
+| `pss` | 프로세스 고유 메모리 사용량 + 하나의 프로세스가 차지하는 공유 메모리 비율 |
+| `uid` | user id |
+| `cmd` | 수행 중인 명령어 |
+| `longcmd` | cmd의 전체 경로 |
+
+</TabItem>
+
+</Tabs>
+
+</InDoc>
+
+:::note
+
+와탭은 클라이언트와 관련한 정보를 기본 저장합니다.
+
+:::

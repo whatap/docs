@@ -1,5 +1,41 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_3_2",
+    "ver": "v2.3.2",
+    "date": "2024-09-05",
+    "Lists": [
+      {
+        "ver": "v2.3.2",
+        "hash": "v232",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 트랜잭션 수집에서 제외할 URL의 접미사(suffix)를 설정할 수 있는 에이전트 옵션 추가</p>",
+        "details": "<p><strong>trace_ignore_url_suffix</strong> <span class=\"type\">String</span></p><br/><p>설정한 접미사와 일치하는 URL은 트랜잭션 성능을 수집하지 않습니다. 여러 값을 설정하려면 쉼표(,)로 구분하세요.</p>"
+      },
+      {
+        "ver": "v2.3.2",
+        "hash": "v232",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> DParameterized Query 추적 기능 추가</p>"
+      },
+      {
+        "ver": "v2.3.2",
+        "hash": "v232",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> REST API 트랜잭션의 상태 코드(status code) 표시에서 발생하는 오류 수정</p>"
+      },
+      {
+        "ver": "v2.3.2",
+        "hash": "v232",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> <code>System.Data.Common.DbCommand</code> 관련 메소드 중 모니터링에 포함되지 않았던 메소드 추가</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_3_1",
     "ver": "v2.3.1",
     "date": "2024-08-26",

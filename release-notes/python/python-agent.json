@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_6_9",
+    "ver": "v1.6.9",
+    "date": "2024-09-03",
+    "Lists": [
+      {
+        "ver": "v1.6.9",
+        "hash": "v169",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> <b>oracle-client</b> 모듈에 대한 추적(tracing) 기능 추가</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_6_8",
     "ver": "v1.6.8",
     "date": "2024-08-27",

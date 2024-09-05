@@ -1,54 +1,5 @@
 [
   {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_6_9",
-    "ver": "v1.6.9",
-    "date": "2024-09-03",
-    "Lists": [
-      {
-        "ver": "v1.6.9",
-        "hash": "v169",
-        "product": "Python Agent",
-        "type": "New",
-        "desc": "<p><code class=\"New\">New</code> <b>oracle-client</b> 모듈에 대한 추적(tracing) 기능 추가</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_6_8",
-    "ver": "v1.6.8",
-    "date": "2024-08-27",
-    "Lists": [
-      {
-        "ver": "v1.6.8",
-        "hash": "v168",
-        "product": "Python Agent",
-        "type": "New",
-        "desc": "<p><code class=\"New\">New</code> <b>graphql-core</b>의 다양한 버전을 지원하기 위해 모듈 트레이싱 기능 추가</p>"
-      },
-      {
-        "ver": "v1.6.8",
-        "hash": "v168",
-        "product": "Python Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> <em>trace_module_definition.py</em> 파일을 수정하여 <b>graphql-core</b> 버전에 따라 적절한 모듈 계측이 이루어지도록 변경(최신 버전과 구버전을 모두 지원)</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_6_7",
-    "ver": "v1.6.7",
-    "date": "2024-08-21",
-    "Lists": [
-      {
-        "ver": "v1.6.7",
-        "hash": "v167",
-        "product": "Python Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> TraceContext를 큐에 넣기 전에 깊은 복사(deep copy)하여 데이터가 덮어쓰이지 않도록 방지</p>"
-      }
-    ]
-  },
-  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_6_4",
     "ver": "v1.6.4",
     "date": "2024-05-14",
@@ -63,58 +14,16 @@
     ]
   },
   {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_5_9",
-    "ver": "v1.5.9",
-    "date": "2024-03-11",
+    "url": "https://docs.whatap.io/release-notes/python/python-1_6_7",
+    "ver": "v1.6.7",
+    "date": "2024-08-21",
     "Lists": [
       {
-        "ver": "v1.5.9",
-        "hash": "v159",
+        "ver": "v1.6.7",
+        "hash": "v167",
         "product": "Python Agent",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> 에이전트 옵션 설정 시 개행 없이 입력되는 현상 수정</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_6_6",
-    "ver": "v1.6.6",
-    "date": "2024-06-07",
-    "Lists": [
-      {
-        "ver": "v1.6.6",
-        "hash": "v166",
-        "product": "Python Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> FastAPI - remoteIP 수집 시 발생하는 버그 수정</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_6_3",
-    "ver": "v1.6.3",
-    "date": "2024-04-17",
-    "Lists": [
-      {
-        "ver": "v1.6.3",
-        "hash": "v163",
-        "product": "Python Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> 쿠버네티스 환경 컨테이너에서 <code>containerID</code>를 찾는 파싱 로직 수정</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_6_1",
-    "ver": "v1.6.1",
-    "date": "2024-03-20",
-    "Lists": [
-      {
-        "ver": "v1.6.1",
-        "hash": "v161",
-        "product": "Python Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> <em>whatap-hook.log</em> 반복적인 로그 호출 문제 수정</p>"
+        "desc": "<p><code class=\"Fixed\">Fixed</code> TraceContext를 큐에 넣기 전에 깊은 복사(deep copy)하여 데이터가 덮어쓰이지 않도록 방지</p>"
       }
     ]
   },
@@ -134,16 +43,67 @@
     ]
   },
   {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_6_0",
-    "ver": "v1.6.0",
-    "date": "2024-03-13",
+    "url": "https://docs.whatap.io/release-notes/python/python-1_6_3",
+    "ver": "v1.6.3",
+    "date": "2024-04-17",
     "Lists": [
       {
-        "ver": "v1.6.0",
-        "hash": "v160",
+        "ver": "v1.6.3",
+        "hash": "v163",
         "product": "Python Agent",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> FastAPI에서 remote host에 대한 정보를 찾지 못하면 에이전트가 동작하지 않는 현상 수정</p>"
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 쿠버네티스 환경 컨테이너에서 <code>containerID</code>를 찾는 파싱 로직 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_6_6",
+    "ver": "v1.6.6",
+    "date": "2024-06-07",
+    "Lists": [
+      {
+        "ver": "v1.6.6",
+        "hash": "v166",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> FastAPI - remoteIP 수집 시 발생하는 버그 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_6_9",
+    "ver": "v1.6.9",
+    "date": "2024-09-03",
+    "Lists": [
+      {
+        "ver": "v1.6.9",
+        "hash": "v169",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>oracle-client</strong> 모듈에 대한 추적(tracing) 기능 추가</p>",
+        "details": "<p>오라클 클라이언트(<strong>oracle-client</strong>)에서 <code>connect</code> 메서드와 <code>Connection.close</code> 메서드에 계측 기능을 적용하여, 데이터베이스 연결과 종료 시점을 추적할 수 있는 기능을 추가했습니다.</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_6_8",
+    "ver": "v1.6.8",
+    "date": "2024-08-27",
+    "Lists": [
+      {
+        "ver": "v1.6.8",
+        "hash": "v168",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>graphql-core</strong>의 다양한 버전을 지원하기 위해 모듈 트레이싱 기능 추가</p>",
+        "details": "<p><strong>graphql-core 3.x+</strong> 버전에서는 <code>graphql.execution.execute</code> 모듈에 계측을 추가하고, <strong>graphql-core 2.x</strong> 버전에서는 <code>graphql.execution.executor</code> 모듈을 지원합니다.</p>"
+      },
+      {
+        "ver": "v1.6.8",
+        "hash": "v168",
+        "product": "Python Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <em>trace_module_definition.py</em> 파일을 수정하여 <strong>graphql-core</strong> 버전에 따라 적절한 모듈 계측이 이루어지도록 변경(최신 버전과 구버전을 모두 지원)</p>"
       }
     ]
   },
@@ -158,6 +118,105 @@
         "product": "Python Agent",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\">Fixed</code> Python 3.6 gevent 사용 시 트랜잭션 종료 누락 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_6_0",
+    "ver": "v1.6.0",
+    "date": "2024-03-13",
+    "Lists": [
+      {
+        "ver": "v1.6.0",
+        "hash": "v160",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> FastAPI에서 remote host에 대한 정보를 찾지 못하면 에이전트가 동작하지 않는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_5_9",
+    "ver": "v1.5.9",
+    "date": "2024-03-11",
+    "Lists": [
+      {
+        "ver": "v1.5.9",
+        "hash": "v159",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 에이전트 옵션 설정 시 개행 없이 입력되는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_5_5",
+    "ver": "v1.5.5",
+    "date": "2024-02-01",
+    "Lists": [
+      {
+        "ver": "v1.5.5",
+        "hash": "v155",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> Frappe 프레임워크로 개발된 애플리케이션에서 데이터베이스 연결 정보에 인스턴스(DB) 정보가 없으면 성능 수집 오류가 발생하는 현상 개선</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_5_4",
+    "ver": "v1.5.4",
+    "date": "2024-01-09",
+    "Lists": [
+      {
+        "ver": "v1.5.4",
+        "hash": "v154",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> Python 에이전트 v1.4.9 버전 이상에서 일부 파이썬 버전의 모듈 의존성 수집 오류 수정</p>",
+        "details": "<ul>\n<li>Python 3.6</li>\n<li>Python 3.7</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_5_3",
+    "ver": "v1.5.3",
+    "date": "2024-01-05",
+    "Lists": [
+      {
+        "ver": "v1.5.3",
+        "hash": "v153",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> Python 에이전트 v1.4.9 버전 이상에서 gunicorn 트랜잭션 수집 오류 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_6_1",
+    "ver": "v1.6.1",
+    "date": "2024-03-20",
+    "Lists": [
+      {
+        "ver": "v1.6.1",
+        "hash": "v161",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> <em>whatap-hook.log</em> 반복적인 로그 호출 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_5_6",
+    "ver": "v1.5.6",
+    "date": "2024-02-02",
+    "Lists": [
+      {
+        "ver": "v1.5.6",
+        "hash": "v156",
+        "product": "Python Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> Superset 지원</p>"
       }
     ]
   },
@@ -186,63 +245,6 @@
         "product": "Python Agent",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\">Fixed</code> INJECTION 방식의 로그 수집 코드 오류 수정</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_5_3",
-    "ver": "v1.5.3",
-    "date": "2024-01-05",
-    "Lists": [
-      {
-        "ver": "v1.5.3",
-        "hash": "v153",
-        "product": "Python Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> Python 에이전트 v1.4.9 버전 이상에서 gunicorn 트랜잭션 수집 오류 수정</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_5_4",
-    "ver": "v1.5.4",
-    "date": "2024-01-09",
-    "Lists": [
-      {
-        "ver": "v1.5.4",
-        "hash": "v154",
-        "product": "Python Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> Python 에이전트 v1.4.9 버전 이상에서 일부 파이썬 버전의 모듈 의존성 수집 오류 수정</p>",
-        "details": "<ul>\n<li>Python 3.6</li>\n<li>Python 3.7</li>\n</ul>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_5_6",
-    "ver": "v1.5.6",
-    "date": "2024-02-02",
-    "Lists": [
-      {
-        "ver": "v1.5.6",
-        "hash": "v156",
-        "product": "Python Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> Superset 지원</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/python/python-1_5_5",
-    "ver": "v1.5.5",
-    "date": "2024-02-01",
-    "Lists": [
-      {
-        "ver": "v1.5.5",
-        "hash": "v155",
-        "product": "Python Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> Frappe 프레임워크로 개발된 애플리케이션에서 데이터베이스 연결 정보에 인스턴스(DB) 정보가 없으면 성능 수집 오류가 발생하는 현상 개선</p>"
       }
     ]
   }

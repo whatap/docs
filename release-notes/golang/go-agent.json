@@ -65,6 +65,20 @@
     ]
   },
   {
+    "url": "https://docs.whatap.io/release-notes/golang/golang-0_4_2",
+    "ver": "v0.4.2",
+    "date": "2024-09-06",
+    "Lists": [
+      {
+        "ver": "v0.4.2",
+        "hash": "v042",
+        "product": "Go Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> 라이브러리 파일이 없어 발생하는 컴파일 오류 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/golang/golang-0_4_1",
     "ver": "v0.4.1",
     "date": "2024-08-28",

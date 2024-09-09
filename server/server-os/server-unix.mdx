@@ -65,7 +65,9 @@ import Svlfcpf from "../../common-items/_sv-lf-cpf.mdx";
 
 :::note 
 
-AIX 6.1 버전 이상부터 지원합니다.
+* AIX 6.1 버전 이상부터 지원합니다.
+
+* 와탭 AIX 에이전트 1.3.3 이하 버전 설치 시 추가 옵션 설정이 필요합니다. [다음 문서](#install-aix-precaution)를 참조하세요. 
 
 :::
 
@@ -101,11 +103,29 @@ stopsrc -s whatap-infra
 startsrc -s whatap-infra
 ```
 
+
+### 주의 사항{#install-aix-precaution}
+
+와탭 AIX 에이전트 1.3.3 이하 버전 설치 시 다음과 같이 추가적인 옵션 설정이 필요합니다. 
+
+1. ***서버 목록*** 메뉴에서 ***컬럼 설정*** 버튼 선택 후 서버 정보 ***OID*** 항목을 활성화 하세요.
+
+2. ***서버 목록***에서 대상 서버의 ***OID*** 컬럼 정보를 확인하세요. 
+
+3. 다음과 같이 OID 고정 옵션을 추가하세요. 
+    
+    ```bash
+    echo "oid=[서버의 oid]" >> /usr/whatap/infra/conf/whatap.conf
+    ```
+
+
 ## Oracle Solaris
 
 :::note 
 
-Oracle Solaris 11.2 버전 이상부터 지원합니다.
+* Oracle Solaris 11.2 버전 이상부터 지원합니다.
+
+* 와탭 Oracle Solaris 에이전트 1.3.3 이하 버전 설치 시 추가 옵션 설정이 필요합니다. [다음 문서](#install-oracle-solaris-precaution)를 참조하세요. 
 
 :::
 
@@ -142,3 +162,57 @@ echo "whatap.server.host=127.0.0.1" |tee -a /usr/whatap/infra/conf/whatap.conf
 echo "createdtime=`date +%s%S`" |tee -a /usr/whatap/infra/conf/whatap.conf
 /etc/init.d/whatap-infra start
 ```
+
+### 주의 사항{#install-oracle-solaris-precaution} 
+
+와탭 Oracle Solaris  에이전트 1.3.3 이하 버전 설치 시 다음과 같이 추가적인 옵션 설정이 필요합니다. 
+
+1. ***서버 목록*** 메뉴에서 ***컬럼 설정*** 버튼 선택 후 서버 정보 ***OID*** 항목을 활성화 하세요.
+
+2. ***서버 목록***에서 대상 서버의 ***OID*** 컬럼 정보를 확인하세요. 
+
+3. 다음과 같이 OID 고정 옵션을 추가하세요. 
+    
+    ```bash
+    echo "oid=[서버의 oid]" >> /usr/whatap/infra/conf/whatap.conf
+    ```
+
+:::note 
+
+**Oracle Enterprise Edition 구동 서버**
+
+Oracle Enterprise Edition이 구동 중인 서버에 설치할 경우 다음을 참조하여 프로세스 수집 옵션을 비활성하세요. 
+
+```bash
+echo "task_proc=false" >> /usr/whatap/infra/conf/whatap.conf 
+/etc/init.d/whatap-infra restart
+```
+
+:::
+
+### 에이전트 장애 처리 
+
+Oracle Solaris 에이전트에서 No Data가 잘못 감지되는 경우의 처리 방법을 다음과 같이 안내합니다. 
+
+#### OID 설정 확인
+
+`/usr/whatap/infra/conf/whatap.conf` 파일에서 `oid` 옵션이 설정되어 있는지 확인하세요.
+
+* 에이전트 버전 1.3.3 이하에서는 OID를 수동으로 설정해야 합니다. 설정 방법은 [다음 문서](#install-oracle-solaris-precaution)를 참조하세요.
+
+* 에이전트 버전 1.3.4 이상에서는 OID가 자동으로 설정됩니다.
+
+#### 에이전트 버전이 1.3.3 이하이며 Oracle Enterprise Edition 사용 시
+
+Oracle Enterprise Edition이 구동 중인 서버에서는 프로세스 정보 수집이 지원되지 않습니다.
+
+1. `/usr/whatap/infra/conf/whatap.conf` 파일에 `task_proc=false` 옵션이 설정되어 있는지 확인합니다.
+
+1. 만약 설정되어 있지 않다면 다음 명령을 실행하여 옵션을 설정한 후 에이전트를 재시작하세요. 
+
+    ```bash
+    echo "task_proc=false" >> /usr/whatap/infra/conf/whatap.conf 
+    /etc/init.d/whatap-infra restart
+    ```
+
+이 과정을 통해 프로세스 수집 옵션이 비활성화되어 Oracle Enterprise Edition이 구동되는 환경에서의 에이전트 작동을 보장합니다.

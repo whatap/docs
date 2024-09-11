@@ -23,7 +23,25 @@ toc_max_heading_level: 2
 
 ### `Application` 
 
-<p><Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 태그 선택 해제 시 가독성 하락 문제를 스타일 수정으로 개선 </p>
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 태그 선택 해제 시 가독성 하락 문제를 스타일 수정으로 개선 
+
+- <Status priority='0'>Fixed</Status> <UI>인스턴스 성능 관리</UI> &gt; <UI>스레드 목록/덤프</UI> 메뉴에서 상단 현황 요약 중 <UI>전체 스레드</UI> 다국어 미적용 현상 수정 
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴 테이블에서 마우스 오버 시 텍스트 표기 개선
+
+- <Status priority='1'>Feature</Status> <UI>히트맵</UI>에서 <b>DB 추적</b> 기능을 <UI>DB 프로젝트 연계</UI>로 변경
+
+  - Application → Database(`MySQL`, `PostgreSQL`, `Oracle`, `Redis`, `MsSQL`, `Altibase`, `MongoDB`, `Cubrid`)의 인스턴스 정보 확인 가능
+
+- <Status priority='1'>Feature</Status> <UI>트레이스 분석</UI> 창 <UI>테이블 뷰</UI> 탭의 SQL 스텝에서 DB 프로젝트 연계 분석 기능 추가 
+
+  - 선택한 스텝의 DB 플랫폼에 맞는 Database(`MySQL`, `PostgreSQL`, `Oracle`, `Redis`, `MsSQL`, `Altibase`, `MongoDB`, `Cubrid`)의 인스턴스 정보 확인 가능
+
+- <Status priority='1'>Changed</Status> <UI>트레이스 분석</UI> 창 
+
+  - <UI>레코드 요약</UI> 탭에서 테이블 디자인 및 데이터 그룹화 방식 변경 
+
+  - Database(`MySQL`, `PostgreSQL`) → Application으로 연결되는 연계 분석 기능의 팝아웃 테이블 디자인 변경 
 
 ---
 
@@ -33,15 +51,16 @@ toc_max_heading_level: 2
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <UI>서버 구성 정보</UI> 메뉴 출시
 
-{/* 
-
 ---
 
 ### `Kubernetes`
 
-- <Status priority='1'>Feature</Status>  
+- <Status priority='1'>Changed</Status> <UI>워크로드</UI> &gt; <UI>Pending Pod 현황</UI> 메뉴에서 노드 리소스가 Pending 원인으로 추정되는 경우 제공 지표 확대 
 
-*/}
+- <Status priority='1'>Changed</Status> <UI>관리</UI> &gt; <UI>에이전트 설치</UI> 메뉴에서 설치 방식 기본 선택값을 <UI>YAML</UI>로 변경
+
+- <Status priority='1'>Feature</Status> <UI>관리</UI> &gt; <UI>에이전트 설치</UI> 메뉴에서 에이전트 버전 선택 옵션 제공 
+
 
 ---
 
@@ -70,7 +89,7 @@ toc_max_heading_level: 2
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 로그 필터 툴팁 UI가 깨지는 현상 수정
 
-
+- <Status priority='0'>Fixed</Status> 로그 설정 메뉴 진입 시 선택된 조직 ID가 쿼리 파라미터에서 누락되는 현상 수정
 
 
 </div>

@@ -1,5 +1,47 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_11",
+    "ver": "v1.7.11",
+    "date": "2024-09-11",
+    "Lists": [
+      {
+        "ver": "v1.7.11",
+        "hash": "v1711",
+        "product": "Kubernetes Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 태그 카운트 <code>kube_stat</code> 카테고리에 Pod 상태 지표 추가</p>"
+      },
+      {
+        "ver": "v1.7.11",
+        "hash": "v1711",
+        "product": "Kubernetes Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 태그 카운트 <code>kube_node</code> 카테고리에 각 노드의 생성 시간을 나타내는 <code>creationTimeStamp</code> 필드 추가</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_10",
+    "ver": "v1.7.10",
+    "date": "2024-08-29",
+    "Lists": [
+      {
+        "ver": "v1.7.10",
+        "hash": "v1710",
+        "product": "Kubernetes Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 태그 카운트 <code>kube_node</code> 카테고리에 노드(Node) <b>capacity</b>와 <b>allocatable</b> 관련 지표 추가</p>"
+      },
+      {
+        "ver": "v1.7.10",
+        "hash": "v1710",
+        "product": "Kubernetes Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 더 정확한 CPU 할당 데이터 제공을 위해 <code>allocatable_cpu</code> 지표에서 밀리코어 단위의 값이 누락되는 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_7",
     "ver": "v1.7.7",
     "date": "2024-07-11",

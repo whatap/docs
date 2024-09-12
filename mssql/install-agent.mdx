@@ -2,12 +2,8 @@
 id: install-agent
 title: 에이전트 설치
 description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
-keywords: [ SQL Server, 데이터베이스 모니터링, 에이전트 ]
+keywords: [ SQL Server, 데이터베이스, 에이전트 ]
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import TR from '@site/src/components/TR';
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
@@ -45,7 +41,7 @@ import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
 
     :::note
 
-    **MS SQL 서버와 에이전트가 localhost에 설치되는 경우** (**default 1433 port**)
+    **SQL Server와 에이전트가 localhost에 설치되는 경우** (**default 1433 port**)
     
     ```ini title='whatap.conf'
     dbms=mssql
@@ -84,7 +80,7 @@ EXEC sp_configure 'show advanced options', 1;
 RECONFIGURE;
 EXEC sp_configure 'Ole Automation Procedures', 1;
 RECONFIGURE;
- 
+
 ## kill session 사용시 - SQL Server
 grant alter any connection to whatap;
 
@@ -104,6 +100,38 @@ import Dbrunagent from "../common-items/_db-run-agent.mdx";
 <Dbrunagent /> 
 
 {/*## XOS 에이전트 설치*/}
-import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+{/* import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx"; */}
 
-<Dbinstallxosagent /> 
+## AWS CloudWatch 자원 모니터링하기
+
+에이전트 서버에 있는 *whatap.conf* 파일에 다음 옵션을 설정하세요. CloudWatch 특성상 60초(`cloud_watch_interval`)마다 호출을 권장합니다.
+
+```ini title='whatap.conf'
+aws_region={AWS_RDS_Region_Name}
+aws_arn=arn:aws:iam::999999999999:role/UpdateApp
+cloud_watch=on
+cloud_watch_instance=RDS_DB_Instance_Name
+cloud_watch_interval=60
+cloud_watch_metrics=CPUUtilization,FreeableMemory,FreeStorageSpace,NetworkTransmitThroughput,NetworkReceiveThroughput
+```
+
+AWS CloudWatch 지표 조회를 위해 다음 명령어를 실행하세요. `DB_Instance_Name` 항목을 변경한 다음 명령어를 실행하세요.
+
+```bash
+aws cloudwatch list-metrics --namespace AWS/RDS --dimensions Name=DBInstanceIdentifier,Value={DB_Instance_Name}
+```
+
+:::note
+
+* <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 <UI>AWS RDS Region</UI>, <UI>RDS DB Instance Name</UI>, <UI>DB Instance Name</UI> 항목에 필요한 정보를 입력하면 에이전트 옵션 및 명령어를 자동 생성할 수 있습니다.
+
+* AWS CLI 설치 및 업데이트에 대한 자세한 내용은 [다음 링크](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html)를 참조하세요.
+
+* AWS CLI 설정에 대한 자세한 내용은 [다음 링크](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-configure.html)를 참조하세요.
+
+:::
+
+{/* ## 다음 단계 */}
+import NextStep from "../common-items/_db-next-step.mdx";
+
+<NextStep />

@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_8_x",
+    "ver": "Service 2.8.5",
+    "date": "2024-09-12",
+    "Lists": [
+      {
+        "ver": "Service 2.8.5",
+        "hash": "service-285",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴에서 메트릭스 이벤트 추가 시 제공하는 <span class=\"uitext\">할당 불가능 노드 알림</span> 템플릿의 오타 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_8_x",
     "ver": "Service 2.8.4",
     "date": "2024-09-03",
     "Lists": [

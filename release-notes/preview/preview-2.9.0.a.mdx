@@ -20,77 +20,156 @@ toc_max_heading_level: 2
 
 <div class='indentTab'>
 
+### `공통`
 
-### `Application` 
+- <Status priority='1'>Feature</Status> <Cmdname sid="MNU07360" className="uitext" /> &gt; <Cmdname sid="side_myProfile" className="uitext" /> 메뉴에서 사용자의 등록된 전화번호 삭제 기능 추가
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 태그 선택 해제 시 가독성 하락 문제를 스타일 수정으로 개선 
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_integratedRealtimeAlert" className="uitext" /> 메뉴에서 <Cmdname sid="ITM08413" className="uitext" /> 기능의 On/Off 설정 추가
 
-- <Status priority='0'>Fixed</Status> <UI>인스턴스 성능 관리</UI> &gt; <UI>스레드 목록/덤프</UI> 메뉴에서 상단 현황 요약 중 <UI>전체 스레드</UI> 다국어 미적용 현상 수정 
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_integratedRealtimeAlert" className="uitext" /> 메뉴에서 다음 사항 변경
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴 테이블에서 마우스 오버 시 텍스트 표기 개선
+  - <b>이벤트 일괄 해소</b> 버튼의 아이콘 변경
 
-- <Status priority='1'>Feature</Status> <UI>히트맵</UI>에서 <b>DB 추적</b> 기능을 <UI>DB 프로젝트 연계</UI>로 변경
+  - <Cmdname sid="TTL08411" className="uitext" /> 옵션의 UI 개선
 
-  - Application → Database(`MySQL`, `PostgreSQL`, `Oracle`, `Redis`, `MsSQL`, `Altibase`, `MongoDB`, `Cubrid`)의 인스턴스 정보 확인 가능
+  - <Cmdname sid="turn_off_browser_noti" className="uitext" /> 기능의 On/Off 토글 버튼의 위치를 <Cmdname sid="TTL08411" className="uitext" /> 내로 위치 변경
 
-- <Status priority='1'>Feature</Status> <UI>트레이스 분석</UI> 창 <UI>테이블 뷰</UI> 탭의 SQL 스텝에서 DB 프로젝트 연계 분석 기능 추가 
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code className="newfunc">New</code> 메뉴의 이벤트 추가 화면에서 <Cmdname sid="TTL07367" className="uitext" /> 옵션의 설명 중 <Cmdname sid="CNT08320" className="b500" /> 용어를 <Cmdname sid="CNT08326" className="uitext" />으로 변경
 
-  - 선택한 스텝의 DB 플랫폼에 맞는 Database(`MySQL`, `PostgreSQL`, `Oracle`, `Redis`, `MsSQL`, `Altibase`, `MongoDB`, `Cubrid`)의 인스턴스 정보 확인 가능
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 태그 선택을 해제했을 때 가독성이 떨어지는 문제를 스타일 수정으로 개선
 
-- <Status priority='1'>Changed</Status> <UI>트레이스 분석</UI> 창 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 에서 테이블 목록에 마우스를 오버할 때 텍스트 표기 스타일 개선
 
-  - <UI>레코드 요약</UI> 탭에서 테이블 디자인 및 데이터 그룹화 방식 변경 
+---
 
-  - Database(`MySQL`, `PostgreSQL`) → Application으로 연결되는 연계 분석 기능의 팝아웃 테이블 디자인 변경 
+### `Application`
+
+#### 공통
+
+- <Status priority='1'>Feature</Status> **Application** 플랫폼에서 연계된 **Database** 플랫폼의 인스턴스 정보를 확인할 수 있는 <Cmdname sid="BTN08477" className="uitext" /> 기능 추가
+
+  - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_hitmap" className="uitext" /> 메뉴에서 <Cmdname sid="db_tracking" className="b500" /> 기능을 <Cmdname sid="BTN08477" className="uitext" />으로 변경
+
+  - <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="table_view" className="uitext" /> 탭에서 SQL 스텝에 <Cmdname sid="BTN08477" className="uitext" /> 기능 추가 
+
+  :::note
+
+  지원하는 **Database** 상품은 **PostgreSQL**, **Oracle**, **MySQL**, **SQL Server**, **CUBRID**, **Altibase**, **Redis**, **MongoDB**입니다.
+
+  :::
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06125" className="uitext" /> 탭에서 테이블 디자인 및 데이터 분류 방식 변경 
+
+- <Status priority='1'>Changed</Status> **Database** 플랫폼에서 **Application** 플랫폼으로 연결하는 <Cmdname sid="TTL07046" className="uitext" /> 기능의 테이블 디자인 변경
+
+  :::note
+
+  이 변경 사항은 **PostgreSQL**, **MySQL** 상품에 해당합니다.
+
+  :::
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" /> 메뉴에서 화면 상단의 현황 요약에서 <Cmdname sid="ITM08500" className="uitext" /> 항목에 다국어 지원 적용
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 <Cmdname sid="TTL06224" className="uitext" /> 모달 하단의 치환 변수, 바인드 변수 토글 버튼이 함께 표시될 때 디자인 요소가 제대로 나타나지 않는 문제 수정
+
+#### Java
+
+<Status priority='1'>Feature</Status> 와탭 모니터링 서비스 내 **MySQL**, **PostgreSQL** 상품 프로젝트와 실시간으로 트랜잭션을 연계 분석할 수 있는 <Cmdname sid="TTL07046" className="uitext" /> 기능 추가
 
 ---
 
 ### `Server`
 
-- <Status priority='1'>Feature</Status> <UI>HP-UX</UI> OS 설치 제공 
+- <Status priority='1'>New</Status> 인프라 서버 운영에 필요한 정보를 에이전트가 자동 수집 및 저장, 사용자 정의 필드를 통해 추가한 정보를 조회하고 관리할 수 있는 <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴 추가
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <UI>서버 구성 정보</UI> 메뉴 출시
+  :::note
+
+  - 이 기능은 <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+  - 이 기능은 Server Linux/Windows 에이전트 **v2.6.6** 이상, AIX 에이전트 **v1.3.4** 이상, Solaris 에이전트 **v1.3.4** 이상에서 지원합니다.
+
+  :::
+
+- <Status priority='1'>Feature</Status> <UI>HP-UX</UI> 운영체제 환경을 지원하는 에이전트 설치 제공 
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_integratedRealtimeAlert" className="uitext" />에서 알림 항목을 선택하면 <Cmdname sid="side_eventHistory" className="uitext" /> 메뉴로 이동하도록 변경
 
 ---
 
 ### `Kubernetes`
 
-- <Status priority='1'>Changed</Status> <UI>워크로드</UI> &gt; <UI>Pending Pod 현황</UI> 메뉴에서 노드 리소스가 Pending 원인으로 추정되는 경우 제공 지표 확대 
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에 에이전트 버전을 선택할 수 있는 옵션 추가
 
-- <Status priority='1'>Changed</Status> <UI>관리</UI> &gt; <UI>에이전트 설치</UI> 메뉴에서 설치 방식 기본 선택값을 <UI>YAML</UI>로 변경
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_pendingPod" className="uitext" /> 메뉴에서 노드 리소스가 Pending 원인으로 추정되는 경우 제공하는 지표를 확대하도록 수정
 
-- <Status priority='1'>Feature</Status> <UI>관리</UI> &gt; <UI>에이전트 설치</UI> 메뉴에서 에이전트 버전 선택 옵션 제공 
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 설치 방식의 기본 선택값을 <UI>YAML</UI>로 변경
 
 
 ---
 
 ### `Database`
 
-<Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 사용자 정의 위젯에 다음 기능 추가
+#### 공통
 
-- 파이 차트 또는 텍스트 차트에 <Cmdname sid="BTN08359" className="uitext" /> 옵션 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 사용자 정의 위젯에 다음 기능 추가
 
-- <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴를 진입하면 사용자 정의 위젯에 대한 안내 메시지 창 표시
+  - 파이 차트 또는 텍스트 차트에 <Cmdname sid="BTN08359" className="uitext" /> 옵션 추가
+
+  - <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴를 진입하면 사용자 정의 위젯에 대한 안내 메시지 창 표시
+
+- <Status priority='1'>Feature</Status> SQL 스크립트를 실행해 결과를 확인할 수 있는 <Cmdname sid="side_dbScriptManager" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_dbScriptManager" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+  :::
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="TTL07046" className="uitext" /> 버튼 위치를 <Cmdname sid="session_detail" className="uitext" /> 창에서 <Cmdname sid="active_sessions" className="uitext" /> 테이블로 이동
+
+  :::note
+
+  이 변경 사항은 **PostgreSQL**, **MySQL**, **Oracle** <code className="my">V2</code>, **Oracle Pro** 상품에 해당합니다.
+
+  :::
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="TTL07046" className="uitext" /> 팝업 창의 디자인 변경
+
+  - 연계 프로젝트 창이 기본 표시하도록 수정
+
+  - 연계 프로젝트에 대한 플랫폼 아이콘을 표시하도록 수정
+
+#### PostgreSQL <code className="my">V2</code>, MySQL <code className="my">V2</code>
+
+<Status priority='1'>Feature</Status> **Application** 플랫폼과 실시간 연계 분석할 수 있는 기능 추가
+
+#### Oracle, Oracle Pro
+
+<Status priority='1'>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴에서 화면 상단의 차트 표시 형식 변경
 
 ---
 
 ### `Browser`
 
-<p><Status priority='1'>Feature</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <UI>페이지 로드 통계</UI> 메뉴 추가</p>
+<Status priority='1'>Feature</Status> 페이지 URL 경로별 로드 성능 정보에 대한 통계를 제공하는 <Cmdname sid="TTL08376" className="uitext" /> 메뉴 추가
+
+:::note
+
+이 기능은 <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="TTL08376" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+:::
 
 ---
 
 ### `Log`
 
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" /> 및 <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 필터의 입력 창에 커서가 위치해 있을 때 ECS 키를 누르면 팝오버가 닫히도록 개선
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" /> 및 <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 필터의 입력 창에 커서가 위치해 있을 때 ECS 키로 팝오버 닫히도록 개선
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" /> 및 <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 로그 검색 태그 필터 입력 시 입력 창에 남아 있는 입력값을 제거하도록 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" /> 및 <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 로그 검색 태그 필터 입력 시 입력 창에 남아 있는 입력값 제거
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 로그 필터 정보를 표시하는 툴팁의 콘텐츠가 제대로 표시되지 않는 문제 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 로그 필터 툴팁 UI가 깨지는 현상 수정
-
-- <Status priority='0'>Fixed</Status> 로그 설정 메뉴 진입 시 선택된 조직 ID가 쿼리 파라미터에서 누락되는 현상 수정
-
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSetting" className="uitext" /> 메뉴를 진입할 때 선택한 조직의 `id`가 쿼리 파라미터에서 누락되는 문제 수정
 
 </div>
 

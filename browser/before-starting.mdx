@@ -33,9 +33,9 @@ keywords: [ 브라우저 모니터링 ]
 
 ## 페이지 그룹{#page-group}
 
-브라우저 모니터링 서비스에서 의미있는 통계 그룹을 가지기 위해 URL Path를 정규화해 **페이지 그룹**이라는 이름으로 제공합니다. URL Path 단위 분석에 의미가 없다고 판단한 숫자, 날짜 등을 물음표(?)로 치환해 제공합니다.
+브라우저 모니터링 서비스에서 의미있는 통계 그룹을 가지기 위해 URL 경로(URL Path)를 정규 표현식을 통해 정규화하여 **페이지 그룹**이라는 이름으로 제공합니다. URL 경로(URL Path) 단위 분석에 의미가 없다고 판단한 숫자, 날짜 등을 물음표(?)로 치환해 제공합니다.
 
-예를 들어, */v2/project/sms**/`12`/**dashboard/resource_board*와 같은 URL Path를 */v2/project/sms**/`?`/**dashboard/resource_board*와 같은 형태로 제공합니다.
+예를 들어, */v2/project/sms**/`12`/**dashboard/resource_board*와 같은 URL 경로(URL Path)를 */v2/project/sms**/`?`/**dashboard/resource_board*와 같은 형태로 제공합니다.
 
 ## 브라우저 에러
 

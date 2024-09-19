@@ -22,7 +22,7 @@ toc_max_heading_level: 3
 
 ## 기본 화면 안내 
 
-<Cmdname sid="side_nodeMap" className="uitext" />은 크게 **사용자 설정 영역**과 **차트 영역**으로 구성되어 있습니다.
+<Cmdname sid="side_nodeMap" className="uitext" /> 메뉴는 크게 **사용자 설정** 영역과 **노드 맵 차트** 영역으로 구성되어 있습니다.
 
 ### 사용자 설정 
 
@@ -30,31 +30,166 @@ toc_max_heading_level: 3
 
 사용자는 노드를 다양한 조건에 따라 <Cmdname sid="groupby" className="uitext" />하여 표시할 수 있습니다. 이를 통해 각 그룹에 속한 노드의 관계를 한눈에 파악할 수 있습니다. <Cmdname sid="groupby" className="uitext" /> 기능은 최대 2단계까지 지원됩니다. <Cmdname sid="groupby" className="uitext" />를 통해 사용자가 특정 기준에 따라 노드를 선별하여 모니터링할 수 있어 커스터마이징된 모니터링 환경을 제공합니다.
 
-#### 임계치
+#### 임계치 설정
 
-사용자는 임계치 설정을 통해 노드 상태를 색상으로 표현할 수 있습니다. 지표는 1개 이상 설정할 수 있으며 각 지표별로 정상(<span class='normal'>Normal</span>), 경고(<span class='slow'>Warning</span>), 오류(<span class='vslow'>Error</span>) 구간을 설정하여, 해당 범위에 속할 때 지정된 색상이 적용됩니다. 
+사용자는 <Cmdname sid="TTL08456" className="uitext" />을 통해 노드 상태를 색상으로 표현할 수 있습니다. 지표는 1개 이상 설정할 수 있으며 각 지표별로 정상(<span class='normal'>Normal</span>), 경고(<span class='slow'>Warning</span>), 오류(<span class='vslow'>Error</span>) 구간을 설정하여, 해당 범위에 속할 때 지정된 색상이 적용됩니다. 
 
-색상 우선 순위는 <span class='slow'>빨간색</span>으로 표시되는 <span class='vslow'>Error</span> 구간이 가장 높습니다. 여러 지표 중 하나의 항목이라도 <span class='vslow'>Error</span> 구간에 속할 경우 해당 노드는 우선적으로 <span class='slow'>빨간색</span>으로 표시됩니다.
+1. <Cmdname sid="TTL08456" className="uitext" /> 옵션을 클릭하세요. 
+
+1. 원하는 지표를 선택 후 각 <span class='normal'>Normal</span>, <span class='slow'>Warning</span>, <span class='vslow'>Error</span> 구간을 설정하세요. 
+
+1. 지표 추가를 원하는 경우 하단의 <UI>+</UI> <Cmdname sid="BTN08454" className="uitext" /> 버튼을 클릭하세요. 
+
+1. 원하는 지표별 임계치 설정을 마쳤으면 하단의 <Cmdname sid="save" className="uitext" /> 버튼을 클릭하세요. 
+
+:::note 
+
+각 상태 구간인 <span class='normal'>Normal</span>, <span class='slow'>Warning</span>, <span class='vslow'>Error</span>는 기본적으로 <span class='normal'>파란색</span>, <span class='slow'>주황색</span>, <span class='vslow'>빨간색</span>으로 설정되어 있습니다. <Cmdname sid="TTL08456" className="uitext" />에서 각 상태에 대한 색상을 사용자가 지정할 수 있습니다.
+
+:::
+
+##### 문자열 타입 지표
+
+문자열 타입(*String*)의 지표일 경우 특정 문자열이 포함될 때 <span class='vslow'>Error</span>로 지정됩니다. 예를 들어 ***Status (string)*** 지표에 `NotReady`라는 텍스트가 포함될 경우 해당 노드는 <span class='vslow'>Error</span>로 지정되어 <span class='vslow'>빨간색</span>으로 표시됩니다.
+
+| 지표 명          | 값           | Error 상태 |
+|------------------|--------------|------------|
+| Status           |`Ready *` / `NotReady *` | `NotReady *` |
+| Ready            | `true` / `false`  | `false`      |
+| PIDPressure      | `true` / `false`  | `true`       |
+| DiskPressure     | `true` / `false`  | `true`       |
+| MemoryPressure   | `true` / `false`  | `true`       |
+| Unschedulable    | `true` / `false`  | `true`       |
+
+
+{/* 
+
+* <span class='normal'>Normal</span>: <span class='normal'>파란색</span>
+
+* <span class='slow'>Warning</span>: <span class='slow'>주황색</span>
+
+* <span class='vslow'>Error</span>: <span class='vslow'>빨간색</span> 
+
+*/}
+
+##### 노드 상태 표시 우선 순위
+
+색상 우선 순위는 <span class='vslow'>빨간색</span>으로 표시되는 <span class='vslow'>Error</span> 구간이 가장 높습니다. 여러 지표 중 하나의 항목이라도 <span class='vslow'>Error</span> 구간에 속할 경우 해당 노드는 우선적으로 <span class='vslow'>빨간색</span>으로 표시됩니다.
+
+예시 이미지 사용해서 노드 A, B 비교
+
+{/* * **우선 순위** 예시 이미지 사용해서 노드 A, B 비교 */}
+
+{/* 
+
+또한 *String* 타입 지표의 경우 특정 문자열이 포함될 때 <span class='vslow'>Error</span>로 지정됩니다. 예를 들어 ***Status (string)*** 지표에 `NotReady`라는 텍스트가 포함될 경우 해당 노드는 <span class='vslow'>Error</span>로 지정되어 <span class='vslow'>빨간색</span>으로 표시됩니다. 
+
+*/}
+
+
+{/* 
 
 :::note 
 
 **우선 순위**
 
+예시 이미지 사용해서 노드 A, B 비교
 
+::: 
 
-:::
-
-
+*/}
 
 #### 라벨
 
+사용자는 노드 블록 내부에 텍스트 라벨을 설정하여 지정한 주요 정보를 한눈에 볼 수 있습니다.
+
+
 #### 필터 
+
+사용자는 필터를 통해 특정 조건을 만족하는 노드를 선택하여 집중적으로 모니터링할 수 있습니다.
 
 #### 프리셋 
 
+사용자는 설정한 옵션을 프리셋으로 저장하고 필요 시 불러올 수 있습니다. 프리셋은 프로젝트 단위로 저장됩니다. 이를 통해 프로젝트 멤버들이 동일한 설정으로 클러스터를 모니터링할 수 있습니다. 기본 프리셋(***Default***)을 제공하며 기본 프리셋의 경우 삭제할 수 없습니다. 
+
+<Cmdname sid="side_nodeMap" className="uitext" />의 기본 프리셋은 ***CpuUsedPercent (pct)*** 지표의 임계치가 다음과 같이 설정되어있습니다. 
+
+* <span class='normal'>Normal</span>: 값이 `0` 초과 `80` 이하
+
+* <span class='slow'>Warning</span>: 값이 `80` 초과 `90` 이하
+
+* <span class='vslow'>Error</span>: 값이 `90` 초과
+
+
 #### 추가 설정 
 
+노드 맵 우측 상단의 ![설정 아이콘](/img/ic-setting.svg) 아이콘을 통해 추가적인 세부 설정을 조정할 수 있습니다.
+
+* <Cmdname sid="layout" className="uitext" />: 그룹화된 위젯의 컬럼을 고정합니다. 
+
+* <Cmdname sid="TTL07772" className="uitext" />: 그룹화된 위젯을 노드 수 또는 이름 기준으로 정렬합니다. 
+
+* <Cmdname sid="ITM06977" className="uitext" type="node" />: 최근 1분 이내에 사라진 노드를 표시합니다.
+
+* <Cmdname sid="ITM07792" className="uitext" type="node" />: 최근 1분 이내에 생성된 노드를 표시합니다.
+
+* <Cmdname sid="BTN08458" className="uitext" />: 특정 노드가 <Cmdname sid="TTL08456" className="uitext" />에 따라 <span class='slow'>Warning</span> 또는 <span class='vslow'>Error</span> 상태일 때 경고 팝오버를 표시합니다.
+
+* <Cmdname sid="BTN08459" className="uitext" />: 위젯 하단에 평균, 합계, 최대값, 최소값 표시 여부를 설정합니다. 
+
+* <Cmdname sid="BTN08460" className="uitext" />: 위젯 하단에 표시할 지표를 선택합니다. 특정 지표를 선택하고 그룹화된 모든 노드에 대하여 해당 지표를 평균, 합계, 최대값, 최소값 중 원하는 방식으로 데이터를 표시하도록 설정합니다.
+
+이미지
+
 ### 노드 맵 차트 
+
+노드 맵 차트는 다음 세 가지 영역으로 구성되어있습니다. 
+
+![지시선 1](/img/number-01.png) **위젯 상단 영역**: 노드의 전체 개수 또는 그룹화된 경우 그룹회된 항목들의 총 개수와 선택한 메트릭스의 상태별 개수를 표시합니다. 
+
+![지시선 2](/img/number-02.png) **중앙 시각화 영역**: 전체 노드 상태와 개수를 직관적으로 확인할 수 있는 시각화된 대시보드를 제공합니다. 
+
+![지시선 3](/img/number-03.png) **위젯 하단 영역**: 선택한 메트릭스의 통계값을 표시합니다. 추가 설정의 <Cmdname sid="BTN08460" className="uitext" />을 통해 설정한대로 합계, 최대값, 최소값 중 원하는 방식으로 데이터를 표시합니다. 
+
+:::note 
+
+<Cmdname sid="side_nodeMap" className="uitext" />에서는 노드 에이전트가 설치된 노드만 표시합니다. 
+
+:::
+
+## 요약 보기 및 상세 분석
+
+<Cmdname sid="side_nodeMap" className="uitext" />맵에서 조회를 원하는 노드를 선택하세요. 오른쪽에 나타나는 요약 보기 화면을 통해 해당 객체의 요약 정보를 확인할 수 있습니다. 요약 보기 화면에서 상세 분석 버튼을 클릭해 상세 분석 화면을 확인할 수 있습니다. 
+
+#### 대상 정보
+
+<Cmdname sid="TTL06782" className="uitext" /> 탭에서 사용자가 선택한 노드의 주요 속성 정보를 확인할 수 있습니다. 
+
+:::note 
+
+***Labels*** 지표는 마스터 에이전트 버전 1.7.9 이상부터 지원합니다.
+
+:::
+
+#### 노드 구성 
+
+<Cmdname sid="TTL08441" className="uitext" type="node"/> 탭에서 노드 내 CPU, 메모리, 디스크, 네트워크 구성 및 사용량과 Container Runtime, kubelet, kube-proxy 등 쿠버네티스 시스템 프로세스 정보를 확인할 수 있습니다.
+
+{/* 노드 내 CPU, 메모리, 디스크, 네트워크 자원 사용 현황을 포함한 상세 정보를 확인할 수 있습니다. */}
+
+#### 메트릭스
+
+<Cmdname sid="metrics" className="uitext" /> 탭에서 선택한 노드의 주요 메트릭 정보를 조회하고 리소스 사용 패턴을 확인할 수 있습니다. 이를 통해 리소스 관련 성능 최적화 및 문제점을 빠르게 식별할 수 있습니다.
+
+:::note 
+
+***K8s CPU Request / Allocatable CPU (%)*** 위젯은 마스터 에이전트 버전 1.7.9 이상부터 지원합니다.
+
+:::
+
+#### 이벤트
+
+<Cmdname sid="event" className="uitext" /> 탭에서 ***K8s Node 이벤트***와 사용자가 설정한 ***WhaTap Node 이벤트***를 확인하여 클러스터 내 발생한 주요 이벤트 및 경고를 모니터링할 수 있습니다.
 
 
 

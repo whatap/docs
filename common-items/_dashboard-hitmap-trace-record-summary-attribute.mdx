@@ -2,52 +2,55 @@
 
 | 분류 | 속성 | 설명 |
 | -- | -- | -- |
-| 에이전트 | <Cmdname sid="TTL06588" className="b600" /> | 에이전트 오브젝트 이름 |
-| ^ | <Cmdname sid="TTL06587" /> | 에이전트 오브젝트 아이디 |
-| ^ | <Cmdname sid="TTL06356" /> | `okind` 옵션으로 설정된 에이전트 그룹 이름 |
-| ^ | <Cmdname sid="TTL06072" /> | 에이전트 그룹 아이디 |
-| ^ | <Cmdname sid="TTL06357" /> | `ondoe` 옵션으로 설정한 에이전트 서버 이름 |
-| ^ | <Cmdname sid="TTL06309" /> | 에이전트 서버 아이디 |
-| ^ | <Cmdname sid="TTL06077" /> | 와탭 모니터링 서비스에 등록한 프로젝트의 식별 코드 |
-| 트랜잭션 | <Cmdname sid="TTL06111" className="b600" /> | 트랜잭션 아이디 |
-| ^ | <Cmdname sid="TTL06110" /> | 트랜잭션 시작 시각 |
-| ^ | <Cmdname sid="TTL06103" /> | 트랜잭션 종료 시각 |
-| ^ | <Cmdname sid="TTL06361" className="b600" /> | 트랜잭션 수행 시간 |
-| ^ | <Cmdname sid="TTL06106" /> | HTTP 메소드 - GET, POST, PUT, HEAD 등 |
-| ^ | <Cmdname sid="TTL06362" /> | 외부 Http Call 시간 |
-| ^ | <Cmdname sid="TTL06089" /> | 외부 HTTP Call 건수 |
-| ^ | <Cmdname sid="TTL06972" /> | DB와 연결된 시간 |
-| ^ | <Cmdname sid="TTL06364" /> | SQL 수행 시간 |
-| ^ | <Cmdname sid="TTL06097" /> | SQL 수행 건수 |
-| ^ | <Cmdname sid="TTL06530" /> | 레코드를 조회하는 데 걸린 시간<br/>(중첩이 발생하거나 타 로직이 포함될 수 있음) |
-| ^ | <Cmdname sid="TTL06094" /> | SQL에서 데이터를 조회한 레코드 건수 |
-| 멀티 트랜잭션 | <Cmdname sid="TTL06107" /> | 멀티 트랜잭션 ID |
-| ^ | <Cmdname sid="TTL06905" /> | 부모 트랜잭션의 트랜잭션 주소 |
-| ^ | <Cmdname sid="TTL06906" /> | 부모 트랜잭션이 수집된 프로젝트 코드 |
-| ^ | <Cmdname sid="TTL06907" /> | 부모 트랜잭션의 에이전트 오브젝트 아이디 |
-| ^ | <Cmdname sid="TTL06908" /> | 부모 트랜잭션의 에이전트 이름 |
-| ^ | <Cmdname sid="TTL06909" /> | 부모 트랜잭션의 에이전트 그룹 ID |
-| ^ | <Cmdname sid="TTL06910" /> | 부모 트랜잭션의 에이전트 그룹 이름 |
-| 자원 | <Cmdname sid="TTL06418" /> | 트랜잭션이 사용한 CPU 사용량 |
-| ^ | <Cmdname sid="TTL06974" /> | 트랜잭션이 사용한 메모리 사용량 |
-| 클라이언트 | <Cmdname sid="TTL06081" /> | 클라이언트의 IP 주소 |
-| ^ | <Cmdname sid="TTL06101" /> | 클라이언트가 접속한 IP 주소에 지정된 인터넷 주소 |
-| ^ | <Cmdname sid="TTL06420" /> | 클라이언트의 ID |
-| ^ | <Cmdname sid="TTL06080" /> | 클라이언트의 국가 정보 |
-| ^ | <Cmdname sid="TTL06078" /> | 클라이언트의 국가 내 도시 정보 |
-| ^ | <Cmdname sid="clientOs" /> | 브라우저가 실행되는 운영 체제 환경 |
-| ^ | <Cmdname sid="TTL06485" /> | 클라이언트가 이용한 브라우저 종류 |
-| ^ | <Cmdname sid="clientName" /> | 클라이언트가 이용한 기기 이름 |
-| ^ | <Cmdname sid="status" /> | 클라이언트의 요청에 대한 HTTP 상태 코드 |
-| ^ | <Cmdname sid="TTL06108" /> | 클라이언트가 브라우저에서 이전에 이용한 페이지 주소 또는 유입 경로 |
-| ^ | <Cmdname sid="TTL06971" /> | 트랜잭션 이름과 원본 URL의 조합 데이터<br/>원본 URL이 있을 경우 원본 URL 표시, 원본 URL이 없을 경우 트랜잭션 표시 |
-| ^ | <Cmdname sid="TTL06359" /> | 클라이언트 관련 정보를 추출하는데 이용하는 브라우저 정보 |
+| **트랜잭션** | <Cmdname sid="TTL06918" /> | 애플리케이션에서 실행된 API 또는 URL 호출, 해당 트랜잭션의 경로입니다. 정규 표현식을 사용해 일정한 형식으로 변환합니다. |
+| ^ | <Cmdname sid="TTL06774" /> | 실제로 호출된 URL 경로입니다. 변수를 포함하지 않은 구체적인 요청 경로입니다. 원본 URL이 있을 경우 원본 URL 표시, 원본 URL이 없을 경우 표시하지 않습니다. |
+| ^ | <Cmdname sid="TTL06077" /> | 와탭 모니터링 서비스에 등록한 프로젝트의 식별 코드입니다. |
+| ^ | <Cmdname sid="status" /> | 해당 트랜잭션의 HTTP 응답 상태 코드입니다. |
+| ^ | <Cmdname sid="TTL06087" /> | 해당 트랜잭션에서 발생한 에러 레벨입니다. Warning 또는 Critical로 표시됩니다. |
+| ^ | <Cmdname sid="TTL06086" /> | 해당 트랜잭션에서 발생한 에러 관련 클래스입니다. |
+| ^ | <Cmdname sid="TTL06088" /> | 해당 트랜잭션에서 발생한 에러 메시지입니다. |
+| ^ | <Cmdname sid="TTL06361" /> | 트랜잭션 수행 시간입니다. |
+| ^ | <Cmdname sid="TTL06110" /> | 트랜잭션 시작 시각입니다. |
+| ^ | <Cmdname sid="TTL06103" /> | 트랜잭션 종료 시각입니다. |
+| ^ | <Cmdname sid="TTL06359" /> | 클라이언트 관련 정보를 추출하는데 이용하는 브라우저 정보입니다. |
+| ^ | <Cmdname sid="TTL06108" /> | 클라이언트가 브라우저에서 이전에 이용한 페이지 주소 또는 유입 경로입니다. |
+| ^ | <Cmdname sid="TTL06111" /> | 해당 트랜잭션의 고유 식별자(ID)입니다. |
+| ^ | <Cmdname sid="TTL06107" /> | 멀티 트랜잭션의 고유 식별자(ID)입니다. 다른 애플리케이션의 트랜잭션과 병렬로 실행된 경우 표시됩니다. |
+| **에이전트** | <Cmdname sid="TTL06588" /> | 에이전트 이름입니다. |
+| ^ | <Cmdname sid="TTL06587" /> | 에이전트의 고유 식별자(ID)입니다. |
+| ^ | <Cmdname sid="TTL06356" /> | `okind` 옵션으로 설정된 에이전트 그룹 이름입니다. |
+| ^ | <Cmdname sid="TTL06072" /> | 에이전트 그룹의 고유 식별자(ID)입니다. |
+| ^ | <Cmdname sid="TTL06357" /> | `ondoe` 옵션으로 설정한 에이전트 서버 이름입니다. |
+| ^ | <Cmdname sid="TTL06309" /> | 에이전트 서버의 고유 식별자(ID)입니다. |
+| **스텝**(Step) | <Cmdname sid="TTL06106" /> | HTTP 메소드입니다. (GET, POST, PUT, HEAD 등) |
+| ^ | <Cmdname sid="TTL06362" /> | 외부 Http Call 시간입니다. |
+| ^ | <Cmdname sid="TTL06089" /> | 외부 HTTP Call 건수입니다. |
+| ^ | <Cmdname sid="TTL06972" /> | 데이터베이스에 연결되기까지 걸린 시간입니다. |
+| ^ | <Cmdname sid="TTL06364" /> | SQL 수행 시간입니다. |
+| ^ | <Cmdname sid="TTL06097" /> | SQL 수행 건수입니다. |
+| ^ | <Cmdname sid="TTL06530" /> | 레코드를 조회하는 데 걸린 시간입니다. 중첩이 발생하거나 타 로직이 포함될 수 있습니다. |
+| ^ | <Cmdname sid="TTL06094" /> | SQL에서 데이터를 조회한 레코드 건수입니다. |
+| **자원**(Resource) | <Cmdname sid="TTL06418" /> | 트랜잭션 처리에 사용된 CPU 시간입니다. |
+| ^ | <Cmdname sid="TTL06974" /> | 해당 트랜잭션에서 사용된 메모리 양입니다. |
+| **클라이언트** | <Cmdname sid="TTL06081" /> | 클라이언트의 IP 주소입니다. |
+| ^ | <Cmdname sid="clientOs" /> | 브라우저가 실행되는 운영 체제 환경입니다. |
+| ^ | <Cmdname sid="TTL06101" /> | 클라이언트가 접속한 IP 주소에 지정된 인터넷 주소입니다. |
+| ^ | <Cmdname sid="TTL06082" /> | 클라이언트의 로그인 ID입니다. |
+| ^ | <Cmdname sid="TTL06080" /> | 클라이언트의 국가 정보입니다. |
+| ^ | <Cmdname sid="TTL06078" /> | 클라이언트의 국가 내 도시 정보입니다. |
+| ^ | <Cmdname sid="TTL06485" /> | 클라이언트가 이용한 브라우저 종류입니다. |
+| ^ | <Cmdname sid="clientName" /> | 클라이언트가 이용한 기기 이름입니다. |
+| ^ | <Cmdname sid="TTL06420" /> | 클라이언트의 고유 식별자입니다. |
+| Method | methodCount | 트랜잭션에서 호출된 메소드의 수입니다. |
+| ^ | methodTime | 메소드 실행에 소요된 시간입니다. |
 
 <Xclude product='kubernetes'>
 
 :::note
 
 * 애플리케이션 종류나 설정, 스텝의 종류에 따라 수집하는 정보는 달라질 수 있습니다.
+
+* 에러 관련 항목은 해당 트랜잭션에서 에러가 발생할 경우 표시됩니다.
 
 * 와탭은 클라이언트와 관련한 정보를 기본 저장합니다. 사용자 데이터 수집과 관련한 에이전트 설정에 대한 자세한 내용은 [다음 문서](agent-number-of-user)를 참조하세요.
 
@@ -61,8 +64,34 @@
 
 * 애플리케이션 종류나 설정, 스텝의 종류에 따라 수집하는 정보는 달라질 수 있습니다.
 
+* 에러 관련 항목은 해당 트랜잭션에서 에러가 발생할 경우 표시됩니다.
+
 * 와탭은 클라이언트와 관련한 정보를 기본 저장합니다. 사용자 데이터 수집과 관련한 에이전트 설정에 대한 자세한 내용은 [다음 문서](../java/agent-number-of-user)를 참조하세요.
 
 :::
 
 </InDoc>
+
+#### <Cmdname sid="TTL06406" /> {#TTL06406}
+
+화면 오른쪽 상단의 <Cmdname sid="TTL06406" className="uitext" />를 선택하면 해당 트랜잭션과 관련한 해시(Hash) 정보를 확인할 수 있습니다.
+
+<ImgLang img="analysis-tx-record-summary-hash.png" desc="Hash" />
+
+* <Cmdname sid="TTL06973" className="uitext" />: 해당 트랜잭션의 고유 식별자입니다. 트랜잭션의 상태나 동작을 추적하고 식별하는 데 사용합니다.
+
+* <Cmdname sid="TTL06976" className="uitext" />: 해당 트랜잭션을 요청한 클라이언트의 브라우저 및 환경 정보를 식별합니다.
+
+* ***ErrClassHash***: 에러 클래스에 대한 해시값으로, 발생한 에러를 식별하는데 사용합니다.
+
+* ***MthisSpecHash***: 메소드 또는 스펙의 해시값로, 메소드 스택이나 특정 동작을 추적하는 데 사용합니다.
+
+* ***ErrMessageHash***: 발생한 에러 메시지의 해시값입니다. 특정 에러 메시지 기반으로 생성됩니다.
+
+#### <Cmdname sid="TTL06409" /> {#transactionstat}
+
+화면 오른쪽 상단의 ![통계 아이콘](/img/ic-static.svg) 버튼을 선택하면 <Cmdname sid="TTL06409" className="uitext" /> 창을 확인할 수 있습니다.
+
+<ImgLang img="analysis-tx-record-summary-stat.png" desc="트랜잭션 통계" />
+
+시계열 차트를 통해 조회 시간 동안 발생한 트랜잭션 현황을 파악할 수 있으며, 차트 내 막대 그래프를 선택하면 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_txSearch" className="uitext" /> 메뉴로 이동합니다. <Cmdname sid="side_txSearch" className="uitext" /> 메뉴에서 선택한 트랜잭션을 상세 조회할 수 있습니다.

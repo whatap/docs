@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server/server-2_6_8",
+    "ver": "v2.6.8",
+    "date": "2024-09-20",
+    "Lists": [
+      {
+        "ver": "v2.6.8",
+        "hash": "v268",
+        "product": "Server Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 서버 시간 동기화 지원에 <a href=\"https://chrony-project.org/\" target=\"_blank\">chrony</a> 추가</p>"
+      },
+      {
+        "ver": "v2.6.8",
+        "hash": "v268",
+        "product": "Server Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 윈도우즈 서버 디스크 성능 카운터가 존재하지 않으면 대체 카운터를 사용하도록 개선</p>"
+      },
+      {
+        "ver": "v2.6.8",
+        "hash": "v268",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> CentOS 6 프로세스의 File Descriptor 개수 수집 오류 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server/server-2_6_7",
     "ver": "v2.6.7",
     "date": "2024-09-03",

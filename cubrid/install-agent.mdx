@@ -5,9 +5,9 @@ description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 �
 keywords: [ CUBRID, 데이터베이스 모니터링, 에이전트 ]
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import TR from '@site/src/components/TR';
+import V2Note from "../common-items/_import_v2-note.mdx";
+
+<V2Note product="Altibase" />
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
@@ -20,6 +20,67 @@ import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
 import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
 <Createprojectv2 />
+
+<Steps>
+
+{/* ## 구성도 확인 */}
+import CheckType from "../common-items/_db-install-agent-check-type.mdx";
+
+<CheckType />
+
+## 모니터링을 위한 계정 생성하기
+
+CUBRID를 모니터링하기 위해서는 DB 계정과 CUBRID Manager 계정이 모두 필요합니다. DB 계정은 `dba`를 사용하세요. CUBRID Manager 계정은 다음 명령어를 이용하세요.
+
+```sql title="CUBRID Manager account"
+cm_admin adduser whatap whatap
+```
+
+:::note
+
+에이전트마다 서로 다른 이름의 계정을 사용해야 합니다.
+
+:::
+
+{/* 액세스 키 확인 */}
+import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
+
+<Accesskeyv2 />
+
+{/* DBX 에이전트 다운로드 */}
+import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
+
+<DownloadDBXagent />
+
+{/* ## DBX 에이전트 설정 */}
+import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
+
+<SettingsDBXagent />
+
+{/* ### whatap.conf 설정 */}
+import Whatapconf from "../common-items/_db-whatap-conf.mdx";
+
+<Whatapconf />
+
+{/* ### JDBC 다운로드 */}
+import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
+
+<JDBCDownload />
+
+### DB 유저 파일 생성 {#create-db-user}
+
+import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+
+<DBuserDesc />
+
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+
+<Dbcreatedbuserfilebody /> 
+
+## XCUB 에이전트 설정 {#setxcubagent}
+
+</Steps>
+
 
 import Accesskey from "../getting-started/_accesskey.mdx";
 
@@ -61,45 +122,6 @@ import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
 import Dbinstallagentcommonnotes from "../common-items/_db-install-agent-common-notes.mdx";
 
 <Dbinstallagentcommonnotes />
-
-
-## 모니터링을 위한 계정 생성하기
-
-CUBRID를 모니터링하기 위해서는 DB 계정과 CUBRID Manager 계정이 모두 필요합니다. 일반적으로 DB의 디폴트 dba 계정(`dba`)과 CUBRID Manager 계정(`admin`)을 사용합니다. 별도의 계정을 생성해서 사용해도 됩니다.
-
-## DB 유저 파일 생성하기{#create-db-user}
-
-데이터베이스 접속을 위해 암호화된 UID를 생성합니다. 유저 파일은 사용자 DB(`dba`)와 CUBRID Manager(`admin`)에 대해 모두 실행해야 합니다. username과 password를 입력하고 쉘 스크립트(또는 배치 파일)를 실행하세요. 
-
-* *uid.sh* 쉘 스크립트 파일(또는 *uid.bat* 배치 파일)은 와탭 데이터베이스 에이전트를 설치한 경로에서 찾을 수 있습니다.
-
-* `dba`와 `DB_PASSWORD`는 회원 가입 시 사용했던 사용자 이름과 비밀번호입니다.
-
-  ```bash title='uid.sh | uid.bat'
-  ./uid.sh dba DB_PASSWORD
-  ./cmsuid.sh admin ADMIN_PASSWORD
-
-  # 또는
-
-  ./uid.bat "dba" "DB_PASSWORD"
-  ./cmsuid.bat "admin" "ADMIN_PASSWORD"
-  ```
-
-:::note
-
-* 최초 한번만 설정하면 그 이후부터는 암호화된 UID를 통해 모니터링 대상 데이터베이스 서버로부터 데이터 수집을 진행합니다.
-* DB 유저 파일을 생성하기 위해서는 프로젝트 액세스 키가 *whatap.conf* 파일에 입력되어 있어야 합니다. [프로젝트 액세스 키 확인](#check-accesskey)
-* Azure Database 환경의 경우 `DB_USER`를 DB_USER@DB_name과 같은 형식으로 입력해야 합니다.
-* `dba` 또는 `DB_PASSWORD`에 특수문자가 포함될 경우 특수문자 앞에 Escape Character(\\)를 같이 입력하세요.
-
-  ```bash title='Example'
-  ./uid.sh whatap whatap\!pwd
-  
-  # 특수문자가 2개 이상일 경우 각각 이스케이프 문자 추가
-  ./uid.sh whatap whatap\!\@pwd
-  ```
-
-:::
 
 {/*## 에이전트 실행*/}
 import Dbrunagent from "../common-items/_db-run-agent.mdx";

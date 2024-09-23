@@ -74,7 +74,7 @@ kubectl delete clusterrole whatap
 사용하고자 하는 네임스페이스 이름을 `<namespace>` 자리에 입력한 후 다음 명령어를 실행하여 에이전트를 설치하세요. 
 
 ```bash 
-helm install whatap-kube-agent whatap/kube --create-namespace --namespace <namespace> --set namespaceOverrideEnabled=true --wait
+helm install whatap-kube-agent whatap/kube --create-namespace --namespace <namespace> --set namespaceOverrideEnabled=true --wait -f values.yaml
 ```
 
 #### 업데이트 및 삭제

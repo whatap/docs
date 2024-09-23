@@ -10,6 +10,21 @@ import Dbslowquerydesc from "../common-items/_db-slow-query-desc.mdx";
 
 <Dbslowquerydesc />
 
+## 시작하기 전에
+
+<Cmdname sid="side_slowQueryLog" className="uitext" /> 메뉴를 이용하려면 *cubrid_broker.conf* 파일에 다음과 같이 설정해야 합니다.
+
+```ini title="cubrid_broker.conf"
+SLOW_LOG=ON
+LONG_QUERY_TIME=3 
+```
+
+:::note
+
+모니터링 대상 DB 서버에 XCUB 에이전트를 설치해야 slow query를 모니터링할 수 있습니다. XCUB 에이전트 설치에 대한 자세한 내용은 [다음 문서](install-agent#setxcubagent)를 참조하세요.
+
+:::
+
 {/* 기본 화면 안내 */}
 import Dbslowquerybasic from "../common-items/_db-slow-query-basic.mdx";
 

@@ -212,13 +212,33 @@ Slack, Telegram, Teams, Jandi, Webhook 등의 외부 애플리케이션을 통�
 
 </details>
 
+<Xclude product="server">
+
 <details>
 
 <summary>Webhook JSON</summary>
 
 1. 알림을 받을 Webhook을 등록하세요. 등록한 URL에 POST Method로 알림 데이터가 JSON 형태로 전송됩니다.
 
-    ![Webhook](/img/3rdparty/set-event-3rd-party-plugin-add-webhook-json.png)
+    ```json
+    {
+        "pcode": 1234,
+        "projectName": "Sample project"
+        "time": 1577840400000,
+        "oid": 1234567890,
+        "oname": "WAS-01", // Optional
+        "title": "Alert Title"
+        "message": "Sample warning message"
+        "level": "Warning",
+        "status": "on",
+        "metricName": "cpu", // Optional
+        "metricValue": "99.99", // Optional
+        "metricThreshold": "90", // Optional
+        "uuid": "ba5db108b788475c95195***********"
+        "okind": "WAS-okind-01", // Optional
+        "onode": "WAS-onode-01", // Optional
+    }
+    ```
 
 1. <UI>Webhook Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
 
@@ -237,6 +257,57 @@ Slack, Telegram, Teams, Jandi, Webhook 등의 외부 애플리케이션을 통�
 :::
 
 </details>
+
+</Xclude>
+
+<InDoc product="server">
+
+<details>
+
+<summary>Webhook JSON</summary>
+
+1. 알림을 받을 Webhook을 등록하세요. 등록한 URL에 POST Method로 알림 데이터가 JSON 형태로 전송됩니다.
+
+    ```json
+    {
+        "pcode": 1234,
+        "projectName": "Sample project"
+        "time": 1577840400000,
+        "oid": 1234567890,
+        "oname": "WAS-01", // Optional
+        "title": "Alert Title"
+        "message": "Sample warning message"
+        "level": "Warning",
+        "status": "on",
+        "metricName": "cpu", // Optional
+        "metricValue": "99.99", // Optional
+        "metricThreshold": "90", // Optional
+        "uuid": "ba5db108b788475c95195***********"
+        "okind": "WAS-okind-01", // Optional
+        "onode": "WAS-onode-01", // Optional
+        "serverAlertPolicyName": "Memory Alert" // Optional
+    }
+    ```
+
+1. <UI>Webhook Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+    <ImgLang img="3rdparty/set-event-3rd-party-plugin-add-webhook-json-options.png" className="width-600" desc="등록" />
+
+1. <Cmdname sid="BTN06673" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+* 이벤트 상태(`status`)는 이벤트 발생(`on`), 이벤트 해소(`off`)로 구분할 수 있습니다.
+
+* `level`은 `None`, `Info`, `Warning`, `Critical`로 구분합니다.
+
+* Header 값을 추가하려면 <Cmdname sid="TTL06674" className="uitext" />를 선택하세요.
+
+:::
+
+</details>
+
+</InDoc>
 
 <details>
 

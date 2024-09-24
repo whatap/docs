@@ -2,7 +2,7 @@
 
 <InDoc pages="instance-monitoring,multi-instance-monitoring">
 
-현재 수행 중인 세션의 SQL 쿼리 정보를 확인하려면 <Cmdname sid="active_sessions" className="uitext" /> 섹션의 ***query*** 컬럼 항목을 선택하세요. <Cmdname sid="TTL06224" className="uitext" /> 창이 나타납니다. SQL 쿼리문과 Plan 정보를 확인할 수 있습니다.
+현재 수행 중인 세션의 SQL 쿼리 정보를 확인하려면 <Cmdname sid="active_sessions" className="uitext" /> 섹션의 ***query***(또는 ***sql_text***) 컬럼 항목을 선택하세요. <Cmdname sid="TTL06224" className="uitext" /> 창이 나타납니다. SQL 쿼리문과 Plan 정보를 확인할 수 있습니다.
 
 </InDoc>
 
@@ -32,7 +32,7 @@
 
 * <Cmdname sid="BTN06225" className="uitext" />: 해당 SQL 쿼리문과 관련한 통계 정보를 확인할 수 있는 <Cmdname sid="statistics_sql" className="uitext" /> 메뉴로 이동할 수 있습니다.
 
-<InDoc product='postgresql,mysql'>
+<InDoc product='postgresql,mysql,altibase'>
 
 * ***Default Bind***: 쿼리 문장에서 변수로 설정된 부분을 기본값으로 바인딩할 수 있습니다.
 
@@ -40,15 +40,21 @@
 
 * ***Formatting***: SQL 쿼리문에 들여쓰기 및 포맷팅을 적용해 가독성을 높일 수 있습니다.
 
+</InDoc>
+
+<InDoc product="altibase">
+
+* ***Plan***: Plan 정보를 확인하려면 **DB Name**, **User Name**, **Password**를 입력한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+</InDoc>
+
+<InDoc product='postgresql'>
+
 * ***Plan***: Plan 정보를 확인하려면 **DB Name**, **User Name**, **Password**를 입력한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
 
   * ***Text***: 텍스트 형식으로 플랜 정보를 확인할 수 있습니다.
 
   * ***JSON***: Json 형식으로 플랜 정보를 조회하면 병목이 발생하는 지점을 빠르게 확인할 수 있습니다.
-
-</InDoc>
-
-  <InDoc product='postgresql'>
 
   :::note
 
@@ -56,9 +62,15 @@
 
   :::
 
-  </InDoc>
+</InDoc>
 
-  <InDoc product='mysql'>
+<InDoc product='mysql'>
+
+* ***Plan***: Plan 정보를 확인하려면 **DB Name**, **User Name**, **Password**를 입력한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+  * ***Text***: 텍스트 형식으로 플랜 정보를 확인할 수 있습니다.
+
+  * ***JSON***: Json 형식으로 플랜 정보를 조회하면 병목이 발생하는 지점을 빠르게 확인할 수 있습니다.
 
   :::note
 
@@ -66,7 +78,7 @@
 
   :::
 
-  </InDoc>
+</InDoc>
 
 <InDoc product='oracle-pro,oracle'>
 

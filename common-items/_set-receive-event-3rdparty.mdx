@@ -1,4 +1,4 @@
-## 3rd 파티 플러그인 알림 추가하기
+## 3rd 파티 플러그인 알림 추가하기 {#add3rdparty}
 
 Slack, Telegram, Teams, Jandi, Webhook 등의 외부 애플리케이션을 통해 경고 알림을 받을 수 있습니다.
 
@@ -77,6 +77,54 @@ Slack, Telegram, Teams, Jandi, Webhook 등의 외부 애플리케이션을 통�
 1. 생성한 Webhhok URL을 복사하세요.
 
     <ImgLang img="3rdparty/management_event_new_teams_step_04.png" className="width-600" desc="Teams" />
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 화면으로 돌아와 <UI>Channel Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+    <ImgLang img="3rdparty/set-event-3rd-party-plugin-add-teams.png" className="width-600" desc="등록" />
+
+1. <Cmdname sid="BTN06673" className="uitext" /> 버튼을 선택하세요.
+
+</details>
+
+<details>
+
+<summary>Teams Workflows</summary>
+
+워크플로를 사용하려면 **Microsoft Teams**에 액세스할 수 있는 계정과 비즈니스 플랜 구독이 필요합니다.
+
+1. **팀** 메뉴에서 더보기(...) 버튼을 선택한 후 **채널 추가**를 클릭하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_01.png" desc="Teams Workflows" />
+
+1. 채널 이름과 설명을 입력하고 채널 유형을 **표준**으로 선택하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_02.png" desc="Teams Workflows" />
+
+    :::note
+
+    채널 유형을 **공유**로 선택하면 워크플로를 사용할 수 없으며, **비공개**를 선택하면 워크플로를 추가할 수 있지만 알림을 수신할 수 없습니다.
+
+    :::
+
+1. 생성한 채널에서 더보기(...) 버튼을 선택한 후 **워크플로**를 클릭하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_03.png" desc="Teams Workflows" />
+
+1. **워크플로** 대화상자의 **워크플로**의 목록에서 **웹후크 요청이 수신되면 채널에 게시**를 선택 후, **추가 워크플로**를 클릭하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_04.png" desc="Teams Workflows" />
+
+1. 이름과 연결 상태를 확인하 후, **다음** 버튼을 클릭하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_05.png" desc="Teams Workflows" />
+
+1. 세부 정보를 확인한 후 **워크플로 추가** 버튼을 클릭하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_06.png" desc="Teams Workflows" />
+
+1. 워크플로 추가를 완료했습니다. **생성된 주소**를 복사하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_07.png" desc="Teams Workflows" />
 
 1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 화면으로 돌아와 <UI>Channel Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
 
@@ -218,5 +266,48 @@ Slack, Telegram, Teams, Jandi, Webhook 등의 외부 애플리케이션을 통�
 
 1. <Cmdname sid="BTN06673" className="uitext" /> 버튼을 선택하세요.
 
+
+</details>
+
+<details>
+
+<summary>PagerDuty</summary>
+
+1. [PagerDuty](https://www.pagerduty.com/) 계정에 등록하고 로그인했는지 확인하세요.
+
+1. PagerDuty에서 **Services** &gt; **Service Directory** 메뉴로 진입해 **New Service** 버튼을 선택하세요.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_01.jpg)
+
+1. Service 정보를 입력한 후 **Next** 버튼을 선택하세요.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_02.jpg)
+
+1. Escalation Policy를 설정 후 **Next** 버튼을 선택합니다.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_03.jpg)
+
+1. **Alert Grouping**과 **Transient Alerts** 항목을 설정한 후 **Next** 버튼을 선택하세요.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_04.jpg)
+
+1. **Integrations**에서 **Event API V2**를 선택 후 **Create Service** 버튼을 클릭하세요.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_05.jpg)
+
+1. 생성한 Service 화면에서 **Integration Name**과 **Integration Key** 값을 복사하세요.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_06.jpg)
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 화면으로 돌아와 <UI>Integration Name</UI>과 <UI>Integration Key</UI> 항목을 입력하세요.
+
+    <ImgLang img="3rdparty/set-event-3rd-party-plugin-add-pagerduty-options.png" className="width-600" desc="Register" />
+
+
+:::note
+
+메시지를 수신하지 못했거나 플러그인이 등록되지 않았다면 **Integration Name** 또는 **Integration Key**값이 올바른지 확인하세요.
+
+:::
 
 </details>

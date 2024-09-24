@@ -68,3 +68,9 @@ import Phprestartapply from "../common-items/_php-restart-apply.mdx";
   기본값 `200`
   
   whatap-php 서비스 데몬의 gc 호출 간격을 늘려서 CPU 부하를 줄일 수 있습니다. CPU 부하가 줄어드는 대신 메모리 사용량이 늘어납니다. 최대 1000까지 적용됩니다.
+
+* **whatap.use_env_first** <span class='type'>Boolean</span> <code className="my">PHP agent v2.8.2 or later</code>
+
+  기본값 `false`
+
+  에이전트 설정의 우선순위는 *whatap.ini* 파일이 먼저 적용되고, 그다음으로 환경 변수가 적용됩니다. 환경 변수를 우선적으로 적용하려면 옵션값을 `true`로 설정하세요. 또는 `WHATAP_USE_ENV_FIRST=true` 형식으로 환경 변수를 설정할 수도 있습니다.

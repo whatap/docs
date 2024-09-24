@@ -1,0 +1,21 @@
+---
+id: python-1_6_8
+title: Python Agent v1.6.8
+toc_max_heading_level: 2
+pagination_next: release-notes/python/python-1_6_7
+displayed_sidebar: releaseSidebar
+---
+
+2024년 08월 27일
+
+- <Status priority='1'>New</Status> **graphql-core**의 다양한 버전을 지원하기 위해 모듈 트레이싱 기능 추가
+
+  **graphql-core 3.x+** 버전에서는 `graphql.execution.execute` 모듈에 계측을 추가하고, **graphql-core 2.x** 버전에서는 `graphql.execution.executor` 모듈을 지원합니다.
+
+- <Status priority='1'>Changed</Status> *trace_module_definition.py* 파일을 수정하여 **graphql-core** 버전에 따라 적절한 모듈 계측이 이루어지도록 변경(최신 버전과 구버전을 모두 지원)
+
+:::note
+
+Agent download: [whatap-python v1.6.8](https://pypi.org/project/whatap-python/1.6.8/)
+
+:::

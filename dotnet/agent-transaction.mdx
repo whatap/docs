@@ -181,7 +181,17 @@ import Transaction from "../common-items/_transaction.mdx";
 
 * **trace_ignore_url_prefix** <span class='type'>String</span>
 
-  트랜잭션 수집 예외 URL prefix를 설정합니다. 설정한 값과 앞부분이 일치하는 url은 트랜잭션 성능을 수집하지 않습니다. 2개 이상의 값을 설정하려면 쉼표(,)를 구분자로 이용하세요.
+  트랜잭션 수집에서 제외할 URL의 접두사(prefix)를 설정합니다. 설정한 접두사와 일치하는 URL은 트랜잭션 성능을 수집하지 않습니다. 여러 값을 설정하려면 쉼표(,)로 구분하세요.
+
+  :::note
+
+  이 옵션을 통해 등록한 URL은 <Cmdname sid="side_hitmap" className="uitext" />, <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 수집 제외됩니다.
+
+  :::
+
+* **trace_ignore_url_suffix** <span class='type'>String</span>
+
+  트랜잭션 수집에서 제외할 URL의 접미사(suffix)를 설정합니다. 설정한 접미사와 일치하는 URL은 트랜잭션 성능을 수집하지 않습니다. 여러 값을 설정하려면 쉼표(,)로 구분하세요.
 
   :::note
 

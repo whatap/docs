@@ -1,0 +1,46 @@
+---
+id: agent-dbx-settings
+title: DBX 에이전트 설정
+description: whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내합니다.
+keywords: [ SQL Server, 데이터베이스, DBX 에이전트 ]
+---
+
+DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
+
+## 기본 옵션
+
+import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
+
+<Dbagentdbxbasicoption />
+
+
+## 데이터 수집 {#collect-data}
+
+import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data-collection.mdx";
+
+<Dbagentsettingdatacollection /> 
+
+## AWS RDS CloudWatch 적용{#using-aws-rds}
+
+import AWSRDSdesc from '../common-items/_import_aws-rds-desc.mdx';
+
+<AWSRDSdesc name='db_mssql_counter' />
+
+import Dbagentaws from "../common-items/_db-agent-aws.mdx";
+
+<Dbagentaws />
+
+{/* AES 256 암호화 적용 */}
+import Dbaes256encrypt from "../common-items/_db-aes-256-encrypt.mdx";
+
+<Dbaes256encrypt />  
+
+## 에이전트 이름 식별{#naming}
+
+import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
+
+<Dbsettingagentnamedetails />
+
+import Dbagentdbxnaming from "../common-items/_db-agent-dbx-naming.mdx";
+
+<Dbagentdbxnaming /> 

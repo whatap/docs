@@ -1,66 +1,51 @@
 [
   {
-    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_3_1",
-    "ver": "v2.3.1",
-    "date": "2024-08-26",
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_2_5",
+    "ver": "v2.2.5",
+    "date": "2024-05-08",
     "Lists": [
       {
-        "ver": "v2.3.1",
-        "hash": "v231",
-        "product": ".NET Agent",
-        "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> 트랜잭션 외부에서 일어나는 트레이스 정보 수집 기능 추가</p>",
-        "details": "<ul>\n<li>\n<p><strong>expand_transaction_level</strong> <span class=\"type\">Boolean</span></p>\n<p>기본값 <code>false</code></p>\n<p>옵션값을 <code>true</code>로 설정하면 트랜잭션 외부에서 발생하는 SQL, HTTP 호출을 트랜잭션으로 취급해서 히트맵에 표시합니다.</p>\n</li>\n<li>\n<p><strong>expand_transaction_basetime</strong> <span class=\"type\">Int</span></p>\n<p>기본값 <code>1000</code>(1초) / 최소값 <code>100</code>(0.1초)</p>\n<p><code>expand_transaction_level</code> 옵션이 <code>true</code>인 경우, 설정한 시간보다 응답 시간이 오래 걸릴 때에만 데이터를 수집합니다. 초당 최대 100건까지 수집합니다.</p>\n</li>\n</ul>"
-      },
-      {
-        "ver": "v2.3.1",
-        "hash": "v231",
-        "product": ".NET Agent",
-        "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> DB 연결 정보 표시: 데이터베이스를 사용하는 트랜잭션은 데이터베이스 연결 정보를 표시하는 기능 추가</p>"
-      },
-      {
-        "ver": "v2.3.1",
-        "hash": "v231",
-        "product": ".NET Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 오류가 아닌 경우에도 트랜잭션의 상태 코드를 표시하도록 수정</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_2_9",
-    "ver": "v2.2.9",
-    "date": "2024-07-05",
-    "Lists": [
-      {
-        "ver": "v2.2.9",
-        "hash": "v229",
-        "product": ".NET Agent",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\">Feature</code> 멀티트랜잭션 모니터링 지원: 와탭 모니터링 플랫폼의 프로젝트로 등록된 애플리케이션 서비스 간의 호출을 추적할 수 있습니다.</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_2_7",
-    "ver": "v2.2.7",
-    "date": "2024-06-10",
-    "Lists": [
-      {
-        "ver": "v2.2.7",
-        "hash": "v227",
-        "product": ".NET Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> 지원 환경 분석 툴(<a href=\"https://repo.whatap.io/windows/WhaTapDotnetScan.exe\" target=\"_blank\" rel=\"noopener noreferrer\">WhaTapDotnetScan.exe</a>) 개선</p>",
-        "details": "<ul>\n<li>\n<p>닷넷이 설치되지 않은 환경에서도 실행될 수 있도록 개선</p>\n</li>\n<li>\n<p>낮은 버전의 닷넷 런타임을 사용하거나 닷넷 런타임이 설치되지 않은 경우 발생하는 오류 수정</p>\n</li>\n</ul>"
-      },
-      {
-        "ver": "v2.2.7",
-        "hash": "v227",
+        "ver": "v2.2.5",
+        "hash": "v225",
         "product": ".NET Agent",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> 처리 허용량을 넘어선 트랜잭션을 제거하는 과정에서 시작 시점만 남고 종료 시점이 삭제되는 버그 수정</p>"
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 서버의 CPU 성능에 여유가 없을 때 모니터링 메시지가 지연되어 쌓이면서 병목을 가속하는 오류 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_3_2",
+    "ver": "v2.3.2",
+    "date": "2024-09-05",
+    "Lists": [
+      {
+        "ver": "v2.3.2",
+        "hash": "v232",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 트랜잭션 수집에서 제외할 URL의 접미사(suffix)를 설정할 수 있는 에이전트 옵션 추가</p>",
+        "details": "<p><strong>trace_ignore_url_suffix</strong> <span class=\"type\">String</span></p>"
+      },
+      {
+        "ver": "v2.3.2",
+        "hash": "v232",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Parameterized Query 추적 기능 추가</p>"
+      },
+      {
+        "ver": "v2.3.2",
+        "hash": "v232",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> REST API 트랜잭션의 상태 코드(status code) 표시에서 발생하는 오류 수정</p>"
+      },
+      {
+        "ver": "v2.3.2",
+        "hash": "v232",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>System.Data.Common.DbCommand</code> 관련 메서드 중 모니터링에 포함되지 않았던 메서드 추가</p>"
       }
     ]
   },
@@ -131,51 +116,45 @@
     ]
   },
   {
-    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_2_4",
-    "ver": "v2.2.4",
-    "date": "2024-04-30",
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_2_9",
+    "ver": "v2.2.9",
+    "date": "2024-07-05",
     "Lists": [
       {
-        "ver": "v2.2.4",
-        "hash": "v224",
+        "ver": "v2.2.9",
+        "hash": "v229",
         "product": ".NET Agent",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\">Feature</code> 바이트 코드 처리 프로세스 성능 개선</p>"
-      },
-      {
-        "ver": "v2.2.4",
-        "hash": "v224",
-        "product": ".NET Agent",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\">Feature</code> 로그 처리 프로세스 성능 개선</p>"
-      },
-      {
-        "ver": "v2.2.4",
-        "hash": "v224",
-        "product": ".NET Agent",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\">Feature</code> UDP 패킷 프로세스 성능 개선</p>"
-      },
-      {
-        "ver": "v2.2.4",
-        "hash": "v224",
-        "product": ".NET Agent",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\">Feature</code> <a href=\"http://ASP.NET\" target=\"_blank\" rel=\"noopener noreferrer\">ASP.NET</a> MVC 라이브러리 처리 프로세스 성능 개선</p>"
+        "desc": "<p><code class=\"Feature\">Feature</code> 멀티트랜잭션 모니터링 지원: 와탭 모니터링 플랫폼의 프로젝트로 등록된 애플리케이션 서비스 간의 호출을 추적할 수 있습니다.</p>"
       }
     ]
   },
   {
-    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_2_5",
-    "ver": "v2.2.5",
-    "date": "2024-05-08",
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_3_1",
+    "ver": "v2.3.1",
+    "date": "2024-08-26",
     "Lists": [
       {
-        "ver": "v2.2.5",
-        "hash": "v225",
+        "ver": "v2.3.1",
+        "hash": "v231",
         "product": ".NET Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> 서버의 CPU 성능에 여유가 없을 때 모니터링 메시지가 지연되어 쌓이면서 병목을 가속하는 오류 수정</p>"
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 트랜잭션 외부에서 일어나는 트레이스 정보 수집 기능 추가</p>",
+        "details": "<ul>\n<li>\n<p><strong>expand_transaction_level</strong> <span class=\"type\">Boolean</span></p>\n<p>기본값 <code>false</code></p>\n<p>옵션값을 <code>true</code>로 설정하면 트랜잭션 외부에서 발생하는 SQL, HTTP 호출을 트랜잭션으로 취급해서 히트맵에 표시합니다.</p>\n</li>\n<li>\n<p><strong>expand_transaction_basetime</strong> <span class=\"type\">Int</span></p>\n<p>기본값 <code>1000</code>(1초) / 최소값 <code>100</code>(0.1초)</p>\n<p><code>expand_transaction_level</code> 옵션이 <code>true</code>인 경우, 설정한 시간보다 응답 시간이 오래 걸릴 때에만 데이터를 수집합니다. 초당 최대 100건까지 수집합니다.</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v2.3.1",
+        "hash": "v231",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> DB 연결 정보 표시: 데이터베이스를 사용하는 트랜잭션은 데이터베이스 연결 정보를 표시하는 기능 추가</p>"
+      },
+      {
+        "ver": "v2.3.1",
+        "hash": "v231",
+        "product": ".NET Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 오류가 아닌 경우에도 트랜잭션의 상태 코드를 표시하도록 수정</p>"
       }
     ]
   },
@@ -233,6 +212,63 @@
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\">Fixed</code> Rest API 모니터링 중 특정 조건에서 CPU 사용률이 증가하는 버그 수정</p>",
         "details": "<ul>\n<li>\n<p>특정 고객에게서 CPU 사용량이 증가하는 이슈가 발생해 해당 버그를 수정합니다.</p>\n</li>\n<li>\n<p>증상이 나타나지 않는 고객이라도 에이전트를 업그레이드할 것을 권장합니다. 성능 향상에 도움이 됩니다.</p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_2_7",
+    "ver": "v2.2.7",
+    "date": "2024-06-10",
+    "Lists": [
+      {
+        "ver": "v2.2.7",
+        "hash": "v227",
+        "product": ".NET Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> 지원 환경 분석 툴(<a href=\"https://repo.whatap.io/windows/WhaTapDotnetScan.exe\" target=\"_blank\" rel=\"noopener noreferrer\">WhaTapDotnetScan.exe</a>) 개선</p>",
+        "details": "<ul>\n<li>\n<p>닷넷이 설치되지 않은 환경에서도 실행될 수 있도록 개선</p>\n</li>\n<li>\n<p>낮은 버전의 닷넷 런타임을 사용하거나 닷넷 런타임이 설치되지 않은 경우 발생하는 오류 수정</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v2.2.7",
+        "hash": "v227",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 처리 허용량을 넘어선 트랜잭션을 제거하는 과정에서 시작 시점만 남고 종료 시점이 삭제되는 버그 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_2_4",
+    "ver": "v2.2.4",
+    "date": "2024-04-30",
+    "Lists": [
+      {
+        "ver": "v2.2.4",
+        "hash": "v224",
+        "product": ".NET Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 바이트 코드 처리 프로세스 성능 개선</p>"
+      },
+      {
+        "ver": "v2.2.4",
+        "hash": "v224",
+        "product": ".NET Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> 로그 처리 프로세스 성능 개선</p>"
+      },
+      {
+        "ver": "v2.2.4",
+        "hash": "v224",
+        "product": ".NET Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> UDP 패킷 프로세스 성능 개선</p>"
+      },
+      {
+        "ver": "v2.2.4",
+        "hash": "v224",
+        "product": ".NET Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> <a href=\"http://ASP.NET\" target=\"_blank\" rel=\"noopener noreferrer\">ASP.NET</a> MVC 라이브러리 처리 프로세스 성능 개선</p>"
       }
     ]
   },

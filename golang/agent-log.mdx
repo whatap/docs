@@ -27,6 +27,12 @@ keywords: [ Go, 로그 ]
 
   값이 `true`이면 로그 데이터를 수집합니다.
 
+- **logsink_stdout_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  값이 `true`이면 Standard output 로그를 수집합니다.
+
 - **logsink_zip_enabled** <span class='type'>Boolean</span>
 
   기본값 `true`
@@ -46,6 +52,7 @@ keywords: [ Go, 로그 ]
 
 ```ini title='whatap.conf'
 logsink_enabled=true
+logsink_stdout_enabled=true
 logsink_zip_enabled=true
 logsink.files=/etc/httpd/logs/error_log, /etc/httpd/logs/access_log
 ```

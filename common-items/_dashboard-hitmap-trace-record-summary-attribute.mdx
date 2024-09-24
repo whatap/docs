@@ -35,7 +35,6 @@
 | **클라이언트** | <Cmdname sid="TTL06081" /> | 클라이언트의 IP 주소입니다. |
 | ^ | <Cmdname sid="clientOs" /> | 브라우저가 실행되는 운영 체제 환경입니다. |
 | ^ | <Cmdname sid="TTL06101" /> | 클라이언트가 접속한 IP 주소에 지정된 인터넷 주소입니다. |
-| ^ | <Cmdname sid="TTL06082" /> | 클라이언트의 로그인 ID입니다. |
 | ^ | <Cmdname sid="TTL06080" /> | 클라이언트의 국가 정보입니다. |
 | ^ | <Cmdname sid="TTL06078" /> | 클라이언트의 국가 내 도시 정보입니다. |
 | ^ | <Cmdname sid="TTL06485" /> | 클라이언트가 이용한 브라우저 종류입니다. |
@@ -52,6 +51,8 @@
 
 * 에러 관련 항목은 해당 트랜잭션에서 에러가 발생할 경우 표시됩니다.
 
+* 트랜잭션 속성 중 일부 항목은 통계 기능을 제공합니다. ![통계 아이콘](/img/ic-static.svg) 버튼을 선택하면 시계열 차트를 통해 조회 시간 동안 발생한 트랜잭션 현황을 파악할 수 있는 창이 표시됩니다. 차트 내 막대 그래프를 선택하면 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_txSearch" className="uitext" /> 메뉴로 이동해 상세 조회할 수 있습니다.
+
 * 와탭은 클라이언트와 관련한 정보를 기본 저장합니다. 사용자 데이터 수집과 관련한 에이전트 설정에 대한 자세한 내용은 [다음 문서](agent-number-of-user)를 참조하세요.
 
 :::
@@ -66,16 +67,10 @@
 
 * 에러 관련 항목은 해당 트랜잭션에서 에러가 발생할 경우 표시됩니다.
 
+* 트랜잭션 속성 중 일부 항목은 통계 기능을 제공합니다. ![통계 아이콘](/img/ic-static.svg) 버튼을 선택하면 시계열 차트를 통해 조회 시간 동안 발생한 트랜잭션 현황을 파악할 수 있는 창이 표시됩니다. 차트 내 막대 그래프를 선택하면 <Cmdname sid="side_appl" className="uitext" /> &gt; <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_txSearch" className="uitext" /> 메뉴로 이동해 상세 조회할 수 있습니다.
+
 * 와탭은 클라이언트와 관련한 정보를 기본 저장합니다. 사용자 데이터 수집과 관련한 에이전트 설정에 대한 자세한 내용은 [다음 문서](../java/agent-number-of-user)를 참조하세요.
 
 :::
 
 </InDoc>
-
-#### <Cmdname sid="TTL06409" /> {#transactionstat}
-
-화면 오른쪽 상단의 ![통계 아이콘](/img/ic-static.svg) 버튼을 선택하면 <Cmdname sid="TTL06409" className="uitext" /> 창을 확인할 수 있습니다.
-
-<ImgLang img="analysis-tx-record-summary-stat.png" desc="트랜잭션 통계" />
-
-시계열 차트를 통해 조회 시간 동안 발생한 트랜잭션 현황을 파악할 수 있으며, 차트 내 막대 그래프를 선택하면 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_txSearch" className="uitext" /> 메뉴로 이동합니다. <Cmdname sid="side_txSearch" className="uitext" /> 메뉴에서 선택한 트랜잭션을 상세 조회할 수 있습니다.

@@ -26,7 +26,7 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
 
   기본값 `8001`
 
-  **CUBRID Manager**가 사용하는 포트입니다. **CUBRID Manager** 설정 파일(*cm.conf*)에서 `cm_port` 항목에 정의된 값을 입력하세요. 모니터링 정보를 **CUBRID Manager**의 api를 통해 가지고 오기 위해 필요합니다.
+  **CUBRID Manager**가 사용하는 포트입니다. **CUBRID Manager** 설정 파일(*cm.conf*)에서 `cm_port` 항목에 정의된 값을 입력하세요. 모니터링 정보를 **CUBRID Manager**의 api를 통해 가져오기 위해 필요합니다.
 
 * **cms_token_file** <span class='type'>String</span>
 
@@ -35,16 +35,14 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
   예시) agent2를 설치했을 경우 agent1의 `cms_token_file` 경로를 공유하기 위해 다음과 같이 설정하세요.
   
   ```ini title='whtap.conf'
-  
   cms_token_file=/agent1/cms_token
-
   ```
     
 * **broker** <span class='type'>String</span>
     
   기본값 `broker1`, `query_editor`
   
-  CUBRID를 설치하면 디폴트로 `broker1`, `query_editor`로 브로커가 실행됩니다. 사용자가 임의로 브로커의 이름을 변경했거나 추가적으로 기동했을 경우 변경 사항을 입력하세요.
+  CUBRID를 설치하면 `broker1`, `query_editor`로 브로커가 기본 실행됩니다. 사용자가 임의로 브로커의 이름을 변경했거나 추가적으로 기동했을 경우 변경 사항을 입력하세요.
 
   :::note
 

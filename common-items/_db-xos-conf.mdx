@@ -54,7 +54,7 @@
 
   데이터베이스 서버의 IP 목록을 수집할 수 있습니다. 초 단위(최소 3초)로 시간 간격(interval)을 설정해야 수집할 수 있습니다.
 
-<InDoc product="postgresql,mysql,redis,mongodb,oracle,altibase">
+<InDoc product="postgresql,mysql,redis,mongodb,oracle,altibase,cubrid">
 
 - **file** <span class='type'>String</span>
 
@@ -106,6 +106,14 @@
 
   ```ini title='xos.conf'
   file=/home/altibase/altibase-server-x.y.z/trc/altibase_boot.log
+  ```
+
+  </InDoc>
+
+  <InDoc product="cubrid">
+
+  ```ini title='xos.conf'
+  file=/cubrid-11.0/log/server/demodb_latest.err
   ```
 
   </InDoc>

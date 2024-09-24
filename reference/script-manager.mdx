@@ -1,0 +1,57 @@
+---
+id: script-manager
+title: 스크립트 매니저
+description: 에이전트 설치 경로에 SQL 스크립트를 저장하면, 와탭 모니터링 서비스 화면에서 해당 스크립트를 불러와 실시간으로 수행 결과를 조회할 수 있습니다.
+keywords: [ 데이터베이스, 스크립트 매니저 ]
+displayed_sidebar: dbSidebar
+---
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_dbScriptManager" className="uitext" />
+
+에이전트 설치 경로에 SQL 스크립트를 저장하면, 와탭 모니터링 서비스 화면에서 해당 스크립트를 불러와 실시간으로 수행 결과를 조회할 수 있습니다.
+
+* SQL 스크립트를 모니터링 도구 내에서 바로 불러와 실행할 수 있습니다. 이를 통해 추가적인 설정이나 외부 도구 없이도 빠르고 효율적으로 데이터를 조회할 수 있습니다.
+
+* 특정 SQL 스크립트를 미리 저장하여 반복적으로 사용할 수 있어, 일관된 데이터를 지속적으로 모니터링하거나 분석할 때 유용합니다. 이는 수동 작업을 줄여 자동화된 프로세스를 구축하는 데 도움이 됩니다.
+
+## 시작하기 전에
+
+<Cmdname sid="side_dbScriptManager" className="uitext" /> 메뉴에서 SQL 스크립트를 실행하려면 다음 단계를 따라 에이전트 설치 경로에 SQL 스크립트를 저장하세요.
+
+1. 에이전트 설치 경로 하위의 *scripts* 폴더로 이동하세요.
+
+    ![](/img/script-manager-starting-step01.png)
+
+1. 데이터베티스 타입 폴더로 진입하세요. 원하는 폴더가 없으면 생성하세요.
+
+    ![](/img/script-manager-starting-step02.png)
+
+1. SQL 스크립트를 작성하세요. 이때 SQL 스크립트를 수행하는 계정은 에이전트에서 사용하는 계정입니다.
+
+    ![](/img/script-manager-starting-step03.png)
+
+:::note
+
+SQL 스크립트를 수행하는 계정은 *whatap.conf* 파일에 명시했거나 *uid.sh* 파일에서 사용한 계정입니다.
+
+:::
+
+## SQL 스크립트 실행하기
+
+와탭 모니터링 서비스 홈 화면에서 데이터베이스 모니터링 상품 프로젝트를 선택하세요. <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_dbScriptManager" className="uitext" /> 메뉴로 진입하세요.
+
+<ImgLang img="script-manager-screen.png" desc="스크립트 매니저" />
+
+1. <Cmdname sid="TTL08478" className="uitext" /> 섹션에서 SQL 스크립트를 실행할 에이전트를 선택하세요.
+
+1. 화면 왼쪽에 <Cmdname sid="TTL08480" className="uitext" />에서 실행할 스크립트를 선택하세요.
+
+1. <Cmdname sid="TTL08478" className="uitext" /> 섹션에서 선택한 스크립트의 SQL 문을 확인하고 <Cmdname sid="run" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="TTL08479" className="uitext" /> 섹션에서 조회 결과를 확인하세요.
+
+:::note
+
+에이전트 설치 경로별로 SQL 스크립트를 불러오기 때문에 각 에이전트에서 다른 스크립트 파일을 불러올 수 있습니다.
+
+:::

@@ -1,0 +1,36 @@
+---
+id: slow-query
+title: 슬로우 쿼리
+description: 특정 시점에 진행중이었던 세션을 파악해 느렸던 쿼리를 분석할 수 있습니다.
+keywords: [ CUBRID, 인스턴스, 대시보드, 데이터베이스 모니터링, 슬로우 쿼리 ]
+---
+
+{/* 개요 */}
+import Dbslowquerydesc from "../common-items/_db-slow-query-desc.mdx";
+
+<Dbslowquerydesc />
+
+## 시작하기 전에
+
+<Cmdname sid="side_slowQueryLog" className="uitext" /> 메뉴를 이용하려면 *cubrid_broker.conf* 파일에 다음과 같이 설정해야 합니다.
+
+```ini title="cubrid_broker.conf"
+SLOW_LOG=ON
+LONG_QUERY_TIME=3 
+```
+
+:::note
+
+모니터링 대상 DB 서버에 XCUB 에이전트를 설치해야 slow query를 모니터링할 수 있습니다. XCUB 에이전트 설치에 대한 자세한 내용은 [다음 문서](install-agent#setxcubagent)를 참조하세요.
+
+:::
+
+{/* 기본 화면 안내 */}
+import Dbslowquerybasic from "../common-items/_db-slow-query-basic.mdx";
+
+<Dbslowquerybasic /> 
+
+{/*쿼리 자세히 보기*/}
+import Dbquerydetails from "../common-items/_db-query-details.mdx";
+
+<Dbquerydetails level={2} />

@@ -1,17 +1,61 @@
+import CubridActsessions from "../common-items/_db-cubrid-active-sessions.mdx";
+import CubridLocktree from "../common-items/_db-cubrid-locktree.mdx";
+
 ## 컬럼 정보 안내{#column-info}
+
+<InDoc pages="instance-monitoring,multi-instance-monitoring">
+
+<Tabs groupId="db-columns">
+
+<TabItem value="activesession" label="Active session">
+
+<CubridActsessions />
+
+</TabItem>
+<TabItem value="locktree" label="Lock tree">
+
+<CubridLocktree />
+
+</TabItem>
+
+<TabItem value="process-info" label="Process information">
+
+다음 항목은 XOS 에이전트를 설치한 경우 수집되는 지표입니다.
 
 | 항목 | 설명 |
 | -- | -- |
-| tranindex | 트랜잭션 인덱스 |
-| user | 데이터베이스 사용자 이름 |
-| host | 트랜잭션을 수행하는 CAS의 호스트 이름 |
-| pid | 브로커의 프로세스 ID |
-| program | 클라이언트 프로그램 이름 |
-| query_time | 수행 중인 쿼리의 총 수행 시간(단위: 초) |
-| tran_time | 트랜잭션의 총 수행 시간(단위: 초) |
-| transtatus | 트랜잭션의 상태 |
-| lock_holder | 트랜잭션이 락 대기 중이면 해당 락을 소유하고 있는 트랜잭션의 목록 |
-| sql_id | SQL Text에 대한 ID |
-| sql_text | 수행 중인 쿼리문(최대 30자) |
-| sql_param | 쿼리에서 분리한 리터럴 값 |
-| sql_hash | 쿼리의 해시값(와탭 내부 관리 값) |
+| `cputime` | CPU 사용 시간 |
+| `cpuusage` | CPU 사용률 |
+| `elapse` | CPU 사용 경과 시간 |
+| `vsize` | 가상 메모리 사이즈(Kb) |
+| `rss` | Resident Set Size(RSS), 프로세스와 관련한 물리적 페이지 수 |
+| `state` | 프로세스 상태 |
+| `ioread` | 블록을 읽는 데 소요된 실제 시간(milliseconds) |
+| `iowrite` | 블록을 쓰는 데 소요된 실제 시간(milliseconds) |
+| `pss` | 프로세스 고유 메모리 사용량 + 하나의 프로세스가 차지하는 공유 메모리 비율 |
+| `uid` | user id |
+| `cmd` | 수행 중인 명령어 |
+| `longcmd` | cmd의 전체 경로 |
+
+</TabItem>
+</Tabs>
+
+</InDoc>
+
+<InDoc pages="analysis-count-trend">
+
+<CubridActsessions />
+
+</InDoc>
+
+<InDoc pages="analysis-lock-and-deadlock">
+
+<CubridLocktree />
+
+</InDoc>
+
+:::note
+
+와탭은 클라이언트와 관련한 정보를 기본 저장합니다.
+
+:::

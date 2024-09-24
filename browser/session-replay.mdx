@@ -21,22 +21,69 @@ keywords: [ 브라우저 모니터링, 에이전트, 세션 리플레이 ]
 
 실제 화면을 녹화하거나 이미지로 캡처하는 대신, DOM 변경 사항과 CSS 스타일 정보 등을 텍스트 형태로 수집합니다. 이때 오버헤드를 방지하기 위해 브라우저의 메인 스레드가 유휴 상태일 때만 변경 사항을 수집하고 데이터를 전송합니다.
 
+## 에이전트 옵션 적용하기 {#set-agentoption}
+
+세션 리플레이 기능을 적용하려면 브라우저 에이전트 옵션을 적용해야 합니다. 다음 예제를 참조하세요.
+
+```javascript showLineNumbers {8-10}
+<script>
+  (function (w, h, _a, t, a, b) {
+    w = w[a] = w[a] || {
+      config: {
+        projectAccessKey: {projec_access_key},
+        pcode: {pcode},
+        sampleRate: 100,
+        sessionReplaySampleRate: 50,
+        sessionReplayMaskAllTexts: false,
+        sessionReplayMaskAllInputs: false,
+        proxyBaseUrl: "https://rum-ap-northeast-2.whatap-browser-agent.io/",
+      },
+    };
+    a = h.createElement(_a);
+    a.async = 1;
+    a.src = t;
+    t = h.getElementsByTagName(_a)[0];
+    t.parentNode.insertBefore(a, t);
+  })(window, document, 'script', 'https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js', 'WhatapBrowserAgent', '');
+</script>
+```
+
+* **sessionReplaySampleRate** <span class='type'>Int</span>
+
+  전체 수집 세션 중 세션 리플레이 수집 비율로 0부터 100까지 설정할 수 있습니다. 예를 들어, `sampleRate`가 **100**이고 `sessionReplaySampleRate`가 **50**이라면, 전체 세션 중 50%만 세션 리플레이로 기록합니다.
+
+  반면에, `sampleRate`가 **50**이고 `sessionReplaySampleRate`가 **100**이라면, 전체 세션의 50%가 수집 대상이며, 이 중 100%를 세션 리플레이로 기록합니다.
+
+* **sessionReplayMaskAllTexts** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  값을 `false`로 설정하면 마스킹 처리 없이 모든 텍스트 데이터를 수집합니다.
+
+* **sessionReplayMaskAllInputs** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  값을 `false`로 설정하면 마스킹 처리 없이 모든 입력(Input) 필드 영역의 데이터를 수집합니다.
+
 ### 민감 정보 수집 제외
 
-민감 정보에 대한 수집 제외 방식을 기본 제공합니다. 화면의 모든 텍스트는 다음과 같이 마스킹 처리되어 수집됩니다.
+민감 정보에 대한 수집 제외 방식을 기본 제공합니다. 화면의 모든 텍스트는 다음과 같이 마스킹 처리되어 수집됩니다. 단, 에이전트 옵션에서 `sessionReplayMaskAllTexts`의 값이 `true`로 설정되어 있어야 합니다.
 
 <ImgLang img="browser-session-replay-masking-example.png" desc="Session replay" />
 
 ### 특정 영역 마스킹 처리하기
 
-텍스트 외에도 개인 식별 정보나 민감한 데이터가 포함될 수 있으며, 이를 보호하기 위해 특정 영역을 마스킹 처리하는 옵션이 제공합니다.
+텍스트 외에도 개인 식별 정보나 민감한 데이터가 포함될 수 있으며, 이를 보호하기 위해 특정 영역을 마스킹 처리하는 옵션을 제공합니다.
 
-![Masking](/img/browser-session-replay-masking-area.png)
+| 특정 영역에 대한 마스킹 처리 | 마스킹을 적용하지 않은 경우 |
+| :--: | :--: |
+| ![마스킹 처리](/img/browser-session-replay-area-masking.png) | ![마스킹 미처리](/img/browser-session-replay-no-area-masking.png) |
 
-수집 대상에서 제외할 영역에 대한 html 요소(element)의 클래스 이름(class name)에 `session-replay-ignore-class`를 추가하세요.
+수집 대상에서 제외할 영역에 대한 html 요소(element)의 클래스(`class`) 이름에 `session-replay-block-class`를 추가하세요. 다음 예제를 참조하세요.
 
-```html showLineNumbers {1}
-<div class="session-replay-ignore-class home-header pure-menu pure-menu-horizontal">
+```javascript showLineNumbers {1}
+<div class="session-replay-block-class home-header pure-menu pure-menu-horizontal">
   <div class="home-header-bar">
     {% if site.data.archive %}
     <ul class="home-header-menu pure-menu-list">
@@ -51,34 +98,30 @@ keywords: [ 브라우저 모니터링, 에이전트, 세션 리플레이 ]
 </div>
 ```
 
-## 에이전트 옵션 적용하기 {#set-agentoption}
+### 특정 텍스트 마스킹 처리
 
-세션 리플레이 기능을 적용하려면 브라우저 에이전트 옵션을 적용해야 합니다. `config` 객체에 `sessionReplaySampleRate` 속성을 0부터 100까지 설정할 수 있습니다.
+에이전트 옵션에서 `sessionReplayMaskAllTexts`를 `false`로 설정하면 대부분의 텍스트가 표시되만 특정 텍스트 영역은 수집 대상에서 제외할 수 있는 옵션을 제공합니다.
 
-```javascript showLineNumbers {8}
-<script>
-(function (w, h, _a, t, a, b) {
-    w = w[a] = w[a] || {
-        config: {
-            projectAccessKey: {projec_access_key},
-            pcode: {pcode},
-            sampleRate: 100,
-            sessionReplaySampleRate: 50,
-            proxyBaseUrl: "https://rum-ap-northeast-2.whatap-browser-agent.io/",
-        },
-    };
-    a = h.createElement(_a);
-    a.async = 1;
-    a.src = t;
-    t = h.getElementsByTagName(_a)[0];
-    t.parentNode.insertBefore(a, t);
-})(window, document, 'script', 'https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js', 'WhatapBrowserAgent', '');
-</script>
+![Text masking](/img/browser-session-replay-text-masking.png)
+
+특정 텍스트 영역을 수집 대상에서 제외하려면 해당 html 요소(element)의 클래스(`class`) 이름에 `session-replay-mask-text-class`를 추가하세요. 다음 예제를 참조하세요.
+
+```javascript showLineNumbers {1}
+<main class="session-replay-mask-text-class">
+  {{ content }}
+</main>
+
+<footer class="footer">
+  {%- assign year_from = site.posts[-1].date | date: '%Y' -%}
+  {%- assign year_to   = site.time | date: '%Y' -%}
+  {%- if year_from == nil or year_from == year_to -%}
+    {%- assign year_string = year_from -%}
+  {%- else -%}
+    {%- assign year_string = year_from | append: '&nbsp;' | append: '-' | append: '&nbsp;' | append: year_to -%}
+  {%- endif -%}
+</footer>
 ```
 
-수집하는 세션 중에서 세션 리플레이를 적용할 세션의 비율을 설정할 수 있습니다. 예를 들어, `sampleRate`가 **100**이고 `sessionReplaySampleRate`가 **50**이라면, 전체 세션 중 50%만 세션 리플레이로 기록됩니다.
-
-반면에, `sampleRate`가 **50**이고 `sessionReplaySampleRate`가 **100**이라면, 전체 세션의 50%가 수집 대상이며, 이 중 100%가 세션 리플레이로 기록됩니다.
 
 ## 세션 리플레이 이용하기
 
@@ -89,6 +132,12 @@ keywords: [ 브라우저 모니터링, 에이전트, 세션 리플레이 ]
 * <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_ajaxAnalytics" className="uitext" />
 
 * <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_userSessionEventSearch" className="uitext" />
+
+:::note
+
+<Cmdname sid="TTL08103" className="uitext" /> 기능은 <Cmdname sid="log_read" className="b600" /> 권한을 가진 멤버가 이용할 수 있습니다. 멤버 권한 체계에 대한 자세한 설명은 [다음 문서](../project/project-structure#project-auth)를 참조하세요.
+
+:::
 
 ### 페이지 로드 히트맵 {#side_rumPageLoadHitmap}
 

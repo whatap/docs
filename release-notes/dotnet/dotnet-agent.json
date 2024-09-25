@@ -1,5 +1,40 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_3_3",
+    "ver": "v2.3.3",
+    "date": "2024-09-25",
+    "Lists": [
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> .NET Core에서 SQL 파라미터 모니터링 지원 추가</p>"
+      },
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> .NET Core에서 Stored Procedure 모니터링 지원 추가</p>"
+      },
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>System.Net.Http.HttpClient.SendAsync</code> 모니터링 지원 추가</p>"
+      },
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">New</code> .NET Core 버전의 에이전트를 설치한 후 삭제하지 않은 상태에서, .NET Framework 버전을 추가로 설치하면 액티브 스택이 수집되지 않는 버그 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_2_5",
     "ver": "v2.2.5",
     "date": "2024-05-08",

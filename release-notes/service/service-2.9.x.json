@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_9_x",
+    "ver": "Service 2.9.1",
+    "date": "2024-09-25",
+    "Lists": [
+      {
+        "ver": "Service 2.9.1",
+        "hash": "service-291",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">실시간 알림</span> 목록에서 이벤트 항목의 비교 시간이 갱신되지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_9_x",
     "ver": "Service 2.9.0",
     "date": "2024-09-25",
     "Lists": [

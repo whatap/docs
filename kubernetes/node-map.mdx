@@ -40,13 +40,13 @@ toc_max_heading_level: 3
 
 #### 임계치 설정
 
-사용자는 <Cmdname sid="TTL08456" className="uitext" />을 통해 노드 상태를 색상으로 표현할 수 있습니다. 지표는 하나 이상 설정 가능하며 각 지표별로 정상(<span class='normal'>Normal</span>), 경고(<span class='slow'>Warning</span>), 오류(<span class='vslow'>Error</span>) 구간을 지정할 수 있습니다. 설정한 범위에 따라 해당 상태에 맞는 색상이 적용됩니다. 
+사용자는 <Cmdname sid="TTL08456" className="uitext" />을 통해 노드 상태를 색상으로 표현할 수 있습니다. 지표는 하나 이상 설정 가능하며 각 지표별로 경고(<span class='slow'>Warning</span>)와 오류(<span class='vslow'>Error</span>) 구간을 지정할 수 있습니다. 정상(<span class='normal'>Normal</span>) 구간은 <span class='normal'>파란색</span>으로 표시됩니다. 설정한 범위에 따라 해당 상태에 맞는 색상이 적용됩니다. 
 
 {/* 해당 범위에 속할 경우 지정된 색상이 적용됩니다.  */}
 
 1. <Cmdname sid="TTL08456" className="uitext" /> 옵션을 클릭하세요. 
 
-1. 원하는 지표를 선택 후 각 <span class='normal'>Normal</span>, <span class='slow'>Warning</span>, <span class='vslow'>Error</span> 구간을 설정하세요. 
+1. 원하는 지표를 선택 후 각 <span class='slow'>Warning</span>, <span class='vslow'>Error</span> 구간을 설정하세요. 
 
 1. 지표 추가를 원하는 경우 하단의 <UI>+</UI> <Cmdname sid="BTN08454" className="uitext" /> 버튼을 클릭하세요. 
 
@@ -54,7 +54,7 @@ toc_max_heading_level: 3
 
 :::note 
 
-각 상태 구간인 <span class='normal'>Normal</span>, <span class='slow'>Warning</span>, <span class='vslow'>Error</span>는 기본적으로 <span class='normal'>파란색</span>, <span class='slow'>주황색</span>, <span class='vslow'>빨간색</span>으로 설정되어 있습니다. <Cmdname sid="TTL08456" className="uitext" />에서 각 상태에 대한 색상을 사용자가 지정할 수 있습니다.
+이상 상태 구간인 <span class='slow'>Warning</span>, <span class='vslow'>Error</span>는 기본적으로 <span class='slow'>주황색</span>, <span class='vslow'>빨간색</span>으로 설정되어 있습니다. <Cmdname sid="TTL08456" className="uitext" />에서 각 상태에 대한 색상을 사용자가 지정할 수 있습니다.
 
 ![노드 맵 상태 구간 색 설정](/img/k8s-node-map-custom-color.png)
 
@@ -86,7 +86,7 @@ toc_max_heading_level: 3
 
 ##### 노드 상태 표시 우선 순위
 
-상태 표시 우선 순위는 <span class='vslow'>Error</span> 구간이 가장 높습니다. 여러 지표 중 하나의 항목이라도 <span class='vslow'>Error</span> 구간에 속할 경우 해당 노드는 우선적으로 <span class='vslow'>빨간색</span>으로 표시됩니다. 다음 예시의 경우 노드 ![지시선 a](/img/char-a.svg)는 <span class='normal'>Normal</span>로 노드 ![지시선 b](/img/char-b.svg)는 <span class='vslow'>Error</span>로 표시됩니다. 
+상태 표시 우선 순위는 <span class='vslow'>Error</span> 구간이 가장 높습니다. 여러 지표 중 하나의 항목이라도 <span class='vslow'>Error</span> 구간에 속할 경우 해당 노드는 우선적으로 <span class='vslow'>빨간색</span>으로 표시됩니다. 다음 예시의 경우 노드 ![지시선 a](/img/char-a.svg)와 노드 ![지시선 b](/img/char-b.svg) 모두 <span class='vslow'>Error</span>로 표시됩니다. 
 
 ![노드 상태 표시 우선 순위 sc](/img/k8s-node-map-custom-err-col.png)
 
@@ -148,7 +148,7 @@ toc_max_heading_level: 3
 
 <Cmdname sid="side_nodeMap" className="uitext" />의 기본 프리셋은 ***CpuUsedPercent (pct)*** 지표의 임계치가 다음과 같이 설정되어있습니다. 
 
-* <span class='normal'>Normal</span>: 값이 `0` 초과 `80` 이하
+* <span class='normal'>Normal</span>: 값이 `80` 이하
 
 * <span class='slow'>Warning</span>: 값이 `80` 초과 `90` 이하
 

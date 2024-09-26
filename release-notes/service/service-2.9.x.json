@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_9_x",
+    "ver": "Service 2.9.2",
+    "date": "2024-09-26",
+    "Lists": [
+      {
+        "ver": "Service 2.9.2",
+        "hash": "service-292",
+        "product": "Kubernetes",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">보고서</span> 메뉴에서 보고서 양식을 <span class=\"uitext\">월간 애플리케이션 보고서</span>, <span class=\"uitext\">월간 성능비교 보고서</span>를 선택했을 때 여러 개의 에이전트, 에이전트 그룹, 에이전트 종류를 선택할 수 있도록 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_9_x",
     "ver": "Service 2.9.1",
     "date": "2024-09-25",
     "Lists": [

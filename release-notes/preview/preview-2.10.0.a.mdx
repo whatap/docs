@@ -62,9 +62,21 @@ toc_max_heading_level: 2
 
 - <Status priority='0'>Fixed</Status> 사이드 메뉴에서 <Cmdname sid="side_logViewer" className="uitext" />, <Cmdname sid="side_fileLogAlert" className="uitext" /> 메뉴를 제거하고 <Cmdname sid="sitemap" className="uitext" />에서 확인할 수 있도록 수정
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 SQL 문에 콜론(`:`)이 여러 개 포함된 경우, 이를 바인드 변수로 인식하는 문제 수정
+
+- <Status priority='0'>Fixed</Status> 대시보드의 <Cmdname sid="active_sessions" className="uitext" /> 테이블에서 쿼리를 선택해 Plan 조회 시 Object Detail 창에서 테이블 데이터가 없을 때 컬럼 이름만 표시하도록 수정
+
+  :::note
+
+  이 수정 사항은 **Oracle** <code className="my">V2</code>, **Oracle Pro**, **PostgreSQL**, **MySQL** 상품에 해당합니다.
+
+  :::
+
 #### Oracle <code className="my">V2</code>, Oracle Pro
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" /> 메뉴에서 <b>event#</b> 컬럼 이름을 <UI>event</UI>로 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 <UI>Runtime Plan</UI>의 평균 데이터가 합산되어 계산되는 문제 수정
 
 ---
 

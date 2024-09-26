@@ -10,6 +10,37 @@
         "product": "Kubernetes",
         "type": "Changed",
         "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">보고서</span> 메뉴에서 보고서 양식을 <span class=\"uitext\">월간 애플리케이션 보고서</span>, <span class=\"uitext\">월간 성능비교 보고서</span>를 선택했을 때 여러 개의 에이전트, 에이전트 그룹, 에이전트 종류를 선택할 수 있도록 수정</p>"
+      },
+      {
+        "ver": "Service 2.9.2",
+        "hash": "service-292",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">노드 맵</span> 메뉴에서에서 노드 전체를 선택 후 <span class=\"uitext\">로그</span> 메뉴로 이동하면 로그 데이터가 조회되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.9.2",
+        "hash": "service-292",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">SQL 상세</span> 창에서 SQL 문에 콜론(<code>:</code>)이 여러 개 포함된 경우, 이를 바인드 변수로 인식하는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.9.2",
+        "hash": "service-292",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 대시보드의 <span class=\"uitext\">액티브 세션</span> 테이블에서 쿼리를 선택해 Plan 조회 시 Object Detail 창에서 테이블 데이터가 없을 때 컬럼 이름만 표시하도록 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.9.2",
+        "hash": "service-292",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">SQL 상세</span> 창에서 <span class=\"uitext\">Runtime Plan</span>의 평균 데이터가 합산되어 계산되는 문제 수정</li>",
+        "category": "Oracle V2, Oracle Pro"
       }
     ]
   },
@@ -106,7 +137,7 @@
         "product": "공통",
         "type": "Changed",
         "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">실시간 알림 목록</span> 메뉴에서 다음 사항 변경</p>",
-        "details": "<ul>\n<li>\n<p><b>이벤트 일괄 해소</b> 버튼의 아이콘 변경</p>\n</li>\n<li>\n<p><span class=\"uitext\">실시간 알림 설정</span> 옵션의 UI 개선</p>\n</li>\n<li>\n<p><span class=\"uitext\">팝업 알림</span> 기능의 On/Off 토글 버튼의 위치를 <span class=\"uitext\">실시간 알림 설정</span> 내로 위치 변경</p>\n</li>\n</ul>"
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">실시간 알림 설정</span> 옵션의 UI 개선</p>\n</li>\n<li>\n<p><span class=\"uitext\">팝업 알림</span> 기능의 On/Off 토글 버튼의 위치를 <span class=\"uitext\">실시간 알림 설정</span> 내로 위치 변경</p>\n</li>\n</ul>"
       },
       {
         "ver": "Service 2.9.0",

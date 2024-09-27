@@ -15,6 +15,22 @@ import Dbhowtocheckfirewal from "../common-items/_db-how-to-check-firewal.mdx";
 
 <Dbhowtocheckfirewal />
 
+## SSL 인증 관련 문제
+
+에이전트에서 데이터베이스에 접속할 때 SSL 보안 관련해 다음과 문제가 발생하면, JDBC로 접속할 때 SSL 인증을 사용하지 않도록 옵션을 설정해야 합니다.
+
+```txt
+com.microsoft.sqlserver.jdbc.SQLServerException: The driver could not establish a secure connection to SQL Server by using Secure Sockets Layer (SSL) encryption.
+
+com.microsoft.sqlserver.jdbc.SQLServerException: "enctyp1" property is set to "true" and "trustServerCertificate" property is set to "false" but the driver could not establish a secure connection to SQL Server by ising Secure Sockets Layer (SSL) encryption
+```
+
+에이전트 설정 파일(*whatap.conf*)에 SSL 인증을 사용하지 않도록 다음 옵션을 설정하세요.
+
+```ini title="whatap.conf"
+connect_option=encrypt=true;trustServerCertificate=true
+```
+
 ## 제약 사항
 
 import Dbmultiregioncantselectonepr from "../common-items/_db-multi-region-cant-select-one-pr.mdx";

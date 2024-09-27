@@ -15,6 +15,14 @@
         "ver": "Service 2.9.2",
         "hash": "service-292",
         "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 다음 메뉴 경로 진입 시 신규 기능에 대한 안내 팝업 추가</p>",
+        "details": "<ul><li><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">노드 맵</span></li><li><span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">노드 타임라인</span></li></ul>"
+      },
+      {
+        "ver": "Service 2.9.2",
+        "hash": "service-292",
+        "product": "Kubernetes",
         "type": "Changed",
         "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">보고서</span> 메뉴에서 보고서 양식을 <span class=\"uitext\">월간 애플리케이션 보고서</span>, <span class=\"uitext\">월간 성능비교 보고서</span>를 선택했을 때 여러 개의 에이전트, 에이전트 그룹, 에이전트 종류를 선택할 수 있도록 수정</p>"
       },

@@ -1,5 +1,43 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_12",
+    "ver": "v1.7.12",
+    "date": "2024-09-30",
+    "Lists": [
+      {
+        "ver": "v1.7.12",
+        "hash": "v1712",
+        "product": "Kubernetes Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 태그 카운트 <code>kube_process</code> 카테고리 추가</p>",
+        "details": "<p>노드(Node)에서 실행 중인 쿠버네티스 관련 프로세스를 모니터링할 수 있는 태그 카운트를 추가했습니다. 이를 통해 특정 노드에서 동작 중인 프로세스를 추적하고, 성능 지표를 수집할 수 있습니다.</p>"
+      },
+      {
+        "ver": "v1.7.12",
+        "hash": "v1712",
+        "product": "Kubernetes Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <b>whatap-control-plane-helper</b> 컨테이너에 <code>kube_client_tls_verify</code> 옵션 추가</p>"
+      },
+      {
+        "ver": "v1.7.12",
+        "hash": "v1712",
+        "product": "Kubernetes Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 태그 카운트 <code>kube_stat</code> 카테고리에 노드(Node) 상태별 카운트 지표 추가</p>",
+        "details": "<p>클러스터 내 노드 상태에 따른 카운트 지표를 추가했습니다. 이는 노드의 Conditions(type:Ready) 필드를 기반으로 집계된 노드의 수를 보여줍니다.</p>"
+      },
+      {
+        "ver": "v1.7.12",
+        "hash": "v1712",
+        "product": "Kubernetes Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 태그 카운트 <code>kube_pod_stat</code> 카테고리에 Pod 상태(Phase)별 카운트 지표 추가</p>",
+        "details": "<p>클러스터 내 Pod 상태(Phase)에 따른 카운트 지표를 추가했습니다. 이를 통해 현재 클러스터에서 실행 중인 Pod의 상태(Phase)를 빠르게 파악할 수 있습니다.</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_10",
     "ver": "v1.7.10",
     "date": "2024-08-29",

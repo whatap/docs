@@ -70,7 +70,7 @@ keywords: [ 쿠베네티스, 쿠베네티스 모니터링, 애플리케이션, J
 
   노드에서 Kubernetes 관련 프로세스 모니터링을 활성화하거나 비활성화하는 플래그입니다. `true`로 설정하면 모니터링이 활성화되고, `false`로 설정하면 모니터링이 비활성화됩니다.
 
-* **collect_kube_node_process_metric_target_list** <span class='type'>list</span>
+* **collect_kube_node_process_metric_target_list** <span class='type'>list</span> <ScrollToLink anchor='collect_kube_node_process_metric_target_list' />
 
   기본값 `"kubelet,containerd-shim,containerd,docker,dockerd,crio,metrics-server, coredns,aws-k8s-agent,kube-proxy"`
 
@@ -356,6 +356,14 @@ keywords: [ 쿠베네티스, 쿠베네티스 모니터링, 애플리케이션, J
   기본값 `false`
 
   whatap-control-plane-helper의 디버깅(로깅)의 활성화 여부를 설정합니다. 
+
+* **kube_client_tls_verify** <span class='type'>bool</span> <ScrollToLink anchor='kube_client_tls_verify' />
+
+  기본값 `true`
+
+  옵션값을 `false`로 설정하면 TLS 인증을 강제하지 않고, 인증 절차를 생략할 수 있습니다.
+
+
 
 
 

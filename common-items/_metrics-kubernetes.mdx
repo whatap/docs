@@ -510,12 +510,13 @@
 
 |태그명|설명|타입|비고|
 |---|---|---|---|
-|ppid|부모 프로세스 ID|String|	/proc/[pid]/status::PPid| 
-|pid|	프로세스 ID|String|/proc/[pid]/status::Pid |
-|cmd1|	명령어 이름|String|/proc/[pid]/status::Name |
-|cmd2 |	명령어 라인 (전체 명령어와 인자)|String|	/proc/[pid]/cmdline|
-|uid	|사용자 ID 또는 사용자 이름	|String|	/proc/[pid]/status::Uid |
-|onodeName|	프로세스의 노드 이름	|String|	컨테이너 시스템 환경변수 (`NODE_IP`)|
+|ppid|부모 프로세스 ID|String|/proc/[pid]/status::PPid| 
+|pid|프로세스 ID|String|/proc/[pid]/status::Pid |
+|cmd1|명령어 이름|String|/proc/[pid]/status::Name |
+|cmd2|명령어 라인(전체 명령어와 인자)|String|/proc/[pid]/cmdline|
+|user|사용자 ID 또는 사용자 이름|String|/proc/[pid]/status::Uid |
+|onodeName|프로세스의 노드 이름|String|컨테이너 시스템 환경변수 (`NODE_IP`)|
+|createTime|프로세스 시작 시간|타임스탬프|/proc/uptime 통해 계산된 필드|
 
 #### Fields {#kube_process_stat-fields}
 
@@ -526,7 +527,6 @@
 |rss|실제 메모리 사용량 (Resident Set Size)|바이트 (B)|long|/proc/[pid]/status::VmRSS|
 |uid|사용자 ID 또는 사용자 이름|없음|String|/proc/[pid]/status::Uid|
 |state|프로세스 상태|없음|String|/proc/[pid]/status::State|
-|createTime|프로세스 시작 시간|타임스탬프|long|/proc/[pid]/uptim 을 통해 계산된 필드|
 |SharedMemory|공유 메모리 크기|바이트 (B)|long|/proc/[pid]/statm 을 통해 계산된 필드|
 |openFileDescriptors|프로세스가 열어둔 파일 디스크립터 수|없음|int|/proc/[pid]/fd를 통해 계산된 필드|
 |vmSize|가상 메모리 크기 (Virtual Memory Size)|바이트 (B)|long|/proc/[pid]/status의 VmSize|

@@ -6,6 +6,37 @@ pagination_next: release-notes/service/service-2_8_x
 displayed_sidebar: releaseSidebar
 ---
 
+## Service 2.9.4
+
+2024년 10월 02일
+
+<div className="indentTab">
+
+### `공통`
+
+- <Status priority='0'>Changed</Status> 페이지네이션 컴포넌트 스타일 개선
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL08411" className="uitext" />에서 <UI>일괄 해소</UI> 버튼 복구
+
+---
+
+### `Application`
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_statistics" className="uitext" /> 메뉴에서 데이터 조회 중 페이지네이션 비활성화되도록 수정
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_statistics" className="uitext" /> 메뉴에서 CSV 다운로드 라인 수가 최대 조회 건수와 일치하도록 변경
+    
+  - **수정 전**
+
+    CSV: 100,000 / 조회: 10,000
+  
+  - **수정 후**
+
+    CSV: 10,000 / 조회: 10,000
+
+</div>
+
+
 ## Service 2.9.3
 
 2024년 09월 27일

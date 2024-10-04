@@ -80,81 +80,192 @@ import CreateFeature from "../common-items/_import_feature-project-create.mdx";
   <details>
   <summary>대시보드 지표 안내 </summary>
 
-  #### Datacenter
+  #### ***Datacenter***
 
-  * vSphere Overview: vCenter 환경에 대한 핵심 지표를 요약하여 제공합니다.
+  * ***vSphere Overview***: vCenter 환경에 대한 핵심 지표를 요약하여 제공합니다.
 
     * ***vCenter***: 모니터링 중인 vCenter 인스턴스의 수를 나타냅니다.
 
     * ***Cluster***: 관리 중인 클러스터의 총 수를 보여줍니다.
 
-    * ***ESXi Host***: 현재 관리 중인 ESXi 호스트의 수를 표시합니다.
+    * ***ESXHost***: 현재 관리 중인 ESXi 호스트의 수를 표시합니다.
 
-    * ***VM(Virtual Machines)***: 모니터링 중인 가상 머신(VM)의 총 수를 나타냅니다.
+    * ***VM***: 모니터링 중인 가상 머신(Virtual Machines)의 총 수를 나타냅니다.
 
     * ***Datastore***: 현재 관리 중인 데이터스토어의 수를 표시합니다.
+
+  #### ***Cluster***
+
+  * ***Uptime***: 각 vCenter의 클러스터 가동 시간을 초 단위로 보여줍니다.
+
+    * ***vCenter***: 해당 클러스터가 관리되는 vCenter의 IP 주소를 표시합니다.
+
+    * ***clustername***: 클러스터 이름을 보여줍니다.
+
+    * ***Uptime Seconds***: 클러스터의 가동 시간(초)을 나타냅니다.
+
+  * ***CPU Usage***: 클러스터의 CPU 사용량을 퍼센트로 보여줍니다.
+
+    * ***vCenter***: CPU 사용량을 관리 중인 vCenter 서버의 IP 주소를 나타냅니다.
+
+    * ***cluster***: 클러스터 이름을 나타냅니다.
+
+    * ***CPU Usage***: 클러스터 내 CPU 사용량 퍼센트(%)를 표시합니다.
+
+  * ***Memory Usage***: 클러스터의 메모리 사용량을 퍼센트로 표시합니다.
+
+    * ***vCenter***: 관리 중인 vCenter 서버의 IP 주소를 나타냅니다.
+
+    * ***clustername***: 클러스터 이름을 표시합니다.
+
+    * ***Memory Usage***: 클러스터 내 메모리 사용량을 퍼센트로 보여줍니다.
+
+  #### ***Over Provisioned***
+
+  * ***All Overprovisioned CPU***: CPU가 과할당된 상태를 나타냅니다.
+
+    * ***Host***: CPU 리소스가 과할당된 호스트 수를 나타냅니다.
+
+    * ***VM***: CPU가 과할당된 가상 머신 수를 나타냅니다.
+
+    * ***Over Ratio***: CPU 과할당 비율을 표시합니다.
+
+  * ***All Overprovisioned Memory***: 메모리가 과할당된 상태를 나타냅니다.
+
+    * ***Host***: 메모리 리소스가 과할당된 호스트 수를 나타냅니다.
+
+    * ***VM***: 메모리가 과할당된 가상 머신 수를 나타냅니다.
+
+    * ***Over Ratio***: 메모리 과할당 비율을 표시합니다.
+
+  #### ***Cluster Status***
+
+  * ***Cluster CPU Usage %***: 클러스터의 CPU 사용률을 시간 경과에 따른 그래프로 시각화합니다.
+
+  * ***Cluster Memory Usage %***: 클러스터의 메모리 사용률을 그래프로 표시합니다.
+
+  * ***Cluster Network Usage***: 클러스터의 네트워크 사용량을 시간 경과에 따라 시각화한 그래프입니다.
+
+  * ***Cluster Storage Adapter***: 클러스터의 스토리지 어댑터 사용량을 시각적으로 보여줍니다.
+
+  * ***Datastore - Usage Capacity***: 데이터스토어의 사용량과 용량을 그래프로 표시합니다.
 
   </details>
 
 * ***VMware Hosts***
 
-* ***VMware Datastore***
+  vCenter에 연결된 각 호스트의 상태와 성능 지표를 상세하게 모니터링할 수 있는 프리셋입니다.
 
-* ***VMGuest Performance Overview***
+  <details>
+  <summary>대시보드 지표 안내</summary>
+
+  #### ***Hosts***
+
+	*	***Uptime***: 각 호스트의 가동 시간을 확인할 수 있습니다.
+
+	* ***CPU Usage MHZ***: 호스트의 CPU 사용량을 MHz 단위로 표시합니다.
+
+	*	***Memory Usage***: 호스트에서 사용 중인 메모리 용량을 GB 단위로 보여줍니다.
+
+	*	***CPU Usage %***: 각 호스트의 CPU 사용률을 백분율로 나타냅니다.
+
+	*	***Memory Usage %***: 호스트의 메모리 사용률을 백분율로 표시합니다.
+
+
+  #### ***성능 지표 그래프***
+
+	* ***CPU Utilization Avg %***: 각 호스트의 CPU 평균 사용률을 시간 경과에 따른 그래프로 표시합니다.
+
+	*	***CPU Ready ms***: CPU가 사용 준비 상태에서 대기한 시간을 ms 단위로 보여줍니다.
+
+	*	***Disk IO***: 디스크 입출력 작업 수를 시간 경과에 따라 시각화합니다.
+
+	*	***Memory Utilization***: 호스트의 메모리 사용률을 시간에 따라 보여줍니다.
+
+	*	***Network Usage***: 네트워크 대역폭 사용량을 시간 경과에 따라 그래프로 시각화합니다.
+
+	*	***Storage Adapter IOPS***: 스토리지 어댑터의 초당 입출력 작업 수(IOPS)를 시각적으로 나타냅니다.
+
+  </details>
 
 * ***vHost Performance Overview***
 
-
-
-{/* * ***Overview*** 
-
-  클러스터의 전반적인 성능과 상태를 한눈에 파악할 수 있도록 주요 메트릭을 종합적으로 시각화한 대시보드입니다. 클러스터 운영자가 실시간으로 시스템 상태를 모니터링하고 성능 저하를 신속히 감지하는 것에 유용합니다.
+  ESXi 호스트의 전반적인 성능을 실시간으로 확인할 수 있는 프리셋입니다.
 
   <details>
   <summary>대시보드 지표 안내 </summary>
 
-  ##### 대시보드 상단 요약 정보
+  #### ***[vHost] CPU/MEM***
 
-  * ***CPU***: 클러스터에서 사용 중인 CPU 코어의 수를 표시합니다.
+  *	***CPU-TotalUsage(%)***: 호스트의 CPU 총 사용률을 백분율로 표시합니다.
 
-  * ***Memory***: 클러스터에서 사용 중인 총 메모리 용량과 현재 메모리 사용량을 나타냅니다.
+  * ***CPU-TotalUsage(MHz)***: 각 시간대별 호스트 CPU 사용량을 MHz 단위로 표시합니다.
 
-  * ***ZooKeeper***: 현재 운영 중인 ZooKeeper 인스턴스의 수와 가용 상태를 보여줍니다.
+  * ***CPU-Ready(%)***: 호스트 CPU 대기 시간을 초 단위로 나타냅니다.
 
-  * ***Broker***: 활성화된 브로커의 수와 상태를 표시합니다.
+  * ***MEM-Usage(%)***: 호스트 메모리 사용률을 백분율로 표시합니다.
 
-  * ***Bookies***: 아파치 펄사에서 사용하는 BookKeeper 노드(Bookies)의 수와 상태를 나타냅니다.
+  * ***MEM-Granted(KB)***: 호스트에 할당된 메모리 양을 KB 단위로 표시합니다.
 
-  * ***Broker Storage Size***: 브로커에 저장된 데이터의 총 용량을 보여줍니다.
+  * ***MEM-Active(KB)***: 호스트에서 실제로 사용 중인 메모리 양을 KB 단위로 보여줍니다.
 
-  * ***Backlog***: 처리되지 않은 메시지의 총 크기를 표시하여 메시지 처리의 지연 상태를 파악할 수 있습니다.
+  * ***MEM-Vmmented(KB)***: 메모리 과할당으로 인한 오버헤드 메모리 양을 표시합니다.
 
-  ##### 성능 그래프 
+  #### ***[vHost] NET Rx+Tx / Datastore R/W Total***
 
-  * ***Messaging Storage***: 시간에 따른 메시지 저장소 사용량을 표시하여 저장소 용량 변동성을 추적합니다.
+  * ***NET-Total(Kbps): RX+TX***: 호스트의 네트워크 송수신 데이터를 Kbps 단위로 시각화하여 표시합니다.
 
-  * ***Message Rate(msg/s)***: 초당 처리되는 메시지 수를 그래프로 보여주며, 클러스터의 메시지 처리 속도를 모니터링합니다.
+  * ***Datastore R/W Total(KBps)***: 데이터스토어의 읽기 및 쓰기 작업 속도를 KBps 단위로 표시합니다.
 
-  * ***Messaging Backlog***: 시간 경과에 따라 처리되지 않고 대기 중인 메시지의 수를 시각화하여, 메시지 처리 지연을 신속히 파악할 수 있습니다.
+  #### ***[vHost] Running VM(s)***
 
-  * ***Throughput(bytes/s)***: 초당 처리된 데이터의 양을 나타내며, 클러스터의 데이터 처리 능력을 평가합니다.
-
-  * ***Replication Backlog***: 다른 데이터 센터로 복제되지 않고 대기 중인 메시지의 수를 보여줍니다.
-
-  * ***Replication Throughput***: 데이터 복제 과정에서 초당 처리되는 데이터 양을 나타냅니다.
-
-  * ***Replication Rate***: 복제 메시지의 전송 속도를 보여줍니다.
-
-  * ***Subscription Unacked Messages***: 구독된 메시지 중 아직 확인되지 않은(Unacked) 메시지의 수를 나타냅니다.
-
-  ##### 상위 10개 항목 백로그
-
-  * ***Top 10 topics backlog***: 백로그가 가장 많은 상위 10개의 토픽을 나열하여 메시지 지연 원인을 분석할 수 있습니다.
-
-  * ***Top 10 Replication Backlog***: 복제 백로그가 가장 많은 상위 10개의 항목을 나열하여 복제 지연 문제를 파악할 수 있습니다.
+  * ***Running VM(s)***: 현재 호스트에서 실행 중인 가상 머신의 수를 보여줍니다.
 
   </details>
 
+
+* ***VMGuest Performance Overview***
+
+  개별 가상 머신(VM)의 성능 데이터를 실시간으로 제공하는 프리셋입니다.
+
+  <details>
+  <summary>대시보드 지표 안내 </summary>
+
+  #### ***VMGuest(s) CPU / MEM Overview***
+
+   * ***VMGuest-CPU-Usage(MHz)***: 각 VM의 CPU 사용량을 MHz 단위로 시각화하여 시간대별 CPU 자원 사용 현황을 표시합니다.
+
+   * ***VMGuest-CPU-Ready(%)***: VM이 CPU를 사용하기 전 대기한 시간을 초 단위로 표시합니다.
+
+   * ***VMGuest-MEM-Active(KB)***: 각 VM에서 활성화된 메모리 사용량을 KB 단위로 표시합니다.
+
+   * ***VMGuest-MEM-Vmmentedctl(KB)***: 메모리 과할당 상태를 의미합니다. 스왑 파일 등을 통해 발생한 오버헤드 메모리 양을 표시합니다.
+
+  #### ***VMGuest(s) NET / Datastore Overview***
+
+   * ***VMGuest-NET-Total(Kbps)***: VM의 네트워크 트래픽(송신 및 수신)을 Kbps 단위로 표시합니다.
+
+   * ***VMGuest-Datastore-RWTotal(KBps)***: 각 VM이 데이터스토어에서 처리하는 읽기 및 쓰기 작업을 KBps 단위로 표시하여 입출력(I/O) 성능을 보여줍니다.
+
+  </details>
+
+* ***VMware Datastore***
+
+  데이터스토어의 용량과 성능을 모니터링할 수 있는 프리셋입니다.
+
+  <details>
+  <summary>대시보드 지표 안내 </summary>
+
+  * ***Usage Capacity***(사용 용량): 각 데이터스토어가 현재 사용 중인 용량을 백분율로 표시합니다.
+
+  * ***Total Capacity***(전체 용량): 데이터스토어의 총 용량을 표시합니다. 
+
+  * ***Free Capacity***(남은 용량): 데이터스토어에서 남은 용량을 표시합니다. 
+
+  </details>
+
+{/* 
+  자원 관리에 도움을 줍니다. 
 */}
 
 

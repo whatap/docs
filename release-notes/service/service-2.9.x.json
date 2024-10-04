@@ -1,5 +1,48 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_9_x/",
+    "ver": "Service 2.9.4",
+    "date": "2024-10-02",
+    "Lists": [
+      {
+        "ver": "Service 2.9.4",
+        "hash": "service-294",
+        "product": "공통",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> 페이지네이션 컴포넌트 스타일 개선</p>"
+      },
+      {
+        "ver": "Service 2.9.4",
+        "hash": "service-294",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계</span> 메뉴에서 데이터 조회 중 페이지네이션 비활성화되도록 수정</p>"
+      },
+      {
+        "ver": "Service 2.9.4",
+        "hash": "service-294",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">통계</span> 메뉴에서 CSV 다운로드 라인 수가 최대 조회 건수와 일치하도록 변경</p>",
+        "details": "<ul>\n<li>\n<p><strong>수정 전</strong></p>\n<p>CSV: 100,000 / 조회: 10,000</p>\n</li>\n<li>\n<p><strong>수정 후</strong></p>\n<p>CSV: 10,000 / 조회: 10,000</p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_9_x",
+    "ver": "Service 2.9.3",
+    "date": "2024-09-27",
+    "Lists": [
+      {
+        "ver": "Service 2.9.3",
+        "hash": "service-293",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">노드 맵</span> 메뉴에서에서 노드 전체를 선택한 후, <span class=\"uitext\">로그</span> 메뉴로 이동하면 로그 데이터가 조회되지 않는 문제 수정(캐시 문제 해결)</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/service/service-2_9_x",
     "ver": "Service 2.9.2",
     "date": "2024-09-26",
@@ -10,6 +53,14 @@
         "product": "Server",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 구성 정보</span> 메뉴의 <span class=\"uitext\">서버 구성 정보 에이전트 안내</span>에서 Windows 옵션 추가 명령어에 누락된 역슬래시(<code>\\</code>) 문자 추가</p>"
+      },
+      {
+        "ver": "Service 2.9.2",
+        "hash": "service-292",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 다음 메뉴 경로 진입 시 신규 기능에 대한 안내 팝업 추가</p>",
+        "details": "<ul><li><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">노드 맵</span></li><li><span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">노드 타임라인</span></li></ul>"
       },
       {
         "ver": "Service 2.9.2",

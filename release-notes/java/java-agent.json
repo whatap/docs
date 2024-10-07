@@ -1,5 +1,68 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_39",
+    "ver": "v2.2.39",
+    "date": "2024-09-30",
+    "Lists": [
+      {
+        "ver": "v2.2.39",
+        "hash": "v2239",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> Java 21 지원</p>"
+      },
+      {
+        "ver": "v2.2.39",
+        "hash": "v2239",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> dyanmodb-2.25 추적 (dynamodb-enhanced)</p>"
+      },
+      {
+        "ver": "v2.2.39",
+        "hash": "v2239",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> retrofit-2.5 추적</p>"
+      },
+      {
+        "ver": "v2.2.39",
+        "hash": "v2239",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> undertow-server-2.2, undertow-servlet-2.2 추적</p>"
+      },
+      {
+        "ver": "v2.2.39",
+        "hash": "v2239",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\">Feature</code> vertx-4.5 추적</p>"
+      },
+      {
+        "ver": "v2.2.39",
+        "hash": "v2239",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> http-call에서 exception이 있는 경우에도 <code>httpc_status_url_ignore_set</code>, <code>httpc_status_ignore</code> 옵션을 적용할 수 있도록 수정</p>"
+      },
+      {
+        "ver": "v2.2.39",
+        "hash": "v2239",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> overflow 발생 시 에이전트 로그와 알림 분리 및 알림 비활성화</p>"
+      },
+      {
+        "ver": "v2.2.39",
+        "hash": "v2239",
+        "product": "Java Agent",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\">Deprecated</code> <code>log_overflow_enabled</code> 옵션 폐기</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_36",
     "ver": "v2.2.36",
     "date": "2024-07-18",

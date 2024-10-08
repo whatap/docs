@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_9_x/",
+    "ver": "Service 2.9.5",
+    "date": "2024-10-08",
+    "Lists": [
+      {
+        "ver": "Service 2.9.5",
+        "hash": "service-295",
+        "product": "공통",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> <span class=\"uitext\">이용 내역</span> &gt; <span class=\"uitext\">결제 정보</span> 메뉴에서 와탭 스터터팩 관련 프로모션 이미지 변경</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_9_x/",
     "ver": "Service 2.9.4",
     "date": "2024-10-02",
     "Lists": [

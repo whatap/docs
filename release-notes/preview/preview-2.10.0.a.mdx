@@ -14,6 +14,102 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.10.0.a2
+
+2024년 10월 10일
+
+<div class='indentTab'>
+
+
+### `공통`
+
+- <Status priority='0'>Changed</Status> 페이지네이션 컴포넌트 스타일 개선
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_myUsage" className="uitext" /> &gt; <Cmdname sid="side_paymentInformation" className="uitext" /> 메뉴에서 와탭 스터터팩 관련 프로모션 이미지 변경
+
+{/* - <Status priority='0'>Fixed</Status> <Cmdname sid="TTL08411" className="uitext" /> 메뉴에서 <UI>일괄 해소</UI> 버튼 복구 */}
+
+---
+
+### `Application`
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_statistics" className="uitext" /> 메뉴에서 데이터 조회 중 페이지네이션 비활성화되도록 수정
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_statistics" className="uitext" /> 메뉴에서 CSV 다운로드 라인 수가 최대 조회 건수와 일치하도록 변경
+    
+  - **수정 전**
+
+    CSV: 100,000 / 조회: 10,000
+  
+  - **수정 후**
+
+    CSV: 10,000 / 조회: 10,000
+
+---
+
+### `Server`
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴의 <Cmdname sid="side_serverInventoryGuide" className="uitext" />에서 Windows 옵션 추가 명령어에 누락된 역슬래시(`\`) 문자 추가
+
+---
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> 다음 메뉴에서 노드 요약 분석 기능 추가
+
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" />
+
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_nodeMap" className="uitext" />
+
+:::note
+
+이 기능은 [쿠버네티스 에이전트 마스터 1.4.1 버전](../k8s/k8s-1_4_1) 이상에서 지원합니다.
+
+:::
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 컨테이너 요약 분석에 컨테이너 상태 및 애플리케이션 정보 보충
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴로 처음 진입할 때 간헐적으로 라벨이 제대로 표시되지 않는 문제 수정
+
+---
+
+### `Database`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code className="oldfunc">Old</code> 메뉴에서 메트릭스 이벤트 템플릿 추가
+
+  :::note
+
+  이 추가 기능은 **Altibase**, **CUBRID**, **MySQL**, **SQL Server**, **Oracle**, **Oracle pro**, **Redis**, **MongoDB** 상품에 적용됩니다.
+
+  :::
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 사용자 정의 위젯의 지표를 4개 초과하여 추가할 때 나타나는 메시지 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 <Cmdname sid="session_kill" className="uitext" /> 기능을 사용할 때 응답값이 `FAIL - Invalid paramkey`라면 '<Cmdname sid="NTC06152" className="uitext" />'라는 메시지를 표시하도록 수정
+
+---
+
+### `Network`
+
+<Status priority='0'>Fixed</Status> 사이드 메뉴가 축소 모드일 때 <Cmdname sid="side_lab" className="uitext" /> 메뉴의 아이콘이 정상 표시되지 않는 문제 수정
+
+---
+
+### `Log`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_logSearch" className="uitext" /> 및 <Cmdname sid="side_logTail" className="uitext" /> 메뉴에서 원하는 검색 조건을 즐겨찾기로 등록할 수 있는 기능 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_logSetting" className="uitext" /> 메뉴의 <Cmdname sid="log_parser_setting_primary" className="uitext" />에서 패턴 입력 후 <Cmdname sid="simulation" className="uitext" /> 기능을 실행하면, 패턴 입력란에서 `ctrl+z`가 동작하지 않는 문제 수정
+
+---
+
+### `URL`
+
+<Status priority='1'>Feature</Status> <UI>URL 추가하기</UI> 화면에서 <UI>확인 지역</UI>별 IP 안내 추가
+
+</div>
+
+
 ## Preview 2.10.0.a1
 
 2024년 09월 26일

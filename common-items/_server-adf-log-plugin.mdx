@@ -6,7 +6,7 @@
 cd /usr/whatap/infra
 sudo mkdir extension
 
-cat >extension/logsink.conf<<EOL
+cat <<EOL | sudo tee extension/logsink.conf > /dev/null
 [[inputs.logsink]]
   category = "serverlog"
   ## 로그 발생량 통계 별도 데이터로 전송 여부

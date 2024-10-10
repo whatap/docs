@@ -1,0 +1,32 @@
+---
+id: dbx-2_0_1
+title: DBX v2.0.1
+pagination_next: release-notes/db/dbx-2_0_0
+displayed_sidebar: releaseSidebar
+---
+
+2024년 08월 23일
+
+## 공통
+
+<Status priority='1'>Changed</Status> MySQL, PostgreSQL, Altibase, Oracle 상품의 에이전트 옵션 이름 수정
+
+- `xviewSkipSession` → `xview_min_sec`
+
+- `tablespaceLock` → `tablespace_lock`
+
+## Altibase
+
+<Status priority='1'>New</Status> Altibase <code className="my">V2</code> 기능 추가
+
+- 태그 카운트 팩으로 변경 및 수집 정보 추가
+
+- 하위 버전 호환 가능
+
+## Oracle
+
+<Status priority='0'>Fixed</Status> AIX 환경에서 `v$osstat` 지표를 수집하지 않도록 수정한 내용 원복 및 수집되는 지표만 처리하도록 수정
+
+## PostgreSQL
+
+<Status priority='0'>Fixed</Status> `pg_basebackup` 수행 중 master 처리되는 버그 수정

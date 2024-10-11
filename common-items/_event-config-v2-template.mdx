@@ -14,13 +14,25 @@
 
   액티브 트랜잭션 발생 건수(`active_tx_count`)가 100개를 초과한 상태하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-app#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
+
 * ***Apdex 100 by kind***
 
   카테고리: [`app_counter`](metrics-app#app_counter)
 
   에이전트 종류별 애플리케이션 성능 지표 백분률(`apdex100`)이 95% 미만이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90% 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Apdex 100 by kind***
+* ***Apdex 100 by project***
 
   카테고리: [`app_counter`](metrics-app#app_counter)
 
@@ -70,6 +82,18 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-server#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
+
 * ***CPU***
 
   카테고리: [`server_base`](metrics-server#server_base)
@@ -118,6 +142,39 @@
 
   네트워크 인바운드 패킷(`packetIn`)과 아웃바운드 패킷(`packetOut`)의 합이 45000byte를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50000byte를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
+* ***Port Alive Check***
+
+  카테고리: `server_tcpport`
+
+  모니터링 중인 네트워크 데몬의 수신 포트가 비활성화되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿을 사용하려면 에이전트 설정에서 Port 모니터링을 위한 옵션을 추가해야 합니다. 모니터링 대상 서버에서 다음 명령어를 실행하세요.
+
+  <Tabs groupId="operating-systems">
+  <TabItem value="lx" label="Linux Shell">
+
+  ```bash title="SH"
+  export TARGET_IP=127.0.0.1 # Monitoring target IP address
+  export TARGET_PORT=80 # Monitoring target port number
+  echo "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT" |sudo tee -a /usr/whatap/infra/conf/whatap.conf
+  ```
+
+  </TabItem>
+  <TabItem value="wd" label="Windows Powershell">
+
+  ```bash title="SH"
+  $TARGET_IP="127.0.0.1" # Monitoring target IP address
+  $TARGET_PORT="80" # Monitoring target port number
+  Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT"
+  ```
+
+  </TabItem>
+  </Tabs>
+
+  :::
+
 * ***Process CPU***
 
   카테고리: [`server_process`](metrics-server#server_process)
@@ -135,6 +192,18 @@
   카테고리: [`server_process`](metrics-server#server_process)
 
   프로세스 메모리 사용률(`memory`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Server Reboot Check***
+
+  카테고리: [`agent_status_summary`](metrics-server#agent_status_summary)
+
+  서버가 재시작(`isRebooted` \= `true`)되면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  최소 10분 이상 실행된 서버에 대해서만 Reboot 이벤트가 동작합니다. (`uptime` \> 600)
+
+  :::
 
 * ***Swap Memory***
 
@@ -180,6 +249,30 @@
 
   사용할 수 있는 Pod 개수(`available_pod`)가 배포 시 필요한 Pod 개수(`desired_pod`)보다 작으면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 사용할 수 있는 Pod 개수와 배포 시 필요한 Pod 개수의 차이를 임곗값으로 입력하세요.
 
+* ***Master Agent Alive***
+
+  카테고리: [`agent_status_summary`](metrics-kubernetes#agent_status_summary)
+
+  마스터 에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
+
+* ***Master Agent Alive***
+
+  카테고리: [`agent_status_summary`](metrics-kubernetes#agent_status_summary)
+
+  노드 에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
+
 * ***Node CPU***
 
   카테고리: <Link to="../server/metrics-server#server_base" target="_blank"><code>server_base</code></Link>
@@ -218,9 +311,13 @@
 
 * ***kube-apiserver CPU Limit Alert***
 
+  카테고리: [`kube_pod`](metrics-kubernetes#kube_pod)
+
   kube-apiserver의 CPU 사용률이 50%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 80%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***kube-apiserver Memory Limit Alert***
+
+  카테고리: [`kube_pod`](metrics-kubernetes#kube_pod)
 
   kube-apiserver의 메모리 사용량이 50%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 80%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
@@ -243,6 +340,18 @@
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
 
 * ***Lock Wait Sessions***
 
@@ -281,6 +390,18 @@
   카테고리: [`db_postgresql_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
 
 * ***CPU***
 
@@ -332,6 +453,18 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
+
 * ***CPU***
 
   카테고리: [`db_oracle_counter`](metrics-data-list)
@@ -375,6 +508,18 @@
   카테고리: [`db_oracle_dma_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
 
 * ***CPU***
 
@@ -420,6 +565,18 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
+
 * ***CPU***
 
   카테고리: [`db_cubrid_counter`](metrics-data-list)
@@ -463,6 +620,18 @@
   카테고리: [`db_tibero_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
 
 * ***CPU***
 
@@ -508,6 +677,18 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
+
 * ***CPU***
 
   카테고리: [`db_altibase_counter`](metrics-data-list)
@@ -552,6 +733,18 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
+
 * ***CPU***
 
   카테고리: [`db_mssql_counter`](metrics-data-list)
@@ -577,6 +770,18 @@
 <ImgLang img='event-config-v2-db-redis.png' desc='이벤트 목록' />
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
+
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
 
 * ***CPU Utilization***
 
@@ -627,6 +832,18 @@
   카테고리: [`db_mongodb_counter`](metrics-data-list)
 
   현재 작업 중인 클라이언트의 연결 수(`active$connections`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Agent Alive Check***
+
+  카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
+
+  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿 이벤트는 네트워크가 끊어진 경우에도 발생할 수 있습니다.
+
+  :::
 
 * ***CPU Utilization***
 

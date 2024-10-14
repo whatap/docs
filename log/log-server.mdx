@@ -88,7 +88,7 @@ keywords: [ 로그 모니터링, Server ]
   stats_enabled = true 
   ## 로그 발생량 통계 카테고리
   stats_category = "logsink_stats"
-  ## 로그 파일 경로(path)에 별표()가 포함되어 제외할 로그 비대상 파일명 설정 
+  ## 로그 파일 경로(path)에 별표(*)가 포함되어 제외할 로그 비대상 파일명 설정 
   excludeNames = [ ".gz",".zip" ] 
   [[inputs.logsink.file]]
   ## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
@@ -107,7 +107,7 @@ keywords: [ 로그 모니터링, Server ]
   Restart-Service "Whatap Infra"
   ```
 
-### 옵션 설정
+### 옵션 설정{#server-log-settings}
 
 * `stats_enabled`: 수집 현황 데이터의 수집 여부를 설정합니다. 기본값은 `false`입니다. 값을 `true`로 설정해야 합니다. `true`로 설정하면 다음 `stats_category`에서 설정한 카테고리(`logsink_stats`)로 통계 데이터가 발생합니다.
 
@@ -132,11 +132,19 @@ keywords: [ 로그 모니터링, Server ]
 
 * `nowrap_keywords`: 줄 단위 로그 검색 시 해당 옵션값으로 지정한 키워드가 검색될 경우 이전 로그에 병합합니다.
 
+
+{/* 다중 파일 및 파일 분리 */}
+
+import Logservermultifilecategory from "../common-items/_log-server-multi-file-category.mdx";
+
+<Logservermultifilecategory />
+
 ### 윈도우 이벤트 로그 옵션 설정
 
 import Logserverwindowsevent from "../common-items/_log-server-windows-event.mdx";
 
 <Logserverwindowsevent />
+
 
 ## 로그 모니터링 활성화
 

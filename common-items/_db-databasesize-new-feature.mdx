@@ -65,45 +65,57 @@ grant usage on schema {schema_name} to whatap;
 
 ## 시간별 변화량 확인하기
 
-<Cmdname sid="TTL06025" className="uitext" />에서 특정 시간의 그래프 바를 선택하면 시작 시간부터 선택한 시간까지의 데이터베이스 사이즈 추이와 변화량을 리스트 형태로 확인할 수 있습니다.
-
 <ProdImg img='db-database-size-select-db.png' desc='데이터베이스 사이즈'/>
+
+* <Cmdname sid="TTL06025" className="uitext" /> 
+
+  시간대별로 데이터베이스의 전체 크기와 사용량 변화를 시각적으로 확인할 수 있습니다. 차트에서 각 데이터베이스의 크기를 색상으로 구분하여 표시하며, 마우스를 차트 위로 오버한 상태에서 좌우로 이동하세요. 특정 시점의 각 데이터베이스 크기를 툴팁을 통해 상세히 확인할 수 있습니다.
+
+* <Cmdname sid="TTL06026" className="uitext" />
+
+  데이터베이스별 용량의 세부 정보를 테이블 형태로 제공합니다. 각 데이터베이스의 이름(**DB NAME**) 및 총 용량(**TOTAL**), 변경량(**CHANGED**)을 확인할 수 있습니다. 특정 데이터베이스를 선택하면 <Cmdname sid="TTL06572" className="uitext" /> 섹션에서 상세 정보를 확인할 수 있습니다.
 
 ## 테이블별 사이즈 확인하기
 
-<Cmdname sid="TTL06026" className="uitext" />에서 데이터베이스를 선택하면 해당 데이터베이스 내의 사이즈 TOP 50에 해당하는 테이블별 사이즈를 목록으로 확인할 수 있습니다.
+<Cmdname sid="TTL06026" className="uitext" /> 섹션에서 데이터베이스를 선택하면 해당 데이터베이스 내의 사이즈 TOP 50에 해당하는 테이블별 사이즈를 목록으로 확인할 수 있습니다.
 
 <ProdImg img='db-database-size-top50.png' desc='데이터베이스 사이즈'/>
 
 <InDoc product='mysql'>
 
-기본적으로 테이블별 **DATA SIZE**, **INDEX SIZE**, **ROWS**를 표시합니다. 이는 `information_schema.tables`의 정보로 실제 사이즈와 차이가 있을 수 있습니다. `information_schema.innodb_tablespaces`의 **FILE SIZE**를 함께 확인하려면 DBX 에이전트에 다음 옵션을 설정하세요. 이 사이즈는 실제 사이즈와 유사합니다.
-
-```ini title='whatap.conf'
-table_filesize=true
-```
+데이터베이스 내 테이블별로 데이터 크기(**DATA SIZE**) 및 인덱스 크기(**INDEX SIZE**), 행 수(**ROWS**)를 기본 표시합니다. 조회 시작 시점과 종료 시점의 변화량을 확인할 수 있습니다. 이를 통해 용량이 큰 테이블을 쉽게 파악하고 용량 최적화를 위한 관리에 도움을 받을 수 있습니다.
 
 :::note
 
-모니터링 계정에 조회 권한이 있는 테이블을 대상으로 합니다. 모니터링용 계정 생성에 대한 자세한 내용은 [다음 문서](install-agent#uid)를 참조하세요.
+* <Cmdname sid="TTL06026" className="uitext" /> 섹션의 정보는 `information_schema.tables`의 정보로 실제 사이즈와 차이가 있을 수 있습니다. `information_schema.innodb_tablespaces`의 파일 크기(**FILE SIZE**)를 함께 확인하려면 DBX 에이전트에 다음 옵션을 설정하세요. 이 사이즈는 실제 사이즈와 유사합니다.
+
+  ```ini title='whatap.conf'
+  table_filesize=true
+  ```
+
+* 모니터링 계정에 조회 권한이 있는 테이블을 대상으로 합니다. 모니터링용 계정 생성에 대한 자세한 내용은 [다음 문서](install-agent#uid)를 참조하세요.
 
 :::
 
 </InDoc>
 
-<InDoc product='postgresql,mysql'>
+<InDoc product='postgresql'>
 
-테이블별 **DATA SIZE**, **INDEX SIZE**를 표시합니다. <Cmdname sid="TTL06572" className="uitext" /> 섹션의 테이블 목록에서 <span class="uitext">TABLENAME</span> 컬럼 항목을 선택하면 **column** 및 **index** 구성을 확인할 수 있는 ***Object detail*** 창이 나타납니다.
+데이터베이스 내 테이블별로 스키마 이름(**SCHEMANAME**) 및 테이블 이름(**TABLENAME**), 테이블 크기(**TABLE SIZE**), 인덱스 크기(**INDEX SIZE**), 총 용량(**TOTAL SIZE**)을 조회할 수 있습니다. 조회 시작 시점과 종료 시점의 변화량을 확인할 수 있습니다. 이를 통해 용량이 큰 테이블을 쉽게 파악하고 용량 최적화를 위한 관리에 도움을 받을 수 있습니다.
 
-<ImgLang img='db-database-size-objectdetail-postgresql.png' desc='Object detail' />
+</InDoc>
+
+<Cmdname sid="TTL06572" className="uitext" /> 섹션의 테이블 목록에서 <span class="uitext">TABLENAME</span> 컬럼 항목을 선택하면 **column** 및 **index** 구성을 확인할 수 있는 ***Object Detail*** 창이 나타납니다.
+
+<ProdImg img='db-database-size-objectdetail.png' desc='Object detail' />
 
 :::note
 
-이 기능은 DBX 에이전트 1.6.15 버전 이상에서 지원합니다. 데이터베이스 권한과 관련한 설정은 [다음 문서](install-agent#uid)를 참조하세요.
+* 이 기능은 DBX 에이전트 1.6.15 버전 이상에서 지원합니다. 데이터베이스 권한과 관련한 설정은 [다음 문서](install-agent#uid)를 참조하세요.
+
+* <Cmdname sid="TTL06572" className="uitext" /> 섹션에서 테이블 컬럼의 순서를 변경하거나 특정 컬럼을 숨기려면 오른쪽 상단에 ![컬럼 아이콘](/img/ico-column.svg) 버튼을 선택하세요. 컬럼 설정에 대한 자세한 내용은 [다음 문서](instance-monitoring#change-column)를 참조하세요.
 
 :::
-
-</InDoc>
 
 ## 조회 데이터 다운로드하기
 

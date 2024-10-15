@@ -1,0 +1,49 @@
+## agent_status_summary {#agent_status_summary}
+
+에이전트 상태와 관련한 지표를 10초 간격으로 수집한 카테고리입니다.
+
+### Fields {#agent_status_summary_filed}
+
+<Xclude product="server,kubernetes">
+
+| 필드명 | 단위 | 설명 | 비고 |
+| ---- | :--: | ---- | ---- |
+| `inActTime` | 밀리초(ms) | 에이전트가 비활성화된 상태로 유지된 시간 | - |
+| `isActive` | - | 현재 에이전트의 활성 상태 여부 | `true` / `false` |
+| `isRestart` | - | 에이전트가 최근에 재시작되었는지 여부 | `true` / `false` |
+| `lastActTime` | 밀리초(ms) | 마지막으로 에이전트가 활성화된 상태의 시각 | `0`: 비활성화된 경우 |
+| `oid` | - | 프로젝트에 포함된 각 에이전트의 고유 식별자 | - |
+| `startTime` | 밀리초(ms) | 에이전트가 시작된 시점의 타임스탬프 | - |
+
+</Xclude>
+
+<InDoc product="server">
+
+| 필드명 | 단위 | 설명 | 비고 |
+| ---- | :--: | ---- | ---- |
+| `inActTime` | 밀리초(ms) | 에이전트가 비활성화된 상태로 유지된 시간 | - |
+| `isActive` | - | 현재 에이전트의 활성 상태 여부 | `true` / `false` |
+| `isRebooted` | - | 서버가 최근에 재시작되었는지 여부 | `true` / `false` |
+| `lastActTime` | 밀리초(ms) | 마지막으로 에이전트가 활성화된 상태의 시각 | `0`: 비활성화된 경우 |
+| `oid` | - | 프로젝트에 포함된 각 에이전트의 고유 식별자 | - |
+| `startTime` | 밀리초(ms) | 에이전트가 시작된 시점의 타임스탬프 | - |
+| `status` | - | 현재 에이전트의 상태 | - |
+| `uptime` | 초(sec) | 서버가 가동 중인 시간 | - |
+
+:::note
+
+`status` 필드의 값은 다음과 같이 구분합니다.
+
+* `ok`: 서버가 활성화되어 있는 정상 상태입니다.
+
+* `inactive`: 서버가 비활성화된 상태입니다.
+
+* `warning`: 서버에 경고(warning) 이벤트가 진행 중인 상태입니다.
+
+* `fatal`: 서버에 위험(critical) 이벤트가 진행 중인 상태입니다.
+
+* `paused`: 에이전트가 데이터 수집을 일시 중지한 상태입니다.
+
+:::
+
+</InDoc>

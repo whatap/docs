@@ -6,7 +6,7 @@
 cd /usr/whatap/infra
 sudo mkdir extension
 
-cat >extension/logsink.conf<<EOL
+cat <<EOL | sudo tee extension/logsink.conf > /dev/null
 [[inputs.logsink]]
   category = "serverlog"
   ## 로그 발생량 통계 별도 데이터로 전송 여부
@@ -47,7 +47,7 @@ category = "serverlog"
 stats_enabled = true 
 ## 로그 발생량 통계 카테고리
 stats_category = "logsink_stats"
-## 로그 파일 경로(path)에 별표()가 포함되어 제외할 로그 비대상 파일명 설정 
+## 로그 파일 경로(path)에 별표(*)가 포함되어 제외할 로그 비대상 파일명 설정 
 excludeNames = [ ".gz",".zip" ] 
 [[inputs.logsink.file]]
 ## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
@@ -64,7 +64,7 @@ New-Item -path "C:\Program Files\WhatapInfra\extension" -name "logsink.conf" -ty
 Restart-Service "Whatap Infra"
 ```
 
-### 옵션 설정
+### 옵션 설정{#server-log-settings}
 
 * `stats_enabled`: 수집 현황 데이터의 수집 여부를 설정합니다. 기본값은 `false`입니다. 값을 `true`로 설정해야 합니다. `true`로 설정하면 다음 `stats_category`에서 설정한 카테고리(`logsink_stats`)로 통계 데이터가 발생합니다.
 

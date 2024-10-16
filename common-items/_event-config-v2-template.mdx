@@ -449,7 +449,7 @@
 
 * ***Active Sessions***
 
-  카테고리: [`db_oracle_counter`](metrics-data-list)
+  카테고리: [`db_oracle_counter`](metrics-data-list#db_oracle_counter)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
@@ -467,25 +467,25 @@
 
 * ***CPU***
 
-  카테고리: [`db_oracle_counter`](metrics-data-list)
+  카테고리: [`db_oracle_counter`](metrics-data-list#db_oracle_counter)
 
   CPU 사용률(`cpu(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Connection Failed***
 
-  카테고리: [`db_oracle_counter`](metrics-data-list)
+  카테고리: [`db_oracle_counter`](metrics-data-list#db_oracle_counter)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Lock Wait Sessions***
 
-  카테고리: [`db_oracle_counter`](metrics-data-list)
+  카테고리: [`db_oracle_counter`](metrics-data-list#db_oracle_counter)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Memory***
 
-  카테고리: [`db_oracle_counter`](metrics-data-list)
+  카테고리: [`db_oracle_counter`](metrics-data-list#db_oracle_counter)
 
   메모리 사용률(`mem(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
@@ -494,6 +494,12 @@
   이 템플릿은 XOS 에이전트를 설정하고 실행했을 경우에만 사용할 수 있습니다. XOS 에이전트 설정에 대한 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
 
   :::
+
+* ***Tablespace Usage***
+
+  카테고리: [`db_oracle_tablespace`](metrics-data-list#db_oracle_tablespace)
+
+  테이블스페이스의 사용률(`used` / `size` * 100)이 80 이상이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90 이상이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 </InDoc>
 
@@ -505,7 +511,7 @@
 
 * ***Active Sessions***
 
-  카테고리: [`db_oracle_dma_counter`](metrics-data-list)
+  카테고리: [`db_oracle_dma_counter`](metrics-data-list#db_oracle_dma_counter)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
@@ -523,25 +529,25 @@
 
 * ***CPU***
 
-  카테고리: [`db_oracle_dma_counter`](metrics-data-list)
+  카테고리: [`db_oracle_dma_counter`](metrics-data-list#db_oracle_dma_counter)
 
   CPU 사용률(`cpu(xos)`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Connection Failed***
 
-  카테고리: [`db_oracle_dma_counter`](metrics-data-list)
+  카테고리: [`db_oracle_dma_counter`](metrics-data-list#db_oracle_dma_counter)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Lock Wait Sessions***
 
-  카테고리: [`db_oracle_dma_counter`](metrics-data-list)
+  카테고리: [`db_oracle_dma_counter`](metrics-data-list#db_oracle_dma_counter)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Memory***
 
-  카테고리: [`db_oracle_dma_counter`](metrics-data-list)
+  카테고리: [`db_oracle_dma_counter`](metrics-data-list#db_oracle_dma_counter)
 
   메모리 사용률(`mem(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
@@ -550,6 +556,12 @@
   이 템플릿은 XOS 에이전트를 설정하고 실행했을 경우에만 사용할 수 있습니다. XOS 에이전트 설정에 대한 자세한 내용은 [다음 문서](agent-settings)를 참조하세요.
 
   :::
+
+* ***Tablespace Usage***
+
+  카테고리: [`db_oracle_dma_tablespace`](metrics-data-list#db_oracle_dma_tablespace)
+
+  테이블스페이스의 사용률(`used` / `size` * 100)이 80 이상이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90 이상이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 </InDoc>
 

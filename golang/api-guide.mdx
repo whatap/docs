@@ -548,3 +548,149 @@ func End(methodCtx *MethodCtx, err error) error
 ```go title="Go"
 func Trace(ctx context.Context, name string, elapsed int, err error) error
 ```
+
+## Log
+
+### 에이전트 설정하기
+
+애플리케이션 실행 전에 *whatap.conf* 파일에 에이전트 옵션을 설정하세요.
+
+```ini title="whatap.conf"
+# Enable all log collection
+logsink_enabled=true
+
+# Enable stdout collection
+logsink_stdout_enabled=true
+
+# Enable stderr collection
+logsink_stderr_enabled=true
+
+# Optional. This is a setting for compressing data. 
+logsin_zip_enabled=true
+```
+
+### 로그 라이브러리 초기화 전
+
+로그 라이브러리 초기화 전에 `trace.Init()` 함수를 호출해야 합니다. 내부적으로 `os.Stdout`, `os.Stderr`를 래핑합니다. 이후 로그 라이브러리가 `os.Stdout`, `os.Stderr`를 설정하면 자동으로 로그를 수집합니다.
+
+### 로그 라이브러리 초기화 후
+
+로그 라이브러리 초기화 후에는 별도의 설정 함수를 통해서 래핑한 **io.Writer**를 설정할 수 있습니다.
+
+* `logsink.GetWriterHookStdout()`: `os.Stderr`를 래핑한 **io.Writer**를 반환합니다. `os.Stdout`에 출력하면서 동시에 해당 로그를 와탭 로그로 수집합니다.
+
+* `logsink.GetWriterHookStderr()`:  `os.Stderr`를 래핑한 **io.Writer**를 반환합니다. 래핑한 **io.Writer**는 `os.Stderr`에 출력 후 로그 내용을 와탭 로그로 수집합니다.
+
+### API
+
+* `os.Stdout`를 래핑한 **io.Writer**를 반환합니다.
+
+  ```go
+  func GetWriterHookStdout() io.Writer
+  ```
+
+* `os.Stderr`를 래핑한 **io.Writer**를 반환합니다.
+
+  ```go
+  func GetWriterHookStderr() io.Writer
+  ```
+
+다음 패키지별 코드 예제를 참조하세요.
+
+#### log package
+
+log 패키지는 **import** 시점(`init` 함수)에서 `os.Stderr`를 설정합니다. `trace.Init` 함수를 먼저 호출할 수 없기 때문에 래핑한 **io.Writer** (`os.Stderr`)를 `log.SetOutput` 함수를 통해 설정합니다.
+
+이후 사용되는 log 패키지의 `print` 함수를 사용한 출력은 래핑한 **io.Writer**를 통해서 `os.Stderr`에 출력은 유지하면서 동시에 로그 내용을 와탭 로그로 수집합니다.
+
+```go title="log package"
+import (
+    "log"
+    "github.com/whatap/go-api/logsink"
+)
+
+...
+
+if logsink.GetWriterHookStderr() != nil {
+    // set single writer
+    log.SetOutput(logsink.GetWriterHookStderr())	
+    
+    // set multi writer 
+    multi := io.MultiWriter(file, logsink.GetWriterFromStderr())
+    log.SetOutput(logsink.GetWriterHookStderr())
+}
+
+// 
+log.Println("aaaaa")
+...
+```
+
+#### go.uber.org/zap
+
+`os.Stdout`을 설정하기 전에 `trace.Init()` 함수를 호출하면 자동으로 로그를 수집합니다. `os.Stdout` 출력은 유지하면서 동시에 와탭 로그로 수집합니다.
+
+```go title="go.uber.org/zap"
+import (
+    "github.com/whatap/go-api/trace"
+    "github.com/whatap/go-api/logsink"
+    
+    "go.uber.org/zap"
+    "go.uber.org/zap/zapcore"
+)
+
+func main() {
+    trace.Init(nil)
+    //It must be executed before closing the app.
+    defer trace.Shutdown()
+
+    // fmt.Println("Logger stdout=", os.Stdout, zapcore.AddSync(os.Stdout))
+    consoleCore := zapcore.NewCore(
+        zapcore.NewConsoleEncoder(consoleEncoderConfig), 
+        zapcore.AddSync(os.Stdout),                      
+        zap.InfoLevel,
+    )
+
+    // Menggabungkan core file dan console
+    core := zapcore.NewTee(consoleCore)
+    Log = zap.New(core, zap.AddCaller(), zap.AddStacktrace(zapcore.ErrorLevel))
+    Log.Info("logger started")
+
+    ...
+}
+```
+
+#### github.com/sirupsen/logrus
+
+래핑한 **io.Writer**를 설정하면 `os.Stderr` 출력은 유지하면서 동시에 와탭 로그로 수집합니다.
+
+```go title="github.com/sirupsen/logrus"
+package main
+
+import (
+    "time"
+
+    log "github.com/sirupsen/logrus"
+
+    "github.com/whatap/go-api/logsink"
+    "github.com/whatap/go-api/trace"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    //In WhaTap, set io.Writer wrapping os.Stderr as the output of logrus
+    if logsink.GetWriterHookStderr() != nil {
+        log.SetOutput(logsink.GetWriterHookStderr())
+    }
+
+    for i := 0; i < 100; i++ {
+        log.WithFields(log.Fields{
+            "animal":  "tiger",
+            "habitat": "mountain",
+        }).Info("Index:[", i, "] A tiger appears")
+
+        time.Sleep(100 * time.Millisecond)
+    }
+}
+```

@@ -20,7 +20,7 @@ displayed_sidebar: releaseSidebar
 
 <Steps>
 
-## 에이전트 설정
+## 에이전트 설정하기
 
 애플리케이션 실행 전에 *whatap.conf* 파일에 에이전트 옵션을 설정하세요.
 
@@ -43,7 +43,7 @@ logsin_zip_enabled=true
 
 ### zap 라이브러리 예
 
-`os.Stdout`을 설정하기 전에 `trace.Init()` 함수를 호출하면 자동으로 로그를 수집합니다.
+`os.Stdout`을 설정하기 전에 `trace.Init()` 함수를 호출하면 자동으로 로그를 수집합니다. `os.Stdout` 출력은 유지하면서 동시에 와탭 로그로 수집합니다.
 
 ```go title="zap library example"
 import (
@@ -61,9 +61,9 @@ func main() {
 
     // fmt.Println("Logger stdout=", os.Stdout, zapcore.AddSync(os.Stdout))
     consoleCore := zapcore.NewCore(
-      zapcore.NewConsoleEncoder(consoleEncoderConfig), 
-      zapcore.AddSync(os.Stdout),                      
-      zap.InfoLevel,                                        
+        zapcore.NewConsoleEncoder(consoleEncoderConfig), 
+        zapcore.AddSync(os.Stdout),                      
+        zap.InfoLevel,
     )
 
     // Menggabungkan core file dan console

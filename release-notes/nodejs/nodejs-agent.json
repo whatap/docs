@@ -1,5 +1,20 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_2",
+    "ver": "v0.5.2",
+    "date": "2024-10-17",
+    "Lists": [
+      {
+        "ver": "v0.5.2",
+        "hash": "v052",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> SQL 프로파일 수정</p>",
+        "details": "<ul><li><p>SQL 조회 오류가 발생하면 에러 스택을 프로파일 하단에 표기합니다.</p></li><li><p>수정된 SQL 모듈은 다음과 같습니다. <strong>MySQL</strong>, <strong>MariaDB</strong>, <strong>PostgreSQL</strong>, <strong>SQL Server</strong></p></li></ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_4_98",
     "ver": "v0.4.98",
     "date": "2024-07-09",

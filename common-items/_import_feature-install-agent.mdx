@@ -1,3 +1,5 @@
+{/* 이 문서 넘버링이 1 1 3으로 이어진 이유는 xclude page 활용 문제입니다. 번역 시 주의해 주세요. */}
+
 **피쳐 프로젝트**(<code class='Features'>Features</code>) 생성 후 자동으로 ***{props.name}*** 화면으로 이동합니다. 다음 안내대로 설치를 진행하세요. 
 
 1. **프로젝트 액세스 키**를 확인하세요. 
@@ -52,7 +54,25 @@
 
     </InDoc>
 
-1. 에이전트 설정 및 재시작 후 **모니터링**을 **시작**하세요.  
+    <InDoc pages="nginx-introduction">
+
+    다음 명령어를 실행해 사용자 환경을 자동으로 인식 후 NGINX가 설치된 서버에 설치 스크립트를 생성하세요.
+
+    ```bash 
+    curl http://repo.whatap.io/telegraf/feature/nginx/install_nginx_monitoring.sh -o install_nginx_monitoring.sh
+    ```
+
+    다음 명령어를 실행해 NGINX 에이전트를 설치하세요.
+
+    ```bash
+    chmod +x install_nginx_monitoring.sh
+    sudo ./install_nginx_monitoring.sh "x42ut20rmr8rn-z1kli3trqviqul-x5cm4quee6cdmj" "15.165.146.117"
+    ```
+
+    </InDoc>
+
+<Xclude pages="nginx-introduction">
+3. 에이전트 설정 및 재시작 후 **모니터링**을 **시작**하세요.  
 
     <InDoc pages="kafka-introduction">
 
@@ -99,11 +119,4 @@
     ```
     
     </InDoc>
-
-
-{/* 
-피쳐 프로젝트 
-
-카프카
-에어로스파이크 
-*/}
+</Xclude>

@@ -10,6 +10,8 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 ## db_oracle_counter {#db_oracle_counter}
 
+Oracle 데이터베이스의 전반적인 성능 지표를 수집하여 시스템의 상태와 성능을 모니터링하는 데 유요한 카테고리입니다.
+
 ### Tags {#db_oracle_counter-tags}
 
 다음은 `db_oracle_counter` 카테고리에 수집되는 태그에 대한 안내입니다.
@@ -32,6 +34,8 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 <InDoc product="oracle-pro">
 
 ## db_oracle_dma_counter {#db_oracle_dma_counter}
+
+Oracle 데이터베이스의 전반적인 성능 지표를 수집하여 시스템의 상태와 성능을 모니터링하는 데 유요한 카테고리입니다.
 
 ### Tags {#db_oracle_dma_counter-tags}
 
@@ -130,3 +134,57 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 | `shared pool free mem ratio` | 공유 풀의 여유 메모리 비율 <br/> 공유 풀은 SQL 문, PL/SQL 코드 및 데이터 딕셔너리 캐시를 저장하는 메모리 영역입니다. 적절한 여유 메모리 비율을 유지하면 공유 풀의 효율적인 운영과 성능 최적화를 보장할 수 있습니다. |
 
 </div>
+
+<InDoc product="oracle,oracle-v1">
+
+## db_oracle_tablespace {#db_oracle_tablespace}
+
+Oracle 데이터베이스의 테이블스페이스 사용 현황을 1시간 간격으로 수집한 카테고리입니다. 이 카테고리의 지표는 테이블스페이스의 상태와 용량을 모니터링하여 스토리지 자원을 효율적으로 관리하고 데이터베이스 성능 문제를 사전에 예방하는 데 도움을 줍니다.
+
+### Tags {#db_oracle_tablespace-tags}
+
+다음은 `db_oracle_tablespace` 카테고리에 수집되는 태그에 대한 안내입니다.
+
+| 태그명 | 설명 | 비고 |
+| -- | -- | -- |
+| `con_name` | 연결된 컨테이너 데이터베이스 이름입니다. 멀티테넌트 환경에서 각 Pluggable Database(PDB)를 구분하는 데 유용합니다. | - |
+| `datfile` | 각 테이블스페이스에 연결된 데이터 파일의 경로와 파일명입니다. | - |
+| `oname` | 에이전트 이름입니다. | 고유값 |
+| `tablespace` | 테이블스페이스의 이름입니다. | - |
+
+### Field {#db_oracle_tablespace-filed}
+
+다음은 `db_oracle_tablespace` 카테고리에 수집되는 필드에 대한 안내입니다.
+
+</InDoc>
+
+<InDoc product="oracle-pro">
+
+## db_oracle_dma_tablespace {#db_oracle_dma_tablespace}
+
+Oracle 데이터베이스의 테이블스페이스 사용 현황을 1시간 간격으로 수집한 카테고리입니다. 이 카테고리의 지표는 테이블스페이스의 상태와 용량을 모니터링하여 스토리지 자원을 효율적으로 관리하고 데이터베이스 성능 문제를 사전에 예방하는 데 도움을 줍니다.
+
+### Tags {#db_oracle_dma_tablespace-tags}
+
+다음은 `db_oracle_dma_tablespace` 카테고리에 수집되는 태그에 대한 안내입니다.
+
+| 태그명 | 설명 | 비고 |
+| -- | -- | -- |
+| `con_name` | 연결된 컨테이너 데이터베이스 이름입니다. 멀티테넌트 환경에서 각 Pluggable Database(PDB)를 구분하는 데 유용합니다. | - |
+| `datfile` | 각 테이블스페이스에 연결된 데이터 파일의 경로와 파일명입니다. | - |
+| `oname` | 에이전트 이름입니다. | 고유값 |
+| `tablespace` | 테이블스페이스의 이름입니다. | - |
+
+### Field {#db_oracle_dma_tablespace-filed}
+
+다음은 `db_oracle_dma_tablespace` 카테고리에 수집되는 필드에 대한 안내입니다.
+
+</InDoc>
+
+| Metrics | Description |
+| --- | --- |
+| `autoextensible` | `YES` 또는 `NO`로 데이터 파일이 자동 확장 가능한지 여부를 나타냅니다. |
+| `increment_by` | 데이터 파일이 자동 확장될 때 한 번에 확장되는 블록 수입니다. |
+| `maxsize` | 데이터 파일이 자동으로 확장될 때 설정된 최대 크기입니다. |
+| `size` | 테이블스페이스의 현재 할당된 총 용량입니다. |
+| `used` | 현재 사용 중인 테이블스페이스의 크기입니다. |

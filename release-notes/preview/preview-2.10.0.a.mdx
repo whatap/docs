@@ -14,6 +14,63 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.10.0.a3
+
+2024년 10월 11일
+
+<div class='indentTab'>
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> 다음 메뉴 경로에서 Pod의 QoS Class 관련 안내 부분에 QoS Class 안내 팝오버 추가
+
+  - <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_pendingPod" className="uitext" />
+
+  - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_podInitPerf" className="uitext" />
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_clusterOverview" className="uitext" /> 메뉴에 노드 상태별 개수와 개수 추이를 표시하는 위젯 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_clusterOverview" className="uitext" /> 메뉴에서 다음 위젯의 지표 변경
+
+  - <Cmdname sid="TTL07212" className="uitext" />
+
+    변경 전: Running, Waiting, Stoppped 
+
+    변경 후: Total, Running, Waiting, Terminated
+
+  - <Cmdname sid="TTL07213" className="uitext" />
+
+    변경 전: Available, Unavailable, Desired 
+
+    변경 후: Total, Running, Pending, Succeeded, Failed, Unknown
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_perfSummary" className="uitext" /> 메뉴에서 다음 위젯 항목을 제거 
+
+  - 클러스터 프로젝트의 <Cmdname sid="TTL06713" className="uitext" /> 위젯
+  
+  - 네임스페이스 프로젝트의 <Cmdname sid="TTL07447" className="uitext" /> 위젯
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeDiskList" className="uitext" /> 메뉴에서 <UI>OnodeName</UI> 컬럼의 ![오른쪽 방향 아이콘](/img/right-arrow.svg)을 선택하면 <Cmdname sid="side_nodeDetail" className="uitext" /> 메뉴로 이동하도록 수정
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 에이전트 버전(Stable, Preview)에 대한 설명 보강
+
+---
+
+### `Log`
+
+<Status priority='1'>Feature</Status> <Cmdname sid="side_logTail" className="uitext" /> 메뉴에서 로그의 태그 클릭하면 검색 필터로 태그를 추가할 수 있는 드롭다운 기능 지원
+
+![](/img/release/release-log-live-tail-filter.png)
+
+:::note
+
+<Cmdname sid="copy" className="uitext" />, <Cmdname sid="search" className="uitext" />, <Cmdname sid="exclusion_search" className="uitext" /> 옵션을 지원합니다.
+
+:::
+
+</div>
+
+
 ## Preview 2.10.0.a2
 
 2024년 10월 10일
@@ -65,11 +122,11 @@ toc_max_heading_level: 2
 
   - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_nodeMap" className="uitext" />
 
-:::note
+  :::note
 
-이 기능은 [쿠버네티스 에이전트 마스터 1.4.1 버전](../k8s/k8s-1_4_1) 이상에서 지원합니다.
+  이 기능은 [쿠버네티스 에이전트 마스터 1.4.1 버전](../k8s/k8s-1_4_1) 이상에서 지원합니다.
 
-:::
+  :::
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 컨테이너 요약 분석에 컨테이너 상태 및 애플리케이션 정보 보충
 

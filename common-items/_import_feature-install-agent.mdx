@@ -71,7 +71,24 @@
 
     </InDoc>
 
-<Xclude pages="nginx-introduction">
+    <InDoc pages="apache-introduction">
+
+    다음 명령어를 실행해 사용자 환경을 자동으로 인식 후 APACHE가 설치된 서버에 설치 스크립트를 생성하세요.
+
+    ```bash 
+    curl http://repo.whatap.io/telegraf/feature/apache/install_apache_monitoring.sh -o install_apache_monitoring.sh
+    ```
+
+    다음 명령어를 실행해 APACHE 에이전트를 설치하세요.
+
+    ```bash
+    chmod +x install_apache_monitoring.sh
+    sudo ./install_apache_monitoring.sh "x42uu23t8kl3a-z1e71pb8vhbpir-z62lcfeuerbcp2" "15.165.146.117"
+    ```
+
+    </InDoc>
+
+<Xclude pages="nginx-introduction,apache-introduction">
 
 3. 에이전트 설정 및 재시작 후 **모니터링**을 **시작**하세요.  
 

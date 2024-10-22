@@ -1,0 +1,410 @@
+홈 화면 &gt; 프로젝트 선택 &gt; ![아이콘](/img/ic-sitemap.svg) <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code class="newfunc">New</code>
+
+메트릭스를 기반으로 한 이벤트 알림을 생성하고 관리하는 방법을 안내합니다. 메트릭스 이벤트는 [기본 템플릿](warning-notice-v2)보다 구체적이고 복잡한 이벤트를 설정할 때 사용합니다. 모니터링 대상에서 발생하는 다양한 이벤트를 조건에 따라 정의하고, 이를 통해 효율적으로 알림을 받을 수 있도록 설정할 수 있는 기능을 제공합니다.
+
+<Xclude product='npm'>
+
+:::note
+
+메트릭스에 대한 자세한 내용은 [다음 문서](metrics-intro)를 참조하세요.
+
+:::
+
+</Xclude>
+
+<InDoc product='npm'>
+
+:::note
+
+메트릭스에 대한 자세한 내용은 [다음 문서](../metrics/common-metrics-intro)를 참조하세요.
+
+:::
+
+</InDoc>
+
+## 기본 화면 안내
+
+<Cmdname sid="side_eventSetting" className="uitext" /> <code class="newfunc">New</code> 메뉴에서 <Cmdname sid="metrics" className="uitext" /> 탭을 선택하세요. 사용자가 추가한 메트릭스 이벤트 목록을 확인하고, 메트릭스 이벤트를 추가하거나 수정, 삭제할 수 있습니다.
+
+<ImgLang img="metric-warning-notice-new-basic-screen.png" desc="Event configuration" />
+
+메트릭스 이벤트 목록의 주요 요소는 다음과 같습니다.
+
+* <Cmdname sid="TTL06099" className="uitext" />: 각 이벤트의 활성화 여부를 제어하는 토글 버튼입니다. 원하는 이벤트의 알림을 켜거나 끌 수 있습니다.
+
+* <Cmdname sid="bsm_button_edit" className="uitext" />: 이벤트 규칙을 수정할 수 있습니다. 규칙을 업데이트하여 더 정확한 알림을 설정할 수 있습니다.
+
+* <Cmdname sid="event_title" className="uitext" />: 이벤트 이름입니다. 이벤트 이름을 통해 어떤 이벤트가 발생했는지 쉽게 구분할 수 있습니다. 이벤트가 발생하고 알림을 받으면 해당 메시지의 제목으로 표시됩니다.
+
+* <Cmdname sid="rule" className="uitext" />: 알림을 발생시키기 위한 이벤트 조건입니다. 각 색상은 <span className="vslow">Critical</span>과 <span className="slow">Warning</span> 레벨을 의미합니다. 
+
+* <Cmdname sid="ITM07579" className="uitext" />: 전체 또는 특정 모니터링 대상에서 발생하는 이벤트를 기준으로 알림을 수신할 수 있습니다.
+
+* <Cmdname sid="number_of_event" className="uitext" />: 설정한 시간 동안, 설정 횟수만큼 이벤트가 발생하면 알림을 수신합니다.
+
+* <Cmdname sid="CNT08326" className="uitext" />: <span className="vslow">Critical</span>과 <span className="slow">Warning</span> 레벨의 이벤트가 정상 상태(**RECOVERED**)로 돌아올 때 알림 수신 여부를 나타냅니다.
+
+* <Cmdname sid="TTL07415" className="uitext" />: 알림을 수신할 팀이나 사용자 그룹을 나타냅니다.
+
+:::note
+
+* <Cmdname sid="goto_alertTemplate" className="uitext" /> 기능에 대한 자세한 내용은 [다음 문서](set-notification-message)를 참조하세요.
+
+* 메트릭스 이벤트를 JSON 파일로 수정하거나 공유할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+
+* JSON 파일을 통해 전체 이벤트 설정을 공유할 수 있는 <Cmdname sid="BTN07761" className="uitext" /> 및 <Cmdname sid="BTN07762" className="uitext" /> 기능에 대한 자세한 내용은 [다음 문서](warning-notice-v2#share-event-setting)를 참조하세요.
+
+:::
+
+## 이벤트 추가하기
+
+메트릭스 이벤트를 추가하려면 화면 오른쪽 위에 <Cmdname sid="add_notification" className="uitext" /> 버튼을 선택하세요. 이벤트 추가 화면이 나타나면 사용자는 다음 단계에 따라 설정을 진행할 수 있습니다.
+
+1. <Cmdname sid="TTL07362" className="uitext" />: 알림을 받기 위한 이벤트 조건을 설정합니다.
+
+2. <Cmdname sid="TTL07363" className="uitext" />: 이벤트가 발생하는 모니터링 대상을 선택합니다.
+
+3. <Cmdname sid="TTL07364" className="uitext" />: 이벤트 이름 및 메시지, 수신 대상을 설정합니다.
+
+### <Cmdname sid="TTL07362" /> {#TTL07362}
+
+알림을 받기 위한 이벤트 조건을 설정할 수 있습니다.
+
+{/* <ImgLang img="metric-warning-notice-new-event-condition.png" desc="이벤트 조건 정의" /> */}
+
+#### <Cmdname sid="template" className="uitext" /> {#select_template}
+
+쉽고 빠른 이벤트 설정을 위해 모니터링 플랫폼에 맞춘 이벤트 템플릿을 제공합니다. 원하는 템플릿을 선택하면 사전 정의된 이벤트 조건을 나머지 항목에 자동 입력합니다. 템플릿을 사용하지 않는다면 <Cmdname sid="metrics_option_disabled" className="uitext" />을 선택하세요.
+
+:::note
+
+* 템플릿을 선택한 후 사전 정의된 이벤트 조건은 사용자가 직접 수정할 수 있습니다.
+
+* 모니터링 플랫폼에 따라 제공하는 템플릿은 다를 수 있습니다. 제공하는 템플릿 목록에 대한 자세한 내용은 [다음 문서](#template)를 참조하세요.
+
+:::
+
+#### <Cmdname sid="select_category" className="uitext" /> {#select_category}
+
+메트릭스 데이터를 구분하는 단위입니다. 이벤트 조건 정의를 위한 필수 항목입니다.
+
+<ImgLang img="metric-warning-notice-new-event-condition-category.png" desc="Select Category" />
+
+<Cmdname sid="select_category" className="uitext" /> 목록에는 <Cmdname sid="name" className="uitext" />과 데이터 수집 간격(<Cmdname sid="h1" />, <Cmdname sid="m5" /> 등), <Cmdname sid="key" className="uitext" /> 정보를 표시합니다. 최근 3시간 범위 내 프로젝트에서 수집 중인 메트릭스 데이터를 조회해 목록에 표시합니다. <Cmdname sid="category" className="uitext" /> 선택 목록에 카테고리 이름이 표시되지 않는다면 <Cmdname sid="enter_category_self" className="uitext" /> 옵션을 선택해 카테고리 키를 입력할 수 있습니다.
+
+:::note
+
+* <Cmdname sid="category" className="uitext" /> 항목을 선택해야 <Cmdname sid="TTL07365" className="uitext" />을 진행할 수 있습니다.
+
+* 카테고리 정보는 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 확인할 수 있습니다. 
+
+:::
+
+#### <Cmdname sid="TTL07365" className="uitext" /> {#TTL07365}
+
+알림 레벨 수준을 선택하고 알림을 발생시킬 이벤트의 임계치를 설정할 수 있습니다.
+
+<ImgLang img="metric-warning-notice-new-set-metrics.png" desc="Indicator settings" />
+
+* 알림 레벨 수준은 위험(<span className="vslow">Critical</span>)과 경고(<span className="slow">Warning</span>), 정상(<span className="info">Info</span>) 수준으로 구분합니다.
+
+* <Cmdname sid="metrics_rule_select" className="uitext" />: 필드 이름과 연산자를 선택하고 값을 입력해 임계치를 설정합니다. 필드 항목을 클릭하면 메트릭스 카테고리에 포함된 필드 목록을 확인할 수 있습니다.
+
+  <Cmdname sid="add" className="uitext" />: 지표 설정을 추가할 수 있습니다. `&&`(and) 또는 `||`(or) 조건을 선택할 수 있습니다.
+
+* <Cmdname sid="metrics_rule_direct" className="uitext" />: 필드 이름과 연산자, 값을 직접 입력해 이벤트 발생 조건을 설정합니다. 이 옵션을 선택하면 입력란 아래에 입력할 수 있는 필드 정보(<Cmdname sid="metrics_event_field_button" className="uitext" />)를 제공합니다.
+
+:::tip
+
+다음 예시는 `write_time`이 3000밀리초를 초과하거나 `read_time`이 3000밀리초 미만이면서, `io_time`이 10000밀리초 미만일 때 알림이 발생하는 이벤트 조건입니다.
+
+```text title="example"
+(write_time > 3000 || read_time > 3000) && io_time < 10000
+```
+
+:::
+
+:::note
+
+* <Cmdname sid="metrics_rule_select" className="uitext" /> 옵션을 선택한 경우 필드 목록은 <Cmdname sid="select_category" className="uitext" />이 설정되어 있어야 표시됩니다.
+
+* <Cmdname sid="metrics_rule_select" className="uitext" /> 옵션에서 선택할 수 있는 연산자 종류는 [다음 문서](#condition-guide)를 참조하세요.
+
+* 특수문자(<code>\~!@#$%^&\*()\_+=-[]\`</code>)를 포함하거나 숫자로 시작하는 필드 이름을 입력하면 오류가 발생할 수 있습니다. 이런 경우 <Cmdname sid="metrics_rule_direct" className="uitext" /> 옵션을 선택한 다음 예시와 같이 중괄호(`${}`)로 묶어서 입력하세요.
+
+  ```text
+  ${4xxErrorType} == '401'
+  ```
+
+* <Cmdname sid="metrics_rule_select" className="uitext" />과 <Cmdname sid="metrics_rule_direct" className="uitext" /> 옵션 간 입력 방식을 변경하면 작성한 내용이 사라집니다.
+
+:::
+
+#### <Cmdname sid="number_of_event" className="uitext" /> {#number_of_event}
+
+선택한 시간 동안 설정한 이벤트가 입력 횟수만큼 발생하면 알림을 보냅니다. 
+
+<ImgLang img="metric-warning-notice-new-num-of-events.png" desc="Count of event" />
+
+* <Cmdname sid="TTL07366" className="uitext" />: 입력한 횟수만큼 이벤트가 연속 발생할 때 알림을 받을 수 있습니다.
+
+* <Cmdname sid="metrics_number_of_event_last" className="uitext" />: 선택한 시간동안 입력한 횟수만큼 이벤트가 연속 발생할 때 알림을 받을 수 있습니다.
+
+:::note
+
+<UI>Interval</UI> 값은 선택한 카테고리의 데이터 수집 간격을 의미합니다.
+
+:::
+
+#### <Cmdname sid="TTL07367" className="uitext" /> {#TTL07367}
+
+과도한 경고 알림 발생을 방지할 수 있는 옵션입니다. 첫번째 알림 발생 이후 선택한 시간 동안 경고 알림을 보내지 않습니다.
+
+<ImgLang img="metric-warning-notice-new-pause.png" desc="Pause alert" />
+
+:::note
+
+<Cmdname sid="CNT08326" className="uitext" /> 기능을 활성화했다면 정상(**RECOVERED**) 상태 알림을 수신 후 선택한 시간 동안 알림을 보내지 않습니다.
+
+:::
+
+#### <Cmdname sid="CNT08326" className="uitext" /> {#CNT08326}
+
+<span className="vslow">Critical</span> 또는 <span className="slow">Warning</span> 레벨 수준의 이벤트가 해소되면 정상(**RECOVERED**) 상태의 알림을 보냅니다. 토글 버튼을 선택해 기능을 켜거나 끌 수 있습니다.
+
+<ImgLang img="metric-warning-notice-new-recovered.png" desc="Resolved notification" />
+
+:::note
+
+이 옵션은 알림 레벨 수준을 <span className="vslow">Critical</span> 또는 <span className="slow">Warning</span>을 선택했을 때 표시됩니다.
+
+:::
+
+#### <Cmdname sid="simulation" className="uitext" /> {#simulation}
+
+<Cmdname sid="TTL07365" className="uitext" />에서 설정한 이벤트 조건을 테스트할 수 있습니다. <Cmdname sid="simulation" className="uitext" /> 버튼을 선택하세요.
+
+<ImgLang img="metric-warning-notice-new-simulation.png" desc="Simulation" />
+
+* 조회한 시간 동안 몇 번의 알림이 발생했는지 오른쪽 상단에 ![숫자 1](/img/number-01.png) 발생 건수를 표시합니다.
+
+* ![숫자 2](/img/number-02.png) 빨간색 점선은 <Cmdname sid="TTL07365" className="uitext" />에서 설정한 결과입니다.
+
+:::note
+
+* <Cmdname sid="TTL07365" className="uitext" />에 대한 자세한 내용은 [다음 문서](#TTL07365)를 참조하세요.
+
+* <Cmdname sid="simulation" className="uitext" /> 기능은 최대 24시간 동안의 데이터를 기준으로 테스트할 수 있습니다.
+
+:::
+
+### <Cmdname sid="TTL07363" /> {#TTL07363}
+
+이벤트가 발생하는 모니터링 대상을 선택하세요. 입력하지 않을 경우 프로젝트에 포함된 전체를 대상으로 이벤트를 감시하고 알림을 보냅니다. 이로 인해 많은 알림이 발생할 수 있습니다. 과도한 알림이 발생하지 않도록 특정 대상을 설정하세요.
+
+<ImgLang img="metric-warning-notice-new-select-target.png" desc="Select target" />
+
+이벤트 대상은 다음 태그(`Tag`)를 기준으로 특정할 수 있습니다. 태그(`Tag`)는 수집 대상을 구분할 수 있는 고유 정보를 포함하는 데이터입니다. 변경 이력이 적은 IP, Oname, Host 정보 등의 값을 활용할 수 있습니다.
+
+* <Cmdname sid="metrics_rule_select" className="uitext" />: 태그 이름과 연산자를 선택하고 값을 입력해 대상을 특정할 수 있습니다.
+
+  <Cmdname sid="add" className="uitext" />: 이벤트 대상을 추가할 수 있습니다. `&&`(and) 또는 `||`(or) 조건을 선택할 수 있습니다.
+
+* <Cmdname sid="metrics_rule_direct" className="uitext" />: 태그 이름과 연산자, 값을 직접 입력해 대상을 특정할 수 있습니다. 이 옵션을 선택하면 입력란 아래에 입력할 수 있는 태그 정보(<Cmdname sid="metrics_event_tag_button" className="uitext" />)를 제공합니다.
+
+:::tip
+
+다음 예시를 참조해 이벤트 대상을 설정하세요.
+
+```text
+ex. endsWith(okindName, 'example_name') && container == 'prod.billing'
+ex. ${4xxErrorType} == '401'
+```
+
+:::
+
+:::note
+
+* <Cmdname sid="TTL07362" className="uitext" /> 섹션의 <Cmdname sid="select_category" className="uitext" />에서 선택한 값에 따라 선택할 수 있는 태그는 다를 수 있습니다.
+
+* 이벤트 대상을 변했다면 알림 발생 건수가 달라질 수 있습니다. <Cmdname sid="simulation" className="uitext" /> 버튼을 다시 실행해 결과를 확인하세요.
+
+* 이벤트 대상 선택 및 연산자 사용에 대한 자세한 내용은 [다음 문서](#condition-guide)를 참고하세요
+
+:::
+
+### <Cmdname sid="TTL07364" className="uitext" /> {#TTL07364}
+
+이벤트 이름 및 메시지, 알림 수신 대상을 설정하세요.
+
+<ImgLang img="metric-warning-notice-new-information.png" desc="Basic information" />
+
+* <Cmdname sid="enable_events" className="uitext" />: 현재 이벤트를 활성화할 수 있습니다.
+
+* <Cmdname sid="event_title" className="uitext" />: 알림 메시지의 제목으로 사용되며 식별하기 쉬운 이름으로 입력하세요.
+
+* <Cmdname sid="message" className="uitext" />: 사용자에게 전달하는 알림 메시지의 내용을 입력하세요. 변수를 사용하여 동적 데이터를 포함할 수 있습니다.
+
+  <ImgLang img='event-config-message-example.png' desc='Message example' />
+
+  * `${Tag}` 또는 `${Field}` 입력으로 메시지에 변수를 적용할 수 있습니다. 변수는 선택한 메트릭스 데이터 <Cmdname sid="category" className="uitext" />에 포함된 값이여야 합니다. <Cmdname sid="tag_count" className="uitext" /> 메뉴에서 입력할 수 있는 `${Tag}` 또는 `${Field}` 변수를 확인할 수 있습니다.
+
+  * ![시간 아이콘](/img/ico-timing.svg) 버튼을 클릭하면 이전에 입력한 메시지 기록을 확인할 수 있습니다.
+
+  :::tip
+
+  메시지 입력 창에 `${Tag}` 또는 `${Field}` 변수를 입력해 메시지를 작성할 수 있습니다.
+
+  <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="tag_count" className="uitext" /> 메뉴에서 <Cmdname sid="category" className="uitext" />를 선택한 다음 입력할 수 있는 `${Tag}` 또는 `${Field}` 변수를 확인하세요. 현재 이벤트 템플릿의 <Cmdname sid="category" className="uitext" /> 이름은 <Link to="#basic-template">다음 문서</Link>의 <b>카테고리</b> 항목을 참조하세요.
+
+  :::
+
+  :::note
+
+  <InDoc product="java,php,python,nodejs,dotnet,golang">
+
+  메시지로 입력할 수 있는 `${Tag}` 또는 `${Field}` 변수는 [다음 문서](metrics-app)를 참고하세요.
+
+  </InDoc>
+
+  <InDoc product="server">
+
+  메시지로 입력할 수 있는 `${Tag}` 또는 `${Field}` 변수는 [다음 문서](metrics-server)를 참고하세요.
+
+  </InDoc>
+
+  <InDoc product="kubernetes">
+
+  메시지로 입력할 수 있는 `${Tag}` 또는 `${Field}` 변수는 [다음 문서](metrics-kubernetes)를 참고하세요.
+
+  </InDoc>
+
+  <InDoc product="postgresql,mysql,oracle,oracle-v1,mssql,tibero,cubrid,cubrid-v1,altibase,altibase-v1,redis,mongodb">
+
+  메시지로 입력할 수 있는 `${Tag}` 또는 `${Field}` 변수는 [다음 문서](metrics-data-list)를 참고하세요.
+
+  </InDoc>
+
+  <InDoc product="browser">
+
+  메시지로 입력할 수 있는 `${Tag}` 또는 `${Field}` 변수는 [다음 문서](metrics-browser)를 참고하세요.
+
+  </InDoc>
+
+  <InDoc product="npm">
+
+  메시지로 입력할 수 있는 `${Tag}` 또는 `${Field}` 변수는 [다음 문서](metrics-npm)를 참고하세요.
+
+  </InDoc>
+
+  <InDoc product="amazon-cloudwatch,azure,ncloud,oracle-cloud">
+
+  메시지로 입력할 수 있는 `${Tag}` 또는 `${Field}` 변수는 <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 확인할 수 있습니다.
+
+  </InDoc>
+
+  <InDoc product="amazon-ecs">
+
+  메시지로 입력할 수 있는 `${Tag}` 또는 `${Field}` 변수는 [다음 문서](metrics-ecs)를 참고하세요.
+
+  </InDoc>
+
+  :::
+
+* <Cmdname sid="alert_test" className="uitext" />: 현재 이벤트로 발생하는 알림 수신 시 입력한 이벤트 이름과 메시지를 사전 점검할 수 있습니다. 필수 항목(<Cmdname sid="TTL07365" className="uitext" replace="</br>" />, <Cmdname sid="event_title" className="uitext" />, <Cmdname sid="TTL06883" className="uitext" />)을 모두 입력해야 테스트할 수 있습니다.
+
+  :::note
+
+  * 테스트 중에는 실제 메트릭스 값이나 변수에 대한 치환 기능이 작동하지 않으며, 수신자 태그가 설정된 사용자에게만 알림을 보낼 수 없습니다.
+
+  * 이 기능을 이용하려면 필수 항목(<span className="vslow">\*</span>)에 값을 입력하거나 선택하세요.
+
+  :::
+
+* <Cmdname sid="TTL07415" className="uitext" />: 현재 이벤트로 발생하는 알림을 수신할 멤버를 선택할 수 있습니다.
+
+  * <Cmdname sid="ITM07419" className="uitext" />: 프로젝트에 소속된 멤버 전원에게 알림을 보냅니다.
+
+  * <Cmdname sid="ITM07420" className="uitext" />: 선택한 태그를 가진 프로젝트 멤버와 3rd-party 플러그인에 알림을 보냅니다. <Cmdname sid="TTL07416" className="uitext" /> 항목이 표시되면 <Cmdname sid="add_tag" className="uitext" /> 또는 <LinkImage img="ico-add.svg" className="ico" /> 버튼을 클릭해 태그 목록에서 원하는 태그를 선택하세요.
+
+  :::note
+
+  <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" /> 메뉴에서 프로젝트 멤버와 3rd-party 플러그인에 태그를 설정할 수 있습니다. 자세한 내용은 <Link to="set-receive-event#set-notice-by-team-or-users">다음 문서</Link>를 참조하세요.
+
+  :::
+
+## 이벤트 수정/삭제하기
+
+1. <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴로 이동한 다음 <Cmdname sid="metrics" className="uitext" /> 탭을 선택하세요.
+
+1. 이벤트 목록에서 수정 또는 삭제하려는 항목의 가장 왼쪽에 ![편집 아이콘](/img/ico-edit.svg) 버튼을 선택하세요.
+
+1. 메트릭스 이벤트 설정 창이 나타나면 각 옵션을 수정한 다음 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+    선택한 이벤트를 삭제하려면 이벤트 설정 창의 오른쪽 위에 <Cmdname sid="delete" className="uitext" /> 버튼을 선택하세요.
+
+## JSON 형식으로 수정하기 {#json}
+
+메트릭스 이벤트 설정을 JSON 형식으로 수정할 수 있습니다.
+
+1. 화면 오른쪽 위에 <span class="uitext">JSON</span> <LinkImage img="ico-export.svg" className="ico" /> 버튼틀 선택하세요.
+
+1. 편집 창이 나타나면 JSON 형식에 맞춰 내용을 수정하세요.
+
+1. 수정을 완료하면 화면 오른쪽 위에 <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+수정한 내용이 JSON 형식에 맞지 않으면 화면 아래에 에러 메시지가 표시되며, 저장할 수 없습니다. 표시되는 에러 메시지는 형식에 따라 다를 수 있습니다.
+
+<ImgLang img='event-config-v2-json-error.png' desc='JSON error' />
+
+:::
+
+JSON 데이터의 구조는 다음과 같습니다.
+
+```json
+[
+  {
+    "eventMessage": "APDEX: ${apdex100} > 10 ",
+    "select": "",
+    "receiver": [],
+    "alertLabel": [
+      "project"
+    ],
+    "rule": "apdex100 > 10",
+    "silentSec": 0,
+    "alertKey": [
+      "project"
+    ],
+    "enabled": false,
+    "eventTitle": "APDEX",
+    "repeatDuration": 0,
+    "eventLevelText": "Critical",
+    "id": "z3f41ge464magg",
+    "category": "app_counter_project{m5}",
+    "repeatCount": 0,
+    "stateful": false
+  }
+]
+```
+
+JSON 데이터의 필드는 이벤트 설정에서 다음 옵션 항목과 연결됩니다.
+
+| JSON 필드 | 옵션 | 분류 |
+| -- | -- | -- |
+| `eventMessage` | <Cmdname sid="message" className="uitext" /> | [<Cmdname sid="TTL07364" className="uitext" />](#TTL07364) |
+| `select` | <Cmdname sid="ITM07588" className="uitext" /> &gt; <Cmdname sid="metrics_rule_direct" className="uitext" /> | [<Cmdname sid="TTL07363" className="uitext" />](#TTL07363) |
+| `receiver` | <Cmdname sid="TTL07415" className="uitext" /> &gt; <Cmdname sid="TTL07416" className="uitext" /> 옵션의 수신 태그 키값 목록 | [<Cmdname sid="TTL07364" className="uitext" />](#TTL07364) |
+| `alertLabel` | 알림 동작 시 내부적으로 사용하는 primary key 값 | - |
+| `rule` | <Cmdname sid="TTL07365" className="uitext" /> 옵션의 이벤트 조건 | [<Cmdname sid="TTL07362" className="uitext" />](#TTL07365) |
+| `silentSec` | <Cmdname sid="TTL07367" className="uitext" /> | [<Cmdname sid="TTL07362" className="uitext" />](#TTL07367) |
+| `alertKey` | 알림 동작 시 내부적으로 사용하는 primary key 값 | - |
+| `enabled` | <Cmdname sid="enable_events" className="uitext" /> | [<Cmdname sid="TTL07364" className="uitext" />](#TTL07364) |
+| `eventTitle` | <Cmdname sid="event_title" className="uitext" /> | [<Cmdname sid="TTL07364" className="uitext" />](#TTL07364) |
+| `repeatDuration` | <Cmdname sid="number_of_event" className="uitext" /> 옵션에서 선택한 시간 | [<Cmdname sid="TTL07362" className="uitext" />](#number_of_event) |
+| `eventLevelText` | <Cmdname sid="TTL07365" className="uitext" /> 옵션의 이벤트 레벨 수준 | [<Cmdname sid="TTL07362" className="uitext" />](#TTL07365) |
+| `id` | 해당 이벤트의 고유 식별자 값 | - |
+| `category` | <Cmdname sid="select_category" className="uitext" /> | [<Cmdname sid="TTL07362" className="uitext" />](#select_category) |
+| `repeatCount` | <Cmdname sid="number_of_event" className="uitext" /> 옵션에서 선택한 횟수 | [<Cmdname sid="TTL07362" className="uitext" />](#number_of_event) |
+| `stateful` | <Cmdname sid="CNT08326" className="uitext" /> | [<Cmdname sid="TTL07362" className="uitext" />](#CNT08326) |

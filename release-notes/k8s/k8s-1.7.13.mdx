@@ -1,0 +1,34 @@
+---
+id: k8s-1_7_13
+title: Kubernetes Agent v1.7.13
+toc_max_heading_level: 2
+pagination_next: release-notes/k8s/k8s-1_7_12
+displayed_sidebar: releaseSidebar
+---
+
+2024년 10월 21일
+
+* <Status priority='1'>New</Status> <Cmdname sid="side_analysis" className="uitext" /> > <Cmdname sid="side_metricsSearch" className="uitext" /> `kube_ingress` 카테고리 추가
+
+  Ingress 리소스에 대한 메타 데이터 및 관련 정보를 수집합니다. 해당 카테고리는 향후 Ingress 리스트 및 라우팅 정책과 관련된 대시보드 구현 시 활용될 예정입니다.
+
+  :::note 
+
+  Ingress(`kube_ingress`) 카테고리에 대한 자세한 내용은 [다음 문서](../../kubernetes/metrics-kubernetes/#kube_ingress)를 참조하세요. 
+  ::: 
+
+* <Status priority='1'>New</Status> <Cmdname sid="side_analysis" className="uitext" /> > <Cmdname sid="side_metricsSearch" className="uitext" /> `kube_oom_event` 카테고리에 컨테이너 식별 관련 메트릭스 추가
+
+  ***태그***로 ***namespace***, ***podUid***, ***containerName*** 값을 추가하여 OOMKilled 이벤트 발생 시 컨테이너 식별이 가능합니다.
+
+* <Status priority='1'>New</Status> <Cmdname sid="side_analysis" className="uitext" /> > <Cmdname sid="side_metricsSearch" className="uitext" /> `container` 카테고리에 포트 정보 관련 메트릭스 추가
+
+  컨테이너가 사용하는 **containerPort**와 관련된 메트릭스를 추가하였습니다. 쿠버네티스 서비스는 파드 내 컨테이너 포트를 기반으로 라우팅을 수행하므로, 해당 메트릭스를 통해 서비스, 파드, 컨테이너 간의 관계를 표현할 수 있습니다.
+
+:::info
+
+Agent download: [kube_mon_1.7.13.tar](https://repo.whatap.io/docker/kube_mon_1.7.13.tar)
+
+:::
+
+{/* 기존에는 Pod 이름을 표기하는 ***name*** ***필드***만 존재하여 OOMKilled 이벤트가 발생한 컨테이너를 특정하기 어려웠습니다.  */}

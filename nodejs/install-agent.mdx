@@ -97,11 +97,8 @@ var whatap = require('whatap').NodeAgent;
 <TabItem value="ecmascript" label="ECMAScript Module(ESM)">
 
 ```javascript title="ECMAScript Module(ESM)"
-var WhatapAgent = require('whatap').NodeAgent;
-import http from 'http';
-import setupApp from '../src/app';
-let server = null;
-const port = normalizePort(process.env.PORT || '3000');
+import WhatapAgent from 'whatap';
+WhatapAgent.NodeAgent;
 ```
 
 :::note

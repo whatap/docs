@@ -29,7 +29,7 @@
     $TARGET_IP="127.0.0.1"
     #아래 변수에 모니터링 대상 포트를 지정합니다.
     $TARGET_PORT="80"
-    Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT"
+    Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "tcp.check.${TARGET_PORT}=tcp://${TARGET_IP}:${TARGET_PORT}"
     ```
 
     </TabItem>

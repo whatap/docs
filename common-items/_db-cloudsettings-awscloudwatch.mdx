@@ -1,0 +1,192 @@
+## AWS CloudWatch 설정 {#awscloudwatch}
+
+AWS 클라우드 환경에서 실행 중인 데이터베이스의 상태와 자원 사용 현황을 모니터링할 수 있습니다.
+
+### 메트릭을 추가할 서비스 선택하기
+
+<ImgLang img="db-cloudsettings-select-service.png" desc="Select service" />
+
+첫번째 섹션에서 <UI>AWS CloudWatch</UI>를 선택하세요. **AWS CloudFormation** 템플릿을 설치하여 Amazon CloudWatch 메트릭을 수집합니다.
+
+### 파라미터 입력하기
+
+**AWS Cloud Formation** 설정을 진행하기 전에 필수 항목을 입력하세요.
+
+<ImgLang img="db-cloudsettings-input-parameters.png" desc="Parameters" />
+
+* ***DB Identifier***: 모니터링할 AWS 데이터베이스 인스턴스의 식별자를 입력하세요.
+
+  :::note
+
+  Amazon RDS 서비스에서 생성한 Database 인스턴스의 **DB identifier** 값을 입력하세요.
+
+  ![DB Identifire](/img/db-cloudsettings-input-parameters-db-identifier.png)
+
+  :::
+
+* ***Instance***: AWS 클라우드 환경에서 실행 중인 데이터베이스로부터 수집한 지표를 모니터링할 인스턴스(에이전트)를 선택하세요.
+
+* ***Interval***: 지표 수집 간격을 선택하세요. (60초 / 300초)
+
+### AWS CloudFormation 설정하기
+
+와탭에서 제공하는 **AWS CloudFormation** 템플릿을 설치하세요. 이 템플릿을 통해 CloudWatch 메트릭을 와탭으로 수집할 수 있습니다. <UI>AWS CloudFormation</UI> <Cmdname sid="setting" className="uitext" /> 버튼을 선택하면 설치를 시작하고 설정 과정을 진행할 수 있습니다.
+
+<ImgLang img="db-cloudsettings-set-cloud-formation.png" desc="AWS CloudFormation" />
+
+1. <UI>AWS CloudFormation</UI> <Cmdname sid="setting" className="uitext" /> 버튼을 선택하면 **AWS CloudFormation** 설정 화면으로 이동합니다. 
+
+1. **Stack name**과 **Parameters** 섹션에서 자동으로 채워진 항목의 값을 확인하세요.
+
+1. 화면 가장 하단에 위치한 **Create stack** 버튼을 선택하세요.
+
+:::note
+
+* **AWS CloudFormation**에 대한 자세한 내용은 [다음 링크](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)를 참조하세요.
+
+* **Amazon RDS**에 대한 **Amazon CloudWatch** 지표 정보는 [다음 링크](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-metrics.html)를 참조하세요.
+
+:::
+
+### 필요 권한 설정하기
+
+**CloudFormation** 스택(stack)을 생성하려면 다음의 AWS 권한을 설정해야 합니다.
+
+<details>
+
+<summary>AWS 권한 안내(JSON)</summary>
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:CreateStack",
+        "cloudformation:UpdateStack",
+        "cloudformation:DeleteStack",
+        "cloudformation:DescribeStacks",
+        "cloudformation:DescribeStackResources",
+        "cloudformation:GetTemplateSummary",
+        "cloudformation:DescribeStackEvents",
+        "cloudformation:ListStacks",
+        "cloudformation:ListStackResources"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "lambda:CreateFunction",
+        "lambda:UpdateFunctionCode",
+        "lambda:UpdateFunctionConfiguration",
+        "lambda:InvokeFunction",
+        "lambda:DeleteFunction",
+        "lambda:GetFunction",
+        "lambda:GetFunctionConfiguration",
+        "lambda:ListFunctions"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "events:PutRule",
+        "events:PutTargets",
+        "events:RemoveTargets",
+        "events:DeleteRule",
+        "events:DescribeRule",
+        "events:EnableRule",
+        "events:DisableRule"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateRole",
+        "iam:AttachRolePolicy",
+        "iam:PutRolePolicy",
+        "iam:GetRole",
+        "iam:DeleteRole",
+        "iam:PassRole",
+        "iam:ListRoles"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:GetMetricData"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::repo.whatap.io/agent/db/WhaTapRDSMonitoring.zip"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "scheduler:GetSchedule",
+        "scheduler:ListSchedules",
+        "scheduler:CreateSchedule"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+</details>
+
+1. **AWS 권한 안내**의 JSON 내용을 복사하세요.
+
+1. IAM에서 **CloudFormation** 스택(stack)을 생성할 **User**를 선택하세요.
+
+1. **Create inline policy**를 선택하세요.
+
+    ![AWS](/img/db-cloudsettings-aws-iam-policy.png)
+
+1. **JSON** 선택 후 복사한 권한을 붙여넣기해서 policy를 등록하세요.
+
+    ![AWS](/img/db-cloudsettings-aws-iam-policy-json.png)
+
+### 수집 지표 확인하기
+
+클라우드 데이버테이스 연결을 완료하면 화면에 <Cmdname sid="TTL08633" className="uitext" /> 섹션이 생성됩니다. 클라우드 데이터베이스와 연결된 인스턴스(에이전트) 및 수집되는 지표 목록을 확인할 수 있습니다.
+
+<ImgLang img="db-cloudsettings-added-aws-cloud-services.png" desc="Cloud Services" />
+
+**AWS CloudWatch**로부터 수집한 지표는 ***CloudWatch*** 카테고리에 포함됩니다.
+
+![CloudWatch](/img/db-cloudsettings-check-metrics-category-aws.png)
+
+다음 메뉴 경로에서 확인할 수 있습니다.
+
+* <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />: 위젯의 ![설정 아이콘](/img/ico-setting.svg) 버튼을 선택해 지표를 선택할 수 있습니다.
+
+* <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" />: 사용자 정의 위젯을 추가해 지표를 선택할 수 있습니다.
+
+:::note
+
+* <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 위젯의 지표를 변경하는 방법은 [다음 문서](instance-monitoring#selectmetrics)를 참조하세요.
+
+* <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 사용자 정의 위젯을 추가하는 방법은 [다음 문서](multi-instance-monitoring#customwidget)를 참조하세요.
+
+* <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 <Cmdname sid="category" className="uitext" /> 항목을 **db_aws_rds**로 선택하세요. 관련한 태그와 필드 정보를 확인할 수 있습니다.
+
+:::

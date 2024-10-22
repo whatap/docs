@@ -1,0 +1,133 @@
+## Azure Monitor 설정 {#azure}
+
+Azure 클라우드 환경에서 실행 중인 데이터베이스의 상태와 자원 사용 현황을 모니터링할 수 있습니다.
+
+### 메트릭을 추가할 서비스 선택하기
+
+<ImgLang img="db-cloudsettings-select-service-azure.png" desc="Azure" />
+
+첫번째 섹션에서 <UI>Azure Monitor</UI>를 선택하세요. **Azure Resource Manager** 템플릿을 설치하여 Azure Monitor에서 제공하는 메트릭을 수집합니다.
+
+### 파라미터 입력하기
+
+**Azure Resource Manager** 설정을 진행하기 전에 필수 항목을 입력하세요.
+
+<ImgLang img="db-cloudsettings-azure-input-parameters.png" desc="Azure parameter" />
+
+* ***Instance***: Azure 클라우드 환경에서 실행 중인 데이터베이스로부터 수집한 지표를 모니터링할 인스턴스(에이전트)를 선택하세요.
+
+* ***Resource ID***: 모니터링 대상 데이터베이스의 리소스 ID를 입력하세요. 이 정보는 모니터링 대상 데이터베이스 콘솔에서 확인할 수 있습니다. 다음 이미지를 참조하세요.
+
+  ![Azure resource ID](/img/db-cloudsettings-azure-resourceid.png)
+
+파라미터를 입력한 다음 <Cmdname sid="BTN08639" className="uitext" /> 버튼을 선택하세요. **Azure Resource Manager** 설정에 필요한 JSON을 생성합니다. 생성된 JSON 콘텐츠를 복사하세요.
+
+### Azure Resource Manager 설정하기
+
+와탭에서 제공하는 **Azure Resource Manager** 템플릿을 설치하세요. 이 템플릿을 통해 Azure Monitor 지표를 와탭 서버로 수집하는 Function App을 설치할 수 있습니다. <UI>Azure Resource Manager</UI> <Cmdname sid="setting" className="uitext" /> 버튼을 선택하면 설치를 시작하고 설정 과정을 진행할 수 있습니다.
+
+<ImgLang img="db-cloudsettings-set-resource-manager.png" desc="Azure Resource Manager" />
+
+1. <UI>Azure Resource Manager</UI> <Cmdname sid="setting" className="uitext" /> 버튼을 선택하면 Microsoft Azure의 템플릿 생성 화면으로 이동합니다.
+
+1. **Edit Parameters**를 선택하세요.
+
+    ![Azure](/img/db-cloudsettings-azure-template.png)
+
+1. 앞서 <Cmdname sid="BTN08639" className="uitext" /> 버튼을 통해 생성한 JSON 형식의 파라미터를 붙여넣기하세요.
+
+    <ImgLang img="db-cloudsettings-azure-edit-parameters.png" desc="Edit parameters" />
+
+1. 화면 하단의 **Save** 버튼을 선택하면 파라미터가 자동 입력됩니다.
+
+1. **Resource group**을 선택하세요. **Resource group**은 반드시 모니터링 대상 데이터베이스가 있는 그룹을 선택해야 합니다.
+
+    <ImgLang img="db-cloudsettings-azure-project-details.png" desc="Azure" />
+
+1. **Review \+ Create** 버튼을 선택하세요.
+
+1. 다음 화면에서 **Create** 버튼을 선택하세요.
+
+배포가 진행되고 모든 과정을 완료합니다.
+
+:::note
+
+* **Azure Resource Manager**에 대한 자세한 내용은 [다음 링크](https://learn.microsoft.com/azure/azure-resource-manager/management/overview)를 참조하세요.
+
+* Azure Monitor에서 지원되는 지표 정보는 [다음 링크](https://learn.microsoft.com/azure/azure-monitor/reference/metrics-index)를 참조하세요.
+
+:::
+
+### 필요 권한 설정하기
+
+#### 권한 안내
+
+와탭의 Function App이 모니터링 기능을 제대로 활용하려면, 해당 리소스 그룹(Rescource group)이나 구독(Subscription)에 **Monitoring Reader** 역할을 할당해야 합니다. 그러나 이 역할을 할당하는 행위 자체는 권한이 필요한 작업입니다. 즉, **Microsoft.Authorization/roleAssignments/write** 권한이 필요하며, 이 권한은 일반적인 사용자 역할에는 포함되지 않습니다.
+
+따라서, **Monitoring Reader** 역할을 할당하기 위해서는 이러한 고급 권한이 포함된 **Role Based Access Control Administrator** 또는 **User Access Administrator** 역할이 필요합니다.
+
+:::note
+
+* 해당 리소스 그룹(Rescource group)이나 구독(Subscription)에 **Monitoring Reader** 역할이 이미 할당되어 있다면 이 과정은 생략해도 됩니다.
+
+* Azure 역할 할당에 대한 자세한 내용은 [다음 링크](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal#prerequisites)를 참조하세요.
+
+:::
+
+#### 권한 할당하기
+
+최소한의 범위를 위해 구독(Subscription) 보다 하위 계층인 리소스 그룹(Rescource group)을 기준으로 안내합니다.
+
+1. 리소스를 포함할 그룹 대시보드에서 **Access control (IAM)** &gt; **Add** &gt; **Add role assignment** 차례로 선택하세요.
+
+    ![Azure - Add role assignment](/img/db-cloudsettings-azure-add-role.png)
+
+1. **Add role assignment** 화면에서 **Privileged administrator roles** 탭을 선택하세요.
+
+    ![Azure - Privileged administrator roles](/img/db-cloudsettings-azure-assignment.png)
+
+1. **Role base Access Controle Administator** 또는 **User Access Administrator** 항목을 선택하세요.
+
+1. 화면 하단의 **Next** 버튼을 선택하세요.
+
+1. **Assign access to** 항목에서 **User, group, or service principal**을 선택하고, **Select Members**를 선택해 사용자(**User**)를 추가하세요.
+
+    ![Azure - Select members](/img/db-cloudsettings-azure-assignment-user.png)
+
+1. 화면 하단의 **Next** 버튼을 선택하세요.
+
+1. **Recommended** 항목을 선택하고 **Review + assign** 버튼을 클릭하세요.
+
+    ![Azure - Condtions](/img/db-cloudsettings-azure-conditions.png)
+
+:::note
+
+**fewer privileges** 항목을 선택하려면 **Monitoring Reader** 역할만 허용하세요.
+
+:::
+
+### 수집 지표 확인하기
+
+클라우드 데이버테이스 연결을 완료하면 화면에 <Cmdname sid="TTL08633" className="uitext" /> 섹션이 생성됩니다. 클라우드 데이터베이스와 연결된 인스턴스(에이전트) 및 수집되는 지표 목록을 확인할 수 있습니다.
+
+<ImgLang img="db-cloudsettings-added-azure-cloud-services.png" desc="Cloud Services" />
+
+**Azure Monitor**로부터 수집한 지표는 ***Azure*** 카테고리에 포함됩니다.
+
+![CloudWatch](/img/db-cloudsettings-check-metrics-category-aws.png)
+
+다음 메뉴 경로에서 확인할 수 있습니다.
+
+* <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />: 위젯의 ![설정 아이콘](/img/ico-setting.svg) 버튼을 선택해 지표를 선택할 수 있습니다.
+
+* <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" />: 사용자 정의 위젯을 추가해 지표를 선택할 수 있습니다.
+
+:::note
+
+* <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 위젯의 지표를 변경하는 방법은 [다음 문서](instance-monitoring#selectmetrics)를 참조하세요.
+
+* <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 사용자 정의 위젯을 추가하는 방법은 [다음 문서](multi-instance-monitoring#customwidget)를 참조하세요.
+
+* <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 <Cmdname sid="category" className="uitext" /> 항목을 **db_azure_database**로 선택하세요. 관련한 태그와 필드 정보를 확인할 수 있습니다.
+
+:::

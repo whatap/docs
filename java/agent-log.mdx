@@ -160,9 +160,9 @@ LogSink 옵션은 whatap.agent-2.1.0 버전 이상에서 사용 가능합니다.
   logback-1.2.8을 추적할 때 특정 appender를 제외하는 에이전트 옵션입니다. 예를 들어, `CONSOLE`과 `ACCESS_APPENDER`를 제외하려면 다음 예제를 참조하세요.
 
   ```ini title="whatap.conf"
+  weaving=logback-1.2.8
   # example: ignore 'CONSOLE', 'ACCESS_APPENDER' appender
   ignore_logback_appender_set=CONSOLE,ACCESS_APPENDER
-  weaving=logback-1.2.8
   ```
 
   :::note

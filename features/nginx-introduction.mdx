@@ -7,6 +7,7 @@ toc_max_heading_level: 2
 keywords: [NGINX, Feature ]
 ---
 import InstallFeature from '../common-items/_import_feature-install-agent.mdx';
+import HttpStatus from "../common-items/_import_feature-http-status.mdx";
 import TR from '@site/src/components/TR';
 
 :::note
@@ -25,7 +26,7 @@ NGINX는 고성능 HTTP 및 역방향 프록시 서버로, 웹 애플리케이�
 
 * **대시보드**: 대시보드를 통해 필요한 지표를 효율적으로 조회하고 분석할 수 있습니다.
 
-와탭 ***NGINX*** 모니터링을 통해 NGINX 서버의 안정적 운영을 관리해 보세요.
+와탭 ***NGINX*** 모니터링을 통해 NGINX 서버를 안정적으로 운영하고 관리해 보세요.
 
 ## 설치하기
 
@@ -74,15 +75,7 @@ import CreateFeature from "../common-items/_import_feature-project-create.mdx";
   <details>
   <summary>대시보드 지표 안내 </summary>
   
-  * ***Response2XX***: 정상적으로 처리된 요청을 의미합니다. 서버가 성공적으로 처리한 요청의 수를 실시간으로 표시합니다.
-
-  * ***Response3XX***: 리다이렉트된 요청을 추적합니다. 
-
-  * ***Response4XX***: 잘못된 요청과 같은 클라이언트 오류에 대한 응답을 표시합니다.
-
-  * ***Response5XX***: 서버 오류에 대한 응답 상태를 추적합니다. 
-
-  * ***Response503***: 서비스 불가 오류 상태를 추적합니다.
+  <HttpStatus />
 
   </details>
 

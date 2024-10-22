@@ -1,0 +1,201 @@
+---
+id: apache-introduction
+title: APACHE 모니터링
+description: 이 문서는 APACHE 모니터링 상품에 대한 소개 페이지입니다.
+displayed_sidebar: featuremonitorSidebar
+toc_max_heading_level: 2
+keywords: [APACHE, Feature ]
+---
+import InstallFeature from '../common-items/_import_feature-install-agent.mdx';
+import HttpStatus from "../common-items/_import_feature-http-status.mdx";
+import TR from '@site/src/components/TR';
+
+:::note
+
+**피쳐 프로젝트**<ScrollToLink anchor='feature-project' />
+
+와탭은 사용자가 원하는 소프트웨어의 모니터링 지원 여부를 쉽게 확인하고 간편하게 모니터링을 시작할 수 있도록 새롭게 **피쳐 프로젝트**(<code class='Features'>Features</code>)를 도입하였습니다. 피쳐 프로젝트는 기존 모니터링 제품을 사용자가 모니터링하고자 하는 소프트웨어에 맞게 재포장해 최적화된 모니터링 솔루션을 제공합니다. 와탭 피쳐 프로젝트를 통해 서비스의 안정성과 성능을 더욱 효과적으로 관리해 보세요. 
+
+:::
+
+아파치 서버는 전 세계적으로 가장 널리 사용되는 웹 서버 중 하나로, HTTP 요청을 처리하고 콘텐츠를 제공하는 역할을 합니다. 아파치 모니터링을 통해 서버의 성능, 요청 처리량, 응답 시간 등을 효과적으로 관리할 수 있습니다.
+
+와탭은 새로운 **피쳐 프로젝트** 방식으로 ***APACHE*** 모니터링을 제공합니다. 아파치 서버의 성능과 상태를 실시간으로 추적하여 문제를 조기에 감지하고 해결할 수 있도록 돕습니다.
+
+* **지표 모니터링**: 아파치 서버의 트래픽, 연결 수, 응답 상태 등 다양한 지표를 추적하여 서버 성능과 안정성을 확인할 수 있습니다.
+
+* **맞춤형 대시보드**: 맞춤형 대시보드를 통해 필요한 지표를 효율적으로 조회하고 분석할 수 있습니다.
+
+와탭 ***APACHE*** 모니터링을 통해 아파치 서버의 안정적으로 운영하고 관리해 보세요.
+
+## 설치하기
+
+와탭 아파치 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다. 
+
+와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다. 회원 가입에 관한 자세한 내용은 [다음 문서](../account/account-manage)를 참조하세요. 
+
+:::note  
+
+**지원 환경**<ScrollToLink anchor='APACHE-supported-env' />
+
+와탭 아파치 모니터링 에이전트를 설치하기 전에 지원 환경을 확인하세요. 
+
+* **APACHE**: APACHE 1.3 이상
+
+* **Ubuntu**: Ubuntu 12.04 이상
+
+* **OS**: Red Hat 6 or equivalent(CentOS, Rocky Linux, Amazon Linux)
+
+* **운영체제 아키텍처**: Amd64/X86_64, Arm64/Aarch64
+
+:::
+
+### 피쳐 프로젝트 생성하기
+
+import CreateFeature from "../common-items/_import_feature-project-create.mdx";
+
+<CreateFeature /> 
+
+### APACHE 에이전트 설치 
+
+<InstallFeature name='APACHE 에이전트 설치' />
+
+## 주요 메뉴 알아보기
+
+### 맞춤형 대시보드
+
+홈 화면 > **피쳐 프로젝트**(<code class='Features'>Features</code>) 선택 > ***APACHE*** > ***APACHE 대시보드***
+
+***APACHE 대시보드는*** 웹 서버의 성능을 실시간으로 모니터링하고 분석하기 위해 설계된 시각적 도구입니다. 다양한 요청 상태 코드, 메트릭, 트래픽 처리량 및 지연 시간과 같은 여러 중요한 지표를 효과적으로 모니터링할 수 있습니다. 
+
+와탭이 제공하는 아파치 **맞춤형 대시보드**는 다음의 세 가지 프리셋으로 구성되어있습니다. 
+
+* ***Apache Overview***
+
+  아파치 서버의 전반적인 상태를 한눈에 파악할 수 있도록 주요 성능 지표와 요청 상태를 시각화한 프리셋입니다. 
+
+  <details>
+  <summary>대시보드 지표 안내 </summary>
+  
+  #### ***Apache Requests Status Code***
+
+  <HttpStatus />
+
+  #### ***Apache Metrics***
+
+  * ***Apache Busy Workers***: 요청을 처리 중인 워커의 수를 표시합니다.
+
+  * ***Apache Idle Workers***: 대기 중인 워커의 수를 표시합니다. 
+  
+  * ***Request Per Sec***: 초당 처리된 요청의 수를 표시합니다. 
+  
+  * ***Bytes Per Sec***: 초당 전송된 데이터의 양을 표시합니다. 
+  
+  * ***Bytes Per Request***: 요청당 전송된 데이터 양을 표시합니다. 
+  
+  * ***Connections***: 서버에 연결된 총 클라이언트 수를 표시합니다. 
+  
+  * ***Apache Scoreboard Waiting***: Apache scoreboard에서 연결을 기다리고 있는 상태의 요청 수를 표시합니다. 
+
+  #### ***Domain Throughput***
+
+  * ***Response Bytes SUM***: 서버가 처리한 총 응답 바이트 수를 표시합니다. 
+
+  * ***Latency Average***: 평균 응답 지연 시간을 표시합니다. 
+
+  </details>
+
+
+* ***Apache Worker Performance***
+
+  아파치 서버의 호스트 로드, 워커 상태, 연결 상태 및 프로세스와 관련된 지표를 시각화한 프리셋입니다. 
+
+  <details>
+  <summary>대시보드 지표 안내 </summary>
+
+  #### ***Host Load***
+
+  * ***CPULoad***: 현재 시스템의 총 CPU 부하를 표시합니다.
+  
+  * ***CPUUser***: 사용자 모드에서 사용된 CPU 시간 비율을 표시합니다. 
+  
+  * ***CPUSystem***: 시스템 모드에서 사용된 CPU 시간 비율을 표시합니다. 
+  
+  * ***CPUChildrenUser***: 자식 프로세스의 사용자 모드에서 사용된 CPU 시간을 표시합니다.
+  
+  * ***CPUChildrenSystem***: 자식 프로세스의 시스템 모드에서 사용된 CPU 시간을 표시합니다.
+
+  #### ***Workers***
+
+  * ***BusyWorkers***: 현재 요청을 처리 중인 바쁜 워커 수를 표시합니다. 
+
+  * ***IdleWorkers***: 현재 대기 중인 워커 수를 표시합니다. 
+
+  * ***GracefulWorkers***: 점진적으로 종료되는 중인 워커 수를 표시합니다. 
+
+  #### ***Connections***
+
+  * ***ConnsTotal***: 서버에 연결된 총 클라이언트 수를 표시합니다. 
+
+  * ***ConnsAsyncWriting***: 비동기식으로 데이터를 클라이언트에 쓰고 있는 연결의 수를 표시합니다.
+
+  * ***ConnsAsyncClosing***: 비동기식으로 연결을 종료하는 중인 상태의 연결 수를 표시합니다.
+
+  * ***ConnsAsyncKeepAlive***: 비동기식으로 연결을 유지하는 중인 상태의 연결 수를 표시합니다. 
+
+  #### ***Apache Server***
+
+  * ***Processes***: 서버에서 실행 중인 Apache 프로세스 수를 표시합니다. 
+
+  * ***Stopping***: 종료 중인 Apache 프로세스 수를 표시합니다. 
+
+  * ***ParentServerMPMGeneration***: Apache의 MPM(Multi-Processing Module) 세대 번호를 표시합니다. Apache는 여러 가지 방식으로 요청을 처리할 수 있는데, 이 값은 그 세대의 변경을 추적하는 데 사용됩니다.
+
+  * ***ParentServerConfigGeneration***: 서버 설정이 변경된 후 다시 로드된 횟수를 표시합니다. 설정 변경 후 서버가 다시 시작되거나 설정을 적용하는 빈도를 알 수 있습니다.
+
+  </details>
+
+
+* ***Apache Throughput*** 
+
+  아파치 서버가 처리하는 데이터 양을 나타내는 다양한 지표를 조회하여 서버의 성능을 확인할 수 있도록 돕는 프리셋입니다. 
+
+  <details>
+  <summary>대시보드 지표 안내 </summary>
+
+  #### ***Throughput***
+
+  * ***TotalBytes***: 서버가 처리한 총 바이트 수를 표시합니다. 이는 서버가 처리한 데이터 양을 확인하는 중요한 지표입니다.
+
+  * ***TotalAccesses***: 서버가 처리한 총 요청 수를 표시합니다. 전체 트래픽을 파악하는 데 유용한 지표입니다.
+
+  * ***TotalDuration***: 모든 요청에 대해 서버가 사용한 총 시간(밀리초)을 표시합니다. 요청이 처리되는 데 소요된 총 시간을 확인할 수 있습니다.
+
+  * ***BytesPerSec***: 초당 처리된 데이터 바이트 수를 표시합니다. 서버의 데이터 처리 속도를 확인할 수 있습니다.
+
+  * ***BytesPerReq***: 요청당 처리된 바이트 수를 표시합니다. 각 요청이 처리한 데이터 양을 분석하는 데 유용합니다.
+
+  * ***ReqPerSec***: 초당 처리된 요청 수를 표시합니다. 서버의 요청 처리 속도를 실시간으로 모니터링할 수 있습니다.
+
+  * ***DurationPerReq***: 요청당 처리에 걸린 시간을 표시합니다. 이 지표를 통해 응답 지연 시간을 파악할 수 있습니다.
+
+  #### ***Score Boards***
+
+  * ***scboard_open***: 현재 열려 있는 워커의 수를 표시합니다. 워커가 요청을 처리하기 위해 준비된 상태입니다.
+
+  * ***scboard_reading***: 요청 데이터를 읽고 있는 워커의 수를 표시합니다. 클라이언트로부터 데이터를 수신 중인 상태입니다.
+
+  * ***scboard_sending***: 응답 데이터를 보내고 있는 워커의 수를 표시합니다. 클라이언트로 데이터를 전송 중인 상태입니다.
+
+  * ***scboard_waiting***: 요청을 기다리고 있는 워커의 수를 표시합니다. Keep-alive 상태에서 연결이 유지되고 있으며, 새로운 요청을 기다리는 중입니다.
+
+  * ***scboard_dnslookup***: DNS 조회 작업 중인 워커 수를 표시합니다.
+
+  * ***scboard_starting***: 새롭게 시작되고 있는 워커 수를 표시합니다. 새 프로세스가 생성되거나 워커가 초기화되고 있는 상태입니다.
+
+  * ***scboard_idle_cleanup***: 대기 중인 워커를 정리하는 상태를 표시합니다.
+
+  * ***scboard_keepalive***: Keep-alive 상태에서 연결이 유지되고 있는 워커의 수를 표시합니다.
+
+  </details>
+

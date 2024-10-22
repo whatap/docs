@@ -65,9 +65,17 @@ file=/home/altibase/altibase-server-x.y.z/trc/altibase_boot.log
 
 </InDoc>
 
+<InDoc product='cubrid'>
+
+```ini title='xos.conf'
+file=/cubrid-11.0/log/server/demodb_latest.err
+```
+
+</InDoc>
+
 :::note
 
-<InDoc product='mysql,postgresql,oracle,altibase,redis,mongodb'>
+<InDoc product='mysql,postgresql,oracle,altibase,redis,mongodb,cubrid'>
 
 적용하기 전에 XOS 에이전트를 설치하고 에이전트 설정을 진행해야 합니다. 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
 
@@ -81,7 +89,7 @@ file=/home/altibase/altibase-server-x.y.z/trc/altibase_boot.log
 
 :::
 
-<Xclude product="altibase">
+<Xclude product="altibase,cubrid">
 
 ## AWS RDS Log에 적용하기
 

@@ -33,6 +33,12 @@ keywords: [ Go, 로그 ]
 
   값이 `true`이면 Standard output 로그를 수집합니다.
 
+- **logsink_stderr_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  값이 `true`이면 Standard error output 로그를 수집합니다.
+
 - **logsink_zip_enabled** <span class='type'>Boolean</span>
 
   기본값 `true`
@@ -53,6 +59,7 @@ keywords: [ Go, 로그 ]
 ```ini title='whatap.conf'
 logsink_enabled=true
 logsink_stdout_enabled=true
+logsink_stderr_enabled=true
 logsink_zip_enabled=true
 logsink.files=/etc/httpd/logs/error_log, /etc/httpd/logs/access_log
 ```
@@ -68,5 +75,11 @@ whatap.logsink.files=/etc/httpd/logs/customlog-%Y%m%d
 ```
 
 이 기능은 Go 에이전트 0.3.2 버전 이상에서 지원합니다. 
+
+:::
+
+:::note
+
+로그 설정과 관련한 API 가이드는 [다음 문서](api-guide#log)를 참조하세요.
 
 :::

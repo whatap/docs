@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_7_1",
+    "ver": "v1.7.1",
+    "date": "2024-10-10",
+    "Lists": [
+      {
+        "ver": "v1.7.1",
+        "hash": "v171",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> <code>database connection close</code>에서 오류가 발생할 때 프로파일 수집이 중단되는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_7_0",
+    "ver": "v1.7.0",
+    "date": "2024-09-25",
+    "Lists": [
+      {
+        "ver": "v1.7.0",
+        "hash": "v170",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> fastapi 0.115.0 버전에 대한 트랜잭션 수집 오류 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_6_6",
     "ver": "v1.6.6",
     "date": "2024-06-07",

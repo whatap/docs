@@ -1,0 +1,268 @@
+---
+id: server-inventory
+title: 서버 구성 정보
+description: 서버 구성 정보 메뉴를 안내합니다. 
+keywords: [ 서버 상세, 서버 구성 정보, 분석하기, UI, Server ]
+---
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" />
+
+{/* :::note 
+
+**지원 에이전트 버전**
+
+<Cmdname sid="side_serverInventory" className="uitext" /> 메뉴는 특정 에이전트 버전 이상에서만 지원됩니다. 각 운영체제별 최소 지원 버전은 다음과 같습니다. 
+
+
+* **Linux**: 2.6.6 이상
+
+* **AIX**: 1.3.4 이상
+
+* **Solaris**: 1.3.4 이상
+
+* **Windows**: 2.6.6 이상
+
+::: */}
+
+와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 <Cmdname sid="side_serverList" className="uitext" /> 메뉴 하위에 <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴를 선택하세요. <Cmdname sid="side_serverInventory" className="uitext" />는 서버 운영에 필요한 구성 정보를 제공하고 관리 편의성을 위해 수동으로 관리 항목을 추가할 수 있습니다. 
+
+<Cmdname sid="side_serverInventory" className="uitext" />는 서버의 물리적 및 가상적 특성, 운영 환경 등을 체계적으로 관리하기 위한 메뉴입니다. 이 기능은 자동으로 수집된 서버 구성 요소와 사용자 정의 항목을 통해 서버의 구성을 상세히 파악하고 관리할 수 있게 해줍니다. <Cmdname sid="side_serverInventory" className="uitext" />는 서버의 성능 분석과 문제 해결에 필수적인 데이터를 제공합니다.
+
+{/* ## 지원 에이전트 및 업데이트 */}
+
+:::note 
+
+**지원 에이전트 버전**
+
+<Cmdname sid="side_serverInventory" className="uitext" /> 메뉴는 운영체제별로 다음 버전 이상에서만 지원됩니다. 
+
+* **Linux**: 2.6.6 이상
+
+  업데이트가 필요할 경우 운영체제별로 다음 명령어를 확인하세요. 
+
+  <Tabs>
+  <TabItem value="du" label="Debian/Ubuntu" default>
+
+  ```bash
+  sudo apt-get update
+  sudo apt-get install whatap-infra
+  ```
+
+  </TabItem>
+  <TabItem value="arfocrs" label="Amazon Linux/RHEL/Fedora/Oracle Linux/CentOS/Rocky Linux/SUSE">
+
+  ```bash
+  sudo yum update whatap-infra
+  ```
+
+  </TabItem>
+  </Tabs> 
+
+* **Unix**: 1.3.4 이상
+
+  업데이트가 필요할 경우 운영체제별로 다음 명령어를 확인하세요.
+
+  <Tabs>
+  <TabItem value="aix" label="AIX" default>
+
+  ```bash
+  stopsrc -s whatap-infra
+  cp /usr/whatap/infra/conf/whatap.conf /tmp/whatap.conf
+  rpm -e whatap-infra
+  rpm -Uvh http://repo.whatap.io/aix/noarch/whatap-infra-latest.noarch.rpm
+  cp /tmp/whatap.conf /usr/whatap/infra/conf/whatap.conf
+  ```
+
+  </TabItem>
+  <TabItem value="solaris" label="Oracle Solaris">
+
+  ```bash
+  cp /usr/whatap/infra/conf/whatap.conf /tmp
+  /etc/init.d/whatap-infra stop
+  pkgrm whatap-infra
+  wget https://repo.whatap.io/sunos/11/whatap-infra.latest.SPARC.pkg.tar.gz
+  tar xzvf whatap-infra.latest.SPARC.pkg.tar.gz
+  pkgadd -d .
+  cp /tmp/whatap.conf /usr/whatap/infra/conf/whatap.conf
+  ```
+
+  </TabItem>
+  </Tabs> 
+
+* **Windows**: 2.6.6 이상
+
+  다음 [링크](https://repo.whatap.io/windows/whatap_infra.exe)를 통해 설치 파일을 다운로드 후 실행하세요. 에이전트 업데이트 후 서비스가 재시작됩니다. 
+
+:::
+
+## 활성화 옵션
+
+<Cmdname sid="side_serverInventory" className="uitext" /> 메뉴 조회 기능을 활성화하려면 다음 설정이 필요합니다.
+
+1. *whatap.conf* 파일 내 다음 옵션을 활성화하세요. 
+
+    ```ini 
+    hostinfov2.enabled=true
+    ```
+
+1. 환경별로 옵션 추가 설정 후 에이전트를 재시작하세요. 
+
+    * **Linux**
+
+      <Tabs>
+      <TabItem value="linux-opt" label="옵션 추가 명령어" default>
+
+      ```bash
+      grep -q '^hostinfov2.enabled' /usr/whatap/infra/conf/whatap.conf || echo 'hostinfov2.enabled=true' | sudo tee -a /usr/whatap/infra/conf/whatap.conf
+      ```
+
+      </TabItem>
+      <TabItem value="linux-restart" label="에이전트 재시작">
+
+      ```bash
+      sudo service whatap-infra restart
+      ```
+
+      </TabItem>
+      </Tabs> 
+
+    * **Unix** 
+
+      <Tabs>
+      <TabItem value="unix-opt" label="옵션 추가 명령어" default>
+
+      ```bash title='AIX/Oracle Solaris'
+      grep -q '^hostinfov2.enabled' /usr/whatap/infra/conf/whatap.conf || echo 'hostinfov2.enabled=true' | tee -a /usr/whatap/infra/conf/whatap.conf
+      ```
+
+      </TabItem>
+      <TabItem value="unix-restart" label="에이전트 재시작">
+
+      ```bash title='AIX'
+      stopsrc -s whatap-infra
+      startsrc -s whatap-infra
+      ```
+
+      ```bash title='Oracle Solaris'
+      /etc/init.d/whatap-infra restart
+      ```
+
+      </TabItem>
+      </Tabs> 
+
+    * **Windows**
+
+      <Tabs>
+      <TabItem value="windows-opt" label="옵션 추가 명령어" default>
+
+      ```bash
+      if (-not (Select-String -Path "C:\Program Files\WhatapInfra\whatap.conf" -Pattern "^hostinfov2.enabled" -Quiet)) { Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "hostinfov2.enabled=true" }
+      ```
+
+      </TabItem>
+      <TabItem value="windows-restart" label="에이전트 재시작">
+
+      ```bash
+      Restart-Service -Name "Whatap Infra"
+      ```
+
+      </TabItem>
+      </Tabs> 
+
+## 기본 화면 안내
+
+{/* 대시보드 및 주요 제공 정보 안내  */}
+
+<Cmdname sid="side_serverInventory" className="uitext" /> 메뉴는 서버의 주요 구성 정보를 목록 형태로 제공합니다. 자동으로 수집한 서버 운영 및 관리에 필요한 필수 정보와 사용자 정의 항목을 함께 관리할 수 있습니다. 이를 통해 서버 관리자는 더욱 체계적이고 효율적으로 인프라를 모니터링하고 운영할 수 있습니다. 필터와 정렬 기능을 활용하여 필요한 정보를 쉽게 검색해 보세요. 
+
+<ImgLang img='server-inventory.png' desc='서버 구성 정보' />
+
+{/* 
+
+<Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 서버 구성 데이터를 자동으로 수집하여 관리할 수 있습니다. 또한 서버 구성 항목을 사용자가 정의하여 추가하거나 수정할 수 있습니다. 이를 통해 서버 운영 및 관리에 필요한 중요한 데이터를 한눈에 파악하고 추가적인 구성 관리 항목을 통해 서버 관리의 효율성을 향상시킬 수 있습니다.  
+
+메뉴는 서버의 하드웨어 및 소프트웨어 주요 구성 정보를 목록 형태로 제공합니다. <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 서버 운영 및 관리에 필요한 필수 정보 자동 수집과 함께 커스텀 항목을 통한 확장성을 제공합니다. 이를 통해 서버 관리자는 더욱 체계적이고 효율적으로 인프라를 모니터링하고 관리할 수 있습니다. 필터와 정렬 기능을 활용하여 필요한 정보를 쉽게 검색해 보세요. 
+
+*/}
+
+{/* 이를 통해 다음 예시와 같은 구성 관리가 가능합니다. 
+
+* 운영 담당자 및 지원 벤더 정보
+
+* 서버 도입일 및 기타 관리 항목
+
+* 서버를 용도나 역할에 따라 그룹으로 분류하여 다양한 그룹 관리  */}
+
+### 필터
+
+상단 ![지시선 1](/img/number-01.png) 필터 입력창에서 원하는 조건 입력 후 해당 조건에 맞는 항목만 조회할 수 있습니다. 컬럼 조건을 입력 또는 선택 후 엔터를 눌러 추가하세요. `==` 또는 `!=` 적용 후 조건의 값을 특정해 입력하고 엔터를 누르세요.
+
+> 예, <code class='filter'>서버 이름</code><code class='filter center'>==</code><code class='filter'>server04</code>
+
+필터 입력 후 <Cmdname sid="BTN06223" className="uitext" /> 버튼을 클릭하면 ![지시선 2](/img/number-02.png) 서버 구성 정보 목록 영역에서 필터링된 목록을 조회할 수 있습니다. 
+
+{/* 컬럼 조건 특정 후 조회 선택해야 적용 */}
+
+### 정렬
+
+![지시선 2](/img/number-02.png) 영역 상단의 정렬 옵션을 통해 최대 3단계의 다중 정렬을 제공합니다. 커스텀 컬럼 포함하여 원하는 항목을 기준으로 정렬할 수 있습니다. 기본 정렬 설정은 <Cmdname sid="TTL08087" className="uitext" /> &gt; <Cmdname sid="TTL08099" className="uitext" /> &gt; <Cmdname sid="TTL08100" className="uitext" /> 입니다. 
+
+:::note 
+
+메뉴 이동 및 새로고침 시 정렬은 초기화됩니다.
+
+:::
+
+{/* * 1차 2차 3차 정렬 
+
+* 기본 설정: OS - 모델 - 시리얼 
+
+* 현재 정렬 옵션 선택 시 컬럼 설정에서 선택하지 않은 항목까지 보임?
+
+* 정렬 조작으로 적용  
+
+컬럼 설정
+사용자는 기본 제공 항목 외에도 자신이 원하는 항목을 추가하여 커스텀 컬럼을 구성할 수 있습니다.
+
+*/}
+
+### 컬럼 설정 
+
+![지시선 2](/img/number-02.png) 영역 상단의 ![컬럼 아이콘](/img/ic-column.svg) <Cmdname sid="column_settings" className="uitext" /> 버튼을 클릭하세요. 다음과 같이 컬럼 선택 및 커스텀 컬럼 추가 후 하단의 <Cmdname sid="BTN06053" className="uitext" /> 버튼을 선택 해 컬럼 설정을 저장하세요. 
+
+<ImgLang img='server-inventory-cl.png' desc='서버 구성 정보 컬럼 설정' />
+
+* **컬럼 선택** 
+
+  사용자는 테이블에 표시할 컬럼을 선택할 수 있습니다. <Cmdname sid="initialized" className="uitext" /> 버튼 선택 시 기본 항목 선택 상태로 돌아갑니다.
+
+  :::note 
+
+  선택한 ***컬럼***은 브라우저 쿠키값으로 저장되어 페이지를 새로 고침해도 상태가 유지됩니다. 쿠키가 삭제되거나 다른 이유로 설정 오류가 발생하면 기본 항목 선택 상태로 초기화합니다.
+
+  :::
+
+* **컬럼 추가** 
+
+  사용자는 ***+*** <Cmdname sid="add_a_column" className="uitext" /> 버튼 선택 후 기본 제공 항목 외에도 자신이 원하는 항목을 추가하여 커스텀 컬럼(<code class='custom-cl'>custom</code>)을 구성할 수 있습니다. 각 필요에 맞게 컬럼을 추가하고 서버 상태 및 성능을 더욱 세밀하게 모니터링해 보세요. 
+
+
+### CSV 다운로드
+
+![지시선 2](/img/number-02.png) 영역 상단의 ![다운로드 아이콘](/img/ico-download.svg) <Cmdname sid="download" className="uitext" /> 버튼을 선택하여 수집된 서버 구성 정보를 *CSV* 파일 형식으로 다운로드할 수 있습니다. 
+
+### 수정
+
+![지시선 2](/img/number-02.png) 영역 상단의 ![수정 아이콘](/img/ic-edit.svg) <Cmdname sid="edit" className="uitext" /> 버튼을 선택하여 서버 구성 정보 목록을 수정할 수 있습니다. 
+
+* <Cmdname sid="TTL08183" className="uitext" />과 <Cmdname sid="TTL08184" className="uitext" /> 컬럼 내용을 설정할 수 있습니다. 
+
+* 사용자가 추가한 커스텀 컬럼(<code class='custom-cl'>custom</code>) 내용을 설정할 수 있습니다.
+
+{/* 
+
+### 활용 예시 
+
+활용 예시의 경우 추후 학습하기 문서에서 활용 
+
+*/}

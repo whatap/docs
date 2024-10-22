@@ -1,4 +1,14 @@
+<Xclude product="cubrid,cubrid-v1">
+
 ## 부가 에이전트(XOS) 설치 및 기타 옵션 적용하기 {#apply-xos-agent}
+
+</Xclude>
+
+<InDoc product="cubrid,cubrid-v1">
+
+## XOS 에이전트 설치 (선택사항) {#apply-cubrid-xos-agent}
+
+</InDoc>
 
 데이터베이스 서버의 자원을 추가로 모니터링하려면 데이터베이스 서버에 별도의 XOS 에이전트를 실행해 데이터를 수집할 수 있습니다.
 
@@ -16,7 +26,7 @@
 
 :::
 
-<InDoc product="postgresql,mysql,oracle,oracle-v1,cubrid,tibero,altibase,altibase-v1,mssql">
+<InDoc product="postgresql,mysql,oracle,oracle-v1,tibero,altibase,altibase-v1,mssql">
 
 <Tabs groupId="dbXos">
 <TabItem value="xos" label="XOS">
@@ -108,9 +118,11 @@ aws cloudwatch list-metrics --namespace AWS/RDS --dimensions Name=DBInstanceIden
 
 </InDoc>
 
-<InDoc product="redis,mongodb">
+<InDoc product="redis,mongodb,cubrid,cubrid-v1">
 
-<ImgLang img='xos-agent.png' desc='' />
+<InDoc product="redis,mongodb"><ImgLang img='xos-agent.png' desc='' /></InDoc>
+
+<InDoc product="cubrid,cubrid-v1"><ImgLang img='xos-agent-cubrid.png' desc='' /></InDoc>
 
 1. DBX 에이전트가 설치된 경로의 *whatap.conf* 파일에 다음 옵션을 설정하세요.
 

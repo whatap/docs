@@ -5,9 +5,9 @@ description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 �
 keywords: [ CUBRID, 데이터베이스 모니터링, 에이전트 ]
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import TR from '@site/src/components/TR';
+import V2Note from "../common-items/_import_v2-note.mdx";
+
+<V2Note product="CUBRID" />
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
@@ -21,92 +21,145 @@ import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
 <Createprojectv2 />
 
-import Accesskey from "../getting-started/_accesskey.mdx";
+<Steps>
 
-<Accesskey />
+{/* ## 구성도 확인 */}
+import CheckType from "../common-items/_db-install-agent-check-type.mdx";
 
-## 에이전트 다운로드
-
-import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
-
-<Dbinstallagentsteps />  
-
-3. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
-
-    ```ini title='whatap.conf'
-    license=프로젝트 액세스 키
-    whatap.server.host=13.124.11.223/13.209.172.35 // 와탭 서버 정보
-
-    db = {$CUBRID_HOME/databases/databases.txt 의 db-name}
-    db_ip = {DB 서버 IP 주소}
-    db_port = {$CUBRID_HOME/conf/cubrid_broker.conf 의 BROKER_PORT (default : 33000)}
-    cms_port = {$CUBRID_HOME/conf/cm.conf 의 cm_port (default : 8001)}
-    cms_token_file = {에이전트 설치 경로}/cms_token
-    broker = query_editor,broker1
-    ```
-
-    :::note
-
-    * `cms_token_file`, `broker` 옵션에 대한 자세한 내용은 [다음 문서](agent-dbx-settings#cubrid)를 참조하세요.
-
-    * `broker` 옵션으로 설정할 이름은 `cubrid broker status` 명령어로 확인할 수 있습니다.
-
-    :::
-
-4. 다음 디렉터리에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
-
-    데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요. https://www.cubrid.com/downloads
-
-{/* 공통 Notes*/}
-import Dbinstallagentcommonnotes from "../common-items/_db-install-agent-common-notes.mdx";
-
-<Dbinstallagentcommonnotes />
-
+<CheckType />
 
 ## 모니터링을 위한 계정 생성하기
 
-CUBRID를 모니터링하기 위해서는 DB 계정과 CUBRID Manager 계정이 모두 필요합니다. 일반적으로 DB의 디폴트 dba 계정(`dba`)과 CUBRID Manager 계정(`admin`)을 사용합니다. 별도의 계정을 생성해서 사용해도 됩니다.
+CUBRID를 모니터링하기 위해서는 DB 계정과 CUBRID Manager 계정이 모두 필요합니다. DB 계정은 `dba`를 사용하세요. CUBRID Manager 계정은 다음 명령어를 이용하세요.
 
-## DB 유저 파일 생성하기{#create-db-user}
-
-데이터베이스 접속을 위해 암호화된 UID를 생성합니다. 유저 파일은 사용자 DB(`dba`)와 CUBRID Manager(`admin`)에 대해 모두 실행해야 합니다. username과 password를 입력하고 쉘 스크립트(또는 배치 파일)를 실행하세요. 
-
-* *uid.sh* 쉘 스크립트 파일(또는 *uid.bat* 배치 파일)은 와탭 데이터베이스 에이전트를 설치한 경로에서 찾을 수 있습니다.
-
-* `dba`와 `DB_PASSWORD`는 회원 가입 시 사용했던 사용자 이름과 비밀번호입니다.
-
-  ```bash title='uid.sh | uid.bat'
-  ./uid.sh dba DB_PASSWORD
-  ./cmsuid.sh admin ADMIN_PASSWORD
-
-  # 또는
-
-  ./uid.bat "dba" "DB_PASSWORD"
-  ./cmsuid.bat "admin" "ADMIN_PASSWORD"
-  ```
+```sql title="CUBRID Manager account"
+cm_admin adduser whatap whatap
+```
 
 :::note
 
-* 최초 한번만 설정하면 그 이후부터는 암호화된 UID를 통해 모니터링 대상 데이터베이스 서버로부터 데이터 수집을 진행합니다.
-* DB 유저 파일을 생성하기 위해서는 프로젝트 액세스 키가 *whatap.conf* 파일에 입력되어 있어야 합니다. [프로젝트 액세스 키 확인](#check-accesskey)
-* Azure Database 환경의 경우 `DB_USER`를 DB_USER@DB_name과 같은 형식으로 입력해야 합니다.
-* `dba` 또는 `DB_PASSWORD`에 특수문자가 포함될 경우 특수문자 앞에 Escape Character(\\)를 같이 입력하세요.
-
-  ```bash title='Example'
-  ./uid.sh whatap whatap\!pwd
-  
-  # 특수문자가 2개 이상일 경우 각각 이스케이프 문자 추가
-  ./uid.sh whatap whatap\!\@pwd
-  ```
+에이전트마다 서로 다른 이름의 계정을 사용해야 합니다.
 
 :::
 
-{/*## 에이전트 실행*/}
+{/* 액세스 키 확인 */}
+import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
+
+<Accesskeyv2 />
+
+{/* DBX 에이전트 다운로드 */}
+import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
+
+<DownloadDBXagent />
+
+{/* ## DBX 에이전트 설정 */}
+import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
+
+<SettingsDBXagent />
+
+{/* ### whatap.conf 설정 */}
+import Whatapconf from "../common-items/_db-whatap-conf.mdx";
+
+<Whatapconf />
+
+{/* ### JDBC 다운로드 */}
+import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
+
+<JDBCDownload />
+
+### DB 유저 파일 생성 {#create-db-user}
+
+import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+
+<DBuserDesc />
+
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+
+<Dbcreatedbuserfilebody /> 
+
+## XCUB 에이전트 설정 {#setxcubagent}
+
+XCUB 에이전트는 데이터베이스 서버에 별도의 프로세스를 실행해 sql text와 지표를 수집합니다. XOS 에이전트와 함께 설치하기를 권장합니다.
+
+<ImgLang img="xcub-install-agent.svg" multi="true" className="noneborder" />
+
+### whatap.conf 파일 설정
+
+*whatap.conf* 파일에 다음과 같이 에이전트 옵션을 설정하세요.
+
+```ini title="whatap.conf"
+xcub=1
+xcub_port=3002
+```
+
+DBX 에이전트 설치 경로 안에 *xcub* 폴더(`/압축 해제 폴더/xcub/`)를 데이터베이스 서버로 복사하세요.
+
+:::note
+
+XOS 에이전트를 함께 설치한다면, XOS 포트를 공유하기 때문에 `xcub_port` 옵션은 설정할 필요 없습니다.
+
+:::
+
+### xcub.conf 파일 설정
+
+데이터베이스 서버의 xcub 폴더 경로에 있는 *xcub.conf* 파일에 DBX 에이전트 서버 정보를 입력하고, 추가 옵션을 설정하세요.
+
+```ini titile="xcub.conf"
+db=demodb@127.0.0.1
+dba_pwd={dba_password}
+dbx_ip={DB_Agent_IP}
+dbx_port=3002
+```
+
+* `db`: **dbname@db서버IP** 형식으로 입력하세요.
+
+* `dba_pwd`: 비밀번호를 설정하면 최초 실행 시 *xcub.pwd* 파일을 생성합니다. 이후 *xcub.conf* 파일에서는 `dba_pwd` 항목을 삭제하세요.
+
+* `dbx_ip`: DBX 에이전트를 설치한 서버의 IP 주소를 입력하세요.
+
+* `dbx_port`: DBX 에이전트와 통신할 포트를 설정하세요. DBX 에이전트와는 UDP로 통신합니다. 해당 포트에 방화벽을 설정했다면 UDP 통신을 위해 방화벽을 해제하세요.
+
+:::note
+
+XCUB 에이전트 설정에 대한 자세한 내용은 [다음 문서](agent-xcub-settings)를 참조하세요.
+
+:::
+
+### XCUB 에이전트 실행 권한 부여
+
+XCUB 에이전트에 실행 권한을 부여하세요.
+
+```bash
+chmod +x ./whatap.agent.xcub*
+```
+
+### XCUB 에이전트 실행
+
+데이터베이스 서버에서 XCUB 에이전트 프로세스를 실행하세요.
+
+```bash
+./start.sh
+```
+
+:::note
+
+XCUB 에이전트를 백그라운드로 실행하려면 *./startd.sh* 파일을 실행하세요.
+
+:::
+
+{/*모니터링 시작하기*/}
 import Dbrunagent from "../common-items/_db-run-agent.mdx";
 
-<Dbrunagent /> 
+<Dbrunagent />
 
-{/*## XOS 에이전트 설치*/}
+{/*XOS 에이전트 설치*/}
 import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
 
 <Dbinstallxosagent /> 
+
+</Steps>
+
+{/* ## 다음 단계 */}
+import NextStep from "../common-items/_db-next-step.mdx";
+
+<NextStep />

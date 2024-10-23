@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_9_x/",
+    "ver": "Service 2.9.7",
+    "date": "2024-10-23",
+    "Lists": [
+      {
+        "ver": "Service 2.9.7",
+        "hash": "service-297",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"0\">Feature</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 구성 정보</span> 메뉴에서 목록 내 선택 항목 <span class=\"uitext\">삭제</span> 기능 추가</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_9_x/",
     "ver": "Service 2.9.5",
     "date": "2024-10-08",
     "Lists": [

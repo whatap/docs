@@ -178,6 +178,15 @@ LogSink 옵션은 whatap.agent-2.1.0 버전 이상에서 사용 가능합니다.
   log4j-2.17을 추적할 때 특정 appender를 제외하는 에이전트 옵션입니다. 예를 들어, `CONSOLE`과 `ACCESS_APPENDER`를 제외하려면 다음 예제를 참조하세요.
 
   ```ini title="whatap.conf"
+  weaving=log4j-2.17
   # example: ignore 'CONSOLE', 'ACCESS_APPENDER' appender
   ignore_log4j_appender_set=CONSOLE,ACCESS_APPENDER
   ```
+
+  :::note
+
+  * 이 에이전트 옵션을 적용할 경우 `weaving=log4j-2.17` 옵션을 추가 적용해야 합니다.
+
+  * `ACCESS_APPENDER`는 예시로 사용한 값입니다. 사용자 환경에 맞는 appender 이름을 지정해야 합니다.
+
+  :::

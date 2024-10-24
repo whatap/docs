@@ -2,7 +2,7 @@
 
 <Title level={props.level + 1}>자동 설정하기</Title>
 
-에이전트의 이름은 IP 주소와 포트 번호가 자동으로 결합되어 지정됩니다. 예를 들어, IP 주소가 **10.11.12.13**이고 포트 번호가 **3000**이라면, 에이전트 이름은 <b>{props.agentType}-12-13-3000</b>으로 설정됩니다.
+에이전트 설정(*whatap.conf*)을 통해 이름을 지정하지 않는다면 에이전트 이름은 IP 주소와 포트 번호가 결합되어 자동 지정됩니다. 예를 들어, IP 주소가 **10.11.12.13**이고 포트 번호가 **3000**이라면, 에이전트 이름은 <b>{props.agentType}-12-13-3000</b>으로 설정됩니다.
 
 에이전트 이름을 결정하는 주요 변수는 다음을 참조하세요.
 
@@ -23,8 +23,10 @@ RDS와 같이 IP 주소가 숫자가 아니라면 {props.agentType}-`{ip0}`-`{ha
 
 <Title level={props.level + 1}>수동 설정하기</Title>
 
-에이전트 이름을 직접 설정하고 싶다면, *whatap.conf* 파일에서 `object_name` 옵션에 원하는 이름을 입력하세요. 사용자가 입력한 이름이 에이전트 이름으로 설정됩니다.
+에이전트 이름을 직접 설정하고 싶다면, *whatap.conf* 파일에서 `whatap.name` 또는 `object_name` 옵션에 원하는 이름을 입력하세요. 사용자가 입력한 이름이 에이전트 이름으로 설정됩니다.
 
 ```ini title="whatap.conf"
+whatap.name=agent-1234
+# or
 object_name=agent-1234
 ```

@@ -1,6 +1,27 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_9_x/",
+    "ver": "Service 2.9.8",
+    "date": "2024-10-25",
+    "Lists": [
+      {
+        "ver": "Service 2.9.8",
+        "hash": "service-298",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">Top SQL 비교</span> 메뉴에서 데이터 등락이 일관되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.9.8",
+        "hash": "service-298",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 <span class=\"uitext\">세션 상세 정보</span> 창을 통해 오래된 세션을 조회할 때, 데이터가 조회되지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_9_x/",
     "ver": "Service 2.9.7",
     "date": "2024-10-23",
     "Lists": [

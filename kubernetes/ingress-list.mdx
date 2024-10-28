@@ -1,0 +1,30 @@
+---
+id: ingress-list
+title: Ingress 목록
+description: Ingress 목록 메뉴를 안내합니다.
+keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 클러스터, Ingress ]
+toc_max_heading_level: 2
+---
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_ingressList" className="uitext" />
+
+:::note 
+
+와탭 쿠버네티스 에이전트 1.7.13 버전 이상이 필요합니다. 
+
+:::
+
+<Cmdname sid="side_ingressList" className="uitext" />을 조회합니다. 쿠버네티스 외부에서 유입되는 요청은 **Ingress**를 통해 컨테이너 내부의 애플리케이션까지 최종적으로 라우팅되며, Ingress 설정에 따라 특정 Service나 Pod에 연결됩니다. Ingress 모니터링은 쿠버네티스 클러스터로 들어오는 외부 트래픽의 흐름을 파악하고 관리하는 데에 중요한 역할을 합니다.
+
+와탭의 <Cmdname sid="side_ingressList" className="uitext" />은 Ingress별 라우팅 정책을 시각화한 목록 뷰를 제공하여, 각 Ingress가 어떻게 트래픽을 분배하고 있는지 한눈에 파악할 수 있습니다. 
+
+## 기본 화면 안내 
+
+Ingress 정책 중심으로 주요 Ingress 정보와 해당 정책에 연결된 Pod 및 컨테이너의 상태별 개수를 다음과 같이 확인할 수 있습니다. 
+
+
+:::note 
+
+<Cmdname sid="side_ingressList" className="uitext" /> 목록 상단에서 Pod 및 컨테이너의 상태별 아이콘 정보를 확인할 수 있습니다. 
+
+:::

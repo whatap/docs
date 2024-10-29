@@ -58,6 +58,8 @@
 
 과거 시점의 트랜잭션과 연계된 데이터베이스의 성능 지표를 조회할 수 있습니다. <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴로 이동하세요.
 
+##### DB Connection 스텝에서 확인하기
+
 <ImgLang img="linked-projects-check-widget-03.png" desc="Correlated project" />
 
 <ImgLang img="linked-projects-check-widget-04.png" desc="Correlated project" />
@@ -81,6 +83,38 @@
 * <Cmdname sid="TTL06209" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](dashboard-hitmap-trace)를 참조하세요.
 
 * 이 기능을 지원하는 데이터베이스는 **PostgreSQL**, **Oracle**, **Oracle Pro**, **MySQL** 플랫폼입니다.
+
+:::
+
+##### SQL 스텝에서 확인하기
+
+<ImgLang img="linked-projects-check-widget-03.png" desc="Correlated project" />
+
+<ImgLang img="linked-projects-check-widget-06.png" desc="Correlated project" />
+
+1. 대시보드에서 <Cmdname sid="AA005" className="uitext" /> 위젯의 차트 영역을 드래그하세요.
+
+1. <Cmdname sid="TTL06209" className="uitext" /> 창이 나타나면 조회하길 원하는 트랜잭션 항목을 선택하세요.
+
+1. 트랜잭션 상세 정보가 오른쪽에 나타나면 <Cmdname sid="TTL06126" className="uitext" /> 탭을 선택하세요.
+
+1. SQL 스텝에서 SQL 문을 선택하세요.
+
+1. <UI>SQL</UI> 창이 나타나면 <Cmdname sid="BTN08518" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="TTL07860" className="uitext" /> 창이 나타나면 관련 지표를 확인하세요.
+
+:::note
+
+* 연계분석을 위해 등록한 데이터베이스 프로젝트의 DB가 현재 선택한 트랜잭션의 SQL을 실행한 경우에만, <UI>SQL</UI> 창에 <Cmdname sid="BTN08518" className="uitext" /> 버튼이 표시됩니다.
+
+* <Cmdname sid="TTL07860" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](#TTL07860)를 참조하세요.
+
+* 이 기능을 지원하는 데이터베이스는 **PostgreSQL**, **Oracle**, **Oracle Pro**, **MySQL** 플랫폼입니다.
+
+* **PostgreSQL** 플랫폼에서 <Cmdname sid="active_sessions" className="uitext" /> 테이블의 <UI>PID</UI> 항목은 <UI>SID</UI> 항목과 같습니다.
+
+  <ImgLang img="db-linked-projects-postgresql-pid-sid.png" desc="SID" /> 
 
 :::
 

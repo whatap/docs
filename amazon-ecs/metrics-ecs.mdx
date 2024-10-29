@@ -2,7 +2,7 @@
 id: metrics-ecs
 title: Amazon ECS 지표
 description: Amazon ECS 지표를 안내합니다. 
-toc_max_heading_level: 3
+toc_max_heading_level: 2
 displayed_sidebar: awsecsSidebar
 keywords: [ Amazon ECS, 메트릭스 ]
 ---
@@ -13,9 +13,11 @@ keywords: [ Amazon ECS, 메트릭스 ]
 
 :::
 
-### `ecs_service`
+<div className="metricslist">
 
-#### Tags
+## `ecs_service`
+
+### Tags
 
 |태그명|설명|
 |---|---|
@@ -34,7 +36,7 @@ keywords: [ Amazon ECS, 메트릭스 ]
 |HealthCheckGracePeriodSeconds|서비스 시작 후 헬스 체크 유예 기간(초)을 의미합니다. 이 기간 동안 서비스는 헬스 체크 실패를 무시합니다.|
 |Tags|서비스에 연결된 태그의 키-값 쌍 목록을 의미합니다. 각 태그는 서비스에 추가적인 메타 데이터를 제공합니다.|
 
-#### Fields
+### Fields
 
 |필드명|설명|
 |---|---|
@@ -46,9 +48,9 @@ keywords: [ Amazon ECS, 메트릭스 ]
 |RunningCount|현재 실행 중인 태스크의 수를 의미합니다.|
 
 
-### `ecs_deployment`
+## `ecs_deployment`
 
-#### Tags
+### Tags
 
 |태그명|설명|
 |---|---|
@@ -59,7 +61,7 @@ keywords: [ Amazon ECS, 메트릭스 ]
 |^| 예, `my-task:1`|
 
 
-#### Fields
+### Fields
 
 |필드명|설명|
 |---|---|
@@ -71,9 +73,9 @@ keywords: [ Amazon ECS, 메트릭스 ]
 |RunningCount|현재 실행 중인 태스크의 수를 의미합니다.|
 |UpdatedAt|배포가 마지막으로 업데이트된 시간을 의미합니다. 타임스탬프로 저장됩니다.|
 
-### `ecs_node`
+## `ecs_node`
 
-#### Tags
+### Tags
 
 |태그명|설명|
 |---|---|
@@ -86,7 +88,7 @@ keywords: [ Amazon ECS, 메트릭스 ]
 |Tags|컨테이너 인스턴스에 연결된 태그의 키-값 쌍 목록을 의미합니다. 각 태그는 인스턴스에 추가적인 메타데이터를 제공합니다.|
 |Version|컨테이너 인스턴스의 내부 버전을 의미합니다. 인스턴스의 구성 버전일 수 있습니다.|
 
-#### Fields
+### Fields
 
 |필드명|설명|
 |---|---|
@@ -96,9 +98,9 @@ keywords: [ Amazon ECS, 메트릭스 ]
 |RegisteredAt|컨테이너 인스턴스가 ECS 클러스터에 등록된 시간을 의미합니다. 타임스탬프로 저장됩니다.|
 
 
-### `ecs_task`
+## `ecs_task`
 
-#### Tags
+### Tags
 
 |태그명|설명|
 |---|---|
@@ -116,7 +118,7 @@ keywords: [ Amazon ECS, 메트릭스 ]
 |onodeName| 컨테이너가 실행 중인 노드의 이름입니다.|
 |dimension| 태스크 ARN과 컨테이너 ID를 조합한 문자열입니다. 모니터링 및 식별을 돕는 정보입니다.|
 
-#### Fields
+### Fields
 
 |필드명|설명|
 |---|---|
@@ -163,3 +165,5 @@ keywords: [ Amazon ECS, 메트릭스 ]
 |state| 컨테이너의 상태를 의미합니다. 상태는 여러 단계로 나뉩니다.| 
 |^|예, 실행 중, 중지됨 |
 |status| 컨테이너의 상태를 의미합니다. 텍스트 값으로 상태를 설명합니다.|
+
+</div>

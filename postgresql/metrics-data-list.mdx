@@ -10,6 +10,9 @@ keywords: [ PostgreSQL, 메트릭스, 데이터베이스, 데이터베이스 모
 그외 지표에 대한 자세한 내용은 [다음 링크](https://www.postgresql.org/docs/)를 참조하세요.
 
 import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
+import Xosmetrics from "../common-items/_db-xos-metrics.mdx";
+
+<div className="metricslist">
 
 <AgentStatus />
 
@@ -95,6 +98,6 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 | `wal_count` | 기록된 WAL(Write-Ahead Logging) 항목의 수입니다. WAL 파일 수의 급증은 일반적으로 단기간에 대량의 변경 사항이나 임시 테이블 및 객체를 생성하는 vacuum과 유사한 유지 관리 작업으로 인해 발생합니다. 이는 천천히 정상 수준으로 돌아와야 합니다. 이로 인해 일반적으로 많은 디스크 I/O 및 CPU 활동이 발생하여 상황이 정상으로 돌아올 때까지 애플리케이션 쿼리 실행 속도가 느려집니다. 이 지표는 1분마다 조회한 값입니다. | Performance |
 | `warning_count` | 경고가 발생한 횟수입니다. | Info |
 
-import Xosmetrics from "../common-items/_db-xos-metrics.mdx";
-
 <Xosmetrics />
+
+</div>

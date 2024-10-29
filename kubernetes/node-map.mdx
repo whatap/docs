@@ -14,7 +14,7 @@ toc_max_heading_level: 3
 
 * 쿠버네티스 클러스터 프로젝트(<code class='my'>CP</code>) **읽기 권한**이 필요합니다.
 
-* 와탭 쿠버네티스 에이전트 1.3.7 버전 이상이 필요합니다. 
+* 와탭 쿠버네티스 에이전트 1.4.1 버전 이상이 필요합니다. 
 
 :::
 
@@ -207,21 +207,24 @@ toc_max_heading_level: 3
 
 <ImgLang img='k8s-node-map-summary.png' />
 
-#### 대상 정보
+### <Cmdname sid="TTL06782" className="uitext" />
 
 <Cmdname sid="TTL06782" className="uitext" /> 탭에서 사용자가 선택한 노드의 주요 속성 정보를 확인할 수 있습니다. 
 
 :::note 
 
-***Labels*** 지표는 마스터 에이전트 버전 1.7.9 이상부터 지원합니다.
+***Labels*** 지표는 쿠버네티스 에이전트 버전 1.7.9 이상부터 지원합니다.
 
 :::
 
-#### 노드 구성 
+import K8snodedt from "../common-items/_k8s-node-details.mdx";
+
+<K8snodedt />
+
+
+{/* #### 노드 구성 
 
 <Cmdname sid="TTL08441" className="uitext" type="node"/> 탭에서 노드 내 CPU, 메모리, 디스크, 네트워크 구성 및 사용량과 Container Runtime, kubelet, kube-proxy 등 쿠버네티스 시스템 프로세스 정보를 확인할 수 있습니다.
-
-{/* 노드 내 CPU, 메모리, 디스크, 네트워크 자원 사용 현황을 포함한 상세 정보를 확인할 수 있습니다. */}
 
 #### 메트릭스
 
@@ -235,11 +238,7 @@ toc_max_heading_level: 3
 
 #### 이벤트
 
-<Cmdname sid="event" className="uitext" /> 탭에서 ***K8s Node 이벤트***와 사용자가 설정한 ***WhaTap Node 이벤트***를 확인하여 클러스터 내 발생한 주요 이벤트 및 경고를 모니터링할 수 있습니다.
-
-
-
-
+<Cmdname sid="event" className="uitext" /> 탭에서 ***K8s Node 이벤트***와 사용자가 설정한 ***WhaTap Node 이벤트***를 확인하여 클러스터 내 발생한 주요 이벤트 및 경고를 모니터링할 수 있습니다. */}
 
 
 {/* 

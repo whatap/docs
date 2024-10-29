@@ -6,21 +6,19 @@ toc_max_heading_level: 2
 keywords: [ Node.js, 메트릭스, 애플리케이션, UI ]
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 import Metricsindex from "../common-items/_metrics-index.mdx";
+import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
+import Apmservermerics from "../common-items/_apm-server-merics.mdx";
+import Nodejsappproccounter from "../common-items/_nodejs-app-proc-counter.mdx";
 
 <Metricsindex /> 
 
-import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
+<div className="metricslist">
 
 <AgentStatus />
 
-import Apmservermerics from "../common-items/_apm-server-merics.mdx";
-
 <Apmservermerics />
 
-import Nodejsappproccounter from "../common-items/_nodejs-app-proc-counter.mdx";
-
 <Nodejsappproccounter /> 
+
+</div>

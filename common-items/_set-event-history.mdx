@@ -1,26 +1,28 @@
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_history" className="uitext" />
 
-경고 알림이 발생한 이력을 확인할 수 있습니다. 최근 1년 이내의 이력까지 조회할 수 있습니다. 각 항목을 설정한 다음 ![조회 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+특정 시간 동안 모니터링 대상에서 발생한 이벤트의 상세 정보를 확인할 수 있습니다. 모니터링 대상에서 발생한 문제의 근본 원인을 분석하거나 성능 저하 및 오류 발생 시점의 시스템 상태를 파악할 수 있습니다.
 
-<InDoc product='java,php,nodejs,python,dotnet,golang,log'><ImgLang img='event-history.png' desc='이벤트 기록' /></InDoc>
+<Xclude product='kubernetes,browser'><ImgLang img='event-history.png' desc='이벤트 기록' /></Xclude>
 
 <InDoc product='kubernetes'><ImgLang img='k8s-event-history.png' desc='이벤트 기록' /></InDoc>
 
-<InDoc product='postgresql,oracle,mysql,mssql,tibero,cubrid,altibase,redis,mongodb,oracle-pro,oracle-v1'><ImgLang img='db-event-history.png' desc='이벤트 기록' /></InDoc>
-
 <InDoc product='browser'><ImgLang img='browser-event-history.png' desc='이벤트 기록' /></InDoc>
 
-<InDoc product='npm'><ImgLang img='npm-event-history.png' desc='이벤트 기록' /></InDoc>
-
-<InDoc product='amazon-cloudwatch,amazon-ecs,aws-log,azure,ncloud,oracle-cloud'><ImgLang img='cloud-event-history.png' desc='이벤트 기록' /></InDoc>
+이벤트 목록에 표시되는 항목들은 <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 설정한 이벤트가 표시됩니다. 화면 오른쪽 상단의 <Cmdname sid="event_setting" className="uitext" /> 버튼을 선택하면 해당 메뉴로 이동할 수 있습니다.
 
 :::note
 
-선택한 프로젝트에 따라 화면 이미지는 다를 수 있습니다.
+* 최근 1년 이내의 이력까지 조회할 수 있습니다.
+
+* 선택한 프로젝트에 따라 화면 이미지는 다를 수 있습니다.
 
 :::
 
-* <Cmdname sid="time_selector" className="uitext" />
+## 이벤트 기록 조회하기 {#eventview}
+
+다음 옵션을 차례로 설정한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요. 설정한 옵션 기준으로 이벤트 기록을 조회할 수 있습니다.
+
+* <Cmdname sid="time_selector" className="uitext" />: 조회하려는 이벤트의 시간 범위를 설정할 수 있습니다. <Cmdname sid="event_time" className="uitext" />을 기준으로 조회합니다.
 
   * 오른쪽에 위치한 녹색 버튼을 선택해 조회 시간을 선택할 수 있습니다.
 
@@ -28,74 +30,90 @@
 
   * 세부 시간을 선택하려면 날짜 또는 시간 영역을 선택하세요. 세부 시간을 설정한 다음 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
 
-* <Cmdname sid="filter" className="uitext" />: <Cmdname sid="title" className="uitext" /> 또는 <Cmdname sid="message" className="uitext" /> 내용을 기준으로 이벤트 기록을 필터링할 수 있습니다.
+* <Cmdname sid="filter" className="uitext" />: <Cmdname sid="event_title" className="uitext" /> 또는 <Cmdname sid="message" className="uitext" /> 내용을 기준으로 입력한 문자열을 포함하는 이벤트 목록을 필터링할 수 있습니다.
 
-<InDoc product='java,php,nodejs,python,dotnet,golang,log'>
+<Xclude product="browser">
 
-* <Cmdname sid="application" className="uitext" />: 프로젝트에 포함한 에이전트를 선택할 수 있습니다.
-
-</InDoc>
-
-<InDoc product='postgresql,oracle,mysql,mssql,tibero,cubrid,altibase,redis,mongodb,oracle-v1'>
-
-* <Cmdname sid="database" className="uitext" />: 프로젝트에 포함한 에이전트를 선택할 수 있습니다.
-
-</InDoc>
-
-<InDoc product='kubernetes'>
-
-* <Cmdname sid="container" className="uitext" />: 프로젝트에 포함한 에이전트를 선택할 수 있습니다.
-
-</InDoc>
-
-<InDoc product='browser,npm,amazon-cloudwatch,amazon-ecs,aws-log,azure,ncloud,oracle-cloud'>
-
-* <Cmdname sid="agent" className="uitext" />: 프로젝트에 포함한 에이전트를 선택할 수 있습니다.
-
-</InDoc>
-
-* ***CSV***: 조회한 이벤트 기록 결과를 csv 파일로 저장할 수 있습니다. ***CSV*** 버튼을 클릭하면 <Cmdname sid="maximum_csv_lines" className="uitext" />를 입력한 다음 <Cmdname sid="download" className="uitext" /> 버튼을 선택하세요.
-
-* <Cmdname sid="column_select" className="uitext" />: 조회한 이벤트 기록 결과의 열 항목을 추가할 수 있습니다.
-
-* <Cmdname sid="event_setting" className="uitext" />: <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴로 이동합니다.
-
-* <Cmdname sid="title" className="uitext" /> / <Cmdname sid="message" className="uitext" />: <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 추가한 이벤트의 <Cmdname sid="event_name" className="uitext" />과 <Cmdname sid="message" className="uitext" /> 항목의 내용입니다.
-
-  <Xclude product="amazon-cloudwatch,amazon-ecs,aws-log,azure,browser,log,ncloud,npm,oracle-cloud">
-
-  :::note
-
-  * 이벤트 추가에 대한 자세한 내용은 [다음 문서](metric-warning-notice)를 참조하세요.
-
-  * 알림 메시지 사용자 정의에 대한 자세한 내용은 [다음 문서](set-notification-message)를 참조하세요.
-
-  :::
-
-  </Xclude>
-
-* <Cmdname sid="event_time" className="uitext" />: 이벤트가 발생한 시각입니다. 
-
-  * 이벤트가 해소되지 않고 진행 중일 경우 <Cmdname sid="in_progress" className="uitext" /> 태그가 표시됩니다.
-
-  * 정비 중인 경우 이벤트가 발생하면 <Cmdname sid="ITM07315" className="uitext" /> 태그가 표시됩니다.
-
-  :::note
-
-  <Cmdname sid="sms_maintenance" className="uitext" />에 대한 자세한 내용은 <Link to="../management/maintenance">다음 문서</Link>를 참조하세요.
-
-  :::
-
-* <Cmdname sid="TTL06583" className="uitext" />: 설정한 이벤트가 해소된 시각입니다. 만약 해당 컬럼이 보이지 않는다면 <Cmdname sid="column_select" className="uitext" /> 버튼을 클릭한 다음 <Cmdname sid="TTL06583" className="uitext" />을 선택하세요.
-
-<Xclude product="postgresql,oracle,mysql,mssql,tibero,cubrid,altibase,redis,mongodb,oracle-v1">
-
-* <Cmdname sid="application" className="uitext" />: <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 이벤트 추가 시 <Cmdname sid="alert_object_filtering" className="uitext" /> 항목을 설정하면 표시됩니다.
+* <Cmdname sid="application" className="uitext" />: 특정 에이전트에서 발생한 이벤트만 선택해 필터링할 수 있습니다.
 
 </Xclude>
 
-<InDoc product='postgresql,oracle,mysql,mssql,tibero,cubrid,altibase,redis,mongodb,oracle-v1'>
+## 이벤트 목록 확인하기 {#eventlist}
 
-* <Cmdname sid="instance" className="uitext" />: <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 이벤트 추가 시 <Cmdname sid="alert_object_filtering" className="uitext" /> 항목을 설정하면 표시됩니다.
+다음은 이벤트 목록에 표시되는 항목들에 대한 설명입니다.
 
-</InDoc>
+* <Cmdname sid="event_title" className="uitext" />: <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 추가한 이벤트의 제목입니다.
+
+* <Cmdname sid="event_time" className="uitext" />: 이벤트가 발생한 시각입니다. 
+
+  * <Cmdname sid="sms_alert_acknowledge" className="uitext" />: 처리 내역을 등록하면 해당 이벤트의 반복 알림을 중지할 수 있습니다. 자세한 내용은 [다음 문서](#alertacknowledge)를 참조하세요.
+
+  * 이벤트가 해소되지 않고 진행 중이라면 <Cmdname sid="in_progress" className="uitext" /> 태그가 표시됩니다.
+
+  * <Cmdname sid="sms_maintenance" className="uitext" /> 메뉴에서 등록한 정비 시간에 이벤트가 발생하면 <Cmdname sid="ITM07315" className="uitext" /> 태그가 표시됩니다. 해당 이벤트는 알림을 보내지 않습니다.
+
+* <Cmdname sid="TTL06583" className="uitext" />: 발생한 이벤트가 해소된 시각입니다.
+
+<Xclude product="browser">
+
+* <Cmdname sid="application" className="uitext" />: <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 이벤트를 추가할 때 <Cmdname sid="TTL07363" className="uitext" /> 항목을 설정하면 표시됩니다.
+
+</Xclude>
+
+* <Cmdname sid="message" className="uitext" />: <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 추가한 이벤트의 상세 내용입니다.
+
+<Xclude product="amazon-cloudwatch,amazon-ecs,aws-log,azure,log,ncloud,oracle-cloud">
+
+:::note
+
+* 이벤트 추가에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+  * [<Cmdname sid="default" />](warning-notice-v2)
+
+  * [<Cmdname sid="metrics" />](metric-warning-notice) / [<Cmdname sid="metrics" />](metric-warning-notice-new) <code className="newfunc">New</code>
+
+* 알림 메시지는 사용자가 원하는 내용으로 필요에 따라 사용자 정의할 수 있습니다. 자세한 내용은 [다음 문서](set-notification-message)를 참조하세요.
+
+* <Cmdname sid="sms_maintenance" className="uitext" />에 대한 자세한 내용은 <Link to="../management/maintenance">다음 문서</Link>를 참조하세요.
+
+:::
+
+</Xclude>
+
+## 처리 내역 등록하기 {#alertacknowledge}
+
+처리 내역을 등록하면 해당 이벤트의 반복 알림을 중지할 수 있고, 해당 이벤트의 진행 상황을 추적하고 문제 발생 시 신속하게 대응할 수 있습니다.
+
+1. 처리 내역을 등록한 이벤트에서 <Cmdname sid="sms_alert_acknowledge" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="sms_alert_acknowledge_add" className="uitext" /> 창이 나타나면 처리 내역을 입력하세요.
+
+    <ImgLang img="event-history-add-acknowledge.png" desc="처리내용 추가" />
+
+1. <Cmdname sid="registration" className="uitext" /> 버튼을 선택하세요.
+
+등록한 처리 내역은 <Cmdname sid="TTL08669" className="uitext" />에 목록으로 표시됩니다. 작성 시간과 작성자, 상세 내용을 확인할 수 있습니다.
+
+<ImgLang img="event-history-add-acknowledge-history.png" desc="처리내역 상세" />
+
+이벤트 목록에서 추가한 처리 내역의 개수를 확인할 수 있습니다.
+
+<ImgLang img="event-history-add-acknowledge-added.png" desc="처리내역" />
+
+:::note
+
+처리 내역은 최대 255 byte까지 입력할 수 있습니다.
+
+:::
+
+## 부가 기능 이용하기 {#additionaloption}
+
+* <Cmdname sid="BTN06441" className="uitext" />: 이벤트 목록의 컬럼 항목을 추가 및 삭제, 순서를 변경할 수 있습니다.
+
+* ***CSV***: 조회한 이벤트 기록 결과를 csv 파일로 저장할 수 있습니다. ***CSV*** 버튼을 클릭하면 <Cmdname sid="maximum_csv_lines" className="uitext" />를 입력한 다음 <Cmdname sid="download" className="uitext" /> 버튼을 선택하세요.
+
+* <Cmdname sid="event_setting" className="uitext" />: <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴로 이동합니다.
+
+import Dbv2dataeditcolumn from "../common-items/_db-v2-data-edit-column.mdx";
+
+<Dbv2dataeditcolumn level={3} />

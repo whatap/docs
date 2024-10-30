@@ -38,9 +38,9 @@ import TargetInfo from "../common-items/_import_k8s-container-map-target-resourc
 
 <TargetInfo />
 
-### 컨테이너 요약 분석과 Pod 요약 분석{#kube-resource-summary-analysis}
+### 쿠버네티스 상태 요약 분석{#kube-summary-analysis}
 
-<Cmdname sid="TTL08230" className="uitext" />과 <Cmdname sid="TTL08317" className="uitext" type="kube_pod"/>은 쿠버네티스 환경에서 각 컨테이너와 Pod의 성능과 자원에 대한 분석 보고서를 제공합니다. 클러스터와 네임스페이스의 컨테이너 및 Pod의 자원 할당 및 사용 현황을 실시간으로 모니터링하고 보고서 내 제안을 참고하여 효과적으로 대응할 수 있습니다. 
+쿠버네티스 환경에서 각 컨테이너, Pod, 노드의 성능과 자원에 대한 요약 분석 보고서를 제공합니다. 클러스터와 네임스페이스의 컨테이너, Pod, 노드의 자원 할당 및 사용 현황을 실시간으로 모니터링하고 보고서 내 제안을 참고하여 효과적으로 대응할 수 있습니다. 
 
 :::note 
 
@@ -63,3 +63,9 @@ import TargetInfo from "../common-items/_import_k8s-container-map-target-resourc
 import PodSummary from "../common-items/_import_k8s-pod-summary-analysis.mdx";
 
 <PodSummary />
+
+#### Node 요약 분석{#node-summary-analysis}
+
+import NodeSummary from "../common-items/_import_k8s-node-summary.mdx";
+
+<NodeSummary />

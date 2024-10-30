@@ -1,0 +1,246 @@
+## 연계 프로젝트 지표 확인하기 {#checklinkedproject}
+
+추가한 연계 프로젝트와 관련한 지표는 다음 메뉴 경로에서 확인할 수 있습니다. 
+
+* <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" />
+
+* <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multi_active_tx" className="uitext" />
+
+* <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_hitmap" className="uitext" />
+
+:::note
+
+* <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](dashboard-intro)를 참조하세요.
+
+* <Cmdname sid="side_multi_active_tx" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](dashboard-active-transaction)를 참조하세요.
+
+* <Cmdname sid="side_hitmap" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](analysis-hitmap)를 참조하세요.
+
+:::
+
+### <Cmdname sid="side_appDashboard" />
+
+<Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서는 다음 위젯을 통해서 연계 프로젝트를 확인할 수 있습니다.
+
+* <Cmdname sid="AA001" className="uitext" />
+
+* <Cmdname sid="AA002" className="uitext" />
+
+* <Cmdname sid="AA005" className="uitext" />
+
+#### <Cmdname sid="AA001" /> / <Cmdname sid="AA002" /> 위젯
+
+현재 진행 중인 트랜잭션과 연계된 데이터베이스의 SQL 성능을 조회할 수 있습니다. <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴로 이동하세요.
+
+<ImgLang img="linked-projects-check-widget-01.png" desc="Correlated project" />
+
+<ImgLang img="linked-projects-check-widget-02.png" desc="Correlated project" />
+
+1. 대시보드에서 <Cmdname sid="AA001" className="uitext" /> 또는 <Cmdname sid="AA002" className="uitext" /> 위젯의 차트 영역을 클릭하세요.
+
+1. <Cmdname sid="acttx" className="uitext" /> 창이 나타나면 트랜잭션 항목을 선택하세요.
+
+1. 트랜잭션 상세 정보 창이 나타나면 오른쪽 상단의 <Cmdname sid="BTN08518" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="TTL07860" className="uitext" /> 창이 나타나면 관련 지표를 확인하세요.
+
+:::note
+
+* 연계분석을 위해 등록한 데이터베이스 프로젝트의 DB가 현재 선택한 트랜잭션의 SQL을 실행한 경우에만, 트랜잭션 상세 정보 창에 <Cmdname sid="BTN08518" className="uitext" /> 버튼이 표시됩니다.
+
+* <Cmdname sid="TTL07860" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](#TTL07860)를 참조하세요.
+
+* 이 기능을 지원하는 데이터베이스는 **PostgreSQL**, **Oracle**, **Oracle Pro**, **MySQL** 플랫폼입니다.
+
+:::
+
+#### <Cmdname sid="AA005" /> 위젯
+
+과거 시점의 트랜잭션과 연계된 데이터베이스의 성능 지표를 조회할 수 있습니다. <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴로 이동하세요.
+
+##### DB Connection 스텝에서 확인하기
+
+<ImgLang img="linked-projects-check-widget-03.png" desc="Correlated project" />
+
+<ImgLang img="linked-projects-check-widget-04.png" desc="Correlated project" />
+
+1. 대시보드에서 <Cmdname sid="AA005" className="uitext" /> 위젯의 차트 영역을 드래그하세요.
+
+1. <Cmdname sid="TTL06209" className="uitext" /> 창이 나타나면 조회하길 원하는 트랜잭션 항목을 선택하세요.
+
+1. 트랜잭션 상세 정보가 오른쪽에 나타나면 <Cmdname sid="TTL06126" className="uitext" /> 탭을 선택하세요.
+
+1. DB Connection 스텝에서 ![연계 아이콘](/img/ic-correlations.svg) 버튼을 선택하세요.
+
+1. 연계 프로젝트의 <Cmdname sid="TTL08442" className="uitext" /> 창이 나타나면 관련 지표를 확인하세요.
+
+:::note
+
+* 연계분석을 위해 등록한 데이터베이스 프로젝트의 DB가 현재 선택한 트랜잭션의 SQL을 실행한 경우에만, <Cmdname sid="TTL06126" className="uitext" /> 탭에 ![연계 아이콘](/img/ic-correlations.svg) 버튼이 표시됩니다.
+
+* <Cmdname sid="TTL08442" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](#TTL08442)를 참조하세요.
+
+* <Cmdname sid="TTL06209" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](dashboard-hitmap-trace)를 참조하세요.
+
+* 이 기능을 지원하는 데이터베이스는 **PostgreSQL**, **Oracle**, **Oracle Pro**, **MySQL** 플랫폼입니다.
+
+:::
+
+##### SQL 스텝에서 확인하기
+
+<ImgLang img="linked-projects-check-widget-03.png" desc="Correlated project" />
+
+<ImgLang img="linked-projects-check-widget-06.png" desc="Correlated project" />
+
+1. 대시보드에서 <Cmdname sid="AA005" className="uitext" /> 위젯의 차트 영역을 드래그하세요.
+
+1. <Cmdname sid="TTL06209" className="uitext" /> 창이 나타나면 조회하길 원하는 트랜잭션 항목을 선택하세요.
+
+1. 트랜잭션 상세 정보가 오른쪽에 나타나면 <Cmdname sid="TTL06126" className="uitext" /> 탭을 선택하세요.
+
+1. SQL 스텝에서 SQL 문을 선택하세요.
+
+1. <UI>SQL</UI> 창이 나타나면 <Cmdname sid="BTN08518" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="TTL07860" className="uitext" /> 창이 나타나면 관련 지표를 확인하세요.
+
+:::note
+
+* 연계분석을 위해 등록한 데이터베이스 프로젝트의 DB가 현재 선택한 트랜잭션의 SQL을 실행한 경우에만, <UI>SQL</UI> 창에 <Cmdname sid="BTN08518" className="uitext" /> 버튼이 표시됩니다.
+
+* <Cmdname sid="TTL07860" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](#TTL07860)를 참조하세요.
+
+* 이 기능을 지원하는 데이터베이스는 **PostgreSQL**, **Oracle**, **Oracle Pro**, **MySQL** 플랫폼입니다.
+
+* **PostgreSQL** 플랫폼에서 <Cmdname sid="active_sessions" className="uitext" /> 테이블의 <UI>PID</UI> 항목은 <UI>SID</UI> 항목과 같습니다.
+
+  <ImgLang img="apm-linked-projects-postgresql-pid-sid.png" desc="SID" /> 
+
+:::
+
+### <Cmdname sid="side_multi_active_tx" />
+
+현재 진행 중인 트랜잭션과 연계된 데이터베이스의 SQL 성능을 조회할 수 있습니다. <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multi_active_tx" className="uitext" /> 메뉴로 이동하세요.
+
+<ImgLang img="linked-projects-check-widget-05.png" desc="Correlated project" />
+
+1. 트랜잭션 목록에서 조회하길 원하는 트랜잭션 항목을 선택하세요.
+
+1. <Cmdname sid="acttx" className="uitext" /> 창이 나타나면 오른쪽 상단의 <Cmdname sid="BTN08518" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="TTL07860" className="uitext" /> 창이 나타나면 관련 지표를 확인하세요.
+
+:::note
+
+* 연계분석을 위해 등록한 데이터베이스 프로젝트의 DB가 현재 선택한 트랜잭션의 SQL을 실행한 경우에만, <Cmdname sid="acttx" className="uitext" /> 창에 <Cmdname sid="BTN08518" className="uitext" /> 버튼이 표시됩니다.
+
+* <Cmdname sid="TTL07860" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](#TTL07860)를 참조하세요.
+
+* 이 기능을 지원하는 데이터베이스는 **PostgreSQL**, **Oracle**, **Oracle Pro**, **MySQL** 플랫폼입니다.
+
+:::
+
+
+### <Cmdname sid="side_hitmap" />
+
+트랜잭션을 조회하는 동안 연계된 프로젝트의 성능 지표를 함께 확인할 수 있습니다. 이 기능은 APM 프로젝트에서 트랜잭션을 분석할 때, 느린 SQL을 발견했을 경우 비슷한 여러 DB를 사용하는 환경에서 정확히 어느 DB에서 문제가 발생했는지 확인하기 어려운 상황에 유용합니다.
+
+<ImgLang img="linked-project-db-hitmap.png" desc="Hitmap" />
+
+1. 트랜잭션을 조회할 시간과 <Cmdname sid="application" className="uitext" />을 설정한 후 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+1. <Cmdname sid="hitmap_transaction" className="uitext" /> 섹션에서 오른쪽 상단의 <Cmdname sid="BTN08519" className="uitext" /> 버튼을 선택하세요.
+
+1. 연계 프로젝트의 지표를 확인할 수 있는 새창이 나타납니다.
+
+    <ImgLang img="linked-project-db-instance-dahboard.png" desc="Correlated project" />
+
+왼쪽 목록에서 연계 프로젝트를 선택하고 <Cmdname sid="TTL08442" className="uitext" /> 섹션의 지표를 확인하세요. 
+
+:::note
+
+<Cmdname sid="TTL08442" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](#TTL08442)를 참조하세요.
+
+:::
+
+## <Cmdname sid="TTL07860" /> {#TTL07860}
+
+<Cmdname sid="TTL07860" className="uitext" />에서는 애플리케이션에서 현재 진행 중인 트랜잭션과 연계된 데이터베이스의 SQL 성능을 확인할 수 있습니다.
+
+<ImgLang img="linked-projects-database-info.png" desc="연계 데이터베이스 정보" />
+
+* 화면 상단의 차트에서는 데이터베이스의 주요 지표에 대한 차트를 제공합니다. 선택 상자를 선택해 다른 지표를 조회할 수도 있습니다.
+
+* ***Session Info / Lock Tree*** 섹션에서는 데이터베이스 세션과 관련한 다양한 세부 정보를 제공합니다.
+
+  <details>
+
+  <summary>Session Info / Lock Tree</summary>
+  
+  * ***query_hash***: 실행 중인 SQL 쿼리의 고유 해시 값입니다.
+
+  * ***user***: 데이터베이스에 연결된 사용자 이름입니다.
+
+  * ***db***: 연결된 데이터베이스 이름입니다.
+
+  * ***runtime***: 해당 세션이 실행된 시간(밀리초 단위)입니다.
+
+  * ***query_param***: 쿼리에서 사용된 매개변수입니다.
+
+  * ***thread_id***: 이 세션과 연결된 스레드의 고유 식별자입니다.
+
+  * ***name***: 해당 세션과 관련된 이름입니다.
+
+  * ***rows***: 실행된 쿼리에서 처리된 행(row)의 수입니다.
+
+  * ***state***: 해당 세션의 상태입니다.
+
+  * ***id***: 현재 세션의 고유 식별자입니다.
+
+  * ***host***: 데이터베이스가 실행 중인 서버의 IP 주소입니다.
+
+  * ***command***: 현재 실행 중인 명령어 또는 작업을 나타냅니다.
+
+  * ***os_id***: 운영 체제에서 사용되는 해당 세션의 ID입니다.
+
+  * ***type***: 해당 세션의 유형입니다.
+
+  * ***connection_type***: 데이터베이스 연결의 유형입니다.
+
+  * ***time***: 해당 세션이 시작된 시간입니다.
+
+  * ***oid***: 해당 세션이 속한 인스턴스(에이전트)의 고유 ID입니다.
+  
+  </details>
+
+* ***SQL Text*** 탭에서는 실행된 SQL 쿼리의 실제 내용을 확인할 수 있습니다.
+
+  * ***Default Bind***: 쿼리 문장에서 변수로 설정된 부분을 기본값으로 바인딩할 수 있습니다.
+
+  * ***Reset Bind***: 바인딩된 기본값을 해제하고 변수를 확인할 수 있습니다.
+
+  * ***Formatting***: SQL 쿼리문에 들여쓰기 및 포맷팅을 적용해 가독성을 높일 수 있습니다.
+
+* ***Plan***: Plan 정보를 확인할 수 있습니다. **DB Name**, **User Name**, **Password**를 입력한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+## <Cmdname sid="TTL08442" /> {#TTL08442}
+
+<Cmdname sid="TTL08442" className="uitext" />에서는 애플리케이션에서 실행되었던 트랜잭션과 연계된 데이터베이스의 주요 성능 지표를 확인할 수 있습니다.
+
+<ImgLang img="linked-project-db-instance-dahboard-select-instance.png" desc="Correlated project" />
+
+선택한 프로젝트의 대시보드 메뉴로 이동하려면 인스턴스를 선택한 후, 오른쪽 상단의 <Cmdname sid="BTN08444" className="uitext" /> 버튼을 클릭하세요. <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴로 이동합니다.
+
+:::note
+
+* <Cmdname sid="hitmap_transaction" className="uitext" /> 섹션의 <Cmdname sid="BTN08519" className="uitext" /> 버튼은 연계된 프로젝트가 있을 때만 표시됩니다. 연계 프로젝트 추가에 대한 자세한 내용은 [다음 문서](#addlinkproject)를 참조하세요.
+
+* 왼쪽 <Cmdname sid="TTL07151" className="uitext" /> 목록 상단의 <Cmdname sid="add" className="uitext" /> 버튼을 선택해 프로젝트를 추가할 수 있습니다.
+
+* <Cmdname sid="BTN08444" className="uitext" /> 버튼은 <Cmdname sid="all" className="uitext" />를 선택한 상태에서는 비활성화됩니다.
+
+  <ImgLang img="linked-project-db-instance-dahboard-not-allowed-btn.png" desc="인스턴스 대시보드" />
+
+* 데이터베이스 상품 종류에 따라 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTrend" className="uitext" /> 메뉴로 이동할 수 있습니다.
+
+:::

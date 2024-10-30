@@ -18,15 +18,17 @@ import Metricsindex from "../common-items/_metrics-index.mdx";
 
 import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
+<div className="metricslist">
+
 <AgentStatus />
 
 ## server_base
-----
+
 서버 자원 지표입니다.
 * 수집 간격 : 5초
 * 통계 데이터 : 5분, 1시간
 
-#### Tags {#server_base-tags}
+### Tags {#server_base-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -36,7 +38,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |okindName|서버 종류명|-|
 |os|OS 유형 linux 또는 window|-|
 
-#### Fields {#server_base-fields}
+### Fields {#server_base-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -80,15 +82,13 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |processorQueueLength|정수|프로세서 큐 길이|윈도우|
 |uptime|정수|부팅 후 서버의 가동 시간(TimeStamp)|공통|
 
-
-
 ## server_cpu_core
-----
+
 서버 CPU 코어별 지표입니다.
 * 수집 간격 : 5초
 * 통계 데이터 : -
 
-#### Tags {#server_cpu_core-tags}
+### Tags {#server_cpu_core-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -97,7 +97,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |oname|서버 이름|-|
 |os|OS 유형 linux 또는 window|-|
 
-#### Fields {#server_cpu_core-fields}
+### Fields {#server_cpu_core-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -115,12 +115,12 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |usr|퍼센트|코어 usr 사용률|리눅스|
 
 ## server_disk
-----
+
 각 서버에 마운트 된 파일 시스템별 지표입니다.
 * 수집 간격 : 5초
 * 통계 데이터 : 5분, 1시간
 
-#### Tags {#server_disk-tags}
+### Tags {#server_disk-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -132,7 +132,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |oname|서버 이름|-|
 |os|OS 유형 linux 또는 window|-|
 
-#### Fields {#server_disk-fields}
+### Fields {#server_disk-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -155,12 +155,12 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |writeIops|소수|초당 쓴 수|공통|
 
 ## server_network
-----
+
 각 서버의 네트워크 인터페이스 지표입니다.
 * 수집 간격 : 5초
 * 통계 데이터 : 5분, 1시간
 
-#### Tags {#server_network-tags}
+### Tags {#server_network-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -171,7 +171,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |oname|서버 이름|-|
 |os|OS 유형 linux 또는 window|-|
 
-#### Fields {#server_network-fields}
+### Fields {#server_network-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -189,12 +189,12 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |trafficOutAcct|정수|와탭 전용|-|
 
 ## server_netstat
-----
+
 각 서버별 네트워크 프로토콜 통계 정보입니다.
 * 수집 간격 : 5초
 * 통계 데이터 : 5분, 1시간
 
-#### Tags {#server_netstat-tags}
+### Tags {#server_netstat-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -213,7 +213,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |whatap_product|와탭 상품 유형|-|
 |whatap_version|와탭 에이전트 버전|-|
 
-#### Fields {#server_netstat-fields}
+### Fields {#server_netstat-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -231,12 +231,12 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |Server_Filedescriptors|정수|OS file descriptor 개수|공통|
 
 ## server_process
-----
+
 서버 프로세스 정보입니다.
 * 수집 간격 : 20초
 * 통계 데이터 : 5분
 
-#### Tags {#server_process-tags}
+### Tags {#server_process-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -248,7 +248,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |oname|서버 이름|-|
 |user|프로세스를 실행한 리눅스 사용자명|-|
 
-#### Fields {#server_process-fields}
+### Fields {#server_process-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -270,6 +270,8 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |wiopsAccmulated|정수|와탭 전용|공통|
 |rss|바이트|메모리 RSS 크기|공통|
 |rssAccmulated|바이트|와탭 전용|공통|
+
+</div>
 
 ## 참고 자료
 

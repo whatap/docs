@@ -8,7 +8,7 @@
 
 ### 로그 네이밍 규칙 
 
-쿠버네티스 containerStdOut 로그는 노드의 */var/log/containers/* 경로 하위에 다음과 같은 네이밍 규칙에 따라 생성됩니다.
+쿠버네티스 containerStdOut 로그는 노드의 */var/log/containers/* 경로 하위에 생성됩니다. 다음과 같은 네이밍 규칙을 따르고 있습니다.
 
 ```bash
 <podName>_<namespace>_<containerName>-<containerId>.log

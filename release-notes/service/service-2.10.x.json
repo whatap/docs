@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
+    "ver": "Service 2.10.2",
+    "date": "2024-10-31",
+    "Lists": [
+      {
+        "ver": "Service 2.10.2",
+        "hash": "service-2102",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> <code class=\"newfunc\">New</code> 메뉴에서 <span class=\"uitext\">JSON 일괄 수정</span> 기능을 이용할 때, <span class=\"uitext\">덮어쓰기</span> 버튼을 클릭해도 확인 창이 나타나지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
     "ver": "Service 2.10.1",
     "date": "2024-10-31",
     "Lists": [

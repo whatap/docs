@@ -15,6 +15,27 @@ import Addproject from "../common-items/_linked-projects-add.mdx";
 
 <Addproject />
 
+## 에이전트 옵션 설정하기
+
+데이터베이스 프로젝트와 연계 분석을 위해 다음과 같이 에이전트 설정 파일(*whatap.conf*)에 옵션을 설정해야 합니다. 또는 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴에서 설정할 수 있습니다.
+
+```ini title="whatap.conf"
+dbc_sid_enabled=true
+debug_dbc_sid_enabled=true
+```
+
+* `dbc_sid_enabled`: SID 발급을 위한 옵션입니다. 값을 `true`로 설정하면 연계 분석할 수 있습니다.
+
+* `debug_dbc_sid_enabled`: Java 에이전트 로그에 SID 관련 정보를 로깅하는 옵션입니다. 필수 옵션은 아닙니다.
+
+:::note
+
+<Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" />
+
+![Agent settings](/img/linked-projects-agent-settings.png)
+
+:::
+
 {/* 연계 프로젝트 확인하기 */}
 import APMtoDBLinkedProject from "../common-items/_linked-projects-apm2db.mdx";
 

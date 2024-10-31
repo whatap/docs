@@ -215,7 +215,7 @@
 
 <Cmdname sid="side_logSetting" className="uitext" /> 메뉴 상단에서 <Cmdname sid="log_parser_setting_primary" className="uitext" /> 탭을 선택해 로그 파서를 등록 및 수정할 수 있습니다. 다음은 파서 등록 시 공통 순서를 안내합니다.
 
-  <ImgLang img='log-1st-parser-add.png' desc='로그 파서 추가 sc'/>
+  <ImgLang img='log-1st-parser-add.png' desc='로그 파서 추가'/>
 
 1. ***+*** <Cmdname sid="adding" className="uitext" /> 버튼을 선택하면 <Cmdname sid="parser" className="uitext" /> <Cmdname sid="add" className="uitext" /> 창이 나타납니다.
 
@@ -225,25 +225,29 @@
     
     * ***JSON*** [파서 및 패턴 등록](#log-pattern-json)
 
+1. <Cmdname sid="BTN08593" className="uitext" /> 버튼 선택 시 오른쪽에 패턴 등록 및 시뮬레이션 창이 나타납니다. 
+
+1. 등록을 원하는 <Cmdname sid="pattern" className="uitext" /> 및 <Cmdname sid="log" className="uitext" />를 입력하세요. 
+
+1. 등록하려는 패턴이 정상적인지 <Cmdname sid="simulation" className="uitext" /> 버튼을 선택해 시뮬레이션 및 패턴의 퍼포먼스를 측정하세요.
+
 1. <Cmdname sid="category" className="uitext" /> 선택 창에서 카테고리를 선택하거나 직접 입력하세요. 
 
 1. <Cmdname sid="ITM06439" className="uitext" />으로 활용할 <Cmdname sid="ITM06429" className="uitext" />와 <Cmdname sid="ITM06430" className="uitext" />을 선택하거나 직접 입력하세요.
 
     필터 조건에 맞는 로그 데이터에만 패턴을 적용합니다. <Cmdname sid="ITM06439" className="uitext" />을 지정하지 않으면 모든 로그를 대상으로 패턴을 적용합니다.
 
-1. <Cmdname sid="pattern" className="uitext" />을 입력하세요. 
-
-1. 등록하려는 패턴이 정상적인지 <Cmdname sid="simulation" className="uitext" /> 버튼을 선택해 시뮬레이션 및 패턴의 퍼포먼스를 측정하세요.
-
-    시뮬레이션과 퍼포먼스 측정에 관한 자세한 내용은 [다음 문서](#parser-simulation)를 참조하세요.
-
-1. 시뮬레이션 결과가 정상적이라면 <Cmdname sid="add" className="uitext" /> 버튼을 선택해 파서를 등록하세요.
+1. <Cmdname sid="add" className="uitext" /> 버튼을 선택해 파서를 등록하세요.
 
 :::note
 
-로그 파서 등록 시 동일한 <Cmdname sid="category" className="uitext" />에 파서를 중복 등록할 수 없습니다.
+* 시뮬레이션과 퍼포먼스 측정에 관한 자세한 내용은 [다음 문서](#parser-simulation)를 참조하세요.
+
+* 로그 파서 등록 시 동일한 <Cmdname sid="category" className="uitext" />에 파서를 중복 등록할 수 없습니다.
 
 :::
+
+{/* 설정하기 문서에서는 각 패턴별 이미지 안내 제외 1031 */}
 
 ### GROK 파서 패턴 등록 {#log-pattern-grok}
 

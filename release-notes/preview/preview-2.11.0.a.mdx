@@ -14,17 +14,101 @@ toc_max_heading_level: 2
 
 :::
 
-{/* ## Preview 2.11.0.a1
+## Preview 2.11.0.a1
 
-2024년 11월 31일
+2024년 10월 31일
 
 <div class='indentTab'>
+
+### `공통`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code className="newfunc">New</code> 메뉴의 테이블 목록에 순번(No) 컬럼 추가
+
+- <Status priority='0'>Feature</Status> 와탭 사용자 교육 신청서(구글폼)에 대한 다국어 지원 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 검색된 결과대로 이벤트 설정 목록을 JSON 내보내기(export)하도록 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code className="newfunc">New</code> 메뉴에서 <Cmdname sid="BTN07761" className="uitext" /> 기능을 이용할 때, <Cmdname sid="overwrite" className="uitext" /> 버튼을 클릭해도 확인 창이 나타나지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_integratedFlexboard" className="uitext" /> 또는 <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 대시보드가 반응형 레이아웃인 경우, 인쇄 모드에서 위젯이 표시되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_integratedFlexboard" className="uitext" /> 또는 <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 일부 환경에 따라 PDF 파일을 다운로드할 때 비정상적으로 그려지는 문제 수정
+
+- <Status priority='0'>Fixed</Status> 페이지네이션 UI에서 선택 상자(Select box) 요소의 다크 테마 수정
+
+---
+
+### `Application`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 다음 상황에 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 비활성화하는 기능 추가
+
+  - 이전 검색과 동일한 필터값(MTID/CUSTID, 시간, 선택한 프로젝트)을 설정한 경우
+
+  - 필터값(MTID/CUSTID, 시간, 선택한 프로젝트) 중 하나라도 입력을 하지 않은 경우
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 프로젝트 이름이 실제 프로젝트 이름과 다르게 보이는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06126" className="uitext" /> 탭에서 SQL 스텝의 높이가 실제 영역보다 크게 출력되는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 선택한 프로젝트가 검색에 반영이 되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> **Java** 플랫폼의 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴에서 `sigar_enabled` 옵션의 기본값을 `true`에서 `false`로 변경
+
+---
+
+### `Kubernetes`
+
+- <Status priority='0'>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_ingressList" className="uitext" /> 메뉴에서 쿠버네티스 에이전트 버전이 1.7.13 미만일 때 에이전트 업데이트 안내 화면 표시
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeTimeline" className="uitext" /> 메뉴에서 최소 선택할 수 있는 시간 단위를 5분으로 고정하도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_instanceTopology" className="uitext" /> 메뉴에서 컨텍스트 메뉴의 링크가 동작하지 않는 문제 수정
+
+---
+
+### `Database`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventHistory" className="uitext" /> 메뉴에서 이벤트 이름을 선택하면 <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴로 이동하는 기능 추가
+
+- <Status priority='0'>Fixed</Status> 실시간 알림에서 발생한 이벤트를 선택하면 <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴로 이동하고, 이벤트 발생 시각을 기준으로 데이터를 조회하도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTrendComparison" className="uitext" /> 메뉴에서 다음 사항을 수정
+
+  - 기존 날짜와 비교 날짜 간의 차트 색상을 다르게 표시하도록 수정
+
+  - 기존 시간이 표시되는 툴팁에 날짜를 표시하지 않도록 수정
+
+    > 예, 기존: **2024-10-29 18:38:29** / 현재: ***Compare Time: 18:38:29***
+
+  - 툴팁에 지표와 함께 날짜를 표시하도록 수정
+
+    예, 기존: **Innodb_buffer_pool_read_requests** / 현재: ***Innodb_buffer_pool_read_requests (2024-10-29)***
+
+- <Status priority='0'>Fixed</Status> 다음 메뉴의 <Cmdname sid="active_sessions" className="uitext" /> 테이블에서 <UI>elapse</UI> 컬럼 제거
+
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />
+
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" />
+
+  - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTrendComparison" className="uitext" />
+
+  - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbWaitAnalysis" className="uitext" />
+
+  :::note
+
+  적용 플랫폼: **PostgreSQL**, **Oracle** <code className="my">V2</code>, **Oracle Pro**
+
+  :::
+
+- <Status priority='0'>Fixed</Status> Redis, MongoDB 플랫폼의 <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_dbScriptManager" className="uitext" /> 메뉴를 숨김 처리
+
+---
 
 ### `Log`
 
 <Status priority='0'>Fixed</Status> 로그 보관 기간 설정 시 변경된 값이 없을 경우 저장 버튼 비활성화 되도록 수정
 
-</div> */}
+</div>
 
 ## Preview 2.11.0.a0
 

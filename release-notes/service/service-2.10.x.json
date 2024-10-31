@@ -1,6 +1,56 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
+    "ver": "Service 2.10.2",
+    "date": "2024-10-31",
+    "Lists": [
+      {
+        "ver": "Service 2.10.2",
+        "hash": "service-2102",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> <code class=\"newfunc\">New</code> 메뉴에서 <span class=\"uitext\">JSON 일괄 수정</span> 기능을 이용할 때, <span class=\"uitext\">덮어쓰기</span> 버튼을 클릭해도 확인 창이 나타나지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
+    "ver": "Service 2.10.1",
+    "date": "2024-10-31",
+    "Lists": [
+      {
+        "ver": "Service 2.10.1",
+        "hash": "service-2101",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"0\">Feature</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">Ingress 목록</span> 메뉴에서 쿠버네티스 에이전트 버전이 1.7.13 미만일 때 에이전트 업데이트 안내 화면 표시</p>"
+      },
+      {
+        "ver": "Service 2.10.1",
+        "hash": "service-2101",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 네임스페이스 프로젝트에서 <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴에서 컨테이너의 Stdout/Stderr 로그가 표시되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.10.1",
+        "hash": "service-2101",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다음 메뉴의 <span class=\"uitext\">액티브 세션</span> 테이블에서 <span class=\"uitext\">elapse</span> 컬럼 제거</p>",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span></p>\n</li>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span></p>\n</li>\n<li>\n<p><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">카운트 추이 비교</span></p>\n</li>\n<li>\n<p><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">Wait 분석</span></p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.10.1",
+        "hash": "service-2101",
+        "product": "Cloud",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Amazon ECS</span> &gt; <span class=\"uitext\">Service</span> 메뉴에서 <span class=\"uitext\">Cpu_total_millis</span>, <span class=\"uitext\">Mem_workingset</span> 위젯이 그려지지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
     "ver": "Service 2.10.0",
     "date": "2024-10-30",
     "Lists": [
@@ -267,6 +317,13 @@
         "hash": "service-2100",
         "product": "Kubernetes",
         "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">노드 타임라인</span> 메뉴에서 최소 선택할 수 있는 시간 단위를 5분으로 고정하도록 수정</p>"
+      },
+      {
+        "ver": "Service 2.10.0",
+        "hash": "service-2100",
+        "product": "Kubernetes",
+        "type": "Changed",
         "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">노드 디스크 목록</span> 메뉴에서 <span class=\"uitext\">OnodeName</span> 컬럼의 <img decoding=\"async\" loading=\"lazy\" alt=\"오른쪽 방향 아이콘\" src=\"data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iU1ZHSW5saW5lLXN2ZyIgc3R5bGU9IndpZHRoOiAxMnB4O2hlaWdodDogMTJweDsiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNTkuMSAoODYxNDQpIC0gaHR0cHM6Ly9za2V0Y2guY29tIC0tPgogICAgPCEtLSA8dGl0bGU+aWMtcmlnaHQ8L3RpdGxlPiAtLT4KICAgIDxnIGlkPSJJY29uLVNldCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IldoYVRhcF9JY29uX1NldCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc0MC4wMDAwMDAsIC0xNjQuMDAwMDAwKSIgZmlsbD0iIzc1NzU3NSI+CiAgICAgICAgICAgIDxnIGlkPSJkaXJlY3Rpb25hbC1pY29ucyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDAuMDAwMDAwLCAxMTkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iaWMtcmlnaHQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcwMC4wMDAwMDAsIDQ1LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcuMDAwMDAwLCAzLjAwMDAwMCkiIGlkPSJDb21iaW5lZC1TaGFwZSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xLjU1NzM5MzUsMTcuNDYzNTM2NiBMMC4xNDMxNzk5NCwxNi4wNDkzMjMgTDcuMjE0MTc5OTQsOC45Nzc5NzM4MyBMMC4xNDMxNzk5NCwxLjkwNzE4NzQgTDEuNTU3MzkzNSwwLjQ5Mjk3MzgzNCBMMTAuMDQyNjc0OSw4Ljk3ODI1NTIxIEwxLjU1NzM5MzUsMTcuNDYzNTM2NiBaIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=\" width=\"24\" height=\"24\" class=\"img_ev3q\">을 선택하면 <span class=\"uitext\">노드 상세</span> 메뉴로 이동하도록 수정</p>"
       },
       {
@@ -393,6 +450,23 @@
         "product": "Database",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트를 설치하지 않은 프로젝트로 진입하면 조직 정보가 해제되는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.10.0",
+        "hash": "service-2100",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">카운트 추이 비교</span> 메뉴에서 다음 사항을 수정</p>",
+        "category": "공통",
+        "details": "<ul>\n<li>\n<p>기존 날짜와 비교 날짜 간의 차트 색상을 다르게 표시하도록 수정</p>\n</li>\n<li>\n<p>기존 시간이 표시되는 툴팁에 날짜를 표시하지 않도록 수정</p>\n<blockquote>\n<p>예, 기존: <strong>2024-10-29 18:38:29</strong> / 현재: <em><strong>Compare Time: 18:38:29</strong></em></p>\n</blockquote>\n</li>\n<li>\n<p>툴팁에 지표와 함께 날짜를 표시하도록 수정</p>\n<p>예, 기존: <strong>Innodb_buffer_pool_read_requests</strong> / 현재: <em><strong>Innodb_buffer_pool_read_requests (2024-10-29)</strong></em></p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.10.0",
+        "hash": "service-2100",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Redis, MongoDB 플랫폼의 <span class=\"uitext\">실험실</span> &gt; <span class=\"uitext\">스크립트 매니저</span> 메뉴를 숨김 처리</p>",
         "category": "공통"
       },
       {

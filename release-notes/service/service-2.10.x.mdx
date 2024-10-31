@@ -1,10 +1,64 @@
 ---
 id: service-2_10_x
 title: Service 2.10.X
-toc_max_heading_level: 3
+toc_max_heading_level: 2
 pagination_next: release-notes/service/service-2_9_x
 displayed_sidebar: releaseSidebar
 ---
+
+## Service 2.10.2
+
+2024년 10월 31일
+
+<div className="indentTab">
+
+### `공통`
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code className="newfunc">New</code> 메뉴에서 <Cmdname sid="BTN07761" className="uitext" /> 기능을 이용할 때, <Cmdname sid="overwrite" className="uitext" /> 버튼을 클릭해도 확인 창이 나타나지 않는 문제 수정
+
+</div>
+
+
+## Service 2.10.1
+
+2024년 10월 31일
+
+<div className="indentTab">
+
+### `Kubernetes`
+
+- <Status priority='0'>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_ingressList" className="uitext" /> 메뉴에서 쿠버네티스 에이전트 버전이 1.7.13 미만일 때 에이전트 업데이트 안내 화면 표시
+
+- <Status priority='0'>Fixed</Status> 네임스페이스 프로젝트에서 <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴에서 컨테이너의 Stdout/Stderr 로그가 표시되지 않는 문제 수정
+
+---
+
+### `Database`
+
+<Status priority='0'>Fixed</Status> 다음 메뉴의 <Cmdname sid="active_sessions" className="uitext" /> 테이블에서 <UI>elapse</UI> 컬럼 제거
+
+- <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />
+
+- <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" />
+
+- <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTrendComparison" className="uitext" />
+
+- <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbWaitAnalysis" className="uitext" />
+
+:::note
+
+적용 플랫폼: **PostgreSQL**, **Oracle** <code className="my">V2</code>, **Oracle Pro**
+
+:::
+
+---
+
+### `Cloud`
+
+<Status priority='0'>Fixed</Status> <UI>Amazon ECS</UI> &gt; <UI>Service</UI> 메뉴에서 <UI>Cpu_total_millis</UI>, <UI>Mem_workingset</UI> 위젯이 그려지지 않는 문제 수정
+
+</div>
+
 
 ## Service 2.10.0
 
@@ -289,6 +343,8 @@ Service 2.10.0 릴리스에 포함된 신규 기능을 소개합니다.
   - 툴팁에 지표와 함께 날짜를 표시하도록 수정
 
     예, 기존: **Innodb_buffer_pool_read_requests** / 현재: ***Innodb_buffer_pool_read_requests (2024-10-29)***
+
+- <Status priority='0'>Fixed</Status> Redis, MongoDB 플랫폼의 <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_dbScriptManager" className="uitext" /> 메뉴를 숨김 처리
 
 #### Oracle <code className="my">V2</code>, Oracle Pro
 

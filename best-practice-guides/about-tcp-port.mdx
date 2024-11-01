@@ -98,6 +98,12 @@ createdtime=xxxxxxxxxx
 tcp.check.8080=tcp://127.0.0.1:8080
 ```
 
+{/* 다중 포트 감시 추가 */}
+
+import TcpMulti from "../common-items/_server-tcp-port-multi.mdx";
+
+<TcpMulti /> 
+
 #### 메트릭스 조회 
 
 설정이 완료된 경우 ***분석*** &gt; ***메트릭스 조회*** 메뉴에서 `server_tcpport` 카테고리가 추가됩니다. 해당 카테고리의 `isAlive` 필드 값에 따라 메트릭스 알림을 사용할 수 있습니다. 

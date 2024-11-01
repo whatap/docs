@@ -10,6 +10,11 @@ import LinkprojectDesc from "../common-items/_linked-projects-desc.mdx";
 
 <LinkprojectDesc />
 
+{/* 권한 설정하기 */}
+import Setrole from "../common-items/_import_linked-projects-role-oracle.mdx";
+
+<Setrole />
+
 {/* 연계 프로젝트 추가하기 */}
 import Addproject from "../common-items/_linked-projects-add.mdx";
 
@@ -21,12 +26,27 @@ import Addproject from "../common-items/_linked-projects-add.mdx";
 
 ```ini title="whatap.conf"
 dbc_sid_enabled=true
+hook_db_native_enabled=true
 debug_dbc_sid_enabled=true
 ```
 
-* `dbc_sid_enabled`: SID 발급을 위한 옵션입니다. 값을 `true`로 설정하면 연계 분석할 수 있습니다.
+* **dbc_sid_enabled** <span class='type'>bool</span> 
 
-* `debug_dbc_sid_enabled`: Java 에이전트 로그에 SID 관련 정보를 로깅하는 옵션입니다. 필수 옵션은 아닙니다.
+  기본값 `false`
+
+  SID 발급을 위한 옵션입니다. 연계 분석을 위해 값을 `true`로 설정하세요. **필수** 옵션입니다.
+
+* **hook_db_native_enabled** <span class='type'>bool</span> 
+
+  기본값 `false`
+  
+  트랜잭션에서 사용하는 DB 종류를 추출하기 위한 옵션입니다. 연계 분석을 위해 값을 `true`로 설정하세요. **필수** 옵션입니다.
+
+* **debug_dbc_sid_enabled** <span class='type'>bool</span> 
+
+  기본값 `false`
+
+  Java 에이전트 로그에 SID 관련 정보를 로깅하는 옵션으로 선택 옵션입니다. 
 
 :::note
 

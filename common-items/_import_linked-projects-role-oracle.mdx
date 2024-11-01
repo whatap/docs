@@ -1,0 +1,8 @@
+## 권한 설정
+
+연계 프로젝트를 추가하기 위해서는 다음과 같은 권한 설정이 필요합니다. 
+
+```bash 
+grant select on sys.v_$session to DB접속계정;
+# ex) grant select on sys.v_$session to petapp;
+```

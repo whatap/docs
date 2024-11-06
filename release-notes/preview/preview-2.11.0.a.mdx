@@ -20,6 +20,34 @@ toc_max_heading_level: 2
 
 <div class='indentTab'>
 
+### `공통`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="TTL07402" className="uitext" /> 화면에서 <LinkImage img='ic-setting.svg' desc='설정 아이콘' /> 설정 드롭다운 메뉴 내 마우스 호버 스타일 추가 
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 메트릭스 이벤트 안내 문구 깨짐 수정 
+
+- <Status priority='1'>Changed</Status> 서비스 공지 진입 시 헤더 타이틀을 기존 <b>공지사항</b>에서 <Cmdname sid="TTL06766" className="uitext" />로 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 불필요한 가로 스크롤이 나타나는 현상 수정 
+
+---
+
+
+### `Application`
+
+- <Status priority='0'>Fixed</Status> Java, Node.js, Python 상품의 애플리케이션 에이전트 설정값 중 `encrypt_level` 영문 안내 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_txSearch" className="uitext" /> 메뉴의 숫자 입력 폼(경과 시간, HTTP 호출 건수, SQL 건수, SQL 패치 건수)에 한 자리 숫자만 있을 경우 값을 삭제할 수 없는 현상 수정
+
+---
+
+### `Server`
+
+<Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 `server_disk`, `server_process` 카테고리 내 필드를 사용하여 위젯을 생성할 경우 oname 태그가 id에 필수로 포함되지 않도록 변경
+
+
+---
+
 ### `Kubernetes`
 
 <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 <Cmdname sid="metrics" className="uitext" /> 탭을 신규 메트릭스 대시보드로 변경
@@ -31,15 +59,49 @@ toc_max_heading_level: 2
 
 ---
 
+### `Database`
+
+<Status priority='1'>Changed</Status> 액티브 세션 연계 분석 화면의 <UI>ThreadStat</UI> 값을 문자로 변경 
+
+:::note 
+
+적용 플랫폼: **MySQL** , **PostgreSQL**, **Oracle** <code className="my">V2</code>, **Oracle Pro**
+
+:::
+
+#### Oracle, Oracle Pro
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에 <UI>Disk Usage</UI> 위젯 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 <Cmdname sid="TTL06224" className="uitext" /> 팝업 창의 <UI>Runtime Plan</UI> 탭의 UI 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 및 <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴의 <Cmdname sid="session_detail" className="uitext" /> 창에서 세션이 종료되더라도 sid와 serial# 정보가 유지되도록 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 및 <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴의 <Cmdname sid="session_detail" className="uitext" /> 창의 <UI>Session Info</UI>에 `sql_hash_value` 값 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 및 <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴의 <Cmdname sid="session_detail" className="uitext" /> 창의 <UI>Session Info</UI>에 `command` 값을 상태명으로 표시하도록 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 <Cmdname sid="TTL06224" className="uitext" /> 팝업 창에서 플랜 조회 시 조회 범위를 변경
+
+
+---
+
 ### `Browser`
 
-<Status priority='1'>Feature</Status> <Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="side_adminMetering" className="uitext" /> 및 <Cmdname sid="billingPreview" className="uitext" />에서 <Cmdname sid="TTL08103" className="uitext" /> 과금 표시 
+- <Status priority='1'>Feature</Status> <Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="side_adminMetering" className="uitext" /> 및 <Cmdname sid="billingPreview" className="uitext" />에서 <Cmdname sid="TTL08103" className="uitext" /> 과금 표시 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에 <Cmdname sid="TTL08559" className="uitext" /> 알림 설정 추가
+
 
 ---
 
 ### `Log`
 
-<Status priority='1'>Changed</Status> 로그 필터 즐겨찾기 제한 개수 10개에서 50개로 변경
+- <Status priority='1'>Changed</Status> 로그 필터 즐겨찾기 제한 개수 10개에서 50개로 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_logSetting" className="uitext" /> 메뉴의 <Cmdname sid="getting_started_log_monitoring" className="uitext" />  탭 디자인 수정 
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="log_long_term_keep_statistic" className="uitext" /> 수정 화면의 태그 사이 간격 변경
 
 
 </div>

@@ -59,6 +59,8 @@ keywords: [ 애플리케이션, .NET, 에이전트 설치, 트러블슈팅, 빠�
 
   * [.NET 에이전트 지원 환경 분석](https://whatap-dotnet.s3.ap-northeast-2.amazonaws.com/analysis.html)
 
+{/* 
+
 ### 기타 
 
 위에서 안내한 방법으로 오류가 해결되지 않을 경우 상세한 디버깅 정보를 전달해 주세요. 디버깅 데이터 수집 과정은 다음과 같습니다. 
@@ -79,7 +81,9 @@ keywords: [ 애플리케이션, .NET, 에이전트 설치, 트러블슈팅, 빠�
 
 1. *UdpMonitor.txt* 파일을 담당자에게 전달해 주세요. 
 
-1. 디버깅 완료 시 디버깅용 에이전트를 제거하세요.
+1. 디버깅 완료 시 디버깅용 에이전트를 제거하세요. 
+
+*/}
 
 ## WCF 및 공식 미지원 라이브러리 모니터링 
 
@@ -163,6 +167,7 @@ webservice_method_timeout=10000
 
 :::
 
+{/* 
 #### WCF 소스 코드
 
 다음은 모니터링 대상이 되는 WCF 소스 코드 예제입니다. 
@@ -226,7 +231,11 @@ namespace Whatap.DotNet.Examples
 
 * `webservice_method_prefix` 옵션에 `Whatap.DotNet.Examples.Service3`를 추가할 경우 Public 메소드인 `IwantToSeeOnlyThis()` 메소드가 모니터링 대상이 될 수 있습니다.
 
-:::
+::: 
+
+*/}
+
+{/* 
 
 ### 네임스페이스와 클래스 이름을 찾기 어려울 경우
 
@@ -248,4 +257,46 @@ WCF 서버 메소드가 정의된 네임스페이스를 찾기 어려울 경우 
 
 결과 적용이 어려울 경우 *GetNamesapces.exe* 실행 후 동일한 폴더에 생성된 *GetNamesapces.txt* 파일을 담당자에게 전달하세요. 
 
-:::
+::: 
+
+*/}
+
+## 네임스페이스와 클래스 이름 찾기
+
+### WCF의 경우
+
+WCF의 경우 배포 폴더에서 *\*.svc* 파일을 찾습니다. 이 파일을 메모장 등 텍스트 편집기로 열어 `Service` 항목에 명시된 값을 확인하세요. 해당 값이 `webservice_method_prefix`에 추가해야 할 정보입니다.
+
+<ImgLang img='dotnet-quick-pic-01.png' desc='WCF 설정 예시' />
+
+
+### Web Service의 경우
+
+Web Service의 경우 배포 폴더에서 *\*.asmx* 파일을 찾습니다. 이 파일을 메모장으로 열어 `Class` 항목에 명시된 값을 확인하세요. 이 값이 `webservice_method_prefix`에 추가해야 할 정보입니다.
+
+<ImgLang img='dotnet-quick-pic-02.png' desc='Web Service 설정 예시' />
+
+
+### 설정 예시
+
+다음의 설정 예시를 참조하세요. 
+
+```ini
+webservice_method_enabled=true
+webservice_method_prefix=wcfServer.Service1, WebServiceDemo.WebService
+```
+
+## 트랜잭션은 잡히지만 스텝 정보가 표시되지 않거나 너무 적을 때
+
+트랜잭션은 감지되지만 스텝 정보가 보이지 않거나 부족한 경우, `Method hook`을 통해 모니터링 범위를 확대할 수 있습니다. 다음 설정 예시를 참조하세요. 예시 설정을 통해 기본 라이브러리에서 모니터링 범위에서 제외된 항목을 스텝 정보로 표시할 수 있습니다.
+
+```ini
+hook_methods_enabled=true
+hook_methods_prefix=System.Net.Http.HttpClient., System.Net.WebRequest., System.Data., System.Net.Http.,
+# hook_methods_ignores=get,set
+```
+
+* `hook_methods_prefix`: 지정된 값으로 시작하는 모든 메소드를 스텝에 표시합니다.
+
+* `hook_methods_ignores`: 지정된 값으로 시작하는 모든 메소드를 모니터링에서 제외합니다.
+

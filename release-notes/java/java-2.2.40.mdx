@@ -1,0 +1,46 @@
+---
+id: java-2_2_40
+title: Java Agent v2.2.40
+toc_max_heading_level: 2
+pagination_next: release-notes/java/java-2_2_39
+displayed_sidebar: releaseSidebar
+---
+
+2024년 11월 06일
+
+- <Status priority='1'>New</Status> camel-netty4-2.25 추적
+
+  ```bash
+  weaving=camel-netty4-2.25
+  ```
+
+- <Status priority='1'>New</Status> AWS ECS Fargate 메모리 사용률 지표 수집
+
+  - 메모리 사용률 기준값을 사용자 정의(task definition) 메모리 제한값으로 설정
+
+- <Status priority='1'>New</Status> 일부 에이전트 설정에서 시스템 환경변수를 통한 설정 지원
+
+  - 기존에 *whatap.conf*에 설정한 경우 기존 설정 값이 우선시되며 시스템 환경 변수의 값은 무시
+
+    ```bash
+    에이전트 설정              시스템 환경변수
+    whatap.server.host   <= WHATAP_SERVER_HOST
+    whatap.server.port   <= WHATAP_SERVER_PORT
+    whatap.okind         <= WHATAP_OKIND
+    whtap.micro.enabled  <= WHATAP_MICRO_ENABLED
+    ```
+
+- <Status priority='1'>Changed</Status> Spring Boot 2.5 ~ 2.6.x 버전에서 WebFlux 트랜잭션 추적 시 샘플링 기능 사용 가능하도록 개선
+
+- <Status priority='0'>Fixed</Status> AWS ECS EC2 메모리 사용률 기준값을 사용자 정의 task definition의 메모리 제한값으로 수정
+
+- <Status priority='0'>Fixed</Status> PostgreSQL 사용 시 빈 SQL(Empty SQL) 수집 제거
+
+- <Status priority='0'>Fixed</Status> 트랜잭션 샘플링 기능 사용 시 실제 TPS보다 높게 수집되는 현상 수정
+
+- <Status priority='0'>Fixed</Status> Spring Boot 2.5 ~ 2.6.x 버전에서 Spring Cloud Gateway 호출 시 연계 추적용 헤더가 있는 경우에도 연계 추적에 문제가 없도록 수정
+
+
+import DownloadJava from './_import_dl-java-agent.mdx';
+
+<DownloadJava ver="2.2.40" />

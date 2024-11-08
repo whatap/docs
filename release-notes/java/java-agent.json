@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_41",
+    "ver": "v2.2.41",
+    "date": "2024-11-08",
+    "Lists": [
+      {
+        "ver": "v2.2.41",
+        "hash": "v2241",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Spring Boot 2.7.0 ~ 3.3.x 버전에서 WebFlux 트랜잭션 추적 시 샘플링 기능을 사용할 수 있도록 개선</p>"
+      },
+      {
+        "ver": "v2.2.41",
+        "hash": "v2241",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Spring Boot 2.7.0 ~ 3.3.x 버전에서 Spring Cloud Gateway 호출 시 연계 추적용 헤더가 있는 경우에도 연계 추적이 정상적으로 작동하도록 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://whatap.github.io/whatap-docs/release-notes/java/java-2_2_40",
     "ver": "v2.2.40",
     "date": "2024-11-06",

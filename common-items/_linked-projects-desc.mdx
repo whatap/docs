@@ -14,7 +14,7 @@
 
 <Cmdname sid="side_correlatedProjectManagement" className="uitext" /> 기능을 사용하면 제품 또는 장비 중심의 모니터링을 넘어 여러 프로젝트 간의 모니터링 데이터를 통합해 확인할 수 있습니다. 이는 애플리케이션, 데이터베이스 등 다양한 시스템 구성 요소들이 어떻게 상호 작용하는지 분석하는 데 유용합니다. 특히, 성능 저하가 발생했을 때 장비 문제인지 개별 애플리케이션 문제인지 신속하게 파악할 수 있어, 문제 해결 시간을 크게 단축시킬 수 있습니다. <Cmdname sid="side_correlatedProjectManagement" className="uitext" />를 통해 사용자 시스템 단위에서 성능 데이터를 종합적으로 분석하고, 보다 가시적인 인사이트를 확보할 수 있습니다.
 
-<InDoc product="java,php,python,nodejs,dotnet,golang">
+<InDoc product="php,python,nodejs,dotnet,golang">
 
 :::note
 
@@ -26,13 +26,29 @@
 
 </InDoc>
 
+<InDoc product="java">
+
+:::note
+
+**시작하기 전 참고 사항**
+
+* 지원하는 데이터베이스: PostgreSQL, Oracle, MySQL, SQL Server, CUBRID, Altibase, Redis, MongoDB
+
+* 지원 에이전트: Java 에이전트 2.3.33 버전 이상
+
+:::
+
+</InDoc>
+
 <InDoc product="postgresql,oracle,oracle-pro,mysql">
 
 :::note
 
 **시작하기 전 참고 사항**
 
-* 현재는 **Java** 플랫폼만 지원합니다. 추후 업데이트를 통해 지원 플랫폼을 확장하겠습니다.
+* 현재는 **Java** 플랫폼만 지원합니다. 추후 업데이트를 통해 지원 플랫폼을 확장하겠습니다. 
+
+* 와탭 Java 에이전트 2.3.33 버전 이상이 필요합니다. 
 
 * 애플리케이션 프로젝트에서 데이터베이스 프로젝트를 연계하는 방법에 대한 자세한 내용은 [다음 문서](../java/linked-projects)를 참조하세요.
 

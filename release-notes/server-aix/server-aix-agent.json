@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server-aix/server-aix-1_3_6",
+    "ver": "v1.3.6",
+    "date": "2024-11-11",
+    "Lists": [
+      {
+        "ver": "v1.3.6",
+        "hash": "v136",
+        "product": "Server AIX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> OS 언어셋이 한글일 때 Network 정보가 수집되지 않는 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server/server-aix-1_3_5",
     "ver": "v1.3.5",
     "date": "2024-10-17",

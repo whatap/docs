@@ -1,6 +1,20 @@
 [
   {
-    "url": "https://docs.whatap.io/whatap-docs/release-notes/service/service-2_10_x",
+    "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
+    "ver": "Service 2.10.7",
+    "date": "2024-11-11",
+    "Lists": [
+      {
+        "ver": "Service 2.10.7",
+        "hash": "service-2107",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">이용 내역</span> &gt; <span class=\"uitext\">결제 정보</span> 메뉴에서 AWS Marketplace 재구독 버튼이 활성화되지 않는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
     "ver": "Service 2.10.5",
     "date": "2024-11-07",
     "Lists": [
@@ -36,7 +50,7 @@
     ]
   },
   {
-    "url": "https://docs.whatap.io/whatap-docs/release-notes/service/service-2_10_x",
+    "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
     "ver": "Service 2.10.3",
     "date": "2024-11-01",
     "Lists": [

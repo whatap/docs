@@ -1,5 +1,20 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_4",
+    "ver": "v0.5.4",
+    "date": "2024-11-13",
+    "Lists": [
+      {
+        "ver": "v0.5.4",
+        "hash": "v054",
+        "product": "Node.js Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 애플리케이션 성능 및 네트워크 오류 모니터링 위한 에이전트 옵션 추가</p>",
+        "details": "<ul>\n<li>\n<p><strong>profile_error_httpc_time_max</strong> <span class=\"type\">Number</span></p>\n<p>기본값 <code>10000</code></p>\n<p>HTTPC 수행 시간이 지정된 값을 초과할 경우 TOO SLOW 에러로 처리합니다. <code>0</code>으로 설정하면 에러 처리를 하지 않습니다.</p>\n</li>\n<li>\n<p><strong>profile_error_sql_time_max</strong> <span class=\"type\">Number</span></p>\n<p>기본값 <code>30000</code></p>\n<p>SQL 수행 시간이 설정한 값을 초과하면 TOO SLOW 에러로 처리합니다. <code>0</code>으로 설정하는 경우 에러 처리를 하지 않습니다.</p>\n</li>\n<li>\n<p><strong>profile_error_sql_fetch_max</strong> <span class=\"type\">Number</span></p>\n<p>기본값 <code>10000</code></p>\n<p>SQL 결과 건수가 설정한 값을 초과하면 TOO MANY RECORDS 에러로 처리합니다. <code>0</code>으로 설정하는 경우 에러 처리를 하지 않습니다.</p>\n</li>\n<li>\n<p><strong>ignore_http_lost_connection</strong> <span class=\"type\">Boolean</span></p>\n<p>기본값 <code>false</code></p>\n<p><code>true</code>로 설정할 경우 Lost connection 오류를 수집하지 않습니다.</p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_2",
     "ver": "v0.5.2",
     "date": "2024-10-17",

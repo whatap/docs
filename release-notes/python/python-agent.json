@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_7_2",
+    "ver": "v1.7.2",
+    "date": "2024-11-12",
+    "Lists": [
+      {
+        "ver": "v1.7.2",
+        "hash": "v172",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 프로세스별 PID 기반 open file descriptor 사용량 수집 기능 추가</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_7_1",
     "ver": "v1.7.1",
     "date": "2024-10-10",

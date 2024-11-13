@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
+    "ver": "Service 2.10.8",
+    "date": "2024-11-13",
+    "Lists": [
+      {
+        "ver": "Service 2.10.8",
+        "hash": "service-2108",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code>  <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 구성 정보</span> 메뉴에서 커스텀 컬럼 수정 후 저장되지 않는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
     "ver": "Service 2.10.7",
     "date": "2024-11-11",
     "Lists": [

@@ -11,6 +11,10 @@ MySQL의 `performance_schema`에서 제공하는 SQL 통계 데이터(수행 횟
 
 :::note
 
+* 1시간 간격으로 `events_statements_summary_by_digest`로부터 델타값을 계산하여 수집합니다. 따라서 설정 후 1시간 뒤부터 수집을 시작합니다.
+
+* 1시간 간격 수집 시 `sum_timer_wait` 기준 최대 5,000건까지 수집합니다. 
+
 * 이 기능은 DBX 에이전트 1.6.10 버전 이상에서 지원합니다.
 
 * `events_statements_summary_by_digest` 뷰에 대한 자세한 내용은 [다음 링크](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html)를 참조하세요.
@@ -41,7 +45,14 @@ MySQL의 `performance_schema`에서 제공하는 SQL 통계 데이터(수행 횟
 
 :::note
 
-1시간 간격으로 `events_statements_summary_by_digest`로부터 델타값을 계산하여 수집합니다. 따라서 설정 후 1시간 뒤부터 수집을 시작합니다.
+데이터를 수집하는 기준은 다음 DBX 에이전트 옵션을 참조하세요. `performance_schema.events_statements_summary_by_digest`를 조회하며 다음 합산 값이 `statements_min_row` 보다 큰 경우 수집합니다.
+
+> `sum_rows_affected` + `sum_rows_sent` + `sum_rows_examined`
+
+```ini title="whatap.conf"
+# default 10000 row
+statements_min_row=10000
+```
 
 :::
 

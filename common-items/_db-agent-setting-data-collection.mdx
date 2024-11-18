@@ -86,6 +86,18 @@
   
   :::
 
+* **statements_min_row** <span class='type'>Int</span>
+
+  기본값 `10000` (row)
+
+  <Cmdname sid="side_pgStat" className="uitext" /> 메뉴에서 사용하는 데이터를 수집하는 기준입니다. `pg_stat_statements`를 조회하며 rows 값이 `statements_min_row` 보다 큰 경우 수집합니다.
+
+  :::note
+
+  <Cmdname sid="side_pgStat" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](pg-sql-stat)를 참조하세요.
+
+  :::
+
 </InDoc>
 
 <Xclude product='cubrid,redis,mongodb'>
@@ -105,6 +117,20 @@
   기본값 `1`
 
   `2`를 설정하면 sys 세션(root,system user,event_scheduler)이 active session에서 보이지 않습니다. `1`을 설정하면 sys 세션이 보이지만 total runtime에서는 제외합니다.
+
+* **statements_min_row** <span class='type'>Int</span>
+
+  기본값 `10000` (row)
+
+  <Cmdname sid="side_mysqlStat" className="uitext" /> 메뉴에서 사용하는 데이터를 수집하는 기준입니다. `performance_schema.events_statements_summary_by_digest`를 조회하며 다음 합산 값이 `statements_min_row` 보다 큰 경우 수집합니다.
+
+  > `sum_rows_affected` + `sum_rows_sent` + `sum_rows_examined`
+
+  :::note
+
+  <Cmdname sid="side_mysqlStat" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](mysql-sql-stat)를 참조하세요.
+
+  :::
 
 </InDoc>
 

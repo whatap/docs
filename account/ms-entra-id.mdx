@@ -1,0 +1,252 @@
+---
+id: ms-entra-id
+title: Microsoft Entra ID 연동
+description: Microsoft Entra ID 연동을 통해서 하나의 아이디와 비밀번호를 이용해 간편하게 계정을 관리하세요.
+keywords: [ Microsoft Entra ID, 계정, 보안 ]
+displayed_sidebar: manageSidebar
+---
+
+**Microsoft Entra ID**를 기준으로 와탭 모니터링 서비스 계정과 연동하는 방법을 안내합니다. **Microsoft Entra ID** 계정으로 와탭 모니터링 서비스에 로그인할 수 있고, 사용자에게 주어진 권한 내에서 와탭 모니터링 서비스를 이용할 수 있습니다.
+
+**Microsoft Entra ID** 계정과 와탭 모니터링 서비스를 연동하는 순서는 다음과 같습니다.
+
+import TOCInline from '@theme/TOCInline';
+
+<TOCInline toc={toc} maxHeadingLevel={2} />
+
+:::note
+
+**Microsoft Entra ID**에 대한 자세한 내용은 [다음 링크](https://learn.microsoft.com/entra/fundamentals/whatis)를 참조하세요.
+
+:::
+
+## 사용할 계정(email) 확인하기
+
+시작하기 전에 와탭과 Microsoft Entra 서비스에 계정이 있는지 확인하세요.
+
+### 와탭에 계정이 생성된 경우
+
+Microsoft Entra ID에서 사용할 계정이 와탭에 이미 생성되어 있는 경우 다음 사항을 참조하세요.
+
+* 다음 예시와 같이 각 서비스에서 사용하는 계정의 이름이 서로 같아야 연동할 수 있습니다.
+
+  * 와탭: monitoring1@abc.com
+
+  * Microsoft Entra: monitoring1@abc.com
+
+* 다음 예시와 같이 각 서비스에서 사용하는 계정의 이름이 서로 다르면 연동할 수 없습니다.
+
+  * 와탭: monitoring2@abc.com
+
+  * Microsoft Entra: monitoring3@abc.com
+
+### 와탭에 계정이 없는 경우 {#noneaccount}
+
+Microsoft Entra ID에서 사용할 계정이 와탭에 없다면, 다음 안내에 따라 Microsoft Entra ID를 통해 와탭에 최초로 로그인할 계정을 생성하세요.
+
+1. 회사 또는 학교 계정으로 **내 앱 포털**에 로그인하세요. 사용할 수 있는 조직 소유의 모든 클라우드 기반 앱을 보여 주는 **내 앱** 페이지가 나타납니다.
+
+1. **앱 대시보드**에서 기존에 등록된 엔터프라이즈 애플리케이션을 통해서 와탭(WhaTap) 서비스에 접속하세요.
+
+1. 접속한 화면에서 이름과 회사 정보를 입력해 인증을 연동하세요.
+
+    ![Sign up](/img/ms2whatap-signup.png)
+
+1. 에러 페이지가 나타나면 해당 페이지를 닫고, **앱 대시보드**에서 다시 와탭(WhaTap) 애플리케이션을 클릭하면 정상 로그인 처리됩니다.
+
+
+## 와탭에서 연동(SSO) 키 생성하기
+
+와탭 모니터링 서비스 화면에서 SSO 키를 발급받는 방법을 안내합니다. 발급 받은 SSO 키를 통해 Microsoft Entra ID와 연동할 수 있습니다. 최초로 Microsoft Entra ID 연동을 설정하는 경우 반드시 와탭 계정을 생성해야 합니다. 와탭 계정이 없다면 [다음 문서](#noneaccount)를 참조하세요.
+
+1. Microsoft Entra ID와 연동을 설정할 계정으로 와탭 모니터링 서비스에 로그인하세요.
+
+1. 화면 오른쪽 위에 프로필 아이콘을 선택하세요.
+
+1. 팝업 메뉴가 나타나면 <Cmdname sid="MNU07360" className="uitext" />를 선택하세요.
+
+1. 화면 왼쪽 메뉴에서 <Cmdname sid="ssoIntegrations" className="uitext" />을 선택하세요.
+
+1. ***Service provider ID (WhaTap)*** 섹션의 <Cmdname sid="BTN07473" className="uitext" />에서 Key Name을 입력하세요.
+
+    Key Name은 사용자가 임의로 입력할 수 있습니다.
+
+    <ImgLang img='sso-service-key.png' desc='Service provider ID' />
+
+1. <Cmdname sid="BTN07473" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="TTL07478" className="uitext" />에서 <span class="uitext">EntityID</span>와 <span class="uitext">Sign-On URL</span> 항목의 값을 확인하고 복사하세요.
+
+    <ImgLang img='sso-check-sso-info.png' desc='sso-info' />
+
+:::note
+
+* SSO 키는 최대 5개까지 발급할 수 있으며 각각 고유의 인증 정보 값을 가지고 있습니다. 
+
+* <Cmdname sid="BTN07476" className="uitext" /> 버튼을 선택해 SSO 키를 추가하고 이후의 과정을 진행하세요. 
+
+* 추가된 SSO 정보는 ***Key Name*** 항목에서 목록 상자를 선택해 확인할 수 있습니다.
+
+:::
+
+
+## Microsoft Entra ID 엔터프라이즈 애플리케이션 생성하기
+
+[Microsoft Entra 관리 센터](https://entra.microsoft.com/#home) 서비스로 이동해 로그인한 후 다음 순서에 따라 **엔터프라이즈 애플리케이션**을 생성합니다.
+
+1. **ID** &gt; **애플리케이션** &gt; **엔터프라이즈 애플리케이션** 메뉴에서 **새로운 애플리케이션**을 클릭하세요. {/* Ientity, Applications, Enterprise applications */}
+
+    <ImgLang img="ms-entraid-enterprise-application-01.png" desc="Entra ID" className="width-800" />
+
+1. <b>자신만의 애플리케이션을 만드세요.</b>을 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-02.png" desc="Entra ID" className="width-800" />
+
+1. 오른쪽에 앱 이름 설정 화면이 나타나면 앱 이름을 입력한 후 **갤러리에 없는 다른 애플리케이션 통합(비갤러리)** 옵션을 클릭하세요.
+
+1. 화면 하단의 **만들기** 버튼을 클릭하세요.
+
+
+## 애플리케이션에 사용자 할당하기
+
+새로 만들어진 엔터프라이즈 애플리케이션 화면에서 연동할 사용자를 할당합니다.
+
+1. **사용자 및 그룹 할당**을 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-assign-01.png" desc="Entra ID" className="width-800" />
+
+1. **사용자/그룹 추가**를 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-assign-02.png" desc="Entra ID" className="width-800" />
+
+1. **할당 추가** 화면에서 **선택된 항목 없음**을 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-assign-03.png" desc="Entra ID" className="width-800" />
+
+1. 사용자 목록에서 연동할 사용자를 선택한 후 **선택** 버튼을 클릭하세요.
+
+1. 화면 하단의 **할당** 버튼을 클릭하세요.
+
+
+## Microsoft Entra ID 인증 설정하기
+
+사용자가 Microsoft Entra 자격 증명을 사용하여 애플리케이션에 로그인할 수 있도록 설정합니다.
+
+1. 엔터프라이즈 애플리케이션의 **개요**를 선택해 초기 화면으로 이동한 후 **Single Sign On 설정**을 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-sso-01.png" desc="Entra ID" className="width-800" />
+
+1. **Single Sign-On 방법 선택**에서 **SAML**을 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-sso-02.png" desc="Entra ID" className="width-800" />
+
+1. **기본 SAML 구성**에서 **편집**을 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-sso-03.png" desc="Entra ID" className="width-800" />
+
+1. 와탭의 <Cmdname sid="ssoIntegrations" className="uitext" /> 화면에서 생성한 SSO 정보를 입력하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-sso-04.png" desc="Entra ID" className="width-800" />
+
+    * ***EntityID*** 항목의 값을 복사한 후, **식별자 추가** 버튼을 클릭하고 **식별자 입력**에 붙여넣기하세요.
+
+    * ***Sign-On URL*** 항목의 값을 복사한 후, **답장 URL 추가** 버튼을 클릭하고 **회신 URL 입력**에 붙여넣기하세요.
+
+1. **저장** 버튼을 클릭하세요.
+
+1. **특성 및 클레임**에서 **편집**을 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-sso-05.png" desc="Entra ID" className="width-800" />
+
+1. <b>고유한 사용자 Id(이름 ID)</b>를 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-sso-06.png" desc="Entra ID" className="width-800" />
+
+1. **원본 특성**에서 **user.mail**을 선택한 다음 **저장**을 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-sso-07.png" desc="Entra ID" className="width-800" />
+
+1. **SAML 인증서**에서 **앱 페더레이션 메타데이터 URL** 항목의 값을 복사하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-sso-08.png" desc="Entra ID" className="width-800" />
+
+
+## 와탭에서 메타데이터 등록하기
+
+Microsoft Entra ID에서 발급 받은 메타데이터를 등록해 인증 정보를 연동합니다.
+
+1. 와탭 모니터링 서비스에서 <Cmdname sid="ssoIntegrations" className="uitext" /> 메뉴로 이동하세요.
+
+1. <Cmdname sid="TTL07484" className="uitext" /> 섹션에서 <Cmdname sid="BTN07491" className="uitext" /> 버튼을 선택하세요.
+
+    <ImgLang img='sso-externalidp-button.png' desc='External IdP' />
+
+1. <Cmdname sid="BTN07491" className="uitext" /> 창이 나타나면 <b>Microsoft Entra ID</b>에서 복사한 메타데이터 값을 ***Metadata*** 항목에 붙여넣기하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-whatap-externalidp.png" desc="Metadata" />
+
+1. 인증 데이터를 자동 변환하기 위해 <Cmdname sid="BTN07494" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+
+## 연동 테스트하기
+
+Microsoft Entra ID 화면으로 돌아와 Single Sign On이 작동하는지 테스트합니다.
+
+1. **Test Single Sign-On 사용**에서 **Test** 버튼을 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-sso-test-01.png" desc="Test" />
+
+1. **로그인 테스트** 버튼을 클릭하세요.
+
+    <ImgLang img="ms-entraid-enterprise-application-sso-test-02.png" desc="Login test" />
+
+* 와탭 계정이 있다면 와탭 모니터링 서비스 화면으로 정상 이동합니다.
+
+* 와탭 계정이 없다면 인증 연동을 통해 신규 계정을 생성할 수 있습니다.
+
+
+## 엔터프라이즈 애플리케이션에서 와탭 계정 관리하기
+
+Microsoft Entra ID의 엔터프라이즈 애플리케이션에서 와탭 계정을 관리할 수 있습니다.
+
+* 엔터프라이즈 애플리케이션에 초대된 **내 계정** 정보
+
+  <ImgLang img="ms-account-manage-01.png" desc="My account" />
+
+* 초대된 계정의 **내 앱** 정보
+
+  <ImgLang img="ms-account-manage-02.png" desc="My account" />
+
+
+<Title level={2} hashid="removessokey">SSO 키 삭제하기</Title>
+
+1. 와탭 모니터링 서비스에서 <Cmdname sid="ssoIntegrations" className="uitext" /> 메뉴로 이동하세요.
+
+1. ***Service provider ID (WhaTap)*** 섹션의 <Cmdname sid="TTL07478" className="uitext" />에서 삭제하려는 ***Key Name***을 선택하세요.
+
+    <ImgLang img='sso-delete-sso-key.png' desc='Delete SSO Key' />
+
+1. <Cmdname sid="BTN07481" className="uitext" /> 버튼을 선택하세요.
+
+1. 삭제 확인 창이 나타나면 <Cmdname sid="BTN07481" className="uitext" /> 버튼을 선택하세요.
+
+
+<Title level={2} hashid="editexternalidp">External Idp 정보 수정/삭제하기</Title>
+
+1. 와탭 모니터링 서비스에서 <Cmdname sid="ssoIntegrations" className="uitext" /> 메뉴로 이동하세요.
+
+1. <Cmdname sid="TTL07484" className="uitext" /> 섹션에서 <Cmdname sid="BTN07490" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="BTN07491" className="uitext" /> 창이 나타나면 <b>Microsoft Entra ID</b>에서 복사한 메타데이터 값을 ***Metadata*** 항목에 붙여넣기하세요.
+
+1. 인증 데이터를 자동 변환하기 위한 <Cmdname sid="BTN07494" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="save" className="uitext" /> 버튼을 선택하세요.
+
+:::tip
+
+**External Idp** 정보를 삭제하려면 <Cmdname sid="BTN07490" className="uitext" /> 버튼을 클릭한 다음 팝업 창에서 <Cmdname sid="delete" className="uitext" /> 버튼을 선택하세요.
+
+:::

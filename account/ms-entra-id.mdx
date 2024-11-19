@@ -44,15 +44,15 @@ Microsoft Entra ID에서 사용할 계정이 와탭에 이미 생성되어 있�
 
 Microsoft Entra ID에서 사용할 계정이 와탭에 없다면, 다음 안내에 따라 Microsoft Entra ID를 통해 와탭에 최초로 로그인할 계정을 생성하세요.
 
-1. 회사 또는 학교 계정으로 **내 앱 포털**에 로그인하세요. 사용할 수 있는 조직 소유의 모든 클라우드 기반 앱을 보여 주는 **내 앱** 페이지가 나타납니다.
+1. 회사 또는 학교 계정으로 <Cmdname sid="myapp_portal" className="b600" entra/>에 로그인하세요. 사용할 수 있는 조직 소유의 모든 클라우드 기반 앱을 보여 주는 <Cmdname sid="myapps" className="b600" entra/> 페이지가 나타납니다.
 
-1. **앱 대시보드**에서 기존에 등록된 엔터프라이즈 애플리케이션을 통해서 와탭(WhaTap) 서비스에 접속하세요.
+1. <Cmdname sid="entraAppDashboard" className="b600" entra/>에서 기존에 등록된 엔터프라이즈 애플리케이션을 통해서 와탭(WhaTap) 서비스에 접속하세요.
 
 1. 접속한 화면에서 이름과 회사 정보를 입력해 인증을 연동하세요.
 
     ![Sign up](/img/ms2whatap-signup.png)
 
-1. 에러 페이지가 나타나면 해당 페이지를 닫고, **앱 대시보드**에서 다시 와탭(WhaTap) 애플리케이션을 클릭하면 정상 로그인 처리됩니다.
+1. 에러 페이지가 나타나면 해당 페이지를 닫고, <Cmdname sid="entraAppDashboard" className="b600" entra/>에서 다시 와탭(WhaTap) 애플리케이션을 클릭하면 정상 로그인 처리됩니다.
 
 
 ## 와탭에서 연동(SSO) 키 생성하기
@@ -92,55 +92,55 @@ Microsoft Entra ID에서 사용할 계정이 와탭에 없다면, 다음 안내�
 
 ## Microsoft Entra ID 엔터프라이즈 애플리케이션 생성하기
 
-[Microsoft Entra 관리 센터](https://entra.microsoft.com/#home) 서비스로 이동해 로그인한 후 다음 순서에 따라 **엔터프라이즈 애플리케이션**을 생성합니다.
+[Microsoft Entra 관리 센터](https://entra.microsoft.com/#home) 서비스로 이동해 로그인한 후 다음 순서에 따라 <Cmdname sid="entraEntApp" className="b600" entra/>을 생성합니다.
 
-1. **ID** &gt; **애플리케이션** &gt; **엔터프라이즈 애플리케이션** 메뉴에서 **새로운 애플리케이션**을 클릭하세요. {/* Ientity, Applications, Enterprise applications */}
+1. <Cmdname sid="entraIdentity" className="b600" entra/> &gt; <Cmdname sid="entraApplication" className="b600" entra/> &gt; <Cmdname sid="entraEntApp" className="b600" entra/> 메뉴에서 <Cmdname sid="entraNewApp" className="b600" entra/>을 클릭하세요. {/* Ientity, Applications, Enterprise applications */}
 
     <ImgLang img="ms-entraid-enterprise-application-01.png" desc="Entra ID" className="width-800" />
 
-1. <b>자신만의 애플리케이션을 만드세요.</b>을 클릭하세요.
+1. <Cmdname sid="entraCreateMyApp" className="b600" entra/>을 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-02.png" desc="Entra ID" className="width-800" />
 
-1. 오른쪽에 앱 이름 설정 화면이 나타나면 앱 이름을 입력한 후 **갤러리에 없는 다른 애플리케이션 통합(비갤러리)** 옵션을 클릭하세요.
+1. 오른쪽에 앱 이름 설정 화면이 나타나면 앱 이름을 입력한 후 <Cmdname sid="entraOtherApp" className="b600" entra/> 옵션을 클릭하세요.
 
-1. 화면 하단의 **만들기** 버튼을 클릭하세요.
+1. 화면 하단의 <Cmdname sid="entrabtnCreate" className="b600" entra/> 버튼을 클릭하세요.
 
 
 ## 애플리케이션에 사용자 할당하기
 
 새로 만들어진 엔터프라이즈 애플리케이션 화면에서 연동할 사용자를 할당합니다.
 
-1. **사용자 및 그룹 할당**을 클릭하세요.
+1. <Cmdname sid="entraAssignUsergroup" className="b600" entra/>을 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-assign-01.png" desc="Entra ID" className="width-800" />
 
-1. **사용자/그룹 추가**를 클릭하세요.
+1. <Cmdname sid="entraAddUsergroup" className="b600" entra/>를 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-assign-02.png" desc="Entra ID" className="width-800" />
 
-1. **할당 추가** 화면에서 **선택된 항목 없음**을 클릭하세요.
+1. <Cmdname sid="entraAddAssign" className="b600" entra/> 화면에서 <Cmdname sid="entraNoneAssign" className="b600" entra/>을 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-assign-03.png" desc="Entra ID" className="width-800" />
 
-1. 사용자 목록에서 연동할 사용자를 선택한 후 **선택** 버튼을 클릭하세요.
+1. 사용자 목록에서 연동할 사용자를 선택한 후 <Cmdname sid="entraSelect" className="b600" entra/> 버튼을 클릭하세요.
 
-1. 화면 하단의 **할당** 버튼을 클릭하세요.
+1. 화면 하단의 <Cmdname sid="entraAssign" className="b600" entra/> 버튼을 클릭하세요.
 
 
 ## Microsoft Entra ID 인증 설정하기
 
 사용자가 Microsoft Entra 자격 증명을 사용하여 애플리케이션에 로그인할 수 있도록 설정합니다.
 
-1. 엔터프라이즈 애플리케이션의 **개요**를 선택해 초기 화면으로 이동한 후 **Single Sign On 설정**을 클릭하세요.
+1. 엔터프라이즈 애플리케이션의 <Cmdname sid="entraOverview" className="b600" entra/>를 선택해 초기 화면으로 이동한 후 <Cmdname sid="entraSignonset" className="b600" entra/>을 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-sso-01.png" desc="Entra ID" className="width-800" />
 
-1. **Single Sign-On 방법 선택**에서 **SAML**을 클릭하세요.
+1. <Cmdname sid="entraSelectsso" className="b600" entra/>에서 <Cmdname sid="entraSaml" className="b600" entra/>을 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-sso-02.png" desc="Entra ID" className="width-800" />
 
-1. **기본 SAML 구성**에서 **편집**을 클릭하세요.
+1. <Cmdname sid="entraBasicSaml" className="b600" entra/>에서 <Cmdname sid="entraBtnEdit" className="b600" entra/>을 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-sso-03.png" desc="Entra ID" className="width-800" />
 
@@ -148,25 +148,25 @@ Microsoft Entra ID에서 사용할 계정이 와탭에 없다면, 다음 안내�
 
     <ImgLang img="ms-entraid-enterprise-application-sso-04.png" desc="Entra ID" className="width-800" />
 
-    * ***EntityID*** 항목의 값을 복사한 후, **식별자 추가** 버튼을 클릭하고 **식별자 입력**에 붙여넣기하세요.
+    * ***EntityID*** 항목의 값을 복사한 후, <Cmdname sid="entraAddId" className="b600" entra/> 버튼을 클릭하고 <Cmdname sid="entraAddIdfiedl" className="b600" entra/>에 붙여넣기하세요.
 
-    * ***Sign-On URL*** 항목의 값을 복사한 후, **답장 URL 추가** 버튼을 클릭하고 **회신 URL 입력**에 붙여넣기하세요.
+    * ***Sign-On URL*** 항목의 값을 복사한 후, <Cmdname sid="entraAddurl" className="b600" entra/> 버튼을 클릭하고 <Cmdname sid="entraAddurlfield" className="b600" entra/>에 붙여넣기하세요.
 
-1. **저장** 버튼을 클릭하세요.
+1. <Cmdname sid="entraBtnsave" className="b600" entra/> 버튼을 클릭하세요.
 
-1. **특성 및 클레임**에서 **편집**을 클릭하세요.
+1. <Cmdname sid="entraAttrclaim" className="b600" entra/>에서 <Cmdname sid="entraBtnEdit" className="b600" entra/>을 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-sso-05.png" desc="Entra ID" className="width-800" />
 
-1. <b>고유한 사용자 Id(이름 ID)</b>를 클릭하세요.
+1. <Cmdname sid="entraUniqueId" className="b600" entra/>를 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-sso-06.png" desc="Entra ID" className="width-800" />
 
-1. **원본 특성**에서 **user.mail**을 선택한 다음 **저장**을 클릭하세요.
+1. <Cmdname sid="entraSourceattr" className="b600" entra/>에서 **user.mail**을 선택한 다음 <Cmdname sid="entraBtnsave" className="b600" entra/>을 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-sso-07.png" desc="Entra ID" className="width-800" />
 
-1. **SAML 인증서**에서 **앱 페더레이션 메타데이터 URL** 항목의 값을 복사하세요.
+1. <Cmdname sid="entraSamlCerti" className="b600" entra/>에서 <Cmdname sid="entraMetadata" className="b600" entra/> 항목의 값을 복사하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-sso-08.png" desc="Entra ID" className="width-800" />
 
@@ -194,11 +194,11 @@ Microsoft Entra ID에서 발급 받은 메타데이터를 등록해 인증 정�
 
 Microsoft Entra ID 화면으로 돌아와 Single Sign On이 작동하는지 테스트합니다.
 
-1. **Test Single Sign-On 사용**에서 **Test** 버튼을 클릭하세요.
+1. <Cmdname sid="entraTest" className="b600" entra/>에서 <Cmdname sid="entraBtnTest" className="b600" entra/> 버튼을 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-sso-test-01.png" desc="Test" />
 
-1. **로그인 테스트** 버튼을 클릭하세요.
+1. <Cmdname sid="entraBtnLogtest" className="b600" entra/> 버튼을 클릭하세요.
 
     <ImgLang img="ms-entraid-enterprise-application-sso-test-02.png" desc="Login test" />
 

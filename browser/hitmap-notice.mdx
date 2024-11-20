@@ -1,0 +1,113 @@
+---
+id: hitmap-notice
+title: AJAX 히트맵 패턴
+description: AJAX 분포 패턴을 머신 러닝을 통해 자동 인식하여 경고 알림을 보냅니다
+keywords: [ 브라우저, 히트맵, 경고 알림 ]
+---
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="TTL08559" className="uitext" />
+
+AJAX 분포 패턴을 머신 러닝을 통해 자동 인식하여 경고 알림을 보냅니다. 복잡한 조건 설정 없이도 이슈 상황을 빠르고 정확하게 인지할 수 있습니다. 수많은 히트맵 패턴들이 학습되어 있으며 실시간으로 수집되는 데이터에서 학습된 패턴과 유사한 패턴이 발생하면 경고 알림을 받을 수 있습니다.
+
+<ImgLang img="browser-event-ajax-hitmap.png" desc="AJAX Hitmap pattern" />
+
+:::note
+
+- 이 메뉴는 다음 메뉴 경로를 통해서도 진입할 수 있습니다. 홈 화면 &gt; 프로젝트 선택 &gt; ![아이콘](/img/ic-sitemap.svg) <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code class="newfunc">New</code>
+
+- <Cmdname sid="side_eventSetting" className="uitext" /> <code class="newfunc">New</code> 메뉴에 대한 자세한 내용은 [다음 문서](warning-notice-v2)를 참조하세요.
+
+- <Cmdname sid="ajaxAnalytics" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](analyze-ajax-hitmap)를 참조하세요.
+
+:::
+
+## 기본 옵션 {#basicoption}
+
+다음 옵션을 통해 알림 수신 방법을 설정할 수 있습니다.
+
+* <Cmdname sid="hitmap_exc_time" className="uitext" />: 설정한 시간 미만의 패턴은 무시합니다.
+
+* <Cmdname sid="silent" className="uitext" />: 과도한 경고 알림 발생을 방지할 수 있는 옵션입니다. 첫번째 경고 알림 이후 선택한 시간 동안 경고 알림을 보내지 않습니다. 또한 <Cmdname sid="side_eventHistory" className="uitext" /> 메뉴에 기록되지 않습니다.
+
+* <Cmdname sid="event_tag" className="uitext" />: 특정 멤버 또는 팀을 대상으로 경고 알림을 보낼 수 있습니다. 태그를 설정하지 않으면 전체 멤버를 대상으로 알림을 보냅니다. 태그 설정에 대한 자세한 내용은 [다음 문서](set-receive-event#set-notice-by-team-or-users)를 참조하세요.
+
+* <Cmdname sid="save" className="uitext" />: 설정한 내용을 저장하고 반영합니다.
+
+## 히트맵 패턴 {#hitmappattern}
+
+다음의 히트맵 패턴이 발생하면 경고 알림을 보내도록 설정할 수 있습니다. 각 항목의 토글 버튼을 선택해 경고 알림을 켜거나 끌 수 있습니다.
+
+<Columns>
+<Column className="text--left width--40">
+
+![가로라인 패턴](/img/blog_49_04.png)
+
+</Column>
+<Column className="text--left">
+
+<Cmdname sid="hitmap_pattern_horizontal" className="uitext" />
+
+특정 응답 시간이 지연되면서 요청이 집중되어 종료되는 패턴입니다. 이는 타임아웃 설정으로 인해 요청이 누적되거나 특정 API의 응답 지연이 지속적으로 발생하는 경우입니다.
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+![세로라인 패턴](/img/blog_49_05.png)
+
+</Column>
+<Column className="text--left">
+
+<Cmdname sid="hitmap_pattern_vertical" className="uitext" />
+
+특정 시점에 요청들이 집중되면 각기 다른 응답 시간을 보이는 상태입니다. 이는 특정 이벤트로 인해 일시적인 부하가 발생하거나 여러 종류의 API 호출을 동시에 처리할 때 발생할 수 있습니다.
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+![플라잉 패턴](/img/blog_49_06.png)
+
+</Column>
+<Column className="text--left">
+
+<Cmdname sid="hitmap_pattern_flying" className="uitext" />
+
+응답 시간이 점진적으로 증가하는 증상입니다. 주요 원인으로는 서버 메모리 누수 또는 캐시 효율성 저하, 커넥션 풀 고갈 등이 있습니다.
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+![과부하 패턴](/img/blog_49_07.png)
+
+</Column>
+<Column className="text--left">
+
+<Cmdname sid="hitmap_pattern_overload" className="uitext" />
+
+이 패턴은 요청들이 특정 시간 구간에 집중적으로 발생하며 높은 응답 시간을 보이는 특징이 있습니다. 주요 원인으로는 서버 자원 부족 또는 데이터베이스 과부하, 네트워크 병목 현상 등이 있습니다.
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+![폭주 패턴](/img/blog_49_08.png)
+
+</Column>
+<Column className="text--left">
+
+<Cmdname sid="hitmap_pattern_flood" className="uitext" />
+
+요청량이 갑작스럽게 증가하면서 응답 시간이 동시에 급증하는 패턴입니다. 이 현상은 주로 DDoS 공격 또는 특정 이벤트로 유발된 트래픽 급증, 비정상적인 API 호출에서 나타날 수 있습니다.
+
+</Column>
+</Columns>

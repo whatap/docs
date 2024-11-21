@@ -1,0 +1,221 @@
+---
+id: ipload-stat
+title: IP 로드 통계
+description: IP 로드 통계는 웹 사이트에 접속한 IP 주소별 로드 성능 정보를 제공합니다.
+keywords: [ 브라우저 모니터링, 페이지 로드, 통계 ]
+---
+
+{/* Note */}
+import TimequeryNotes from "../common-items/_browser-stat-time-query-note.mdx"
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_ipLoadStatistics" className="uitext" />
+
+<Cmdname sid="side_ipLoadStatistics" className="uitext" /> 메뉴는 웹 사이트에 접속한 각 IP 주소의 로드 성능 정보를 제공합니다. 이를 통해 성능 저하가 발생한 IP 주소를 확인하고, 개선이 필요한 IP 주소를 식별할 수 있습니다. 평균값, 최댓값, 최솟값, 백분위수 기준의 통계 정보를 제공하며, Navigation Timing 데이터를 활용하여 각 IP 주소별 페이지 로드 과정의 세부 시간 정보를 필터링하고 분석할 수 있습니다.
+
+**IP 로드 시간**은 특정 IP 주소에서 웹 페이지의 모든 리소스(CSS, JS, 이미지, 폰트 등)를 로드하고, 사용자의 화면에 모든 콘텐츠가 완전히 렌더링되기까지의 총 시간을 의미합니다. 브라우저 에이전트는 이 데이터를 수집하기 위해 브라우저에서 제공하는 Web API 중 하나인 **Navigation Timing API**를 활용합니다.
+
+:::note
+
+<Cmdname sid="side_ipLoadStatistics" className="uitext" /> 메뉴에서 수집하는 데이터에 대한 자세한 내용은 [다음 문서](collect-data#pageloadtime)를 참조하세요.
+
+:::
+
+## 기본 사용 안내
+
+특정 IP 주소에서 접속한 각 페이지의 성능 지표를 제공합니다. IP 주소별로 **IP 로드 시간** 및 **DOM 로드 시간**, **네트워크 지연 시간**, **리소스 로드 시간** 등 다양한 성능 지표를 확인할 수 있습니다. 이를 통해 각 IP 주소의 성능 상태를 평가하고, 최적화 여부를 판단할 수 있습니다.
+
+<ImgLang img="browser-ipload-statistics.png" desc="페이지 로드 통계" />
+
+1. <Cmdname sid="time" className="uitext" />에서 성능 지표를 조회할 날짜와 시간을 설정하세요. 
+
+1. <Cmdname sid="TTL08276" className="uitext" />에서 원하는 기준을 선택하세요.
+
+1. 화면 오른쪽 상단의 ![검색 아이콘](/img/ic-search-on-press.svg) 버튼을 선택하세요.
+
+조회한 시간 범위의 성능 지표를 각 섹션에서 그래프 차트와 목록을 통해서 확인할 수 있습니다. 각 섹션의 그래프 차트로 마우스를 오버하면 해당 시간대의 지표 정보를 확인할 수 있습니다.
+
+:::note
+
+<Cmdname sid="TTL08276" className="uitext" />에 대한 자세한 내용은 [다음 문서](#statcriteria)를 참조하세요.
+
+:::
+
+{/* 조회 시간 설정하기 */}
+import Settime from "../common-items/_browser-stat-set-time.mdx";
+
+<Settime/>
+
+### 통계 기준 선택하기 {#statcriteria}
+
+<Cmdname sid="TTL08276" className="uitext" />은 사용자가 분석하려는 통계 지표를 다음 선택한 기준으로 확인할 수 있는 옵션입니다.
+
+* <Cmdname sid="merge_avg" className="uitext" />: 각 IP 주소의 평균 로드 시간을 계산하여 통계를 제공합니다.
+
+* <Cmdname sid="merge_max" className="uitext" />: 각 IP 주소의 최대 로드 시간을 기준으로 통계를 제공합니다. 즉, 페이지 로드 시간이 가장 비효율적인 IP 주소를 파악할 수 있습니다.
+
+* <Cmdname sid="merge_min" className="uitext" />: 각 IP 주소의 최소 로드 시간을 기준으로 통계를 제공합니다. 이를 통해 가장 최적의 조건에서 페이지를 로드한 IP 주소를 확인할 수 있습니다. 또는 성능 최적화 목표를 설정할 때 유용합니다.
+
+* <Cmdname sid="ITM08291" className="uitext" />: 각 IP 주소의 백분위수 기준 로드 시간에 대한 통계를 제공합니다.
+
+  - <Cmdname sid="TTL08288" className="uitext" replace="95" />: 가장 느린 5%의 IP 로드 시간으로, IP 로드 시간이 가장 느렸던 상위 5% 사용자의 경험을 의미합니다.
+
+  - <Cmdname sid="TTL08288" className="uitext" replace="90" />: 가장 느린 10%의 IP 로드 시간으로, 주로 사용자 그룹의 성능 문제를 파악할 때 유용합니다.
+
+  - <Cmdname sid="TTL08288" className="uitext" replace="75" />: IP 로드 시간이 하위 75%보다 느린 상위 25%의 로드 시간을 보여줍니다.
+
+  - <Cmdname sid="TTL08288" className="uitext" replace="50" />: 중간값으로, 전체 IP 주소 중 절반은 해당 시간보다 빠르게 페이지를 로드하고, 절반은 더 느리게 로드한 것을 의미합니다.
+
+{/* Tip */}
+import CriteriaTip from "../common-items/_browser-stat-criteria-tip.mdx";
+
+<CriteriaTip/>
+
+### 조회 결과 다운로드하기
+
+조회한 데이터를 CSV 형식의 파일로 다운로드할 수 있습니다. 화면 오른쪽 상단의 ![다운로드 아이콘](/img/ic-csv-download-ms.svg) 버튼을 선택하세요. CSV 파일 이름은 *IP_LoadStatistics_`YYYYMMDD_HHMMSS`.csv* 형식입니다.
+
+## 화면 구성
+
+### <Cmdname sid="TTL08672" /> {#TTL08672}
+
+IP 로드 성능의 시간대별 추이를 시각화한 차트입니다. 이 그래프를 통해 특정 시간대에 성능 변동이 있었는지 확인할 수 있습니다. 
+
+* 특정 시간의 파란색 막대 그래프를 선택하면 <Cmdname sid="TTL08306" className="uitext" /> 및 <Cmdname sid="TTL08304" className="uitext" />, <Cmdname sid="TTL08558" className="uitext" /> 섹션의 데이터를 선택한 시간 범위에 맞춰 조회할 수 있습니다.
+
+  <ImgLang img="browser-statistics-ipload-trend-select-time.png" desc="IP 로드 성능 추이" />
+
+* <Cmdname sid="TTL08276" className="uitext" />에서 선택한 옵션에 따라 차트에 표시되는 항목은 변경됩니다.
+
+#### <Cmdname sid="TTL08276" />: <Cmdname sid="merge_avg" />/<Cmdname sid="merge_max" />/<Cmdname sid="merge_min" /> {#Statisticalcriteria}
+
+<ImgLang img="browser-statistics-ipload-trend.png" desc="페이지 로드 성능 추이" />
+
+* 파란색 막대 그래프는 특정 시간대에 로드된 페이지의 수입니다.
+
+* 보라색 선 그래프는 해당 시간대의 평균 페이지 로드 시간입니다.
+
+#### <Cmdname sid="TTL08276" />: <Cmdname sid="ITM08291" /> {#percent}
+
+<ImgLang img="browser-statistics-ipload-trend-pecent.png" desc="페이지 로드 성능 추이" />
+
+* 파란색은 <Cmdname sid="TTL08288" className="uitext" replace="50" />, 보라색은 <Cmdname sid="TTL08288" className="uitext" replace="75" />, 주황색은 <Cmdname sid="TTL08288" className="uitext" replace="90" />, 초록색은 <Cmdname sid="TTL08288" className="uitext" replace="95" />를 나타냅니다.
+
+* 파란색 막대 그래프는 특정 시간대에 로드된 페이지의 수입니다.
+
+### <Cmdname sid="TTL08306" /> {#TTL08306}
+
+5분 또는 1시간 간격으로 IP 주소를 그룹화하고, 단위별 페이지 로드 시간이 가장 긴 상위 10개의 IP 그룹을 시계열 그래프로 표시합니다. 이 그래프는 페이지 로드 시간이 긴 IP 주소 순으로 정렬하여 표시합니다.
+
+<ImgLang img="browser-statistics-ipload-time-top.png" desc="IP 로드 시간 Top10" />
+
+* 섹션 하단의 막대 그래프는 시계열 그래프로 표현되는 데이터의 IP 주소별 평균값입니다.
+
+* <Cmdname sid="TTL08276" className="uitext" />이 <Cmdname sid="merge_avg" className="uitext" /> 또는 <Cmdname sid="merge_max" className="uitext" />, <Cmdname sid="merge_min" className="uitext" />이면 선택한 기준값으로 경과 시간을 표현합니다.
+
+* <Cmdname sid="TTL08276" className="uitext" />이 <Cmdname sid="ITM08291" className="uitext" />이면 경과 시간을 <Cmdname sid="TTL08288" className="uitext" replace="95" />로 표현합니다.
+
+* 데이터가 연속된 시간 구간으로 수집되지 않고 특정 구간에만 존재하는 경우 막대 그래프만 표시됩니다.
+
+### <Cmdname sid="TTL08304" /> {#TTL08304}
+
+5분 또는 1시간 간격으로 IP 주소를 그룹화하고, 단위별 페이지 로드 수가 가장 많은 상위 10개의 IP 그룹을 시계열 그래프로 표시합니다. 이 그래프는 페이지 로드 수가 많은 IP 주소 순으로 정렬하여 표시합니다.
+
+<ImgLang img="browser-statistics-ipload-count-top.png" desc="IP 로드 수 Top10" />
+
+* 섹션 하단의 막대 그래프는 시계열 그래프로 표현되는 데이터의 페이지 그룹별 합산값입니다.
+
+* 데이터가 연속된 시간 구간으로 수집되지 않고 특정 구간에만 존재하는 경우 막대 그래프만 표시됩니다.
+
+### <Cmdname sid="TTL08558" /> {#TTL08558}
+
+IP 그룹을 기준으로 다양한 성능 지표를 확인할 수 있는 목록입니다.
+
+<ImgLang img="browser-statistics-ipload-group-list.png" desc="IP 목록" />
+
+* <Cmdname sid="TTL08276" className="uitext" />을 <Cmdname sid="ITM08291" className="uitext" />로 선택하면 IP 그룹별 건수와 <Cmdname sid="TTL08288" className="uitext" replace="50" />, <Cmdname sid="TTL08288" className="uitext" replace="75" />, <Cmdname sid="TTL08288" className="uitext" replace="90" />, <Cmdname sid="TTL08288" className="uitext" replace="95" />에 대한 경과 시간을 추가로 확인할 수 있습니다.
+
+* 목록의 가장 왼쪽의 ![상세 아이콘](/img/ico-detail-view.svg) <Cmdname sid="detail" className="uitext" /> 버튼을 선택하면 <Cmdname sid="TTL08663" className="uitext" /> 화면이 표시됩니다. <Cmdname sid="TTL08663" className="uitext" /> 화면을 통해서 선택한 IP 그룹의 상세한 통계 정보를 확인할 수 있습니다. 자세한 내용은 [다음 문서](#TTL08663)를 참조하세요.
+
+* <Cmdname sid="ip" className="uitext" /> 컬럼의 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하면 <Cmdname sid="side_userSessionEventSearch" className="uitext" /> 메뉴로 이동할 수 있습니다. 선택한 페이지 그룹 URL 및 조회 시간을 필터로 적용한 결과를 확인할 수 있습니다.
+
+* ![컬럼 아이콘](/img/ic-column.svg) <Cmdname sid="BTN06441" className="uitext" />: 테이블 헤더 컬럼을 감추거나 원하는 항목을 추가할 수 있습니다. 컬럼 순서를 변경할 수도 있습니다. 자세한 내용은 [다음 문서](#setcolumn)를 참조하세요.
+
+<TimequeryNotes sid="side_ipLoadStatistics" img="browser-statistics-ipgroup-header.png" />
+
+### <Cmdname sid="TTL08663" /> {#TTL08663}
+
+선택한 IP 그룹의 상세한 통계 정보를 확인할 수 있습니다.
+
+* <Cmdname sid="TTL08676" className="uitext" />
+
+  <ImgLang img="browser-statistics-ipload-timeline.png" desc="IP load timeline" />
+
+  웹 애플리케이션의 전체 IP 로드 성능 정보를 제공합니다. 페이지 로드 시간과 로드 단계별 과정을 평균 시간으로 나타냅니다. 이를 통해 브라우저 애플리케이션의 전반적인 성능을 파악할 수 있습니다. 자세한 내용은 [다음 문서](dashboard#pageloadtimeline)를 참조하세요.
+
+  :::note
+
+  <Cmdname sid="TTL08276" className="uitext" />이 <Cmdname sid="ITM08291" className="uitext" />이면 IP 로드 성능을 백분위로 표시합니다. 파란색은 <Cmdname sid="TTL08288" className="uitext" replace="50" />, 보라색은 <Cmdname sid="TTL08288" className="uitext" replace="75" />, 주황색은 <Cmdname sid="TTL08288" className="uitext" replace="90" />, 초록색은 <Cmdname sid="TTL08288" className="uitext" replace="95" />를 나타냅니다.
+
+  :::
+
+* <Cmdname sid="TTL08673" className="uitext" />
+
+  <ImgLang img="browser-statistics-ipload-time.png" desc="IP load time" />
+
+  선택한 IP 그룹의 시간에 따른 페이지 로드 시간을 확인할 수 있습니다. 선택 상자에서 다양한 성능 지표를 선택할 수 있습니다. 성능 지표에 대한 자세한 내용은 [다음 문서](#columninfo)를 참조하세요.
+
+  :::note
+
+  <Cmdname sid="TTL08276" className="uitext" />이 <Cmdname sid="ITM08291" className="uitext" />이면 백분위별 IP 로드 시간을 제공합니다.
+
+  :::
+
+* <Cmdname sid="TTL08674" className="uitext" />
+
+  <ImgLang img="browser-statistics-ipload-count.png" desc="IP load count" />
+
+  선택한 IP 그룹의 시간에 따른 페이지 로드 수를 확인할 수 있습니다.
+
+* <Cmdname sid="TTL08558" className="uitext" />
+
+  <ImgLang img="browser-statistics-ip-group-list.png" desc="IP group list" />
+
+  IP 주소를 기준으로 다양한 성능 지표를 한눈에 확인할 수 있는 테이블 목록입니다. <Cmdname sid="TTL08558" className="uitext" /> 컬럼의 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하면 <Cmdname sid="side_userSessionEventSearch" className="uitext" /> 메뉴로 이동할 수 있습니다. 선택한 IP 주소 및 조회 시간을 필터로 적용한 결과를 확인할 수 있습니다.
+
+  <TimequeryNotes sid="TTL08558" img="browser-statistics-ipgroup-header.png" />
+
+{/* 데이터 수집 제한 */}
+import DatacollectInfo from "../common-items/_browser-stat-data-info.mdx";
+
+<DatacollectInfo/>
+
+## 조회 결과 필터링하기
+
+조회한 통계 데이터를 <Cmdname sid="ip" className="uitext" /> 또는 <Cmdname sid="TTL08292" className="uitext" replace="ms" />를 기준으로 필터링하여 원하는 내용을 집중 분석할 수 있습니다.
+
+### IP 주소 필터
+
+특정 IP 주소를 선택해 성능 데이터를 조회할 수 있습니다. <Cmdname sid="ip" className="uitext" /> 옵션에서 원하는 IP 그룹 항목을 선택하세요.
+
+<ImgLang img="browser-statistics-ip-group-filter.png" desc="페이지 그룹" />
+
+:::note
+
+IP 주소는 최대 3개까지 선택할 수 있습니다.
+
+:::
+
+{/* 성능 지표 필터 */}
+import PermetricsFilter from "../common-items/_browser-stat-perf-metrics-filter.mdx";
+
+<PermetricsFilter/>
+
+{/* 컬럼 설정하기 */}
+import Coumnsetting from "../common-items/_browser-stat-column-setting.mdx";
+
+<Coumnsetting/>
+
+{/* 컬럼 및 용어 안내 */}
+import Statcolumn from "../common-items/_browser-stat-column-info.mdx";
+
+<Statcolumn/>

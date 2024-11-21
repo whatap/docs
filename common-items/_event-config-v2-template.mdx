@@ -44,12 +44,6 @@
 
   호스트의 CPU 사용률(`cpu`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Server Disk***
-
-  카테고리: [`app_host_resource`](metrics-app#app_host_resource)
-
-  호스트의 디스크 사용률(`disk`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
-
 * ***Server Memory***
 
   카테고리: [`app_host_resource`](metrics-app#app_host_resource)
@@ -297,7 +291,7 @@
 
   Pod의 재시작 횟수(`RestartCount`)가 5개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
-* ***Transaction Error Count***
+* ***Transaction Error***
 
   카테고리: <Link to="../java/metrics-app#app_counter" target="_blank"><code>app_counter</code></Link>
 
@@ -353,11 +347,29 @@
 
   :::
 
+* ***CPU***
+
+  카테고리: [`db_mysql_counter`](metrics-data-list)
+
+  CPU 사용률(`cpu(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Connection Failed***
+
+  카테고리: [`db_mysql_counter`](metrics-data-list)
+
+  데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
 * ***Lock Wait Sessions***
 
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Long running session count***
+
+  카테고리: [`db_mysql_counter`](metrics-data-list)
+
+  장시간 실행 중인 세션 수(`long_running_sessions`)가 1개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 * ***Memory***
 
@@ -376,6 +388,18 @@
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
   Replication 구조일 경우 replication db에 반영되는 지연시간(`replication_delay`)이 50초를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 100초를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Replication broken***
+
+  카테고리: [`db_mysql_counter`](metrics-data-list)
+
+  Replication 구조일 경우 복제 실패(`replication_broken`)가 발생하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Uptime***
+
+  카테고리: [`db_mysql_counter`](metrics-data-list)
+
+  서버 가동 시간이 120초 이하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
 </InDoc>
 
@@ -774,6 +798,18 @@
   카테고리: [`db_mssql_counter`](metrics-data-list)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 30를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+* ***Memory***
+
+  카테고리: [`db_mssql_counter`](metrics-data-list)
+
+  메모리 사용률(`mem(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
+
+  :::note
+
+  이 템플릿은 XOS 에이전트를 설정하고 실행했을 경우에만 사용할 수 있습니다. XOS 에이전트 설정에 대한 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
+
+  :::
 
 </InDoc>
 

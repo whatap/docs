@@ -7,9 +7,9 @@ keywords: [ 알림, 경고 알림, 실시간 알림 목록 ]
 
 홈 화면 &gt; <Cmdname sid="side_integratedRealtimeAlert" className="uitext" />
 
-<ImgLang img='rt-notification.png' desc='실시간 알림 목록' />
-
 사용자가 권한을 보유한 모든 프로젝트들의 알림을 실시간으로 확인하고, 알림 현황을 한눈에 파악할 수 있습니다. 타임라인, 알림 제목, 프로젝트, 애플리케이션 기준으로 분류하여 확인할 수도 있습니다.
+
+<ImgLang img='rt-notification.png' desc='실시간 알림 목록' />
 
 실시간으로 알림 목록을 가져오는 간격은 20초입니다. 20초 이전에 알림 목록을 새로 확인하려면 화면 오른쪽 위에 <Cmdname sid="refresh" className="uitext" /> 버튼을 선택하세요.
 
@@ -78,6 +78,20 @@ keywords: [ 알림, 경고 알림, 실시간 알림 목록 ]
 * 이벤트 해소 알림은 <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 이벤트 수정을 통해 비활성화할 수 있습니다. <Cmdname sid="CNT08320" className="uitext" /> 또는 <Cmdname sid="CNT08326" className="uitext" /> 옵션을 비활성화하세요.
 
 :::
+
+## 알림 목록 다운로드하기
+
+선택한 시간 동안 조회된 목록을 CSV 형식의 파일로 다운로드할 수 잇습니다.
+
+1. 화면 오른쪽 상단의 ![csv 아이콘](/img/ic-csv-download-ms.svg) 버튼을 선택하세요.
+
+    <ImgLang img="rt-notification-download-csv.png" desc="CSV" />
+
+1. <Cmdname sid="maximum_csv_lines" className="uitext" /> 옵션에 원하는 값을 입력하세요.
+
+1. <Cmdname sid="download" className="uitext" /> 버튼을 선택하세요.
+
+다운로드한 CSV 파일 이름은 *notifications_`YYYY-MM-DD`.csv* 형식입니다.
 
 ## 스냅샷 확인하기
 

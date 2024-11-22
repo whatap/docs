@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
+    "ver": "Service 2.10.10",
+    "date": "2024-11-22",
+    "Lists": [
+      {
+        "ver": "Service 2.10.10",
+        "hash": "service-21010",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴의 <span class=\"uitext\">SQL Elapse Map</span> 위젯에서 데이터가 중복되는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_10_x",
     "ver": "Service 2.10.9",
     "date": "2024-11-18",
     "Lists": [

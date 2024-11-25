@@ -5,45 +5,102 @@ description: 다수의 데이터베이스 인스턴스 핵심 지표를 통합�
 keywords: [ SQL Server, 인스턴스, 대시보드, 데이터베이스, 멀티 인스턴스 모니터링 ]
 ---
 
-{/* 개요 */}
-import Dbmulitinstancemonitoringdesc from "../common-items/_db-mulit-instance-monitoring-desc.mdx";
+import V2Note from "../common-items/_import_v2-note.mdx";
 
-<Dbmulitinstancemonitoringdesc />
+<V2Note product="SQL Server" />
 
-{/* Notes */}
+{/* 개요*/}
+import Dbv2mulitinstancemonitoringdesc from "../common-items/_db-v2-mulit-instance-monitoring-desc.mdx";
+
+<Dbv2mulitinstancemonitoringdesc /> 
+
+<ImgLang img="db-multi-instance-mssql-v2.png" desc="멀티 인스턴스 모니터링" />
+
 import Dbmultiinstancemonitoringdescnotes from "../common-items/_db-multi-instance-monitoring-desc-notes.mdx";
 
 <Dbmultiinstancemonitoringdescnotes /> 
 
-{/* 기본 화면 안내 */}
-import Dbmultiinstancemonitoringbasic from "../common-items/_db-multi-instance-monitoring-basic.mdx";
+{/* 과거 데이터 조회하기*/}
+import Apmdashboardsetpasttime from "../common-items/_apm-dashboard-set-past-time.mdx";
 
-<Dbmultiinstancemonitoringbasic /> 
+<Apmdashboardsetpasttime /> 
 
-{/* 지표 선택하기 */}
-import Dbselectmetricdatawidget from "../common-items/_db-select-metric-data-widget.mdx";
+{/* 에이전트 확인하기*/}
+import Apmdashboardcheckagent from "../common-items/_apm-dashboard-check-agent.mdx";
 
-<Dbselectmetricdatawidget />   
+<Apmdashboardcheckagent />
 
-{/* 레이아웃 설정하기 */}
-import Dbsetlayout from "../common-items/_db-set-layout.mdx";
+{/* 위젯 편집하기*/}
+import Apmdashboradeditwidget from "../common-items/_apm-dashborad-edit-widget.mdx";
 
-<Dbsetlayout />   
+<Apmdashboradeditwidget />
 
-{/* 액티브 세션 영역 활용하기 */}
-import Dbusingareaactivesession from "../common-items/_db-using-area-active-session.mdx";
+{/* 사용자 정의 위젯 */}
+import CustomWidget from "../common-items/_db-mim-custom-widget.mdx";
 
-<Dbusingareaactivesession /> 
+<CustomWidget />
 
+{/* 위젯 옵션 이용하기*/}
+import Apmdashboardwidgetoptions from "../common-items/_apm-dashboard-widget-options.mdx";
+
+<Apmdashboardwidgetoptions />
+
+{/* 프리셋*/}
+import Apmdashboardpreset from "../common-items/_apm-dashboard-preset.mdx";
+
+<Apmdashboardpreset /> 
+
+{/* 주요 위젯 알아보기*/}
+import WidgetDetails from "../common-items/_db-v2-mim-widgets.mdx";
+
+<WidgetDetails />
+
+{/* Session Table*/}
+import Dbv2mimactivesessiondesc from "../common-items/_db-v2-mim-activesession-desc.mdx";
+
+<Dbv2mimactivesessiondesc /> 
+
+import Dbdashboardactivesessiondesc from "../common-items/_db-dashboard-activesession-desc.mdx";
+
+<Dbdashboardactivesessiondesc /> 
+
+import Dbdashboardlocktreedesc from "../common-items/_db-dashboard-locktree-desc.mdx";
+
+<Dbdashboardlocktreedesc /> 
+
+import Dbv2mimactivesessionnote from "../common-items/_db-v2-mim-activesession-note.mdx";
+
+<Dbv2mimactivesessionnote />
+
+{/*## 세션 상세 정보 확인하기*/}
+import Dbv2sessiondetailsinfo from "../common-items/_db-v2-session-details-info.mdx";
+
+<Dbv2sessiondetailsinfo /> 
+
+{/*쿼리 자세히 보기*/}
 import Dbquerydetails from "../common-items/_db-query-details.mdx";
 
 <Dbquerydetails level={3} />
 
-import Dbdataeditcolumn from "../common-items/_db-data-edit-column.mdx";
+import Dbtabledatafiltering from "../common-items/_db-table-data-filtering.mdx";
 
-<Dbdataeditcolumn level={2} />
+<Dbtabledatafiltering level={3} />
+
+import Dbv2dataeditcolumn from "../common-items/_db-v2-data-edit-column.mdx";
+
+<Dbv2dataeditcolumn level={3} />
 
 {/* 컬럼 정보 안내 */}
-import Mssqlcolumn from "../common-items/_db-mssql-column.mdx";
+import Mssqlcolumn from "../common-items/_db-mssql-v2-column.mdx";
 
 <Mssqlcolumn level={2} /> 
+
+{/* 조회 목록 다운로드하기*/}
+import Dbdashboardsessiontabledownload from "../common-items/_db-dashboard-session-table-download.mdx";
+
+<Dbdashboardsessiontabledownload />
+
+{/* 새창으로 보기*/}
+import Dbdashboardsessiontablenew from "../common-items/_db-dashboard-session-table-new.mdx";
+
+<Dbdashboardsessiontablenew />

@@ -258,3 +258,79 @@
   xview 수집 시, 쿼리의 수행 시간이 설정된 시간보다 오래 걸릴 때만 수집합니다. 기본 설정으로는 수행 시간이 0초 이상인 모든 쿼리를 수집합니다.
 
 </InDoc>
+
+<InDoc product="mssql">
+
+* **filegroup** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  파일 그룹(filegroup) 사이즈 수집 여부를 설정합니다.
+
+* **filegroup_interval** <span class='type'>Int</span>
+
+  기본값 `60` (단위: 분, min)
+
+  파일 그룹(filegroup) 사이즈 수집 간격을 설정합니다.
+
+* **procedure_stats** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  프로시저 통계 정보 수집 여부를 설정합니다.
+
+* **procedure_interval** <span class='type'>Int</span>
+
+  기본값 `1` (단위: 시간, hour)
+
+  프로시저 통계 정보 수집 간격을 설정합니다.
+
+* **procedure_stat_row_limit** <span class='type'>Int</span>
+
+  기본값 `10000`
+
+  프로시저 통계 정보 수집 조건을 설정합니다. 평균 실행 시간 순, 상위 10000건(기본값)을 기준으로 수집합니다.
+
+* **query_stats** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  쿼리 통계 정보 수집 여부를 설정합니다.
+
+* **query_interval** <span class='type'>Int</span>
+
+  기본값 `1` (단위: 시간, hour)
+
+  쿼리 통계 정보 수집 간격을 설정합니다.
+
+* **query_stat_row_limit** <span class='type'>Int</span>
+
+  기본값 `10000`
+
+  쿼리 통계 정보 수집 조건을 설정합니다. 평균 실행 시간 순, 상위 10000건(기본값)을 기준으로 수집합니다.
+
+* **backup_row_limit** <span class='type'>Int</span>
+
+  기본값 `50`
+
+  백업 내역 수집 건수를 50건(기본값)으로 제한합니다.
+
+* **restore_row_limit** <span class='type'>Int</span>
+
+  기본값 `50`
+
+  복구 내역 수집 건수를 50건(기본값)으로 제한합니다.
+
+* **job_info_row_limit** <span class='type'>Int</span>
+
+  기본값 `50`
+
+  Job 수행 내역 수집 건수를 50건(기본값)으로 제한합니다.
+
+* **job_history_row_limit** <span class='type'>Int</span>
+
+  기본값 `50`
+
+  Job 히스토리 수집 건수를 50건(기본값)으로 제한합니다.
+
+</InDoc>

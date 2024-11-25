@@ -2,6 +2,8 @@
 
 데이터베이스 서버에서 다음 배치 파일을 실행하세요.
 
+<Xclude product="mssql">
+
 ```bash
 $ ./start.sh
 
@@ -9,3 +11,29 @@ $ ./start.sh
 
 $ ./startd.sh # 백그라운드로 실행할 경우
 ```
+
+</Xclude>
+
+<InDoc product="mssql">
+
+```bash
+start.bat
+```
+
+화면에 표시되는 실행 로그에 에러가 없는지 확인하고 실행을 종료한 후, 다음 순서에 따라 서비스에 등록하세요.
+
+* **서비스 등록**
+
+  xos 폴더에 있는 *install_WindowsService.bat* 파일을 다음과 같이 실행하여 서비스에 등록하세요. 만약 `create` 옵션 다음에 이름을 입력하지 않으면 **WhatapXOSAgent** 이름으로 서비스에 기본 등록됩니다.
+
+  ```bash
+  install_WindowsService.bat create WhatapXOSAgent
+  ```
+
+* **서비스 삭제**
+
+  ```bash
+  install_WindowsService.bat delete WhatapXOSAgent
+  ```
+
+</InDoc>

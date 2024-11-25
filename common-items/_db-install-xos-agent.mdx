@@ -18,109 +18,21 @@
 
 * 부가 에이전트 설치 과정은 필수가 아닌 **선택 사항**입니다.
 
-<InDoc product="postgresql,mysql,oracle,oracle-v1,cubrid,redis,mongodb,altibase,mssql">
+<Xclude product="oracle-pro">
 
 * XOS 에이전트 설정 옵션에 대한 자세한 내용은 [다음 문서](agent-xos-settings)를 참조하세요.
 
+</Xclude>
+
+<InDoc product="postgresql,mysql,oracle,mssql">
+
+* 클라우드 서비스에서 제공하는 모니터링 지표를 데이터베이스 프로젝트의 대시보드에서 추가로 수집하고 모니터링하려면 [다음 문서](cloudsettings)를 참조하세요.
+
 </InDoc>
 
 :::
 
-<InDoc product="postgresql,mysql,oracle,oracle-v1,tibero,altibase,altibase-v1,mssql">
-
-<Tabs groupId="dbXos">
-<TabItem value="xos" label="XOS">
-
-<ImgLang img='xos-agent.png' desc='' />
-
-1. DBX 에이전트가 설치된 경로의 *whatap.conf* 파일에 다음 옵션을 설정하세요.
-
-    ```ini title='whatap.conf'
-    xos=1
-    xos_port=3002
-    ```
-
-1. *xos* 폴더(`/압축 해제 폴더/xos/`)를 데이터베이스 서버로 이동하세요.
-
-1. 데이터베이스 서버로 이동한 *xos* 경로의 *xos.conf* 파일에 다음 옵션을 설정하세요.
-
-    ```ini title='xos.conf'
-    dbx_ip={DB_Agent_IP}
-    dbx_port=3002 # default 3002
-    cpu_limit=0
-    mem_limit=10240
-    ```
-
-    :::tip
-
-    <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 <UI>DB Agent IP</UI>, <UI>DB Agent Port</UI> 항목에 DB 정보를 입력하면 에이전트 옵션을 자동 생성할 수 있습니다.
-
-    :::
-
-1. XOS 에이전트 실행 권한을 부여하세요.
-
-    ```bash
-    chmod +x ./whatap.agent.xos*
-    ```
-
-1. XOS 에이전트를 실행하세요.
-
-    ```bash
-    ./start.sh
-    ```
-
-:::note
-
-* DBX 에이전트로 모니터링한 데이터를 전송하기 위해 `dbx_port`로 설정한 포트(default 3002)가 열려 있어야 합니다. (**UDP Outbound**)
-
-* XOS 에이전트를 백그라운드로 실행하려면 *./startd.sh* 파일을 실행하세요.
-
-:::
-
-</TabItem>
-<TabItem value="rds" label="RDS : AWS CloudWatch">
-
-에이전트 서버에 있는 *whatap.conf* 파일에 다음 옵션을 설정하세요. CloudWatch 특성상 60초(`cloud_watch_interval`)마다 호출을 권장합니다.
-
-```ini title='whatap.conf'
-aws_region={AWS_RDS_Region_Name}
-aws_arn=arn:aws:iam::999999999999:role/UpdateApp
-cloud_watch=on
-cloud_watch_instance=RDS_DB_Instance_Name
-cloud_watch_interval=60
-cloud_watch_metrics=CPUUtilization,FreeableMemory,FreeStorageSpace,NetworkTransmitThroughput,NetworkReceiveThroughput
-```
-
-AWS CloudWatch 지표 조회를 위해 다음 명령어를 실행하세요. `DB_Instance_Name` 항목을 변경한 다음 명령어를 실행하세요.
-
-```bash
-aws cloudwatch list-metrics --namespace AWS/RDS --dimensions Name=DBInstanceIdentifier,Value={DB_Instance_Name}
-```
-
-:::note
-
-* <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 <UI>AWS RDS Region</UI>, <UI>RDS DB Instance Name</UI>, <UI>DB Instance Name</UI> 항목에 필요한 정보를 입력하면 에이전트 옵션 및 명령어를 자동 생성할 수 있습니다.
-
-<InDoc product="postgresql,oracle,mysql,redis,mongodb">
-
-* AWS 인증을 위한 `aws_arn` 옵션에 대한 자세한 내용은 [다음 문서](agent-dbx-settings#using-aws-rds)를 참조하세요.
-
-</InDoc>
-
-* AWS CLI 설치 및 업데이트에 대한 자세한 내용은 [다음 링크](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html)를 참조하세요.
-
-* AWS CLI 설정에 대한 자세한 내용은 [다음 링크](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-configure.html)를 참조하세요.
-
-:::
-
-</TabItem>
-</Tabs>
-
-</InDoc>
-
-<InDoc product="redis,mongodb,cubrid,cubrid-v1">
-
-<InDoc product="redis,mongodb"><ImgLang img='xos-agent.png' desc='' /></InDoc>
+<Xclude product="cubrid,cubrid-v1"><ImgLang img='xos-agent.png' desc='' /></Xclude>
 
 <InDoc product="cubrid,cubrid-v1"><ImgLang img='xos-agent-cubrid.png' desc='' /></InDoc>
 
@@ -148,7 +60,7 @@ aws cloudwatch list-metrics --namespace AWS/RDS --dimensions Name=DBInstanceIden
 
     :::
 
-1. XOS 에이전트 실행 권한을 부여하세요.
+1. XOS 에이전트 실행 권한을 부여하세요. <InDoc product="mssql,mssql-v1">(Windows 환경에서는 이 과정을 생략하세요.)</InDoc>
 
     ```bash
     chmod +x ./whatap.agent.xos*
@@ -156,9 +68,43 @@ aws cloudwatch list-metrics --namespace AWS/RDS --dimensions Name=DBInstanceIden
 
 1. XOS 에이전트를 실행하세요.
 
+    <Xclude product="mssql,mssql-v1">
+    
     ```bash
     ./start.sh
     ```
+
+    </Xclude>
+
+    <InDoc product="mssql,mssql-v1">
+
+    ```bash
+    start.bat
+    ```
+
+    </InDoc>
+
+<InDoc product="mssql,mssql-v1">
+
+화면에 표시되는 실행 로그에 에러가 없는지 확인하고 실행을 종료한 후, 다음 순서에 따라 서비스에 등록하세요.
+
+* **서비스 등록**
+
+  xos 폴더에 있는 *install_WindowsService.bat* 파일을 다음과 같이 실행하여 서비스에 등록하세요. 만약 `create` 옵션 다음에 이름을 입력하지 않으면 **WhatapXOSAgent** 이름으로 서비스에 기본 등록됩니다.
+
+  ```bash
+  install_WindowsService.bat create WhatapXOSAgent
+  ```
+
+* **서비스 삭제**
+
+  ```bash
+  install_WindowsService.bat delete WhatapXOSAgent
+  ```
+
+</InDoc>
+
+<Xclude product="mssql,mssql-v1">
 
 :::note
 
@@ -168,4 +114,4 @@ aws cloudwatch list-metrics --namespace AWS/RDS --dimensions Name=DBInstanceIden
 
 :::
 
-</InDoc>
+</Xclude>

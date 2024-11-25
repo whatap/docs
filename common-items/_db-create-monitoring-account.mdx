@@ -10,9 +10,46 @@ create user DB_User with password 'DB Password';
 
 </InDoc>
 
+<InDoc product="mssql">
+
+```sql
+create login DB_User with password='DB Password';
+grant view server state to DB_User;
+create user DB_User for login DB_User;
+grant execute to DB_User;
+EXEC sp_configure 'show advanced options', 1;
+RECONFIGURE;
+EXEC sp_configure 'Ole Automation Procedures', 1;
+RECONFIGURE;
+```
+
+* **Kill session 사용 시 추가 권한**
+
+  ```sql
+  grant alter any connection to whatap;
+  ```
+
+* **Azure SQL Database 환경에서 Kill session 사용 시 추가 권한**
+
+  ```sql
+  grant kill database connection to whatap;
+  ```
+
+* **<Cmdname sid="side_dbJobInfo" className="uitext" /> 및 <Cmdname sid="side_dbBackupRecoveryHistory" className="uitext" /> 메뉴 기능 이용 시 필요 권한**
+
+  msdb 데이터베이스에 액세스할 수 있도록 권한 부여
+
+  ```sql
+  USE msdb;
+  CREATE USER DB_User FOR LOGIN DB_User;
+  GRANT SELECT to DB_User;
+  ```
+
+</InDoc>
+
 :::note
 
-<Xclude product="postgresql,mysql,altibase">
+<Xclude product="postgresql,mysql,altibase,mssql">
 
 * 이미 있는 계정을 사용하고 싶다면 [DB 유저 파일 생성](#create-db-user)으로 넘어가세요. 권한이 없을 경우 모니터링을 시작할 수 없습니다.
 
@@ -20,7 +57,7 @@ create user DB_User with password 'DB Password';
 
 </Xclude>
 
-<InDoc product="postgresql,mysql,altibase">
+<InDoc product="postgresql,mysql,altibase,mssql">
 
 * 권한을 가진 계정이 있다면 이 단계를 생략하고 [다음 단계](#check-accesskey)로 넘어가세요.
 
@@ -31,3 +68,4 @@ create user DB_User with password 'DB Password';
 * 예시 코드의 `DB_Password`에는 사용자 비밀번호를 입력하세요.
 
 :::
+

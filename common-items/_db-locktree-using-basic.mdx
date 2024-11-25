@@ -1,6 +1,8 @@
 <Title hashid="basicusage" level={props.level}>기본 사용 안내</Title>
 
-<ProdImg img='db-locktress-basic.png' desc='락 트리' />
+<Xclude product="mssql"><ProdImg img='db-locktress-basic.png' desc='Lock tree' /></Xclude>
+
+<InDoc product="mssql"><ImgLang img="db-locktress-basic-mssql-v2.png" desc="Lock tree" /></InDoc>
 
 <Xclude product='postgresql,mysql,altibase,mssql,mssql-v1,cubrid'>
 
@@ -28,13 +30,13 @@
 
 <InDoc product="mssql,mssql-v1,tibero">
 
-1. 화면 상단의 <Cmdname sid="date" className="uitext" />에서 조회하려는 날짜를 선택와 시간을 설정하세요.
+1. 화면 상단의 <Cmdname sid="time" className="uitext" />에서 조회하려는 날짜를 선택와 시간을 설정하세요.
 
 1. 모니터링할 인스턴스를 선택하세요. 
 
 선택한 인스턴스에서 설정한 시간 동안 발생한 잠금(Lock) 현황을 확인할 수 있습니다.
 
-만약 설정된 시간 동안 잠금(Lock)이 발생했다면, <UI>lock wait sessions</UI> 그래프와 하단의 테이블에서 특정 시간대에 잠금이 집중되는지, 또는 특정 세션이 지속적으로 잠금을 유발하는지 등을 분석할 수 있습니다.
+만약 설정된 시간 동안 잠금(Lock)이 발생했다면, <UI>Lock Wait Sessions</UI> 그래프와 하단의 테이블에서 특정 시간대에 잠금이 집중되는지, 또는 특정 세션이 지속적으로 잠금을 유발하는지 등을 분석할 수 있습니다.
 
 :::note
 

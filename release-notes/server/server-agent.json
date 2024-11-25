@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server/server-2_7_1",
+    "ver": "v2.7.1",
+    "date": "2024-11-13",
+    "Lists": [
+      {
+        "ver": "v2.7.1",
+        "hash": "v271",
+        "product": "Server Agent",
+        "type": "New",
+        "desc": "<li><code class=\"New\" type=\"1\">New</code> 리눅스 서비스 모니터링 추가</li>"
+      },
+      {
+        "ver": "v2.7.1",
+        "hash": "v271",
+        "product": "Server Agent",
+        "type": "Changed",
+        "desc": "<li><code class=\"Changed\" type=\"0\">Changed</code> 메모리 과다 사용을 방지하기 위해 수집 명령 실행 지연 시 중복 실행이 발생하지 않도록 로직 개선</li>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server/server-2_7_0/",
     "ver": "v2.7.0",
     "date": "2024-10-22",

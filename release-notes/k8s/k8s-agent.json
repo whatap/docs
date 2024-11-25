@@ -1,5 +1,28 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_16",
+    "ver": "v1.7.16",
+    "date": "2024-11-22",
+    "Lists": [
+      {
+        "ver": "v1.7.16",
+        "hash": "v1716",
+        "product": "Kubernetes Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> etcd 모니터링을 위한 데이터 수집 활성화 및 비활성화 기능 추가</p>",
+        "details": "<ul>\n<li>\n<p>etcd 리더 존재 여부 수집</p>\n</li>\n<li>\n<p>etcd 리더 변경 추이 수집</p>\n</li>\n<li>\n<p>etcd commit &amp; apply 추이 수집</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v1.7.16",
+        "hash": "v1716",
+        "product": "Kubernetes Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Foreign Project 기능 활성화 및 비활성화 기능 추가</p>",
+        "details": "<ul>\n<li>Kubernetes 외부 프로젝트에서 활성화된 모니터링과의 연결 데이터 수집</li>\n</ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_15",
     "ver": "v1.7.15",
     "date": "2024-10-30",

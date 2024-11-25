@@ -1,0 +1,26 @@
+---
+id: dbx-2_2_2
+title: DBX v2.2.2
+pagination_next: release-notes/db/dbx-2_2_1
+displayed_sidebar: releaseSidebar
+---
+
+2024년 11월 21일
+
+## ### SQL Server
+
+- <Status priority='1'>Feature</Status> 데드락 감지를 위한 에이전트 옵션 추가
+
+  * **mslog** <span class='type'>Boolean</span>
+
+    기본값 `true`
+
+    `xp_ReadErrorLog` 명령어를 수행하여 에러 로그를 조회합니다.
+
+  * **mslog_interval** <span class='type'>Int</span>
+
+    기본값 `1` (단위: 분, min)
+
+    이전 주기부터 현재 주기까지의 로그를 조회합니다.
+
+- <Status priority='1'>Feature</Status> `Uptime` 지표 추가

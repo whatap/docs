@@ -5,11 +5,17 @@ description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 �
 keywords: [ SQL Server, 데이터베이스, 에이전트 ]
 ---
 
+import V2Note from "../common-items/_import_v2-note.mdx";
+
+<V2Note product="SQL Server" />
+
+import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
 import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
 
-<Agentsignupguide />   
+<Agentsignupguide />
 
 <Youtube ko='e_UpCgapfQY' en='MIo3HRIOt8M' ja='MIo3HRIOt8M' />
 
@@ -17,119 +23,62 @@ import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
 <Createprojectv2 />
 
-import Accesskey from "../getting-started/_accesskey.mdx";
+<Steps>
 
-<Accesskey />
+{/* ## 구성도 확인 */}
+import CheckType from "../common-items/_db-install-agent-check-type.mdx";
 
-## 와탭 데이터베이스 에이전트 다운로드
+<CheckType />
 
-import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
-
-<Dbinstallagentsteps /> 
-
-3. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키 정보 및 와탭 서버 정보, db 접속 정보를 입력하세요.
-
-    ```ini title='whatap.conf'
-    license=프로젝트 액세스 키
-    whatap.server.host=13.124.11.223/13.209.172.35 // 와탭 서버 정보
-
-    dbms=mssql
-    db=master
-    db_ip=데이터베이스 IP
-    db_port=데이터베이스 포트 
-    ```
-
-    :::note
-
-    **SQL Server와 에이전트가 localhost에 설치되는 경우** (**default 1433 port**)
-    
-    ```ini title='whatap.conf'
-    dbms=mssql
-    db=master
-    db_ip=127.0.0.1
-    db_port=1433
-    ```
-
-    :::
-
-4. 다음 디렉터리에 JDBC 드라이버를 다운로드하세요. */압축해제한 폴더/jdbc*
-
-    데이터베이스 서버의 운영체제와 버전에 맞는 JDBC 드라이버를 다운로드하세요.
-    
-    **MS SQL 2005 버전 이상**
-
-    * [Microsoft JDBC Driver 6.4 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=56615)
-    * [Microsoft JDBC Driver 6.2 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=55539)
-
-:::note
-
-*/압축해제한 폴더/jdbc/README.md* 파일에서 각 데이터베이스별 JDBC 드라이버 설치 경로를 확인할 수도 있습니다.
-
-:::
-
+{/* 모니터링용 계정 생성*/}
 import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
 
 <Dbcreatemonitoringaccount />
 
-```bash showLineNumbers
-create login whatap with password='DB_PASSWORD'; ## 원하는 password를 입력하세요.
-grant view server state to whatap;
-create user whatap for login whatap;
-grant execute to whatap;
-EXEC sp_configure 'show advanced options', 1;
-RECONFIGURE;
-EXEC sp_configure 'Ole Automation Procedures', 1;
-RECONFIGURE;
+{/* 액세스 키 확인 */}
+import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
 
-## kill session 사용시 - SQL Server
-grant alter any connection to whatap;
+<Accesskeyv2 />
 
-## kill session 사용시 - Azure SQL Database
-grant kill database connection to whatap;
-```
+{/* DBX 에이전트 다운로드 */}
+import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
+
+<DownloadDBXagent />
+
+{/* ## DBX 에이전트 설정 */}
+import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
+
+<SettingsDBXagent />
+
+{/* ### whatap.conf 설정 */}
+import Whatapconf from "../common-items/_db-whatap-conf.mdx";
+
+<Whatapconf />
+
+{/* ### JDBC 다운로드 */}
+import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
+
+<JDBCDownload />
 
 ## DB 유저 파일 생성{#create-db-user}
 
-import Dbcreatedbuserfile from "../common-items/_db-create-db-user-file.mdx";
+<DBuserDesc />
 
-<Dbcreatedbuserfile /> 
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
 
-{/*## 에이전트 실행*/}
+<Dbcreatedbuserfilebody /> 
+
+{/*모니터링 시작하기*/}
 import Dbrunagent from "../common-items/_db-run-agent.mdx";
 
-<Dbrunagent /> 
+<Dbrunagent />
 
-{/*## XOS 에이전트 설치*/}
-{/* import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx"; */}
+{/*XOS 에이전트 설치*/}
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
 
-## AWS CloudWatch 자원 모니터링하기
+<Dbinstallxosagent /> 
 
-에이전트 서버에 있는 *whatap.conf* 파일에 다음 옵션을 설정하세요. CloudWatch 특성상 60초(`cloud_watch_interval`)마다 호출을 권장합니다.
-
-```ini title='whatap.conf'
-aws_region={AWS_RDS_Region_Name}
-aws_arn=arn:aws:iam::999999999999:role/UpdateApp
-cloud_watch=on
-cloud_watch_instance=RDS_DB_Instance_Name
-cloud_watch_interval=60
-cloud_watch_metrics=CPUUtilization,FreeableMemory,FreeStorageSpace,NetworkTransmitThroughput,NetworkReceiveThroughput
-```
-
-AWS CloudWatch 지표 조회를 위해 다음 명령어를 실행하세요. `DB_Instance_Name` 항목을 변경한 다음 명령어를 실행하세요.
-
-```bash
-aws cloudwatch list-metrics --namespace AWS/RDS --dimensions Name=DBInstanceIdentifier,Value={DB_Instance_Name}
-```
-
-:::note
-
-* <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 <UI>AWS RDS Region</UI>, <UI>RDS DB Instance Name</UI>, <UI>DB Instance Name</UI> 항목에 필요한 정보를 입력하면 에이전트 옵션 및 명령어를 자동 생성할 수 있습니다.
-
-* AWS CLI 설치 및 업데이트에 대한 자세한 내용은 [다음 링크](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html)를 참조하세요.
-
-* AWS CLI 설정에 대한 자세한 내용은 [다음 링크](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-configure.html)를 참조하세요.
-
-:::
+</Steps>
 
 {/* ## 다음 단계 */}
 import NextStep from "../common-items/_db-next-step.mdx";

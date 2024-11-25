@@ -49,3 +49,29 @@ broker=query_editor,broker1
 :::
 
 </InDoc>
+
+<InDoc product="mssql">
+
+```ini title="whatap.conf"
+license=x6054vg8d8e5e-z16ovlmhlau3st-z2uj26egaj4mt4
+whatap.server.host=13.124.11.223/13.209.172.35
+
+dbms=mssql
+db=master
+db_ip=127.0.0.1
+db_port=1433
+```
+
+:::note
+
+**SSL 인증 문제가 발생하는 경우**
+
+SSL 인증 관련 문제가 발생하면 *whatap.conf* 파일에 다음 옵션을 설정하세요.
+
+```ini title="whatap.conf"
+connect_option=?useSSL=true&verifyServerCertificate=false
+```
+
+:::
+
+</InDoc>

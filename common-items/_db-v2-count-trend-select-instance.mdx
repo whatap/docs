@@ -1,22 +1,14 @@
 ### 비교 대상 선택하기
 
-![숫자 1](/img/number-01.png) <Cmdname sid="TTL06202" className="uitext" />,<Cmdname sid="instance" className="uitext" />를 선택한 다음 ![숫자 2](/img/number-02.png) <Cmdname sid="TTL06203" className="uitext" />, <Cmdname sid="instance" className="uitext" />를 선택하세요. 차트 위로 마우스를 오버하면 나타나는 툴팁을 통해서 데이터를 비교할 수 있습니다.
+![숫자 1](/img/number-01.png) <Cmdname sid="TTL06202" className="uitext" />,<Cmdname sid="instance" className="uitext" />를 선택한 다음 ![숫자 2](/img/number-02.png) <Cmdname sid="TTL06203" className="uitext" />, <Cmdname sid="instance" className="uitext" />를 선택하세요. 차트 위로 마우스를 오버하면 나타나는 툴팁을 통해서 해당 시점의 상세 데이터를 확인할 수 있습니다. 툴팁의 내용은 마우스의 위치에 따라 값이 업데이트됩니다.
 
-<InDoc product="postgresql,mysql,oracle-pro,oracle"><ImgLang img='db-compare-count-trend-tootip.png' dsec='Tooltip' /></InDoc>
+![Tooltip](/img/db-compare-count-trend-tootip.png)
 
-<InDoc product="redis"><ImgLang img='db-compare-count-trend-tootip-redis.png' dsec='Tooltip' /></InDoc>
+* 시리즈별로 고유한 색상이 표시되어 시각적으로 쉽게 구분할 수 있습니다. 실선은 <Cmdname sid="TTL06202" className="uitext" />의 데이터, 점선은 <Cmdname sid="TTL06203" className="uitext" />의 데이터를 의미합니다.
 
-<InDoc product="altibase,cubrid"><ImgLang img='db-compare-count-trend-tootip-altibase.png' dsec='Tooltip' multi="true" /></InDoc>
+* ***Compare Time***은 현재 마우스 포인터가 위치한 데이터의 시간 값을 표시합니다.
 
-<InDoc product="mongodb">
-
-![Tooltip](/img/db-compare-count-trend-tootip-mongodb.png)
-
-</InDoc>
-
-* 그래프 차트의 실선은 <Cmdname sid="TTL06202" className="uitext" />의 데이터, 점선은 <Cmdname sid="TTL06203" className="uitext" />의 데이터를 표시합니다.
-
-* 툴팁에서 <UI>(Comparison)</UI>이 표시된 항목이 <Cmdname sid="TTL06203" className="uitext" />의 데이터입니다.
+* 선택한 데이터 시점의 지푯값을 표시하며, 시리즈별로 구분하여 제공합니다. 각 시리즈는 데이터 포인트의 지표 이름, 날짜, 그리고 값을 포함합니다.
 
 :::note
 

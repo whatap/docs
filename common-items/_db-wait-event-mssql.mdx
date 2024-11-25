@@ -1,24 +1,3 @@
----
-id: analysis-lock-and-deadlock
-title: 락 트리
-description: 하루 동안 발생한 Lock 추이를 분석하고 교착 상태의 쿼리를 확인할 수 있습니다.
-keywords: [ SQL Server, 데이터베이스, Lock, 락 트리 ]
----
-
-{/* 락트리 */}
-import Dblocktreedesc from "../common-items/_db-locktree-desc.mdx";
-
-<Dblocktreedesc />
-
-import Dblocktreeusingbasic from "../common-items/_db-locktree-using-basic.mdx";
-
-<Dblocktreeusingbasic level={2} />
-
-{/* 컬럼 정보 안내 */}
-import Mssqlcolumn from "../common-items/_db-mssql-column.mdx";
-
-<Mssqlcolumn level={2} />
-
 ### wait_type {#waittype}
 
 `wait_type` 컬럼은 **SQL Server**에서 쿼리나 트랜잭션이 대기 중인 특정 리소스나 이벤트를 나타내는 값입니다. **SQL Server**는 내부적으로 다양한 대기 유형을 사용하여 시스템 성능을 관리하고 문제를 진단합니다.

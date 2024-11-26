@@ -22,7 +22,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 컨테이너 맵 ]
 
 ## 기본 화면 안내
 
-<ImgLang img='k8s-container-map.png' desc='컨테이너 맵' />
+<ImgLang img='k8s-container-map.png' desc='컨테이너 맵 sc' />
 
 ### ![](/img/number-01.png) 클러스터 프로젝트 - 네임스페이스 프로젝트 이동
 
@@ -116,9 +116,15 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 컨테이너 맵 ]
 
 * ![number 2](/img/char-b.svg) 각 개체의 모양과 색상은 컨테이너 또는 Pod의 특성과 상태를 나타냅니다.
 
-  * 색상 : 컨테이너 또는 Pod의 상태를 의미합니다. <span class='normal'>Normal</span>, <span class='slow'>Warning</span>, <span class='vslow'>Critical</span> 외 상태에 대한 자세한 내용은 [다음 문서](container-status)를 참조하세요.
+  * **외부 프로젝트 연동**
 
-  * 테두리
+    블록 내에 로고를 통해 연동된 외부 프로젝트를 확인할 수 있습니다. 자세한 내용은 [다음 문서](foreign-project)를 참조하세요.
+
+  * **색상** 
+  
+    컨테이너 또는 Pod의 상태를 의미합니다. <span class='normal'>Normal</span>, <span class='slow'>Warning</span>, <span class='vslow'>Critical</span> 외 상태에 대한 자세한 내용은 [다음 문서](container-status)를 참조하세요.
+
+  * **테두리**
 
       * 개체 중에는 테두리가 표현된 것이 있습니다. 이는 컨테이너에 Java, Node.js, Python 등 마이크로 에이전트를 설치한 대상입니다. 
 

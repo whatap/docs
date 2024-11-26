@@ -1,0 +1,260 @@
+---
+id: service-2_11_x
+title: Service 2.11.X
+toc_max_heading_level: 3
+pagination_next: release-notes/service/service-2_10_x
+displayed_sidebar: releaseSidebar
+---
+
+## Service 2.11.0
+
+2024년 11월 27일
+
+<div class='indentTab'>
+
+### 신규 기능 출시
+
+Service 2.11.0 릴리스에 포함된 신규 기능을 소개합니다.
+
+#### Server
+
+<Status priority='1'>New</Status> 클라우드 및 엔터프라이즈 온프레미스 인프라 모니터링을 지원하는 <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴 추가
+
+:::note
+
+이 기능은 <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다. 자세한 내용은 [다음 문서](../../server/server-inventory-map)를 참조하세요.
+
+:::
+
+#### Kubernetes
+
+<Status priority='1'>New</Status> 쿠버네티스 환경에서 클러스터 상태 관련 데이터 저장소를 역할을 담당하고 있는 etcd 컴포넌트를 모니터링할 수 있는 <Cmdname sid="side_etcdDashboard" className="uitext" /> 메뉴 추가
+
+:::note
+
+이 기능은 <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_etcdDashboard" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+:::
+
+
+#### Database
+
+<Status priority='1'>New</Status> **SQL Server** <code className="my">V2</code> 서비스 시작
+
+:::note
+
+**SQL Server 모니터링** <code className="my">V2</code>의 새로운 기능에 대한 자세한 내용은 [다음 문서](../../mssql/monitoring-intro#new-feature)를 참조하세요.
+
+:::
+
+#### Browser
+
+<Status priority='1'>New</Status> IP 주소 그룹 단위로 통계를 분석할 수 있는 <Cmdname sid="side_ipLoadStatistics" className="uitext" /> 메뉴 추가
+
+:::note
+
+이 기능은 <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_ipLoadStatistics" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다. 자세한 내용은 [다음 문서](../../browser/ipload-stat)를 참조하세요.
+
+:::
+
+---
+
+### `공통`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code className="newfunc">New</code> 메뉴의 테이블 목록에 순번(No) 컬럼 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="TTL07402" className="uitext" /> 화면에서 <LinkImage img='ic-setting.svg' desc='설정 아이콘' /> 설정 드롭다운 메뉴 내 마우스 호버 스타일 추가 제공 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventHistory" className="uitext" /> 메뉴에서 <Cmdname sid="exclude_resolved_alerts" className="uitext" /> 기능 제공
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_integratedRealtimeAlert" className="uitext" />에서 CSV 다운로드 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_myUsage" className="uitext" /> &gt; <Cmdname sid="side_projectSubscription" className="uitext" /> 메뉴에서 프로젝트 전체 및 개별 프로젝트의 과금 단위 요약 추가
+
+- <Status priority='0'>Feature</Status> 와탭 사용자 교육 신청서(구글폼)에 대한 다국어 지원 추가
+
+- <Status priority='1'>Changed</Status> 서비스 공지 진입 시 헤더 타이틀을 기존 <b>공지사항</b>에서 <Cmdname sid="TTL06766" className="uitext" />로 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 검색된 결과대로 이벤트 설정 목록을 JSON 내보내기(export)하도록 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="my_profile" className="uitext" /> &gt; <Cmdname sid="side_ssoIntegrations" className="uitext" /> 메뉴에서 Okta에 한정된 안내 문구 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_integratedFlexboard" className="uitext" /> 또는 <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 대시보드가 반응형 레이아웃인 경우, 인쇄 모드에서 위젯이 표시되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 특수 문자를 포함한 메트릭스 지표가 통합되어 표시되는 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 불필요한 가로 스크롤이 나타나는 현상 수정 
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 메트릭스 이벤트 안내 문구 깨짐 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="my_profile" className="uitext" /> &gt; <Cmdname sid="notification_setting" className="uitext" /> 섹션에서 조회 에러 발생 시 알림이 종료되지 않는 현상 수정
+
+- <Status priority='0'>Fixed</Status> 사이드 메뉴를 접은 상태에서 조직을 선택하고, 즐겨찾기한 Flex 보드가 있으면, <Cmdname sid="side_integratedFlexboard" className="uitext" /> 메뉴를 선택할 때 조직 선택이 해제되는 문제 수정
+
+- <Status priority='0'>Fixed</Status> 페이지네이션 UI에서 선택 상자(Select box) 요소의 다크 테마 수정
+
+---
+
+### `Application`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 다음 상황에 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 비활성화하는 기능 추가
+
+  - 이전 검색과 동일한 필터값(MTID/CUSTID, 시간, 선택한 프로젝트)을 설정한 경우
+
+  - 필터값(MTID/CUSTID, 시간, 선택한 프로젝트) 중 하나라도 입력을 하지 않은 경우
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06125" className="uitext" /> 탭에서 다음 사항 수정
+
+  - 에러 트랜잭션이 아님에도 에러 단계 필드가 노출되는 현상 수정
+
+  - Pod명, 컨테이너 ID 필드를 별도의 그룹으로 표시하도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06126" className="uitext" /> 탭에서 다음 사항 수정 
+
+  - <Cmdname sid="TTL06224" className="uitext" /> 조회 시 비밀번호가 해제되지 않은 경우에도 바인드 변수 매핑 기능이 활성화되는 현상 수정
+
+  - SQL 스텝의 높이가 실제 영역보다 크게 출력되는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 다음 사항 수정
+
+  - 프로젝트 이름이 실제 프로젝트 이름과 다르게 보이는 문제 수정
+
+  - 선택한 프로젝트가 검색에 반영이 되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_txSearch" className="uitext" /> 메뉴의 숫자 입력 폼(경과 시간, HTTP 호출 건수, SQL 건수, SQL 패치 건수)에 한 자리 숫자만 있을 경우 값을 삭제할 수 없는 현상 수정
+
+- <Status priority='0'>Fixed</Status> **Java** 플랫폼의 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentSetting" className="uitext" /> 메뉴에서 `sigar_enabled` 옵션의 기본값을 `true`에서 `false`로 변경
+
+- <Status priority='0'>Fixed</Status> **Java**, **Node.js**, **Python** 상품의 애플리케이션 에이전트 설정값 중 `encrypt_level` 영문 안내 수정
+
+---
+
+### `Server`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 `server_disk`, `server_process` 카테고리 내 필드를 사용하여 위젯을 생성할 경우 oname 태그가 id에 필수로 포함되지 않도록 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴명을 <UI>서버 인벤토리</UI>로 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventHistory" className="uitext" /> 메뉴 UI 변경 
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_integratedRealtimeAlert" className="uitext" />에서 이벤트 선택 시 이벤트 <Cmdname sid="TTL08422" className="uitext" /> 화면으로 이동하도록 변경
+
+---
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_kubeEventList" className="uitext" /> 메뉴에서 다음 기능 추가 
+
+  - 상세 보기 기능(Suggestions, 인접 로그, 이벤트 타임라인)
+
+  - Type, Reason 개수 표시 및 시간별 이벤트 개수 차트에 Type 구분 표시
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_containerMap" className="uitext" /> 및 <Cmdname sid="side_integratedContainerMap" className="uitext" /> 메뉴에서 외부 프로젝트 에이전트가 설치된 컨테이너 식별 및 해당 프로젝트 이동 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 <Cmdname sid="metrics" className="uitext" /> 탭을 신규 메트릭스 대시보드로 변경
+
+  - 시간 범위를 선택할 수 없도록 제한(10분 고정)
+
+  - 컨테이너 뷰의 <UI>Container CPU Total Usage</UI> 위젯과 Pod 뷰의 <UI>CPU Total Usage</UI> 위젯은 cores에서 <b>millicores</b>로 변경
+
+- <Status priority='0'>Fixed</Status> 컨테이너 개수가 많을 때 메트릭스 대시보드가 로딩 상태를 반복하는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_instanceTopology" className="uitext" /> 메뉴에서 컨텍스트 메뉴의 링크가 동작하지 않는 문제 수정
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventHistory" className="uitext" /> 메뉴에서 이벤트 이름을 선택하면 <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴로 이동하는 기능 추가
+
+- <Status priority='1'>Changed</Status> 액티브 세션 연계 분석 화면의 <UI>ThreadStat</UI> 값을 문자로 변경 
+
+  :::note 
+
+  적용 플랫폼: **MySQL** , **PostgreSQL**, **Oracle** <code className="my">V2</code>, **Oracle Pro**
+
+  :::
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴의 <Cmdname sid="active_sessions" className="uitext" /> 테이블에서 컬럼 변경 사항이 CSV 데이터에 반영되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴의 <Cmdname sid="TTL06220" className="uitext" /> 창에서 ![이벤트 설정 아이콘](/img/ico-noti.svg) 이벤트 설정 선택 시 <Cmdname sid="side_eventSettingV2" className="uitext" /> <code class="newfunc">New</code> 메뉴로 이동하도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 차트 영역 테두리(border) 제거
+
+- <Status priority='0'>Fixed</Status> 실시간 알림에서 발생한 이벤트를 선택하면 <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴로 이동하고, 이벤트 발생 시각을 기준으로 데이터를 조회하도록 수정
+
+#### Database <code className="my">V2</code>
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTrendComparison" className="uitext" /> 메뉴의 지표 선택 화면에서 지표가 보이지 않는 문제 수정
+
+#### PostgreSQL
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 빈 쿼리가 조회되는 문제 수정 
+
+:::note
+
+이 수정 사항은 DBX 에이전트 1.6.7 버전 이상에서 지원합니다.
+
+:::
+
+#### Oracle, Oracle Pro
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에 <UI>Disk Usage</UI> 위젯 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴에서 다음 기능 추가
+
+  - <UI>Plan Change History</UI> 탭에서 `sql_id`, `sql_hash_value`, `PLAN_HASH_VALUE`로 검색할 수 있는 필터 기능
+
+  - <UI>Plan Change History</UI> 탭에서 Plan Diff 확인 시 새 창으로 보기
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 다음 사항 변경
+
+  - <UI>Disk Usage</UI> 위젯의 크게 보기 창에서 여백에 대한 UI 변경
+
+  - <Cmdname sid="session_detail" className="uitext" /> 창에서 세션이 종료되더라도 `sid`와 `serial#` 정보가 유지되도록 변경
+
+  - <Cmdname sid="session_detail" className="uitext" /> 창의 <UI>Session Info</UI>에 `sql_hash_value` 값 추가
+
+  - <Cmdname sid="session_detail" className="uitext" /> 창의 <UI>Session Info</UI>에 `command` 값을 상태명으로 표시하도록 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 <Cmdname sid="TTL06224" className="uitext" /> 팝업 창의 <UI>Runtime Plan</UI> 탭의 UI 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴의 <UI>Plan Change History</UI> 탭에서 시간 간 발생한 데이터가 명확히 구분되도록 차트 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 <Cmdname sid="TTL06224" className="uitext" /> 팝업 창에서 플랜 조회 시 조회 범위를 변경
+
+---
+
+### `Browser`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="side_adminMetering" className="uitext" /> 및 <Cmdname sid="billingPreview" className="uitext" />에서 <Cmdname sid="TTL08103" className="uitext" /> 과금 표시 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에 <Cmdname sid="TTL08559" className="uitext" /> 알림 설정 추가
+
+  :::note
+
+  <Cmdname sid="TTL08559" className="uitext" />에 대한 자세한 내용은 [다음 문서](../../browser/hitmap-notice)를 참조하세요.
+
+  :::
+
+---
+
+### `Log`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSetting" className="uitext" /> 메뉴에서 다음 기능 추가 및 수정
+
+  - 로그 데이터 보존 기간을 직접 입력하여 변경할 수 있는 기능 추가
+
+  - 로그 데이터 보존 기간의 데이터 표시 방식 수정
+
+- <Status priority='1'>Changed</Status> 로그 필터 즐겨찾기 제한 개수 10개에서 50개로 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_logSetting" className="uitext" /> 메뉴의 <Cmdname sid="getting_started_log_monitoring" className="uitext" /> 탭 디자인 수정 
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="log_long_term_keep_statistic" className="uitext" /> 수정 화면의 태그 사이 간격 변경
+
+- <Status priority='0'>Fixed</Status> 로그 보관 기간 설정 시 변경된 값이 없을 경우 저장 버튼 비활성화 되도록 수정
+
+</div>

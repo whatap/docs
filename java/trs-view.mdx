@@ -46,15 +46,25 @@ HTTP 호출 중 발생하는 에러는 `SLOW_HTTPC`, `httpc error` 등의 형태
 
 와탭 모니터링 서비스에서는 특정한 조건에 따라 에러로 처리합니다.
 
-- **TOO_MANY_RECORDS**: fetch 건수 10000건 이상
+- **TOO_MANY_RECORDS**: fetch 건수 10,000건 이상
 
-- **SLOW_SQL**: SQL 시간 30000ms 이상
+  관련한 에이전트 옵션은 다음 문서를 참조하세요. [`profile_error_jdbc_fetch_max=10000`](agent-dbsql#profile_error_jdbc_fetch_max)
 
-- **SLOW_HTTPC**: HTTP call 경과 시간이 10000ms 이상
+- **SLOW_SQL**: SQL 시간 30,000ms 이상
+
+  관련한 에이전트 옵션은 다음 문서를 참조하세요. [`profile_error_sql_time_max=30000`](agent-dbsql#profile_error_sql_time_max)
+
+- **SLOW_HTTPC**: HTTP call 경과 시간이 10,000ms 이상
+
+  관련한 에이전트 옵션은 다음 문서를 참조하세요. [`profile_error_httpc_time_max=10000`](agent-httpcapicall#profile_error_httpc_time_max)
 
 - **httpc error**: HTTP call status code 400 이상인 경우
 
+  관련한 에이전트 옵션은 다음 문서를 참조하세요. [`httpc_status_error_enable=true`](agent-transaction#httpc_status_error_enable)
+
 - **status error**: 트랜잭션 status code 400 이상인 경우
+
+  관련한 에이전트 옵션은 다음 문서를 참조하세요. [`transaction_status_error_enable=true`](agent-transaction#transaction_status_error_enable)
 
 ### 트랜잭션 에러 단계 INFO 처리
 

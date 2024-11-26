@@ -1,8 +1,87 @@
 ---
 id: procedure-stat
 title: 프로시저 통계
-description: 프로시저 통계 정보를 제공합니다.
+description: SQL Server에 등록된 저장 프로시저(Stored Procedure)의 성능 관련 정보를 제공합니다.
 keywords: [ SQL Server, 통계, 프로시저 통계 ]
 ---
 
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbProcedureStat" className="uitext" />
+
+SQL Server에 등록된 저장 프로시저(Stored Procedure)의 실행 횟수, 총 실행 시간, 논리적/물리적 읽기 및 쓰기와 같은 성능 관련 정보를 제공합니다. 이를 통해 저장 프로시저의 사용량과 성능을 모니터링하고 최적화가 필요한 프로시저를 식별할 수 있습니다.
+
+* 실행 횟수와 총 실행 시간을 분석하여 사용량이 많은 프로시저를 확인할 수 있습니다.
+
+* 논리적/물리적 읽기 데이터를 통해 I/O 성능 병목을 탐지하고 최적화 대상을 식별합니다.
+
+* 프로시저 내부 쿼리의 실행 데이터를 확인하여, 자원을 많이 소비하는 쿼리를 식별할 수 있습니다.
+
+* 총 실행 시간과 CPU 사용 시간을 비교하여 비효율적인 쿼리를 식별할 수 있습니다.
+
+:::note
+
+**저장 프로시저**는 SQL Server에서 특정 작업을 수행하기 위해 미리 작성된 SQL 명령 집합입니다. 재사용 가능하며, 매개변수화된 동적 작업을 수행할 수 있어 코드 관리 및 성능 향상에 유리합니다. 자세한 내용은 [다음 링크](https://learn.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine?view=sql-server-ver16)를 참조하세요.
+
+:::
+
+## 기본 사용 안내
+
+1. <Cmdname sid="time" className="uitext" />에서 데이터를 조회할 시간과 날짜를 선택하세요.
+
+1. <Cmdname sid="instance" className="uitext" />에서 데이터를 조회할 대상을 선택하세요.
+
+1. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+1. <UI>Procedure Statistics</UI> 섹션에서 조회된 결과를 확인하고 <UI>definition</UI> 컬럼 항목을 선택하세요.
+
+    <ImgLang img="db-procedure-stat-mssql.png" desc="프로시저 통계" className="width-600" />
+
+1. 선택한 프로시저에 대한 개별 쿼리 실행 정보가 <UI>Query Statistics</UI> 섹션에 표시됩니다.
+
+:::note
+
+* 원하는 결과가 표시될 수 있도록 <Cmdname sid="TTL07772" className="uitext" /> 또는 <Cmdname sid="TTL07773" className="uitext" /> 옵션을 설정할 수 있습니다.
+
+* <UI>Procedure Statistic</UI> 섹션의 목록에서 ![상세 아이콘](/img/ico-detail-view.svg) 버튼을 선택하면 해당 프로시저에 대한 상세 정보를 확인할 수 있는 <UI>Procedure Detail</UI> 창이 나타납니다.
+
+:::
+
+## 섹션별 화면 안내
+
+* <UI>Procedure Statistics</UI>
+
+  프로시저별 주요 통계 정보를 표시하는 영역으로, 실행 횟수, 총 실행 시간 등 프로시저의 전반적인 성능 데이터를 제공합니다. 실행 시간이 길거나 논리적/물리적 읽기가 많은 프로시저를 식별할 수 있습니다.
+
+* <UI>Query Statistics</UI>
+
+  <UI>Procedure Statistics</UI> 섹션에서 특정 프로시저의 <UI>definition</UI> 컬럼을 선택하면, 해당 프로시저에 대한 개별 쿼리 실행 정보가 표시됩니다. 쿼리 통계를 분석하여 반복적으로 실행되는 쿼리를 확인할 수 있습니다.
+
+  <UI>query</UI> 컬럼 항목을 선택하면 <Cmdname sid="TTL06224" className="uitext" /> 창을 확인할 수 있습니다. 
+
+  <ImgLang img="db-sql-details-mssql.png" desc="SQL 상세" />
+
+:::note
+
+<Cmdname sid="TTL06224" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](stat#querydetails)를 참조하세요.
+
+:::
+
+## 프로시저 상세 정보 확인하기
+
+<UI>Procedure Statistic</UI> 섹션의 목록에서 ![상세 아이콘](/img/ico-detail-view.svg) 버튼을 선택하면 해당 프로시저에 대한 상세 정보를 확인할 수 있는 <UI>Procedure Detail</UI> 창이 나타납니다.
+
+<ImgLang img="db-procedure-stat-details-mssql.png" desc="Procedure Detail" />
+
+* ***Procedure Info***
+
+  논리적/물리적 읽기, 쓰기, 실행 횟수, 최대/최소 실행 시간 등 프로시저의 실행 성능 데이터를 포함한 상세 정볼를 확인할 수 있습니다. 
+
+* ***Procedure Definition***
+
+  해당 프로시저의 SQL 정의 코드를 확인할 수 있습니다.
+
+
+{/* 필터 조건추가하기*/}
+import Dbsqlfilter from "../common-items/_db-sql-filter.mdx";
+
+<Dbsqlfilter level={2} />
+

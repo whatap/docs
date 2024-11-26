@@ -1,0 +1,435 @@
+[
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_11_x",
+    "ver": "Service 2.11.0",
+    "date": "2024-11-27",
+    "Lists": [
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 클라우드 및 엔터프라이즈 온프레미스 인프라 모니터링을 지원하는 <span class=\"uitext\">서버 인벤토리 맵</span> 메뉴 추가</p>",
+        "category": "Server"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 쿠버네티스 환경에서 클러스터 상태 관련 데이터 저장소를 역할을 담당하고 있는 etcd 컴포넌트를 모니터링할 수 있는 <span class=\"uitext\">etcd 대시보드</span> 메뉴 추가</p>",
+        "category": "Kubernetes"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>SQL Server</strong> <code class=\"my\">V2</code> 서비스 시작</p>",
+        "category": "Database"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> IP 주소 그룹 단위로 통계를 분석할 수 있는 <span class=\"uitext\">IP 로드 통계</span> 메뉴 추가</p>",
+        "category": "Browser"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> <code class=\"newfunc\">New</code> 메뉴의 테이블 목록에 순번(No) 컬럼 추가</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">프로젝트 목록</span> 화면에서 <img loading=\"lazy\" src=\"/whatap-docs/img/ic-setting.svg\" alt=\"설정 아이콘\" width=\"auto\" height=\"auto\"> 설정 드롭다운 메뉴 내 마우스 호버 스타일 추가 제공</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 기록</span> 메뉴에서 <span class=\"uitext\">진행 중인 이벤트만 보기</span> 기능 제공</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">실시간 알림 목록</span>에서 CSV 다운로드 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">이용 내역</span> &gt; <span class=\"uitext\">프로젝트 유료 전환</span> 메뉴에서 프로젝트 전체 및 개별 프로젝트의 과금 단위 요약 추가</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"0\">Feature</code> 와탭 사용자 교육 신청서(구글폼)에 대한 다국어 지원 추가</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 서비스 공지 진입 시 헤더 타이틀을 기존 <b>공지사항</b>에서 <span class=\"uitext\">서비스 공지</span>로 변경</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴에서 검색된 결과대로 이벤트 설정 목록을 JSON 내보내기(export)하도록 변경</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">계정 정보</span> &gt; <span class=\"uitext\">SSO 연동</span> 메뉴에서 Okta에 한정된 안내 문구 변경</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통합 Flex 보드</span> 또는 <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">Flex 보드</span> 메뉴에서 대시보드가 반응형 레이아웃인 경우, 인쇄 모드에서 위젯이 표시되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Flex 보드</span> 메뉴에서 특수 문자를 포함한 메트릭스 지표가 통합되어 표시되는 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 메뉴에서 불필요한 가로 스크롤이 나타나는 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴에서 메트릭스 이벤트 안내 문구 깨짐 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">계정 정보</span> &gt; <span class=\"uitext\">알림 수신 설정</span> 섹션에서 조회 에러 발생 시 알림이 종료되지 않는 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 사이드 메뉴를 접은 상태에서 조직을 선택하고, 즐겨찾기한 Flex 보드가 있으면, <span class=\"uitext\">통합 Flex 보드</span> 메뉴를 선택할 때 조직 선택이 해제되는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 페이지네이션 UI에서 선택 상자(Select box) 요소의 다크 테마 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">멀티 트랜잭션 추적</span> 메뉴에서 다음 상황에 <img decoding=\"async\" loading=\"lazy\" alt=\"검색 아이콘\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAdCAYAAAAgqdWEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDkuMC1jMDAwIDc5LjE3MWMyN2ZhYiwgMjAyMi8wOC8xNi0yMjozNTo0MSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5NGYxMDZkYi1mOWQ1LTRkNWItYjg1Mi01N2E4OWQ4N2NiODAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkM0RjAyQzM1MTBFMTFFRDk1NTBFNTZGQjUwMkEyQzYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkM0RjAyQzI1MTBFMTFFRDk1NTBFNTZGQjUwMkEyQzYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDphMzM1ZWVmNC1mYjZhLTRkNzctOWI5MS0yZDViNTU2OTE4YTQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OTRmMTA2ZGItZjlkNS00ZDViLWI4NTItNTdhODlkODdjYjgwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+xFhE8QAAA2NJREFUeNrMl0tIVGEUx//fd2fm3nGaZHwkA+KjFylBWG5amG10GRGW9AKjRVFRCSJEQUPRokioNulCAhFsV2LiKogIwl7SoiyVsdJ8Vb5G5z3f1/luumk12lynw2WGy1zm/L7z+J9zmZRy4u1gIs/XEV78OC5g0xjostwSEojTR6mXw3fYcO3aok2y15/j83suL7rBgeI8bj4opfUwbOnAw5MCoOv5DVdAG8luvPR1RuqbCUSsAcTfluNmmA5J+MdFlA8Q2cZcjrhAWkz5Vf4VB3dQgUik15R/xcFV7mSaaZR/xcH/9U9SeRDbarpAUJ5HpgVkhO6X4pyZzZDjYogl1ghG04DpRYm5XxKHKm3YV26HywkMjAnc64nBPyxQULh6eUgahpOPnwGJBYrGk6sZ2LvDhukFIEhtWbWToa5Kx/nmEDpexFDs5dZGJhKTCISBRw1OE+Ts/RAePIubVWfYgYcXDbRecELjEh29CRR4Vt6lSR9hbFbi+G4NVWU2HL0dRHtXFN4sIN8D2DWJGl8IbwYTuFLrhJ2OGFuFbvGkW4+iUlvhwMB3gc6XceQVa9BtzJxluW6OGNVO0+MICjYwVJdwTAWkNTBqqAkHQyZ1y3xQQvw1TNUYcdDvs4t/ALLWUVfFLYqMjZ5iVDOfRhIo26TByABmCIovAdmpyySlsWKbRrUFvKKu8mRYBKPMlcnQ1B2lAgVaTuoI07rhnxCYmJMY9gtkehnqDxjo7o2i/wvdZzDruimXQt9PJ/a1h+E7ZmB7iw3NPREMEFRlqYb6/QZ0BzA+Q3pE7R+MSLh0tqJNYEWil0/6cas7ZgLcrHPi7imnOXVVeNueRjFFqWo8qMPjAk7fCUN4AbfBTMVOKYzqKFU7RTkMne/i6Hq/gHJS2zxKX983gbFRWgGoXlQdNdTocFOxn2kNmxEy7Cz1kVmW+CLaP9QM+kAR6hsF1uu0JRJYiIr8WlsEBqXrRLWOwuwohmhPUaKY1NwrOReYp293qlbJWFzS5gZku1R6JBykRUnOqQBHCk05tZNzDwlgMCrNhUlaVcBJAxGEqT1W6cxaGF9e+dJpy6svj9LgSTOL6V9x8K30vuT/IUwNSYcpv8q/4uDXjxj08gIM0ZxR4VqrlC37Un6Vf8XB/qd37d8CDAAmlWmEg71//QAAAABJRU5ErkJggg==\" width=\"35\" height=\"29\" class=\"img_ev3q\"> 버튼을 비활성화하는 기능 추가</p>",
+        "details": "<ul>\n<li>\n<p>이전 검색과 동일한 필터값(MTID/CUSTID, 시간, 선택한 프로젝트)을 설정한 경우</p>\n</li>\n<li>\n<p>필터값(MTID/CUSTID, 시간, 선택한 프로젝트) 중 하나라도 입력을 하지 않은 경우</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">트레이스 분석</span> 창의 <span class=\"uitext\">레코드 요약</span> 탭에서 다음 사항 수정</p>",
+        "details": "<ul>\n<li>\n<p>에러 트랜잭션이 아님에도 에러 단계 필드가 노출되는 현상 수정</p>\n</li>\n<li>\n<p>Pod명, 컨테이너 ID 필드를 별도의 그룹으로 표시하도록 수정</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">트레이스 분석</span> 창의 <span class=\"uitext\">테이블 뷰</span> 탭에서 다음 사항 수정</p>",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">SQL 상세</span> 조회 시 비밀번호가 해제되지 않은 경우에도 바인드 변수 매핑 기능이 활성화되는 현상 수정</p>\n</li>\n<li>\n<p>SQL 스텝의 높이가 실제 영역보다 크게 출력되는 문제 수정</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">멀티 트랜잭션 추적</span> 메뉴에서 다음 사항 수정</p>",
+        "details": "<ul>\n<li>\n<p>프로젝트 이름이 실제 프로젝트 이름과 다르게 보이는 문제 수정</p>\n</li>\n<li>\n<p>선택한 프로젝트가 검색에 반영이 되지 않는 문제 수정</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">트랜잭션 검색</span> 메뉴의 숫자 입력 폼(경과 시간, HTTP 호출 건수, SQL 건수, SQL 패치 건수)에 한 자리 숫자만 있을 경우 값을 삭제할 수 없는 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>Java</strong> 플랫폼의 <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설정</span> 메뉴에서 <code>sigar_enabled</code> 옵션의 기본값을 <code>true</code>에서 <code>false</code>로 변경</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>Java</strong>, <strong>Node.js</strong>, <strong>Python</strong> 상품의 애플리케이션 에이전트 설정값 중 <code>encrypt_level</code> 영문 안내 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">Flex 보드</span> 메뉴에서 <code>server_disk</code>, <code>server_process</code> 카테고리 내 필드를 사용하여 위젯을 생성할 경우 oname 태그가 id에 필수로 포함되지 않도록 변경</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 인벤토리</span> 메뉴명을 <span class=\"uitext\">서버 인벤토리</span>로 변경</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 기록</span> 메뉴 UI 변경</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">실시간 알림 목록</span>에서 이벤트 선택 시 이벤트 <span class=\"uitext\">상세</span> 화면으로 이동하도록 변경</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">쿠버네티스 이벤트</span> 메뉴에서 다음 기능 추가</p>",
+        "details": "<ul>\n<li>\n<p>상세 보기 기능(Suggestions, 인접 로그, 이벤트 타임라인)</p>\n</li>\n<li>\n<p>Type, Reason 개수 표시 및 시간별 이벤트 개수 차트에 Type 구분 표시</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">컨테이너 맵</span> 및 <span class=\"uitext\">통합 컨테이너 맵</span> 메뉴에서 외부 프로젝트 에이전트가 설치된 컨테이너 식별 및 해당 프로젝트 이동 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Kubernetes",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴의 <span class=\"uitext\">메트릭스</span> 탭을 신규 메트릭스 대시보드로 변경</p>",
+        "details": "<ul>\n<li>\n<p>시간 범위를 선택할 수 없도록 제한(10분 고정)</p>\n</li>\n<li>\n<p>컨테이너 뷰의 <span class=\"uitext\">Container CPU Total Usage</span> 위젯과 Pod 뷰의 <span class=\"uitext\">CPU Total Usage</span> 위젯은 cores에서 <b>millicores</b>로 변경</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 컨테이너 개수가 많을 때 메트릭스 대시보드가 로딩 상태를 반복하는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">사이트맵</span> &gt; <span class=\"uitext\">인스턴스 토폴로지</span> 메뉴에서 컨텍스트 메뉴의 링크가 동작하지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 기록</span> 메뉴에서 이벤트 이름을 선택하면 <span class=\"uitext\">인스턴스 모니터링</span> 메뉴로 이동하는 기능 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 액티브 세션 연계 분석 화면의 <span class=\"uitext\">ThreadStat</span> 값을 문자로 변경</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴의 <span class=\"uitext\">액티브 세션</span> 테이블에서 컬럼 변경 사항이 CSV 데이터에 반영되지 않는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴의 <span class=\"uitext\">메트릭스 선택</span> 창에서 <img decoding=\"async\" loading=\"lazy\" alt=\"이벤트 설정 아이콘\" src=\"data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iU1ZHSW5saW5lLXN2ZyIgc3R5bGU9IndpZHRoOiAyNnB4O2hlaWdodDogMjZweDsiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNTkuMSAoODYxNDQpIC0gaHR0cHM6Ly9za2V0Y2guY29tIC0tPgogICAgPCEtLSA8dGl0bGU+aWMtZXZlbnQ8L3RpdGxlPiAtLT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9Ikljb24tU2V0IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2hhVGFwX0ljb25fU2V0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNjguMDAwMDAwLCAtMjM5MS4wMDAwMDApIiBmaWxsPSIjNzk3OTc5Ij4KICAgICAgICAgICAgPGcgaWQ9ImFwcGxpY2F0aW9uLWljb25zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MC4wMDAwMDAsIDIzNDYuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iaWMtZXZlbnQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI4LjAwMDAwMCwgNDUuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMi4wMDAwMDAsIDEuMDAwMDAwKSIgaWQ9IkNvbWJpbmVkLVNoYXBlIj4KICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTcsMTkgTDEzLDE5IEMxMywyMC42NTY4NTQyIDExLjY1Njg1NDIsMjIgMTAsMjIgQzguNDAyMzE5MTIsMjIgNy4wOTYzMzkxMiwyMC43NTEwOCA3LjAwNTA5MjY5LDE5LjE3NjI3MjggTDcsMTkgTDEzLDE5IFogTTEwLDAgQzExLjEwNDU2OTUsMCAxMiwwLjg5NTQzMDUgMTIsMiBDMTIsMi4wOTY5NzY1MyAxMS45OTMwOTc5LDIuMTkyMzQwOTkgMTEuOTc5NzU4MiwyLjI4NTYyODk1IEMxNC44ODE4MDcyLDMuMTM4MTQ1MzcgMTcsNS44MjE3MDc0NyAxNyw5IEwxNywxNSBMMTksMTUgQzE5LjU1MjI4NDcsMTUgMjAsMTUuNDQ3NzE1MyAyMCwxNiBDMjAsMTYuNTUyMjg0NyAxOS41NTIyODQ3LDE3IDE5LDE3IEwxLDE3IEMwLjQ0NzcxNTI1LDE3IDYuNzYzNTM3NTFlLTE3LDE2LjU1MjI4NDcgMCwxNiBDLTYuNzYzNTM3NTFlLTE3LDE1LjQ0NzcxNTMgMC40NDc3MTUyNSwxNSAxLDE1IEwzLDE1IEwzLDkgTDMuMDA0MDU5MDIsOC43NTkzNTAyNSBDMy4xMDc4NTc5NSw1LjY4Njg3MzI3IDUuMTkxNzI1NDIsMy4xMTY1MDAwNCA4LjAxOTkwNDkxLDIuMjgzOTg3MDYgQzguMDA2OTAyMDYsMi4xOTIzNDA5OSA4LDIuMDk2OTc2NTMgOCwyIEM4LDAuODk1NDMwNSA4Ljg5NTQzMDUsMCAxMCwwIFogTTEwLDQgQzcuMzAyODE1OCw0IDUuMDkzNjkxMTksNi4xMzk5ODcwNyA1LjAwMzc3NDU5LDguNzkzMDc5MjggTDUsOSBMNSwxNSBMMTUsMTUgTDE1LDkgQzE1LDYuMjM4NTc2MjUgMTIuNzYxNDIzNyw0IDEwLDQgWiI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+\" width=\"24\" height=\"24\" class=\"img_ev3q\"> 이벤트 설정 선택 시 <span class=\"uitext\">이벤트 설정</span> <code class=\"newfunc\">New</code> 메뉴로 이동하도록 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 메뉴에서 차트 영역 테두리(border) 제거</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 실시간 알림에서 발생한 이벤트를 선택하면 <span class=\"uitext\">인스턴스 모니터링</span> 메뉴로 이동하고, 이벤트 발생 시각을 기준으로 데이터를 조회하도록 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">카운트 추이 비교</span> 메뉴의 지표 선택 화면에서 지표가 보이지 않는 문제 수정</p>",
+        "category": "Database V2"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 메뉴에서 빈 쿼리가 조회되는 문제 수정</p>",
+        "category": "PostgreSQL"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴에 <span class=\"uitext\">Disk Usage</span> 위젯 추가</p>",
+        "category": "Oracle, Oracle Pro"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">SQL 분석</span> 메뉴에서 다음 기능 추가</p>",
+        "category": "Oracle, Oracle Pro",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">Plan Change History</span> 탭에서 <code>sql_id</code>, <code>sql_hash_value</code>, <code>PLAN_HASH_VALUE</code>로 검색할 수 있는 필터 기능</p>\n</li>\n<li>\n<p><span class=\"uitext\">Plan Change History</span> 탭에서 Plan Diff 확인 시 새 창으로 보기</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴에서 다음 사항 변경</p>",
+        "category": "Oracle, Oracle Pro",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">Disk Usage</span> 위젯의 크게 보기 창에서 여백에 대한 UI 변경</p>\n</li>\n<li>\n<p><span class=\"uitext\">세션 상세 정보</span> 창에서 세션이 종료되더라도 <code>sid</code>와 <code>serial#</code> 정보가 유지되도록 변경</p>\n</li>\n<li>\n<p><span class=\"uitext\">세션 상세 정보</span> 창의 <span class=\"uitext\">Session Info</span>에 <code>sql_hash_value</code> 값 추가</p>\n</li>\n<li>\n<p><span class=\"uitext\">세션 상세 정보</span> 창의 <span class=\"uitext\">Session Info</span>에 <code>command</code> 값을 상태명으로 표시하도록 변경</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 메뉴의 <span class=\"uitext\">SQL 상세</span> 팝업 창의 <span class=\"uitext\">Runtime Plan</span> 탭의 UI 변경</p>",
+        "category": "Oracle, Oracle Pro"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">SQL 분석</span> 메뉴의 <span class=\"uitext\">Plan Change History</span> 탭에서 시간 간 발생한 데이터가 명확히 구분되도록 차트 수정</p>",
+        "category": "Oracle, Oracle Pro"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 메뉴의 <span class=\"uitext\">SQL 상세</span> 팝업 창에서 플랜 조회 시 조회 범위를 변경</p>",
+        "category": "Oracle, Oracle Pro"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Browser",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">이용내역</span> &gt; <span class=\"uitext\">사용량</span> 및 <span class=\"uitext\">청구서 미리보기</span>에서 <span class=\"uitext\">세션 리플레이</span> 과금 표시</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Browser",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴에 <span class=\"uitext\">AJAX 히트맵 패턴</span> 알림 설정 추가</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Log",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 설정</span> 메뉴에서 다음 기능 추가 및 수정</p>",
+        "details": "<ul>\n<li>\n<p>로그 데이터 보존 기간을 직접 입력하여 변경할 수 있는 기능 추가</p>\n</li>\n<li>\n<p>로그 데이터 보존 기간의 데이터 표시 방식 수정</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Log",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 로그 필터 즐겨찾기 제한 개수 10개에서 50개로 변경</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Log",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">로그 설정</span> 메뉴의 <span class=\"uitext\">로그모니터링 시작하기</span> 탭 디자인 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Log",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">로그 장기 보관 통계</span> 수정 화면의 태그 사이 간격 변경</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "Log",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 로그 보관 기간 설정 시 변경된 값이 없을 경우 저장 버튼 비활성화 되도록 수정</p>"
+      }
+    ]
+  }
+]

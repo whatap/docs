@@ -107,7 +107,7 @@ kubectl create namespace whatap-monitoring
 
 #### 컨테이너 설정 
 
-1. Deployment의 `whatap-control-plane-helper` 컨테이너에 etcd 관련 설정을 추가하세요. 
+1. Deployment의 `whatap-control-plane-helper` 컨테이너 내 args 섹션에 etcd 관련 설정을 추가하세요. 
 
     ```yaml 
     -collect_etcd_monitoring_enabled=true

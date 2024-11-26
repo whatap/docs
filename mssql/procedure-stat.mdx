@@ -41,7 +41,9 @@ SQL Server에 등록된 저장 프로시저(Stored Procedure)의 실행 횟수, 
 
 * 원하는 결과가 표시될 수 있도록 <Cmdname sid="TTL07772" className="uitext" /> 또는 <Cmdname sid="TTL07773" className="uitext" /> 옵션을 설정할 수 있습니다.
 
-* <UI>Procedure Statistic</UI> 섹션의 목록에서 ![상세 아이콘](/img/ico-detail-view.svg) 버튼을 선택하면 해당 프로시저에 대한 상세 정보를 확인할 수 있는 <UI>Procedure Detail</UI> 창이 나타납니다.
+* <UI>Procedure Statistic</UI> 섹션의 목록에서 ![상세 아이콘](/img/ico-detail-view.svg) 버튼을 선택하면 해당 프로시저에 대한 상세 정보를 확인할 수 있는 <UI>Procedure Detail</UI> 창이 나타납니다. 자세한 내용은 [다음 문서](#procedurestat)를 참조하세요.
+
+* <UI>defintion</UI> 컬럼 항목에 마우스를 오버하면 SQL 정의 코드를 미리보기할 수 있습니다.
 
 :::
 
@@ -65,7 +67,7 @@ SQL Server에 등록된 저장 프로시저(Stored Procedure)의 실행 횟수, 
 
 :::
 
-## 프로시저 상세 정보 확인하기
+## 프로시저 상세 정보 확인하기 {#procedurestat}
 
 <UI>Procedure Statistic</UI> 섹션의 목록에서 ![상세 아이콘](/img/ico-detail-view.svg) 버튼을 선택하면 해당 프로시저에 대한 상세 정보를 확인할 수 있는 <UI>Procedure Detail</UI> 창이 나타납니다.
 
@@ -85,3 +87,12 @@ import Dbsqlfilter from "../common-items/_db-sql-filter.mdx";
 
 <Dbsqlfilter level={2} />
 
+## 조회 결과 다운로드하기
+
+각 섹션별 조회 결과를 CSV 파일 형식으로 다운로드할 수 있습니다. 화면 오른쪽 상단의 ![csv 아이콘](/img/ico-download.svg) 버튼을 클릭한 후 <UI>Procedure Statistics</UI> 또는 <UI>Query Statistics</UI>를 선택하세요.
+
+다운받은 CSV 파일의 이름 형식은 다음과 같습니다.
+
+* <UI>Procedure Statistics</UI>: *Procedure\_Statistics\_`YYYYMMDD_HHMMSS`.csv*
+
+* <UI>Query Statistics</UI>: *Query\_Statistics\_`YYYYMMDD_HHMMSS`.csv*

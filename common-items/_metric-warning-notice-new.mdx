@@ -30,13 +30,13 @@
 
 <Cmdname sid="side_eventSetting" className="uitext" /> <code class="newfunc">New</code> 메뉴에서 <Cmdname sid="metrics" className="uitext" /> 탭을 선택하세요. 사용자가 추가한 메트릭스 이벤트 목록을 확인하고, 메트릭스 이벤트를 추가하거나 수정, 삭제할 수 있습니다.
 
-<Xclude product="server,postgresql,oracle,oracle-pro,mysql,mssql,tibero,cubrid,altibase,redis,mongodb,browser"><ImgLang img="metric-warning-notice-new-basic-screen.png" desc="Event configuration" /></Xclude>
+<Xclude product="server,postgresql,oracle,oracle-pro,mysql,mssql,mssql-v1,tibero,cubrid,altibase,redis,mongodb,browser"><ImgLang img="metric-warning-notice-new-basic-screen.png" desc="Event configuration" /></Xclude>
 
 <InDoc product="server"><ImgLang img="metric-warning-notice-new-basic-screen-server.png" desc="Event configuration" /></InDoc>
 
 <InDoc product="browser"><ImgLang img="metric-warning-notice-new-basic-screen-browser.png" desc="Event configuration" /></InDoc>
 
-<InDoc product="postgresql,oracle,oracle-pro,mysql,mssql,tibero,cubrid,altibase,redis,mongodb"><ImgLang img="metric-warning-notice-new-basic-screen-db.png" desc="Event configuration" /></InDoc>
+<InDoc product="postgresql,oracle,oracle-pro,mysql,mssql,mssql-v1,tibero,cubrid,altibase,redis,mongodb"><ImgLang img="metric-warning-notice-new-basic-screen-db.png" desc="Event configuration" /></InDoc>
 
 메트릭스 이벤트 목록의 주요 요소는 다음과 같습니다.
 
@@ -293,7 +293,7 @@ ex. ${4xxErrorType} == '401'
 
   </InDoc>
 
-  <InDoc product="postgresql,mysql,oracle,oracle-v1,mssql,tibero,cubrid,cubrid-v1,altibase,altibase-v1,redis,mongodb">
+  <InDoc product="postgresql,mysql,oracle,oracle-v1,mssql,mssql-v1,tibero,cubrid,cubrid-v1,altibase,altibase-v1,redis,mongodb">
 
   메시지로 입력할 수 있는 `${Tag}` 또는 `${Field}` 변수는 [다음 문서](metrics-data-list)를 참고하세요.
 

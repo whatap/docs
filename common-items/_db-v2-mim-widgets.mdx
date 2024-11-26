@@ -77,13 +77,15 @@ AWS CloudWatch 지표 조회를 위한 에이전트 설정 방법은 [다음 문
 
 </InDoc>
 
-<InDoc product="postgresql,mysql,oracle,oracle-pro,altibase,mongodb">
+<InDoc product="postgresql,mysql,oracle,oracle-pro,altibase,mongodb,mssql">
 
 ### Database 위젯
 
+제공하는 위젯을 통해 데이터베이스 성능 분석의 주요 지표로, CPU, 메모리, 디스크 I/O 등 다양한 시스템 리소스의 상태를 확인할 수 있습니다.
+
 </InDoc>
 
-<InDoc product="postgresql,mysql,oracle,oracle-pro,altibase,cubrid">
+<InDoc product="postgresql,mysql,oracle,oracle-pro,altibase,cubrid,mssql">
 
 * ***Active Sessions***
 
@@ -136,6 +138,34 @@ AWS CloudWatch 지표 조회를 위한 에이전트 설정 방법은 [다음 문
 * ***Session Logical Reads***
 
   데이터베이스 세션에서 수행된 논리적인 읽기 작업(logical reads)을 모니터링하는 위젯입니다. 데이터베이스 세션에서 수행된 논리적인 읽기 작업의 횟수를 실시간으로 추적하여 사용자에게 제공합니다.
+
+</InDoc>
+
+<InDoc product="mssql">
+
+* ***Cache Hit Ratio*** (Buffer Manager.Buffer cache hit ratio)
+
+  SQL Server가 데이터를 디스크에서 읽지 않고 메모리 버퍼풀에서 찾은 페이지의 비율입니다. 값이 높을수록 성능이 우수함을 의미하며, 낮다면 메모리 용량 부족이나 버퍼 풀 관리 문제를 의심해야 합니다. 일반적으로 이 값은 90% 이상을 유지할 것을 권장합니다.
+
+* ***Page Life Expectancy*** (Buffer Manager.Page life expectancy)
+
+  데이터 페이지가 버퍼풀에 머무르는 평균 시간을 초 단위로 표시합니다. 버퍼풀에 오래 머물수록 메모리에서 데이터를 읽으므로 디스크 I/O가 줄어들고 성능이 향상됩니다. 이 값이 낮다면 메모리가 부족하거나 작업 부하가 증가한 상태이며, 권장값은 최소 300초(5분) 이상입니다. 지속적으로 낮을 경우 메모리 추가를 고려해야 합니다.
+
+* ***Full Scans/sec***
+
+  초당 수행된 테이블 또는 인덱스 전체 스캔 횟수입니다. 전체 스캔은 필요한 데이터만 읽는 인덱스 스캔에 비해 비효율적이므로, 이 값이 높으면 쿼리 최적화 또는 적절한 인덱스 설계가 필요할 수 있습니다. 빈번한 전체 스캔은 CPU 사용률 증가 및 성능 저하를 유발할 수 있습니다.
+
+* ***Page Lookups/sec*** (Buffer Manager.Page lookups/sec)
+
+  버퍼풀에서 페이지를 찾기 위한 요청 수입니다. 이 값이 높으면 더 많은 데이터를 처리 중임을 의미하며, 대규모 쿼리 실행이나 테이블 스캔 발생 가능성을 보여줍니다. 값이 비정상적으로 높으면 인덱스 누락, 잘못된 쿼리 설계 등을 확인해야 하며 CPU 사용량 증가와 연결될 수 있습니다.
+
+* ***Page Reads/sec*** (Buffer Manager.Page reads/sec)
+
+  모든 데이터베이스에서 물리적으로 디스크에서 읽은 초당 페이지 수입니다. 이 값이 높으면 디스크 I/O가 많아 성능 저하를 유발할 수 있습니다. 개선을 위해 데이터 캐시 크기를 늘리거나, 쿼리 튜닝 및 인덱스 최적화를 검토하세요. 디스크에서의 실제 읽기 작업은 큰 비용이 발생할 수 있으므로 주의가 필요합니다.
+
+* ***Page Writes/sec*** (Buffer Manager.Page writes/sec)
+
+  물리적으로 디스크에 기록된 초당 데이터베이스 페이지 수입니다. 쓰기 작업이 빈번할 경우 트랜잭션 부하가 많거나 대량 데이터 입력 작업이 원인일 수 있습니다. 데이터 쓰기 작업이 많으면 I/O 병목현상이 발생할 가능성이 있으므로, 트랜잭션 분할, 디스크 성능 향상, 로그 파일 크기 조정 등을 검토하세요.
 
 </InDoc>
 

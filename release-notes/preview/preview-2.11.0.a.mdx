@@ -111,7 +111,7 @@ toc_max_heading_level: 2
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06125" className="uitext" /> 탭에서 Pod명, 컨테이너 ID 필드를 별도의 그룹으로 표시하도록 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <UI>테이블 뷰</UI> 탭에서 <Cmdname sid="TTL06224" className="uitext" /> 조회 시 비밀번호가 해제되지 않은 경우에도 바인드 변수 매핑 기능이 활성화되는 현상 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06126" className="uitext" /> 탭에서 <Cmdname sid="TTL06224" className="uitext" /> 조회 시 비밀번호가 해제되지 않은 경우에도 바인드 변수 매핑 기능이 활성화되는 현상 수정
 
 ---
 
@@ -125,7 +125,7 @@ toc_max_heading_level: 2
 
 ### `Kubernetes`
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> 하위에 <UI>ETCD 대시보드</UI> 메뉴 추가 
+- <Status priority='1'>New</Status> <Cmdname sid="side_cluster" className="uitext" /> 하위에 <Cmdname sid="side_etcdDashboard" className="uitext" />  메뉴 추가 
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_containerMap" className="uitext" /> 및 <Cmdname sid="side_integratedContainerMap" className="uitext" /> 메뉴에서 외부 프로젝트 에이전트가 설치된 컨테이너 식별 및 해당 프로젝트 이동 기능 추가
 
@@ -140,11 +140,11 @@ toc_max_heading_level: 2
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 빈 쿼리가 조회되는 현상 수정 
 
-  - MySQL 에이전트 버전 1.6.8 이상 
+  - MySQL 에이전트 버전 1.6.8 이상
   
-  - PostgreSQL 에이전트 버전 1.6.7 이상 
+  - PostgreSQL 에이전트 버전 1.6.7 이상
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴의 <Cmdname sid="TTL06220" className="uitext" /> 창에서 ![이벤트 설정 아이콘](/img/ico-noti.svg)이벤트 설정 선택 시 <Cmdname sid="side_eventSettingV2" className="uitext" /> <code class="newfunc">New</code> 메뉴로 이동하도록 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴의 <Cmdname sid="TTL06220" className="uitext" /> 창에서 ![이벤트 설정 아이콘](/img/ico-noti.svg) 이벤트 설정 선택 시 <Cmdname sid="side_eventSettingV2" className="uitext" /> <code class="newfunc">New</code> 메뉴로 이동하도록 수정
 
 #### Oracle, Oracle Pro
 
@@ -180,7 +180,7 @@ toc_max_heading_level: 2
 
 - <Status priority='1'>Feature</Status> 사이드 메뉴의 통합 검색 중 <UI>Agent/IP</UI> 검색 시 비활성 에이전트 검색 기능 제공
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="TTL07402" className="uitext" /> 화면에서 <LinkImage img='ic-setting.svg' desc='설정 아이콘' /> 설정 드롭다운 메뉴 내 마우스 호버 스타일 추가 제공 
+- <Status priority='1'>Feature</Status> <Cmdname sid="TTL07402" className="uitext" /> 화면에서 <LinkImage img='ic-setting.svg' desc='설정 아이콘' /> 설정 드롭다운 메뉴 내 마우스 호버 스타일 추가 제공
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventHistory" className="uitext" /> 메뉴에서 <Cmdname sid="exclude_resolved_alerts" className="uitext" /> 기능 제공
 
@@ -200,7 +200,7 @@ toc_max_heading_level: 2
 
 ### `Application`
 
-- <Status priority='0'>Fixed</Status> Java, Node.js, Python 상품의 애플리케이션 에이전트 설정값 중 `encrypt_level` 영문 안내 수정
+- <Status priority='0'>Fixed</Status> **Java**, **Node.js**, **Python** 상품의 애플리케이션 에이전트 설정값 중 `encrypt_level` 영문 안내 수정
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_txSearch" className="uitext" /> 메뉴의 숫자 입력 폼(경과 시간, HTTP 호출 건수, SQL 건수, SQL 패치 건수)에 한 자리 숫자만 있을 경우 값을 삭제할 수 없는 현상 수정
 
@@ -258,7 +258,6 @@ toc_max_heading_level: 2
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 <Cmdname sid="TTL06224" className="uitext" /> 팝업 창에서 플랜 조회 시 조회 범위를 변경
 
-
 ---
 
 ### `Browser`
@@ -266,7 +265,6 @@ toc_max_heading_level: 2
 - <Status priority='1'>Feature</Status> <Cmdname sid="my_usage" className="uitext" /> &gt; <Cmdname sid="side_adminMetering" className="uitext" /> 및 <Cmdname sid="billingPreview" className="uitext" />에서 <Cmdname sid="TTL08103" className="uitext" /> 과금 표시 
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에 <Cmdname sid="TTL08559" className="uitext" /> 알림 설정 추가
-
 
 ---
 
@@ -277,7 +275,6 @@ toc_max_heading_level: 2
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_logSetting" className="uitext" /> 메뉴의 <Cmdname sid="getting_started_log_monitoring" className="uitext" /> 탭 디자인 수정 
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="log_long_term_keep_statistic" className="uitext" /> 수정 화면의 태그 사이 간격 변경
-
 
 </div>
 

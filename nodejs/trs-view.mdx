@@ -102,13 +102,13 @@ HTTP 호출 중 발생하는 에러는 `SLOW_HTTPC`, `httpc error` 등의 형태
 
   ```ini title="whatap.conf"
   # Separated by commas(,)
-  status_ignore=400,404,500
+  httpc_status_ignore=400,404,500
   ```
 
 * `httpc_status_ignore_set` 옵션에 정의한 URL과 HTTP 상태 코드 조합인 경우
 
   ```ini title="whatap.conf"
-  httpc_status_url_ignore_set=/api/posts/test/timeout:408,/api/apache/httpclient/posts/timeout:500
+  httpc_status_ignore_set=/api/posts/test/timeout:408,/api/apache/httpclient/posts/timeout:500
   ```
 
 :::note

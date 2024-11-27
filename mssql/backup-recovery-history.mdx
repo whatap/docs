@@ -63,9 +63,9 @@ SQL Server에서 수행된 데이터베이스 백업 및 복구 작업의 기록
 
 * ***is_password_protected***
 
-  - `1`: 암호로 보호된 백업 세트
+  - `protected`: 암호로 보호된 백업 세트
 
-  - `0`: 보호되지 않음
+  - `Not protected`: 보호되지 않음
 
 ## 복구 내역 확인하기 {#recovery}
 
@@ -104,4 +104,4 @@ import Dbsqlfilter from "../common-items/_db-sql-filter.mdx";
 
 * <Cmdname sid="TTL08690" className="uitext" />: *backup\_history\_`YYYY-MM-DD_HH-MM-SS`.csv*
 
-* <Cmdname sid="TTL08691" className="uitext" />: *restore\_history\_`YYYY-MM-DD_HH-MM-SS`.csv*
+* <Cmdname sid="TTL08691" className="uitext" />: *recovery\_history\_`YYYY-MM-DD_HH-MM-SS`.csv*

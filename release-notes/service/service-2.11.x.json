@@ -1,6 +1,21 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_11_x",
+    "ver": "Service 2.11.1",
+    "date": "2024-11-27",
+    "Lists": [
+      {
+        "ver": "Service 2.11.1",
+        "hash": "service-2111",
+        "product": "Server",
+        "type": "fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span>: 그룹 상세 보기 화면의 <span class=\"uitext\">파일 시스템 정보</span> 탭에서 필터 적용 시 추천 값 목록이 표시되지 않는 문제 수정</p>",
+        "category": "Server"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_11_x",
     "ver": "Service 2.11.0",
     "date": "2024-11-27",
     "Lists": [

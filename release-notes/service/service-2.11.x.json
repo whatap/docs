@@ -8,9 +8,8 @@
         "ver": "Service 2.11.1",
         "hash": "service-2111",
         "product": "Server",
-        "type": "fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span>: 그룹 상세 보기 화면의 <span class=\"uitext\">파일 시스템 정보</span> 탭에서 필터 적용 시 추천 값 목록이 표시되지 않는 문제 수정</p>",
-        "category": "Server"
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span>: 그룹 상세 보기 화면의 <span class=\"uitext\">파일 시스템 정보</span> 탭에서 필터 적용 시 추천 값 목록이 표시되지 않는 문제 수정</p>"
       }
     ]
   },
@@ -63,13 +62,6 @@
         "hash": "service-2110",
         "product": "공통",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">프로젝트 목록</span> 화면에서 <img loading=\"lazy\" src=\"/whatap-docs/img/ic-setting.svg\" alt=\"설정 아이콘\" width=\"auto\" height=\"auto\"> 설정 드롭다운 메뉴 내 마우스 호버 스타일 추가 제공</p>"
-      },
-      {
-        "ver": "Service 2.11.0",
-        "hash": "service-2110",
-        "product": "공통",
-        "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 기록</span> 메뉴에서 <span class=\"uitext\">진행 중인 이벤트만 보기</span> 기능 제공</p>"
       },
       {
@@ -91,14 +83,14 @@
         "hash": "service-2110",
         "product": "공통",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"0\">Feature</code> 와탭 사용자 교육 신청서(구글폼)에 대한 다국어 지원 추가</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">프로젝트 목록</span> 화면에서 <img loading=\"lazy\" src=\"/img/ic-setting.svg\" alt=\"설정 아이콘\" width=\"auto\" height=\"auto\"> 설정 드롭다운 메뉴 내 마우스 호버 스타일 추가 제공</p>"
       },
       {
         "ver": "Service 2.11.0",
         "hash": "service-2110",
         "product": "공통",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 서비스 공지 진입 시 헤더 타이틀을 기존 <b>공지사항</b>에서 <span class=\"uitext\">서비스 공지</span>로 변경</p>"
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"0\">Feature</code> 와탭 사용자 교육 신청서(구글폼)에 대한 다국어 지원 추가</p>"
       },
       {
         "ver": "Service 2.11.0",
@@ -113,6 +105,13 @@
         "product": "공통",
         "type": "Changed",
         "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">계정 정보</span> &gt; <span class=\"uitext\">SSO 연동</span> 메뉴에서 Okta에 한정된 안내 문구 변경</p>"
+      },
+      {
+        "ver": "Service 2.11.0",
+        "hash": "service-2110",
+        "product": "공통",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 서비스 공지 진입 시 헤더 타이틀을 기존 <b>공지사항</b>에서 <span class=\"uitext\">서비스 공지</span>로 변경</p>"
       },
       {
         "ver": "Service 2.11.0",

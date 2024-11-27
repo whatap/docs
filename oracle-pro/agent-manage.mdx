@@ -12,10 +12,9 @@ keywords: [ Oracle Pro, 데이터베이스, 데이터베이스 ]
 
 ## 에이전트 삭제
 
-{/* 에이전트 설치 서버에서 삭제하기 */}
-import Dbuninstallagentinstalledserver from "../common-items/_db-uninstall-agent-installed-server.mdx";
+### 에이전트 설치 서버에서 삭제하기
 
-<Dbuninstallagentinstalledserver />
+서버 상에서 기동되는 Java 프로세스 중 `whatap.agent.dmx` 문자열을 포함한 프로세스를 종료합니다. 에이전트를 설치한 경로에서 *stop.sh*를 실행하세요. 이후 에이전트 파일 및 에이전트에 등록한 User 권한을 삭제 처리하세요.
 
 {/* 서비스 화면에서 삭제하기 */}
 import Dbunistallagentinservice from "../common-items/_db-unistall-agent-in-service.mdx";

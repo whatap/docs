@@ -14,9 +14,9 @@ import Dbstructureofagent from "../common-items/_db-structure-of-agent.mdx";
 
 <Dbstructureofagent /> 
 
-## 기본 에이전트 설정
+## DMX 에이전트 설정
 
-DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
+DMX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
 
 ### 기본 옵션
 
@@ -52,9 +52,15 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
 
   :::note
 
-  Oracle Pro 모니터링에서는 메모리 접근을 통해 데이터를 거의 실시간으로 수집할 수 있지만, **액티브 세션**, **stat**, **event** 지표의 경우 쿼리 방식으로 수집합니다.
+  Oracle Pro는 메모리 접근을 통해 액티브 세션 및 SQL 정보를 1/20초 단위로 수집합니다. 이렇게 수집된 데이터를 기반으로 stat을 생성하므로 데이터 유실이 적습니다. `interval` 옵션에 따라 현재 DB 상태를 전송할 때, stat, event, SQL stat, xview, lock, PQ 정보는 메모리에서 직접 읽어 빠르게 처리됩니다. 반면, bind 정보, DB parameter, plan 정보, 테이블, 테이블 스페이스, Wait class 등은 쿼리를 통해 수집합니다.
 
   :::
+
+* **conn_fail_count** <span class='type'>Int</span>
+
+  기본값 `15`
+
+  15번 연속 connection error가 발생할 때 알림을 보냅니다. 원하는 횟수를 입력해 알림 발생 기준을 조정할 수 있습니다.
 
 * **stat** <span class='type'>String</span>
 
@@ -172,12 +178,11 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
   * `-1`: 이 옵션을 비활성화합니다.
   * `0`: 모든 작업을 수집합니다.
 
-
 ### AES 256 암호화 적용
 
-와탭 DBX 에이전트는 수집된 데이터를 암호화하여 서버로 전송합니다. 데이터의 중요도나 설정에 따라 이를 변경할 수 있습니다. 기본적으로 XOR 연산과 AES 알고리즘을 통한 암호화를 사용하며 평문을 128비트 단위로 나누어 암호화, 복호화를 수행합니다. 사용자 설정에 따라 256비트까지 확장할 수 있습니다.
+와탭 DMX 에이전트는 수집된 데이터를 암호화하여 서버로 전송합니다. 데이터의 중요도나 설정에 따라 이를 변경할 수 있습니다. 기본적으로 XOR 연산과 AES 알고리즘을 통한 암호화를 사용하며 평문을 128비트 단위로 나누어 암호화, 복호화를 수행합니다. 사용자 설정에 따라 256비트까지 확장할 수 있습니다.
 
-와탭 DBX 에이전트를 설치한 경로에서 *whatap.conf* 파일에 다음과 같이 옵션을 추가하세요.
+와탭 DMX 에이전트를 설치한 경로에서 *whatap.conf* 파일에 다음과 같이 옵션을 추가하세요.
 
 ```ini title='whatap.conf' {3} showLineNumbers
 cypher_level=256
@@ -189,7 +194,7 @@ import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-de
 
 <Dbsettingagentnamedetails level={3} agentType="DMX" />
 
-## 부가 에이전트 설정 {#xosconf}
+## XOS 에이전트 설정 {#xosconf}
 
 *xos.conf* 파일에 다음 옵션을 설정하면 데이터베이스 서버의 자원을 추가로 모니터링할 수 있습니다. 이 옵션을 이용하려면 *whatap.conf* 파일에서 `xos` 옵션을 `true`로 설정하세요.
 
@@ -253,3 +258,26 @@ import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-de
   ```ini title='xos.conf'
   file=/opt/oracle/log
   ```
+
+
+## prx 프로세스 옵션
+
+**prx** 프로세스는 **dmx** 프로세스를 감시하면서 비정상적으로 다운되었거나, 과다한 CPU, 메모리를 사용할 때 **dmx** 프로세스를 재기동을 시킵니다. 다음 옵션을 통해 재기동 기준을 설정할 수 있습니다.
+
+```ini title="prx.conf"
+cpu_limit=10
+mem_limit=500000 
+```
+
+* **cpu_limit**
+
+  기본값 `10` (단위 %)
+  
+  CPU 사용률이 지정한 값 이상이면 **dmx** 프로세스를 재기동시킵니다.
+
+
+* **mem_limit**
+
+  기본값 `500000` (500MB, 단위 KB)
+  
+  메모리 사용량이 지정한 값 이상이면 **dmx** 프로세스를 재기동시킵니다.

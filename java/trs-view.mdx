@@ -42,7 +42,7 @@ JDBC 연결 호출이나 SQL 실행 호출 시에 발생하는 에러는 에러�
 HTTP 호출 중 발생하는 에러는 `SLOW_HTTPC`, `httpc error` 등의 형태로 표시됩니다.
 
 
-### 와탭 에러 처리
+### 와탭에서 정의한 에러 처리
 
 와탭 모니터링 서비스에서는 특정한 조건에 따라 에러로 처리합니다.
 
@@ -69,12 +69,6 @@ HTTP 호출 중 발생하는 에러는 `SLOW_HTTPC`, `httpc error` 등의 형태
 ### 트랜잭션 에러 단계 INFO 처리
 
 에이전트 설정을 통해서 일부 에러를 정상 상태로 표시하거나 무시할 수 있습니다. <Cmdname sid="AA005" className="uitext" /> 위젯에서 표시되는 레벨은 <span class="normal">INFO</span>(파란색)입니다.
-
-:::note
-
-에이전트 설정은 *whatap.conf* 파일을 편집하거나 <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_configuration" className="uitext" /> 메뉴에서 확인할 수 있습니다. 자세한 내용은 [다음 문서](set-agent)를 참조하세요.
-
-:::
 
 - `biz_exceptions`: 레코드 에러 표시
 
@@ -111,6 +105,12 @@ HTTP 호출 중 발생하는 에러는 `SLOW_HTTPC`, `httpc error` 등의 형태
   ```ini title="whatap.conf"
   httpc_status_url_ignore_set=/api/posts/test/timeout:408,/api/apache/httpclient/posts/timeout:500
   ```
+
+:::note
+
+에이전트 설정은 *whatap.conf* 파일을 편집하거나 <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_configuration" className="uitext" /> 메뉴에서 확인할 수 있습니다. 자세한 내용은 [다음 문서](set-agent)를 참조하세요.
+
+:::
 
 
 ### 메소드 예외 처리

@@ -8,3 +8,123 @@ keywords: [ Node.js, 트랜잭션, 트랜잭션 분석하기, 히트맵, UI ]
 import Trsview from "../common-items/_trs-view.mdx";
 
 <Trsview />
+
+## 예외 처리(WARNING) 기준 {#waringexception}
+
+Node.js 애플리케이션 환경에서 발생하는 에러를 Node.js 에이전트가 예외 처리하는 기준에 대해서 안내합니다. Node.js 에이전트는 다음 기준의 경우에만 에러 처리를 합니다.
+
+* Status Code 400 이상 에러 처리
+
+* HTTP call 에러 처리
+
+* 와탭에서 정의한 에러 처리
+
+### 서비스 화면에서 에러 표시
+
+![hitmap, Trace analysis](/img/faq/apm-faq-hitmap-error.png)
+
+<Cmdname sid="AA005" className="uitext" /> 위젯, <Cmdname sid="TTL06209" className="uitext" /> 창을 통해서 확인할 수 있는 <Cmdname sid="TTL06087" className="uitext" />는 대부분 <span class="slow">WARNING</span> 수준에 해당합니다.
+
+### Status Code 400 이상 에러 처리
+
+HTTP 응답 코드가 400 이상인 경우에는 예외 클래스(Exception Class)가 발생하지 않더라도 에러로 처리합니다. 다음은 HTTP 상태 코드 기반 에러 처리 활성화 여부를 설정하는 에이전트 옵션입니다. 
+
+```ini title="whatap.conf"
+transaction_status_error_enable=true
+```
+
+:::note
+
+`transaction_status_error_enable` 옵션에 대한 자세한 내용은 [다음 문서](agent-transaction#transaction_status_error_enable)를 참조하세요.
+
+:::
+
+### HTTP call 에러 처리
+
+HTTP 호출 중 발생하는 에러는 `SLOW_HTTPC`, `httpc error` 등의 형태로 표시됩니다.
+
+### 와탭에서 정의한 에러 처리
+
+와탭 모니터링 서비스에서는 특정한 조건에 따라 에러로 처리합니다.
+
+- **TOO_MANY_RECORDS**: fetch 건수 10,000건 이상
+
+  관련한 에이전트 옵션은 다음 문서를 참조하세요. [`profile_error_sql_fetch_max=10000`](agent-dbsql#profile_error_sql_fetch_max)
+
+- **SLOW_SQL**: SQL 시간 30,000ms 이상
+
+  관련한 에이전트 옵션은 다음 문서를 참조하세요. [`profile_error_sql_time_max=30000`](agent-dbsql#profile_error_sql_time_max)
+
+- **SLOW_HTTPC**: HTTP call 경과 시간이 10,000ms 이상
+
+  관련한 에이전트 옵션은 다음 문서를 참조하세요. [`profile_error_httpc_time_max=10000`](agent-httpcapicall#profile_error_httpc_time_max)
+
+- **httpc error**: HTTP call status code 400 이상인 경우
+
+  :::note
+
+  **httpc error**는 에이전트 설정 없이 자동 수집합니다.
+
+  :::
+
+- **status error**: 트랜잭션 status code 400 이상인 경우
+
+  관련한 에이전트 옵션은 다음 문서를 참조하세요. [`transaction_status_error_enable=true`](agent-transaction#transaction_status_error_enable)
+
+### 트랜잭션 에러 단계 INFO 처리
+
+에이전트 설정을 통해서 일부 에러를 정상 상태로 표시하거나 무시할 수 있습니다. <Cmdname sid="AA005" className="uitext" /> 위젯에서 표시되는 레벨은 <span class="normal">INFO</span>(파란색)입니다.
+
+다음 조건에 해당하면 에러 처리하지 않습니다.
+
+* `transaction_status_error_enable` 옵션의 값이 `false`인 경우
+
+  ```ini title="whatap.conf"
+  # default true
+  transaction_status_error_enable=false
+  ```
+
+* `status_ignore` 옵션에 정의한 트랜잭션의 상태 코드인 경우
+
+  ```ini title="whatap.conf"
+  # Separated by commas(,)
+  status_ignore=400,404,500
+  ```
+
+* `status_ignore_set` 옵션에 정의한 특정 트랜잭션의 URL과 상태 코드 조합인 경우
+
+  ```ini title="whatap.conf"
+  # URL:StatusCode
+  status_ignore_set=/api/posts/test/timeout:200,/error:500
+  ```
+
+* `httpc_status_ignore` 옵션에 정의한 HTTP 상태 코드인 경우
+
+  ```ini title="whatap.conf"
+  # Separated by commas(,)
+  httpc_status_ignore=400,404,500
+  ```
+
+* `httpc_status_ignore_set` 옵션에 정의한 URL과 HTTP 상태 코드 조합인 경우
+
+  ```ini title="whatap.conf"
+  httpc_status_ignore_set=/api/posts/test/timeout:408,/api/apache/httpclient/posts/timeout:500
+  ```
+
+:::note
+
+* 에이전트 설정은 *whatap.conf* 파일을 편집하거나 <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_configuration" className="uitext" /> 메뉴에서 확인할 수 있습니다. 자세한 내용은 [다음 문서](set-agent)를 참조하세요.
+
+* 에이전트 설정 옵션에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+  * [`transaction_status_error_enable`](agent-transaction#transaction_status_error_enable)
+
+  * [`status_ignore`](agent-transaction#status_ignore)
+
+  * [`status_ignore_set`](agent-transaction#status_ignore_set)
+
+  * [`httpc_status_ignore`](agent-transaction#httpc_status_ignore)
+
+  * [`httpc_status_ignore_set`](agent-transaction#httpc_status_ignore_set)
+
+:::

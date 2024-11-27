@@ -64,9 +64,6 @@
 
   ```ini title='xos.conf'
   file=/opt/postgresql/logs/postgresql.log
-  file1=/opt/postgresql/data/logs/pg10/postgresql-Sun.log
-  file2=/opt/postgresql/data/logs/pg10/postgresql-Mon.log
-  file3=/opt/postgresql/data/logs/pg10/postgresql-Tue.log
   ```
 
   </InDoc>
@@ -74,8 +71,6 @@
 
   ```ini title='xos.conf'
   file=/var/log/mysqld.log
-  file1=/var/log/mysql_history.log
-  file2=/var/lib/mysql/dbx-database-slow.log
   ```
 
   </InDoc>
@@ -128,5 +123,18 @@
   ```
 
   </InDoc>
+
+  :::tip
+
+  모니터링하려며는 로그 파일을 추가하려면 `file`, `file1`, `file2`과 같은 방식으로 옵션을 추가하세요.
+
+  ```ini title="whatap.conf"
+  file={log_file_path1}
+  file1={log_file_path2}
+  file2={log_file_path3}
+  file3={log_file_path4}
+  ```
+
+  :::
 
 </InDoc>

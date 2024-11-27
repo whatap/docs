@@ -9,7 +9,7 @@ import Trsview from "../common-items/_trs-view.mdx";
 
 <Trsview />
 
-## 예외 처리 기준
+## 예외 처리(WARNING) 기준 {#waringexception}
 
 .NET 애플리케이션 환경에서 발생하는 에러를 .NET 에이전트가 예외 처리하는 기준에 대해서 안내합니다. .NET 에이전트는 다음 기준의 경우에만 에러 처리를 합니다.
 
@@ -50,14 +50,14 @@ transaction_status_error_enable=true
   transaction_status_error_enable=false
   ```
 
-* `status_ignore` 옵션에 정의된 상태 코드인 경우
+* `status_ignore` 옵션에 정의한 상태 코드인 경우
 
   ```ini title="whatap.conf"
   # Separated by commas(,)
   status_ignore=400,404,500
   ```
 
-* `status_ignore_set` 옵션에 정의된 URL과 상태 코드 조합인 경우
+* `status_ignore_set` 옵션에 정의한 URL과 상태 코드 조합인 경우
 
   ```ini title="whatap.conf"
   # URL:StatusCode

@@ -7,6 +7,12 @@ keywords: [ Node.js, HTTPC, API ]
 
 Node.js 에이전트의 HTTPC, API Call 관련 옵션을 제공합니다.
 
+* **profile_error_httpc_time_max** <span class='type'>Int</span> <ScrollToLink anchor='profile_error_httpc_time_max' />
+
+  기본값 `10000`
+
+  HTTPC 수행 시간이 지정한 값을 초과하면 **SLOW_HTTPC** 에러로 처리합니다. `0`으로 설정하면 에러 처리하지 않습니다.
+
 * **hook_httpc_patterns** <span class='type'>String</span>
   
   HTTP Call을 수행하는 클래스를 설정합니다.

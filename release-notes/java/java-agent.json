@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_42",
+    "ver": "v2.2.42",
+    "date": "2024-11-08",
+    "Lists": [
+      {
+        "ver": "v2.2.42",
+        "hash": "v2242",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> vertx-3.5.3 추적</p>"
+      },
+      {
+        "ver": "v2.2.42",
+        "hash": "v2242",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> camel-netty4-2.25 추적</p>"
+      },
+      {
+        "ver": "v2.2.42",
+        "hash": "v2242",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> 컨테이너 연계 시 발생하는 일부 버그 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_41",
     "ver": "v2.2.41",
     "date": "2024-11-08",

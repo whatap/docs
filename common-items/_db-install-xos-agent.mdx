@@ -36,82 +36,75 @@
 
 <InDoc product="cubrid,cubrid-v1"><ImgLang img='xos-agent-cubrid.png' desc='' /></InDoc>
 
-1. DBX 에이전트가 설치된 경로의 *whatap.conf* 파일에 다음 옵션을 설정하세요.
+### whatap.conf 파일 설정하기
 
-    ```ini title='whatap.conf'
-    xos=1
-    xos_port=3002
-    ```
+DBX 에이전트가 설치된 경로의 *whatap.conf* 파일에 다음 옵션을 설정하세요.
 
-1. *xos* 폴더(`/압축 해제 폴더/xos/`)를 데이터베이스 서버로 이동하세요.
+```ini title='whatap.conf'
+xos=1
+xos_port=3002
+```
 
-1. 데이터베이스 서버로 이동한 *xos* 경로의 *xos.conf* 파일에 다음 옵션을 설정하세요.
+*xos* 폴더(`/압축 해제 폴더/xos/`)를 데이터베이스 서버로 이동하세요.
 
-    ```ini title='xos.conf'
-    dbx_ip={DB_Agent_IP}
-    dbx_port=3002 # default 3002
-    cpu_limit=0
-    mem_limit=10240
-    ```
+### xos.conf 파일 설정하기
 
-    :::tip
+데이터베이스 서버로 이동한 *xos* 경로의 *xos.conf* 파일에 다음 옵션을 설정하세요.
 
-    <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 <UI>DB Agent IP</UI>, <UI>DB Agent Port</UI> 항목에 DB 정보를 입력하면 에이전트 옵션을 자동 생성할 수 있습니다.
+```ini title='xos.conf'
+dbx_ip={DB_Agent_IP}
+dbx_port=3002 # default 3002
+cpu_limit=0
+mem_limit=10240
+```
 
-    :::
+:::tip
 
-1. XOS 에이전트 실행 권한을 부여하세요. <InDoc product="mssql,mssql-v1">(Windows 환경에서는 이 과정을 생략하세요.)</InDoc>
-
-    ```bash
-    chmod +x ./whatap.agent.xos*
-    ```
-
-1. XOS 에이전트를 실행하세요.
-
-    <Xclude product="mssql,mssql-v1">
-    
-    ```bash
-    ./start.sh
-    ```
-
-    </Xclude>
-
-    <InDoc product="mssql,mssql-v1">
-
-    ```bash
-    start.bat
-    ```
-
-    </InDoc>
-
-<InDoc product="mssql,mssql-v1">
-
-화면에 표시되는 실행 로그에 에러가 없는지 확인하고 실행을 종료한 후, 다음 순서에 따라 서비스에 등록하세요.
-
-* **서비스 등록**
-
-  xos 폴더에 있는 *install_WindowsService.bat* 파일을 다음과 같이 실행하여 서비스에 등록하세요. 만약 `create` 옵션 다음에 이름을 입력하지 않으면 **WhatapXOSAgent** 이름으로 서비스에 기본 등록됩니다.
-
-  ```bash
-  install_WindowsService.bat create WhatapXOSAgent
-  ```
-
-* **서비스 삭제**
-
-  ```bash
-  install_WindowsService.bat delete WhatapXOSAgent
-  ```
-
-</InDoc>
-
-<Xclude product="mssql,mssql-v1">
-
-:::note
-
-* DBX 에이전트로 모니터링한 데이터를 전송하기 위해 `dbx_port`로 설정한 포트(default 3002)가 열려 있어야 합니다. (**UDP Outbound**)
-
-* XOS 에이전트를 백그라운드로 실행하려면 *./startd.sh* 파일을 실행하세요.
+<Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 <UI>DB Agent IP</UI>, <UI>DB Agent Port</UI> 항목에 DB 정보를 입력하면 에이전트 옵션을 자동 생성할 수 있습니다.
 
 :::
 
+### XOS 에이전트 실행하기
+
+import Xoslinux from "../common-items/_db-install-xos-agent-linux.mdx";
+import Xoswindows from "../common-items/_db-install-xos-agent-windows.mdx";
+
+<Xclude product="oracle,oracle-v1,mssql,mssql-v1,tibero,redis,mongodb">
+
+<Tabs groupId='os'>
+<TabItem value='linux' label='Linux' default>
+
+<Xoslinux/>
+
+</TabItem>
+<TabItem value='windows' label='Windows'>
+
+<Xoswindows/>
+
+</TabItem>
+</Tabs>
+
 </Xclude>
+
+<InDoc product="mssql,mssql-v1">
+
+<Tabs groupId='os'>
+<TabItem value='windows' label='Windows'>
+
+<Xoswindows/>
+
+</TabItem>
+<TabItem value='linux' label='Linux' default>
+
+<Xoslinux/>
+
+</TabItem>
+</Tabs>
+
+</InDoc>
+
+<InDoc product="oracle,oracle-v1,tibero,redis,mongodb">
+
+<Xoslinux/>
+
+</InDoc>

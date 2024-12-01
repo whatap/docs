@@ -10,7 +10,7 @@
         "product": "DBX",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 데드락 감지를 위한 에이전트 옵션 추가</p>",
-        "category": "### SQL Server",
+        "category": "SQL Server",
         "details": "<ul>\n<li>\n<p><strong>mslog</strong> <span class=\"type\">Boolean</span></p>\n<p>기본값 <code>true</code></p>\n<p><code>xp_ReadErrorLog</code> 명령어를 수행하여 에러 로그를 조회합니다.</p>\n</li>\n<li>\n<p><strong>mslog_interval</strong> <span class=\"type\">Int</span></p>\n<p>기본값 <code>1</code> (단위: 분, min)</p>\n<p>이전 주기부터 현재 주기까지의 로그를 조회합니다.</p>\n</li>\n</ul>"
       },
       {
@@ -19,7 +19,7 @@
         "product": "DBX",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>Uptime</code> 지표 추가</p>",
-        "category": "### SQL Server"
+        "category": "SQL Server"
       }
     ]
   },

@@ -12,38 +12,99 @@ create user DB_User with password 'DB Password';
 
 <InDoc product="mssql">
 
+<Tabs groupId='mssql'>
+<TabItem value="sqlserver2014over" label="SQL Server 2014+">
+
 ```sql
 create login DB_User with password='DB Password';
-grant view server state to DB_User;
 create user DB_User for login DB_User;
-grant execute to DB_User;
+grant connect any database to DB_User;
+grant view server state to DB_User;
+grant view any definition to DB_User;
+```
+
+</TabItem>
+<TabItem value="sqlserver2012" label="SQL Server 2012 or earlier">
+
+```sql
+create login DB_User with password='DB Password';
+create user DB_User for login DB_User;
+grant view server state to DB_User;
+grant view any definition to DB_User;
+```
+
+모니터링하려는 DB마다 모니터링 계정을 추가 생성하고 권한을 부여해야 합니다.
+
+```sql
+use DB_Name;
+create user DB_User for login DB_User;
+grant select, execute to DB_User;
+```
+
+</TabItem>
+<TabItem value="sqlserver2018" label="SQL Server 2008 or earlier">
+
+```sql
+create login DB_User with password='DB Password';
+create user DB_User for login DB_User;
+grant view server state to DB_User;
+grant view any definition to DB_User;
 EXEC sp_configure 'show advanced options', 1;
 RECONFIGURE;
 EXEC sp_configure 'Ole Automation Procedures', 1;
 RECONFIGURE;
 ```
 
+모니터링하려는 DB마다 모니터링 계정을 추가 생성하고 권한을 부여해야 합니다.
+
+```sql
+use DB_Name;
+create user DB_User for login DB_User;
+grant select, execute to DB_User;
+```
+
+</TabItem>
+</Tabs>
+
 * **Kill session 사용 시 추가 권한**
 
   ```sql
-  grant alter any connection to whatap;
+  grant alter any connection to DB_User;
   ```
 
 * **Azure SQL Database 환경에서 Kill session 사용 시 추가 권한**
 
   ```sql
-  grant kill database connection to whatap;
+  grant kill database connection to DB_User;
   ```
 
 * **<Cmdname sid="side_dbJobInfo" className="uitext" /> 및 <Cmdname sid="side_dbBackupRecoveryHistory" className="uitext" /> 메뉴 기능 이용 시 필요 권한**
 
-  msdb 데이터베이스에 액세스할 수 있도록 권한 부여
+  msdb 데이터베이스에 액세스할 수 있도록 권한을 부여하세요.
 
   ```sql
   USE msdb;
   CREATE USER DB_User FOR LOGIN DB_User;
   GRANT SELECT to DB_User;
   ```
+
+* **오브젝트 정보 조회 시 필요 권한**
+
+  2014 버전 이하에서는 모니터링 대상 DB마다 접속하여 권한을 부여하세요.
+
+  ```sql
+  grant view any definition to DB_User;
+  ```
+
+* **플랜 조회 시 필요 권한**
+
+  각 DB마다 접속하여 수행하세요.
+
+  ```sql
+  grant showplan to DB_User;
+  ```
+
+
 
 </InDoc>
 

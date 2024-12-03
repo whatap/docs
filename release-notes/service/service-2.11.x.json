@@ -1,6 +1,60 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_11_x",
+    "ver": "Service 2.11.2",
+    "date": "2024-11-28",
+    "Lists": [
+      {
+        "ver": "Service 2.11.2",
+        "hash": "service-2112",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">트랜잭션 검색</span> 메뉴에서 경과 시간 필터가 적용되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.11.2",
+        "hash": "service-2112",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> <code class=\"my\">V2</code> 프로젝트의 <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에 Windows 환경의 XOS 에이전트 설치 안내 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.11.2",
+        "hash": "service-2112",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 <span class=\"uitext\">세션 킬</span> 기능 실행이 실패할 때 처리되지 않는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.11.2",
+        "hash": "service-2112",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 계정 생성 기본 및 추가 권한 설정 안내 변경</p>",
+        "category": "PostgreSQL"
+      },
+      {
+        "ver": "Service 2.11.2",
+        "hash": "service-2112",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">SQL 분석</span> 메뉴에서 <span class=\"uitext\">Access Statistics</span> 탭의 테이블에 데이터가 출력되지 않는 문제 수정</p>",
+        "category": "Oracle, Oracle Pro"
+      },
+      {
+        "ver": "Service 2.11.2",
+        "hash": "service-2112",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 JDBC 다운로드 안내 내용 변경</p>",
+        "category": "MySQL"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_11_x",
     "ver": "Service 2.11.1",
     "date": "2024-11-27",
     "Lists": [

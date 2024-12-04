@@ -538,52 +538,18 @@ paths:
       description: 프로젝트에서 발생한 이벤트 기록을 조회할 수 있습니다.
       tags:
         - 이벤트 기록
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                stime:
-                  type: integer
-                  format: int64
-                  description: 조회 시작 시간(UNIX epoch time, millisecond)
-                etime:
-                  type: integer
-                  format: int64
-                  description: 조회 종료 시간(UNIX epoch time, millisecond)
-                progress:
-                  type: boolean
-                  description: |
-                    * `true`: 진행 중인 이벤트만 조회
-                    * `false`: 진행 중인 이벤트를 포함해 전체 이벤트 조회
-                oid:
-                  type: integer
-                  format: int32
-                  description: 에이전트 고유 식별자(ID), 쉼표(,)를 구분자로 여러 개 입력 가능
-                okinds:
-                  type: integer
-                  format: int32
-                  description: 종류별 에이전트 그룹 고유 식별자(ID), 쉼표(,)를 구분자로 여러 개 입력 가능
-                onodes:
-                  type: integer
-                  format: int32
-                  description: 서버별 에이전트 그룹 고유 식별자(ID), 쉼표(,)를 구분자로 여러 개 입력 가능
-              required:
-                - stime
-                - etime
-            example:
-              stime: 1690850183000
-              etime: 1693321200000
-              oid: "17079562,352247167 → -17079562%2C352247167(URL encoded 필요)"
-              okinds: "17079562,352247167 → -17079562%2C352247167(URL encoded 필요)"
-              onodes: "17079562,352247167 → -17079562%2C352247167(URL encoded 필요)"
-            parameters:
-              - $ref: 'parameters.yaml#/WhatapTokenHeader'
-              - $ref: 'parameters.yaml#/WhatapPcodeHeader'
+      parameters:
+        - $ref: 'parameters.yaml#/WhatapAccoutTokenHeader'
+        - $ref: 'parameters.yaml#/WhatapPcodeHeader'
+        - $ref: 'parameters.yaml#/StartTimeQuery'
+        - $ref: 'parameters.yaml#/EndTimeQuery'
+        - $ref: 'parameters.yaml#/Progress'
+        - $ref: 'parameters.yaml#/OidPathopt'
+        - $ref: 'parameters.yaml#/OkindQuery'
+        - $ref: 'parameters.yaml#/OnodesQuery'
       responses:
         '200':
-          description: 호출 성공
+          description: 조회 성공
           content:
             application/json:
               schema:
@@ -756,9 +722,9 @@ paths:
           source: |
             curl --location \
             -w "\n" \
-            "https://api.whatap.io/open/api/json/event/history?stime=1733065200000&etime=1733103557000&progress=true&oids=-17079562%2C352247167" \
             -H 'x-whatap-token: {{PROJECT_API_TOKEN}}' \
             -H 'x-whatap-pcode: {{projectCode}}' \
+            "https://api.whatap.io/open/api/json/event/history?stime=1733065200000&etime=1733103557000&progress=true&oids=-17079562%2C352247167" \
 
   /open/api/v2/agent/list:
     post:

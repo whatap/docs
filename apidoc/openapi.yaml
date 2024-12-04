@@ -597,7 +597,7 @@ paths:
                     description: 프로젝트 코드
                   onodeName:
                     type: string
-                    description: 종류별 에이전트 그룹 이름
+                    description: 서버별 에이전트 그룹 이름
                   displayTag:
                     type: string
                     description: 이벤트 상태 태그 표시를 위한 값
@@ -609,7 +609,7 @@ paths:
                     description: 에이전트 고유 식별자(ID)
                   title:
                     type: string
-                    description: 이벤트 이름
+                    description: 이벤트 제목
                   uuid:
                     type: integer
                     description: 이벤트 고유 식별자
@@ -628,7 +628,7 @@ paths:
                     description: | 
                       이벤트 종료 여부
                       - 임계치 미만 값 발생으로 이벤트가 해소된 경우
-                      - 고객이 의도적으로 이벤트 룰(Rule)을 비활성화한 경우
+                      - 사용자가 의도적으로 이벤트 룰(Rule)을 비활성화한 경우
                       - 대량 알림 등의 이유로 차단된 이벤트인 경우
                       - 처리내역이 추가된 이벤트인 경우
                   id:
@@ -640,9 +640,6 @@ paths:
                   stateful:
                     type: boolean
                     description: 해소된 이벤트 알림 기능 사용 여부
-                  process:
-                    type: integer
-                    description: 
                   product:
                     type: string
                     description: 서버 유형
@@ -676,7 +673,7 @@ paths:
                     description: 해소된 시각
                   category:
                     type: string
-                    description: 지표 카테고리
+                    description: TagCount 카테고리
                   okindName:
                     type: sting
                     description: 종류별 에이전트 그룹 이름

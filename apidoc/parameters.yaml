@@ -65,6 +65,15 @@ EndTimeQuery:
     type: integer
     format: int64
     description: 조회 종료 시간(UNIX epoch time, millisecond)
+Progress:
+  name: progress
+  in: query
+  required: false
+  schema:
+    type: boolean
+    description: |
+      * `true`: 진행 중인 이벤트만 조회
+      * `false`: 진행 중인 이벤트를 포함해 전체 이벤트 조회
 TimeMergeQuery:
   name: timeMerge
   in: query
@@ -121,6 +130,16 @@ OidPath:
     type: integer
     format: int32
     description: 에이전트 고유 식별자(ID), 쉼표(,)를 구분자로 여러 개 입력 가능
+OidPathopt:
+  name: oid
+  in: query
+  required: false
+  schema:
+    type: integer
+    format: int32
+    description: |
+      - 에이전트 고유 식별자(ID), 쉼표(,)를 구분자로 여러 개 입력 가능
+      - URL encoded 필요: 17079562,352247167 → -17079562%2C352247167
 OidQuery:
   name: oids
   in: query
@@ -137,6 +156,26 @@ AOidQuery:
     type: integer
     format: int32
     description: 에이전트 고유 식별자(ID)
+OkindQuery:
+  name: okinds
+  in: query
+  required: false
+  schema:
+    type: integer
+    format: int32
+    description: |
+      - 종류별 에이전트 그룹 고유 식별자(ID), 쉼표(,)를 구분자로 여러 개 입력 가능
+      - URL encoded 필요: 17079562,352247167 → -17079562%2C352247167
+OnodesQuery:
+  name: onodes
+  in: query
+  required: false
+  schema:
+    type: integer
+    format: int32
+    description: |
+      - 서버별 에이전트 그룹 고유 식별자(ID), 쉼표(,)를 구분자로 여러 개 입력 가능
+      - URL encoded 필요: 17079562,352247167 → -17079562%2C352247167
 FilterQuery:
   name: filter
   in: query

@@ -65,7 +65,7 @@ URL 프로젝트는 최대 10개까지 생성할 수 있습니다. 한 개의 UR
 
     * <Cmdname sid="url" className="uitext" />: 체크 대상 URL을 등록합니다. 호출 대상 URL의 전체 경로를 입력합니다. http/https 프로토콜을 지원합니다.
     
-    * <Cmdname sid="check_location" className="uitext" />: 와탭이 제공하는 에이전트를 선택합니다. Seoul, Tokyo, Singapore, Mumbai, Frankfurt, Califonia 리전을 제공합니다.
+    * <Cmdname sid="check_location" className="uitext" />: 와탭이 제공하는 에이전트를 선택합니다. Seoul, Mumbai, Tokyo, Singapore,Frankfurt, Califonia, Jakarta 리전을 제공합니다.
 
       :::note
 
@@ -93,31 +93,21 @@ URL 프로젝트는 최대 10개까지 생성할 수 있습니다. 한 개의 UR
 
 **폐쇄망 사이트의 접속 테스트를 수행**하고자 하는 경우 에이전트로부터의 호출이 허용되도록 방화벽을 오픈해야 할 수 있습니다. <Cmdname sid="TTL08547" className="uitext" />를 선택하면 위치 IP 주소가 표시됩니다. 각 에이전트의 **방화벽 오픈 대상 IP Address**는 다음과 같습니다.
 
+* AWS-Seoul-Agent - 54.180.11.176
+
+* AWS-Mumbai-Agent - 3.6.243.66
+
 * AWS-Tokyo-Agent - 18.179.189.142
 
 * AWS-Singapore-Agent - 54.169.168.45
+
+* AWS-Frankfurt-Agent - 18.197.22.141
 
 * AWS-California-Agent - 54.215.76.203
 
-* AWS-Frankfurt-Agent - 18.197.22.141
-
-* AWS-Seoul-Agent - 54.180.11.176
-
-* AWS-Mumbai-Agent - 3.6.243.66
+* AWS-Jakarta-Agent - 16.78.204.227
 
 **cloudflare**를 사용하는 경우 cloudflare **방화벽 규칙에 해당하는 리전 IP**를 허용해야 합니다.
-
-* AWS-Tokyo-Agent - 18.179.189.142
-
-* AWS-Singapore-Agent - 54.169.168.45
-
-* AWS-California-Agent - 54.215.76.203 
-
-* AWS-Frankfurt-Agent - 18.197.22.141
-
-* AWS-Seoul-Agent - 54.180.11.176
-
-* AWS-Mumbai-Agent - 3.6.243.66
 
 
 ## 모니터링 하기{#url-st}

@@ -7,13 +7,6 @@
       {
         "ver": "Service 2.11.4",
         "hash": "service-2114",
-        "product": "공통",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 이벤트 알림 메시지에 해당 시간대의 대시보드로 이동할 수 있는 링크 추가</p>"
-      },
-      {
-        "ver": "Service 2.11.4",
-        "hash": "service-2114",
         "product": "Application",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">트레이스 분석</span> 창의 <span class=\"uitext\">SQL 요약</span>, <span class=\"uitext\">HTTP Call 요약</span>, <span class=\"uitext\">메소드 요약</span>, <span class=\"uitext\">액티브 스택</span> 탭에서 텍스트 다운로드 기능 추가</p>"

@@ -11,6 +11,13 @@
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 트랜잭션의 시작/종료 시간 단위값이 다를 때 <span class=\"uitext\">트레이스 분석</span> 창에서 발생하는 다음 문제 수정</p>",
         "details": "<p>예를 들어, 트랜잭션이 <strong>17</strong>시 59분에 시작해 <strong>18</strong>시 00분에 종료할 때 발생하는 문제입니다.</p>"
+      },
+      {
+        "ver": "Service 2.11.5",
+        "hash": "service-2115",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 메뉴의 <span class=\"uitext\">서버 정보</span> 패널에서 <span class=\"uitext\">서버 알림 목록</span> 버튼을 선택하면 발생하는 화이트아웃 현상 수정</p>"
       }
     ]
   },

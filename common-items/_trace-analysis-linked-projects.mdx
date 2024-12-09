@@ -1,6 +1,8 @@
 ### 연계 프로젝트 성능 지표 조회하기
 
-<Cmdname sid="side_correlatedProjectManagement" className="uitext" /> 메뉴를 통해 데이터베이스 프로젝트를 추가하면, **DB Connection 스텝**에서 연계한 프로젝트의 성능 지표를 조회할 수 있습니다.
+<Cmdname sid="side_correlatedProjectManagement" className="uitext" /> 메뉴를 통해 데이터베이스 프로젝트를 추가하면, **DB Connection 스텝** 및 **SQL 스텝**에서 연계한 프로젝트의 성능 지표를 조회할 수 있습니다.
+
+#### DB Connection 스텝에서 확인하기
 
 <ImgLang img="linked-projects-check-widget-03.png" desc="Correlated project" />
 
@@ -23,5 +25,41 @@
 * 연계 프로젝트 추가 및 분석에 대한 자세한 내용은 [다음 문서](linked-projects)를 참조하세요.
 
 * <Cmdname sid="TTL08442" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](linked-projects#TTL08442)를 참조하세요.
+
+:::
+
+#### SQL 스텝에서 확인하기
+
+<ImgLang img="linked-projects-check-widget-03.png" desc="Correlated project" />
+
+<ImgLang img="linked-projects-check-widget-06.png" desc="Correlated project" />
+
+1. 대시보드에서 <Cmdname sid="AA005" className="uitext" /> 위젯의 차트 영역을 드래그하세요.
+
+1. <Cmdname sid="TTL06209" className="uitext" /> 창이 나타나면 조회하길 원하는 트랜잭션 항목을 선택하세요.
+
+1. 트랜잭션 상세 정보가 오른쪽에 나타나면 <Cmdname sid="TTL06126" className="uitext" /> 탭을 선택하세요.
+
+1. SQL 스텝에서 SQL 문을 선택하세요.
+
+1. <UI>SQL</UI> 창이 나타나면 <Cmdname sid="BTN08518" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="TTL07860" className="uitext" /> 창이 나타나면 관련 지표를 확인하세요.
+
+:::note
+
+* 연계분석을 위해 등록한 데이터베이스 프로젝트의 DB가 현재 선택한 트랜잭션의 SQL을 실행한 경우에만, <UI>SQL</UI> 창에 <Cmdname sid="BTN08518" className="uitext" /> 버튼이 표시됩니다.
+
+* <Cmdname sid="BTN08840" className="uitext" /> 기능을 이용하면 변수를 복사해 <Cmdname sid="TTL07860" className="uitext" /> 창의 <UI>SQL Text</UI> 탭에 변수를 붙여넣기할 수 있습니다. 이 기능은 <Cmdname sid="BTN06764" className="uitext" /> 버튼을 선택해 비밀번호를 입력 후 바인드 변수 값이 표시될 때 이용할 수 있습니다.
+
+* <Cmdname sid="TTL07860" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](linked-projects#TTL07860)를 참조하세요.
+
+* 이 기능을 지원하는 데이터베이스는 **PostgreSQL**, **Oracle**, **Oracle Pro**, **MySQL** 플랫폼입니다.
+
+* **PostgreSQL** 플랫폼에서 <Cmdname sid="active_sessions" className="uitext" /> 테이블의 <UI>PID</UI> 항목은 <UI>SID</UI> 항목과 같습니다.
+
+  <ImgLang img="apm-linked-projects-postgresql-pid-sid.png" desc="SID" /> 
+
+  **Java 에이전트 2.2.40** 이전 버전에서는 <Cmdname sid="acttx" className="uitext" /> 창에서 <UI>ThreadStat</UI> 값이 숫자 형식으로 표시됩니다. 문자 형식으로 표시하려면 [Java 에이전트 2.2.40](../release-notes/java/java-2_2_40) 버전 이상을 설치하세요.
 
 :::

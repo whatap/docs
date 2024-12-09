@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_11_x",
+    "ver": "Service 2.11.6",
+    "date": "2024-12-09",
+    "Lists": [
+      {
+        "ver": "Service 2.11.6",
+        "hash": "service-2116",
+        "product": "AWS Log",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 <span class=\"uitext\">WhaTap Forwarder 설치 페이지</span> 버튼의 링크 파라미터 오류 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_11_x",
     "ver": "Service 2.11.5",
     "date": "2024-12-05",
     "Lists": [

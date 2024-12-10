@@ -42,6 +42,8 @@ toc_max_heading_level: 2
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴에서 시간 선택자(타임 셀렉터)의 실시간 모드를 일시 정지하면 시간이 NaN으로 표시되는 문제 및 과거 시점 선택 가능한 버그 수정
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴의 <Cmdname sid="column_settings" className="uitext" />에서 <Cmdname sid="initialized" className="uitext" /> 버튼을 클릭하면 전체 컬럼 선택이 해제되는 문제 수정
+
 ---
 
 ### `Kubernetes`
@@ -59,6 +61,15 @@ toc_max_heading_level: 2
 ### `Database`
 
 <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴의 사용자 정의 위젯에서 클라우드 지표의 데이터가 출력되지 않는 문제 수정
+
+---
+
+### `Log`
+
+<Status priority='1'>Changed</Status> 다음 메뉴 경로에서 인덱싱되지 않는 검색 키(`.p`, `.pii` 등)를 포함하는 로그의 태그를 클릭 후 표시되는 드롭다운 메뉴에서 <Cmdname sid="search" className="uitext" />, <Cmdname sid="exclusion_search" className="uitext" /> 항목 제거
+
+- <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" />
+- <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSearch" className="uitext" />
 
 ---
 

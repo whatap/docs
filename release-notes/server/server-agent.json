@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server/server-2_7_3",
+    "ver": "v2.7.3",
+    "date": "2024-12-09",
+    "Lists": [
+      {
+        "ver": "v2.7.3",
+        "hash": "v273",
+        "product": "Server Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Windows 환경에서 w32tm 시간 동기화 수집 기능 추가</p>"
+      },
+      {
+        "ver": "v2.7.3",
+        "hash": "v273",
+        "product": "Server Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Windows Event log 수집 시 기존의 WMI 방식을 Event Subscription 방식으로 변경</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server/server-2_7_2",
     "ver": "v2.7.2",
     "date": "2024-11-27",

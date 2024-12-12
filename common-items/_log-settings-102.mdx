@@ -1,3 +1,5 @@
+{/* 개인정보 비식별화 탭 추가로 로그 설정 전체 업데이트 필요 1212 */}
+
 <InDoc product='aws-log'>
 
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_logSetting" className="uitext" />
@@ -608,3 +610,28 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 1. 추가한 설정값으로 <Cmdname sid="logsink_mcube_config_statistics" className="uitext" /> 데이터를 다음처럼 확인할 수 있습니다.
 
     <ImgLang img='log-flexboard-widget-chart-long-term.png' desc='로그 장기 보관 통계 차트 위젯'/>
+
+
+## 개인정보 비식별화 {#log-deidentification-of-personal-info}
+
+<Cmdname sid="TTL08814" className="uitext" /> 기능은 로그 데이터 내에 포함된 개인정보를 암호화 및 마스킹 처리하여 민감 정보의 노출을 방지하고 개인정보 보호 관련 법규를 준수하기 위해 설계되었습니다. 이 기능은 민감 데이터를 다루는 환경에서 보안 강화를 위한 필수적인 도구로 제공됩니다.
+
+### 주요 기능 
+
+#### 암호화 및 마스킹 처리 
+
+로그 데이터에서 주민등록번호, 신용카드번호, 계좌번호 등 민감 정보를 암호화하거나 마스킹 처리합니다.
+
+* 암호화 처리: 지정된 민감 정보는 암호화되어 데이터베이스에 저장됩니다.
+
+* 마스킹 처리: 로그 화면에 표시될 때 민감 정보는 기본적으로 마스킹(***) 처리되어 표시됩니다.
+
+#### 개인정보 조회 권한 제어 
+
+#### 개인정보 비식별화 설정 
+
+### 적용 환경 및 제한 사항 
+
+
+
+### 마스킹 처리된 데이터 조회 

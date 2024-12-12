@@ -1,0 +1,44 @@
+[
+  {
+    "url": "https://docs.whatap.io/release-notes/server-hpux/server-hpux-1_3_6",
+    "ver": "v1.3.6",
+    "date": "2024-12-03",
+    "Lists": [
+      {
+        "ver": "v1.3.6",
+        "hash": "v136",
+        "product": "Server HP-UX Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> HP-UX 11.31 버전 지원</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/server-hpux/server-hpux-1_3_4",
+    "ver": "v1.3.4",
+    "date": "2024-09-19",
+    "Lists": [
+      {
+        "ver": "v1.3.4",
+        "hash": "v134",
+        "product": "Server HP-UX Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> HP-UX(IA64, PA-RISC) 11.24 버전 지원</p>"
+      },
+      {
+        "ver": "v1.3.4",
+        "hash": "v134",
+        "product": "Server HP-UX Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 서버 구성 정보 수집 기능 추가</p>"
+      },
+      {
+        "ver": "v1.3.4",
+        "hash": "v134",
+        "product": "Server HP-UX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트를 최초 구동 후 OID 값을 고정하도록 개선</p>"
+      }
+    ]
+  }
+]

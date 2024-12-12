@@ -14,6 +14,121 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.12.0.a3
+
+2024년 12월 12일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status priority='1'>Feature</Status> 개별 메뉴에서 시간 선택자(타임 셀렉터)의 컴포넌트 교체
+
+  ![Time selector](/img/release/release-timeselector.png)
+
+  * 키보드를 이용해 날짜 및 시간을 변경할 수 있습니다.
+
+  * 날짜 및 시간 형식의 텍스트를 복사해 붙여넣기 방식으로 변경할 수 있습니다.
+
+  :::note
+
+  시간 선택자 이용 방법에 대한 자세한 내용은 [다음 문서](../../java/usage-ui#timeselector)를 참조하세요.
+
+  :::
+
+- <Status priority='1'>Feature</Status> 시간 선택자(타임 셀렉터)의 캘린더 팝오버 하단에 가이드 문서로 이동할 수 있는 링크 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" /> 메뉴에서 알림 메시지를 AI를 통해 사용자 친화적인 내용으로 전송할 수 있는 <Cmdname sid="TTL08844" className="uitext" /> 옵션 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> <code className="newfunc">New</code> 메뉴에서 <Cmdname sid="CNT08326" className="uitext" /> 옵션에 대한 설명 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="metrics" className="uitext" /> 탭의 이벤트 추가 또는 수정 화면에서, <Cmdname sid="metrics_event_rules" className="uitext" /> 옵션의 <Cmdname sid="metrics_rule_select" className="uitext" />을 선택했을 때 모든 필드에 `${ }` 적용하도록 변경
+
+  :::note
+
+  * 단, 필드명에 `{` 또는 `}`가 포함되면 적용하지 않습니다.
+
+  * 이벤트를 새로 추가하거나 수정하는 경우에만 적용합니다.
+
+  :::
+
+---
+
+### `Application`
+
+- <Status priority='1'>Changed</Status> .NET 4.6.1 버전 미만 또는 Windows 2008 환경을 사용 중인 .NET 플랫폼에 대응하는 에이전트 설치 파일 다운로드 및 관련 문구 추가
+
+- <Status priority='0'>Fixed</Status> 트랜잭션의 시작/종료 시간 단위값이 다를 때 <Cmdname sid="TTL06209" className="uitext" /> 창에서 발생하는 다음 문제 수정
+
+  예를 들어, 트랜잭션이 **17**시 59분에 시작해 **18**시 00분에 종료할 때 발생하는 문제입니다.
+
+  - <Cmdname sid="TTL06126" className="uitext" /> &gt; <Cmdname sid="TTL06224" className="uitext" /> 모달에서 파라미터 바인딩이 되지 않는 문제 수정
+
+  - <Cmdname sid="TTL06126" className="uitext" /> &gt; <Cmdname sid="TTL06412" className="uitext" /> 모달에서 액티브 스택이 보이지 않는 문제 수정
+
+---
+
+### `Server`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> &gt; <UI>HP-UX</UI>에서 IA64 커널 11.31 버전에 대응하는 에이전트 다운로드 버튼 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴의 그룹 요약 패널에서 <Cmdname sid="TTL08660" className="uitext" /> 차트가 간헐적으로 클릭되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴에서 시간 선택자(타임 셀렉터) 컴포넌트 교체 후 과거 시점 선택이 가능한 버그 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴에서 시간 선택자(타임 셀렉터)의 실시간 모드를 일시 정지하면 시간이 NaN으로 표시되는 문제 및 과거 시점 선택 가능한 버그 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴의 <Cmdname sid="column_settings" className="uitext" />에서 <Cmdname sid="initialized" className="uitext" /> 버튼을 클릭하면 전체 컬럼 선택이 해제되는 문제 수정
+
+---
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> 다음 메뉴 경로의 상세 정보에서 제공하는 <Cmdname sid="TTL08441" className="uitext" type="node" /> 탭의 CPU, 메모리, 디스크의 total 값 추가
+
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_nodeMap" className="uitext" />
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" />
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeTimeline" className="uitext" />
+
+- <Status priority='1'>Changed</Status> 쿠버네티스 이벤트 데이터(`#K8sEvent`)는 로그 개인 정보 비식별화 처리할 수 없도록 기능 수정
+
+---
+
+### `Database`
+
+#### Database <code className="my">V2</code>
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 위젯의 Y축이 변경한 지표에 맞게 변경되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 이퀄라이저 차트 형식의 사용자 정의 위젯에 표시된 인스턴스 순서를 화면 상단의 인스턴스 목록 순서와 일치하도록 수정
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴의 사용자 정의 위젯에 선택한 지표의 단위를 표시하도록 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴의 사용자 정의 위젯에서 클라우드 지표의 데이터가 출력되지 않는 문제 수정
+
+#### Oracle, Oracle Pro
+
+<Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 <UI>TOP STAT</UI>, <UI>TOP EVENT</UI> 창의 스타일 수정 및 테이블 내용 변경
+
+---
+
+### `Log`
+
+<Status priority='1'>Changed</Status> 다음 메뉴 경로에서 인덱싱되지 않는 검색 키(`.p`, `.pii` 등)를 포함하는 로그의 태그를 클릭 후 표시되는 드롭다운 메뉴에서 <Cmdname sid="search" className="uitext" />, <Cmdname sid="exclusion_search" className="uitext" /> 항목 제거
+
+- <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" />
+- <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSearch" className="uitext" />
+
+---
+
+### `AWS Log`
+
+- - <Status priority='0'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 **AWS Region** 선택 목록에 자카르타 리전 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 <Cmdname sid="LNK05983" className="uitext" /> 버튼의 링크 파라미터 오류 수정
+
+</div>
+
 ## Preview 2.12.0.a2
 
 2024년 12월 05일

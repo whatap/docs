@@ -1,5 +1,34 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server-aix/server-aix-1_3_7",
+    "ver": "v1.3.7",
+    "date": "2024-12-13",
+    "Lists": [
+      {
+        "ver": "v1.3.7",
+        "hash": "v137",
+        "product": "Server AIX Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <span class=\"uitext\">서버 인벤토리 맵</span> 메뉴의 데이터 수집 옵션 추가</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token comment\" style=\"color: rgb(105, 112, 152); font-style: italic;\"># default false</span><br/><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">categoryv2.enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">true</span><br></span></code></pre><div class=\"buttonGroup__atx\"><button type=\"button\" aria-label=\"클립보드에 코드 복사\" title=\"복사\" class=\"clean-btn\"><span class=\"copyButtonIcons_eSgA\" aria-hidden=\"true\"><svg viewbox=\"0 0 24 24\" class=\"copyButtonIcon_y97N\"><path fill=\"currentColor\" d=\"M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z\"></path></svg><svg viewbox=\"0 0 24 24\" class=\"copyButtonSuccessIcon_LjdS\"><path fill=\"currentColor\" d=\"M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z\"></path></svg></span></button></div></div></div>"
+      },
+      {
+        "ver": "v1.3.7",
+        "hash": "v137",
+        "product": "Server AIX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> Openssl Hash 함수 로드 에러 수정</p>"
+      },
+      {
+        "ver": "v1.3.7",
+        "hash": "v137",
+        "product": "Server AIX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> 에이전트 로그 처리 개선</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server-aix/server-aix-1_3_6",
     "ver": "v1.3.6",
     "date": "2024-11-11",

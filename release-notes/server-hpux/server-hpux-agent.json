@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server-hpux/server-hpux-1_3_7",
+    "ver": "v1.3.7",
+    "date": "2024-12-13",
+    "Lists": [
+      {
+        "ver": "v1.3.7",
+        "hash": "v137",
+        "product": "Server HP-UX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> Openssl Hash 함수 로드 에러 수정</p>"
+      },
+      {
+        "ver": "v1.3.7",
+        "hash": "v137",
+        "product": "Server HP-UX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> 에이전트 로그 처리 개선</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server-hpux/server-hpux-1_3_6",
     "ver": "v1.3.6",
     "date": "2024-12-03",

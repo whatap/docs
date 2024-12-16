@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_11_x",
+    "ver": "Service 2.11.8",
+    "date": "2024-12-16",
+    "Lists": [
+      {
+        "ver": "Service 2.11.8",
+        "hash": "service-2118",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 메뉴의 <span class=\"uitext\">에이전트 명</span> 컬럼에 특정 운영체제의 아이콘이 표시되지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_11_x",
     "ver": "Service 2.11.7",
     "date": "2024-12-10",
     "Lists": [

@@ -2,11 +2,13 @@
 
 특정 시간 동안 모니터링 대상에서 발생한 이벤트의 상세 정보를 확인할 수 있습니다. 모니터링 대상에서 발생한 문제의 근본 원인을 분석하거나 성능 저하 및 오류 발생 시점의 시스템 상태를 파악할 수 있습니다.
 
-<Xclude product='kubernetes,browser'><ImgLang img='event-history.png' desc='이벤트 기록' /></Xclude>
+<Xclude product='kubernetes,browser,url'><ImgLang img='event-history.png' desc='이벤트 기록' /></Xclude>
 
 <InDoc product='kubernetes'><ImgLang img='k8s-event-history.png' desc='이벤트 기록' /></InDoc>
 
 <InDoc product='browser'><ImgLang img='browser-event-history.png' desc='이벤트 기록' /></InDoc>
+
+<InDoc product='url'><ImgLang img='url-event-history.png' desc='이벤트 기록' /></InDoc>
 
 이벤트 목록에 표시되는 항목들은 <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 설정한 이벤트가 표시됩니다. 화면 오른쪽 상단의 <Cmdname sid="event_setting" className="uitext" /> 버튼을 선택하면 해당 메뉴로 이동할 수 있습니다.
 
@@ -32,7 +34,7 @@
 
 * <Cmdname sid="filter" className="uitext" />: <Cmdname sid="event_title" className="uitext" /> 또는 <Cmdname sid="message" className="uitext" /> 내용을 기준으로 입력한 문자열을 포함하는 이벤트 목록을 필터링할 수 있습니다.
 
-<Xclude product="browser">
+<Xclude product="browser,url">
 
 * <Cmdname sid="agent" className="uitext" />: 특정 에이전트에서 발생한 이벤트만 선택해 필터링할 수 있습니다.
 
@@ -54,7 +56,7 @@
 
 * <Cmdname sid="TTL06583" className="uitext" />: 발생한 이벤트가 해소된 시각입니다.
 
-<Xclude product="browser">
+<Xclude product="browser,url">
 
 * <Cmdname sid="oname" className="uitext" />: <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 이벤트를 추가할 때 <Cmdname sid="TTL07363" className="uitext" /> 항목을 설정하면 표시됩니다.
 
@@ -62,7 +64,7 @@
 
 * <Cmdname sid="message" className="uitext" />: <Cmdname sid="event_setting" className="uitext" /> 메뉴에서 추가한 이벤트의 상세 내용입니다.
 
-<Xclude product="amazon-cloudwatch,amazon-ecs,aws-log,azure,log,ncloud,oracle-cloud">
+<Xclude product="amazon-cloudwatch,amazon-ecs,aws-log,azure,log,ncloud,oracle-cloud,url">
 
 :::note
 
@@ -118,9 +120,9 @@
 
 * ***CSV***: 조회한 이벤트 기록 결과를 csv 파일로 저장할 수 있습니다. ***CSV*** 버튼을 클릭하면 <Cmdname sid="maximum_csv_lines" className="uitext" />를 입력한 다음 <Cmdname sid="download" className="uitext" /> 버튼을 선택하세요.
 
-* <Cmdname sid="event_setting" className="uitext" />: <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴로 이동합니다.
-
 * <Cmdname sid="exclude_resolved_alerts" className="uitext" />: 이벤트 기록 목록에서 **진행 중인 이벤트**만 조회할 수 있습니다.
+
+* <Cmdname sid="event_setting" className="uitext" />: <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 메뉴로 이동합니다.
 
 import Dbv2dataeditcolumn from "../common-items/_db-v2-data-edit-column.mdx";
 

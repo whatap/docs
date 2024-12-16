@@ -7,21 +7,27 @@ keywords: [ Node.js, 에이전트, DockerFile ]
 
 Docker 환경에서 DockerFile을 작성해 Node.js 에이전트를 설치한 다음 실행하는 방법을 안내합니다. 다음 안내에서 사용한 예제 파일은 [다음 링크](https://github.com/whatap/nodejs_sample_application/tree/main/simple_http)를 참조하세요.
 
+<Steps>
+
 ## 파일 구성
 
 Node.js 에이전트 샘플 파일은 다음과 같이 구성되어 있습니다.
 
-* *html*: 샘플 애플리케이션 폴더
+<Filetree name="sample_http" open>
 
-* *Dockerfile*: 도커 이미지 빌드를 위한 설정 파일
+<FiletreeItem name="html/" type="folder">샘플 애플리케이션 폴더</FiletreeItem>
 
-* *http.js*: 샘플 애플리케이션 파일
+<FiletreeItem name="Dockerfile" type="file">Docker 이미지 빌드를 위한 설정 파일</FiletreeItem>
 
-* *package.json*: 샘플 애플리케이션 정보와 의존성(dependency) 관리 문서
+<FiletreeItem name="http.js" type="file">샘플 애플리케이션 파일</FiletreeItem>
 
-* *whatap.conf*: 모니터링을 위한 옵션 설정 파일
+<FiletreeItem name="package.json" type="file">샘플 애플리케이션 정보와 의존성(dependency) 관리 문서</FiletreeItem>
 
-* *security.conf* (또는 *paramkey.txt*): 파라미터 암호화 키
+<FiletreeItem name="whatap.conf" type="file">모니터링을 위한 에이전트 설정 파일</FiletreeItem>
+
+<FiletreeItem name="security.conf (or paramkey.txt)" type="file">파라미터 암호화 키</FiletreeItem>
+
+</Filetree>
 
 
 ## 에이전트 설치하기
@@ -74,6 +80,8 @@ $ docker run --rm -p 3500:3500 \
     -e license=$WHATAP_LICENSE \
     sampleapp/nodejs:0503
 ```
+
+</Steps>
 
 {/* 다음 단계 */}
 import NextSteps from "../common-items/_apm-next-stemp-exclude-java.mdx";

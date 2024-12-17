@@ -1,0 +1,31 @@
+---
+id: uninstall-agent
+title: 에이전트 삭제
+description: 피쳐 프로젝트 데이터 수집 비활성화 및 에이전트 제거 과정을 안내합니다.
+keywords: [ Features, 피쳐 프로젝트, 에이전트 ]
+---
+
+**피쳐 프로젝트**(<code class='Features'>Features</code>) 설치 후 서버 에이전트를 유지하면서 데이터 수집을 비활성화하거나 서버 에이전트를 완전히 제거하는 방법을 다음과 같이 안내합니다.
+
+
+## 에이전트 유지 및 데이터 수집 비활성화
+
+서버 에이전트를 유지하고 피쳐 프로젝트 데이터 수집을 비활성화하려면 *whatap.conf* 파일에서 관련 설정 제거 후 `whatap-infra` 서비스를 재시작하세요. 다음 예시를 참조하세요. 
+
+1. *whatap.conf* 파일에서 다음 설정을 제거하세요.
+
+    ```bash title='whatap.conf'
+    internal.forwarder.enabled=true
+    telegraf.sidecar.enabled=true
+    telegraf.sidecar.executable=/usr/whatap/infra/feature/telegraf
+    ```
+1. 설정 수정 후 `whatap-infra` 서비스를 재시작하세요. 
+
+    ```bash 
+    systemctl restart whatap-infra
+    ```
+
+
+## 에이전트 삭제 
+
+서버 에이전트 및 피쳐 프로젝트를 완전히 삭제하려면 안내의 경우 [다음 문서](/server/agent-remove/)를 참조하세요.

@@ -5,6 +5,15 @@ description: Server 애플리케이션에서 로그를 수집하는 방법을 �
 keywords: [ 로그 모니터링, Server ]
 ---
 
+import Logserverlinuxshell from "../common-items/_log-server-linux-shell.mdx";
+import Logserverwindowspowershell from "../common-items/_log-server-windows-powershell.mdx";
+import Logserversettings from "../common-items/_log-server-settings.mdx";
+import Logserverwindowsevent from "../common-items/_log-server-windows-event.mdx";
+import Logservermultifilecategory from "../common-items/_log-server-multi-file-category.mdx";
+import Logjavastart from "../common-items/_log-java-start.mdx";
+import Logactivenote from "../common-items/_log-active-note.mdx";
+
+
 서버 애플리케이션에서 로그를 수집하려면 다음을 확인하세요.
 
 ## 에이전트 업데이트
@@ -25,122 +34,21 @@ keywords: [ 로그 모니터링, Server ]
 
 ### Linux Shell
 
-* ***기본 설치***
-
-  ```bash title='Linux Shell'
-  export LOGFILES=/some/path/file1,/some/other/file2
-  echo "logsink.files=$LOGFILES" | sudo tee -a /usr/whatap/infra/conf/whatap.conf
-  ```
-
-* ***카테고리와 함께 설치***
-
-  ```bash title='Linux Shell' {7-12,14,15,25,26} showLineNumbers
-  cd /usr/whatap/infra
-  sudo mkdir extension
-
-  cat <<EOL | sudo tee extension/logsink.conf > /dev/null
-  [[inputs.logsink]]
-    category = "serverlog"
-    ## 로그 발생량 통계 별도 데이터로 전송 여부
-    stats_enabled = true 
-    ## 로그 발생량 통계 카테고리
-    stats_category = "logsink_stats"
-    ## 로그 파일 경로(path)에 별표(*)가 포함되어 제외할 로그 비대상 파일명 설정 
-    excludeNames = [ ".gz",".zip" ] 
-    [[inputs.logsink.file]]
-      ## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
-      path = "/some/path/%Y-%m-%d/.log" 
-      disabled = false
-      encoding = "euc-kr"
-
-    [[inputs.logsink.file]]
-      path = "/some/other/log"
-      disabled = false
-      encoding = "utf-8"
-
-    [[inputs.logsink.file]]
-      ## 줄 단위 로그에서 해당 키워드 검색 시, 이전 로그에 병합
-      nowrap_keywords = ["Caused by:", "Test"]
-  EOL
-
-  sudo service whatap-infra restart
-  ```
+<Logserverlinuxshell />
 
 ### Windows Powershell
 
-* ***기본 설치***
-
-  ```bash title='Windows Powershell'
-  $LOGFILES="c:\\whatap\\logs\\%Y-%m-%d\\*.log,c:\\whatap\\logs\\*.log"
-  Add-Content "c:\Program Files\WhatapInfra\whatap.conf" -Value "logsink.files=$LOGFILES"
-  ```
-
-* ***카테고리와 함께 설치***
-
-  ```bash title='Windows Powershell' {7-11,14,15,20,21} showLineNumbers
-  # 관리자 권한 필요
-  New-Item -type "Directory" -Path "C:\Program Files\WhatapInfra\extension"
-
-  $contentToAdd = @"
-  [[inputs.logsink]]
-  category = "serverlog"
-  ## 로그 발생량 통계 별도 데이터로 전송 여부
-  stats_enabled = true 
-  ## 로그 발생량 통계 카테고리
-  stats_category = "logsink_stats"
-  ## 로그 파일 경로(path)에 별표(*)가 포함되어 제외할 로그 비대상 파일명 설정 
-  excludeNames = [ ".gz",".zip" ] 
-  [[inputs.logsink.file]]
-  ## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
-  path = "c:\\whatap\\logs%Y-%m-%d_.log"
-  disabled = false
-  encoding = "euc-kr"
-
-  [[inputs.logsink.file]]
-  ## 줄 단위 로그에서 해당 키워드 검색 시, 이전 로그에 병합
-  nowrap_keywords = ["Caused by:", "Test"]
-
-  "@
-
-  New-Item -path "C:\Program Files\WhatapInfra\extension" -name "logsink.conf" -type "file" -value $contentToAdd -Force
-
-  Restart-Service "Whatap Infra"
-  ```
+<Logserverwindowspowershell />
 
 ### 옵션 설정{#server-log-settings}
 
-* `stats_enabled`: 수집 현황 데이터의 수집 여부를 설정합니다. 기본값은 `false`입니다. 값을 `true`로 설정해야 합니다. `true`로 설정하면 다음 `stats_category`에서 설정한 카테고리(`logsink_stats`)로 통계 데이터가 발생합니다.
-
-* `stats_category`: 수집 현황 데이터를 저장할 메트릭스 카테고리를 설정합니다. 값을 `logsink_stats`로 설정해야 합니다. 통계 데이터 필드는 다음과 같습니다.
-
-  * `file`
-  * `checkInterval`
-  * `encoding`
-  * `filepos`
-  * `checkedLocalTime`
-  * `lastupdatedLocalTime`
-  * `fileSize`
-  * `error`
-  * `firstCheck`
-  * `transferBytes`
-
-* `excludeNames`: 로그 파일 경로(path)에 별표(*)를 포함한 경우 로그 비대상 파일을 제외하도록 파일명을 설정할 수 있습니다. 쉼표(,)를 구분자로 이용해 복수 설정할 수 있습니다.
-
-  ```ini title='Example'
-  excludeNames = [ ".gz",".zip" ]
-  ```
-
-* `nowrap_keywords`: 줄 단위 로그 검색 시 해당 옵션값으로 지정한 키워드가 검색될 경우 이전 로그에 병합합니다.
+<Logserversettings />
 
 ### 윈도우 이벤트 로그 옵션 설정
-
-import Logserverwindowsevent from "../common-items/_log-server-windows-event.mdx";
 
 <Logserverwindowsevent />
 
 ### 다중 파일 지정 및 분리{#multiple-file-specification-and-separation}
-
-import Logservermultifilecategory from "../common-items/_log-server-multi-file-category.mdx";
 
 <Logservermultifilecategory />
 
@@ -150,10 +58,6 @@ import Logservermultifilecategory from "../common-items/_log-server-multi-file-c
 
 ***로그 모니터링 시작하기*** 섹션의 ***로그 모니터링 활성화*** 탭에서 토글 버튼으로 와탭 로그 모니터링을 활성화 또는 비활성화 할 수 있습니다. 
 
-import Logjavastart from "../common-items/_log-java-start.mdx";
-
 <Logjavastart />
-
-import Logactivenote from "../common-items/_log-active-note.mdx";
 
 <Logactivenote /> 

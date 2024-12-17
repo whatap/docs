@@ -46,6 +46,20 @@ import Setheapmemory from "./_set-heap-memory.mdx";
 
 <Setheapmemory /> 
 
+## 클라이언트 IP 주소가 수집되지 않을 때
+
+대시보드나 기타 다른 메뉴에서 클라이언트 IP 주소가 정상 수집되지 않을 경우 다음을 참조하세요. 
+
+IBM HTTP 서버에서 백엔드의 WebSphere 애플리케이션 서버로 실제(original) 클라이언트 IP 주소로 전달해야 Java 에이전트에서 유효한 클라이언트 IP 주소를 수집할 수 있습니다. 실제 클라이언트 IP 주소를 전달하려면 IBM HTTP 서버에서 HTTP 헤더(header)에 `X-Forwarded-For` 추가해야 합니다. 
+
+이에 대한 자세한 내용은 IBM 지원 문서에서 다루고 있습니다. 다음 링크를 참조하세요. [Passing the real client IP from IBM HTTP Server 9.0 to WebSphere Application Server](https://www.ibm.com/support/pages/passing-real-client-ip-ibm-http-server-90-websphere-application-server)
+
+:::note
+
+IBM 지원 문서를 확인하려면 IBM 계정이 필요할 수 있습니다.
+
+:::
+
 {/* 다음 단계 */}
 import Nextstep from "../../common-items/_apm-next-step.mdx";
 

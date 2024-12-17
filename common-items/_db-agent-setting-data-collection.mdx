@@ -130,6 +130,12 @@
 
   `2`를 설정하면 sys 세션(root,system user,event_scheduler)이 active session에서 보이지 않습니다. `1`을 설정하면 sys 세션이 보이지만 total runtime에서는 제외합니다.
 
+* **save_literal_param** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  리터럴 파라미터 수집 여부를 설정합니다. `false`로 설정하면 리터럴 파라미터를 수집하지 않습니다.
+
 * **statements_min_row** <span class='type'>Int</span>
 
   기본값 `10000` (row)
@@ -246,6 +252,24 @@
 </InDoc>
 
 <InDoc product="altibase">
+
+* **segments** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  세그먼트 사이즈 정보를 수집합니다. <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴에서 해당 데이터베이스 또는 테이블스페이스를 선택하면 사이즈 정보를 확인할 수 있습니다.
+
+* **segments_hour** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  세그먼트 사이즈 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
+
+* **segments_min_size** <span class='type'>Int</span>
+
+  기본값 `10`
+
+  세그먼트 사이즈 정보를 수집하는 최소 단위로 기본값은 10MB 입니다. 세그먼트 사이즈 정보를 수집할 때 설정한 값보다 작은 크기의 세그먼트 사이즈 정보는 수집하지 않습니다.
 
 * **tablespace_lock** <span class='type'>Boolean</span>
 

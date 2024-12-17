@@ -62,6 +62,8 @@ toc_max_heading_level: 2
 
 ### `Database`
 
+#### 공통
+
 - <Status priority='1'>Feature</Status> 다음 메뉴 경로의 <Cmdname sid="active_sessions" className="uitext" /> 테이블에 페이지네이션 적용
 
   - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />
@@ -71,6 +73,54 @@ toc_max_heading_level: 2
 
   - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />
   - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTrendComparison" className="uitext" />
+
+#### Database <code className="my">V2</code>
+
+- <Status priority='1'>Feature</Status> APM 프로젝트의 <Cmdname sid="TTL06209" className="uitext" /> 창에서 복사한 바인드 변수 값을 <Cmdname sid="TTL07860" className="uitext" /> 창에서 붙여 넣는 버튼 추가
+
+  :::note
+
+  적용 플랫폼: **PostgreSQL**, **Oracle**, **Oracle Pro**, **MySQL**
+
+  :::
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="TTL07860" className="uitext" /> 창에서 <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴로 이동할 때 시작 시간, 종료 시간, 세션 시간을 쿼리 파라미터로 포함하도록 변경
+
+  :::note
+
+  적용 플랫폼: **PostgreSQL**, **Oracle**, **Oracle Pro**, **MySQL**
+
+  :::
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 조회하는 데이터가 없으면 로딩 인디케이터이 지속하는 문제 수정, 빈 데이터에 대한 안내 메시지 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 차트 데이터는 있으나 테이블 데이터가 없을 경우 <Cmdname sid="DSC08723" className="uitext" /> 문구 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴의 <Cmdname sid="active_sessions" className="uitext" /> 테이블에서 인스턴스 이름이 컬럼의 너비보다 길어지는 경우 말 줄임표(...)를 표시하도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 과거 데이터를 조회할 때 <Cmdname sid="session_detail" className="uitext" /> 창을 열면 Full Text를 조회하지 못하는 문제 수정
+
+  :::note
+
+  적용 플랫폼: **SQL Server**
+
+  :::
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTrendComparison" className="uitext" /> 메뉴에서 위젯의 툴팁에 [<Cmdname sid="ITM08025" className="uitext" />]/[<Cmdname sid="ITM08026" className="uitext" />] 정보 및 인스턴스 정보 추가
+
+  ![Count Trend Compare](/img/release/db-dbtrendcompare-release.png)
+
+#### Oracle Pro
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴의 <Cmdname sid="TTL06224" className="uitext" /> 창에 액티브 세션 정보 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴의 <Cmdname sid="filter" className="uitext" /> 옵션에 `object_name` 조건 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 <Cmdname sid="account_creation" className="uitext" /> 단계에서 히든 파라미터 조회 권한을 부여하는 명령어의 잘못 표기된 내용 수정
+
+#### MySQL
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_mysqlStat" className="uitext" /> 메뉴의 <Cmdname sid="TTL06224" className="uitext" /> 창에서 hash 값이 `undefined`로 표기되는 문제 수정
 
 ---
 

@@ -1,0 +1,43 @@
+* ***기본 설치***
+
+  ```bash title='Windows Powershell'
+  $LOGFILES="c:\\whatap\\logs\\%Y-%m-%d\\*.log,c:\\whatap\\logs\\*.log"
+  Add-Content "c:\Program Files\WhatapInfra\whatap.conf" -Value "logsink.files=$LOGFILES"
+  ```
+
+* ***카테고리와 함께 설치***
+
+  ```powershell title='Windows Powershell' {7-11,14,15,20,21,24-26} showLineNumbers
+  # 관리자 권한 필요
+  New-Item -type "Directory" -Path "C:\Program Files\WhatapInfra\extension"
+
+  $contentToAdd = @"
+  [[inputs.logsink]]
+  category = "serverlog"
+  ## 로그 발생량 통계 별도 데이터로 전송 여부
+  stats_enabled = true 
+  ## 로그 발생량 통계 카테고리
+  stats_category = "logsink_stats"
+  ## 로그 파일 경로(path)에 별표(*)가 포함되어 제외할 로그 비대상 파일명 설정 
+  excludeNames = [ ".gz",".zip" ] 
+  [[inputs.logsink.file]]
+  ## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
+  path = "c:\\whatap\\logs%Y-%m-%d_.log"
+  disabled = false
+  encoding = "euc-kr"
+
+  [[inputs.logsink.file]]
+  ## 줄 단위 로그에서 해당 키워드 검색 시, 이전 로그에 병합
+  nowrap_keywords = ["Caused by:", "Test"]
+
+  [[inputs.logsink.file]]
+  ## 프로젝트 코드 및 프로젝트 라이선스 입력 시, 로그를 같은 리전의 원하는 프로젝트로 전송 가능
+  # pcode = 프로젝트 코드
+  # license = "프로젝트 라이선스"
+
+  "@
+
+  New-Item -path "C:\Program Files\WhatapInfra\extension" -name "logsink.conf" -type "file" -value $contentToAdd -Force
+
+  Restart-Service "Whatap Infra"
+  ```

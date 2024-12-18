@@ -1,6 +1,21 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_11_x",
+    "ver": "Service 2.11.9",
+    "date": "2024-12-19",
+    "Lists": [
+      {
+        "ver": "Service 2.11.9",
+        "hash": "service-2119",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴에서 <span class=\"uitext\">SQL Elapse Map</span> 위젯의 데이터가 출력되지 않는 문제 수정</p>",
+        "category": "PostgreSQL"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_11_x",
     "ver": "Service 2.11.8",
     "date": "2024-12-16",
     "Lists": [

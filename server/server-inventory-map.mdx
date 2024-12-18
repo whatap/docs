@@ -5,6 +5,9 @@ description: 서버 인벤토리 맵 메뉴를 안내합니다.
 keywords: [ 대시보드, 서버 인벤토리 맵, 분석하기, UI, Server ]
 ---
 
+import ServerInventoryFilter from "../common-items/_server-inventory-filter.mdx";
+
+
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" />
 
 {/* :::note 
@@ -224,13 +227,7 @@ keywords: [ 대시보드, 서버 인벤토리 맵, 분석하기, UI, Server ]
 
 <Cmdname sid="side_serverInventoryMap" className="uitext" />은 대시보드에 표시할 서버 종류 필터 기능을 제공합니다. 필터를 통해 적용된 데이터는 서버 그룹 차트, 요약 보기, 그리고 상세 보기에 반영됩니다.
 
-* ***필터 키***: 필터는 <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 제공되는 기본 수집 컬럼과 사용자가 정의한 커스텀 컬럼을 기준으로 설정할 수 있습니다.
-
-  * 기본 수집 컬럼: <Cmdname sid="side_serverInventory" className="uitext" />에서 자동 수집된 데이터 항목으로  ***서버 타입***, ***기본 그룹***, ***OS 타입***, ***OS 버전***, ***모델***, ***시리얼*** 컬럼 항목입니다.
-
-  * 커스텀 컬럼: 사용자가 프로젝트별로 추가하여 관리하는 항목입니다.
-
-* ***필터 조건***: 필터 조건은 일치, 불일치, 포함, 미포함과 같은 문자열 조건으로 설정할 수 있습니다. 모든 필터는 문자열 기반으로 적용되며, 숫자형 조건(예, `≥`, `≤`)은 지원하지 않습니다.
+<ServerInventoryFilter />
 
 
 ### ![2](/img/number-02.png) 서버 구성 현황 

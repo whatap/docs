@@ -4,6 +4,7 @@ title: 서버 인벤토리
 description: 서버 인벤토리 메뉴를 안내합니다. 
 keywords: [ 서버 목록, 서버 인벤토리, 분석하기, UI, Server ]
 ---
+import ServerInventoryFilter from "../common-items/_server-inventory-filter.mdx";
 
 {/* 11월에 서버 구성 정보 -> 서버 인벤토리 변경 예정 현재 로케일 미 업데이트라 관련 텍스트만 일부 수정 */}
 
@@ -197,11 +198,16 @@ keywords: [ 서버 목록, 서버 인벤토리, 분석하기, UI, Server ]
 
 ### 필터
 
-상단 ![지시선 1](/img/number-01.png) 필터 입력창에서 원하는 조건 입력 후 해당 조건에 맞는 항목만 조회할 수 있습니다. 컬럼 조건을 입력 또는 선택 후 엔터를 눌러 추가하세요. `==` 또는 `!=` 적용 후 조건의 값을 특정해 입력하고 엔터를 누르세요.
+{/* 상단 ![지시선 1](/img/number-01.png) 필터 입력창에서 원하는 조건 입력 후 해당 조건에 맞는 항목만 조회할 수 있습니다. 컬럼 조건을 입력 또는 선택 후 엔터를 눌러 추가하세요. `==` 또는 `!=` 적용 후 조건의 값을 특정해 입력하고 엔터를 누르세요.
 
 > 예, <code class='filter'>서버 이름</code><code class='filter center'>==</code><code class='filter'>server04</code>
 
-필터 입력 후 <Cmdname sid="BTN06223" className="uitext" /> 버튼을 클릭하면 ![지시선 2](/img/number-02.png) 서버 인벤토리 목록 영역에서 필터링된 목록을 조회할 수 있습니다. 
+필터 입력 후 <Cmdname sid="BTN06223" className="uitext" /> 버튼을 클릭하면 ![지시선 2](/img/number-02.png) 서버 인벤토리 목록 영역에서 필터링된 목록을 조회할 수 있습니다.  */}
+
+
+상단 ![지시선 1](/img/number-01.png) 필터 입력창을 클릭 후 원하는 ***필터 키***와 ***조건***을 선택하여 값을 입력하고 ***적용*** 버튼을 클릭하세요. ![지시선 2](/img/number-02.png) 서버 인벤토리 목록 영역에서 필터링된 목록을 조회할 수 있습니다. 
+
+<ServerInventoryFilter />
 
 {/* 컬럼 조건 특정 후 조회 선택해야 적용 */}
 

@@ -80,7 +80,7 @@ import CSVdownload from "../common-items/_browser-stat-download-csv.mdx";
 
 * 특정 시간을 막대 그래프를 선택하면 <Cmdname sid="TTL08860" className="uitext" /> 및 <Cmdname sid="TTL08861" className="uitext" />, <Cmdname sid="TTL08862" className="uitext" /> 섹션의 데이터를 선택한 시간 범위에 맞춰 갱신합니다. 이때, <Cmdname sid="TTL08860" className="uitext" />과 <Cmdname sid="TTL08861" className="uitext" /> 섹션에서는 막대 그래프 형태로 변경됩니다.
 
-  <ImgLang img="browser-resourceload-stat-resource-type-trend-select-time.png" desc="리소스 타입 별 로드 수 추이" />
+ <ImgLang img="browser-resourceload-stat-resource-type-trend-select-time.png" desc="리소스 타입 별 로드 수 추이" />
 
 :::note
 
@@ -186,19 +186,24 @@ import Coumnsetting from "../common-items/_browser-stat-column-setting.mdx";
 | 컬럼 | 단위 | 설명 |
 | -- | -- | -- |
 | <Cmdname sid="count" className="uitext" /> | 건수 | 리소스가 요청된 총 횟수입니다. |
-| <Cmdname sid="TTL06361" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 완전히 불러오는데 소요한 평균 시간을 나타내며, `loadEventEnd` 이후 추가 인터랙션을 완료하기까지의 시간입니다. 브라우저 에이전트가 측정한 페이지 로드 완료 시간을 의미합니다. |
-| <Cmdname sid="download_time" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 불러오면서 서버로부터 리소스를 다운로드하는데 소요한 평균 시간을 나타내며, `responseStart`부터 `responseEnd`까지 시간을 의미합니다. |
-| <Cmdname sid="ITM08283" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 불러오면서 리다이렉트 과정에서 소요한 평균 시간을 나타내며, `redirectStart`부터 `redirectEnd`까지 소요된 시간을 의미합니다. |
+| <Cmdname sid="TTL06361" className="uitext" /> | 밀리 세컨드 | 리소스를 완전히 불러오는 데 소요된 시간입니다. |
+| <Cmdname sid="download_time" className="uitext" /> | 밀리 세컨드 | 리소스를 서버로부터 다운로드하는 데 소요된 시간입니다. (`responseStart`부터 `responseEnd`까지의 시간) |
+| <Cmdname sid="ITM08283" className="uitext" /> | 밀리 세컨드 | 리소스를 로드하는 과정에서 리다이렉트에 소요된 시간입니다. (`redirectStart`부터 `redirectEnd`까지의 시간) |
 | <Cmdname sid="CNT08864" className="uitext" /> | 텍스트 | 요청한 리소스의 유형입니다. 자세한 내용은 [다음 문서](#resourcetype)를 참조하세요. |
 | <Cmdname sid="CNT08863" className="uitext" /> | 텍스트 | 리소스를 제공하는 서버의 호스트 이름입니다. |
 | <Cmdname sid="resource_url_path" className="uitext" /> | 텍스트 | 요청한 리소스의 URL 경로 또는 파일 경로입니다. |
 | <Cmdname sid="version" className="uitext" /> | 텍스트 | 리소스의 버전 정보입니다. |
-| <Cmdname sid="ITM08876" className="uitext" /> | 밀리세컨드 | 클라이언트와 서버 간 연결을 설정하는 데 걸린 시간입니다. |
+| <Cmdname sid="ITM08876" className="uitext" /> | 밀리세컨드 | 리소스를 요청하는 클라이언트와 서버 간의 네트워크 연결에 소요된 시간입니다. |
 | <Cmdname sid="size" className="uitext" /> | 바이트(Byte) | 요청한 리소스의 데이터 크기입니다. |
 | <Cmdname sid="environment" className="uitext" /> | 텍스트 | 리소스가 로드된 실행 환경입니다. 예, 개발 환경, 운영 환경 등 |
-| <Cmdname sid="ITM08284" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 불러오면서 웹사이트 도메인을 조회하는데 소요한 평균 시간을 나타내며, `domainLookupStart`부터 `domainLookupEnd`까지 소요된 시간을 의미합니다. |
-| <Cmdname sid="ITM08285" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 불러오면서 네트워크 요청을 보낸 후 서버로부터 첫 번째 바이트(byte)가 수신될 때까지 소요된 평균 시간을 나타내며, `requestStart`부터 `responseStart`까지 소요된 시간을 의미합니다. |
-| <Cmdname sid="ssl_time" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 불러오면서 TCP 헨드쉐이크 과정에서 소요한 평균으로, `secureConnectionStart`부터 `connectEnd`까지 소요된 시간을 의미합니다. |
+| <Cmdname sid="ITM08284" className="uitext" /> | 밀리 세컨드 | 도메인 이름을 조회에 소요된 시간입니다. (`domainLookupStart`부터 `domainLookupEnd`까지의 시간) |
+| <Cmdname sid="ITM08285" className="uitext" /> | 밀리 세컨드 | 서버로부터 첫 번째 바이트(Byte)를 수신할 때까지의 시간입니다. (`requestStart`부터 `responseStart`까지의 시간) |
+| <Cmdname sid="ssl_time" className="uitext" /> | 밀리 세컨드 | HTTPS 연결 시 TLS 핸드셰이크에 소요된 시간입니다. (`connectEnd`부터 `secureConnectionStart`까지의 시간) |
 
 </div>
 
+:::note
+
+**Navigation timing**에 대한 자세한 내용은 [다음 문서](collect-data#navigation-timing)를 참조하세요.
+
+:::

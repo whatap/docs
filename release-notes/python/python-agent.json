@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_7_3",
+    "ver": "v1.7.3",
+    "date": "2024-12-19",
+    "Lists": [
+      {
+        "ver": "v1.7.3",
+        "hash": "v173",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> SQL 패치 건수 수집 추가</p>"
+      },
+      {
+        "ver": "v1.7.3",
+        "hash": "v173",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> FastAPI 사용 시 멀티 트랜잭션이 수집되는 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_7_2",
     "ver": "v1.7.2",
     "date": "2024-11-12",

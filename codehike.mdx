@@ -33,7 +33,17 @@ env:
 
 ## Mark
 
-```powershell title="Windows Powershell" showLineNumbers
+강조하려는 코드 윗줄에 `// !mark(1:5)`와 같은 방식으로 주석을 추가하세요. `// !mark(1:5) blue`와 같은 방식으로 색상을 추가할 수 있습니다.
+
+:::note
+
+지원하는 언어는 `js`, `ts` 형식입니다.
+
+> <code>```js title="Windows Powershell" showLineNumbers</code>
+
+:::
+
+```js title="Windows Powershell" showLineNumbers
 # 관리자 권한 필요
 New-Item -type "Directory" -Path "C:\Program Files\WhatapInfra\extension"
 
@@ -48,16 +58,19 @@ stats_category = "logsink_stats"
 ## 로그 파일 경로(path)에 별표(*)가 포함되어 제외할 로그 비대상 파일명 설정 
 excludeNames = [ ".gz",".zip" ] 
 [[inputs.logsink.file]]
+// !mark(1:2)
 ## 로그 파일 지정 시, 날짜 패턴(strftime.org) 지정 가능
 path = "c:\\whatap\\logs%Y-%m-%d_.log"
 disabled = false
 encoding = "euc-kr"
 
 [[inputs.logsink.file]]
+// !mark(1:2) pink
 ## 줄 단위 로그에서 해당 키워드 검색 시, 이전 로그에 병합
 nowrap_keywords = ["Caused by:", "Test"]
 
 [[inputs.logsink.file]]
+// !mark(1:3) red
 ## 프로젝트 코드 및 프로젝트 라이선스 입력 시, 로그를 같은 리전의 원하는 프로젝트로 전송 가능
 # pcode = 프로젝트 코드
 # license = "프로젝트 라이선스"
@@ -87,3 +100,4 @@ function lorem(ipsum, dolor = 1) {
   return sit ? consectetur(ipsum) : []
 }
 ```
+

@@ -251,6 +251,18 @@
 
 :::
 
+:::note 
+
+**개인정보 비식별화**
+
+<Cmdname sid="log_parser_setting_primary" className="uitext" /> 탭에서 시 검색 키 이름을 <code class='filter'>검색 키.p</code>로 지정한 경우 기본적으로 비식별화 대상이됩니다. <Cmdname sid="TTL08814" className="uitext" /> 탭에서 추가 또는 수정 시 해당 <Cmdname sid="category" className="uitext" /> 선택 후 <Cmdname sid="TTL08835" className="uitext" />에서 확인할 수 있습니다. 마스킹 처리를 원하지 않는 경우 해제할 수 있습니다. 
+
+> 예시, <code class='filter'>myname.pi</code> `***`
+
+와탭은 파서 설정 중 비식별화 대상 지정하는 방식보다 <Cmdname sid="TTL08814" className="uitext" /> 탭 사용을 권장합니다. 개인정보 비식별화에 대한 자세한 내용은 [다음 문서](#log-deidentification-of-personal-info)에서 참조하세요. 
+
+:::
+
 {/* 설정하기 문서에서는 각 패턴별 이미지 안내 제외 1031 */}
 
 ### GROK 파서 패턴 등록 {#log-pattern-grok}
@@ -624,7 +636,7 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 
 ### 개인정보 분류 {#log-personal-info-list}
 
-개인정보로 분류하는 항목은 다음과 같습니다. <Cmdname sid="TTL08814" className="uitext" /> 기능을 통해 필요 시 로그 내 다음 항목을 마스킹 처리해 보세요. 
+개인정보로 분류하는 항목은 다음과 같습니다. <Cmdname sid="TTL08814" className="uitext" /> 기능을 통해 필요 시 로그 내에서 원하는 항목을 마스킹 처리하세요. 
 
 <Columns> 
 <Column className="text--left width--50">
@@ -647,11 +659,11 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 
 ### 요구 권한
 
-개인정보는 기본적으로 마스킹 처리된 상태로 제공되며, **로그 개인정보 조회** 권한이 부여된 사용자만 개인정보를 확인할 수 있습니다. **로그 개인정보 조회** 권한을 가진 사용자는 <Cmdname sid="BTN08818" className="uitext" /> 토글 버튼이 표시됩니다. <Cmdname sid="BTN08818" className="uitext" /> 활성화를 통해 마스킹 해제 시 개인정보를 확인할 수 있습니다. 비식별화 대상 검색 키의 추가 및 수정은 **로그 편집** 권한이 있는 사용자만 가능합니다. 
+개인정보는 비식별화 과정을 통하여 마스킹 처리가 됩니다. **로그 개인정보 조회** 권한이 부여된 사용자만 개인정보를 조회할 수 있습니다. **로그 개인정보 조회** 권한을 가진 사용자는 로그 목록 상단에서 <Cmdname sid="BTN08818" className="uitext" /> 토글 버튼을 확인할 수 있습니다. <Cmdname sid="BTN08818" className="uitext" /> 활성화를 통해 마스킹 해제 시 개인정보를 확인할 수 있습니다. 비식별화 대상 검색 키의 추가 및 수정은 **로그 편집** 권한이 있는 사용자만 가능합니다. 
 
 :::note 
 
-**로그 개인정보 조회** 권한에 대한 자세한 내용은 [다음 문서](/project/project-structure#CNT08829)를 확인하세요. 
+**로그 개인정보 조회** 권한 및 **로그 편집** 권한에 대한 자세한 내용은 [다음 문서](/project/project-structure#CNT08829)를 확인하세요. 
 
 :::
 
@@ -671,10 +683,31 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 
     <ImgLang img="log-de-identification-list.png" desc="로그 개인정보 비식별화 목록" />
 
+    * 비식별화 처리된 검색 키의 경우 로그 콘텐츠 내 <code class='filter'>검색 키.pii</code> 형식으로 출력됩니다.
+
     * <Cmdname sid="TTL08814" className="uitext" /> 목록 내 <Cmdname sid="enable" className="uitext" /> 컬럼에서 비식별화 항목을 ![토글 활성화 아이콘](/img/ic-toggle-on.svg)<Cmdname sid="enable" className="uitext" />할 수 있습니다.
     
     * <Cmdname sid="TTL08814" className="uitext" /> 목록 내 <Cmdname sid="TLT08066" className="uitext" /> 컬럼에서 ![수정 아이콘](/img/ic-edit.svg) ***수정*** 및 ![제거 아이콘](/img/ic-delete-critical.svg) ***제거***할 수 있습니다.
 
+
+:::note 
+
+<Cmdname sid="log_parser_setting_primary" className="uitext" /> 탭에서 시 검색 키 이름을 <code class='filter'>검색 키.p</code>로 지정한 경우 기본적으로 비식별화 대상이됩니다. <Cmdname sid="TTL08814" className="uitext" /> 탭에서 추가 또는 수정 시 해당 <Cmdname sid="category" className="uitext" /> 선택 후 <Cmdname sid="TTL08835" className="uitext" />에서 확인할 수 있습니다. 마스킹 처리를 원하지 않는 경우 해제할 수 있습니다. 와탭은 파서 설정 중 비식별화 대상 지정하는 방식보다 <Cmdname sid="TTL08814" className="uitext" /> 탭 사용을 권장합니다.
+
+![지정된 검색 키 예시](/img/log-display-pi-1st-parser.png)
+
+:::
+
+{/* 로그 1차 파서 설정 탭에서 검색 키 이름을 검색 키.p로 지정하면 개인정보 비식별화 탭에서는 지정된 검색 키로 표시되면서 기본적인 비식별화 대상이 됩니다.
+지정된 검색 키 외에 업무 상 민감정보로 처리해야 하는 검색 키가 있다면 추가적으로 암호화 저장 및 비식별화 대상으로 지정할 수 있습니다. */}
+
+{/* :::note 
+
+<Cmdname sid="log_parser_setting_primary" className="uitext" /> 탭에서 시 검색 키 이름을 <code class='filter'>검색 키.p</code>로 지정한 경우 기본적으로 비식별화 대상이됩니다. <Cmdname sid="TTL08814" className="uitext" /> 탭에서 추가 또는 수정 시 해당 <Cmdname sid="category" className="uitext" /> 선택 후 <Cmdname sid="TTL08835" className="uitext" />에서 확인할 수 있습니다. 마스킹 처리를 원하지 않는 경우 해제할 수 있습니다. 파서 설정 중 비식별화 대상 지정하는 방식보다 <Cmdname sid="TTL08814" className="uitext" /> 탭 사용을 권장합니다. 개인정보 비식별화에 대한 자세한 내용은 [다음 문서](#log-deidentification-of-personal-info)에서 참조하세요. 
+
+::: */}
+
+{/* 사용자가 비식별화 설정을 하지 않아도 비식별화 처리됩니다. 이 경우 <Cmdname sid="TTL08814" className="uitext" /> 탭에서 조작할 수 없습니다. */}
 
 ### 개인정보 표시 
 
@@ -682,13 +715,10 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 
 ![로그 개인정보 표시 sc](/img/log-de-identification-content.png)
 
-
 :::note 
 
-* <Cmdname sid="TTL08814" className="uitext" /> 탭에서 지정한 검색 키는 로그 메뉴 내 로그 콘텐츠에서 <code class='filter'>검색 키.pii</code> 형식으로 나타납니다. 
+<Cmdname sid="TTL08814" className="uitext" /> 탭에서 지정한 검색 키는 로그 메뉴 내 로그 콘텐츠에서 <code class='filter'>검색 키.pii</code> 형식으로 나타납니다. 
 
   > 예시, <code class='filter'>status.pii</code> `***`
-
-* <Cmdname sid="log_parser_setting_primary" className="uitext" /> 설정 시 검색 키를 <code class='filter gr'>검색 키.p</code>로 지정 시 사용자가 비식별화 설정을 하지 않아도 비식별화 처리됩니다. 이 경우 <Cmdname sid="TTL08814" className="uitext" /> 탭에서 조작할 수 없습니다. <Cmdname sid="TTL08814" className="uitext" /> 탭 사용을 권장합니다. 
 
 :::

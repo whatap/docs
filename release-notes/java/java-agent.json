@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_47",
+    "ver": "v2.2.47",
+    "date": "2024-12-23",
+    "Lists": [
+      {
+        "ver": "v2.2.47",
+        "hash": "v2247",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> undertow-2.3에서 spring-boot-web 사용 시 트랜잭션을 중복 수집하는 문제 수정</p>"
+      },
+      {
+        "ver": "v2.2.47",
+        "hash": "v2247",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>spring-boot-executor</code> 지표 수집 시 ExecutorService가 terminated 상태인 경우 수집되지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_46",
     "ver": "v2.2.46",
     "date": "2024-12-13",

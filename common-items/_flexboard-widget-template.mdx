@@ -363,7 +363,11 @@ This site or product includes IP2Location LITE data available from [https://lite
 
 ### ![](/img/ic-alert.svg) <Cmdname sid="side_event" /> {#event}
 
-여러 개의 프로젝트를 선택해 경고 알림이 발생한 내역을 확인하거나 실시간 이벤트 발생 현황을 확인할 수 있습니다.
+#### <Cmdname sid="event_list" /> {#eventlist}
+
+하나 또는 여러 개의 프로젝트에서 발생한 알림 내역을 실시간으로 파악하거나 특정 조회 시간을 설정해 확인할 수 있습니다.
+
+##### <Cmdname sid="edit_mode" />
 
 <Columns>
 
@@ -371,27 +375,79 @@ This site or product includes IP2Location LITE data available from [https://lite
 
 ![알림 목록](/img/fb-alert-list-widget.png)
 
-<Cmdname sid="event_list" className="uitext" />
-
 </Column>
 
 <Column className="text--center">
 
-![이벤트 타임라인](/img/fb-event-timeline-widget.png)
-
-<Cmdname sid="event" className="uitext" /> <Cmdname sid="timeline" className="uitext" />
+![알림 목록](/img/fb-alert-list-widget-time-selector.png)
 
 </Column>
 
 </Columns>
 
-<Cmdname sid="event_list" className="uitext" /> 위젯에서는 <Cmdname sid="title" className="uitext" />, <Cmdname sid="project" className="uitext" />, <Cmdname sid="application" className="uitext" />별로 그룹화해 정렬할 수 있습니다. 그룹화를 해제하려면 <Cmdname sid="timeline" className="uitext" /> 버튼을 선택하세요.
+* <Cmdname sid="edit_mode" className="uitext" />에서는 <Cmdname sid="title" className="uitext" />, <Cmdname sid="project" className="uitext" />, <Cmdname sid="application" className="uitext" />별로 그룹화해 정렬할 수 있습니다. 그룹화를 해제하려면 <Cmdname sid="timeline" className="uitext" /> 버튼을 선택하세요.
+
+* 해소된 이벤트 목록을 포함해 확인하려면 <Cmdname sid="ITM08413" className="uitext" /> 옵션을 활성화하세요.
+
+* 대시보드에 설정된 조회 시간이 아닌 별도의 시간을 설정할 수 있습니다. ![시계 아이콘](/img/ic-custom-time.svg) 버튼을 선택하세요. <Cmdname sid="select_time_title" className="uitext" /> 팝업이 나타나면 <Cmdname sid="use_dashboard_settings" className="uitext" /> 옵션의 체크박스를 해제하세요.
 
 :::note
 
-알림이 발생할 경우 소리를 켜거나 끄려면 ![소리 아이콘](/img/ico-noti-sound.svg) 버튼을 선택하세요.
+* <Cmdname sid="select_time_title" className="uitext" /> 옵션 이용 방법에 대한 자세한 내용은 [다음 문서](usage-ui#timeselector)를 참조하세요.
+
+* 알림이 발생할 때 소리를 켜거나 끄려면 ![소리 아이콘](/img/ico-noti-sound.svg) 버튼을 선택하세요.
 
 :::
+
+##### <Cmdname sid="view_mode" />
+
+<Columns>
+
+<Column className="text--center width--50">
+
+![알림 목록](/img/fb-alert-list-widget-view-mode.png)
+
+</Column>
+
+<Column className="text--left">
+
+<Cmdname sid="view_mode" className="uitext" />에서는 <Cmdname sid="edit_mode" className="uitext" />의 설정 내용을 기준으로 알림 발생 현황을 확인할 수 있습니다.
+
+* 알림 목록을 전체 화면 크기로 확인하려면 ![전체 화면 아이콘](/img/ic-fullscreen.svg) 버튼을 선택하세요.
+
+* 알림 목록을 새창으로 열어 확인하려면 ![새창 아이콘](/img/ic-popup.svg) 버튼을 선택하세요.
+
+</Column>
+
+</Columns>
+
+#### <Cmdname sid="event" /> <Cmdname sid="timeline" /> {#eventtimeline}
+
+하나 또는 여러 개의 프로젝트에서 발생한 시간대별 알림 내역을 차트 형식으로 확인할 수 있습니다.
+
+<Columns>
+
+<Column className="text--center width--50">
+
+![이벤트 타임라인](/img/fb-event-timeline-widget.png)
+
+<Cmdname sid="edit_mode" />
+
+</Column>
+
+<Column className="text--center">
+
+![이벤트 타임라인](/img/fb-event-timeline-widget-view-mode.png)
+
+<Cmdname sid="view_mode" />
+
+</Column>
+
+</Columns>
+
+* <Cmdname sid="edit_mode" className="uitext" />에서는 대시보드에 설정된 조회 시간이 아닌 별도의 시간을 설정할 수 있습니다. ![시계 아이콘](/img/ic-custom-time.svg) 버튼을 선택하세요. <Cmdname sid="select_time_title" className="uitext" /> 팝업이 나타나면 <Cmdname sid="use_dashboard_settings" className="uitext" /> 옵션의 체크박스를 해제하세요.
+
+* <Cmdname sid="view_mode" className="uitext" />에서 전체 화면 크기로 확인하려면 ![전체 화면 아이콘](/img/ic-fullscreen.svg) 버튼을 선택하세요. 새창으로 열어 확인하려면 ![새창 아이콘](/img/ic-popup.svg) 버튼을 선택하세요.
 
 ### ![](/img/ic-agent.svg) 상태 확인 {#checkstatus}
 

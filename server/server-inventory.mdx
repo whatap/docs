@@ -3,7 +3,9 @@ id: server-inventory
 title: 서버 인벤토리
 description: 서버 인벤토리 메뉴를 안내합니다. 
 keywords: [ 서버 목록, 서버 인벤토리, 분석하기, UI, Server ]
+toc_max_heading_level: 3
 ---
+import ServerInventoryFilter from "../common-items/_server-inventory-filter.mdx";
 
 {/* 11월에 서버 구성 정보 -> 서버 인벤토리 변경 예정 현재 로케일 미 업데이트라 관련 텍스트만 일부 수정 */}
 
@@ -197,11 +199,16 @@ keywords: [ 서버 목록, 서버 인벤토리, 분석하기, UI, Server ]
 
 ### 필터
 
-상단 ![지시선 1](/img/number-01.png) 필터 입력창에서 원하는 조건 입력 후 해당 조건에 맞는 항목만 조회할 수 있습니다. 컬럼 조건을 입력 또는 선택 후 엔터를 눌러 추가하세요. `==` 또는 `!=` 적용 후 조건의 값을 특정해 입력하고 엔터를 누르세요.
+{/* 상단 ![지시선 1](/img/number-01.png) 필터 입력창에서 원하는 조건 입력 후 해당 조건에 맞는 항목만 조회할 수 있습니다. 컬럼 조건을 입력 또는 선택 후 엔터를 눌러 추가하세요. `==` 또는 `!=` 적용 후 조건의 값을 특정해 입력하고 엔터를 누르세요.
 
 > 예, <code class='filter'>서버 이름</code><code class='filter center'>==</code><code class='filter'>server04</code>
 
-필터 입력 후 <Cmdname sid="BTN06223" className="uitext" /> 버튼을 클릭하면 ![지시선 2](/img/number-02.png) 서버 인벤토리 목록 영역에서 필터링된 목록을 조회할 수 있습니다. 
+필터 입력 후 <Cmdname sid="BTN06223" className="uitext" /> 버튼을 클릭하면 ![지시선 2](/img/number-02.png) 서버 인벤토리 목록 영역에서 필터링된 목록을 조회할 수 있습니다.  */}
+
+
+상단 ![지시선 1](/img/number-01.png) 필터 입력창을 클릭 후 원하는 ***필터 키***와 ***조건***을 선택하여 값을 입력하고 ***적용*** 버튼을 클릭하세요. ![지시선 2](/img/number-02.png) 서버 인벤토리 목록 영역에서 필터링된 목록을 조회할 수 있습니다. 
+
+<ServerInventoryFilter />
 
 {/* 컬럼 조건 특정 후 조회 선택해야 적용 */}
 
@@ -249,9 +256,40 @@ keywords: [ 서버 목록, 서버 인벤토리, 분석하기, UI, Server ]
   사용자는 ***+*** <Cmdname sid="add_a_column" className="uitext" /> 버튼 선택 후 기본 제공 항목 외에도 자신이 원하는 항목을 추가하여 커스텀 컬럼(<code class='custom-cl'>custom</code>)을 구성할 수 있습니다. 각 필요에 맞게 컬럼을 추가하고 서버 상태 및 성능을 더욱 세밀하게 모니터링해 보세요. 
 
 
-### CSV 다운로드
+### CSV 다운로드 및 업로드
+
+#### CSV 다운로드
 
 ![지시선 2](/img/number-02.png) 영역 상단의 ![다운로드 아이콘](/img/ico-download.svg) <Cmdname sid="download" className="uitext" /> 버튼을 선택하여 수집된 서버 인벤토리를 *CSV* 파일 형식으로 다운로드할 수 있습니다. 
+
+#### CSV 업로드 
+
+{/* ![지시선 2](/img/number-02.png) 영역 상단의 ![업로드 아이콘](/img/ico-upload.svg) <Cmdname sid="upload" className="uitext" /> 버튼을 선택하여 *CSV 파일*을 업로드하여 서버 인벤토리 정보를 적용할 수 있습니다. */}
+
+서버 구성 정보를 대량으로 입력해야 하는 경우 개별 데이터를 수작업으로 입력하는 데 많은 시간이 소요됩니다. *CSV* 파일 업로드 기능을 통해 대량 데이터 입력을 효율적으로 처리하세요.
+
+1. ![지시선 2](/img/number-02.png) 영역 상단의 ![업로드 아이콘](/img/ico-upload.svg) ***CSV*** <Cmdname sid="upload" className="uitext" /> 버튼 클릭 후 업로드할 *CSV* 파일을 선택하세요. 
+
+1. ***CSV 검증*** 창을 통해 업로드된 데이터의 검증 결과를 확인하세요. 
+
+    * 변경되는 항목 및 에러 항목의 건수를 확인할 수 있습니다.
+
+      <ImgLang img='server-inventory-csv-preview.png' desc='서버 인벤토리 CSV 미리보기' />
+    
+    * 에러 항목 클릭 시 오른쪽 변경 데이터 목록 내에서 에러가 발생한 항목으로 이동하며 에러 항목은 하이라이팅됩니다.
+
+      <ImgLang img='server-inventory-csv-error.png' desc='서버 인벤토리 CSV 미리보기2' />
+
+1. 데이터 검증 후 이상이 없을 경우 ***적용*** 버튼을 클릭하여 선택한 *CSV* 파일의 서버 구성 정보를 적용시키세요. 
+
+:::note 
+
+* *CSV* 업로드 시 <Cmdname sid="TTL08183" className="uitext" /> 및 커스텀 컬럼(<code class='custom-cl'>custom</code>)의 변경 사항만 적용합니다. 
+
+* *CSV* 업로드 시 기존에 등록하지 않은 컬럼의 경우 반영하지 않습니다. 
+
+:::
+
 
 ### 수정
 
@@ -261,10 +299,21 @@ keywords: [ 서버 목록, 서버 인벤토리, 분석하기, UI, Server ]
 
 * 사용자가 추가한 커스텀 컬럼(<code class='custom-cl'>custom</code>) 내용을 설정할 수 있습니다.
 
+
 {/* 
 
 ### 활용 예시 
 
 활용 예시의 경우 추후 학습하기 문서에서 활용 
+
+*/}
+
+{/* 
+1218 삭제 기능은 아직 서버 인벤토리에서는 안내하지 않을 예정
+1월 서비스 배포 시 서버 목록 메뉴에서 서버 삭제할 경우 서버 인벤토리에는 반영 예정, 다만 서버 인벤토리에서 삭제한 경우 여전히 서버 목록 메뉴에서 삭제를 한 번 더 해야 해서..미완 
+
+업데이트+
+일단 1월에 서버 인벤토리 내 삭제 기능 제거 예정
+12월은 삭제 유지
 
 */}

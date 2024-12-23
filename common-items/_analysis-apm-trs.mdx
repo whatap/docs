@@ -73,6 +73,32 @@
 
 :::
 
+### 추이 비교 기능 이용하기 {#comparetrend}
+
+<Cmdname sid="TTL08868" className="uitext" /> 기능을 이용해 다수의 트랜잭션 추이를 한눈에 비교할 수 있습니다. 이 기능은 확인해야할 트랜잭션 건수가 많은 경우, 주요 문제를 빠르게 식별하고 트래픽 이슈를 해결하는 데 유용합니다.
+
+<ImgLang img="apm-statistic-tx-compare-trend.png" desc="추이 비교" />
+
+1. 조회하길 원하는 시간과 모니터링 대상을 선택한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+
+1. 트랜잭션 목록에서 비교하길 원하는 트랜잭션을 하나 이상 선택하세요.
+
+1. <Cmdname sid="TTL08868" className="uitext" /> 버튼을 선택하세요.
+
+1. 선택한 트랜잭션의 추이 그래프가 나열된 <Cmdname sid="TTL08868" className="uitext" /> 창이 나타납니다.
+
+<Cmdname sid="TTL08868" className="uitext" /> 창에서 추이 그래프를 확인해 트랜잭션 간의 트래픽 패턴을 비교하세요. 특정 시간대, 서비스 경로의 트래픽 분포를 비교할 수 있습니다.
+
+:::note
+
+* 최대 100개의 트랜잭션을 선택해 조회할 수 있습니다.
+
+* 선택한 트랜잭셔이 많은 경우, 로딩 시간이 증가할 수 있습니다.
+
+* 정확한 분석을 위해 <Cmdname sid="filter" className="uitext" /> 옵션을 적절히 활용하세요.
+
+:::
+
 ## 트랜잭션 도메인 통계
 
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_statDomain" className="uitext" />

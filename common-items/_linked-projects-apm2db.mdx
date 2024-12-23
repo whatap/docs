@@ -88,7 +88,7 @@
 
 :::
 
-##### SQL 스텝에서 확인하기
+##### SQL 스텝에서 확인하기 {#sqlstep}
 
 <ImgLang img="linked-projects-check-widget-03.png" desc="Correlated project" />
 
@@ -109,6 +109,8 @@
 :::note
 
 * 연계분석을 위해 등록한 데이터베이스 프로젝트의 DB가 현재 선택한 트랜잭션의 SQL을 실행한 경우에만, <UI>SQL</UI> 창에 <Cmdname sid="BTN08518" className="uitext" /> 버튼이 표시됩니다.
+
+* <Cmdname sid="BTN08840" className="uitext" /> 기능을 이용하면 변수를 복사해 <Cmdname sid="TTL07860" className="uitext" /> 창의 <UI>SQL Text</UI> 탭에 변수를 붙여넣기할 수 있습니다. 이 기능은 <Cmdname sid="BTN06764" className="uitext" /> 버튼을 선택해 보안키를 입력 후 바인드 변수 값이 표시될 때 이용할 수 있습니다. 자세한 내용은 [다음 문서](#copypastebindvar)를 참조하세요.
 
 * <Cmdname sid="TTL07860" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](#TTL07860)를 참조하세요.
 
@@ -169,6 +171,28 @@
 
 :::
 
+### 바인드 변수 복사/붙여넣기 {#copypastebindvar}
+
+SQL 스텝에서 확인한 바인드 변수 값을 복사해 <Cmdname sid="TTL07860" className="uitext" /> 창의 <UI>SQL Text</UI> 탭에서 붙여넣기할 수 있습니다. <Cmdname sid="TTL06209" className="uitext" /> 창에서 SQL 스텝을 확인하세요.
+
+<ImgLang img="linked-projects-copy-bind-var.png" desc="Bind variable" />
+
+1. <UI>SQL</UI> 창에서 <Cmdname sid="BTN06764" className="uitext" /> 버튼을 선택하고 보안키를 입력하세요.
+
+1. 바인드 변수를 확인하고 <Cmdname sid="BTN08840" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="BTN08518" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="TTL07860" className="uitext" /> 창이 나타나면 <UI>SQL Text</UI> 탭에서 <Cmdname sid="BTN08846" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+* <Cmdname sid="TTL07860" className="uitext" /> 창에서 SQL 스텝을 확인하는 방법에 대한 자세한 내용은 [다음 문서](#sqlstep)를 참조하세요.
+
+* 보안키와 관련한 에이전트 설정에 대한 자세한 내용은 [다음 문서](install-agent#security)를 참조하세요.
+
+:::
+
 ## <Cmdname sid="TTL07860" /> {#TTL07860}
 
 <Cmdname sid="TTL07860" className="uitext" />에서는 애플리케이션에서 현재 진행 중인 트랜잭션과 연계된 데이터베이스의 SQL 성능을 확인할 수 있습니다.
@@ -224,6 +248,8 @@
   * ***Default Bind***: 쿼리 문장에서 변수로 설정된 부분을 기본값으로 바인딩할 수 있습니다.
 
   * ***Reset Bind***: 바인딩된 기본값을 해제하고 변수를 확인할 수 있습니다.
+
+  * <Cmdname sid="BTN08846" className="uitext" />: 복사한 바인드 변수 값을 붙여넣기할 수 있습니다. 자세한 내용은 [다음 문서](#copypastebindvar)를 참조하세요.
 
   * ***Formatting***: SQL 쿼리문에 들여쓰기 및 포맷팅을 적용해 가독성을 높일 수 있습니다.
 

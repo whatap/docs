@@ -76,9 +76,9 @@ import CriteriaTip from "../common-items/_browser-stat-criteria-tip.mdx";
 
 <CriteriaTip/>
 
-### 조회 결과 다운로드하기
+import CSVdownload from "../common-items/_browser-stat-download-csv.mdx";
 
-조회한 데이터를 CSV 형식의 파일로 다운로드할 수 있습니다. 화면 오른쪽 상단의 ![다운로드 아이콘](/img/ic-csv-download-ms.svg) 버튼을 선택하세요. CSV 파일 이름은 *LoadStatistics_`YYYYMMDD_HHMMSS`.csv* 형식입니다.
+<CSVdownload filename="Page_LoadStatistics" />
 
 ## 화면 구성
 
@@ -244,7 +244,37 @@ import Coumnsetting from "../common-items/_browser-stat-column-setting.mdx";
 
 <Coumnsetting/>
 
-{/* 컬럼 및 용어 안내 */}
-import Statcolumn from "../common-items/_browser-stat-column-info.mdx";
+## 컬럼 및 용어 안내 {#columninfo}
 
-<Statcolumn/>
+<div className="c3-20-15-65 tableScroll">
+
+| 컬럼 | 단위 | 설명 |
+| -- | -- | -- |
+| <Cmdname sid="backend_time" className="uitext" /> | 밀리 세컨드 | 페이지 로드 중 백엔드에서 처리된 시간입니다. (`startTime`부터 `responseEnd`까지의 시간) |
+| <Cmdname sid="frontend_time" className="uitext" /> | 밀리 세컨드 | 페이지 로드 중 프론트엔드 영역의 처리 시간입니다. (`domInteractive`부터 `loadEventEnd`까지의 시간) |
+| <Cmdname sid="ITM08283" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 불러오면서 리다이렉트에 소요된 시간입니다. (`redirectStart`부터 `redirectEnd`까지의 시간) |
+| <Cmdname sid="cache_time" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 불러오면서 캐시된 리소스를 검색하는데 소요된 시간입니다. (`fetchStart`부터 `domainLookupStart`까지의 시간) |
+| <Cmdname sid="ITM08284" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 불러오면서 웹사이트 도메인을 조회하는데 소요된 시간입니다. (`domainLookupStart`부터 `domainLookupEnd`의 시간) |
+| <Cmdname sid="ITM08876" className="uitext" /> | 밀리 세컨드 | 페이지 로드 중 브라우저와 서버 간의 네트워크 연결을 설정하는 데 소요된 시간으로, 클라이언트와 서버가 연결하는 데 소요된 시간입니다. |
+| <Cmdname sid="ssl_time" className="uitext" /> | 밀리 세컨드 | TLS 핸드셰이크에 소요된 시간입니다. (`connectEnd`부터 `secureConnectionStart`까지의 시간) 마지막 요청이 HTTPS를 사용한 경우에만 측정합니다. |
+| <Cmdname sid="ITM08285" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 불러오면서 네트워크 요청을 보낸 후 서버로부터 첫 번째 바이트(byte)를 수신할 때까지 소요된 시간입니다. (`requestStart`부터 `responseStart`까지의 시간) |
+| <Cmdname sid="download_time" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 불러오면서 서버로부터 리소스를 다운로드하는데 소요된 시간입니다. (`responseStart`부터 `responseEnd`까지의 시간) |
+| <Cmdname sid="ITM08286" className="uitext" /> | 밀리 세컨드 | 웹 페이지가 초기 콘텐츠를 렌더링하고 상호 작용할 수 있는 상태가 되기까지의 시간입니다. (`domContentLoadedEventStart`부터 `domContentLoadedEventEnd`까지의 시간) |
+| <Cmdname sid="domload_time" className="uitext" /> | 밀리 세컨드 | 웹 페이지의 모든 자원을 로드하고 렌더링이 완료된 후 사용자가 상호 작용할 수 있는 상태까지의 시간입니다. (`loadEventStart`부터 `loadEventEnd`까지의 시간) |
+| <Cmdname sid="render_time" className="uitext" /> | 밀리 세컨드 | 서버로부터 다운로드한 리소스를 화면에 렌더링하고 페이지 로드 이벤트를 완료하는데 소요된 시간입니다. (`domInteractive`부터 `domComplete`까지의 시간) |
+| <Cmdname sid="TTL08498" className="uitext" /> | 밀리 세컨드 | 브라우저에서 측정하는 load 이벤트가 완료되는 시간입니다. (시작부터 `loadEventEnd`까지의 시간) |
+| <Cmdname sid="TTL06361" className="uitext" /> | 밀리 세컨드 | 브라우저가 웹 페이지를 완전히 불러오는데 소요된 시간입니다. |
+| <Cmdname sid="count" className="uitext" /> | 건수 | 페이지 로드 수입니다. |
+| <Cmdname sid="page_group" className="uitext" /> | URL 텍스트 | URL 경로(URL Path)를 정규 표현식을 통해 정규화하여 제공하는 통계 그룹입니다. 자세한 내용은 [다음 문서](before-starting#page-group)를 참조하세요. |
+| <Cmdname sid="TTL08449" className="uitext" /> | URL 텍스트 | 정규 표현식을 통해 정규화하지 않은 URL 경로(URL Path)입니다. |
+| <Cmdname sid="browser" className="uitext" /> | 텍스트 | Chrome, Edge, Safari 등, 최종 사용자가 사용한 브라우저 종류입니다. |
+| <Cmdname sid="os" className="uitext" /> | 텍스트 | macOS, Windows, Linux 등, 최종 사용자가 사용한 기기의 운영체제 종류입니다. |
+| <Cmdname sid="device" className="uitext" /> | 텍스트 | Desktop, Mobile, Tablet 등, 최종 사용자가 사용한 기기 종류입니다. |
+
+</div>
+
+:::note
+
+**Navigation timing**에 대한 자세한 내용은 [다음 문서](collect-data#navigation-timing)를 참조하세요.
+
+:::

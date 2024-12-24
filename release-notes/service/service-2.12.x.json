@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
+    "ver": "Service 2.12.1",
+    "date": "2024-12-24",
+    "Lists": [
+      {
+        "ver": "Service 2.12.1",
+        "hash": "service-2121",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> 공통 모달이 페이지 최상단에 위치하는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.0",
     "date": "2024-12-24",
     "Lists": [

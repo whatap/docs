@@ -193,6 +193,13 @@
       {
         "ver": "Service 2.12.0",
         "hash": "service-2120",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 메뉴에서 사이드 메뉴의 Agent/IP 검색 기능을 통해 조회한 에이전트를 선택하면 해당 페이지로 이동하지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.12.0",
+        "hash": "service-2120",
         "product": "Kubernetes",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">Ingress 목록</span> 메뉴의 상세 정보에 애플리케이션 정보 추가</p>"

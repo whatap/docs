@@ -53,27 +53,26 @@ keywords: [ 프로젝트 ]
 
 <div class='c5-3-5-avg'>
 
-| 권한 체계 | 설명 |
-| -- | -- |
-| <Cmdname sid="view_and_analysis" /> | 프로젝트 조회 |
-| <Cmdname sid="edit" /> | 조직, 그룹, 프로젝트에 대한 이동, 수정, 삭제, 정비 계획 |
-| <Cmdname sid="log_read" /> | 로그 조회, 로그 관련 기능 접근 |
-| <Cmdname sid="CNT08829" /> | 로그에 포함된 개인정보를 조회할 수 있는 권한 |
-| <Cmdname sid="log_update" /> | 로그 설정 편집 |
-| <Cmdname sid="ITM06494" /> | 프로젝트의 <Cmdname sid="flexboard" className="uitext" /> 편집 |
-| <Cmdname sid="member_management" /> | 멤버 권한 수정, 멤버 추가 및 제외 |
-| <Cmdname sid="alert_reception" /> | 알림 수신 |
-| <Cmdname sid="sms_alert_settings" /> | 알림 수신 설정, 정비 계획, Server 상품의 프로세스 그룹화 기능 |
-| <Cmdname sid="billing" /> | 금액 청구 |
+| 권한 체계                | 설명                                                                       |
+| ------------------------ | -------------------------------------------------------------------------- |
+| 조회 분석                | 프로젝트 조회                                                              |
+| 수정                     | 조직, 그룹, 프로젝트에 대한 이동, 수정, 삭제, 정비 계획                               |
+| 로그 조회                | 로그 조회, 로그 관련 기능 접근                                             |
+| 로그 편집                | 로그 설정 편집                                                             |
+| 프로젝트 플렉스보드 편집 | 프로젝트의 <Cmdname sid="flexboard" className="uitext" /> 편집             |
+| 멤버 관리                | 멤버 권한 수정, 멤버 추가 및 제외                                          |
+| 알림 수신                | 알림 수신                                                                  |
+| 알림 설정                | 알림 수신 설정, 정비 계획, Server 상품의 프로세스 그룹화 기능 |
+| 결제                     | 금액 청구                                                                  |
 
 </div>
 
 
-### <Cmdname sid="view_and_analysis" /> {#view_and_analysis}
+### 조회 및 분석
 
 조직, 그룹, 프로젝트에 멤버를 초대할 경우 해당 멤버에게 기본으로 부여하는 권한입니다. <Cmdname sid="dashboard" className="uitext" /> 및 기타 메뉴 페이지를 볼 수 있습니다.
 
-### <Cmdname sid="edit" /> {#edit}
+### 수정
 
 * 프로젝트의 기능을 수정할 수 있습니다. 예를 들어 <Cmdname sid="dashboard" className="uitext" /> 추가 및 수정, 삭제 등을 할 수 있습니다. 
 
@@ -91,19 +90,19 @@ keywords: [ 프로젝트 ]
 
 :::
 
-### <Cmdname sid="member_management" /> {#member_management}
+### 멤버 관리
 
 * 조직, 그룹, 프로젝트별로 소속한 멤버를 추가 및 삭제, 권한을 편집할 수 있습니다.
 
 * 반드시 1명 이상의 **멤버 관리** 권한을 가진 멤버가 있어야 합니다.
 
-### <Cmdname sid="alert_reception" /> {#alert_reception}
+### 알림 수신
 
 * <Cmdname sid="event_statistic" className="uitext" /> > <Cmdname sid="event_receive_configuration" className="uitext" /> 메뉴에서 알림 수신 설정을 제어할 수 있습니다. 
 
 * **알림 수신** 권한을 설정하지 않으면 본인 계정에 대한 수신 설정만 할 수 있습니다.
 
-### <Cmdname sid="sms_alert_settings" /> {#sms_alert_settings}
+### 알림 설정
 
 * <Cmdname sid="event_statistic" className="uitext" /> > <Cmdname sid="event_receive_configuration" className="uitext" /> 메뉴에서 알림을 추가 및 삭제, 수정할 수 있습니다. 그 외 모든 기능을 제어할 수 있습니다.
 
@@ -119,7 +118,7 @@ keywords: [ 프로젝트 ]
 
 :::
 
-### <Cmdname sid="log_read" /> {#log_read}
+### 로그 조회
 
 * 로그를 조회할 수 있습니다. 조직, 그룹, 프로젝트에 멤버를 초대할 경우 해당 멤버에게 기본으로 부여하는 권한입니다.
 
@@ -133,39 +132,8 @@ keywords: [ 프로젝트 ]
 
   * 컨테이너 맵 메뉴에서 **요약 보기**, **상세 보기**의 <Cmdname sid="log" className="uitext" /> 탭
 
-### <Cmdname sid="CNT08829" /> {#CNT08829}
 
-로그에 포함된 개인정보를 조회할 수 있는 권한입니다. 로그에는 사용자의 서비스를 이용하는 고객의 개인정보가 포함될 수 있습니다. 와탭은 로그에 포함된 개인정보를 마스킹 처리합니다. 와탭 계정의 모든 사용자는 기본적으로 개인정보가 마스킹된 로그를 조회하게 됩니다.
-
-![Log](/img/project-member-role-log-masking.png)
-
-개인 정보로 분류하는 항목은 다음을 참조하세요.
-
-* 주민등록번호
-
-* 여권번호
-
-* 운전면허번호
-
-* 외국인 등록번호
-
-* 신용카드 번호
-
-* 계좌번호
-
-* 생체인식 정보
-
-<Cmdname sid="CNT08829" /> 권한을 가진 사용자는 로그 관련 메뉴에서 개인정보를 표시할 수 있는 토글 버튼이 표시됩니다. <Cmdname sid="BTN08818" className="uitext" /> 토글 버튼을 활성화하면 마스킹을 해제하여 개인정보를 조회할 수 있습니다.
-
-<ImgLang img="project-member-role-log-masking-option.png" desc="Log" />
-
-:::note
-
-로그에서 개인정보 비식별화 설정에 대한 자세한 내용은 [다음 문서](../log/log-setting)를 참조하세요.
-
-:::
-
-### <Cmdname sid="log_update" /> {#log_update}
+### 로그 편집
 
 <Cmdname sid="log" className="uitext" /> > <Cmdname sid="log_setting" className="uitext" /> 메뉴에서 설정을 편집할 수 있는 권한입니다. <b>로그 편집</b> 권한이 있는 경우 <Cmdname sid="log_setting" className="uitext" /> 메뉴를 이용할 수 있습니다.
 
@@ -175,7 +143,7 @@ keywords: [ 프로젝트 ]
 
 :::
 
-### <Cmdname sid="ITM06494" /> {#ITM06494}
+### 프로젝트 플렉스보드 편집
 
 프로젝트의 <Cmdname sid="flexboard" className="uitext" /> 메뉴에서 대시보드를 수정할 수 있는 권한입니다. 프로젝트 내 <Cmdname sid="flexboard" className="uitext" /> 메뉴에서는 <Cmdname sid="edit_mode" className="uitext" /> 및 <Cmdname sid="admin" className="uitext" /> 모드, <Cmdname sid="filter" className="uitext" /> 기능에 접근할 수 있습니다.
 
@@ -186,7 +154,7 @@ Flex 보드에 대한 자세한 내용은 [다음 문서](../java/flex-board)를
 :::
 
 
-### <Cmdname sid="billing" /> {#billing}
+### 결제
 
 * 조직, 그룹, 프로젝트별로 **결제** 권한은 1명만 가집니다. 결제 권한을 가진 멤버는 필수로 1명 존재해야합니다.
 
@@ -201,11 +169,11 @@ Flex 보드에 대한 자세한 내용은 [다음 문서](../java/flex-board)를
   <ImgLang img='project-str-billing.png' desc='' className='noneborder'/>
 
 
-## 멤버 권한 수정 {#modify-auth}
+## 멤버 권한 수정{#modify-auth}
 
 ### 프로젝트 멤버 권한 수정
 
-조직 또는 그룹에 속하지 않은 프로젝트의 멤버 목록에서 소속 멤버의 권한을 수정할 수 있습니다.
+현재 선택한 조직 또는 그룹, 프로젝트의 멤버 목록에서 소속 멤버의 사용자 권한을 수정할 수 있습니다. 
 
 <ImgLang img='member-modify-authority-0508.png' desc='멤버 권한 수정' />
 
@@ -213,8 +181,8 @@ Flex 보드에 대한 자세한 내용은 [다음 문서](../java/flex-board)를
 
 ### 조직 또는 그룹 멤버 권한 수정
 
-조직 또는 그룹에 속한 프로젝트에 대한 멤버 권한을 수정할 수 있습니다.
-
+조직 또는 그룹 하위에 속한 그룹 또는 프로젝트에 대한 멤버 권한을 설정할 수 있습니다.
+  
 <ImgLang img='modify-organize-member-authority.png' desc='멤버 권한 수정' />
 
 <Cmdname sid="user_role_per_group_of_organization" className="uitext" /> 또는 <Cmdname sid="user_role_per_project_of_group" className="uitext" /> 섹션 아래에서 권한을 수정하려는 항목의 <LinkImage img="ico-edit.svg" desc="편집 아이콘" /> 버튼을 선택하세요. <Cmdname sid="edit_member_role" className="uitext" /> 창이 나타납니다. 권한에 대해 설정할 수 있는 옵션은 다음과 같습니다.

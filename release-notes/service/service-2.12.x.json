@@ -10,6 +10,14 @@
         "product": "공통",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> 공통 모달이 페이지 최상단에 위치하는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.12.1",
+        "hash": "service-2121",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">IIS 성능 카운트</span> 메뉴에서 위젯의 <img decoding=\"async\" loading=\"lazy\" alt=\"확대 아이콘\" src=\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik01IDlIM1YzSDVIOVY1SDVWOVpNMyAyMVYxNUg1VjE5SDlWMjFINUgzWk0xNSAxOVYyMUgyMVYxOVYxNUgxOVYxOUgxNVpNMTUgNVYzSDIxVjVWOUgxOVY1SDE1WiIgZmlsbD0iIzc1NzU3NSIvPgo8L3N2Zz4K\" width=\"24\" height=\"24\" class=\"img_ev3q medium-zoom-image\"> 버튼을 클릭해 전체 화면으로 차트를 확인할 때, 시간 선택자가 표시되는 문제 수정</p>",
+        "category": ".NET"
       }
     ]
   },

@@ -1,6 +1,27 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
+    "ver": "Service 2.12.2",
+    "date": "2024-12-26",
+    "Lists": [
+      {
+        "ver": "Service 2.12.2",
+        "hash": "service-2122",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 메뉴 재진입 시 데이터 미표시 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.12.2",
+        "hash": "service-2122",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 메뉴의 <span class=\"uitext\">히트맵</span> 위젯에서 상세 보기를 통해 <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">히트맵</span> 메뉴로 이동 시 조회된 데이터의 시간값으로 타임 셀렉터와 차트의 x축이 설정되지 않는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.1",
     "date": "2024-12-24",
     "Lists": [

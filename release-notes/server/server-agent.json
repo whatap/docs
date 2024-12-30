@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server/server-2_7_5",
+    "ver": "v2.7.5",
+    "date": "2024-12-30",
+    "Lists": [
+      {
+        "ver": "v2.7.5",
+        "hash": "v275",
+        "product": "Server Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Windows 에이전트의 프로세스 수집 코드 성능 최적화</p>"
+      },
+      {
+        "ver": "v2.7.5",
+        "hash": "v275",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Windows 에이전트 업데이트 시 서비스 정지가 실패되는 버그 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server/server-2_7_4",
     "ver": "v2.7.4",
     "date": "2024-12-17",

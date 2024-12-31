@@ -22,13 +22,43 @@ toc_max_heading_level: 2
 
 ### `kubernetes`
 
-<Status priority='1'>Feature</Status> <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_oomContainer" className="uitext" /> 메뉴에서 연관 메뉴로 이동할 수 있는 링크 제공
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 <Cmdname sid="TTL06782" className="uitext" /> 탭에서 Volume 정보를 확인할 수 있는 기능 추가
 
-- **podName**: <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_podList" className="uitext" />
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_oomContainer" className="uitext" /> 메뉴에서 연관 메뉴로 이동할 수 있는 링크 제공
 
-- **containerId**: <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_containerList" className="uitext" />
+  - **podName**: <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_podList" className="uitext" />
 
-- **onodeName**: <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" /> 노드 목록
+  - **containerId**: <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_containerList" className="uitext" />
+
+  - **onodeName**: <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" /> 노드 목록
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> 하위에 Persistent Volume 관련 신규 메뉴 추가
+
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <UI>Persistent Volume</UI>
+
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <UI>Persistent Volume Claim 목록</UI>
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_dbAgents" className="uitext" /> 메뉴로 최초 진입하면 에이전트 목록이 표시되지 않는 문제 수정
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 데이터베이스 태그가 많아지면 숨김 처리하도록 변경
+
+#### SQL Server
+
+<Status priority='1'>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbProcedureStat" className="uitext" /> 메뉴의 기능 및 UI 개선
+
+- <UI>definition</UI> 컬럼을 선택했을 때 테이블 행(row) 색상 추가
+
+- 쿼리 통계 테이블에 <UI>plan_handle</UI> 컬럼 추가
+
+- 숫자 데이터에 포맷팅 적용
+
+- 시간 관련 데이터에 단위(μs) 표시
 
 </div>
 

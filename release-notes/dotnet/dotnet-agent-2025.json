@@ -1,0 +1,24 @@
+[
+  {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_3_7",
+    "ver": "v2.3.7",
+    "date": "2025-01-02",
+    "Lists": [
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> .NET Core에 MySQL 드라이버 지원 추가</p>",
+        "details": "<p><b>ADO.NET</b>을 통한 MySQL 드라이버뿐만 아니라 <b>MySQL Connector/Net</b>과 같은 직접적인 MySQL 데이터 공급자도 지원합니다.</p>"
+      },
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> .NET Core에서 클라이언트 IP 주소가 0.0.0.0으로 표시되는 오류 수정</p>"
+      }
+    ]
+  }
+]

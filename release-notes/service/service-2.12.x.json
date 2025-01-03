@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
+    "ver": "Service 2.12.3",
+    "date": "2024-12-27",
+    "Lists": [
+      {
+        "ver": "Service 2.12.3",
+        "hash": "service-2123",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스터스 모니터링</span> 메뉴의 시리즈 차트에서 연동된 클라우드 지표의 데이터가 표시되지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.2",
     "date": "2024-12-26",
     "Lists": [

@@ -265,55 +265,6 @@ config: {
 <Columns>
 <Column className="text--left width--40">
 
-**tracingAjaxUrls** <span class='type'>Array\<string \| RegExp\></span> <code className="my">optional</code>
-
-APM 트랜잭션 연계 대상이 되는 AJAX URL 목록입니다. 문자열 매칭은 `startsWith` 방식으로 이루어집니다.
-
-</Column>
-<Column className="text--left">
-
-```js showLineNumbers {6}
-config: {
-  projectAccessKey: {projec_access_key},
-  pcode: {pcode},
-  sampleRate: 100,
-  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
-  tracingAjaxUrls: ['https://service.whatap.io/yard/api/flush', 'https://service.whatap.io/yard/api/multi'],
-}
-```
-
-</Column>
-</Columns>
-
-<Columns>
-<Column className="text--left width--40">
-
-**traceSampleRate** <span class='type'>Number</span> <code className="my">optional</code>
-
-기본값 `100`
-
-APM 트랜잭션 연계 대상이 되는 AJAX 비율입니다.
-
-</Column>
-<Column className="text--left">
-
-```js showLineNumbers {7}
-config: {
-  projectAccessKey: {projec_access_key},
-  pcode: {pcode},
-  sampleRate: 100,
-  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
-  tracingAjaxUrls: ['https://service.whatap.io/yard/api/flush', 'https://service.whatap.io/yard/api/multi'],
-  traceSampleRate: 50
-}
-```
-
-</Column>
-</Columns>
-
-<Columns>
-<Column className="text--left width--40">
-
 **sessionReplaySampleRate** <span class='type'>Number</span> <code className="my">optional</code>
 
 기본값 `0`

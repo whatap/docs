@@ -38,11 +38,15 @@ import Accesskey from "../getting-started/_accesskey.mdx";
 다음 두가지 방식 중 원하는 방식을 선택해 에이전트를 적용하세요.
 
 - ***Async***(비동기 로드): 웹 애플리케이션에 와탭 브라우저 에이전트를 비동기 형태로 로드합니다. 
+
   * 웹 애플리케이션의 로드 성능에 영향을 미치지 않습니다. 
+
   * 브라우저 에이전트가 로드되기 전 발생한 AJAX, 에러 등의 데이터가 누락될 수 있습니다.
-    
+
 - ***Sync***(동기 로드): 웹 애플리케이션에 와탭 브라우저 에이전트를 동기 형태로 로드합니다.
+
   * 웹 애플리케이션 로드 시 모든 데이터를 수집하려면 권장합니다. 
+
   * 웹 애플리케이션 로드에 영향을 미칠 수 있습니다.
 
 ## 와탭 브라우저 에이전트 옵션 설정 {#setting-agent}
@@ -54,11 +58,10 @@ config: {
   projectAccessKey: {projec_access_key},
   pcode: {pcode},
   sampleRate: 100,
-  ignoreOrigins: [ 'https://ignore-site.com/' , '/^(https?://)([^/]*)(ignore-site.io)(/)(.*)/i' ],
-  collectUserClick: false
+  ignoreOrigins: [ 'https://ignore-site.com/', /^(https?://)([^/]*)(ignore-site.io)(/)(.*)/i ],
 }
 ```
-
+{/* 
 * **projectAccessKey**: 프로젝트 액세스 키입니다.
 
 * **pcode**: 프로젝트 코드입니다.
@@ -72,6 +75,324 @@ config: {
 :::note
 
 `projectAccessKey`, `pcode` 값은 설치 안내에서 제공하는 스크립트 코드를 가져와 사용하길 권장합니다.
+
+::: */}
+
+### 옵션 파라미터
+
+<Columns>
+<Column className="text--left width--40">
+
+**projectAccessKey** <span class='type'>String</span> <code className="my">required</code>
+
+프로젝트 액세스 키입니다. 프로젝트 설치 안내(<Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" />)에서 확인할 수 있습니다. 
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {2}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**pcode** <span class='type'>Number</span> <code className="my">required</code>
+
+프로젝트 액세스 키입니다. 프로젝트 설치 안내(<Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" />)에서 확인할 수 있습니다. 
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {3}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**sampleRate** <span class='type'>Number</span> <code className="my">required</code>
+
+수집하는 사용자 세션 비율을 설정할 수 있습니다. 0부터 100까지 설정할 수 있습니다.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {4}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**proxyBaseUrl** <span class='type'>String</span> <code className="my">required</code>
+
+에이전트 수집 데이터 전송 URL입니다.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {5}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**ignorePageUrls** <span class='type'>Array\<string \| RegExp\></span> <code className="my">optional</code>
+
+수집에서 제외할 페이지 URL 목록입니다. 문자열 매칭은 `startsWith` 방식으로 이루어집니다.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {6}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+  ignorePageUrls: ["https://test.webpage.com/", "http://localhost:2003/page1/", /^.localhost.$/i]
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**ignoreResources** <span class='type'>Array\<string \| RegExp\></span> <code className="my">optional</code>
+
+수집에서 제외할 리소스 URL 목록입니다. 문자열 매칭은 `startsWith` 방식으로 이루어집니다.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {6}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+  ignoreResources: ["https://test.web.com/yard/api/flush", "http://localhost:2003/whatap-browser-agent.js",  /^.\/path1\/api.$/i]
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**ignoreErrors** <span class='type'>Array\<string \| RegExp\></span> <code className="my">optional</code>
+
+수집에서 제외할 브라우저 에러 목록입니다. 문자열 매칭은 `includes` 방식으로 이루어집니다.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {6}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+  ignoreErrors: ["cannot read", "cors", "basic"]
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**collectUserClick** <span class='type'>Boolean</span> <code className="my">optional</code>
+
+기본값 `false`
+
+사용자 클릭 이벤트를 수집할 수 있습니다. 수집한 데이터를 확인하는 방법은 [다음 문서](user-session-log-search#click--rapid_click)를 참조하세요.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {6}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+  collectUserClick: true
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**tracingAjaxUrls** <span class='type'>Array\<string \| RegExp\></span> <code className="my">optional</code>
+
+APM 트랜잭션 연계 대상이 되는 AJAX URL 목록입니다. 문자열 매칭은 `startsWith` 방식으로 이루어집니다.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {6}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+  tracingAjaxUrls: ['https://service.whatap.io/yard/api/flush', 'https://service.whatap.io/yard/api/multi'],
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**traceSampleRate** <span class='type'>Number</span> <code className="my">optional</code>
+
+기본값 `100`
+
+APM 트랜잭션 연계 대상이 되는 AJAX 비율입니다.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {7}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+  tracingAjaxUrls: ['https://service.whatap.io/yard/api/flush', 'https://service.whatap.io/yard/api/multi'],
+  traceSampleRate: 50
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**sessionReplaySampleRate** <span class='type'>Number</span> <code className="my">optional</code>
+
+기본값 `0`
+
+세션 리플레이 데이터를 수집할 세션 비율입니다. 수집 대상 사용자 세션 중 0부터 100까지 설정할 수 있습니다.
+
+예를 들어, `sampleRate`를 **50**으로 설정하고 `sessionReplaySampleRate`를 **20**으로 설정하면, 전체 세션의 50%가 수집 대상이 되며, 그 중 20%의 세션에서만 세션 리플레이 데이터를 수집합니다.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {6}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+  sessionReplaySampleRate: 50
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**sessionReplayMaskAllTexts** <span class='type'>Boolean</span> <code className="my">optional</code>
+
+기본값 `true`
+
+값을 `false`로 설정하면 마스킹 처리 없이 모든 텍스트 데이터를 수집합니다.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {7}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+  sessionReplaySampleRate: 50, 
+  sessionReplayMaskAllTexts: false
+}
+```
+
+</Column>
+</Columns>
+
+<Columns>
+<Column className="text--left width--40">
+
+**sessionReplayMaskAllInputs** <span class='type'>Boolean</span> <code className="my">optional</code>
+
+기본값 `true`
+
+값을 `false`로 설정하면 마스킹 처리 없이 모든 입력(Input) 필드 영역의 데이터를 수집합니다.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {7}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+  sessionReplaySampleRate: 50, 
+  sessionReplayMaskAllInputs: false
+}
+```
+
+</Column>
+</Columns>
+
+:::note
+
+세션 리플레이에 대한 자세한 내용은 [다음 문서](session-replay)를 참조하세요.
 
 :::
 

@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
+    "ver": "Service 2.12.4",
+    "date": "2025-01-03",
+    "Lists": [
+      {
+        "ver": "Service 2.12.4",
+        "hash": "service-2124",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통합 Flex 보드</span> 또는 <span class=\"uitext\">Flex 보드</span> 메뉴에서 대시보드 변경 후 시간 선택자를 조작하면 변경 전 대시보드로 초기화되는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.3",
     "date": "2024-12-27",
     "Lists": [

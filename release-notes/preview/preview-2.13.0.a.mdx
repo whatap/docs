@@ -14,6 +14,98 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.13.0.a2
+
+2025년 01월 09일
+
+<div class='indentTab'>
+
+### `Application`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_tx" className="uitext" /> 메뉴에서 트랜잭션 건수를 기준으로 계산한 <Cmdname sid="TTL06959" className="uitext" />, <Cmdname sid="TTL06956" className="uitext" />, <Cmdname sid="TTL06953" className="uitext" /> 컬럼 추가
+
+  :::note
+
+  변경 사항은 다음을 참고하세요.
+
+  **컬럼 이름 변경**
+
+  * <Cmdname sid="TTL06959" className="b500" /> → <Cmdname sid="TTL08965" className="uitext" />: 총 HTTP 호출 시간 / 트랜잭션에서 발생한 총 HTTP 호출 건수
+  
+  * <Cmdname sid="TTL06956" className="b500" /> → <Cmdname sid="TTL08964" className="uitext" />: 총 SQL 시간 / 트랜잭션에서 발생한 총 SQL 건수
+  
+  * <Cmdname sid="TTL06953" className="b500" /> → <Cmdname sid="TTL08966" className="uitext" />: 총 SQL 패치 시간 / 트랜잭션에서 발생한 총 SQL 패치 건수
+
+  **새로 추가된 평균값 컬럼 항목**
+
+  * <Cmdname sid="TTL06959" className="uitext" />: 총 HTTP 호출 시간 / 트랜잭션 발생 건수
+  
+  * <Cmdname sid="TTL06956" className="uitext" />: 총 SQL 시간 / 트랜잭션 발생 건수
+  
+  * <Cmdname sid="TTL06953" className="uitext" />: 총 SQL 패치 시간 / 트랜잭션 발생 건수
+
+  :::
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_netstatTopology" className="uitext" /> 메뉴의 초기 화면에 안내 메시지 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> 메뉴에서 체크박스가 일부 잘려 표시되는 문제 수정
+
+---
+
+### `Server`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 서버의 활성 상태를 표시하는 기본 컬럼 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 <Cmdname sid="TTL08087" className="uitext" /> 컬럼에 운영체제별 아이콘 표시
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴의 <Cmdname sid="column_settings" className="uitext" />에서 <Cmdname sid="TTL08086" className="uitext" /> 컬럼을 체크 해제할 수 있는 문제 수정, 기본 컬럼으로 변경
+
+:::note
+
+기본 컬럼은 <Cmdname sid="column_settings" className="uitext" />에서 추가하거나 삭제할 수 없으며 순서를 변경할 수 없습니다.
+
+:::
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_dbCloudSetting" className="uitext" /> 메뉴에서 AWS 리전 선택 옵션 추가
+
+  :::note
+
+  적용 플랫폼: **PostgreSQL**, **Oracle**, **MySQL**, **SQL Server**
+
+  :::
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 차트 영역의 높이가 작아지면 스크롤을 사용할 수 있도록 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_dbAgentUpdate" className="uitext" /> 메뉴에서 윈도우 운영체제를 사용하는 환경에 대한 안내 메시지 추가
+
+- <Status priority='1'>Deprecated</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 XOS 에이전트 실행 권한 부여 명령어 삭제
+
+#### Oracle Pro
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="session_detail" className="uitext" /> 및 <Cmdname sid="TTL06224" className="uitext" /> 창의 Plan Tree에 튜닝 가이드 기능 추가
+
+  ![SQL Detail](/img/release/release-oracle-pro-sql-detail.png)
+
+  :::note
+
+  튜닝 가이드는 Plan Tree의 노드에 `FULL` 또는 `CARTESIAN` 키워드를 포함할 경우 표시됩니다.
+
+  :::
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="session_detail" className="uitext" /> 및 <Cmdname sid="TTL06224" className="uitext" /> 창의 Plan Tree 구조 디자인 변경
+
+#### SQL Server
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbProcedureStat" className="uitext" /> 메뉴에서 <Cmdname sid="filter" className="uitext" /> 옵션의 설정 사항을 <UI>Procedure Statistics</UI> 테이블에만 적용하도록 수정
+
+</div>
+
 ## Preview 2.13.0.a1
 
 2024년 01월 02일

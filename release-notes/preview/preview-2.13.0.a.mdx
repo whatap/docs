@@ -22,6 +22,30 @@ toc_max_heading_level: 2
 
 ### `Application`
 
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_tx" className="uitext" /> 메뉴에서 트랜잭션 건수를 기준으로 계산한 <Cmdname sid="TTL06959" className="uitext" />, <Cmdname sid="TTL06956" className="uitext" />, <Cmdname sid="TTL06953" className="uitext" /> 컬럼 추가
+
+  :::note
+
+  변경 사항은 다음을 참고하세요.
+
+  **컬럼 이름 변경**
+
+  * <Cmdname sid="TTL06959" className="b500" /> → <Cmdname sid="TTL08965" className="uitext" />: 총 HTTP 호출 시간 / 트랜잭션에서 발생한 총 HTTP 호출 건수
+  
+  * <Cmdname sid="TTL06956" className="b500" /> → <Cmdname sid="TTL08964" className="uitext" />: 총 SQL 시간 / 트랜잭션에서 발생한 총 SQL 건수
+  
+  * <Cmdname sid="TTL06953" className="b500" /> → <Cmdname sid="TTL08966" className="uitext" />: 총 SQL 패치 시간 / 트랜잭션에서 발생한 총 SQL 패치 건수
+
+  **새로 추가된 평균값 컬럼 항목**
+
+  * <Cmdname sid="TTL06959" className="uitext" />: 총 HTTP 호출 시간 / 트랜잭션 발생 건수
+  
+  * <Cmdname sid="TTL06956" className="uitext" />: 총 SQL 시간 / 트랜잭션 발생 건수
+  
+  * <Cmdname sid="TTL06953" className="uitext" />: 총 SQL 패치 시간 / 트랜잭션 발생 건수
+
+  :::
+
 - <Status priority='1'>Changed</Status> <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_netstatTopology" className="uitext" /> 메뉴의 초기 화면에 안내 메시지 추가
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> 메뉴에서 체크박스가 일부 잘려 표시되는 문제 수정

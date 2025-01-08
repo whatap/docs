@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
+    "ver": "Service 2.12.5",
+    "date": "2025-01-08",
+    "Lists": [
+      {
+        "ver": "Service 2.12.5",
+        "hash": "service-2125",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">트랜잭션 검색</span> 메뉴에서 <span class=\"uitext\">운영체제</span> 컬럼의 내용이 표시되지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.4",
     "date": "2025-01-03",
     "Lists": [

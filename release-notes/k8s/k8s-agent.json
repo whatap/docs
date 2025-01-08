@@ -1,19 +1,5 @@
 [
   {
-    "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_8_2",
-    "ver": "v1.8.2",
-    "date": "2025-01-08",
-    "Lists": [
-      {
-        "ver": "v1.8.2",
-        "hash": "v182",
-        "product": "Kubernetes Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> kube_ingress 목록이 나오지 않는 현상 수정</p>"
-      }
-    ]
-  },
-  {
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_8_1",
     "ver": "v1.8.1",
     "date": "2024-12-24",

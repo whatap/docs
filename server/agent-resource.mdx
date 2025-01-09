@@ -1,0 +1,48 @@
+---
+id: agent-resource
+title: 에이전트 과부하 방지
+description: 과부하 발생 시 사용자 서버의 자원 사용량에 영향을 최소화 할 수 있도록 에이전트 설정 방법을 제공합니다.
+keywords: [ Server, 에이전트, 리소스 보호 ]
+toc_max_heading_level: 3
+---
+
+Linux 및 Windows 서버에서 사용하는 와탭 서버 모니터링 에이전트는 서버의 안정성을 유지하고, 과부하 상황에서도 사용자 서버의 자원 사용량에 미치는 영향을 최소화하기 위해 다음과 같은 방식으로 동작합니다.
+
+## Linux / Windows 
+
+### 메모리 사용량 보호 
+
+와탭 에이전트는 메모리 사용량이 임계점(100MB)을 초과하는 경우 자동으로 프로세스를 재시작하여 사용자 서버의 가용 메모리를 보호합니다.
+
+```bash
+memory.usage.limit=104857600  # 메모리 사용량 임계값 (100MB, 바이트 단위)
+```
+
+### 자동 재시작 
+
+와탭 에이전트는 1일 1회 자동 재시작됩니다. 해당 주기는 사용자 설정을 통해 조정 가능합니다. 이 기능은 데이터 수집 장애 및 일시적인 프로세스 오작동을 해소하기 위해 제공됩니다.
+
+```bash 
+housekeeping.enabled=true             # 자동 재시작 기능 활성화 (기본값: true)
+housekeeping.hour=2                   # 재시작 시간 (서버 시간 기준, 기본값: 2시)
+housekeeping.exitoncheckfail=true     # 수집 장애 발생 시 자동 재시작 (기본값: true)
+```
+
+### CPU 사용량 보호 
+
+CPU 사용량이 임계치를 초과하는 경우 와탭 에이전트는 실행 속도를 자동으로 조정하여 서버의 CPU 가용성을 보호합니다. 기본적으로 비활성화되어 있으며 필요 시 활성화할 수 있습니다.
+
+```bash 
+cpu.limit.enabled=false           # CPU 사용량 보호 기능 비활성화 (기본값: false)
+cpu.usage.limit=50                # CPU 사용량 임계값 (단일 코어 기준 50%)
+```
+
+## Windows 
+
+### Handle 사용량 보호 
+
+Windows 환경에서는 와탭 에이전트가 사용하는 Handle 개수가 임계점(1000개)을 초과할 경우, 자동 재시작하여 사용자 서버의 가용 Handle을 보호합니다.
+
+```bash
+windows.handle.threshold=1000    # Handle 사용량 임계값 (기본값: 1000개)
+```

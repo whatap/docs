@@ -1,6 +1,34 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
+    "ver": "Service 2.12.7",
+    "date": "2025-01-09",
+    "Lists": [
+      {
+        "ver": "Service 2.12.7",
+        "hash": "service-2127",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통합 Flex 보드</span> 또는 <span class=\"uitext\">Flex 보드</span> 메뉴에서 실시간 조회 모드일 때 알림 목록 위젯에서 업데이트마다 알림음이 발생하는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
+    "ver": "Service 2.12.6",
+    "date": "2025-01-09",
+    "Lists": [
+      {
+        "ver": "Service 2.12.6",
+        "hash": "service-2126",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 메뉴에서 에이전트 필터 적용 사항이 <span class=\"uitext\">액티브 트랜잭션</span> 팝업창에 적용되지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.5",
     "date": "2025-01-08",
     "Lists": [

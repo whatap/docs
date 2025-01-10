@@ -5,17 +5,14 @@ description: 클라우드 데이터베이스 서버의 자원 현황을 수집�
 keywords: [ PostgreSQL, 데이터베이스, 클라우드 ]
 ---
 
-{/* description */}
-import CloudSettingsDesc from "../common-items/_db-cloudsettings-desc.mdx";
+import CloudSettingsDesc from "../common-items/_db-cloudsettings-desc.mdx"; 
+import CloudWatchSettings from "../common-items/_db-cloudsettings-awscloudwatch.mdx"; 
+import AzureSettings from "../common-items/_db-cloudsettings-azure.mdx"; 
 
-<CloudSettingsDesc />
-
-{/* AWS CloudWatch 설정 */}
-import CloudWatchSettings from "../common-items/_db-cloudsettings-awscloudwatch.mdx";
-
-<CloudWatchSettings />
-
-{/* Azure 설정 */}
-import AzureSettings from "../common-items/_db-cloudsettings-azure.mdx";
-
-<AzureSettings />
+<Collection docs={
+  [
+    {Topic: CloudSettingsDesc},
+    {Topic: CloudWatchSettings},
+    {Topic: AzureSettings}
+  ]} 
+/>

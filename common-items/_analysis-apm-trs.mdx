@@ -41,21 +41,24 @@
 
 트랜잭션 통계를 수집합니다. 5분마다 최대 5,000개의 URL 별 수행 통계를 수집하여 서버에 전송합니다. 만약 서로 다른 URL의 수가 5분 동안 5,000개가 넘으면 무시됩니다.
 
-| 컬럼                            | 설명                              |
-| ------------------------------- | --------------------------------- |
-| <Cmdname sid="TTL06918" />      | 트랜잭션 주소                     |
-| <Cmdname sid="count" />         | 수행 건수                         |
-| <Cmdname sid="error" />         | 수행된 트랜잭션 중 에러 발생 건수 |
-| <Cmdname sid="TTL06960" /> (ms) | 응답시간 합계에 대한 평균         |
-| <Cmdname sid="TTL06963" /> (ms) | 응답시간의 합                     |
-| <Cmdname sid="TTL06961" /> (ms) | 최대 응답시간                     |
-| <Cmdname sid="TTL06965" />      | CPU 사용 시간에 대한 평균         |
-| <Cmdname sid="httpc_count" />   | HTTP Call 건수                    |
-| <Cmdname sid="TTL06959" /> (ms) | HTTP Call 시간의 합계에 대한 평균 |
-| <Cmdname sid="TTL06097" />      | SQL 수행 건수                     |
-| <Cmdname sid="TTL06956" /> (ms) | 평균 SQL 수행 시간                |
-| <Cmdname sid="sqlFetch" />      | SQL 패치 건수                     |
-| <Cmdname sid="TTL06953" /> (ms) | SQL 패치 시간의 합계에 대한 평균  |
+| 컬럼                            | 설명                                                      |
+| ------------------------------- | --------------------------------------------------------- |
+| <Cmdname sid="TTL06918" />      | 트랜잭션 주소                                             |
+| <Cmdname sid="count" />         | 수행 건수                                                 |
+| <Cmdname sid="error" />         | 수행된 트랜잭션 중 에러 발생 건수                         |
+| <Cmdname sid="TTL06960" /> (ms) | 응답시간 합계에 대한 평균                                 |
+| <Cmdname sid="TTL06963" /> (ms) | 응답시간의 합                                             |
+| <Cmdname sid="TTL06961" /> (ms) | 최대 응답시간                                             |
+| <Cmdname sid="TTL06965" />      | CPU 사용 시간에 대한 평균                                 |
+| <Cmdname sid="httpc_count" />   | HTTP 호출 건수                                            |
+| <Cmdname sid="TTL06959" /> (ms) | 총 HTTP 호출 시간 / 트랜잭션 발생 건수                    |
+| <Cmdname sid="TTL08965" /> (ms) | 총 HTTP 호출 시간 / 트랜잭션에서 발생한 총 HTTP 호출 건수 |
+| <Cmdname sid="TTL06097" />      | SQL 수행 건수                                             |
+| <Cmdname sid="TTL06956" /> (ms) | 총 SQL 시간 / 트랜잭션 발생 건수                          |
+| <Cmdname sid="TTL08964" /> (ms) | 총 SQL 시간 / 트랜잭션에서 발생한 총 SQL 건수             |
+| <Cmdname sid="sqlFetch" />      | SQL 패치 건수                                             |
+| <Cmdname sid="TTL06953" /> (ms) | 총 SQL 패치 시간 / 트랜잭션 발생 건수                     |
+| <Cmdname sid="TTL08966" /> (ms) | 총 SQL 패치 시간 / 트랜잭션에서 발생한 총 SQL 패치 건수   |
 
 :::note
 

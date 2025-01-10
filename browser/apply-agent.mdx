@@ -61,22 +61,6 @@ config: {
   ignoreOrigins: [ 'https://ignore-site.com/', /^(https?://)([^/]*)(ignore-site.io)(/)(.*)/i ],
 }
 ```
-{/* 
-* **projectAccessKey**: 프로젝트 액세스 키입니다.
-
-* **pcode**: 프로젝트 코드입니다.
-
-* **sampleRate**: 수집하는 사용자 세션 비율을 설정할 수 있습니다.
-
-* **ignoreOrigins**: 통계 수집에서 제외할 특정 리소스 도메인을 문자열 배열 형태로 추가할 수 있습니다. 정규 표현식을 적용할 수도 있습니다.
-
-* **collectUserClick**: 클릭 이벤트를 수집할 수 있습니다. 기본값은 `false`입니다.
-
-:::note
-
-`projectAccessKey`, `pcode` 값은 설치 안내에서 제공하는 스크립트 코드를 가져와 사용하길 권장합니다.
-
-::: */}
 
 ### 옵션 파라미터
 
@@ -341,9 +325,37 @@ config: {
 </Column>
 </Columns>
 
+<Columns>
+<Column className="text--left width--40">
+
+**sessionReplayCollectAllBrowser** <span class='type'>Boolean</span> <code className="my">optional</code>
+
+기본값 `false`
+
+`requestIdleCallback()`을 지원하지 않는 브라우저에서도 세션 리플레이 데이터를 수집합니다. 예, Safari, Safari on iOS
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {7}
+config: {
+  projectAccessKey: {projec_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js"
+  sessionReplaySampleRate: 50, 
+  sessionReplayCollectAllBrowser: true
+}
+```
+
+</Column>
+</Columns>
+
 :::note
 
-세션 리플레이에 대한 자세한 내용은 [다음 문서](session-replay)를 참조하세요.
+* 세션 리플레이에 대한 자세한 내용은 [다음 문서](session-replay)를 참조하세요.
+
+* 세션 리플레이 수집을 지원하는 브라우저에 대한 자세한 내용은 [다음 문서](session-replay#supportedbrowser)를 참조하세요.
 
 :::
 

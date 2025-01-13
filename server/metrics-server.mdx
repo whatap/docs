@@ -25,8 +25,10 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 ## server_base
 
 서버 자원 지표입니다.
-* 수집 간격 : 5초
-* 통계 데이터 : 5분, 1시간
+
+* 수집 간격: 5초
+
+* 통계 데이터: 5분, 1시간
 
 ### Tags {#server_base-tags}
 
@@ -85,8 +87,10 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 ## server_cpu_core
 
 서버 CPU 코어별 지표입니다.
-* 수집 간격 : 5초
-* 통계 데이터 : -
+
+* 수집 간격: 5초
+
+* 통계 데이터: -
 
 ### Tags {#server_cpu_core-tags}
 
@@ -117,8 +121,10 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 ## server_disk
 
 각 서버에 마운트 된 파일 시스템별 지표입니다.
-* 수집 간격 : 5초
-* 통계 데이터 : 5분, 1시간
+
+* 수집 간격: 5초
+
+* 통계 데이터: 5분, 1시간
 
 ### Tags {#server_disk-tags}
 
@@ -157,8 +163,10 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 ## server_network
 
 각 서버의 네트워크 인터페이스 지표입니다.
-* 수집 간격 : 5초
-* 통계 데이터 : 5분, 1시간
+
+* 수집 간격: 5초
+
+* 통계 데이터: 5분, 1시간
 
 ### Tags {#server_network-tags}
 
@@ -191,8 +199,10 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 ## server_netstat
 
 각 서버별 네트워크 프로토콜 통계 정보입니다.
-* 수집 간격 : 5초
-* 통계 데이터 : 5분, 1시간
+
+* 수집 간격: 5초
+
+* 통계 데이터: 5분, 1시간
 
 ### Tags {#server_netstat-tags}
 
@@ -233,8 +243,10 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 ## server_process
 
 서버 프로세스 정보입니다.
-* 수집 간격 : 20초
-* 통계 데이터 : 5분
+
+* 수집 간격: 20초
+
+* 통계 데이터: 5분
 
 ### Tags {#server_process-tags}
 
@@ -271,9 +283,182 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |rss|바이트|메모리 RSS 크기|공통|
 |rssAccmulated|바이트|와탭 전용|공통|
 
+
+## infra_cpu 
+
+서버의 CPU 사용량과 관련된 지표입니다.
+
+* 수집 간격: 2초 
+
+* 통계: 5분, 1시간
+
+### Fields {#infra_cpu-fields}
+
+|필드명|설명|OS|
+|---|---|---|
+|total|전체 CPU 사용률 중 사용자 모드(User)와 커널 모드(Sys)에서의 사용률 합계를 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|user|전체 CPU 사용률 중 사용자 모드(User)에서의 사용률을 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|sys|전체 CPU 사용률 중 커널 모드(Sys)에서의 사용률을 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|nice|전체 CPU 사용률 중 낮은 우선 순위(niced) 프로세스의 사용률을 의미합니다. 높은 우선순위 및 기본 우선순위 프로세스 사용률은 user(퍼센트)에 표시됩니다.|HP-UX, Linux|
+|wait|전체 CPU 사용률 중 CPU가 I/O 작업 완료를 기다리는 데 소비한 시간 비율을 의미합니다.|HP-UX, AIX, Solaris, Linux|
+|total_wait|전체 CPU 사용률 중 사용자 모드(User), 커널 모드(Sys), I/O 대기(wait)의 사용률 합계를 의미합니다.|HP-UX, AIX, Solaris, Linux|
+|idle|CPU가 유휴 상태로, 작업을 수행하지 않은 시간 비율을 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|lCores|OS에 할당된 Logical Core 수를 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|irq|하드웨어 Interrupt Request를 처리하는 데 사용된 CPU 사용률을 의미합니다.|Linux|
+|softirq|소프트웨어 Interrupt Request를 처리하는 데 사용된 CPU 사용률을 의미합니다.|Linux|
+|steal|가상화 환경에서 하이퍼바이저가 다른 프로세스를 서비스하는 동안 가상 CPU가 비자발적으로 대기하는 시간 비율을 의미합니다.|Linux|
+|procUtil|Windows 전용 지표로, 시스템의 모든 프로세서의 총 CPU 사용률을 의미합니다 (Windows 작업 관리자 CPU 사용률).|Windows|
+|loadavg_1m|최근 1분 동안의 시스템 평균 부하를 의미합니다.|HP-UX, AIX, Solaris, Linux|
+|loadavg_5m|최근 5분 동안의 시스템 평균 부하를 의미합니다.|HP-UX, AIX, Solaris, Linux|
+|loadavg_15m|최근 15분 동안의 시스템 평균 부하를 의미합니다.|HP-UX, AIX, Solaris, Linux|
+
+## infra_mem 
+
+서버의 메모리 사용량과 관련된 지표입니다. 
+
+* 수집 간격: 2초 
+
+* 통계: 5분, 1시간
+
+### Fields {#infra_mem-fields}
+
+|필드명|설명|OS|
+|---|---|---|
+|pUsed|전체 메모리 사용률 중 사용자 프로세스나 커널에 의해 사용된 메모리의 사용률만을 의미합니다. (buffer 및 cache 제외)|HP-UX, AIX, Solaris, Linux, Windows|
+|used|전체 메모리에서 버퍼 및 캐시 영역을 제외하고, 사용자 프로세스나 커널에 의해 사용된 메모리의 사용량을 Byte 단위로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|pCache|전체 메모리 중, 캐시로 사용되는 영역의 비율을 의미합니다.|HP-UX, AIX, Solaris, Linux|
+|cache|전체 메모리 중, 캐시로 사용되는 메모리의 사용량을 Byte 단위로 표시합니다.|HP-UX, AIX, Solaris, Linux|
+|buffer|Linux 전용 지표로, 전체 메모리 중 I/O 입출력을 위해 사용되는 버퍼 사용량을 Byte 단위로 표시합니다.|Linux|
+|pUsed_pCache|메모리 사용률을 사용자 프로세스나 커널에 의해 사용된 메모리와 캐시 영역 사용률의 합으로 표시합니다.|HP-UX, AIX, Solaris, Linux|
+|size|서버에 할당된 전체 메모리 크기를 Byte 단위로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|available|현재 사용 가능한 메모리 크기를 Byte 단위로 표시합니다.|Linux|
+|sreclaimable|커널에서 사용 중인 캐시 메모리 중, 필요 시 회수가 가능한 영역의 크기를 Byte 단위로 표시합니다.|Linux|
+|sunreclaim|커널에서 사용 중인 캐시 메모리 중, 회수가 불가능한 영역의 크기를 Byte 단위로 표시합니다.|Linux|
+|slab|커널에서 사용 중인 캐시 메모리의 크기를 Byte 단위로 표시합니다. sreclaimable과 sunreclaim의 합을 의미합니다.|Linux|
+|pageFaults|프로세스가 메모리에 접근할 때 해당 데이터가 물리적 메모리에 존재하지 않았던 횟수를 의미합니다.|Linux|
+|poolPaged|Windows 전용 지표로 페이징된 풀의 Byte 수를 표시합니다. 디스크로 스왑될 수 있는 메모리 영역을 의미합니다.|Windows|
+|poolNonPaged|Windows 전용 지표로 비페이징된 풀의 Byte 수를 표시합니다. 항상 메모리에 상주하는 영역을 의미합니다.|Windows|
+|systemCacheResident|Windows 전용 지표로 시스템 캐시 메모리의 Byte 수를 표시합니다.|Windows|
+|swapIn|디스크의 스왑(페이징 스페이스) 영역에서 메모리로 옮겨간 초당 페이지 수를 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|swapOut|메모리에서 디스크 스왑(페이징 스페이스) 영역으로 옮겨간 초당 페이지 수를 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|fsIn|파일 시스템의 읽기 작업에 따라 메모리에 로드한 초당 페이지 수를 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|fsOut|파일 시스템의 쓰기 작업에 따라 디스크에 기록한 초당 페이지 수를 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|scanned|스왑 아웃이나 페이지 교체를 위해 초당 스캔된 페이지 수를 의미합니다.|HP-UX, AIX, Solaris|
+|freed|스왑 아웃 발생 시 초당 생성된 free 메모리 영역의 페이지 수를 의미합니다.|HP-UX, AIX, Solaris|
+
+
+## infra_swap
+
+서버의 Swap 사용량과 관련된 지표 입니다.
+
+* 수집 간격: 2초 
+
+* 통계: 5분, 1시간
+
+### Fields {#infra_swap-fields}
+
+|필드명|설명|OS|
+|---|---|---|
+|size|할당된 전체 Swap의 크기를 Bytes로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|pUsed|현재 사용 중인 Swap의 크기를 백분율로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|used|현재 사용 중인 Swap의 크기를 Bytes로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+
+
+## infra_kernel 
+
+서버의 시스템 및 커널 자원 사용량과 관련된 성능 지표입니다.
+
+* 수집 간격: 2초 
+
+* 통계: 5분, 1시간
+
+### Fields {#infra_kernel-fields}
+
+|필드명|설명|OS|
+|---|---|---|
+|runq|실행 준비가 되어 있지만 아직 CPU를 할당받지 못한 프로세스(또는 Thread)의 수를 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|blockq|I/O, 페이징 등을 위해 대기열에 있는 프로세스(또는 Thread)의 수를 의미합니다.|HP-UX, AIX, Solaris, Linux|
+|pendingq|AIX 전용 지표로, raw device의 I/O에 대한 응답 메시지를 기다리는 Thread의 수를 의미합니다.|AIX|
+|waitq|Swap out되었지만 일시적으로 대기(Sleep) 상태인 프로세스(또는 Thread)의 수를 의미합니다.|HP-UX, Solaris|
+|fork|초당 평균 fork 발생 횟수를 의미합니다. (fork: 기존 프로세스를 복제하여 새로운 프로세스를 생성하는 시스템 호출)|HP-UX, AIX, Solaris, Linux|
+|exec|초당 평균 exec 호출 횟수를 의미합니다. (exec: 현재 프로세스를 새로운 프로그램으로 대체하는 시스템 호출)|HP-UX, AIX, Solaris|
+|interrupt|초당 CPU가 하드웨어 인터럽트를 처리한 횟수를 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|syscall|초당 커널이 시스템 호출을 처리한 횟수를 의미합니다.|HP-UX, AIX, Solaris, Windows|
+|ctxswitch|초당 프로세스 간의 컨텍스트 전환 발생 횟수를 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+
+## infra_disk 
+
+서버의 물리 디스크 용량 및 입출력(IO) 성능과 관련된 지표입니다. 
+
+* 수집 간격: 2초 
+
+* 통계: 5분, 1시간
+
+### Fields {#infra_disk-fields}
+
+|필드명|설명|OS|
+|---|---|---|
+|read|서버의 모든 물리 디스크에서 읽힌 데이터의 총량을 Bytes 단위로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|write|서버의 모든 물리 디스크에 기록된 데이터의 총량을 Bytes 단위로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|total|서버의 모든 물리 디스크에서 읽고 쓰인 데이터의 총량을 Bytes 단위로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|readIops|서버의 모든 물리 디스크에서 초당 처리된 읽기 작업 수를 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|writeIops|서버의 모든 물리 디스크에서 초당 처리된 쓰기 작업 수를 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|totalIops|서버의 모든 물리 디스크에서 초당 처리된 읽기 및 쓰기 작업 수를 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+
+
+## infra_network
+
+서버의 전체 네트워크 통신량과 관련된 지표입니다. 
+
+* 수집 간격: 2초 
+
+* 통계: 5분, 1시간
+
+### Fields {#infra_network-fields}
+
+|필드명|설명|OS|
+|---|---|---|
+|rxbps|서버의 모든 NIC(Loopback 제외)를 통해 수신(Rx)된 데이터의 양을 bps(bit per second) 단위로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|txbps|서버의 모든 NIC(Loopback 제외)를 통해 송신(Tx)된 데이터의 양을 bps(bit per second) 단위로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|totalbps|서버의 모든 NIC(Loopback 제외)를 통해 수신(Rx) 및 송신(Tx)된 데이터의 총량을 bps(bit per second) 단위로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|rxpps|서버의 모든 NIC(Loopback 제외)를 통해 수신(Rx)된 데이터의 초당 패킷 수(packets per second)를 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|txpps|서버의 모든 NIC(Loopback 제외)를 통해 송신(Tx)된 데이터의 초당 패킷 수(packets per second)를 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+|totalpps|서버의 모든 NIC(Loopback 제외)를 통해 수신(Rx) 및 송신(Tx)된 데이터의 총 패킷 수(packets per second)를 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
+
+:::note 
+
+루프백 인터페이스(loopback, lo)의 트래픽은 집계에서 제외됩니다.
+
+:::
+
+
+## infra_process
+
+서버에서 실행 중인 프로세스 및 리소스 상태와 관련된 지표입니다. 
+
+* 수집 간격: 2초 
+
+* 통계: 5분, 1시간
+
+### Fields {#infra-process-fields}
+
+|필드명       |설명                                           |OS                       |
+|-------------|----------------------------------------------|-------------------------|
+|procTotal    |서버에서 실행 중인 전체 프로세스 수를 표시한 값입니다. |HP-UX, AIX, Solaris, Linux, Windows|
+|threadTotal  |서버에서 실행 중인 전체 Thread 수를 표시한 값입니다. |HP-UX, AIX, Solaris, Linux, Windows|
+|handleTotal  |Windows OS에서 실행 중인 전체 handle 수를 표시한 값입니다. |Windows                 |
+|defunctTotal |defunct 프로세스의 수를 표시한 값입니다.        |HP-UX, AIX, Solaris, Linux|
+
+:::note 
+
+서버에서 실행 중인 전체 프로세스 수, 스레드 수, 핸들 수, 그리고 defunct 프로세스의 수를 표시합니다.
+
+:::
+
 </div>
 
 ## 참고 자료
 
 * [윈도우 지수 자료](https://docs.microsoft.com/en-us/windows-hardware/test/wpt/cpu-analysis)
+
 * [리눅스 지수 자료](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/monitoring_and_managing_system_status_and_performance/index)

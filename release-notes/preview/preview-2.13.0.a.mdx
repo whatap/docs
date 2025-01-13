@@ -16,11 +16,17 @@ toc_max_heading_level: 2
 
 ## Preview 2.13.0.a3
 
-2025년 01월 16일
+2025년 01월 14일
 
 <div class='indentTab'>
 
 ### `공통`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsChart" className="uitext" /> 메뉴의 기능 개선
+
+  - 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" /> 메뉴에서 서드파티 플러그인을 통한 알림 수신 레벨 선택 기능 추가
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_integratedReport" className="uitext" /> 메뉴의 시간 선택자(타임 셀렉터) 기능 교체
 
@@ -60,7 +66,41 @@ toc_max_heading_level: 2
 
 ---
 
+### `Server`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴의 그룹 요약 패널과 상세 보기에서 현재 시각 기준 24시간 내의 진행 중인 이벤트를 조회할 수 있는 <Cmdname sid="TTL08970" className="uitext" /> 탭 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴의 그룹 패널 상단에 그룹별 서버 이벤트 상태를 합산하여 표시하도록 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴의 그룹 요약 패널과 상세 보기에서 <Cmdname sid="TTL08767" className="uitext" /> 테이블을 가로 스크롤할 때, 서버 이름 컬럼이 고정되도록 개선
+
+---
+
 ### `Kubernetes`
+
+- <Status priority='1'>New</Status> 쿠버네티스의 시스템 컴포넌트 중 하나인 kube-scheduler에 대한 모니터링 데이터를 조회할 수 있는 <Cmdname sid="side_kubeSchedulerDashboard" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_kubeSchedulerDashboard" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다. [쿠버네티스 에이전트 1.8.1 버전](../k8s/k8s-1_8_1) 이상에서 지원합니다.
+
+  :::
+
+- <Status priority='1'>New</Status> 시간의 흐름에 따른 컨테이너 상태를 확인할 수 있는 <Cmdname sid="side_containerTimeline" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_containerTimeline" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+  :::
+
+- <Status priority='1'>New</Status> 시간의 흐름에 따른 Pod 상태를 확인할 수 있는 <Cmdname sid="side_podTimeline" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_podTimeline" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+  :::
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 <Cmdname sid="TTL06782" className="uitext" /> 탭에서 <Cmdname sid="BTN08975" className="uitext" /> 정보도 확인할 수 있는 기능 추가
 
@@ -88,6 +128,10 @@ toc_max_heading_level: 2
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 최근 1시간/최근 1일 변경 시 첫 번째 데이터를 선택하도록 수정
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴에서 필터 조건을 처음 생성할 때 조건 없는 상태에서 적용 버튼 클릭하면 필터가 추가되는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴에서 같은 키의 조건을 다중 생성하면 `AND` 조건임에도 불구하고 `OR` 조건처럼 처리되는 문제 수정
+
 #### MySQL
 
 <Status priority='0'>Fixed</Status> <Cmdname sid="side_anlysis" className="uitext" /> &gt; <Cmdname sid="side_deadLock" className="uitext" /> 메뉴에서 데이터를 불러오지 못하는 문제 수정
@@ -106,7 +150,9 @@ toc_max_heading_level: 2
 
 ### `Log`
 
-<Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" /> 메뉴에서 최초 데이터 요청 시 데이터가 200개 이하일 경우, 200개가 채워지도록 개선
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" /> 메뉴에서 최초 데이터 요청 시 데이터가 200개 이하일 경우, 200개가 채워지도록 개선
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSetting" className="uitext" /> 메뉴에서 개인정보 비식별화 점검 기능 추가
 
 </div>
 

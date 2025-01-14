@@ -24,7 +24,17 @@ toc_max_heading_level: 2
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsChart" className="uitext" /> 메뉴의 기능 개선
 
-  - 
+  - 위젯의 제목에 카테고리 이름, hostname 추가
+
+  - 차트 데이터에 마우스 호버 시 힌트 데이터의 Max 값이 기록된 특정 시간 추가
+
+  - 범례 목록 전체 선택/해제 버튼 추가
+
+  - 차트 라인의 컬러 선택 기능 추가
+
+  - 더보기 메뉴에 CSV 복사 버튼 추가
+
+  - 더보기 메뉴에 차트 이미지 복사 버튼 추가
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" /> 메뉴에서 서드파티 플러그인을 통한 알림 수신 레벨 선택 기능 추가
 
@@ -72,7 +82,17 @@ toc_max_heading_level: 2
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴의 그룹 요약 패널과 상세 보기에서 현재 시각 기준 24시간 내의 진행 중인 이벤트를 조회할 수 있는 <Cmdname sid="TTL08970" className="uitext" /> 탭 추가
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴의 그룹 패널 상단에 그룹별 서버 이벤트 상태를 합산하여 표시하도록 변경
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴의 그룹 패널 상단에 그룹별 서버 상태별 개수와, 상태별 이벤트 수를 표시하도록 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> 메뉴에서 서버 상태를 판별하는 로직 변경
+
+  - **기존**: 진행 중인 이벤트로만 서버 상태 판별
+
+  - **변경**: 진행 중인 이벤트 + 단발성 이벤트(<Cmdname sid="CNT08326" className="uitext" /> 옵션이 꺼진 이벤트)로 서버 상태 판별 
+
+    단발성 이벤트는 발생 후 유효시간(기본 1시간) 동안은 진행 중 이벤트와 동일하게 처리합니다.
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> 메뉴에서 서버 상태 아이콘을 클릭하면 표시되는 <Cmdname sid="server_status" className="uitext" /> 창에서, 스냅샷 차트가 유효한 이벤트 카테고리인 경우에만 차트를 표시하도록 변경
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴의 그룹 요약 패널과 상세 보기에서 <Cmdname sid="TTL08767" className="uitext" /> 테이블을 가로 스크롤할 때, 서버 이름 컬럼이 고정되도록 개선
 
@@ -108,9 +128,16 @@ toc_max_heading_level: 2
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_kubeApiserverDashboard" className="uitext" /> 메뉴의 위젯이 관리형 쿠버네티스일 경우 **데이터 없음**에 대한 안내 추가
 
+- <Status priority='1'>Changed</Status> 다음 메뉴에서 <Cmdname sid="TTL08317" className="uitext" replace="{object}" /> 기능을 탭으로 분리
+
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" />
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_nodeMap" className="uitext" />
+
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴에서 필터의 지표 이름이 제대로 표시되지 않는 문제 수정
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_containerImages" className="uitext" /> 메뉴에서 이미지 이름에 `@`가 포함되는 경우 태그가 적절하게 표시되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> 컨테이너 요약 분석에서 Request, Limit 설정 메시지 오류 수정
 
 ---
 

@@ -121,25 +121,47 @@ grant select, execute to DB_User;
 * 일반적인 경우
 
   ```sql title="SQL"
-  create user whatap identified by DB_Password;
-  grant create session to whatap;
-  grant select any dictionary to whatap;
+  create user {DB_User} identified by {DB_Password};
+  grant create session to {DB_User};
+  grant select any dictionary to {DB_User};
   ```
 
-* 12c 이상에서 멀티테넌트의 경우: 접두어 `c##` 추가
+* 12c 이상에서 멀티 테넌트 DB를 사용하는 경우: 접두어 `c##` 추가
 
-  ```SQL title="SQL"
-  create user c##whatap identified by DB_PASSWORD;
-  grant create session to c##whatap;
-  grant select any dictionary to c##whatap;
-  alter user c##whatap set container_data = ALL container = CURRENT;
+  ```sql title="SQL"
+  create user c##{DB_User} identified by "{DB_Password}";
+  grant create session to c##{DB_User};
+  grant select any dictionary to c##{DB_User};
+  alter user c##{DB_User} set container_data = ALL container = CURRENT;
   ```
 
 * kill session 기능을 사용할 경우
 
-  ```SQL title="SQL"
-  grant alter system to whatap
+  ```sql title="SQL"
+  grant alter system to {DB_User}
   ```
+
+* 히든 파라미터를 조회할 경우
+
+  ```sql title="SQL"
+  create view sys.whatap_vw_ksppi as select * from sys.x$ksppi;
+  grant select on sys.whatap_vw_ksppi to {DB_User};  
+  create synonym {DB_User}.whatap_vw_ksppi for sys.whatap_vw_ksppi;
+
+  create view sys.whatap_vw_ksppcv as select * from sys.x$ksppcv;
+  grant select on sys.whatap_vw_ksppcv to {DB_User};
+  create synonym {DB_User}.whatap_vw_ksppcv for sys.whatap_vw_ksppcv;
+  ```
+
+<InDoc product="oracle">
+
+* 연결 분석 기능을 사용할 경우
+
+  ```sql title="SQL"
+  grant select on sys.v_$session to {Appication_service_account};
+  ```
+
+</InDoc>
 
 <details>
 

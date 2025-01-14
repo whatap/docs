@@ -1,6 +1,16 @@
 ## 계정 생성{#uid}
 
+<Xclude product="db2">
+
 데이터베이스 모니터링을 하기 위해 필요한 권한을 가진 계정을 생성하세요. root(admin) 계정으로 로그인해 계정을 생성하세요.
+
+</Xclude>
+
+<InDoc product="db2">
+
+DB2의 사용자 계정은 운영 체제의 사용자 계정과 연동됩니다. 따라서 **OS user**를 생성한 후 DB에서 권한을 부여해야 합니다.
+
+</InDoc>
 
 <InDoc product="altibase">
 
@@ -189,9 +199,48 @@ grant select, execute to DB_User;
 
 </InDoc>
 
+<InDoc product="db2">
+
+### 모니터링을 위한 OS user 생성하기
+
+DB를 설치한 계정과 같은 그룹으로 모니터링 계정을 생성하세요.
+
+1. DB를 설치한 계정의 그룹 이름을 확인하세요.
+
+    ```bash
+    db2 get dbm cfg | grep "SYSADM_GROUP"
+    ```
+
+1. **1**에서 확인한 그룹 이름의 `gid`를 확인하세요.
+
+    ```bash
+    cat /etc/passwd | grep {group_name}
+    ```
+
+1. **2**에서 확인한 `gid`로 OS 계정을 생성하세요.
+
+    ```bash
+    useradd -g {gid} {DB_User}
+    ```
+
+### 권한 부여하기
+
+DB 설치 계정으로 DB에 접속하여 다음과 같이 권한을 부여하세요.
+
+```sql title="v11.1 or later"
+GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_CONNECTION TO USER {DB_User};
+GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_DATABASE TO USER {DB_User};
+GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_TRANSACTION_LOG TO USER {DB_User};
+GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_BUFFERPOOL TO USER {DB_User};
+GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_ACTIVITY TO USER {DB_User};
+GRANT SELECT ON TABLE SYSIBMADM.MON_LOCKWAITS TO USER {DB_User};
+```
+
+</InDoc>
+
 :::note
 
-<Xclude product="postgresql,mysql,altibase,mssql">
+<Xclude product="postgresql,mysql,altibase,mssql,db2">
 
 * 이미 있는 계정을 사용하고 싶다면 [DB 유저 파일 생성](#create-db-user)으로 넘어가세요. 권한이 없을 경우 모니터링을 시작할 수 없습니다.
 
@@ -199,7 +248,7 @@ grant select, execute to DB_User;
 
 </Xclude>
 
-<InDoc product="postgresql,mysql,altibase,mssql">
+<InDoc product="postgresql,mysql,altibase,mssql,db2">
 
 * 권한을 가진 계정이 있다면 이 단계를 생략하고 [다음 단계](#check-accesskey)로 넘어가세요.
 

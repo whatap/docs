@@ -1,0 +1,23 @@
+[
+  {
+    "url": "https://docs.whatap.io/release-notes/server/server-2_7_6",
+    "ver": "v2.7.6",
+    "date": "2025-01-06",
+    "Lists": [
+      {
+        "ver": "v2.7.6",
+        "hash": "v276",
+        "product": "Server Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 로그 수집 시 Proxy IP 및 pcode 지정 가능하도록 기능 개선</p>"
+      },
+      {
+        "ver": "v2.7.6",
+        "hash": "v276",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 일부 Windows 서버에서 Whatap Infra 서비스 시작 실패 현상 수정</p>"
+      }
+    ]
+  }
+]

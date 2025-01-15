@@ -1,0 +1,29 @@
+---
+id: dotnet-2_3_8
+title: .NET Agent v2.3.8
+toc_max_heading_level: 2
+pagination_next: release-notes/dotnet/dotnet-2_3_7
+displayed_sidebar: releaseSidebar
+---
+
+2025년 01월 15일
+
+- <Status priority='1'>New</Status> **LINQ to SQL**(`System.Data.Linq`) 모니터링 지원
+
+- <Status priority='1'>New</Status> 모니터링에서 제외할 section 이름을 설정할 수 있는 에이전트 옵션 추가
+
+  ```ini title="whatap.conf"
+  disabled_section_names=AspNetCoreMvc2,AspNetMvc,AspNetWebApi2
+  ```
+
+  - 2개 이상의 값을 설정하려면 쉼표(,)를 구분자로 이용하세요.
+
+  - 선택할 수 있는 section 이름은 다음과 같습니다.
+
+    > AspNetCoreMvc2, AspNetMvc, AspNetWebApi2, AspNetWebForm, DbCommand, IDbCommand, SqlCommand, OracleCommand, WebRequest, HttpMessageHandler, HttpClient, WebClient, ServiceStackRedis, StackExchangeRedis, StackExchangeRedis2, LINQ
+
+  - 옵션을 적용한 후 IIS 서비스를 재시작하세요.
+
+import DownloadAgent from "./_download-dotnet-agent.mdx";
+
+<DownloadAgent />

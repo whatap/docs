@@ -74,15 +74,31 @@ import Dbv2mimactivesessionnote from "../common-items/_db-v2-mim-activesession-n
 
 <Dbv2mimactivesessionnote />
 
-{/*## 세션 상세 정보 확인하기*/}
-import Dbv2sessiondetailsinfo from "../common-items/_db-v2-session-details-info.mdx";
+### 세션 상세 정보 확인하기 {#session-details}
 
-<Dbv2sessiondetailsinfo /> 
+<Cmdname sid="active_sessions" className="uitext" /> 탭에서 세션 항목을 선택하면 <Cmdname sid="session_detail" className="uitext" /> 창이 나타납니다. 선택한 세션에 대한 자세한 내용을 확인할 수 있습니다.
 
-{/*쿼리 자세히 보기*/}
-import Dbquerydetails from "../common-items/_db-query-details.mdx";
+<ImgLang img='db-session-details-info-oracle-pro.png' desc='세션 상세 정보' />
 
-<Dbquerydetails level={3} /> 
+:::note
+
+<Cmdname sid="session_detail" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](usage-ui#checksessioninfo)를 참조하세요.
+
+:::
+
+### 쿼리 자세히 보기 {#query-details}
+
+현재 수행 중인 세션 또는 과거 세션의 SQL 쿼리 정보를 확인하려면 <UI>query_text</UI> 컬럼 항목을 확인하세요. SQL 쿼리문과 Plan 정보를 확인할 수 있는 <Cmdname sid="TTL06224" className="uitext" /> 창이 나타납니다.
+
+<ImgLang img="db-sql-details-new-oracle-pro.png" desc="SQL 상세" />
+
+:::note
+
+* <Cmdname sid="TTL06224" className="uitext" /> 창에 대한 자세한 내용은 [다음 문서](usage-ui#query-details)를 참조하세요.
+
+* Plan 트리에서 ![튜닝 아이콘](/img/ic-chat-red.svg) 버튼을 선택하면 튜닝 가이드를 확인할 수 있습니다. 튜닝 가이드는 Plan Tree의 노드에 `FULL` 또는 `CARTESIAN` 키워드를 포함할 경우 확인할 수 있습니다.
+
+:::
 
 import Dbtabledatafiltering from "../common-items/_db-table-data-filtering.mdx";
 

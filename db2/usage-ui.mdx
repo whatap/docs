@@ -6,9 +6,15 @@ keywords: [ 와탭, WhaTap, UI, User Interface ]
 ---
 
 import ShortDesc from "../common-items/_common-ui-desc.mdx";
-
-<ShortDesc />
-
 import Timeselector from "../common-items/_common-ui-timeselector.mdx";
+import Dbv2dataeditcolumn from "../common-items/_db-v2-data-edit-column.mdx";
+import Dbtabledatafiltering from "../common-items/_db-table-data-filtering.mdx";
 
-<Timeselector />
+<Collection docs={
+  [
+    {Topic: ShortDesc, props: {level: 2, desc: '개요'}},
+    {Topic: Timeselector, props: {level: 2, desc: '시간 선택자'}},
+    {Topic: Dbv2dataeditcolumn, props: {level: 2, desc: '테이블 컬럼 설정하기'}},
+    {Topic: Dbtabledatafiltering, props: {level: 2, desc: '테이블 데이터 필터링하기'}},
+  ]}
+/>

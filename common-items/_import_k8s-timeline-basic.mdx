@@ -78,21 +78,61 @@ Pod 이름, 네임스페이스 등으로 필터링할 수 있습니다. 최근 1
 
 * 차트 왼쪽 목록에서 조회하고자 하는 {props.object} 이름을 선택하여 오른쪽 **상세 보기** 창을 통해 해당 {props.object}의 전체 상태를 볼 수 있습니다.
 
-
-### <Cmdname sid="overview" className="uitext" />
+:::note 
 
 <InDoc pages="container-timeline">
 
-<Cmdname sid="overview" className="uitext" />탭에서 선택한 컨테이너 정보 및 전반적인 리소스 사용량 정보를 요약해서 제공합니다. 해당 컨테이너의 이미지, 컨테이너가 실행되고 있는 노드, ownerReference 등 컨테이너 정보를 종합적으로 확인할 수 있습니다. 사용자는 컨테이너의 리소스 사용 현황 및 상태를 파악하고 성능 및 운영 안정성을 모니터링할 수 있습니다.
+상세 보기 창의 [메트릭스](container-map-metrics), [이벤트](container-map-event), [로그](container-map-log) 탭의 경우 컨테이너 맵 상세 보기와 동일합니다.
 
-이미지4 
+</InDoc>
+
+<InDoc pages="pod-timeline">
+
+상세 보기 창의 [메트릭스](container-map-metrics), [이벤트](container-map-event) 탭의 경우 컨테이너 맵 상세 보기와 동일합니다.
+
+</InDoc>
+
+:::
+
+
+### <Cmdname sid="overview" className="uitext" />
+
+<InDoc pages="pod-timeline">
+
+<Cmdname sid="overview" className="uitext" /> 탭에서 선택한 Pod 정보 및 전반적인 리소스 사용량 정보를 요약해서 제공합니다. 해당 Pod에서 실행중인 컨테이너, Pod가 실행되고 있는 노드, `ownerReference` 등 Pod 정보를 종합적으로 확인할 수 있습니다. 사용자는 Pod의 리소스 사용 현황 및 상태를 파악하고 성능 및 운영 안정성을 모니터링할 수 있습니다.
+
+또한 Pod 내에서 실행된 컨테이너의 타임라인을 제공합니다. 컨테이너 타임라인을 선택 시 해당 타임라인이 선택된 <UI>컨테이너 타임라인</UI> 메뉴가 새 탭으로 열립니다.
+
+파드 이미지4
+
+</InDoc>
+
+<InDoc pages="container-timeline">
+
+<Cmdname sid="overview" className="uitext" /> 탭에서 선택한 컨테이너 정보 및 전반적인 리소스 사용량 정보를 요약해서 제공합니다. 해당 컨테이너의 이미지, 컨테이너가 실행되고 있는 노드, 컨테이너가 실행되고 있는 Pod의 `ownerReference` 등 컨테이너 정보를 종합적으로 확인할 수 있습니다. 사용자는 컨테이너의 리소스 사용 현황 및 상태를 파악하고 성능 및 운영 안정성을 모니터링할 수 있습니다.
+
+컨테이너 이미지4 
 
 </InDoc>
 
 * ***AVG***, ***MAX*** 버튼을 클릭하여 조회 기간동안 평균 사용량과 최대 사용량을 확인할 수 있습니다.
 
 
+{/* 
+
 ### <Cmdname sid="metrics" className="uitext" />
 
 
 ### <Cmdname sid="event" className="uitext" />
+
+<InDoc pages="container-timeline">
+
+### <Cmdname sid="log" className="uitext" />
+
+</InDoc> 
+
+*/}
+
+{/* 
+<Cmdname sid={props.linkobject} className="uitext" /> 
+*/}

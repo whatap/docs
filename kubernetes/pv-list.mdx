@@ -25,9 +25,6 @@ Pod의 스토리지 요구사항을 선언적으로 정의하는 객체 */}
 
 와탭 쿠버네티스는 ***Persistent Volume 목록***과 ***Persistent Volume Claim 목록*** 메뉴를 통해 클러스터의 저장소 상태를 모니터링할 수 있습니다. 해당 메뉴는 저장소 리소스의 사용 상태와 연결 관계를 직관적으로 제공하며, 저장소 용량, 접근 모드, 이벤트 상태 등의 정보를 한눈에 확인할 수 있습니다.
 
-* CSV 다운로드를 제공합니다. 
-
-
 ## Persistent Volume 목록
 
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_cluster" className="uitext" /> &gt; ***Persistent Volume 목록***
@@ -35,6 +32,10 @@ Pod의 스토리지 요구사항을 선언적으로 정의하는 객체 */}
 ***Persistent Volume 목록*** 메뉴에서 현재 클러스터에 존재하는 PV를 조회할 수 있습니다. 조회 시간 기준 최근 1분 동안 수집된 PV 정보 기반으로 목록을 표시합니다. PVC와의 연결 상태 및 PV의 바인딩 상태를 직관적으로 확인할 수 있습니다. 또한 해당 PV와 연결된 PVC 상세 정보를 간편하게 확인할 수 있습니다. 
 
 <ImgLang img="k8s-pv-list.png" desc="Persistent Volume 목록" />
+
+* ![다운로드 아이콘](/img/ico-download.svg) ***CSV*** 버튼 클릭 시 *CSV* 파일을 다운로드할 수 있습니다.
+
+* ***PvcVolumeName*** 컬럼 오른쪽 ***>*** 버튼 클릭 시 ***Persistent Volume Claim 목록*** 메뉴로 이동합니다.
 
 {/* 
 
@@ -78,6 +79,10 @@ Pod의 스토리지 요구사항을 선언적으로 정의하는 객체 */}
 ***Persistent Volume Claim 목록*** 메뉴에서 현재 클러스터에 존재하는 PVC를 조회할 수 있습니다. 조회 시간 기준 최근 1분 동안 수집된 PVC 정보 기반으로 목록을 표시합니다. PV와의 연결 상태 및 PVC의 바인딩 상태를 직관적으로 확인할 수 있습니다. 또한 해당 PVC와 연결된 PV 상세 정보를 간편하게 확인할 수 있습니다. 
 
 <ImgLang img="k8s-pvc-list.png" desc="Persistent Volume Claim 목록" />
+
+* ![다운로드 아이콘](/img/ico-download.svg) ***CSV*** 버튼 클릭 시 *CSV* 파일을 다운로드할 수 있습니다.
+
+* ***PvName*** 컬럼 오른쪽 ***>*** 버튼 클릭 시 ***Persistent Volume 목록*** 메뉴로 이동합니다.
 
 {/* ### 컬럼 
 

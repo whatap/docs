@@ -20,6 +20,20 @@
 
 :::
 
+:::note
+
+Windows 환경에 설치된 에이전트는 자동 업데이트 기능을 지원하지 않습니다. 최신 에이전트로 수동으로 재설치하거나 최신 *whatap.agent.dbx-\*.jar* 파일을 기존의 에이전트 폴더에 넣고 서비스를 재등록하세요.
+
+```bash
+# 1. Delete Windows service
+install_WindowsService.bat delete WhatapDBXAgent # existing service name
+
+# 2. Create Windows service
+install_WindowsService.bat create WhatapDBXAgent # existing service name
+```
+
+:::
+
 
 ### 업데이트를 실패한 경우
 

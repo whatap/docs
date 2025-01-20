@@ -5,21 +5,33 @@ description: 하루 동안 발생한 Lock 추이를 분석하고 교착 상태�
 keywords: [ IBM DB2, 데이터베이스, Lock, 락 트리 ]
 ---
 
-{/* 개요 */}
-import Analysislockdesc from "../common-items/_analysis-lock-desc.mdx";
-
-<Analysislockdesc />
-
-{/* 락트리 */}
 import Dblocktreedesc from "../common-items/_db-locktree-desc.mdx";
-
-<Dblocktreedesc />
-
 import Dblocktreeusingbasic from "../common-items/_db-locktree-using-basic.mdx";
 
-<Dblocktreeusingbasic level={2} />
+<Collection docs={
+  [
+    {Topic: Dblocktreedesc, props: {level: 2, desc: '락트리'}},
+    {Topic: Dblocktreeusingbasic, props: {level: 2, desc: '기본 사용 안내'}},
+  ]}
+/>
 
-{/* 락트리 컬럼 정보 */}
-import Postgresqlcolumn from "../common-items/_db_postgresql-column.mdx";
+## 컬럼 정보 안내
 
-<Postgresqlcolumn level={2} /> 
+| 항목 | 설명 |
+| -- | -- |
+| `instance`            | DB2 인스턴스(에이전트) 이름입니다. |
+| `application_handle`  | 특정 애플리케이션을 식별하는 고유 핸들 값입니다. |
+| `dbname`              | 데이터베이스 이름입니다.  |
+| `username`            | 현재 세션의 사용자 이름입니다. |
+| `runtime`             | 현재 세션이 실행된 시간입니다. |
+| `state`               | 세션의 현재 상태입니다. |
+| `activity_type`       | 세션에서 실행 중인 작업 유형입니다. |
+| `query`               | 세션에서 실행 중인 SQL 쿼리의 내용입니다. |
+| `lock_name`              | 락의 고유 식별자입니다. |
+| `lock_object_type`       | 락이 적용된 객체 유형입니다. |
+| `table_name`             | 락이 적용된 테이블의 이름입니다. |
+| `holder_application_name`| 락을 보유 중인 애플리케이션의 이름입니다. |
+| `holder_member`          | 락을 보유 중인 멤버의 ID입니다. |
+| `waiter_application_name`| 락 대기 중인 애플리케이션의 이름입니다. |
+| `waiter_member`          | 락 대기 중인 멤버의 ID입니다. |
+| `wait_time`              | 락 대기 시간입니다. |

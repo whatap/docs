@@ -5,40 +5,22 @@ description: IBM DB2의 데이터베이스별 통계 데이터를 제공합니�
 keywords: [ IBM DB2, 데이터베이스, 통계 ]
 ---
 
-{/* SQL 통계*/}
 import Dbstatsqldesc from "../common-items/_db-stat-sql-desc.mdx";
-
-<Dbstatsqldesc /> 
-
-{/* SQL 통계 기본 사용 안내 */}
 import Dbstatsqlbasic from "../common-items/_db-stat-sql-basic.mdx";
-
-<Dbstatsqlbasic /> 
-
-{/* 쿼리별 수행 추이, 자세히 보기*/}
 import Dbstatsqlviewquery from "../common-items/_db-stat-sql-view-query.mdx";
-
-<Dbstatsqlviewquery /> 
-
 import Dbstatsqlviewquerydetailssummary from "../common-items/_db-stat-sql-view-query-details-summary.mdx";
-
-<Dbstatsqlviewquerydetailssummary />
-
 import Dbproductsqlstatquerydetails from "../common-items/_db-product-sql-stat-query-details.mdx";
-
-<Dbproductsqlstatquerydetails />
-
-## 상세 정보 확인하기 {#session-details-info}
-
-import Dbstatsqldetails from "../common-items/_db-stat-sql-details.mdx";
-
-<Dbstatsqldetails />
-
-{/* 필터 조건추가하기*/}
 import Dbsqlfilter from "../common-items/_db-sql-filter.mdx";
-
-<Dbsqlfilter level={2} />
-
 import Dbv2dataeditcolumn from "../common-items/_db-v2-data-edit-column.mdx";
 
-<Dbv2dataeditcolumn level={2} />
+<Collection docs={
+  [
+    {Topic: Dbstatsqldesc, props: {level: 2, desc: '개요'}},
+    {Topic: Dbstatsqlbasic, props: {level: 2, desc: '기본 사용 안내'}},
+    {Topic: Dbstatsqlviewquery, props: {level: 2, desc: '쿼리별 수행 추이, 미리보기'}},
+    {Topic: Dbstatsqlviewquerydetailssummary, props: {level: 2, desc: '자세히 보기'}},
+    {Topic: Dbproductsqlstatquerydetails, props: {level: 2, desc: '자세히 보기'}},
+    {Topic: Dbsqlfilter, props: {level: 2, desc: '필터 조건추가하기'}},
+    {Topic: Dbv2dataeditcolumn, props: {level: 2, desc: '컬럼 설정하기'}},
+  ]}
+/>

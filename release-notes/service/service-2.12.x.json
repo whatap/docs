@@ -1,6 +1,27 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
+    "ver": "Service 2.12.8",
+    "date": "2025-01-20",
+    "Lists": [
+      {
+        "ver": "Service 2.12.8",
+        "hash": "service-2128",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 시간 선택자에서 키보드를 이용해 시간을 변경한 후 검색 버튼을 선택하면 변경된 시간이 적용되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.12.8",
+        "hash": "service-2128",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계</span> &gt; <span class=\"uitext\">트랜잭션</span> 메뉴에서  <span class=\"uitext\">추이 비교</span> 기능을 이용할 때 표시되는 팝업창의 상단에 날짜가 변경되지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.7",
     "date": "2025-01-09",
     "Lists": [

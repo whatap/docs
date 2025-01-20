@@ -6,17 +6,15 @@ keywords: [ IBM DB2, 데이터베이스, 데이터베이스 모니터링 ]
 ---
 
 import Dbagentsettingsdesc from "../common-items/_db-agent-settings-desc.mdx";
-
-<Dbagentsettingsdesc />  
-
-{/* 에이전트 구성*/}
 import Dbstructureofagent from "../common-items/_db-structure-of-agent.mdx";
-
-<Dbstructureofagent />  
-
-{/* 에이전트 설정*/}
 import Dbsetagentdesc from "../common-items/_db-set-agent-desc.mdx";
 
-<Dbsetagentdesc />
+<Collection docs={
+  [
+    {Topic: Dbagentsettingsdesc, props: {desc: '개요'}},
+    {Topic: Dbstructureofagent, props: {desc: '에이전트 구성'}},
+    {Topic: Dbsetagentdesc, props: {desc: '에이전트 설정'}},
+  ]}
+/>
 
 <DocCardList/>

@@ -5,48 +5,41 @@ description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 �
 keywords: [ IBM DB2, 데이터베이스 모니터링, 에이전트 ]
 ---
 
+import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
+import CheckType from "../common-items/_db-install-agent-check-type.mdx";
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
+import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
+import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
+import Whatapconf from "../common-items/_db-whatap-conf.mdx";
 import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+import NextStep from "../common-items/_db-next-step.mdx";
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
-import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+<Collection docs={
+  [
+    {Topic: Agentsignupguide, props: {desc: "개요"}},
+    {Topic: Createprojectv2, props: {level: "프로젝트 생성하기"}},
+  ]}
+/>
 
-<Agentsignupguide />
+<Steps>
 
-import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
-
-<Createprojectv2 />
-
-{/* ## 구성도 확인 */}
-import CheckType from "../common-items/_db-install-agent-check-type.mdx";
-
-<CheckType />
-
-{/* 모니터링용 계정 생성*/}
-
-import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
-
-<Dbcreatemonitoringaccount />
-
-{/* 액세스 키 확인 */}
-import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
-
-<Accesskeyv2 />
-
-{/* DBX 에이전트 다운로드 */}
-import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
-
-<DownloadDBXagent />
-
-{/* ## DBX 에이전트 설정 */}
-import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
-
-<SettingsDBXagent />
-
-{/* ### whatap.conf 설정 */}
-import Whatapconf from "../common-items/_db-whatap-conf.mdx";
-
-<Whatapconf />
+<Collection docs={
+  [
+    {Topic: CheckType, props: {desc: "구성도 확인하기"}},
+    {Topic: Dbcreatemonitoringaccount, props: {desc: "계정 생성"}},
+    {Topic: Accesskeyv2, props: {desc: "액세스 키 확인"}},
+    {Topic: DownloadDBXagent, props: {desc: "DBX 에이전트 다운로드"}},
+    {Topic: SettingsDBXagent, props: {desc: "DBX 에이전트 설정"}},
+    {Topic: Whatapconf, props: {desc: "whatap.conf 설정"}},
+  ]}
+/>
 
 ### JDBC 다운로드
 
@@ -56,24 +49,21 @@ DB 서버의 */`db2_instance_path`/sqllib/java* 경로에서 *db2jcc4.jar* 파�
 /압축을 해제한 폴더/jdbc
 ```
 
-<DBuserDesc level={3} />
+:::note
 
-import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+IBM DB2의 JDBC 드라이버 구성에 대한 자세한 내용은 [다음 링크](https://www.ibm.com/docs/baw/23.x?topic=installation-configuring-jdbc-drivers)를 참조하세요.
 
-<Dbcreatedbuserfilebody /> 
+:::
 
+<Collection docs={
+  [
+    {Topic: DBuserDesc, props: {level: 3, desc: "DB 유저 파일 생성"}},
+    {Topic: Dbcreatedbuserfilebody, props: {desc: "DB 유저 파일 생성 Note"}},
+    {Topic: Dbrunagent, props: {desc: "DB 모니터링 시작하기"}},
+    {Topic: Dbinstallxosagent, props: {desc: "XOS 에이전트 설치"}},
+  ]}
+/>
 
-{/*모니터링 시작하기*/}
-import Dbrunagent from "../common-items/_db-run-agent.mdx";
-
-<Dbrunagent />
-
-{/*XOS 에이전트 설치*/}
-import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
-
-<Dbinstallxosagent /> 
-
-{/* ## 다음 단계 */}
-import NextStep from "../common-items/_db-next-step.mdx";
+</Steps>
 
 <NextStep />

@@ -1,0 +1,134 @@
+:::note 
+
+**요구 사항**
+
+와탭 쿠버네티스 에이전트 1.7.6 버전 이상이 필요합니다. 타임라인 데이터는 1.7.6 버전 이상에서 수집된 시점부터 제공됩니다.
+
+:::
+
+<UI>{props.menu}</UI> 메뉴는 시간의 흐름에 따른 Pod의 상태 변화를 시각적으로 추적할 수 있는 기능을 제공합니다. 이미 종료된 {props.object}가 언제 제거되었는지, 해당 시점에 {props.object}가 어떤 상태였는지를 시각적으로 파악할 수 있습니다. 이를 통해 사용자는 과거 상태를 분석하고, 클러스터에서 발생한 이슈의 원인 파악 및 운영 안정성을 모니터링할 수 있습니다.
+
+## 기본 화면 안내
+
+<UI>{props.menu}</UI> 메뉴에 진입 후 <Cmdname sid="TTL06740" className="uitext" />와 <Cmdname sid="TTL08842" className="uitext" />을 선택하여 데이터를 조회하세요. 최근 1시간 동안 수집된 {props.object} 목록을 확인할 수 있습니다. 시간 축을 따라 {props.object}의 상태 변화를 시각적으로 확인할 수 있습니다. 
+
+<InDoc pages="pod-timeline">
+
+각 시간 구간에 마우스를 올리면 해당 구간의 시작 시간과 종료 시간, 그리고 Pod의 상태(***Running***, ***Pending***, ***Succeeded***, ***Failed***)가 표시됩니다. 
+
+<ImgLang img="k8s-pod-timeline.png" desc="Pod 타임라인1" />
+
+</InDoc>
+
+<InDoc pages="container-timeline">
+
+각 시간 구간에 마우스를 올리면 해당 구간의 시작 시간과 종료 시간, 그리고 컨테이너의 상태(***running***, ***waiting***, ***terminated***)가 표시됩니다. 
+
+<ImgLang img="k8s-container-timeline.png" desc="컨테이너 타임라인1" />
+
+</InDoc>
+
+타임라인 상에서 구간을 드래그하여 시간 범위를 조정할 수 있습니다. 원하는 기간을 설정하여 과거 데이터를 확인해 보세요.
+
+<InDoc pages="pod-timeline">
+
+<ImgLang img="k8s-pod-timeline-drag.png" desc="Pod 타임라인2" />
+
+</InDoc>
+
+<InDoc pages="container-timeline">
+
+<ImgLang img="k8s-container-timeline-drag.png" desc="컨테이너 타임라인2" />
+
+</InDoc>
+
+또한 특정 기간 선택 시 해당 기간 동안의 {props.object} 상태를 **상세 보기**를 통해 자세히 확인할 수 있습니다. 자세한 내용은 다음 [{props.object} 타임라인 상세](#timeline-details) 안내를 참조하세요. 
+
+{/* 다음과 같이 최근 7일 동안 수집된 노드 목록이 나타납니다. 시간 축을 따라 노드의 상태 변화를 시각적으로 확인할 수 있습니다. 각 시간 구간에 마우스를 올리면 해당 구간의 시작 시간과 종료 시간, 그리고 노드의 상태(***Ready***, ***NotReady*** 등)가 툴팁으로 표시됩니다.
+
+특정 시점의 Pod 상태(Running, Pending, Succeeded, Failed)를 확인할 수 있습니다. 
+Pod 이름, 네임스페이스 등으로 필터링할 수 있습니다. 최근 1시간 동안 수집된 데이터를 시간 축 기반으로 시각화하고, 마우스를 가져다 대면 해당 시점의 Pod 상태, 시작 시간, 종료 시간 등의 세부 정보를 툴팁으로 제공합니다. 특정 시간 범위를 드래그하여 과거 데이터를 확인할 수 있으며, 특정 Pod를 클릭하면 리소스 사용량, 실행 중인 컨테이너, 소유 정보(ownerReference) 등을 포함한 Pod의 상세 정보를 확인할 수 있습니다. */}
+
+
+:::note 
+
+시간 선택자 이용 방법에 대한 자세한 내용은 [다음 문서](usage-ui#timeselector)를 참조하세요.
+
+:::
+
+## {props.object} 타임라인 상세 {#timeline-details}
+
+
+{props.object} 타임라인 상세는 특정 구간 또는 특정 {props.object}를 선택하여 확인할 수 있습니다. 
+
+
+<InDoc pages="pod-timeline">
+
+<ImgLang img="k8s-pod-timeline-details.png" desc="Pod 타임라인 상세" />
+
+</InDoc>
+
+<InDoc pages="container-timeline">
+
+<ImgLang img="k8s-container-timeline-details.png" desc="컨테이너 타임라인 상세" />
+
+</InDoc>
+
+* 세부 정보를 조회하고자 하는 구간을 선택하여 오른쪽 **상세 보기** 창을 통해 해당 시점의 {props.object}에 대한 상세를 조회할 수 있습니다.
+
+* 차트 왼쪽 목록에서 조회하고자 하는 {props.object} 이름을 선택하여 오른쪽 **상세 보기** 창을 통해 해당 {props.object}의 전체 상태를 볼 수 있습니다.
+
+:::note 
+
+<InDoc pages="container-timeline">
+
+상세 보기 창의 [메트릭스](container-map-metrics), [이벤트](container-map-event), [로그](container-map-log) 탭의 경우 컨테이너 맵 상세 보기와 동일합니다.
+
+</InDoc>
+
+<InDoc pages="pod-timeline">
+
+상세 보기 창의 [메트릭스](container-map-metrics), [이벤트](container-map-event) 탭의 경우 컨테이너 맵 상세 보기와 동일합니다.
+
+</InDoc>
+
+:::
+
+
+### <Cmdname sid="overview" className="uitext" />
+
+<InDoc pages="pod-timeline">
+
+<Cmdname sid="overview" className="uitext" /> 탭에서 선택한 Pod 정보 및 전반적인 리소스 사용량 정보를 요약해서 제공합니다. 해당 Pod에서 실행중인 컨테이너, Pod가 실행되고 있는 노드, `ownerReference` 등 Pod 정보를 종합적으로 확인할 수 있습니다. 사용자는 Pod의 리소스 사용 현황 및 상태를 파악하고 성능 및 운영 안정성을 모니터링할 수 있습니다. 
+
+* ***AVG***, ***MAX*** 버튼을 클릭하여 조회 기간동안 평균 사용량과 최대 사용량을 확인할 수 있습니다.
+
+* Pod 내에서 실행된 컨테이너의 타임라인을 제공합니다. 컨테이너 타임라인을 선택 시 해당 타임라인이 선택된 <UI>컨테이너 타임라인</UI> 메뉴가 새 탭으로 열립니다.
+
+</InDoc>
+
+<InDoc pages="container-timeline">
+
+<Cmdname sid="overview" className="uitext" /> 탭에서 선택한 컨테이너 정보 및 전반적인 리소스 사용량 정보를 요약해서 제공합니다. 해당 컨테이너의 이미지, 컨테이너가 실행되고 있는 노드, 컨테이너가 실행되고 있는 Pod의 `ownerReference` 등 컨테이너 정보를 종합적으로 확인할 수 있습니다. 사용자는 컨테이너의 리소스 사용 현황 및 상태를 파악하고 성능 및 운영 안정성을 모니터링할 수 있습니다. 또한 ***AVG***, ***MAX*** 버튼을 클릭하여 조회 기간동안 평균 사용량과 최대 사용량을 확인할 수 있습니다.
+
+</InDoc>
+
+
+{/* 
+
+### <Cmdname sid="metrics" className="uitext" />
+
+
+### <Cmdname sid="event" className="uitext" />
+
+<InDoc pages="container-timeline">
+
+### <Cmdname sid="log" className="uitext" />
+
+</InDoc> 
+
+*/}
+
+{/* 
+<Cmdname sid={props.linkobject} className="uitext" /> 
+*/}

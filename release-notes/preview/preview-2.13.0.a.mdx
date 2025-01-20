@@ -16,11 +16,25 @@ toc_max_heading_level: 2
 
 ## Preview 2.13.0.a3
 
-2025년 01월 16일
+2025년 01월 14일
 
 <div class='indentTab'>
 
 ### `공통`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsChart" className="uitext" /> <code className="newfunc">New</code> 메뉴의 기능 개선
+
+  - 차트 데이터에 마우스 호버 시 힌트 데이터의 Max 값이 기록된 특정 시간 추가
+
+  - 범례 목록 전체 선택/해제 버튼 추가
+
+  - 차트 라인의 컬러 선택 기능 추가
+
+  - 더보기 메뉴에 CSV 복사 버튼 추가
+
+  - 더보기 메뉴에 차트 이미지 복사 버튼 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" /> 메뉴에서 서드파티 플러그인을 통한 알림 수신 레벨 선택 기능 추가
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_integratedReport" className="uitext" /> 메뉴의 시간 선택자(타임 셀렉터) 기능 교체
 
@@ -54,21 +68,100 @@ toc_max_heading_level: 2
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_transaction_map" className="uitext" /> 메뉴에서 차트의 Y축 최댓값을 직접 입력해서 조절할 수 있는 기능 추가
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_transaction_map" className="uitext" /> 메뉴에서 ![위 방향 아이콘](/img/up-arrow.svg) 또는 ![아래 방향 아이콘](/img/down-arrow.svg) 버튼으로 Y축 최댓값을 조정할 때, 30초를 넘어가면 10초 단위로만 조절할 수 있는 기능 개선
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_transaction_map" className="uitext" /> 메뉴에서 ![위 방향 아이콘](/img/up-arrow.svg) 또는 ![아래 방향 아이콘](/img/down-arrow.svg) 버튼으로 Y축 최댓값을 조정할 때, 30초를 넘어가면 10초 간격으로만 조절할 수 있는 기능 개선
 
-  > 10초에서 50초 구간은 10초 단위로 이동, 3000초 구간은 50초 단위로 이동할 수 있습니다.
+  * 10초에서 50초 구간은 **10초** 간격으로 이동
+
+  * 50초에서 300초는 **50초** 간격으로 이동
+
+  * 300초 이상은 **100초** 간격으로 이동
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06126" className="uitext" /> 탭에서 SQL 스텝을 확인할 때, SQL 문의 치환 변수 또는 바인드 변수 중 하나라도 해제하면 전부 해제되는 문제 수정
+
+---
+
+### `Server`
+
+- <Status priority='1'>New</Status> 과거 성능 데이터를 보다 직관적으로 분석할 수 있는 <Cmdname sid="side_serverMetricsExplorer" className="uitext" /> 메뉴 추가
+
+  - <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴의 카테고리 정보 추가
+
+  - <Cmdname sid="side_serverMetricsExplorer" className="uitext" /> 기능 안내 모달 추가
+
+  :::note
+
+  이 기능은 <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_serverMetricsExplorer" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+  :::
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴의 그룹 요약 패널과 상세 보기에서 현재 시각 기준 24시간 내의 진행 중인 이벤트를 조회할 수 있는 <Cmdname sid="TTL08970" className="uitext" /> 탭 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴의 그룹 패널 상단에 그룹별 서버 상태별 개수와, 상태별 이벤트 수를 표시하도록 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> 메뉴에서 서버 상태를 판별하는 로직 변경
+
+  - **기존**: 진행 중인 이벤트로만 서버 상태 판별
+
+  - **변경**: 진행 중인 이벤트 + 단발성 이벤트(<Cmdname sid="CNT08326" className="uitext" /> 옵션이 꺼진 이벤트)로 서버 상태 판별 
+
+    단발성 이벤트는 발생 후 유효시간(기본 1시간) 동안은 진행 중 이벤트와 동일하게 처리합니다.
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> 메뉴에서 서버 상태 아이콘을 클릭하면 표시되는 <Cmdname sid="server_status" className="uitext" /> 창에서, 스냅샷 차트가 유효한 이벤트 카테고리인 경우에만 차트를 표시하도록 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴의 그룹 요약 패널과 상세 보기에서 <Cmdname sid="TTL08767" className="uitext" /> 테이블을 가로 스크롤할 때, 서버 이름 컬럼이 고정되도록 개선
+
+- <Status priority='1'>Changed</Status> **Server** 모니터링 상품 소개 페이지의 콘텐츠 변경
 
 ---
 
 ### `Kubernetes`
 
+- <Status priority='1'>New</Status> 쿠버네티스의 시스템 컴포넌트 중 하나인 kube-scheduler에 대한 모니터링 데이터를 조회할 수 있는 <Cmdname sid="side_kubeSchedulerDashboard" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_kubeSchedulerDashboard" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다. [쿠버네티스 에이전트 1.8.1 버전](../k8s/k8s-1_8_1) 이상에서 지원합니다.
+
+  :::
+
+- <Status priority='1'>New</Status> 시간의 흐름에 따른 컨테이너 상태를 확인할 수 있는 <Cmdname sid="side_containerTimeline" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_containerTimeline" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+  :::
+
+- <Status priority='1'>New</Status> 시간의 흐름에 따른 Pod 상태를 확인할 수 있는 <Cmdname sid="side_podTimeline" className="uitext" /> 메뉴 추가
+
+  :::note
+
+  이 기능은 <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_podTimeline" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다.
+
+  :::
+
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 <Cmdname sid="TTL06782" className="uitext" /> 탭에서 <Cmdname sid="BTN08975" className="uitext" /> 정보도 확인할 수 있는 기능 추가
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_kubeApiserverDashboard" className="uitext" /> 메뉴의 위젯이 관리형 쿠버네티스일 경우 **데이터 없음**에 대한 안내 추가
 
+- <Status priority='1'>Changed</Status> 다음 메뉴에서 <Cmdname sid="TTL08317" className="uitext" replace="{object}" /> 기능을 탭으로 분리
+
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" />
+  - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_nodeMap" className="uitext" />
+
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴에서 필터의 지표 이름이 제대로 표시되지 않는 문제 수정
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_containerImages" className="uitext" /> 메뉴에서 이미지 이름에 `@`가 포함되는 경우 태그가 적절하게 표시되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_ingressList" className="uitext" /> 메뉴에서 잘못 설정된 룰이 일부 누락된 문제 수정
+
+- <Status priority='0'>Fixed</Status> 컨테이너 요약 분석에서 Request, Limit 설정 메시지 오류 수정
+
+- <Status priority='1'>Deprecated</Status> 다음 메뉴 경로에서 구성도를 클릭하면 탭으로 이동하는 기능 제거
+
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeTimeline" className="uitext" />
+  
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" /> &gt; ![Detail icon](/img/ico-detail-view.svg) <Cmdname sid="TTL08422" className="uitext" />
 
 ---
 
@@ -88,9 +181,13 @@ toc_max_heading_level: 2
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06224" className="uitext" /> 창에서 최근 1시간/최근 1일 변경 시 첫 번째 데이터를 선택하도록 수정
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴에서 필터 조건을 처음 생성할 때 조건 없는 상태에서 적용 버튼 클릭하면 필터가 추가되는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴에서 같은 키의 조건을 다중 생성하면 `AND` 조건임에도 불구하고 `OR` 조건처럼 처리되는 문제 수정
+
 #### MySQL
 
-<Status priority='0'>Fixed</Status> <Cmdname sid="side_anlysis" className="uitext" /> &gt; <Cmdname sid="side_deadLock" className="uitext" /> 메뉴에서 데이터를 불러오지 못하는 문제 수정
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_deadLock" className="uitext" /> 메뉴에서 데이터를 불러오지 못하는 문제 수정
 
 #### SQL Server
 
@@ -106,7 +203,9 @@ toc_max_heading_level: 2
 
 ### `Log`
 
-<Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" /> 메뉴에서 최초 데이터 요청 시 데이터가 200개 이하일 경우, 200개가 채워지도록 개선
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" /> 메뉴에서 최초 데이터 요청 시 데이터가 200개 이하일 경우, 200개가 채워지도록 개선
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logSetting" className="uitext" /> 메뉴에서 개인정보 비식별화 점검 기능 추가
 
 </div>
 
@@ -245,7 +344,7 @@ toc_max_heading_level: 2
 
 <div class='indentTab'>
 
-### `kubernetes`
+### `Kubernetes`
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 <Cmdname sid="TTL06782" className="uitext" /> 탭에서 Volume 정보를 확인할 수 있는 기능 추가
 
@@ -257,7 +356,7 @@ toc_max_heading_level: 2
 
   - **onodeName**: <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" />
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_cluster" className="uitext" /> 하위에 Persistent Volume 관련 신규 메뉴 추가
+- <Status priority='1'>New</Status> <Cmdname sid="side_cluster" className="uitext" /> 하위에 Persistent Volume 관련 신규 메뉴 추가
 
   - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_kubePvList" className="uitext" />
 

@@ -1,5 +1,129 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_5",
+    "ver": "v2.3.5",
+    "date": "2025-01-17",
+    "Lists": [
+      {
+        "ver": "v2.3.5",
+        "hash": "v235",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트가 기동 후 처음에 <code>db_process_check</code> 카테고리로 데이터를 전송하지 않는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.3.5",
+        "hash": "v235",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> sqlmon 버그 수정: V2 버전의 프로젝트에서 동작하지 않는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.3.5",
+        "hash": "v235",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> JDBC 연결 옵션(<code>connect_option</code>) 추가</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.3.5",
+        "hash": "v235",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 데이터베이스 서버와 재연결하는 로직의 오류 수정</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_4",
+    "ver": "v2.3.4",
+    "date": "2025-01-15",
+    "Lists": [
+      {
+        "ver": "v2.3.4",
+        "hash": "v234",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> IBM DB2 모니터링을 위한 에이전트 추가</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.3.4",
+        "hash": "v234",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> 정상 알림이 발생하도록 <code>db_process_check</code> 카테고리에 비어있는 값을 하루에 2번 전송하는 기능 추가</p>",
+        "category": "공통"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_3",
+    "ver": "v2.3.3",
+    "date": "2025-01-07",
+    "Lists": [
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <code>mssql_query_hash</code> 필드 추가 (active session, xview, query stat, sql 통계)</p>",
+        "category": "SQL Server"
+      },
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <code>filegroup</code>에 <code>growth</code> 필드 추가</p>",
+        "category": "SQL Server"
+      },
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>query_stat</code> 2008 버전 이하 버그 수정</p>",
+        "category": "SQL Server"
+      },
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>buffer cache hit ratio</code>, <code>cache hit ratio</code> 지표가 100%를 넘지 않도록 수정</p>",
+        "category": "SQL Server"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_2",
+    "ver": "v2.3.2",
+    "date": "2024-12-26",
+    "Lists": [
+      {
+        "ver": "v2.3.2",
+        "hash": "v232",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>db_mssql_procedure_stats</code>, <code>db_mssql_query_stats</code> 지표의 델타값, <code>total_elapse_time</code> 수정</p>",
+        "category": "SQL Server"
+      },
+      {
+        "ver": "v2.3.2",
+        "hash": "v232",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> elapse view의 elapse time 수정</p>",
+        "category": "SQL Server"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dbx-2_2_5",
     "ver": "v2.2.5",
     "date": "2024-11-29",
@@ -32,7 +156,7 @@
         "hash": "v231",
         "product": "DBX",
         "type": "Changed",
-        "desc": "<li><code class=\"Changed\" type=\"1\">Changed</code> 슬로우 쿼리 방식이 <strong>cloudwatch log</strong>, <strong>table</strong>일 경우, <code>id</code> 추가, <code>type</code> 변경, <code>db</code> 필드 추가</li>",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 슬로우 쿼리 방식이 <strong>cloudwatch log</strong>, <strong>table</strong>일 경우, <code>id</code> 추가, <code>type</code> 변경, <code>db</code> 필드 추가</p>",
         "category": "MySQL"
       }
     ]

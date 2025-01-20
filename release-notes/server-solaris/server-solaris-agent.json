@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server-solaris/server-solaris-1_3_8/",
+    "ver": "v1.3.8",
+    "date": "2025-01-15",
+    "Lists": [
+      {
+        "ver": "v1.3.8",
+        "hash": "v138",
+        "product": "Server Solaris Agent",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code> Install 스크립트 오류 수정</li>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server-solaris/server-solaris-1_3_7",
     "ver": "v1.3.7",
     "date": "2025-01-07",

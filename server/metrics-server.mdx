@@ -2,7 +2,7 @@
 id: metrics-server
 title: 서버 지표
 description: 서버 모니터링 지표를 안내합니다. 
-toc_max_heading_level: 2
+toc_max_heading_level: 3
 keywords: [ Server, 메트릭스 ]
 ---
 
@@ -16,13 +16,52 @@ import Metricsindex from "../common-items/_metrics-index.mdx";
 
 서버 모니터링 지표를 다음과 같이 안내합니다.
 
+{/* 
+
 import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
+
+*/}
 
 <div className="metricslist">
 
-<AgentStatus />
+{/* <AgentStatus /> */}
 
-## server_base
+## Category V1
+
+### agent_status_summary {#agent_status_summary}
+
+에이전트 상태와 관련한 지표를 10초 간격으로 수집한 카테고리입니다.
+
+#### Fields {#agent_status_summary_filed}
+
+| 필드명 | 단위 | 설명 | 비고 |
+| ---- | :--: | ---- | ---- |
+| `inActTime` | 밀리초(ms) | 에이전트가 비활성화된 상태로 유지된 시간 | - |
+| `isActive` | - | 현재 에이전트의 활성 상태 여부 | `true` / `false` |
+| `isRebooted` | - | 서버가 최근에 재시작되었는지 여부 | `true` / `false` |
+| `lastActTime` | 밀리초(ms) | 마지막으로 에이전트가 활성화된 상태의 시각 | `0`: 비활성화된 경우 |
+| `oid` | - | 프로젝트에 포함된 각 에이전트의 고유 식별자 | - |
+| `startTime` | 밀리초(ms) | 에이전트가 시작된 시점의 타임스탬프 | - |
+| `status` | - | 현재 에이전트의 상태 | - |
+| `uptime` | 초(sec) | 서버가 가동 중인 시간 | - |
+
+:::note
+
+`status` 필드의 값은 다음과 같이 구분합니다.
+
+* `ok`: 서버가 활성화되어 있는 정상 상태입니다.
+
+* `inactive`: 서버가 비활성화된 상태입니다.
+
+* `warning`: 서버에 경고(warning) 이벤트가 진행 중인 상태입니다.
+
+* `fatal`: 서버에 위험(critical) 이벤트가 진행 중인 상태입니다.
+
+* `paused`: 에이전트가 데이터 수집을 일시 중지한 상태입니다.
+
+:::
+
+### server_base
 
 서버 자원 지표입니다.
 
@@ -30,7 +69,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계 데이터: 5분, 1시간
 
-### Tags {#server_base-tags}
+#### Tags {#server_base-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -40,7 +79,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |okindName|서버 종류명|-|
 |os|OS 유형 linux 또는 window|-|
 
-### Fields {#server_base-fields}
+#### Fields {#server_base-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -84,7 +123,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |processorQueueLength|정수|프로세서 큐 길이|윈도우|
 |uptime|정수|부팅 후 서버의 가동 시간(TimeStamp)|공통|
 
-## server_cpu_core
+### server_cpu_core
 
 서버 CPU 코어별 지표입니다.
 
@@ -92,7 +131,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계 데이터: -
 
-### Tags {#server_cpu_core-tags}
+#### Tags {#server_cpu_core-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -101,7 +140,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |oname|서버 이름|-|
 |os|OS 유형 linux 또는 window|-|
 
-### Fields {#server_cpu_core-fields}
+#### Fields {#server_cpu_core-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -118,7 +157,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |sys|퍼센트|코어 sys 사용률|리눅스|
 |usr|퍼센트|코어 usr 사용률|리눅스|
 
-## server_disk
+### server_disk
 
 각 서버에 마운트 된 파일 시스템별 지표입니다.
 
@@ -126,7 +165,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계 데이터: 5분, 1시간
 
-### Tags {#server_disk-tags}
+#### Tags {#server_disk-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -138,7 +177,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |oname|서버 이름|-|
 |os|OS 유형 linux 또는 window|-|
 
-### Fields {#server_disk-fields}
+#### Fields {#server_disk-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -160,7 +199,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |readIops|소수|초당 읽은 수|공통|
 |writeIops|소수|초당 쓴 수|공통|
 
-## server_network
+### server_network
 
 각 서버의 네트워크 인터페이스 지표입니다.
 
@@ -168,7 +207,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계 데이터: 5분, 1시간
 
-### Tags {#server_network-tags}
+#### Tags {#server_network-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -179,7 +218,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |oname|서버 이름|-|
 |os|OS 유형 linux 또는 window|-|
 
-### Fields {#server_network-fields}
+#### Fields {#server_network-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -196,7 +235,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |trafficOut|bps|아웃바운드 트래픽|-|
 |trafficOutAcct|정수|와탭 전용|-|
 
-## server_netstat
+### server_netstat
 
 각 서버별 네트워크 프로토콜 통계 정보입니다.
 
@@ -204,7 +243,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계 데이터: 5분, 1시간
 
-### Tags {#server_netstat-tags}
+#### Tags {#server_netstat-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -223,7 +262,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |whatap_product|와탭 상품 유형|-|
 |whatap_version|와탭 에이전트 버전|-|
 
-### Fields {#server_netstat-fields}
+#### Fields {#server_netstat-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -240,7 +279,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |netstat_Unknown|정수|Unknown 상태 소켓 수|공통|
 |Server_Filedescriptors|정수|OS file descriptor 개수|공통|
 
-## server_process
+### server_process
 
 서버 프로세스 정보입니다.
 
@@ -248,7 +287,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계 데이터: 5분
 
-### Tags {#server_process-tags}
+#### Tags {#server_process-tags}
 
 |태그명|설명|비고|
 |----|----|----|
@@ -260,7 +299,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |oname|서버 이름|-|
 |user|프로세스를 실행한 리눅스 사용자명|-|
 
-### Fields {#server_process-fields}
+#### Fields {#server_process-fields}
 
 |필드명|단위|설명|비고|
 |----|----|----|----|
@@ -284,7 +323,9 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |rssAccmulated|바이트|와탭 전용|공통|
 
 
-## infra_cpu 
+## Catetory V2
+
+### infra_cpu
 
 서버의 CPU 사용량과 관련된 지표입니다.
 
@@ -292,7 +333,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계: 5분, 1시간
 
-### Fields {#infra_cpu-fields}
+#### Fields {#infra_cpu-fields}
 
 |필드명|설명|OS|
 |---|---|---|
@@ -312,7 +353,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |loadavg_5m|최근 5분 동안의 시스템 평균 부하를 의미합니다.|HP-UX, AIX, Solaris, Linux|
 |loadavg_15m|최근 15분 동안의 시스템 평균 부하를 의미합니다.|HP-UX, AIX, Solaris, Linux|
 
-## infra_mem 
+### infra_mem 
 
 서버의 메모리 사용량과 관련된 지표입니다. 
 
@@ -320,7 +361,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계: 5분, 1시간
 
-### Fields {#infra_mem-fields}
+#### Fields {#infra_mem-fields}
 
 |필드명|설명|OS|
 |---|---|---|
@@ -347,7 +388,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |freed|스왑 아웃 발생 시 초당 생성된 free 메모리 영역의 페이지 수를 의미합니다.|HP-UX, AIX, Solaris|
 
 
-## infra_swap
+### infra_swap
 
 서버의 Swap 사용량과 관련된 지표 입니다.
 
@@ -355,7 +396,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계: 5분, 1시간
 
-### Fields {#infra_swap-fields}
+#### Fields {#infra_swap-fields}
 
 |필드명|설명|OS|
 |---|---|---|
@@ -364,7 +405,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |used|현재 사용 중인 Swap의 크기를 Bytes로 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
 
 
-## infra_kernel 
+### infra_kernel 
 
 서버의 시스템 및 커널 자원 사용량과 관련된 성능 지표입니다.
 
@@ -372,7 +413,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계: 5분, 1시간
 
-### Fields {#infra_kernel-fields}
+#### Fields {#infra_kernel-fields}
 
 |필드명|설명|OS|
 |---|---|---|
@@ -386,7 +427,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |syscall|초당 커널이 시스템 호출을 처리한 횟수를 의미합니다.|HP-UX, AIX, Solaris, Windows|
 |ctxswitch|초당 프로세스 간의 컨텍스트 전환 발생 횟수를 의미합니다.|HP-UX, AIX, Solaris, Linux, Windows|
 
-## infra_disk 
+### infra_disk 
 
 서버의 물리 디스크 용량 및 입출력(IO) 성능과 관련된 지표입니다. 
 
@@ -394,7 +435,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계: 5분, 1시간
 
-### Fields {#infra_disk-fields}
+#### Fields {#infra_disk-fields}
 
 |필드명|설명|OS|
 |---|---|---|
@@ -406,7 +447,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 |totalIops|서버의 모든 물리 디스크에서 초당 처리된 읽기 및 쓰기 작업 수를 표시합니다.|HP-UX, AIX, Solaris, Linux, Windows|
 
 
-## infra_network
+### infra_network
 
 서버의 전체 네트워크 통신량과 관련된 지표입니다. 
 
@@ -414,7 +455,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계: 5분, 1시간
 
-### Fields {#infra_network-fields}
+#### Fields {#infra_network-fields}
 
 |필드명|설명|OS|
 |---|---|---|
@@ -432,7 +473,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 :::
 
 
-## infra_process
+### infra_process
 
 서버에서 실행 중인 프로세스 및 리소스 상태와 관련된 지표입니다. 
 
@@ -440,7 +481,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 * 통계: 5분, 1시간
 
-### Fields {#infra-process-fields}
+#### Fields {#infra-process-fields}
 
 |필드명       |설명                                           |OS                       |
 |-------------|----------------------------------------------|-------------------------|
@@ -457,7 +498,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 </div>
 
-## 참고 자료
+### 참고 자료
 
 * [윈도우 지수 자료](https://docs.microsoft.com/en-us/windows-hardware/test/wpt/cpu-analysis)
 

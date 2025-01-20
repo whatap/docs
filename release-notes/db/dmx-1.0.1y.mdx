@@ -1,0 +1,20 @@
+---
+id: dmx-1_0_1y
+title: DMX v1.0.1y
+pagination_prev: release-notes/db/dmx-1_0_1x
+displayed_sidebar: releaseSidebar
+---
+
+2024년 12월 24일
+
+<Status priority='1'>Changed</Status> prx로 dmx 에이전트를 재실행하는 주기 조정
+
+- 기본 주기 **20회**: 기본 주기는 10초, *prx.conf* 파일에 `interval` 옵션으로 설정할 수 있습니다.
+
+- 이후 1분 마다 10회, 이후 10분 마다 5회, 이후는 1시간마다 재실행을 시도합니다.
+
+:::note
+
+prx 프로세스에 대한 자세한 내용은 [다음 문서](agent-settings#prxoption)를 참조하세요.
+
+:::

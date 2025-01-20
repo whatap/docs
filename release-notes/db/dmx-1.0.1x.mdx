@@ -1,0 +1,23 @@
+---
+id: dmx-1_0_1x
+title: DMX v1.0.1x
+pagination_next: release-notes/db/dmx-1_0_1y
+pagination_prev: null
+displayed_sidebar: releaseSidebar
+---
+
+2024년 12월 20일
+
+- <Status priority='1'>Feature</Status> `tablespace` 옵션 추가
+
+  free space 조회 시 query timeout 발생하여 옵션에 따라 다른 뷰를 조회하도록 합니다.
+
+  - `tablespace=1`: **dba_free_space** 조회
+
+  - `tablespace=2`: **dba_lmt_free_space** 조회
+
+  - `tablespace=3`: **usage_metrics** 조회
+
+- <Status priority='1'>Changed</Status> `object_info`에 sequence 추가
+
+- <Status priority='0'>Fixed</Status> 에이전트와 같은 경로에 파일명(32자 이상)이 긴 파일이 있을 경우, **SIGSEGV** 문제 수정

@@ -133,6 +133,7 @@ whatap.stat_domain_enabled=true
 | <Cmdname sid="count" />      | 수행 건수                         |
 | <Cmdname sid="error" />      | 수행된 트랜잭션 중 에러 발생 건수 |
 | <Cmdname sid="timeAvg_ms" /> | 응답시간 합계에 대한 평균         |
+| <Cmdname sid="timeSum_ms" /> | 응답시간의 합                     |
 
 ## 트랜잭션 Caller 통계
 
@@ -272,6 +273,7 @@ whatap.stat_referer_enabled=true
 | <Cmdname sid="count" />      | 수행 건수                         |
 | <Cmdname sid="error" />      | 수행된 트랜잭션 중 에러 발생 건수 |
 | <Cmdname sid="timeAvg_ms" /> | 응답시간 합계에 대한 평균         |
+| <Cmdname sid="timeSum_ms" /> | 응답시간의 합                     |
 
 
 ## 에러 통계
@@ -286,6 +288,10 @@ whatap.stat_referer_enabled=true
 | <Cmdname sid="TTL06918" /> | 트랜잭션 주소  |
 | <Cmdname sid="msg" />      | 에러 메시지    |
 | <Cmdname sid="count" />    | 에러 발생 건수 |
+| <Cmdname sid="type_oid" className="uitext" /> | 에이전트 이름 |
+| <Cmdname sid="type_onode" className="uitext" /> | `whatap.onode`로 분류된 에이전트 그룹 단위 |
+| <Cmdname sid="type_okind" className="uitext" /> | `whatap.okind`로 분류된 에이전트 그룹 단위 |
+| <Cmdname sid="TTL09049" className="uitext" /> | 조회 기간 중 트랜잭션의 에러가 최초 생성된 통계시간(5분 또는 1시간) |
 
 
 ## SQL 수행 통계
@@ -331,6 +337,7 @@ HTTP 및 HTTPS 프로토콜을 통해 5분 동안의 애플리케이션 외부 �
 | <Cmdname sid="timeSum_ms" /> | 응답시간의 합                                           |
 | <Cmdname sid="timeMin_ms" /> | 최소 응답시간                                           |
 | <Cmdname sid="timeMax_ms" /> | 최대 응답시간                                           |
+| <Cmdname sid="TTL06915" className="uitext" /> | HTTP 호출 시간에 대한 표준 편차 |
 
 
 ## 클라이언트 IP 지역별 호출 건수

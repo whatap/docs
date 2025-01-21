@@ -13,6 +13,53 @@ keywords: [ SQL Server, 데이터베이스, 데이터베이스 사이즈 ]
 
 데이터베이스 사이즈의 추이를 통해 사용량 패턴 및 데이터 성장을 이해할 수 있습니다. 미래 용량 요구 사항을 예측하고 조치를 취할 수 있습니다. 이러한 변화를 모니터링하는 것은 리소스 및 비용을 최적화하는데 도움이 됩니다.
 
+## 사용하기 전에
+
+### 조회 권한 부여하기
+
+데이터베이스 사이즈 정보를 수집하기 위해서 다음과 같이 권한 설정이 필요합니다.
+
+```sql
+grant connect any database to whatap;
+grant view any definition to whatap;
+```
+
+:::note
+
+다음의 경우에 해당하는 테이블은 사이즈를 수집하지 않습니다.
+
+- `dt`로 시작하는 테이블
+
+- `is_ms_shipped=0` (`sys.objects`에서 시스템 객체 제외)
+
+- `object_id` \> 255
+
+- Azure SQL Server의 경우 마스터 데이터베이스 사이즈는 수집 불가
+
+:::
+
+### 에이전트 옵션 설정하기
+
+데이터베이스 사이즈 정보를 수집하기 위해 다음 에이전트 옵션을 설정할 수 있습니다.
+
+* **tables** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  테이블 사이즈 정보를 수집합니다. <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSize" className="uitext" /> 메뉴에서 해당 데이터베이스를 선택하면 테이블 사이즈 정보를 확인할 수있습니다.
+
+* **tables_hour** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  테이블 사이즈 정보를 저장하기 위해 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
+
+* **tables_min_row** <span class='type'>Int</span>
+
+  기본값 `10000`
+
+  테이블 정보를 수집할 때 설정한 값보다 작은 row 수를 가진 테이블 정보는 수집하지 않습니다.
+
 ## 기본 화면 안내
 
 <ImgLang img='db-database-size-mssql.png' desc='Database size'/>

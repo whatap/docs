@@ -30,29 +30,53 @@
 
   인스턴스별 디스크 사용률과 사용 가능 크기, 전체 크기 정보를 표시합니다. 값이 `0`이면 디스크 사용률을 수집하지 않습니다.
 
-- **process** <span class='type'>String</span>
+- **port_check** <span class='type'>String</span>
+
+  XOS 에이전트에서 옵션값으로 지정한 포트로 직접 접속을 시도한 후, 실패 시 해당 포트 리스트를 `db_port_check` 카테고리로 전송합니다.
+
+  ```ini title="xos.conf"
+  port_check=192.168.122.113:3333,192.168.122.113:3334
+  ```
+
+  지정한 포트로 접속이 안될 경우 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 `db_port_check` 카테고리를 선택한 후  확인할 수 있습니다.
+
+  ![port_check](/img/db-xos-conf-port-check-metrics.png)
+
+- **process_check** <span class='type'>String</span>
 
   프로세스의 실행 상태를 모니터링할 수 있습니다. 옵션값으로 프로세스 이름을 입력하세요. 쉼표(,)를 구분자로 이용해 여러 개를 등록할 수 있습니다.
 
   ```ini title='xos.conf'
-  process={process_name}
+  process_check=pmon,smon,tnslsnr,melong,haha
   ```
 
-  예를 들어, top과 lock.sh 프로세스를 감시 대상으로 설정하려면 다음과 같이 옵션을 설정하세요.
+  해당 문자열을 포함한 프로세스가 모니터링되지 않을 때, `db_process_check` 카테고리로 데이터를 전송합니다. 예를 들어, **melong**, **haha** 2개 프로세스가 없을 경우 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 `db_process_check` 카테고리를 선택한 후 확인할 수 있습니다.
 
-  ```ini title='xos.conf'
-  process=top,lock.sh
-  ```
+  ![process_check](/img/db-xos-conf-process-check-metrics.png)
 
   :::note
 
-  `process` 옵션을 이용해 데이터베이스에서 실행 중인 프로세스가 종료될 경우 경고 알림을 보낼 수 있습니다. 자세한 내용은 [다음 문서](../best-practice-guides/set-db-metric-warning-notice)를 참조하세요.
+  `process_check` 옵션을 이용해 데이터베이스에서 실행 중인 프로세스가 종료될 경우 경고 알림을 보낼 수 있습니다. 자세한 내용은 [다음 문서](../best-practice-guides/set-db-metric-warning-notice)를 참조하세요.
 
   :::
 
+- **process_check_interval** <span class='type'>Second</span>
+
+  기본값 `6`
+
+  `process_check` 옵션을 통해 프로세스의 실행 상태를 수집하는 시간 간격을 설정합니다.
+
 - **iplist_interval** <span class='type'>Second</span>
 
-  데이터베이스 서버의 IP 목록을 수집할 수 있습니다. 초 단위(최소 3초)로 시간 간격(interval)을 설정해야 수집할 수 있습니다.
+  기본값 `0` (Off)
+
+  데이터베이스 서버의 IP 목록을 수집하는 시간 간격을 설정합니다. 초 단위(최소 3초)로 시간 간격(interval)을 설정할 수 있습니다.
+
+  :::note
+
+  *whatap.conf* 파일에 `xos_dbip=true` 옵션을 설정하면 `db_ip_list` 카테고리로 전송합니다. <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" /> 메뉴에서 `db_ip_list` 카테고리를 선택한 후 확인할 수 있습니다.
+
+  :::
 
 <InDoc product="postgresql,mysql,redis,mongodb,oracle,altibase,cubrid,mssql,db2">
 

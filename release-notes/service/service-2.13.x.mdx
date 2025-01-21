@@ -180,6 +180,26 @@ Service 2.13.0 릴리스에 포함된 신규 기능을 소개합니다.
 
   :::
 
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_statistics" className="uitext" /> 하위 메뉴에서 테이블의 컬럼 추가, <Cmdname sid="BTN06441" className="uitext" /> 기능을 통해 컬럼을 추가하면 다운로드한 CSV 파일에도 노출하도록 개선
+
+  하위 메뉴별로 추가한 컬럼은 다음을 참조하세요.
+
+  - <Cmdname sid="side_statDomain" className="uitext" />: <Cmdname sid="timeSum_ms" className="uitext" />
+
+  - <Cmdname sid="side_statError" className="uitext" />: <Cmdname sid="type_oid" className="uitext" />, <Cmdname sid="type_onode" className="uitext" />, <Cmdname sid="type_okind" className="uitext" />, <Cmdname sid="TTL09049" className="uitext" />
+
+  - <Cmdname sid="side_statHttpc" className="uitext" />: <Cmdname sid="TTL06915" className="uitext" />
+
+  - <Cmdname sid="side_statLogin" className="uitext" />: <Cmdname sid="timeSum_ms" className="uitext" />
+
+  - <Cmdname sid="side_statReferer" className="uitext" />: <Cmdname sid="timeSum_ms" className="uitext" />
+
+  :::note
+
+  <Cmdname sid="TTL09049" className="uitext" />: 조회 기간 중 트랜잭션의 에러가 최초 생성된 통계시간(5분 또는 1시간)입니다.
+
+  :::
+
 - <Status priority='1'>Changed</Status> <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_netstatTopology" className="uitext" /> 메뉴의 초기 화면에 안내 메시지 추가
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_integratedFlexboard" className="uitext" /> 메뉴에서 <Cmdname sid="AA002" className="uitext" /> <UI>TopN</UI> 위젯을 클릭하면 발생하는 에러 수정

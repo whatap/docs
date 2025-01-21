@@ -44,6 +44,16 @@
 
 </InDoc>
 
+<Xclude product ='redis,mongodb,oracle,oracle-v1'>
+
+* **long_run_session_sec** <span class='type'>Second</span>
+
+  기본값 `10` (단위: 초)
+
+  설정한 시간보다 길게 수행되고 있는 세션을 long run 세션으로 처리합니다.
+
+</Xclude>
+
 <InDoc product="postgresql,mysql,cubrid,mssql">
 
 * **tables** <span class='type'>Boolean</span>
@@ -76,6 +86,8 @@
 
 <Xclude product='redis,mongodb,oracle,oracle-v1,altibase,db2'>
 
+{/* <InDoc product="postgresql,mysql,cubrid,cubrid-v1,"> */}
+
 * **tables_hour** <span class='type'>Int</span>
 
   기본값 `5`
@@ -93,16 +105,6 @@
   테이블 정보를 수집할 때 설정한 값보다 작은 크기의 테이블 정보는 수집하지 않습니다. 테이블 데이터를 수집하는 최소 단위로 기본값은 `pg_total_relation_size` 기준 10 MB입니다.
 
 </InDoc>
-
-<Xclude product ='redis,mongodb,oracle,oracle-v1'>
-
-* **long_run_session_sec** <span class='type'>Second</span>
-
-  기본값 `10` (단위: 초)
-
-  설정한 시간보다 길게 수행되고 있는 세션을 long run 세션으로 처리합니다.
-
-</Xclude>
 
 <InDoc product='tibero'>
 

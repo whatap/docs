@@ -15,6 +15,37 @@ keywords: [ CUBRID, 데이터베이스, 통계 ]
 
 데이터베이스의 사용 현황을 실시간으로 모니터링함으로써 사용량을 확인하고 적절한 용량 관리를 할 수 있습니다. 사용량이 높은 데이터베이스를 추적해 용량 관리와 성능 최적화를 위한 조치를 취하세요. 또한 데이터베이스의 과도한 사용을 사전에 감지하고 대응할 수 있습니다.
 
+## 사용하기 전에 
+
+모니터링 시 dba 계정을 사용하기 때문에 별도의 권한이 필요없습니다. 다음의 테이블에 대해서만 데이터베이스 사이즈를 수집합니다.
+
+```txt
+is_system_class='NO' and class_type='CLASS'
+```
+
+### 에이전트 옵션 설정하기
+
+데이터베이스 사이즈 정보를 수집하기 위해 다음 에이전트 옵션을 설정할 수 있습니다.
+
+* **tables** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  테이블 사이즈 정보를 수집합니다. <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSize" className="uitext" /> 메뉴에서 해당 데이터베이스를 선택하면 테이블 사이즈 정보를 확인할 수있습니다.
+
+* **tables_hour** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  테이블 사이즈 정보를 저장하기 위해 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
+
+* **tables_min_row** <span class='type'>Int</span>
+
+  기본값 `10000`
+
+  테이블 정보를 수집할 때 설정한 값보다 작은 row 수를 가진 테이블 정보는 수집하지 않습니다.
+
+
 ## 기본 사용 안내
 
 <Cmdname sid="side_dbSize" className="uitext" /> 메뉴에서는 데이터베이스의 공간 사용량과 파일 시스템에서 사용되는 실제 파일의 크기와 사용량을 확인할 수 있습니다.

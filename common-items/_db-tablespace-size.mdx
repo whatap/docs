@@ -14,30 +14,150 @@
 
 테이블스페이스의 사용 현황을 실시간으로 모니터링함으로써 사용량을 확인하고 적절한 용량 관리를 할 수 있습니다. 사용량이 높은 테이블스페이스와 세그먼트를 추적해 용량 관리와 성능 최적화를 위한 조치를 취하세요. 또한 테이블스페이스의 과도한 사용을 사전에 감지하고 대응할 수 있습니다.
 
+<InDoc product="altibase">
+
+:::note
+
+**table user**(owner)가 `SYSTEM_`이 아닌 segment(table,index)를 수집합니다.
+
+:::
+
+## 사용하기 전에
+
+테이블스페이스 사이즈 데이터를 수집하기 위해서는 에이전트 옵션 설정이 필요합니다.
+
+* **segments** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  세그먼트 사이즈 정보를 수집합니다. <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴에서 해당 데이터베이스 또는 테이블스페이스를 선택하면 사이즈 정보를 확인할 수 있습니다.
+
+* **segments_hour** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  세그먼트 사이즈 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
+
+* **segments_min_size** <span class='type'>Int</span>
+
+  기본값 `10`
+
+  세그먼트 사이즈 정보를 수집하는 최소 단위로 기본값은 10MB 입니다. 세그먼트 사이즈 정보를 수집할 때 설정한 값보다 작은 크기의 세그먼트 사이즈 정보는 수집하지 않습니다.
+
+</InDoc>
+
+<InDoc product="tibero">
+
+## 사용하기 전에
+
+테이블스페이스 사이즈 데이터를 수집하기 위해서는 데이터베이스 권한 설정과 에이전트 옵션 설정이 필요합니다. 세그먼트 사이즈 데이터는 하루에 한 번 수집하며, 다음과 같이 설정을 완료해야 합니다.
+
+### 조회 권한 부여하기
+
+세그먼트 사이즈 데이터를 수집하려면 모니터링 유저에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어를 사용하여 권한을 설정하세요.
+
+```sql title="SQL"
+grant select any dictionary to whatap;
+```
+
+:::note
+
+`tables_exclude_sys` 옵션에 해당하는 경우 테이블스페이스 사이즈 정보를 수집하지 않습니다.
+
+:::
+
+### 에이전트 옵션 설정하기
+
+에이전트 옵션을 통해 테이블스페이스 사이즈 데이터 수집 기준을 설정할 수 있습니다.
+
+* **tables** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  테이블 사이즈 정보를 수집합니다. <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴에서 해당 데이터베이스를 선택하면 테이블 사이즈 정보를 확인할 수있습니다.
+
+
+* **tables_hour** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  테이블 사이즈 정보를 저장하기 위해 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
+
+* **tables_min_size** <span class='type'>Int</span>
+
+  기본값 `10`
+
+  테이블 정보를 수집할 때 설정한 값보다 작은 크기의 테이블 정보는 수집하지 않습니다. 테이블 데이터를 수집하는 최소 단위로 기본값은 10MB 입니다.
+
+* **tables_exclude_sys** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  테이블 정보를 수집할 때 SYS, OUTLN, SYSGIS, SYSCAT 소유인 테이블 정보의 수집 유무를 설정합니다. `true`로 설정하면 해당 테이블 정보는 수집하지 않습니다
+
+</InDoc>
+
 <Xclude product="altibase,tibero">
 
 ## 사용하기 전에
 
 테이블스페이스 사이즈 데이터를 수집하기 위해서는 데이터베이스 권한 설정과 에이전트 옵션 설정이 필요합니다. 세그먼트 사이즈 데이터는 하루에 한 번 수집하며, 다음과 같이 설정을 완료해야 합니다.
 
-### DB 권한 설정
+### 조회 권한 부여하기
 
 세그먼트 사이즈 데이터를 수집하려면 모니터링 유저에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어를 사용하여 권한을 설정하세요.
 
 ```sql title="SQL"
-grant select any dictionary to monitoring_user;
+grant select any dictionary to whatap;
 -- or --
-grant select on dba_segments to monitoring_user;
+grant select on dba_segments to whatap;
 ```
 
-### 에이전트 설정
+:::note
 
-에이전트 옵션을 통해 세그먼트 사이즈 데이터 수집 기준을 설정할 수 있습니다. 기본 설정은 10MB 이상의 세그먼트를 매일 새벽 5시에 수집하는 것입니다.
+테이블스페이스(Tablespace)가 `SYSTEM`, `SYSAUX`, `TEMP`, `UNDOTBS1`인 경우 수집하지 않습니다.
 
-```ini title="whatap.conf"
-segments_min_size=10
-segments_hour=5
-```
+:::
+
+### 에이전트 옵션 설정하기
+
+에이전트 옵션을 통해 세그먼트 사이즈 데이터 수집 기준을 설정할 수 있습니다.
+
+* **segments** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  세그먼트 사이즈 정보를 수집합니다. <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴에서 해당 데이터베이스 또는 테이블스페이스를 선택하면 사이즈 정보를 확인할 수 있습니다.
+
+* **segments_hour** <span class='type'>Int</span>
+
+  기본값 `5`
+
+  세그먼트 사이즈 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
+
+* **segments_min_size** <span class='type'>Int</span>
+
+  기본값 `10`
+
+  세그먼트 사이즈 정보를 수집하는 최소 단위로 기본값은 10MB 입니다. 세그먼트 사이즈 정보를 수집할 때 설정한 값보다 작은 크기의 세그먼트 사이즈 정보는 수집하지 않습니다.
+
+* **segments_exclude_sys** <span class='type'>Int</span>
+
+  기본값 `1`
+
+  sys에 해당하는 계정을 제외하고 사이즈 정보를 수집합니다.
+
+* **segments_sys** <span class='type'>String</span>
+
+  기본값 'SYS', 'OUTLN', 'SYSTEM', 'AUDSYS', 'DBSNMP', 'GSMADMIN_INTERNAL', 'XDB', 'WMSYS', 'OJVMSYS', 'CTXSYS', 'ORDSYS', 'ORDDATA', 'MDSYS', 'LBACSYS', 'DVSYS', 'DBSFWUSER', 'APPQOSSYS', 'OLAPSYS'
+
+  sys에 해당하는 계정 목록입니다. 위 계정에 추가하고 싶으면 `segments_sys+='xxx'`로 추가할 수 있습니다.
+
+* **segments_max_count** <span class='type'>Int</span>
+
+  기본값 `50`
+
+  테이블스페이스 별로 사이즈가 큰 세그먼트 50개만 수집하여 저장합니다.
 
 </Xclude>
 

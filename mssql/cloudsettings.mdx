@@ -5,12 +5,12 @@ description: 클라우드 데이터베이스 서버의 자원 현황을 수집�
 keywords: [ SQL Server, 데이터베이스, 클라우드 ]
 ---
 
-{/* description */}
 import CloudSettingsDesc from "../common-items/_db-cloudsettings-desc.mdx";
-
-<CloudSettingsDesc />
-
-{/* AWS CloudWatch 설정 */}
 import CloudWatchSettings from "../common-items/_db-cloudsettings-awscloudwatch.mdx";
 
-<CloudWatchSettings />
+<Collection docs={
+  [
+    {Topic: CloudSettingsDesc},
+    {Topic: CloudWatchSettings}
+  ]} 
+/>

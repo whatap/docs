@@ -1,0 +1,108 @@
+---
+id: metrics-data-list
+title: IBM DB2 지표
+description: IBM DB2 데이터베이스 지표를 안내합니다.
+keywords: [ IBM DB2, 메트릭스, 데이터베이스, 데이터베이스 모니터링 ]
+---
+
+데이터베이스 지표는 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집합니다. 와탭 모니터링 서비스는 지속적으로 지표를 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
+
+그외 지표에 대한 자세한 내용은 [다음 링크](https://www.postgresql.org/docs/)를 참조하세요.
+
+import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
+import Xosmetrics from "../common-items/_db-xos-metrics.mdx";
+
+<div className="metricslist">
+
+<AgentStatus />
+
+## db_db2_counter {#db_db2_counter}
+
+* 수집 간격: 5초
+
+* 통계 데이터: 5분, 1시간
+
+### Tags {#db_db2_counter-tags}
+
+다음은 `db_db2_counter` 카테고리에 수집되는 태그값에 대한 안내입니다.
+
+| 태그명 | 설명 | 비고 |
+| -- | -- | -- |
+| `dbType` | 데이터베이스 종류입니다. | - |
+| `dbVersion` | 이용 중인 데이터베이스의 버전입니다. | - |
+| `oname` | 에이전트 이름입니다. | 고유값 |
+
+### Field {#db_db2_counter-filed}
+
+다음은 `db_db2_counter` 카테고리에 수집되는 필드값에 대한 안내입니다.
+
+| Metrics | Description |
+| -- | -- |
+| `active_sessions` | 현재 활성 세션의 수 |
+| `col_hit_ratio` | 컬럼 캐시 히트 비율 |
+| `col_logical_reads` | 컬럼에 대한 논리적 읽기 횟수 |
+| `col_physical_reads` | 컬럼에 대한 물리적 읽기 횟수 |
+| `col_reads_total` | 컬럼에 대한 총 읽기 횟수 |
+| `connect_error` | 데이터베이스 연결 오류 횟수 |
+| `cpu_cores` | 사용 중인 CPU 코어 수입니다. |
+| `cpu_usage_total` | 총 CPU 사용량(%) |
+| `data_hit_ratio` | 데이터 캐시 히트 비율 |
+| `data_logical_reads` | 데이터에 대한 논리적 읽기 횟수 |
+| `data_physical_reads` | 데이터에 대한 물리적 읽기 횟수 |
+| `data_reads_total` | 데이터에 대한 총 읽기 횟수 |
+| `direct_read` | 직접 읽기 횟수 |
+| `direct_readtime` | 직접 읽기 소요 시간 |
+| `direct_write` | 직접 쓰기 횟수 |
+| `direct_writetime` | 직접 쓰기 소요 시간 |
+| `fatal` | 치명적인 오류 발생 횟수 |
+| `count` | 특정 이벤트 또는 항목의 총 개수|
+| `gbp_column_hit_ratio` | GBP 컬럼 캐시 히트 비율 |
+| `gbp_data_hit_ratio` | GBP 데이터 캐시 히트 비율 |
+| `gbp_index_hit_ratio` | GBP 인덱스 캐시 히트 비율 |
+| `gbp_index_logical_reads` | GBP 인덱스 논리적 읽기 횟수 |
+| `gbp_index_physical_reads` | GBP 인덱스 물리적 읽기 횟수 |
+| `gbp_logical_reads` | GBP 데이터 논리적 읽기 횟수 |
+| `gbp_physical_reads` | GBP 데이터 물리적 읽기 횟수 |
+| `gbp_total_hit_ratio` | GBP 전체 캐시 히트 비율 |
+| `gbp_xda_hit_ratio` | GBP XDA 캐시 히트 비율 |
+| `gbp_xda_logical_reads` | GBP XDA 논리적 읽기 횟수 |
+| `gbp_xda_physical_reads` | GBP XDA 물리적 읽기 횟수 |
+| `index_hit_ratio` | 인덱스 캐시 히트 비율 |
+| `index_logical_reads` | 인덱스 논리적 읽기 횟수 |
+| `index_physical_reads` | 인덱스 물리적 읽기 횟수 |
+| `index_reads_total` | 인덱스 총 읽기 횟수 |
+| `lock_wait_sessions` | 잠금 대기 세션 수 |
+| `log_reads` | 로그 읽기 횟수 |
+| `log_writes` | 로그 쓰기 횟수 |
+| `max_appls` | 최대 애플리케이션 수 |
+| `max_connections` | 최대 연결 수 |
+| `mem` | 메모리 사용량 |
+| `memory_free` | 사용 가능한 메모리 크기 (GB) |
+| `memory_swap_free` | 사용 가능한 스왑 메모리 크기 (GB) |
+| `memory_swap_total` | 총 스왑 메모리 크기 (GB) |
+| `memory_total` | 총 메모리 크기 (GB) |
+| `reads_total` | 총 읽기 횟수 |
+| `rows_deleted` | 삭제된 행의 수 |
+| `rows_inserted` | 삽입된 행의 수 |
+| `rows_modified` | 수정된 행의 수 |
+| `rows_read` | 읽은 행의 수 |
+| `rows_returned` | 반환된 행의 수 |
+| `rows_updated` | 업데이트된 행의 수 |
+| `total_commit_count` | 전체 커밋 횟수 |
+| `total_hit_ratio` | 전체 캐시 히트 비율 |
+| `total_log_available` | 사용 가능한 전체 로그 용량 (GB)|
+| `total_log_used` | 사용된 전체 로그 용량 (GB) |
+| `total_log_used_percent` | 사용된 전체 로그 비율 (%) |
+| `total_rollback_count` | 전체 롤백 횟수 |
+| `total_rollback_time` | 전체 롤백 소요 시간 (ms) |
+| `total_runstats_time` | 전체 실행 통계 시간 (ms) |
+| `total_sessions` | 전체 세션 수 |
+| `warning` | 경고 발생 횟수 |
+| `xda_hit_ratio` | XDA 캐시 히트 비율 |
+| `xda_logical_reads` | XDA 논리적 읽기 횟수 |
+| `xda_physical_reads` | XDA 물리적 읽기 횟수 |
+| `xda_reads_total` | XDA 총 읽기 횟수|
+
+<Xosmetrics />
+
+</div>

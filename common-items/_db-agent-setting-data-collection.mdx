@@ -54,7 +54,7 @@
 
 </InDoc>
 
-<Xclude product ='redis,mongodb,oracle,oracle-v1,altibase,db2'>
+<Xclude product='redis,mongodb,oracle,oracle-v1,altibase,db2'>
 
 * **tables_hour** <span class='type'>Int</span>
 
@@ -63,6 +63,16 @@
   테이블 사이즈 정보를 저장하기 위해 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
 
 </Xclude>
+
+<InDoc product="postgresql">
+
+* **tables_min_size** <span class='type'>Int</span>
+
+  기본값 `10`
+
+  테이블 정보를 수집할 때 설정한 값보다 작은 크기의 테이블 정보는 수집하지 않습니다. 테이블 데이터를 수집하는 최소 단위로 기본값은 `pg_total_relation_size` 기준 10 MB입니다.
+
+</InDoc>
 
 <Xclude product ='redis,mongodb,oracle,oracle-v1'>
 
@@ -111,6 +121,18 @@
 </Xclude>
 
 <InDoc product='postgresql'>
+
+* **skip_schema** <span class='type'>String</span>
+
+  기본값: pg_catalog,sys,information_schema,pg_toast
+
+  옵션값으로 설정한 스키마의 테이블을 수집하지 않습니다.
+
+* **skip_db** <span class='type'>String</span>
+
+  기본값: edb,postgres
+
+  옵션값으로 설정한 데이터베이스의 테이블을 수집하지 않습니다.
 
 * **slave_ip** <span class='type'>string</span>
 

@@ -15,15 +15,9 @@ import MetricsChart from "../common-items/_metrics-chart-v2.mdx";
 
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_serverMetricsExplorer" className="uitext" /> <code class="beta-lab">Beta</code>
 
-<Cmdname sid="side_serverMetricsExplorer" className="uitext" /> <code class="beta-lab">Beta</code> 메뉴는 와탭 모니터링 솔루션의 핵심 기능으로, 다양한 모니터링 대상으로부터 수집한 데이터를 시계열 차트로 시각화하여 제공합니다. 이를 통해 사용자는 시스템 성능을 효과적으로 모니터링하고 이상 징후를 빠르게 식별하여 문제 해결에 필요한 인사이트를 얻을 수 있습니다.
+<Cmdname sid="side_serverMetricsExplorer" className="uitext" /> <code class="beta-lab">Beta</code> 메뉴는 모니터링 대상으로부터 수집한 데이터를 시계열 차트로 시각화하여 제공합니다. 이를 통해 사용자는 시스템 성능을 효과적으로 모니터링하고 이상 징후를 빠르게 식별하여 문제 해결에 필요한 인사이트를 얻을 수 있습니다.
 
 <ImgLang img="server-metrics-explorer.png" desc="메트릭스 익스플로러" />
-
-<InDoc product="java,php,python,nodejs,golang,dotnet"><ImgLang img="metrics-chart-new-main-apm.png" desc="Metrics Chart" /></InDoc>
-
-<InDoc product="kubernetes"><ImgLang img="metrics-chart-new-main-k8s.png" desc="Metrics Chart" /></InDoc>
-
-<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1"><ImgLang img="metrics-chart-new-main-db.png" desc="Metrics Chart" /></InDoc>
 
 * 다양한 지표를 시계열 차트를 통해서 시각적으로 확인할 수 있으며, 장애 발생 시점의 여러 지표를 한번에 분석할 수 있습니다.
 
@@ -92,11 +86,7 @@ import MetricsChart from "../common-items/_metrics-chart-v2.mdx";
 
 모니터링할 대상 에이전트를 선택한 후 <Cmdname sid="metric" className="uitext" /> 패널에 선택할 수 있는 목록이 표시됩니다. 목록에서 원하는 지표를 선택하세요.
 
-<InDoc product="java,php,python,nodejs,golang,dotnet"><ImgLang img="metrics-chart-new-select-metrics.png" desc="지표 선택" /></InDoc>
-
-<InDoc product="kubernetes"><ImgLang img="metrics-chart-new-k8s-select-metrics.png" desc="지표 선택" /></InDoc>
-
-<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1"><ImgLang img="metrics-chart-new-db-select-metrics.png" desc="지표 선택" /></InDoc>
+<ImgLang img="server-metrics-explorer-select.png" desc="지표 선택" />
 
 선택한 지표에 해당하는 차트 위젯이 오른쪽의 대시보드에 배치됩니다. 다른 지표를 추가로 선택해 차트 위젯을 추가할 수 있습니다. 차트 영역을 확대해 넓게 보려면 <Cmdname sid="time" className="uitext" /> 옵션 오른쪽의 ![닫기 아이콘](/img/ico-close.svg) 버튼을 선택하세요. <Cmdname sid="target" className="uitext" />과 <Cmdname sid="metric" className="uitext" /> 패널이 사라지고 차트 영역만 화면에 표시됩니다.
 
@@ -104,23 +94,7 @@ import MetricsChart from "../common-items/_metrics-chart-v2.mdx";
 
 * <Cmdname sid="CNT08118" className="uitext" /> 입력란에 문자열을 입력하면 원하는 지표를 빠르게 검색할 수 있습니다.
 
-<InDoc product="java,php,python,nodejs,dotnet,golang">
-
-* 지표의 카테고리 및 필드 이름을 기준으로도 검색할 수 있습니다. 카테고리 및 필드에 대한 자세한 내용은 [다음 문서](metrics-app)를 참조하세요.
-
-</InDoc>
-
-<InDoc product="kubernetes">
-
-* 지표의 카테고리 및 필드 이름을 기준으로도 검색할 수 있습니다. 카테고리 및 필드에 대한 자세한 내용은 [다음 문서](metrics-kubernetes)를 참조하세요.
-
-</InDoc>
-
-<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1">
-
-* 지표의 카테고리 및 필드 이름을 기준으로도 검색할 수 있습니다. 카테고리 및 필드에 대한 자세한 내용은 [다음 문서](metrics-data-list)를 참조하세요.
-
-</InDoc>
+* 지표의 카테고리 및 필드 이름을 기준으로도 검색할 수 있습니다. 카테고리 및 필드에 대한 자세한 내용은 [다음 문서](metrics-server)를 참조하세요.
 
 * <Cmdname sid="BTN06285" className="uitext" /> 또는 <Cmdname sid="BTN06286" className="uitext" /> 버튼을 선택해 카테고리 단위로 지표 목록을 감추거나 펼칠 수 있습니다.
 
@@ -130,15 +104,13 @@ import MetricsChart from "../common-items/_metrics-chart-v2.mdx";
 
 ### 인터벌 설정하기 {#setinterval}
 
+{/* apm 이미지 사용 */}
+
 <Columns>
 
 <Column className="text--left width--40">
 
-<InDoc product="java,php,python,nodejs,golang,dotnet"><ImgLang img="metrics-chart-new-select-interval.png" desc="인터벌" /></InDoc>
-
-<InDoc product="kubernetes"><ImgLang img="metrics-chart-new-k8s-select-interval.png" desc="인터벌" /></InDoc>
-
-<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1"><ImgLang img="metrics-chart-new-db-select-interval.png" desc="인터벌" /></InDoc>
+<ImgLang img="metrics-chart-new-select-interval.png" desc="인터벌" />
 
 </Column>
 
@@ -194,17 +166,11 @@ import MetricsChart from "../common-items/_metrics-chart-v2.mdx";
 
 차트 위젯에 표시되는 각 항목에 대한 자세한 내용을 확인하세요.
 
-<ImgLang img="metrics-chart-new-chart-details.png" desc="Chart widget" />
+<ImgLang img="server-metrics-explorer-chart-details.png" desc="Chart widget" />
 
-* ![숫자 01](/img/number-01.png) **지표 이름 및 카테고리**: 차트 위젯의 지표 이름을 표시합니다. 지표의 오른쪽에는 조회 대상의 카테고리를 태그 형식으로 표시합니다. 이용하는 상품에 따라 카테고리 명칭은 다를 수 있습니다. 
+* ![숫자 01](/img/number-01.png) **차트 위젯 이름**: 차트 위젯 상단에서 선택한 지표 이름, 지표 그룹명, 대상을 표시합니다. 
 
-  * `*oid`: 개별 에이전트를 선택했을 때 표시됩니다.
-
-  * `project`: 프로젝트 단위로 대상을 선택했을 때 표시됩니다.
-
-  * `okind`: 에이전트 설정에서 <code>whatap.okind</code>로 분류된 그룹을 선택했을 때 표시됩니다.
-
-  * `onode`: 에이전트 설정에서 <code>whatap.onode</code>로 분류된 그룹을 선택했을 때 표시됩니다.
+  * ![지시선 a](/img/char-a.svg): 마우스 포인터를 위젯 이름 위로 가져가면 모니터링 대상을 확인할 수 있습니다.
 
 * ![숫자 02](/img/number-02.png) **위젯 옵션**: 차트 위젯의 옵션 메뉴입니다. 자세한 내용은 [다음 문서](#chart-options)를 참조하세요. 인터벌 옵션에 대한 자세한 내용은 [다음 문서](#setinterval)를 참조하세요.
 
@@ -399,11 +365,7 @@ import MetricsChart from "../common-items/_metrics-chart-v2.mdx";
 
 화면에 배치된 차트 위젯에 세부 옵션을 한번에 적용할 수 있는 기능을 제공합니다. 화면 왼쪽 상단에 <Cmdname sid="BTN08226" className="uitext" /> 버튼을 선택하세요. <Cmdname sid="BTN08226" className="uitext" /> 창이 나타나면 원하는 옵션을 설정한 다음 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
 
-<InDoc product="java,php,python,nodejs,golang,dotnet"><ImgLang img="metrics-chart-new-chart-batch-change.png" desc="일괄 변경" /></InDoc>
-
-<InDoc product="kubernetes"><ImgLang img="metrics-chart-new-k8s-chart-batch-change.png" desc="일괄 변경" /></InDoc>
-
-<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1"><ImgLang img="metrics-chart-new-db-chart-batch-change.png" desc="일괄 변경" /></InDoc>
+<ImgLang img="server-metrics-explorer-chart-batch-change.png" desc="일괄 변경" />
 
 * <Cmdname sid="time" className="uitext" />: 차트의 데이터 조회 범위를 설정할 수 있습니다.
 
@@ -453,15 +415,6 @@ import MetricsChart from "../common-items/_metrics-chart-v2.mdx";
 
 대시보드에 배치한 모든 위젯을 하나의 이미지 형식의 파일로 다운로드할 수 있습니다. <Cmdname sid="download" className="uitext" /> &gt; <Cmdname sid="BTN07750" className="uitext" />를 선택하세요. 대시보드 화면을 그대로 캡쳐한 이미지를 저장할 수 있습니다.
 
-### 이전 버전 이용하기
-
-이전 버전의 <Cmdname sid="side_serverMetricsExplorer" className="uitext" /> 메뉴를 이용하려면 <Cmdname sid="goto_previous_version" className="uitext" /> 버튼을 선택하세요. 또는 ![사이트맵 아이콘](/img/ic-sitemap.svg) <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_serverMetricsExplorer" className="uitext" /> <code className="oldfunc">Old</code> 메뉴 경로에서 확인할 수 있습니다.
-
-:::note
-
-<Cmdname sid="side_serverMetricsExplorer" className="uitext" /> <code className="oldfunc">Old</code> 메뉴에 대한 자세한 내용은 [다음 문서](metrics-chart)를 참조하세요.
-
-:::
 
 ## 기타 옵션 이용하기 {#otheroptions}
 
@@ -488,4 +441,4 @@ import MetricsChart from "../common-items/_metrics-chart-v2.mdx";
 
 ## 튜토리얼 이용하기
 
-화면 오른쪽 상단에 <Cmdname sid="BTN07397" className="uitext" /> 버튼을 선택하면 [Service 2.8.0](../release-notes/service/service-2_8_x) 업데이트 이후 변경 사항을 확인할 수 있습니다.
+화면 오른쪽 상단에 <Cmdname sid="BTN07397" className="uitext" /> 버튼 선택 시 튜토리얼을 사용할 수 있습니다. 

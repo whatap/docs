@@ -1,0 +1,512 @@
+[
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_13_x/",
+    "ver": "Service 2.13.0",
+    "date": "2025-01-22",
+    "Lists": [
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>IBM DB2</strong> 모니터링 상품 출시</p>",
+        "category": "Database"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 과거 성능 데이터를 보다 직관적으로 분석할 수 있는 <span class=\"uitext\">메트릭스 익스플로러</span> 메뉴 추가</p>",
+        "category": "Server",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">서버 인벤토리</span> 메뉴의 카테고리 정보 추가</p>\n</li>\n<li>\n<p><span class=\"uitext\">메트릭스 익스플로러</span> 기능 안내 모달 추가</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 쿠버네티스의 시스템 컴포넌트 중 하나인 kube-scheduler에 대한 모니터링 데이터를 조회할 수 있는 <span class=\"uitext\">kube-scheduler 대시보드</span> 메뉴 추가</p>",
+        "category": "Kubernetes"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 시간의 흐름에 따른 컨테이너 상태를 확인할 수 있는 <span class=\"uitext\">컨테이너 타임라인</span> 메뉴 추가</p>",
+        "category": "Kubernetes"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 시간의 흐름에 따른 Pod 상태를 확인할 수 있는 <span class=\"uitext\">Pod 타임라인</span> 메뉴 추가</p>",
+        "category": "Kubernetes"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "신규 기능 출시",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <span class=\"uitext\">클러스터</span> 하위에 Persistent Volume 관련 신규 메뉴 추가</p>",
+        "category": "Kubernetes",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">Persistent Volume 목록</span></p>\n</li>\n<li>\n<p><span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">Persistent Volume Claim 목록</span></p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">메트릭스 차트</span> <code class=\"newfunc\">New</code> 메뉴의 기능 개선</p>",
+        "details": "<ul>\n<li>\n<p>차트 데이터에 마우스 호버 시 힌트 데이터의 Max 값이 기록된 특정 시간 추가</p>\n</li>\n<li>\n<p>범례 목록 전체 선택/해제 버튼 추가</p>\n</li>\n<li>\n<p>차트 라인의 컬러 선택 기능 추가</p>\n</li>\n<li>\n<p>더보기 메뉴에 CSV 복사 버튼 추가</p>\n</li>\n<li>\n<p>더보기 메뉴에 차트 이미지 복사 버튼 추가</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 수신 설정</span> 메뉴에서 서드파티 플러그인을 통한 알림 수신 레벨 선택 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 기록</span> 메뉴와 실시간 알림의 링크 변경 및 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "공통",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">통합 보고서</span> 메뉴의 시간 선택자(타임 셀렉터) 기능 교체</p>",
+        "details": "<ul>\n<li>\n<p><strong>일간 보고서</strong>: 시작과 종료 날짜, 시간을 선택할 수 있습니다.</p>\n</li>\n<li>\n<p><strong>주간 보고서</strong>: 시작 날짜만 선택하면 종료 날짜를 계산해 자동 선택합니다.</p>\n</li>\n<li>\n<p><strong>월간 보고서</strong>: 시작 날짜만 선택하면 종료 날짜를 계산해 자동 선택합니다.</p>\n<ul>\n<li>\n<p><strong>시작 날짜가 1일인 경우</strong>: 해당 월의 월말까지 자동으로 선택합니다.</p>\n</li>\n<li>\n<p><strong>시작 날짜가 1일이 아닌 경우</strong>: 다음 달의 전일까지 자동으로 선택합니다.</p>\n</li>\n</ul>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통합 Flex 보드</span> 또는 <span class=\"uitext\">Flex 보드</span> 메뉴의 알림 목록 위젯에 데이터가 없는 경우 <span class=\"uitext\">해소된 이벤트 보기</span> 스위치 UI가 표시되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">이용 내역</span> &gt; <span class=\"uitext\">선납금</span> 메뉴에서 목록이 표시되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 프로젝트 목록 검색 시 검색 결과 내 상품 아이콘 정렬 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">트랜잭션 맵</span> 메뉴에서 차트의 Y축 최댓값을 직접 입력해서 조절할 수 있는 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">트랜잭션 맵</span> 메뉴에서 <img decoding=\"async\" loading=\"lazy\" alt=\"위 방향 아이콘\" src=\"data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iU1ZHSW5saW5lLXN2ZyIgc3R5bGU9IndpZHRoOiAxNnB4O2hlaWdodDogMTZweDsiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNTkuMSAoODYxNDQpIC0gaHR0cHM6Ly9za2V0Y2guY29tIC0tPgogICAgPCEtLSA8dGl0bGU+aWMtdXA8L3RpdGxlPiAtLT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9Ikljb24tU2V0IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2hhVGFwX0ljb25fU2V0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNTQ4LjAwMDAwMCwgLTE2NC4wMDAwMDApIiBmaWxsPSIjNzU3NTc1Ij4KICAgICAgICAgICAgPGcgaWQ9ImRpcmVjdGlvbmFsLWljb25zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MC4wMDAwMDAsIDExOS4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJpYy11cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTA3LjMwMDAwMCwgNDQuNzAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNC4wMDAwMDAsIDcuMDAwMDAwKSIgaWQ9IkNvbWJpbmVkLVNoYXBlIj4KICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTUuNDE0MjEzNTYsMTMuNDM1MDI4OCBMNCwxMi4wMjA4MTUzIEwxMS4wNzEsNC45NDk0NjYwOSBMNCwtMi4xMjEzMjAzNCBMNS40MTQyMTM1NiwtMy41MzU1MzM5MSBMMTMuODk5NDk0OSw0Ljk0OTc0NzQ3IEw1LjQxNDIxMzU2LDEzLjQzNTAyODggWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOC45NDk3NDcsIDQuOTQ5NzQ3KSByb3RhdGUoLTkwLjAwMDAwMCkgdHJhbnNsYXRlKC04Ljk0OTc0NywgLTQuOTQ5NzQ3KSAiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==\" width=\"24\" height=\"24\" class=\"img_ev3q\"> 또는 <img decoding=\"async\" loading=\"lazy\" alt=\"아래 방향 아이콘\" src=\"data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iU1ZHSW5saW5lLXN2ZyIgc3R5bGU9IndpZHRoOiAxMnB4O2hlaWdodDogMTJweDsiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNTkuMSAoODYxNDQpIC0gaHR0cHM6Ly9za2V0Y2guY29tIC0tPgogICAgPCEtLSA8dGl0bGU+aWMtZG93bjwvdGl0bGU+IC0tPgogICAgPGcgaWQ9Ikljb24tU2V0IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2hhVGFwX0ljb25fU2V0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDUyLjAwMDAwMCwgLTE2NC4wMDAwMDApIiBmaWxsPSIjNzU3NTc1Ij4KICAgICAgICAgICAgPGcgaWQ9ImRpcmVjdGlvbmFsLWljb25zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MC4wMDAwMDAsIDExOS4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJpYy1kb3duIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MTEuMzAwMDAwLCA0NC4zMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LjAwMDAwMCwgOC4wMDAwMDApIiBpZD0iQ29tYmluZWQtU2hhcGUiPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNNS40MTQyMTM1NiwxMy40MzUwMjg4IEw0LDEyLjAyMDgxNTMgTDExLjA3MSw0Ljk0OTQ2NjA5IEw0LC0yLjEyMTMyMDM0IEw1LjQxNDIxMzU2LC0zLjUzNTUzMzkxIEwxMy44OTk0OTQ5LDQuOTQ5NzQ3NDcgTDUuNDE0MjEzNTYsMTMuNDM1MDI4OCBaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4Ljk0OTc0NywgNC45NDk3NDcpIHNjYWxlKDEsIC0xKSByb3RhdGUoLTkwLjAwMDAwMCkgdHJhbnNsYXRlKC04Ljk0OTc0NywgLTQuOTQ5NzQ3KSAiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==\" width=\"24\" height=\"24\" class=\"img_ev3q\"> 버튼으로 Y축 최댓값을 조정할 때, 30초를 넘어가면 10초 간격으로만 조절할 수 있는 기능 개선</p>",
+        "details": "<ul>\n<li>\n<p>10초에서 50초 구간은 <strong>10초</strong> 간격으로 이동</p>\n</li>\n<li>\n<p>50초에서 300초는 <strong>50초</strong> 간격으로 이동</p>\n</li>\n<li>\n<p>300초 이상은 <strong>100초</strong> 간격으로 이동</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계</span> &gt; <span class=\"uitext\">트랜잭션</span> 메뉴에서 트랜잭션 건수를 기준으로 계산한 <span class=\"uitext\">평균 HTTP 호출 시간</span>, <span class=\"uitext\">평균 SQL 시간</span>, <span class=\"uitext\">평균 SQL 패치 시간</span> 컬럼 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계</span> 하위 메뉴에서 테이블의 컬럼 추가, <span class=\"uitext\">컬럼 설정</span> 기능을 통해 컬럼을 추가하면 다운로드한 CSV 파일에도 노출하도록 개선</p>",
+        "details": "<p>하위 메뉴별로 추가한 컬럼은 다음을 참조하세요.</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">사이트맵</span> &gt; <span class=\"uitext\">Netstat 토폴로지</span> 메뉴의 초기 화면에 안내 메시지 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통합 Flex 보드</span> 메뉴에서 <span class=\"uitext\">액티브 트랜잭션</span> <span class=\"uitext\">TopN</span> 위젯을 클릭하면 발생하는 에러 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">트레이스 분석</span> 창의 <span class=\"uitext\">테이블 뷰</span> 탭에서 SQL 스텝을 확인할 때, SQL 문의 치환 변수 또는 바인드 변수 중 하나라도 해제하면 전부 해제되는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">스택</span> 메뉴에서 체크박스가 일부 잘려 표시되는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 조직을 선택한 상태에서 <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">트랜잭션 검색</span> 메뉴로 진입하면 시간 선택자에서 발생하는 에러 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 인벤토리</span> 메뉴에서 서버의 활성 상태를 표시하는 기본 컬럼 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>Server</strong> 모니터링 상품 소개 페이지의 콘텐츠 변경</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span> 메뉴의 그룹 요약 패널과 상세 보기에서 <span class=\"uitext\">서버 인벤토리</span> 테이블을 가로 스크롤할 때, 서버 이름 컬럼이 고정되도록 개선</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 인벤토리</span> 메뉴에서 <span class=\"uitext\">OS 타입</span> 컬럼에 운영체제별 아이콘 표시</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 인벤토리</span> 메뉴의 <span class=\"uitext\">컬럼 설정</span>에서 <span class=\"uitext\">서버 이름</span> 컬럼을 체크 해제할 수 있는 문제 수정, 기본 컬럼으로 변경</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Server",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\" type=\"1\">Deprecated</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 인벤토리</span> 메뉴에서 <span class=\"uitext\">삭제</span> 기능 제거</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴의 <span class=\"uitext\">대상 정보</span> 탭에서 <span class=\"uitext\">Pod 시작 분석</span> 정보도 확인할 수 있는 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴의 <span class=\"uitext\">대상 정보</span> 탭에서 Volume 정보를 확인할 수 있는 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">컨테이너</span> &gt; <span class=\"uitext\">Out Of Memory Killed 컨테이너</span> 메뉴에서 연관 메뉴로 이동할 수 있는 링크 제공</p>",
+        "details": "<ul>\n<li>\n<p><strong>podName</strong>: <span class=\"uitext\">워크로드</span> &gt; <span class=\"uitext\">Pod 목록</span></p>\n</li>\n<li>\n<p><strong>containerId</strong>: <span class=\"uitext\">컨테이너</span> &gt; <span class=\"uitext\">컨테이너 목록</span></p>\n</li>\n<li>\n<p><strong>onodeName</strong>: <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">노드 목록</span></p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">kube-apiserver 대시보드</span> 메뉴의 위젯이 관리형 쿠버네티스일 경우 <strong>데이터 없음</strong>에 대한 안내 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 kube-scheduler 기능 활성화 안내 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Kubernetes",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 다음 메뉴에서 <span class=\"uitext\">요약 분석</span> 기능을 탭으로 분리</p>",
+        "details": "<ul>\n<li><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span></li>\n<li><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">노드 맵</span></li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴에서 필터의 지표 이름이 제대로 표시되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">컨테이너</span> &gt; <span class=\"uitext\">컨테이너 이미지</span> 메뉴에서 이미지 이름에 '@'가 포함되는 경우 태그가 적절하게 표시되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">Ingress 목록</span> 메뉴에서 잘못 설정된 룰이 일부 누락된 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 컨테이너 요약 분석에서 Request, Limit 설정 메시지 오류 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Kubernetes",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\" type=\"1\">Deprecated</code> 다음 메뉴 경로에서 구성도를 클릭하면 탭으로 이동하는 기능 제거</p>",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">노드 타임라인</span></p>\n</li>\n<li>\n<p><span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">노드 목록</span> &gt; <img decoding=\"async\" loading=\"lazy\" alt=\"Detail icon\" src=\"data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iU1ZHSW5saW5lLXN2ZyIgc3R5bGU9IndpZHRoOiAxNnB4O2hlaWdodDogMTZweDsiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNTkuMSAoODYxNDQpIC0gaHR0cHM6Ly9za2V0Y2guY29tIC0tPgogICAgPCEtLSA8dGl0bGU+aWMtcGFnZXZpZXc8L3RpdGxlPiAtLT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9Ikljb24tU2V0IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iV2hhVGFwX0ljb25fU2V0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNjguMDAwMDAwLCAtMjcxMS4wMDAwMDApIiBmaWxsPSIjMjk2Y2YyIj4KICAgICAgICAgICAgPGcgaWQ9ImFwcGxpY2F0aW9uLWljb25zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MC4wMDAwMDAsIDIzNDYuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iaWMtcGFnZXZpZXciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI4LjAwMDAwMCwgMzY1LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIuMDAwMDAwLCA0LjAwMDAwMCkiIGlkPSJwYWdldmlldyI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xOCwwIEMxOS4wMzUyOTQxLDAgMTkuODkzNDI1NiwwLjc5NzIzMTgzNCAxOS45OTA3OTk5LDEuODA4MTAwOTYgTDIwLDIgTDE5Ljk5OSw1LjMzMyBMMTcuOTk5LDUuMzMzIEwxOCwyIEwyLDIgTDIsMTQgTDEyLDE0IEwxMiwxNiBMMiwxNiBDMC45NjQ3MDU4ODIsMTYgMC4xMDY1NzQzOTQsMTUuMjAyNzY4MiAwLjAwOTIwMDA4MTQyLDE0LjE5MTg5OSBMLTUuMzI5MDcwNTJlLTE1LDE0IEwtNS4zMjkwNzA1MmUtMTUsMiBDLTUuMzI5MDcwNTJlLTE1LDAuOTY0NzA1ODgyIDAuNzk3MjMxODM0LDAuMTA2NTc0Mzk0IDEuODA4MTAwOTYsMC4wMDkyMDAwODE0MiBMMiwwIEwxOCwwIFogTTEzLjE2NjY2NjcsNCBDMTUuNjU2NjY2Nyw0IDE3LjY2NjY2NjcsNi4wMSAxNy42NjY2NjY3LDguNSBDMTcuNjY2NjY2Nyw5LjM4IDE3LjQwNjY2NjcsMTAuMTkgMTYuOTY2NjY2NywxMC44OSBMMTkuODc2NjY2NywxMy43OSBMMTguNDU2NjY2NywxNS4yMSBMMTUuNTQ2NjY2NywxMi4zIEMxNC44NTY2NjY3LDEyLjc0IDE0LjAzNjY2NjcsMTMgMTMuMTU2NjY2NywxMyBDMTAuNjc2NjY2NywxMyA4LjY2NjY2NjY3LDEwLjk5IDguNjY2NjY2NjcsOC41IEM4LjY2NjY2NjY3LDYuMDEgMTAuNjc2NjY2Nyw0IDEzLjE2NjY2NjcsNCBaIE0xMy4xNjY2NjY3LDYgQzExLjc4NjY2NjcsNiAxMC42NjY2NjY3LDcuMTIgMTAuNjY2NjY2Nyw4LjUgQzEwLjY2NjY2NjcsOS44OCAxMS43ODY2NjY3LDExIDEzLjE2NjY2NjcsMTEgQzE0LjU0NjY2NjcsMTEgMTUuNjY2NjY2Nyw5Ljg4IDE1LjY2NjY2NjcsOC41IEMxNS42NjY2NjY3LDcuMTIgMTQuNTQ2NjY2Nyw2IDEzLjE2NjY2NjcsNiBaIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=\" width=\"24\" height=\"24\" class=\"img_ev3q\"> <span class=\"uitext\">상세</span></p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴에서 <span class=\"uitext\">Session Table</span> 위젯의 옵션을 프리셋에 저장하는 기능 추가</p>",
+        "category": "공통",
+        "details": "<p>프리셋에 저장되는 옵션은 다음과 같습니다.</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">클라우드 설정</span> 메뉴에서 AWS 리전 선택 옵션 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 목록</span> 메뉴에서 테이블 헤더에 지표 이름을 표시하도록 변경</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 차트 영역의 높이가 작아지면 스크롤을 사용할 수 있도록 변경</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 데이터베이스 태그가 많아지면 숨김 처리하도록 변경</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 업데이트</span> 메뉴에서 윈도우 운영체제를 사용하는 환경에 대한 안내 메시지 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다크모드일 때 <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 <span class=\"uitext\">세션 킬</span> 창의 안내 문구 텍스트 색상 변경</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">카운트 추이 비교</span> 메뉴에서 <span class=\"uitext\">액티브 세션</span> 테이블의 행을 클릭하면 표시되는 <span class=\"uitext\">세션 상세 정보</span> 창의 데이터가 출력되지 않는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 목록</span> 메뉴로 최초 진입하면 에이전트 목록이 표시되지 않는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\" type=\"1\">Deprecated</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 XOS 에이전트 실행 권한 부여 명령어 삭제</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 에이전트 설치 화면의 디자인 변경</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">세션 상세 정보</span> 및 <span class=\"uitext\">SQL 상세</span> 창의 Plan Tree에 튜닝 가이드 기능 추가</p>",
+        "category": "Oracle Pro"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">SQL 상세</span> 창에서 통곗값 표현 디자인 변경</p>",
+        "category": "Oracle Pro"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">세션 상세 정보</span> 및 <span class=\"uitext\">SQL 상세</span> 창의 Plan Tree 구조 디자인 변경</p>",
+        "category": "Oracle Pro"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">SQL 상세</span> 창에서 최근 1시간/최근 1일 변경 시 첫 번째 데이터를 선택하도록 수정</p>",
+        "category": "Oracle Pro"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">SQL 분석</span> 메뉴에서 필터 조건을 처음 생성할 때 조건 없는 상태에서 적용 버튼 클릭하면 필터가 추가되는 문제 수정</p>",
+        "category": "Oracle Pro"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">SQL 분석</span> 메뉴에서 같은 키의 조건을 다중 생성하면 <code>AND</code> 조건임에도 불구하고 <code>OR</code> 조건처럼 처리되는 문제 수정</p>",
+        "category": "Oracle Pro"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">데드락</span> 메뉴에서 데이터를 불러오지 못하는 문제 수정</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">프로시저 통계</span> 메뉴의 기능 및 UI 개선</p>",
+        "category": "SQL Server",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">definition</span> 컬럼을 선택했을 때 테이블 행(row) 색상 추가</p>\n</li>\n<li>\n<p>쿼리 통계 테이블에 <span class=\"uitext\">plan_handle</span> 컬럼 추가</p>\n</li>\n<li>\n<p>숫자 데이터에 포맷팅 적용</p>\n</li>\n<li>\n<p>시간 관련 데이터에 단위(μs) 표시</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">프로시저 통계</span> 메뉴에서 같은 쿼리는 하나로 묶어서 표시하도록 변경</p>",
+        "category": "SQL Server"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">프로시저 통계</span> 메뉴에서 <span class=\"uitext\">필터</span> 옵션의 설정 사항을 <span class=\"uitext\">Procedure Statistics</span> 테이블에만 적용하도록 수정</p>",
+        "category": "SQL Server"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 설치 화면에서 SSL 인증 관련 옵션 수정</p>",
+        "category": "SQL Server"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Browser",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계</span> &gt; <span class=\"uitext\">리소스 로드 통계</span> 메뉴에서 통계 세부를 확인할 수 있는 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Log",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 설정</span> 메뉴에 개인정보 비식별화 기능 추가</p>",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">개인정보 비식별화</span> 탭을 통해 카테고리, 필드를 입력해 설정 가능</p>\n</li>\n<li>\n<p><span class=\"b600\">로그 개인정보 조회</span> 권한 추가</p>\n</li>\n<li>\n<p><span class=\"b600\">로그 개인정보 조회</span> 권한에 따라 다음 메뉴 경로에서 개인정보를 표시하거나 숨기는 버튼 추가</p>\n<ul>\n<li><span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">라이브 테일</span></li>\n<li><span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 트렌드</span></li>\n<li><span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 검색</span></li>\n<li><span class=\"uitext\">트레이스 분석</span> &gt; <span class=\"uitext\">트랜잭션 로그</span></li>\n</ul>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Log",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">라이브 테일</span> 메뉴에서 최초 데이터 요청 시 데이터가 200개 이하일 경우, 200개가 채워지도록 개선</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Log",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 설정</span> 메뉴에서 개인정보 비식별화 점검 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.13.0",
+        "hash": "service-2130",
+        "product": "Log",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 다음 메뉴 경로에서 인덱싱되지 않는 검색 키(<code>.p</code>, <code>.pii</code> 등)를 포함하는 로그의 태그를 클릭 후 표시되는 드롭다운 메뉴에서 <span class=\"uitext\">검색</span>, <span class=\"uitext\">제외 검색</span> 항목 제거</p>",
+        "details": "<ul>\n<li><span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">라이브 테일</span></li>\n<li><span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 검색</span></li>\n</ul>"
+      }
+    ]
+  }
+]

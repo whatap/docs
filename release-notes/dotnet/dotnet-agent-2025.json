@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_3_9",
+    "ver": "v2.3.9",
+    "date": "2025-01-23",
+    "Lists": [
+      {
+        "ver": "v2.3.9",
+        "hash": "v239",
+        "product": ".NET Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> .NET framework 4.5 하위 호환성 개선</p>"
+      },
+      {
+        "ver": "v2.3.9",
+        "hash": "v239",
+        "product": ".NET Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Method hook 프로세스 개선</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_3_8",
     "ver": "v2.3.8",
     "date": "2025-01-15",

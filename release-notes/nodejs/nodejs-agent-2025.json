@@ -1,0 +1,23 @@
+[
+  {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_6",
+    "ver": "v0.5.6",
+    "date": "2025-01-23",
+    "Lists": [
+      {
+        "ver": "v0.5.6",
+        "hash": "v056",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> ECS 환경 시스템의 메트릭스 수집 로직 개선</p>"
+      },
+      {
+        "ver": "v0.5.6",
+        "hash": "v056",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 히트맵 데이터 전송 최대 사이즈 수정</p>"
+      }
+    ]
+  }
+]

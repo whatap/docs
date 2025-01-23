@@ -1,0 +1,122 @@
+---
+id: install-agent
+title: 에이전트 설치
+description: 와탭 Network 관리 시스템 에이전트 설치를 안내합니다. 
+keywords: [ NMS, 에이전트 설치 ]
+---
+
+와탭 **NMS**를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 **NMS** 에이전트를 설치해야 합니다.
+
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
+
+<Createprojectv2 /> 
+
+import Accesskey from "../getting-started/_accesskey.mdx";
+
+<Accesskey />
+
+
+## 에이전트 설치 
+
+<ImgLang img="nms-install-agent.png" desc="NMS 에이전트 설치" />
+
+### Rocky Linux 
+
+:::note 
+
+와탭 ***Network Management System***은 Rocky Linux 9.4 환경을 지원합니다. 
+
+:::
+
+<Cmdname sid="TTL07075" className="uitext" /> 안내 섹션에서 프로젝트 액세스 키 확인 후 다음 안내대로 설치를 진행하세요. 
+
+1. 다음 명령어를 실행하여 와탭 **리포지토리**를 등록하세요. 
+
+    ```bash 
+    sudo rpm --import https://repo.whatap.io/centos/release.gpg
+    sudo rpm -Uvh https://repo.whatap.io/centos/5/noarch/whatap-repo-1.0-1.noarch.rpm
+    ```
+
+1. 다음 명령어를 실행하여 **패키지**를 설치하세요. 
+
+    ```bash 
+    sudo dnf install -y whatap-nms
+    ```
+
+1. 다음 명령어를 실행하세요. **액세스 키**를 입력하고 와탭 서버 **호스트**를 설정합니다.
+
+    ```bash 
+    # 액세스 키 입력 및 호스트 설정 
+    sudo wtinitset -a x42vc20h0tcvl-z517iuvl5ac7as-x3df8vn2mfasn9 -s 15.165.146.117
+
+    # 옵션 확인
+    sudo wtinitset --help
+    usage: wtinitset [-h] -a LICENSE -s HOST
+
+    Whatap-nms access key manager tool
+
+    options:
+    -h, --help            show this help message and exit
+    -a LICENSE, --accesskey LICENSE
+    Access key for project
+    -s HOST, --server HOST
+    Whatap host ip address for data transfer
+    ```
+
+1. 설치가 완료된 후 다음 명령어를 실행하여 NMS 에이전트가 정상적으로 실행 중인지 확인하세요. 
+
+    ```bash 
+    sudo service nmscore status
+    ```
+
+
+### Ubuntu 
+
+:::note 
+
+와탭 ***Network Management System***은 Ubuntu 22.04 환경을 지원합니다. 
+
+:::
+
+
+<Cmdname sid="TTL07075" className="uitext" /> 안내 섹션에서 프로젝트 액세스 키 확인 후 다음 안내대로 설치를 진행하세요. 
+
+1. 다음 명령어를 실행하여 와탭 **리포지토리**를 등록하세요. 
+
+    ```bash 
+    curl -s https://repo.whatap.io/debian/release.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/whatap-release.gpg > /dev/null
+    echo "deb [signed-by=/etc/apt/trusted.gpg.d/whatap-release.gpg] https://repo.whatap.io/debian unstable/" | sudo tee /etc/apt/sources.list.d/whatap.list
+    ```
+
+1. 다음 명령어를 실행하여 **패키지**를 설치하세요. 
+
+    ```bash 
+    sudo apt-get update
+    sudo apt-get install -y whatap-nms
+    ```
+
+1. 다음 명령어를 실행하세요. **액세스 키**를 입력하고 와탭 서버 **호스트**를 설정합니다.
+
+    ```bash 
+    # 액세스 키 입력 및 호스트 설정 
+    sudo wtinitset -a x42vc20h0tcvl-z517iuvl5ac7as-x3df8vn2mfasn9 -s 15.165.146.117
+
+    # 옵션 확인
+    sudo wtinitset --help
+    usage: wtinitset [-h] -a LICENSE -s HOST
+
+    Whatap-nms access key manager tool
+
+    options:
+    -h, --help            show this help message and exit
+    -a LICENSE, --accesskey LICENSE
+    Access key for project
+    -s HOST, --server HOST
+    Whatap host ip address for data transfer
+    ```
+
+1. 설치가 완료된 후 다음 명령어를 실행하여 NMS 에이전트가 정상적으로 실행 중인지 확인하세요. 
+
+    ```bash 
+    sudo service nmscore status
+    ```

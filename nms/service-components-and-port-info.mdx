@@ -1,0 +1,50 @@
+---
+id: service-components-and-port-info
+title: 서비스 구성 요소 및 포트
+description: 데몬 및 사용 포트 정보를 안내합니다.  
+keywords: [ NMS ]
+---
+
+
+### uvicorn.service
+
+`uvicorn.service`는 로컬 개발 관리 모드에서 웹 및 API를 제공하는 서비스입니다. 개발 및 테스트 환경에서 애플리케이션 실행 시 사용합니다.
+
+* **사용 포트**: TCP 5000
+
+* **서비스 시작 및 중지**: 다음 명령어를 통해 `whatap-agent.service`를 시작, 중지 또는 재시작할 수 있습니다. 
+
+  ```bash
+  systemctl {start|restart|stop} whatap-agent.service
+  ```
+
+### nmscore.service
+
+`nmscore.service`는 네트워크 관리 시스템(NMS)의 엔진 역할을 하는 서비스입니다. 네트워크 장비 및 트래픽 모니터링, 관리 및 이벤트 처리 기능을 제공합니다.
+
+* **사용 포트**:
+
+  * **SNMP Trap**: UDP 162
+
+  * **Syslog**: UDP 514
+
+  * **SNMP Polling Interval**: 60초 (기본값)
+
+* **서비스 시작 및 중지**: 다음 명령어를 통해 `nmscore.service`를 시작, 중지 또는 재시작할 수 있습니다. 
+
+  ```bash
+  systemctl {start|restart|stop} nmscore.service
+  ```
+
+
+### whatap-agent.service
+
+`whatap-agent.service`는 수집 데이터를 전송하고 와탭 Front와 Manager 간 설정을 관리하는 서비스입니다. 
+
+* **사용 포트**: TCP 6600
+
+* **서비스 시작 및 중지**: 다음 명령어를 통해 `whatap-agent.service`를 시작, 중지 또는 재시작할 수 있습니다. 
+
+  ```bash
+  systemctl {start|restart|stop} whatap-agent.service
+  ```

@@ -1,0 +1,207 @@
+---
+id: server-2_7_7
+title: Server Agent v2.7.7
+toc_max_heading_level: 2
+pagination_next: release-notes/server/server-2_7_6
+displayed_sidebar: releaseSidebar
+---
+
+2025년 02월 03일
+
+- <Status priority='1'>Changed</Status> Windows 에이전트 기본 메트릭 수집에서 WMI 의존성 제거
+
+- <Status priority='1'>Changed</Status> 성능 수집 이상 발생 시 자체 회복(HouseKeeping) 기능의 반응 속도 개선 및 옵션화
+
+- <Status priority='1'>Changed</Status> 프로세스 TCP 아웃바운드 연결 성능 수집 추가
+
+{/* 
+
+:::note 
+
+**무결성 검증** 
+
+다운로드한 파일이 원본과 동일한지 확인하려면 다음 명령어를 실행하세요. 출력된 값이 해시 값과 일치하면 정상적으로 다운로드된 것입니다.
+
+```bash 
+# MD5 체크
+md5sum <파일명>
+
+# SHA256 체크
+sha256sum <파일명>
+```
+
+::: 
+
+*/}
+
+
+### Red Hat / CentOS / Amazon Linux
+
+<Tabs>
+
+<TabItem value="6Server6" label="6Server / 6" default>
+
+#### x86_64
+
+<code class='my'>Download</code> [whatap-infra-2.7-7.x86_64.rpm](https://repo.whatap.io/centos/6/x86_64/whatap-infra-2.7-7.x86_64.rpm)
+
+* <code class='Beta'>MD5</code> `1cc3619dcf122b7d985d7291e7a25c19`
+
+* <code class='Beta'>SHA256</code> `ede3421d70a2bbc2361638945b68005929e54fb7b2c3bc9bbdd47b3215e49316`
+
+#### i386
+
+<code class='my'>Download</code> [whatap-infra-1.2-4.i386.rpm](https://repo.whatap.io/centos/6/i386/whatap-infra-1.2-4.i386.rpm)
+
+* <code class='Beta'>MD5</code> `8fbc7111824ab552bf3fac291cab966d`
+
+* <code class='Beta'>SHA256</code> `9759d88dc949cff58e719eae68183d9d70c47caf811a6077ce8e4b1976c1132b`
+
+</TabItem>
+
+<TabItem value="7Server7" label="7Server / 7" default>
+
+#### x86_64
+
+<code class='my'>Download</code> [whatap-infra-2.7-7.x86_64.rpm](https://repo.whatap.io/centos/7/x86_64/whatap-infra-2.7-7.x86_64.rpm)
+
+* <code class='Beta'>MD5</code> `97b6cbcf64f35f26eee829e627a07af0`
+
+* <code class='Beta'>SHA256</code> `7f467875fa6cf33f5dc80788612f77ccd08c34c0726755b6c59865791dd87d7f`
+
+#### aarch64 
+
+<code class='my'>Download</code> [whatap-infra-2.7-7.aarch64.rpm](https://repo.whatap.io/centos/7/aarch64/whatap-infra-2.7-7.aarch64.rpm)
+
+* <code class='Beta'>MD5</code> `b1823857fdcc71a722167f3bdd0caa4d`
+
+* <code class='Beta'>SHA256</code> `209f73b1659a752ea227860411f870d8f6d6ff591a36f6da69bd3d38b534c181`
+
+
+</TabItem>
+
+<TabItem value="8Server8" label="8Server / 8" default>
+
+#### x86_64
+
+<code class='my'>Download</code> [whatap-infra-2.7-7.x86_64.rpm](https://repo.whatap.io/centos/8/x86_64/whatap-infra-2.7-7.x86_64.rpm)
+
+* <code class='Beta'>MD5</code> `7a6ef0e0523041cddf8bfe3bc82e3fcd`
+
+* <code class='Beta'>SHA256</code> `39f8cb5fe0e35c07a1f7772b3a7a5c1ad10411df44ae1dcb1ab0556e6aedb837`
+
+#### aarch64 
+
+<code class='my'>Download</code> [whatap-infra-2.7-6.aarch64.rpm](https://repo.whatap.io/centos/8/aarch64/whatap-infra-2.7-6.aarch64.rpm)
+
+* <code class='Beta'>MD5</code> `d8e680a1af3f26cc8820e39c565f1e74`
+
+* <code class='Beta'>SHA256</code> `ddac29fb867d340e560d2c343e42601e1fc412a151aea422a2a82534a438665c`
+
+
+</TabItem>
+
+<TabItem value="9Server9" label="9Server / 9" default>
+
+#### x86_64
+
+<code class='my'>Download</code> [whatap-infra-2.7-7.x86_64.rpm](https://repo.whatap.io/centos/9/x86_64/whatap-infra-2.7-7.x86_64.rpm)
+
+* <code class='Beta'>MD5</code> `1aab6b61e32d5d9fae199421b3f36138`
+
+* <code class='Beta'>SHA256</code> `cd08e24678735f597b467d97d82110a8dfc24aaef3fd28702111c7c8946dbba6`
+
+#### aarch64 
+
+<code class='my'>Download</code> [whatap-infra-2.7-7.aarch64.rpm](https://repo.whatap.io/centos/9/aarch64/whatap-infra-2.7-7.aarch64.rpm)
+
+* <code class='Beta'>MD5</code> `e5cdc79af8eaac2ebfb4aa0e0c1fc610`
+
+* <code class='Beta'>SHA256</code> `291bbbb871e05833a864d76bd39f68936fa889190d9832f8059c0297e7f234be`
+
+</TabItem>
+
+<TabItem value="amazonlinux2" label="Amazon Linux2" default>
+
+#### x86_64
+
+<code class='my'>Download</code> [whatap-infra-2.7-7.x86_64.rpm](https://repo.whatap.io/centos/latest/x86_64/whatap-infra-2.7-7.x86_64.rpm)
+
+* <code class='Beta'>MD5</code> `97b6cbcf64f35f26eee829e627a07af0`
+
+* <code class='Beta'>SHA256</code> `7f467875fa6cf33f5dc80788612f77ccd08c34c0726755b6c59865791dd87d7f`
+
+#### aarch64 
+
+<code class='my'>Download</code> [whatap-infra-2.7-7.aarch64.rpm](https://repo.whatap.io/centos/latest/aarch64/whatap-infra-2.7-7.aarch64.rpm)
+
+* <code class='Beta'>MD5</code> `b1823857fdcc71a722167f3bdd0caa4d`
+
+* <code class='Beta'>SHA256</code> `209f73b1659a752ea227860411f870d8f6d6ff591a36f6da69bd3d38b534c181`
+
+</TabItem>
+
+</Tabs>
+
+### Ubuntu / Debian 
+
+:::note 
+
+**Ubuntu 12 and above**
+
+:::
+
+#### amd64
+
+<code class='my'>Download</code> [whatap-infra_2.7.7_amd64.deb](https://repo.whatap.io/debian/unstable/whatap-infra_2.7.7_amd64.deb)
+
+* <code class='Beta'>MD5</code> `d4d46b120bd2c1a3fd011f720e33e925`
+
+* <code class='Beta'>SHA256</code> `8abbd1ce9e632516d279bd5fd17a329203a2c2557fa0948e821e22f6f3f3fa02`
+
+#### aarch64
+
+<code class='my'>Download</code> [whatap-infra_2.7.7_arm64.deb](https://repo.whatap.io/debian/unstable/whatap-infra_2.7.7_arm64.deb)
+
+* <code class='Beta'>MD5</code> `382214a1bb04816d4f9f621c1c15f533`
+
+* <code class='Beta'>SHA256</code> `c2f170c1b4ae084e42c9986d57b6f0900ba67c824fdd4267f6baf1ccae43d82e`
+
+
+### Freebsd
+
+:::note 
+
+**Freebsd 10 and above**
+
+:::
+
+<code class='my'>Download</code> [whatap-infra-1.1.2.txz](https://repo.whatap.io/freebsd/10/whatap-infra-1.1.2.txz)
+
+* <code class='Beta'>MD5</code> `999bf2064448858a12035128725a8034`
+
+* <code class='Beta'>SHA256</code> `5e28fda28371953e7835a78856ed500cb82b3dcb0d0d8abbacc3e4d2444f784a`
+
+
+### Windows 
+
+:::note 
+
+**Windows Server 2008 R2 and above**
+
+:::
+
+<code class='my'>Download</code> [whatap-infra-1.1.2.txz](https://repo.whatap.io/windows/whatap_infra.zip)
+
+* <code class='Beta'>MD5</code> `83eb04bad1f7c6aad2bec673453e9399`
+
+* <code class='Beta'>SHA256</code> `4a9b0f7f5619366337068c9d5fae9474077d66966538efe398ea7916c1bfe5f2`
+
+
+{/* ### SUNOS 11 / SPARC
+
+:::note 
+
+**SUNOS 11 and above, SPARC**
+
+::: */}

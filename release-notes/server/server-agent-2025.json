@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server/server-2_7_7",
+    "ver": "v2.7.6",
+    "date": "2025-02-03",
+    "Lists": [
+      {
+        "ver": "v2.7.7",
+        "hash": "v277",
+        "product": "Server Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Windows 에이전트 기본 메트릭 수집에서 WMI 의존성 제거</p>"
+      },
+      {
+        "ver": "v2.7.7",
+        "hash": "v277",
+        "product": "Server Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 성능 수집 이상 발생 시 자체 회복(HouseKeeping) 기능의 반응 속도 개선 및 옵션화</p>"
+      },
+      {
+        "ver": "v2.7.7",
+        "hash": "v277",
+        "product": "Server Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 프로세스 TCP 아웃바운드 연결 성능 수집 추가</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server/server-2_7_6",
     "ver": "v2.7.6",
     "date": "2025-01-06",

@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_13_x",
+    "ver": "Service 2.13.2",
+    "date": "2025-02-04",
+    "Lists": [
+      {
+        "ver": "Service 2.13.2",
+        "hash": "service-2132",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">액티브 트랜잭션</span> 메뉴에서 <code>okindName</code> 값이 생성되지 않은 경우 발생하는 화이트 아웃 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_13_x",
     "ver": "Service 2.13.1",
     "date": "2025-01-23",
     "Lists": [

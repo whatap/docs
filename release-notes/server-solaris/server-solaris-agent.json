@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server-solaris/server-solaris-1_4_0",
+    "ver": "v1.4.0",
+    "date": "2025-02-05",
+    "Lists": [
+      {
+        "ver": "v1.4.0",
+        "hash": "v140",
+        "product": "Server Solaris Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 타임아웃 조건과 관련 로깅을 추가하여 OS 명령 실행 중 hang이 발생하는 경우를 예외 처리</p>"
+      },
+      {
+        "ver": "v1.4.0",
+        "hash": "v140",
+        "product": "Server Solaris Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <em>whatap.conf</em> 갱신 시 정합성 검증 개선</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server-solaris/server-solaris-1_3_8/",
     "ver": "v1.3.8",
     "date": "2025-01-15",

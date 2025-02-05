@@ -1,0 +1,53 @@
+---
+id: supported-spec
+title: 지원 환경
+description: 와탭 NMS 에이전트의 지원 환경에 대한 상세 정보를 제공합니다.
+keywords: [ NMS, 지원 환경 ]
+---
+
+와탭 ***Network Management System***은 Standalone 방식으로 단독 가상 머신(VM)에 설치됩니다. 이를 통해 네트워크 관리 시스템이 독립적으로 동작하며, 네트워크 모니터링 및 관리에 필요한 모든 기능을 안정적으로 제공합니다.
+
+## 시스템 요구 사양 
+
+다음은 와탭 ***Network Management System***의 안정적인 성능을 보장하기 위해 권장되는 최소 사양입니다. 
+
+|항목|사양|
+|---|---|
+|**CPU**|4 Core 이상 (권장)|
+|**Memory**|최소 8GB 이상 |
+|**Disk**|최소 30GB 이상|
+|**운영체제**|Rocky Linux 9.4, Ubuntu Server 22.04|
+
+## 수집 범위 
+
+와탭 ***Network Management System***은  다음과 같은 네트워크 데이터 수집 방식을 지원합니다.
+
+* **SNMP Polling** 
+
+  네트워크 장비 상태 및 성능 데이터를 주기적으로 요청하여 수집합니다. `SNMP v1` 및 `v2c` 프로토콜을 지원합니다. 
+
+* **SNMP Trap** 
+
+  네트워크 장비에서 비동기적으로 전송되는 이벤트 및 알림 정보를 수집합니다.
+
+* **Syslog** 
+
+  네트워크 장비에서 생성된 로그 데이터를 실시간으로 수집하여 분석합니다.
+
+:::note 
+
+**ICMP 프로토콜**을 통한 네트워크 연결 상태 및 지연 시간(Ping 응답 시간) 등의 수집은 추후 개발 예정입니다.
+
+:::
+
+## 브라우저 지원
+
+import Supportedbrowser from "../getting-started/_supported-browser.mdx";
+
+<Supportedbrowser />
+
+## 방화벽
+
+import Proxy from "../getting-started/_proxy.mdx";
+
+<Proxy /> 

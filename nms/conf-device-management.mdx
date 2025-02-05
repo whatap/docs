@@ -1,0 +1,47 @@
+---
+id: conf-device-management
+title: 디바이스 관리
+description: 디바이스 관리 메뉴를 안내합니다.
+keywords: [ NMS, 설정, 디바이스 관리 ]
+---
+
+{/* 다국어 이미지 미작업 */}
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_setting" className="uitext" /> &gt; <Cmdname sid="side_deviceManagement" className="uitext" />
+
+<Cmdname sid="side_deviceManagement" className="uitext" /> 메뉴에서 네트워크 관리 시스템 활성화를 위해 모니터링할 디바이스를 등록하고 관리합니다. 
+
+## 기본 화면 안내
+
+<ImgLang img="nms-conf-device-mng.png" desc="Device Management" />
+
+### 디바이스 추가 
+
+디바이스를 등록하려면 왼쪽 상단에서 에이전트를 선택 후 <UI>+</UI> <Cmdname sid="BTN09017" className="uitext" /> 버튼을 클릭하세요. <Cmdname sid="BTN09017" className="uitext" /> 창에서 다음 정보를 입력하세요. 
+
+<ImgLang img="nms-conf-device-mng-add.png" desc="디바이스 추가" />
+
+* ***Host***: 대상 디바이스의 IP 주소를 입력하세요.
+
+* ***Port***: SNMP 통신에 사용될 포트 번호를 설정하세요. 기본적으로는 161번 포트가 사용됩니다.
+
+* ***Alias***: 해당 디바이스에 대한 별칭을 설정하세요. 이를 통해 관리자가 각 디바이스를 쉽게 식별할 수 있습니다.
+
+* ***Version***: SNMP 프로토콜 버전(v1, v2c, v3)을 선택하세요. 각 버전은 보안 기능과 기능에 차이가 있습니다.
+
+* ***Community***: SNMP 커뮤니티 문자열을 입력하세요. 이 문자열은 SNMP 데이터에 대한 접근 권한을 정의합니다.
+
+* ***OIDs***: SNMP Polling을 통해 수집할 OID 목록을 설정하세요. 기본적으로 IF-MIB::ifTable OID가 들어 있습니다. OID는 네트워크 장비의 다양한 성능 지표를 추적하는 데 사용됩니다.
+
+* ***Active***: 토글을 통해 SNMP Polling 수집을 활성화하거나 비활성화하세요.
+
+* ***Description***: 해당 디바이스에 대하여 장비 용도와 같은 추가적인 설명을 입력하세요.
+
+* ***SysContact***: 디바이스 관리자 또는 해당 장비의 책임자의 연락처 정보를 입력하세요.
+
+* ***SysLocation***: 디바이스의 물리적 위치를 입력하세요.
+
+### 디바이스 수정 및 삭제 
+
+디바이스 정보를 수정하거나 디바이스를 삭제하려면 디바이스 목록 왼쪽 ***Edit*** 컬럼에서 수정 또는 삭제 아이콘을 클릭하세요. 
+

@@ -14,6 +14,67 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.14.0.a1
+
+2025년 02월 06일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventHistory" className="uitext" /> 메뉴에서 이벤트 상태 필드 추가 및 이벤트 상태 종류 확장
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴의 위젯 정렬 방식 수정
+
+---
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="dashboard" className="uitext" /> &gt; <UI>GPU 대시보드</UI> 메뉴 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_container" className="uitext" />
+ &gt; <Cmdname sid="side_containerImages" className="uitext" /> 메뉴에서 Image 컬럼 추가
+
+- <Status priority='1'>Feature</Status> 다음 메뉴의 상세 화면에서 요약 분석 제공 
+
+  - <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_containerizedAppList" className="uitext" />
+
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeDetail" className="uitext" />
+
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" />
+
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_ingressList" className="uitext" />
+
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeTimeline" className="uitext" />
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="TTL08230" className="uitext" /> 및 <Cmdname sid="TTL08317" className="uitext" type="kube_pod" /> 기능 내 Service, Ingress 정보 추가 및 다국어 대응
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_kubernetesAgentList" className="uitext" /> 메뉴에서 상세 탭의 배경 색상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_container" className="uitext" />
+ &gt; <Cmdname sid="side_containerImages" className="uitext" /> 메뉴에서 Image 값이 다이제스트만 전달되는 경우 Repository, Name, Tag 파싱 오류 수정
+
+---
+
+### `Database`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 CSV 다운로드 버튼 텍스트 변경
+
+- <Status priority='0'>Fixed</Status> 언어 설정이 일본어일 때, <Cmdname sid="session_kill" className="uitext" /> 팝업창에서 취소 버튼의 텍스트가 버튼 영역을 벗어나는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 Windows 실행 명령어 수정
+
+#### PostgreSQL
+
+<Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" /> 메뉴에서 xact_runtime 컬럼을 runtime 뒤에, xact_start 컬럼을 마지막에 추가
+
+#### Oracle, Oracle Pro, MySQL, PostgreSQL
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" /> 메뉴에서 lock mode, waiter type, lock request 컬럼의 정렬 방식을 왼쪽 정렬로 변경
+
+</div>
+
+
 ## Preview 2.14.0.a0
 
 2025년 01월 23일

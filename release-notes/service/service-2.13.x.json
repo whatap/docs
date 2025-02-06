@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_13_x",
+    "ver": "Service 2.13.3",
+    "date": "2025-02-09",
+    "Lists": [
+      {
+        "ver": "Service 2.13.3",
+        "hash": "service-2133",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴에서 그룹 선택 시 상세 분석 창의 <span class=\"uitext\">메트릭스</span> 탭 전체 데이터가 표시되는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_13_x",
     "ver": "Service 2.13.2",
     "date": "2025-02-04",
     "Lists": [

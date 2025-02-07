@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_7/",
+    "ver": "v0.5.7",
+    "date": "2025-02-07",
+    "Lists": [
+      {
+        "ver": "v0.5.7",
+        "hash": "v057",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 버전 미표기 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_6",
     "ver": "v0.5.6",
     "date": "2025-01-23",

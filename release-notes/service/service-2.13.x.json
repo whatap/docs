@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_13_x/",
+    "ver": "Service 2.13.3",
+    "date": "2025-02-07",
+    "Lists": [
+      {
+        "ver": "Service 2.13.3",
+        "hash": "service-2133",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 이퀄라이저 차트가 2줄 이상일 경우 마우스 호버 시 차트 데이터가 정상적으로 표시되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.3",
+        "hash": "service-2133",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 스택 차트에서 데이터가 없을 경우 차트 라인이 끊어진 것처럼 표시되도록 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.3",
+        "hash": "service-2133",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴에서 그룹 선택 시 상세 분석 창의 <span class=\"uitext\">메트릭스</span> 탭 전체 데이터가 표시되는 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/service/service-2_13_x",
     "ver": "Service 2.13.2",
     "date": "2025-02-04",

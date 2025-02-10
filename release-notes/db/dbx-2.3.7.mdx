@@ -1,0 +1,33 @@
+---
+id: dbx-2_3_7
+title: DBX v2.3.7
+pagination_next: release-notes/db/dbx-2_3_6
+displayed_sidebar: releaseSidebar
+---
+
+2025년 01월 23일
+
+## Oracle
+
+- <Status priority='1'>Feature</Status> `tablespace` 옵션을 추가하여 Free space 조회 시 쿼리 타임아웃 발생 문제 해결을 위해 옵션에 따라 다른 뷰를 조회
+
+  - `tablespace=1`: `dba_free_space` 조회
+  
+  - `tablespace=2`: `dba_lmt_free_space` 조회
+
+  - `tablespace=3`: `usage_metrics` 조회
+
+- <Status priority='1'>Feature</Status> Datafile 수집 시 `maxsize` 정보 추가
+
+
+## Tibero
+
+- <Status priority='1'>Feature</Status> Datafile 수집 시 `autoextensible`, `maxsize` 정보 추가
+
+- <Status priority='1'>Changed</Status> Tablespace 정보 수집 시 에이전트에 로그 남기도록 수정
+
+## Altibase 
+
+- <Status priority='1'>Changed</Status> Datafile 수집 시 max_m을 maxsize로 이름 변경
+
+- <Status priority='1'>Changed</Status> Tablespace 정보 수집 시 에이전트에 로그 남기도록 수정

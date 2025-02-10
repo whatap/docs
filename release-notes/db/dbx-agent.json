@@ -1,5 +1,115 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_8/",
+    "ver": "v2.3.8",
+    "date": "2025-02-05",
+    "Lists": [
+      {
+        "ver": "v2.3.8",
+        "hash": "v238",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Altibase disk tablespace 쿼리 오류 수정</p>",
+        "category": "Altibase"
+      },
+      {
+        "ver": "v2.3.8",
+        "hash": "v238",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Bufferpool 정보 타입 <code>int</code>에서 <code>long</code>으로 변경</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_7/",
+    "ver": "v2.3.7",
+    "date": "2025-01-23",
+    "Lists": [
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>tablespace</code> 옵션을 추가하여 Free space 조회 시 쿼리 타임아웃 발생 문제 해결을 위해 옵션에 따라 다른 뷰를 조회</p>",
+        "category": "Oracle",
+        "details": "<ul>\n<li>\n<p><code>tablespace=1</code>: <code>dba_free_space</code> 조회</p>\n</li>\n<li>\n<p><code>tablespace=2</code>: <code>dba_lmt_free_space</code> 조회</p>\n</li>\n<li>\n<p><code>tablespace=3</code>: <code>usage_metrics</code> 조회</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Datafile 수집 시 <code>maxsize</code> 정보 추가</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Datafile 수집 시 <code>autoextensible</code>, <code>maxsize</code> 정보 추가</p>",
+        "category": "Tibero"
+      },
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Tablespace 정보 수집 시 에이전트에 로그 남기도록 수정</p>",
+        "category": "Tibero"
+      },
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Datafile 수집 시 max_m을 maxsize로 이름 변경</p>",
+        "category": "Altibase"
+      },
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Tablespace 정보 수집 시 에이전트에 로그 남기도록 수정</p>",
+        "category": "Altibase"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_6/",
+    "ver": "v2.3.6",
+    "date": "2025-01-22",
+    "Lists": [
+      {
+        "ver": "v2.3.6",
+        "hash": "v236",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Autoscale 에이전트 ARN 토큰 재발급 처리 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.3.6",
+        "hash": "v236",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> DB2 10.5 버전 이상에서 PID 추가</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.3.6",
+        "hash": "v236",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> DB2 9.7 버전에서 Active Session 쿼리 분리</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_5",
     "ver": "v2.3.5",
     "date": "2025-01-17",

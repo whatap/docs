@@ -1,5 +1,61 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_2d/",
+    "ver": "v1.0.2d",
+    "date": "2025-02-04",
+    "Lists": [
+      {
+        "ver": "v1.0.2d",
+        "hash": "v102d",
+        "product": "DMX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 1.0.2a 버전에서 <em>plan.user</em> 파일 생성 처리 부분의 버그로 인해 <code>uid.sh</code> 실행 시 <code>db.user</code>가 생성되지 않고 invalid user or password 오류가 발생하는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_2b/",
+    "ver": "v1.0.2b",
+    "date": "2025-01-21",
+    "Lists": [
+      {
+        "ver": "v1.0.2b",
+        "hash": "v102b",
+        "product": "DMX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>sqlstat_send_interval=5</code> 옵션 추가 (단위: 분)</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_2a/",
+    "ver": "v1.0.2a",
+    "date": "2025-01-21",
+    "Lists": [
+      {
+        "ver": "v1.0.2a",
+        "hash": "v102a",
+        "product": "DMX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <em>plan.user</em> 파일 생성 기능 추가</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_2/",
+    "ver": "v1.0.2",
+    "date": "2025-01-21",
+    "Lists": [
+      {
+        "ver": "v1.0.2",
+        "hash": "v102",
+        "product": "DMX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <code>max_shm</code> 및 <code>max_tmpfs</code> 값을 각각 <code>20</code>과 <code>2000</code>으로 상향 조정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_1y",
     "ver": "v1.0.1y",
     "date": "2024-12-24",

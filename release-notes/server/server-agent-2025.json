@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server/server-2_7_8/",
+    "ver": "v2.7.8",
+    "date": "2025-02-10",
+    "Lists": [
+      {
+        "ver": "v2.7.8",
+        "hash": "v278",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Windows 에이전트 health check warmup time 오류 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server/server-2_7_7",
     "ver": "v2.7.7",
     "date": "2025-02-03",

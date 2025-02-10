@@ -62,7 +62,7 @@ env:
   valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
 - name: POD_NAME
   valueFrom: {fieldRef: {fieldPath: metadata.name}}
-- name: OKIND
+- name: WHATAP_OKIND
   value: {YOUR_OKIND_NAME}
 - name: WHTAP_LICENSE
   value: {licenseKey}
@@ -103,7 +103,7 @@ spec:
           valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
         - name: POD_NAME
           valueFrom: {fieldRef: {fieldPath: metadata.name}}
-        - name: OKIND
+        - name: WHATAP_OKIND
           value: #DeploymentName
         - name: WHTAP_LICENSE
           value: {licenseKey}

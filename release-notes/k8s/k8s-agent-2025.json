@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_8_4",
+    "ver": "v1.8.4",
+    "date": "2025-02-11",
+    "Lists": [
+      {
+        "ver": "v1.8.4",
+        "hash": "v184",
+        "product": "Kubernetes Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> cgroupV2에서 CPU 사용량 지표 오차가 발생하는 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_8_2",
     "ver": "v1.8.2",
     "date": "2025-01-08",

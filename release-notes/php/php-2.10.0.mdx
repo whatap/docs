@@ -1,0 +1,86 @@
+---
+id: php-2_10_0
+title: PHP Agent v2.10.0
+toc_max_heading_level: 2
+pagination_next: release-notes/php/php-2_9_0
+displayed_sidebar: releaseSidebar
+---
+
+2025년 02월 11일
+
+- <Status priority='1'>New</Status> 트랜잭션 추가 정보 수집
+
+  - `peak-memory`: PHP 실행 중 peak memory 수집
+
+  - `elapsed-utime`: 사용자 CPU 사용량 수집
+
+  - `elapsed-stime`: 시스템 CPU 사용량 수집
+
+  - `external-func-count`: 사용자 함수 실행 건수
+
+  - `prof-external-func-count`: 와탭 모니터링이 추적한 사용자 함수 건수
+
+  - `internal-func-count`: PHP internal 함수 실행 건수
+
+  - `prof-internal-func-count`: 와탭 모니터링이 추적한 internal 함수 건수
+
+- <Status priority='1'>New</Status> PHP Extension에서 기능별로 수집 중지할 수 있는 옵션 추가
+
+  - `whatap.ext.trace_enabled` (기본값: `true`): 트랜잭션 정보 수집 비활성화
+
+  - `whatap.ext.profile_enabled` (기본값: `true`): 트랜잭션 기본 정보 수집 비활성화
+
+  - `whatap.ext.profile_sql_enabled` (기본값: `true`): SQL 프로파일 수집 비활성화
+
+  - `whatap.ext.profile_httpc_enabled` (기본값: `true`): HTTP 호출 프로파일 수집 비활성화
+
+  - `whatap.ext.profile_socket_enabled` (기본값: `true`): 소켓 관련 프로파일 수집 비활성화
+
+  :::note
+
+  특정 URL만 중지하고 싶을 경우 PHP 스크립트에서 `ini_set()` 함수를 사용하세요. 
+
+  ```php
+  <?php
+  // 프로파일 중지 설정
+  ini_set("whatap.ext_profile_enabled", 0);
+  ```
+  
+  :::
+
+- <Status priority='1'>New</Status> 특정 URI를 기준으로 수집을 중지하는 옵션 추가
+
+  - `whatap.ext.ignore_uris`: 트랜잭션 정보를 수집하지 않을 URI를 등록 (콤마 구분)
+
+    - 예: `whatap.ext.ignore_uris=/aaa/bbb.php, /ccc/ddd.php`
+
+  - `whatap.ext.ignore_profile_uris`: 트랜잭션 기본 정보는 수집하되 상세 프로파일 정보를 수집하지 않는 URI를 등록 (콤마 구분)
+
+    - 예: `whatap.ext.ignore_profile_uris=/aaa/bbb.php, /ccc/ddd.php`
+
+  :::note 
+
+  옵션 설정 후 Apache 또는 php-fpm을 재시작하세요. 
+
+  :::
+
+
+- <Status priority='0'>Fixed</Status> arm64(aarch64) 환경에서 트랜잭션 ID가 고유하게 발급되지 않아 프로파일 조회 시 잘못된 프로파일을 조회하는 현상 수정 
+
+- <Status priority='0'>Fixed</Status> 시스템 리소스 수집 옵션 중지 설정에도 불구하고 불필요하게 정보가 수집되어 CPU 부하를 발생시키는 현상 수정 
+
+:::info
+
+**다운로드**
+
+| OS | 파일 형식 | 아키텍처 | 다운로드 |
+| - | :-: | :-: | :-: |
+| Red Hat / CentOS / Amazon linux | RPM | x86 x64 | [다운로드](https://repo.whatap.io/centos/6/x86_64/whatap-php-2.10-0.x86_64.rpm) |
+| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/centos/7/aarch64/whatap-php-2.10-0.aarch64.rpm) |
+| Ubuntu 12 and above / Debian | DEB | amd64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-php_2.10.0_amd64.deb) |
+| \^ | \^ | arm64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-php_2.10.0_arm64.deb) |
+| Alpine linux | tar gzip | x86 x64 | [다운로드](https://repo.whatap.io/alpine/x86_64/whatap-php-2.10.0.tar.gz) |
+| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/alpine/aarch64/whatap-php-2.10.0.tar.gz) |
+| Freebsd 10 and above | TXZ | x86 x64 | [다운로드](https://repo.whatap.io/freebsd/10/whatap-php-2.10.0.txz) |
+
+:::

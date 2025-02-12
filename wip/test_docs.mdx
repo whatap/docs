@@ -1,0 +1,36 @@
+---
+id: test_docs
+title: test docs
+description: description
+keywords: [ keywords ]
+draft: true
+---
+
+## 리눅스 환경 설정
+1. *whatap.conf* 파일에 다음과 같이 DB 이름을 입력합니다.
+
+    ```bash
+    plan_db=(db)
+    ```
+
+1. 사용자(user)와 비밀번호(pwd)에 특수 문자가 포함되어 있는 경우 각 특수 문자는 escape character로 처리해 주세요.
+
+1. `planuid.sh` 스크립트를 사용하여 사용자 및 비밀번호를 설정하세요.
+
+    ```bash
+    ./planuid.sh "user" "pwd"
+    ```
+
+## 윈도우 환경 설정
+
+1. *whatap.conf* 파일에 다음과 같이 DB 이름을 입력하세요.
+
+    ```bash
+    plan_db=(db)
+    ```
+
+1. *plan.bat* 배치 파일을 사용하여 사용자 및 비밀번호를 설정하세요.
+
+    ```bash
+    plan.bat "user" "pwd"
+    ```

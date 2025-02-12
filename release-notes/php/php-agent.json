@@ -1,5 +1,50 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/php/php-2_10_0/",
+    "ver": "v2.10.0",
+    "date": "2025-02-11",
+    "Lists": [
+      {
+        "ver": "v2.10.0",
+        "hash": "v2100",
+        "product": "PHP Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> PHP Extension에서 기능별로 수집 중지할 수 있는 옵션 추가</p>",
+        "details": "<ul>\n<li>\n<p><code>whatap.ext.trace_enabled</code> (기본값: <code>true</code>): 트랜잭션 정보 수집 비활성화</p>\n</li>\n<li>\n<p><code>whatap.ext.profile_enabled</code> (기본값: <code>true</code>): 트랜잭션 기본 정보 수집 비활성화</p>\n</li>\n<li>\n<p><code>whatap.ext.profile_sql_enabled</code> (기본값: <code>true</code>): SQL 프로파일 수집 비활성화</p>\n</li>\n<li>\n<p><code>whatap.ext.profile_httpc_enabled</code> (기본값: <code>true</code>): HTTP 호출 프로파일 수집 비활성화</p>\n</li>\n<li>\n<p><code>whatap.ext.profile_socket_enabled</code> (기본값: <code>true</code>): 소켓 관련 프로파일 수집 비활성화</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v2.10.0",
+        "hash": "v2100",
+        "product": "PHP Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 특정 URI를 기준으로 수집을 중지하는 옵션 추가</p>",
+        "details": "<ul>\n<li>\n<p><code>whatap.ext.ignore_uris</code>: 트랜잭션 정보를 수집하지 않을 URI를 등록 (콤마 구분)</p>\n<ul>\n<li>예: <code>whatap.ext.ignore_uris=/aaa/bbb.php, /ccc/ddd.php</code></li>\n</ul>\n</li>\n<li>\n<p><code>whatap.ext.ignore_profile_uris</code>: 트랜잭션 기본 정보는 수집하되 상세 프로파일 정보를 수집하지 않는 URI를 등록 (콤마 구분)</p>\n<ul>\n<li>예: <code>whatap.ext.ignore_profile_uris=/aaa/bbb.php, /ccc/ddd.php</code></li>\n</ul>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v2.10.0",
+        "hash": "v2100",
+        "product": "PHP Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 트랜잭션 추가 정보 수집</p>",
+        "details": "<ul>\n<li>\n<p><code>peak-memory</code>: PHP 실행 중 peak memory 수집</p>\n</li>\n<li>\n<p><code>elapsed-utime</code>: 사용자 CPU 사용량 수집</p>\n</li>\n<li>\n<p><code>elapsed-stime</code>: 시스템 CPU 사용량 수집</p>\n</li>\n<li>\n<p><code>external-func-count</code>: 사용자 함수 실행 건수</p>\n</li>\n<li>\n<p><code>prof-external-func-count</code>: 와탭 모니터링이 추적한 사용자 함수 건수</p>\n</li>\n<li>\n<p><code>internal-func-count</code>: PHP internal 함수 실행 건수</p>\n</li>\n<li>\n<p><code>prof-internal-func-count</code>: 와탭 모니터링이 추적한 internal 함수 건수</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v2.10.0",
+        "hash": "v2100",
+        "product": "PHP Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> arm64(aarch64) 환경에서 트랜잭션 ID가 고유하게 발급되지 않아 프로파일 조회 시 잘못된 프로파일을 조회하는 현상 수정</p>"
+      },
+      {
+        "ver": "v2.10.0",
+        "hash": "v2100",
+        "product": "PHP Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 시스템 리소스 수집 옵션 중지 설정에도 불구하고 불필요하게 정보가 수집되어 CPU 부하를 발생시키는 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/php/php-2_7_2",
     "ver": "v2.7.2",
     "date": "2024-03-06",

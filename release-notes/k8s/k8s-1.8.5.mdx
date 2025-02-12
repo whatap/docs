@@ -1,0 +1,53 @@
+---
+id: k8s-1_8_5
+title: Kubernetes Agent v1.8.5
+toc_max_heading_level: 2
+pagination_next: release-notes/k8s/k8s-1_8_4
+displayed_sidebar: releaseSidebar
+---
+
+2025년 02월 14일
+
+- <Status priority='1'>New</Status> 추가 기능을 통해 쿠버네티스 커스텀 리소스 관련 메트릭 수집 지원 
+
+  - 기본 기능이 아닌 추가 기능 적용을 통해 whatap-master-agent의 컨테이너에 `collect_custom_resources` 옵션 추가
+  
+    **collect_custom_resources** <span class='type'>bool</span>
+
+    기본값 `false`
+
+    `true` 설정 시 <Cmdname sid="side_metricsSearch" className="uitext" />  메뉴에서 `kube_cr` 및 `kube_crd` 카테고리 확인이 가능합니다. 수집된 데이터는 <Cmdname sid="side_objectManifest" className="uitext" /> 및 **태그 카운트**에서 확인할 수 있습니다. 
+
+    :::note 
+
+    - `kube_crd`: CustomResourceDefinition(CRD) 메트릭 수집
+
+    - `kube_cr`: CRD로 정의된 Custom Resource(CR) 메트릭 수집
+
+    :::
+
+  {/* - 기본값은 `false`이며, `true` 설정 시 메트릭스 조회 메뉴에서 `kube_cr` 및 `kube_crd` 카테고리 확인 가능
+
+  - 수집된 데이터는 오브젝트 매니페스트 및 태그 카운트에서 확인 가능
+
+    - `kube_crd`: CustomResourceDefinition(CRD) 메트릭 수집
+
+    - `kube_cr`: CRD로 정의된 Custom Resource(CR) 메트릭 수집 */}
+
+- <Status priority='1'>New</Status> GPU 모니터링 개선
+
+  - `container_gpu` 카테고리에 `DCGM_FI_DEV_POWER_USAGE` 데이터 추가
+
+- <Status priority='0'>Fixed</Status> `kube_pod_volume` 관련 버그 수정 
+
+  - 클러스터 프로젝트, 네임스페이스 구분 없이 전체 데이터가 수집되는 버그 수정
+
+  - 동기화 문제로 인해 일부 데이터가 누락되는 현상 수정
+
+- <Status priority='0'>Fixed</Status> 컨테이너 이미지 이름이 정확하게 파싱되지 않는 현상 수정
+
+:::info
+
+Agent download: [kube_mon_1.8.5.tar](https://repo.whatap.io/docker/kube_mon_1.8.5.tar)
+
+:::

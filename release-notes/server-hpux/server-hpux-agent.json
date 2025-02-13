@@ -22,8 +22,15 @@
         "ver": "v1.4.0",
         "hash": "v140",
         "product": "Server HP-UX Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <em>whatap.conf</em> 갱신 시 정합성 검증 개선</p>"
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <em>whatap.conf</em> 갱신 시 정합성 검증 개선</p>"
+      },
+      {
+        "ver": "v1.4.0",
+        "hash": "v140",
+        "product": "Server HP-UX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> libgcc 라이브러리 참조 오류 수정</p>"
       }
     ]
   },

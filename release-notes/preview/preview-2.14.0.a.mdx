@@ -14,6 +14,102 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.14.0.a2
+
+2025년 02월 13일
+
+<div class='indentTab'>
+
+
+### `Application`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_appTopology" className="uitext" /> 메뉴에서 시간 선택자 및 에이전트 선택자 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_instanceTopology" className="uitext" /> 메뉴에서 시간 선택자 및 에이전트 선택자 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_appTopology" className="uitext" /> 메뉴에서 에이전트 노드 선택 옵션 제거
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_methodStat" className="uitext" /> 리셋 버튼 미동작 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" />의 <Cmdname sid="TTL06377" className="uitext" /> 탭 및 <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 멀티 트랜잭션 차트 개별 노드 클릭 시 상세 보기 드로워 비활성화 현상 수정
+
+---
+
+### `Server`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴에서 그룹 <Cmdname sid="display_detail" className="uitext" /> 화면 내 서버 전체 선택 및 전체 해제 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴에서 숫자 타입 값을 갖는 필터 키 선택 시 조건에 대소 비교 연산자 추가 
+
+
+---
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_containerizedAppList" className="uitext" /> 메뉴에 컨테이너 성능 지표 추가 
+
+  <details>
+  <summary>추가된 컨테이너 성능 지표</summary>
+
+  - `CpuRequest`
+
+  - `CpuLimit`
+
+  - `CpuTotUsage`
+
+  - `CpuByLimit`
+
+  - `CpuLimitContained`
+
+  - `CpuRequestContained`
+
+  - `MemWs`
+
+  - `MemByRequest`
+
+  - `MemWsByLimit`
+
+  - `MemoryLimitContained`
+
+  - `MemoryRequestContained`
+
+  </details>
+
+- <Status priority='1'>Feature</Status>  <Cmdname sid="클러스터" className="uitext" /> &gt; <Cmdname sid="side_kubernetesEvent" className="uitext" /> 메뉴에서 “Node is not ready” 이벤트에 대한 <UI>Suggestions</UI> 제공
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_kubeApiserverDashboard" className="uitext" /> 메뉴에서 최대 6시간 과거 데이터 조회 가능하도록 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_kubeSchedulerDashboard" className="uitext" /> 메뉴에서 다크 테마일 때 태그의 선택 상태 색상 구분이 되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 Docker Node.js 설치 안내의 `okind` 설정을 위한 환경 변수명 수정
+
+---
+
+### `Database`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" /> 메뉴에서 1분 단위 차트 추가
+
+#### PostgreSQL, Oracle, MySQL, Sql Server, Tibero, Cubrid, Altibase
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="TTL06224" className="uitext" /> 팝아웃 창에 디폴트 플랜 조회 기능 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 운영체제별 디폴트 플랜 조회 기능 사용 방법 추가
+
+---
+
+### `Azure`
+
+<Status priority='1'>Feature</Status> 클라우드 <Cmdname sid="side_flexboard" className="uitext" /> 템플릿에 Azure 템플릿 3개 추가
+
+---
+
+### `로그`
+
+<Status priority='1'>Changed</Status> 로그 데이터 목록의 테이블셀을 좌측 정렬로 변경
+
+
+</div>
+
+
 ## Preview 2.14.0.a1
 
 2025년 02월 06일

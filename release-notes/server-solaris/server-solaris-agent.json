@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server-solaris/server-solaris-1_4_1/",
+    "ver": "v1.4.1",
+    "date": "2025-02-13",
+    "Lists": [
+      {
+        "ver": "v1.4.1",
+        "hash": "v141",
+        "product": "Server Solaris Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Agent CPU 사용량 개선</p>"
+      },
+      {
+        "ver": "v1.4.1",
+        "hash": "v141",
+        "product": "Server Solaris Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> ASCII 코드 범위를 초과하는 텍스트 발생 시 오류 수정</p>"
+      },
+      {
+        "ver": "v1.4.1",
+        "hash": "v141",
+        "product": "Server Solaris Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 외부 명령 Hang 발생 시 명령어 종료 방식 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server-solaris/server-solaris-1_4_0",
     "ver": "v1.4.0",
     "date": "2025-02-05",

@@ -65,7 +65,7 @@ EKS Fargate는 지원 예정입니다.
 <Tabs>
 <TabItem value='cr_yaml' label='Yaml' default>
 
-와탭 에이전트 설치 *YAML* 파일에서 `ClusterRole` 리소스의 `rules` 하위의 `resources` 항목에 사용하려는 `customResource`를 추가하세요. 
+와탭 쿠버네티스 에이전트 설치 *YAML* 파일에서 `ClusterRole` 리소스의 `rules` 하위의 `resources` 항목에 사용하려는 `customResource`를 추가하세요. 
 
 ```yaml {38,39}
 apiVersion: rbac.authorization.k8s.io/v1
@@ -133,7 +133,7 @@ rules:
 
 <TabItem value='cr_helm' label='Helm Chart' default>
 
-Helm을 사용하여 설치할 경우 기본 *values.yaml* 파일에 모니터링할 Custom Resource 이름을 추가하세요. 다음과 같이 `resources` 항목에 해당 Custom Resource 이름을 추가하세요. 
+와탭 쿠버네티스 에이전트를 Helm 차트 방식으로 설치할 경우 기본 *values.yaml* 파일에 모니터링할 Custom Resource 이름을 추가하세요. 다음과 같이 `resources` 항목에 해당 Custom Resource 이름을 추가하세요. 
 
 ```yaml
 collect_custom_resource: true

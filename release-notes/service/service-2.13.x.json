@@ -1,6 +1,48 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_13_x/",
+    "ver": "Service 2.13.4",
+    "date": "2025-02-12",
+    "Lists": [
+      {
+        "ver": "Service 2.13.4",
+        "hash": "service-2134",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">트레이스 분석</span>의 <span class=\"uitext\">멀티 트랜잭션</span> 탭 및 <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">멀티 트랜잭션 추적</span> 메뉴에서 멀티 트랜잭션 차트 개별 노드 클릭 시 상세 보기 드로워 비활성화 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.4",
+        "hash": "service-2134",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 리눅스 에이전트 설치 안내 추가</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_13_x",
+    "ver": "Service 2.13.4",
+    "date": "2025-02-12",
+    "Lists": [
+      {
+        "ver": "Service 2.13.4",
+        "hash": "service-2134",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">트레이스 분석</span>의 <span class=\"uitext\">멀티 트랜잭션</span> 탭 및 <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">멀티 트랜잭션 추적</span> 메뉴에서 멀티 트랜잭션 차트 개별 노드 클릭 시 상세 보기 드로워 비활성화 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.13.4",
+        "hash": "service-2134",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 리눅스 에이전트 설치 안내 추가</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_13_x/",
     "ver": "Service 2.13.3",
     "date": "2025-02-07",
     "Lists": [

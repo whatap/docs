@@ -21,57 +21,16 @@ import Dbv2sessiondetailsinfo from "../common-items/_db-v2-session-details-info.
 
 <Dbv2sessiondetailsinfo />
 
-{/*쿼리 자세히 보기*/}
+{/* 쿼리 자세히 보기 */}
 import Dbquerydetails from "../common-items/_db-query-details.mdx";
 
 <Dbquerydetails level={3} />
 
-### 디폴트 플랜 조회하기 {#check-default-db-id-values-planuid} 
+{/* 디폴트 플랜 조회하기 */}
 
-<Cmdname sid="ITM09107" className="uitext" /> 선택 시 다음과 같이 미리 입력한 DB 접속 정보를 통해 플랜 정보를 조회할 수 있습니다.
+import CheckDefaultPlan from '../common-items/_import_db-check-default-plan.mdx';
 
-<Tabs>
-<TabItem value='linux-dfp' label='Linux' default>
-
-1. 에이전트 설정(*whatap.conf*) 파일에 `plan_db` 옵션을 추가하고 DB 이름을 입력하세요.
-
-    ```ini title='whatap.conf'
-    plan_db=(db)
-    ```
-
-1. DB 설정 후 `planuid.sh` 스크립트를 사용하여 사용자 및 비밀번호를 설정하세요.
-
-    ```bash 
-    ./planuid.sh "user" "pwd"
-    ```
-
-    :::note 
-
-    사용자(`user`)와 비밀번호(`pwd`)에 특수 문자가 포함되어 있는 경우 각 특수 문자 앞에 역슬래시(`\`)를 추가하세요.
-
-    > 예, `user$example` -> `user\$example`
-
-    :::
-
-</TabItem>
-
-<TabItem value='windows-dfp' label='Windows' default>
-
-1. 에이전트 설정(*whatap.conf*) 파일에 `plan_db` 옵션을 추가하고 DB 이름을 입력하세요.
-
-    ```ini title='whatap.conf'
-    plan_db=(db)
-    ```
-
-1. `planuid.bat` 스크립트를 사용하여 사용자 및 비밀번호를 설정하세요.
-
-    ```bash 
-    plan.bat "user" "pwd"
-    ```
-
-</TabItem>
-</Tabs>
-
+<CheckDefaultPlan level={3} />
 
 {/* 테이블 컬럼 설정하기 */}
 

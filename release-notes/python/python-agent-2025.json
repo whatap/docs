@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_7_5/",
+    "ver": "v1.7.5",
+    "date": "2025-02-17",
+    "Lists": [
+      {
+        "ver": "v1.7.5",
+        "hash": "v175",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>WHATAP_HOME</code> 환경변수 미설정 시 <em>whatap.conf</em> 파일을 자동으로 탐색하여 설정하도록 추가</p>"
+      },
+      {
+        "ver": "v1.7.5",
+        "hash": "v175",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> MySQL, PostgreSQL 데이터베이스 오류 메시지가 잘못 표기되는 현상 수정</p>"
+      },
+      {
+        "ver": "v1.7.5",
+        "hash": "v175",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Redis 단일 모드에서 연결 후 데이터 조회 시 응답이 오지 않는 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_7_4",
     "ver": "v1.7.4",
     "date": "2025-01-20",

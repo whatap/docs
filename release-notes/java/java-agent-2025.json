@@ -1,5 +1,55 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_52/",
+    "ver": "v2.2.52",
+    "date": "2025-02-13",
+    "Lists": [
+      {
+        "ver": "v2.2.52",
+        "hash": "v2252",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Thread가 OutOfMemoryError로 중단되는 경우 알림 전송</p>"
+      },
+      {
+        "ver": "v2.2.52",
+        "hash": "v2252",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 오픈소스 추적을 위한 TraceContext 지원</p>",
+        "details": "<ul>\n<li>traceparent 헤더를 추가하여 다양한 HTTP 클라이언트 라이브러리에서 추적 지원</li>\n</ul>"
+      },
+      {
+        "ver": "v2.2.52",
+        "hash": "v2252",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code>  CompletableFuture 추적 범위에 <code>java.util.function.Function</code> 추가</p>"
+      },
+      {
+        "ver": "v2.2.52",
+        "hash": "v2252",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 트랜잭션에서 외부 호출로 발생한 <code>java.io.IOException</code>을 biz_exceptions 설정으로 처리할 수 있도록 수정</p>"
+      },
+      {
+        "ver": "v2.2.52",
+        "hash": "v2252",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> spring-boot 설정에서 hikari 설정 분리</p>"
+      },
+      {
+        "ver": "v2.2.52",
+        "hash": "v2252",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Tomcat9 기반 spring-boot 버전에서 spring-security 에러가 발생하는 경우 에이전트에서 status code 값이 실제 status code와 일치하도록 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_49",
     "ver": "v2.2.49",
     "date": "2025-01-10",

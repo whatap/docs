@@ -17,7 +17,7 @@ Java 에이전트 설정을 통해 CompletableFuture 메소드를 수집할 수 
 
 * 메서드 이름: `trace`로 통일
 
-* ReturnType: `Supplier`, `Consumer`, `Runnable`, `Future`
+* ReturnType: `Supplier`, `Consumer`, `Runnable`, `Future`, `Function`
 
 ```java
 package io.home.test.util;
@@ -39,6 +39,9 @@ public class W {
     public static <T> Future<T> trace(Future<T> f) {
         return f;
     }
+    public static <T, R> Function<T, R> trace(Function<T, R> f) {
+    return f;
+}
 }
 ```
 

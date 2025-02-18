@@ -28,39 +28,45 @@ toc_max_heading_level: 2
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 메트릭스 데이터로 생성한 시리즈 위젯을 텍스트 형태로 표현 가능
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsChart" className="uitext" /> <code className="oldfunc">Old</code> 메뉴에서 차트의 특정 위젯 내부 좌우 시간대 이동 버튼 미동작 현상 수정 
+
 ---
 
 ### `Application`
 
-<Status priority='1'>Changed</Status>  <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> UI 수정
+- <Status priority='1'>Changed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창 내 <Cmdname sid="TTL06377" className="uitext" /> 탭 및 <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 <Cmdname sid="table_view" className="uitext" /> 선택 시 호출 순서 정보 표시 개선
 
-- 검색 영역
+- <Status priority='1'>Changed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창 내 <Cmdname sid="TTL06377" className="uitext" /> 탭 및 <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 UI 수정
 
-  - MTID, 날짜, 검색 버튼을 상단에 분리
+  - 검색 영역에서 MTID, 날짜, 검색 버튼을 상단에 분리 및 MTID 입력창에 엔터 이벤트 추가
 
-  - MTID 입력 Input에 엔터 이벤트 추가
+  - 프로젝트 선택 시 프로젝트 리스트 아이템의 pcode와 플랫폼 아이콘 위치 수정
 
-- 프로젝트 선택
+  - 프로젝트 선택 시 전체 선택 개수를 전체 선택 체크박스 텍스트에 표시
 
-  - 프로젝트 리스트 아이템의 pcode와 플랫폼 아이콘 위치 수정
+  - 프로젝트 선택 시 전체 선택 방식을 스위치 방식으로 변경
 
-  - 전체 선택 개수를 전체 선택 체크박스 텍스트에 표시
+  - 차트 탭 영역에서 옵션 버튼 스타일 변경 및 안내 텍스트 위치 수정
 
-  - 전체 선택 방식을 스위치 방식으로 변경
+  - 차트 영역에서 노드 스타일 변경 및 플랫폼 아이콘 추가, 애플리케이션명과 프로젝트명 위치 수정
 
-- 차트 탭
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_topology" className="uitext" /> &gt; <Cmdname sid="side_appTopology" className="uitext" /> 메뉴에서 검색 입력창의 너비 확대
 
-  - 옵션 버튼 스타일 변경
-  
-  - 안내 텍스트 위치 수정
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> 메뉴 하위 메뉴에서 검색 입력창의 너비 확대
 
-- 차트 영역
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentLog" className="uitext" /> 메뉴에서 로그 목록 조회하기 전에 로그 파일을 조회하는 현상 수정 
 
-  - 노드 스타일 변경
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_appDashboard" className="uitext" /> 메뉴에서 에이전트 선택자 내 일부 스타일 수정
 
-  - 애플리케이션명, 프로젝트명 위치 수정
-  
-  - 플랫폼 아이콘 추가
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multi_active_tx" className="uitext" /> 메뉴에서 옵션 바 간격 스타일 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창 내 <Cmdname sid="TTL06377" className="uitext" /> 탭 및 <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 <Cmdname sid="table_view" className="uitext" /> 선택 시 트랜잭션 호출 순서가 반대로 표시되는 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> 메뉴 하위 메뉴에서 에이전트 선택자 내 테마 미적용 요소 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> 메뉴에서 테마 색상 미적용 요소 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_dataSourceStatus" className="uitext" /> 메뉴에서 검색창과 버튼의 높이와 스타일 일치하도록 수정
 
 ---
 
@@ -82,8 +88,17 @@ toc_max_heading_level: 2
 
 ### `Kubernetes`
 
-<Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 Docker Java 설치 시 `env`의 `whatap.server.host`가 인식되지 않는 문제 대응 국문 안내 추가
+- <Status priority='1'>Feature</Status> 노드 할당 가능한 리소스에서 노드에 배치된 모든 컨테이너의 요청 리소스의 합산을 뺀 값인 <UI>AvailableRequestCpu</UI> 및 <UI>AvailableRequestMemory</UI> 지표 추가
 
+  - <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" /> 
+
+  - <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="side_pendingPod" className="uitext" /> 메뉴의 상세 보기에서 노드 리소스 문제 시 안내되는 지표 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 Docker Java 설치 시 `env`의 `whatap.server.host`가 인식되지 않는 문제 대응 국문 안내 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_ingressList" className="uitext" /> 및 <Cmdname sid="side_kubeServiceList" className="uitext" /> 메뉴에서 사용하는 상태 표시 아이콘 텍스트 색상 변경
+
+- <Status priority='1'>Deprecated</Status> <Cmdname sid="side_cluster" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" /> 메뉴의 <Cmdname sid="TTL08520" className="uitext" /> 창에서 <Cmdname sid="metrics" className="uitext" /> 탭을 제외한 나머지 탭을 제거
 
 </div>
 

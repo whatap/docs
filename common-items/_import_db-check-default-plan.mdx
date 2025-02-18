@@ -1,3 +1,5 @@
+import HighlightBackslash from '@site/src/components/HighlightBackslash';
+
 <Title level={props.level} hashid="check-default-db-id-values-planuid">디폴트 플랜 조회하기</Title>
 
 <InDoc pages='install-agent'>
@@ -31,7 +33,8 @@
 
     사용자(`user`)와 비밀번호(`pwd`)에 특수 문자가 포함되어 있는 경우 각 특수 문자 앞에 역슬래시(`\`)를 추가하세요.
 
-    > 예, `user$example` → `user\$example` 
+    <HighlightBackslash />
+    > 예, <code>user$example</code> → <code className="highlight-backslash">user\\$example</code> 
 
     :::
 

@@ -18,13 +18,13 @@
 1. 에이전트 설정(*whatap.conf*) 파일에 `plan_db` 옵션을 추가하고 DB 이름을 입력하세요.
 
     ```ini title='whatap.conf'
-    plan_db=(db)
+    plan_db=(dbname)
     ```
 
 1. DB 설정 후 `planuid.sh` 스크립트를 사용하여 사용자 및 비밀번호를 설정하세요.
 
     ```bash 
-    ./planuid.sh "user" "pwd"
+    ./planuid.sh user pwd
     ```
 
     :::note 
@@ -42,13 +42,13 @@
 1. 에이전트 설정(*whatap.conf*) 파일에 `plan_db` 옵션을 추가하고 DB 이름을 입력하세요.
 
     ```ini title='whatap.conf'
-    plan_db=(db)
+    plan_db=(dbname)
     ```
 
 1. `planuid.bat` 스크립트를 사용하여 사용자 및 비밀번호를 설정하세요.
 
     ```bash 
-    plan.bat "user" "pwd"
+    planuid.bat user pwd
     ```
 
 </TabItem>

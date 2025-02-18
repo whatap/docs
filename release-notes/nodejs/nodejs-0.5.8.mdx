@@ -1,0 +1,35 @@
+---
+id: nodejs-0_5_8
+title: Node.js Agent v0.5.8
+toc_max_heading_level: 2
+pagination_next: release-notes/nodejs/nodejs-0_5_7
+displayed_sidebar: releaseSidebar
+---
+
+2025년 02월 18일
+
+<Status priority='1'>New</Status> GraphQL 모듈(@apollo/server) 모니터링 추가
+
+- **profile_graphql_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  GraphQL 모니터링 활성화 여부를 설정합니다.
+
+- **profile_graphql_variable_enabled** <span class='type'>Boolean</span> 
+
+  기본값 `false` 
+
+  트랜잭션 프로파일에 GraphQL 요청의 variables 정보 포함 여부를 설정합니다.
+
+- **ignore_graphql_operation** <span class='type'>String</span> 
+
+  지정된 Operation Name의 모니터링을 무시하도록 설정합니다. 여러 값을 대상으로 할 경우 쉼표(`,`)를 구분자로 사용하세요. 
+
+  ```ini title='whatap.conf'
+  ignore_graphql_operation=operationNameA,operationNameB
+  ```
+
+import DownloadNode2 from './_import_dl-nodejs-agent2.mdx';
+
+<DownloadNode2 ver="0.5.8" />

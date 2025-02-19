@@ -13,3 +13,11 @@
 * ***ServiceName***: [오브젝트 매니페스트](object-manifest) 정보를 확인하고 [Service 목록](service-list) 메뉴로 이동할 수 있습니다. 
 
 * ***Volume***: 컨테이너가 사용하는 볼륨과 마운트 경로 정보를 확인할 수 있습니다.
+
+  * Pod에서 사용하는 볼륨의 이름과 볼륨 타입을 확인할 수 있습니다. 
+
+    > 예, ***Volume*** `containerddomainsocket` `HostPath` 
+  
+  * ***HostPath*** 볼륨 타입을 사용할 경우 호스트 시스템의 파일 경로를 확인할 수 있습니다. 이 경로는 파드와 호스트 시스템 간의 파일 시스템을 연결하는 경로입니다.
+
+    > 예, ***Host Path*** `/run/containerd/containerd.sock`

@@ -93,6 +93,10 @@
 
 * **3시간 이상 조회 시** (5분 단위 데이터 사용)
 
+  조회 시점부터 5분 구간에서 바의 색상이 진하게 표시됩니다. 
+
+  > `07:15:00` 시점을 클릭한 경우, `07:15:00~07:20:00` 구간 바 차트 색이 진하게 표시됩니다.
+
   ![5분 팩 조회](/img/db-lock-tree-1-min-lock-trends-5min.png)
 
 {/* ![1-Min Lock Trends](/img/db-lock-tree-1-min-lock-trends1.png) */}
@@ -102,5 +106,7 @@
 {/* ***Lock Wait Sessions***에서 클릭한 시간으로 ***1-Min Lock Trends***와 ***Lock Tree*** 테이블 내 시간이 동기화됩니다. 짧은 시간 간격의 락 상황을 분석할 때 유용합니다. */}
 
 * **3시간 미만 조회 시** (5초 단위 데이터 사용)
+
+  짧은 시간 간격에서 발생한 락 상황을 분석할 때 유용합니다. 
 
   ![5초 팩 조회](/img/db-lock-tree-1-min-lock-trends-5sec.png)

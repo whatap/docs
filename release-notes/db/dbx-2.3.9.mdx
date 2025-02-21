@@ -1,0 +1,26 @@
+---
+id: dbx-2_3_9
+title: DBX v2.3.9
+pagination_next: release-notes/db/dbx-2_3_8
+displayed_sidebar: releaseSidebar
+---
+
+2025년 02월 18일
+
+## Tibero
+
+- <Status priority='1'>Changed</Status> Plan 정보 전송 시 `parent_id`가 `null`일 경우 `-1`로 전송 (20250220 버전부터 적용)
+
+- <Status priority='0'>Fixed</Status> Tibero 5(rev. 125305부터 rev. 127709까지) `v$session`의 status 컬럼명 오류 처리
+
+## Oracle
+
+- <Status priority='1'>Feature</Status> 다음 카테고리에 `!rectype`, `@id` 필드 추가
+
+  > `db_oracle_active_session`, `db_oracle_xos_disk_usage`
+
+- <Status priority='1'>Changed</Status> Plan 정보 전송 시 `parent_id`가 `null`일 경우 `-1`로 전송
+
+- <Status priority='1'>Changed</Status> 다음 카테고리에 대하여 5분 통계 생성하지 않도록 변경
+
+  > `db_oracle_active_session`, `db_oracle_xview`, `db_oracle_bind_save`, `db_oracle_lockinfo`, `db_oracle_plan_save`, `db_oracle_pq_tree`, `db_oracle_segments`, `db_oracle_tablespace`, `db_oracle_sga`

@@ -256,6 +256,13 @@ import ServerInventoryFilter from "../common-items/_server-inventory-filter.mdx"
 
 <ServerInventoryFilter />
 
+#### 인벤토리 맵 설정 
+
+<Cmdname sid="side_serverInventoryMap" className="uitext" />은 <Cmdname sid="TTL09114" className="uitext" /> 옵션을 제공합니다. 오른쪽 상단에서 ![설정 아이콘](/img/ic-setting.svg) 아이콘을 선택 후 다음 옵션 활성화 여부를 설정하세요.
+
+* <Cmdname sid="ITM09115" className="uitext" />: ***그룹화*** 시 선택한 ***1차 그룹***의 설정이 없는 서버 그룹 카드의 표시 여부를 선택합니다. 기본 설정은 표시합니다. 
+
+* <Cmdname sid="ITM09116" className="uitext" />: 서버 그룹 카드 하단에서 메트릭 정보 표시 여부를 선택합니다. 기본 설정은 표시합니다. 
 
 ### ![2](/img/number-02.png) 서버 구성 현황 
 
@@ -271,8 +278,6 @@ import ServerInventoryFilter from "../common-items/_server-inventory-filter.mdx"
 ### ![3](/img/number-03.png) 서버 그룹 카드
 
 <Cmdname sid="side_serverInventoryMap" className="uitext" />은 그룹화된 서버 구성 정보를 기준으로 개별 카드를 제공합니다. <Cmdname sid="side_serverInventoryMap" className="uitext" />의 카드는 다음 세 가지 주요 요소로 구성됩니다.
-
-{/* <Cmdname sid="side_serverInventoryMap" className="uitext" />은 그룹화 한 서버 구성 정보별로 카드를 제공합니다. 그룹화를 적용하지 않은 상태일 경우 전체 서버 정보가 하나의 큰 카드 내에 표현됩니다. 그룹화 적용 시 각 그룹 단위로 카드를 구성합니다. <Cmdname sid="side_serverInventoryMap" className="uitext" />의 카드는 다음 세 가지 요소로 구성됩니다.  */}
 
 <ImgLang img='server-inventory-map-chart.png' desc='서버 인벤토리 맵 차트' />
 
@@ -291,11 +296,7 @@ import ServerInventoryFilter from "../common-items/_server-inventory-filter.mdx"
 
 #### ![지시선 b](/img/char-b.svg) 서버 그룹 차트
 
-{/* 그룹 내 서버의 상태 및 성능 데이터를 시각화하여 제공합니다. ***2차 그룹화***가 적용된 경우 차트 내에 서브 그룹 형식으로 표시됩니다. 또한 서브 그룹에 마우스를 올릴 경우 간략한 각 서버의 상태 정보를 팝오버 형식으로 확인할 수 있습니다. 예시 이미지의 경우 기본 수집 항목인 ***서버 타입***과 ***OS 타입***으로 1차와 2차 그룹화가 적용되어있습니다.  */}
-
 그룹 내 서버의 상태와 성능 데이터를 시각화하여 제공합니다. ***2차 그룹화***가 적용된 경우 차트 내에서 서브 그룹 형태로 데이터가 추가적으로 구분되어 표시됩니다. 또한 서브 그룹에 마우스를 올리면 해당 그룹에 포함된 서버들의 주요 상태 정보를 팝오버 형식으로 간략히 확인할 수 있습니다. 
-
-{/* 예시 이미지에서는 기본 수집 항목인 ***서버 타입***과 ***OS 타입***을 기준으로 1차와 2차 그룹화가 적용된 차트를 확인할 수 있습니다. */}
 
 #### ![지시선 c](/img/char-c.svg) 메트릭스 
 
@@ -396,3 +397,7 @@ import ServerInventoryFilter from "../common-items/_server-inventory-filter.mdx"
 |***[Disk] Write (Bytes)***|전체 디스크의 초당 쓰기 속도 합계를 Bytes 단위로 표시합니다.|
 
 {/* 상세 내 커스텀 컬럼 추가/수정/삭제의 경우 프로젝트 수정 권한 필요 */}
+
+### 진행 중 이벤트 현황 
+
+<Cmdname sid="TTL08970" className="uitext" /> 탭에서 선택한 서버 그룹에서 진행 중인 이벤트 현황 목록을 확인할 수 있습니다. 

@@ -525,6 +525,14 @@
         "hash": "service-2140",
         "product": "Database",
         "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">데이터베이스 파라미터</span> 메뉴에서 CSV 다운로드 추가 및 Key 값 기준 결과 내 검색 기능 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.14.0",
+        "hash": "service-2140",
+        "product": "Database",
+        "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span> 메뉴에서 1분 단위 차트 추가</p>",
         "category": "공통"
       },
@@ -677,14 +685,6 @@
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span> 메뉴에서 xact_runtime 컬럼을 runtime 뒤에, xact_start 컬럼을 마지막에 추가</p>",
         "category": "PostgreSQL"
-      },
-      {
-        "ver": "Service 2.14.0",
-        "hash": "service-2140",
-        "product": "Database",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">데이터베이스 파라미터</span> 메뉴에서 CSV 다운로드 추가 및 Key 값 기준 결과 내 검색 기능 추가</p>",
-        "category": "MySQL"
       },
       {
         "ver": "Service 2.14.0",

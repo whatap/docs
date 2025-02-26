@@ -497,13 +497,6 @@
         "hash": "service-2140",
         "product": "Kubernetes",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Pod 요약 분석</span> 메뉴에서 Pod가 실행되고 있는 노드 정보가 올바르게 표시되지 않는 현상 수정</p>"
-      },
-      {
-        "ver": "Service 2.14.0",
-        "hash": "service-2140",
-        "product": "Kubernetes",
-        "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">kube-scheduler 대시보드</span> 메뉴에서 다크 테마일 때 태그의 선택 상태 색상 구분이 되지 않는 문제 수정</p>"
       },
       {
@@ -512,6 +505,13 @@
         "product": "Kubernetes",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 Docker Node.js 설치 안내의 <code>okind</code> 설정을 위한 환경 변수명 수정</p>"
+      },
+      {
+        "ver": "Service 2.14.0",
+        "hash": "service-2140",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴에서 대시보드에서 적용한 필터가 상세 화면에서도 동일하게 유지되도록 수정</p>"
       },
       {
         "ver": "Service 2.14.0",

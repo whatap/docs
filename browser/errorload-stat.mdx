@@ -21,7 +21,7 @@ keywords: [ 브라우저 모니터링, 에러, 통계 ]
 
 1. 조건 설정 후 ***에러 메시지 별 로드 수 추이*** 차트와 에러 테이블을 확인하세요. 
 
-선택한 시간 범위의 에러 현황을 차트 및 목록을 통해서 조회할 수 있습니다. 바 차트에서 특정 구간 선택 시 해당 구간의 에러 현황을 에러 테이블을 통해 확인할 수 있습니다. 또한 ***Error Message*** 컬럼의 오른쪽에서 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하면 <Cmdname sid="side_userSessionEventSearch" className="uitext" /> 메뉴로 이동할 수 있습니다. 선택한 에러 타입과 메시지를 필터로 적용한 결과를 확인할 수 있습니다.
+선택한 시간 범위의 에러 현황을 차트 및 목록을 통해서 조회할 수 있습니다. 바 차트에서 특정 구간 선택 시 해당 구간의 에러 현황을 에러 테이블을 통해 확인할 수 있습니다. 
 
 {/* 조회 시간 설정하기 */}
 import Settime from "../common-items/_browser-stat-set-time.mdx";
@@ -42,7 +42,16 @@ import Settime from "../common-items/_browser-stat-set-time.mdx";
 
 #### 필터링 
 
-필터링 기능을 통해 특정 조건에 맞는 데이터만을 조회할 수 있습니다. 필터링 가능한 항목은 <Cmdname sid="ITM09125" className="uitext" />, <Cmdname sid="ITM06770" className="uitext" />, <Cmdname sid="TTL06358" className="uitext" />, <Cmdname sid="device" className="uitext" /> 등 입니다. 필터링된 조건에 따라 에러 메시지를 추출하고 특정 에러 타입이나 운영 체제에서 발생한 에러만을 선택적으로 확인할 수 있습니다.
+필터링 기능을 통해 특정 조건에 맞는 데이터만을 조회할 수 있습니다. 필터링 가능한 항목은 <Cmdname sid="ITM09125" className="uitext" />, <Cmdname sid="ITM06770" className="uitext" />, <Cmdname sid="TTL06358" className="uitext" />, <Cmdname sid="device" className="uitext" /> 등 입니다. 필터링 조건 선택 후 ![검색 아이콘](/img/ic-search-on-press.svg) 검색 버튼을 클릭하세요. 필터링된 조건에 따라 에러 메시지를 추출하고 특정 에러 타입이나 운영 체제에서 발생한 에러만을 선택적으로 확인할 수 있습니다.
+
+### 사용자 세션 로그 확인하기 
+
+***Error Message*** 컬럼의 오른쪽에서 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하면 <Cmdname sid="side_userSessionEventSearch" className="uitext" /> 메뉴로 이동할 수 있습니다. 선택한 에러 타입과 메시지를 필터로 적용한 결과를 확인할 수 있습니다.
+
+{/* 조회 결과 다운로드하기 */}
+import CSVdownload from "../common-items/_browser-stat-download-csv.mdx";
+
+<CSVdownload filename="Error_LoadStatistics" />
 
 ## 화면 구성 
 

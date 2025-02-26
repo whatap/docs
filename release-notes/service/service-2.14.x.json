@@ -497,14 +497,14 @@
         "hash": "service-2140",
         "product": "Kubernetes",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Pod 요약 분석</span> 메뉴에서 Pod가 실행되고 있는 노드 정보가 올바르게 표시되지 않는 현상 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">kube-scheduler 대시보드</span> 메뉴에서 다크 테마일 때 태그의 선택 상태 색상 구분이 되지 않는 문제 수정</p>"
       },
       {
         "ver": "Service 2.14.0",
         "hash": "service-2140",
         "product": "Kubernetes",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">kube-scheduler 대시보드</span> 메뉴에서 다크 테마일 때 태그의 선택 상태 색상 구분이 되지 않는 문제 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">오브젝트 매니페스트</span> 메뉴에서 CronJob 항목 미조회 현상 수정</p>"
       },
       {
         "ver": "Service 2.14.0",
@@ -517,8 +517,30 @@
         "ver": "Service 2.14.0",
         "hash": "service-2140",
         "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴에서 대시보드에서 적용한 필터가 상세 화면에서도 동일하게 유지되도록 수정</p>"
+      },
+      {
+        "ver": "Service 2.14.0",
+        "hash": "service-2140",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">메트릭스 차트</span> <code class=\"newfunc\">New</code> 메뉴에서 지표 라벨이 동일할 경우 중복 생성 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.14.0",
+        "hash": "service-2140",
+        "product": "Kubernetes",
         "type": "Deprecated",
         "desc": "<p><code class=\"Deprecated\" type=\"1\">Deprecated</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">노드 목록</span> 메뉴의 <span class=\"uitext\">비교하기</span> 창에서 <span class=\"uitext\">메트릭스</span> 탭을 제외한 나머지 탭을 제거</p>"
+      },
+      {
+        "ver": "Service 2.14.0",
+        "hash": "service-2140",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">데이터베이스 파라미터</span> 메뉴에서 CSV 다운로드 추가 및 Key 값 기준 결과 내 검색 기능 추가</p>",
+        "category": "공통"
       },
       {
         "ver": "Service 2.14.0",
@@ -677,14 +699,6 @@
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span> 메뉴에서 xact_runtime 컬럼을 runtime 뒤에, xact_start 컬럼을 마지막에 추가</p>",
         "category": "PostgreSQL"
-      },
-      {
-        "ver": "Service 2.14.0",
-        "hash": "service-2140",
-        "product": "Database",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">데이터베이스 파라미터</span> 메뉴에서 CSV 다운로드 추가 및 Key 값 기준 결과 내 검색 기능 추가</p>",
-        "category": "MySQL"
       },
       {
         "ver": "Service 2.14.0",

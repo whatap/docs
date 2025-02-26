@@ -59,3 +59,52 @@
 :::
 
 </InDoc>
+
+<Title hashid="lockwaitsessions" level={props.level+1}><UI>Lock Wait Sessions</UI></Title>
+
+***Lock Wait Sessions***는 락 대기 세션의 정보를 분석할 수 있는 기능입니다. 조회 기간에 따라 락 대기 세션 데이터를 3시간 이상 조회 시 5분 간격으로, 3시간 미만 조회 시 5초 간격으로 제공합니다. 또한 차트를 드래그하여 시간 범위를 유동적으로 조정할 수 있습니다.
+
+<Title hashid="1minlocktrend" level={props.level+1}><UI>1-Min Lock Trends</UI></Title>
+
+***Lock Wait Sessions***에서 특정 시간대를 클릭하면, 해당 시간 기준으로 15분 전부터 15분 후까지의 총 30분 동안의 락 발생 현황을 시각화하여 표시합니다. 이를 통해 30분 단위로 락 발생 트렌드를 효과적으로 분석할 수 있습니다. 
+
+:::note 
+
+***Total Locks***는 해당 시간대에 발생한 락의 총 개수를 의미합니다.
+
+:::
+
+<Title hashid="selecttimelocktree" level={props.level+1}>시간 조회</Title>
+
+***Lock Wait Sessions***에서 클릭한 시간에 발생한 최대 락 개수를 기준으로 ***1-Min Lock Trends***와 ***Lock Tree*** 테이블의 시간이 설정됩니다. 이를 통해 락이 가장 많이 발생한 구간을 찾을 수 있습니다. 
+
+![시간 조회1](/img/db-lock-tree-1-min-lock-trends2.png)
+
+***Lock Wait Sessions***는 그대로 두고 ***1-Min Lock Trends*** 차트에서 다른 시간대의 바를 클릭한 경우, 해당 분의 최대 락 개수를 가진 초로 ***Lock Tree*** 테이블에 시간 범위가 동기화됩니다. 이를 통해 시간대를 변경할 때 ***Lock Tree*** 테이블에서 반영된 정보를 확인할 수 있습니다.
+
+![시간 조회2](/img/db-lock-tree-1-min-lock-trends3.png)
+
+{/* <Title hashid="lock5mins" level={props.level+2}>3시간 이상 조회 시 (5분 단위 데이터 사용)</Title> */}
+
+{/* ***Lock Wait Sessions***에서 클릭한 시간에 발생한 최대 락 개수를 기준으로 ***1-Min Lock Trends***와 ***Lock Tree*** 테이블의 시간이 설정됩니다. `07:15:00` 시점을 클릭한 경우, `07:15:00~07:20:00`까지의 데이터가 포함되어 차트에서 바의 색상이 진하게 표시됩니다. */}
+
+
+* **3시간 이상 조회 시** (5분 단위 데이터 사용)
+
+  조회 시점부터 5분 구간에서 바의 색상이 진하게 표시됩니다. 
+
+  > `07:15:00` 시점을 클릭한 경우, `07:15:00~07:20:00` 구간 바 차트 색이 진하게 표시됩니다.
+
+  ![5분 팩 조회](/img/db-lock-tree-1-min-lock-trends-5min.png)
+
+{/* ![1-Min Lock Trends](/img/db-lock-tree-1-min-lock-trends1.png) */}
+
+{/* <Title hashid="lock5secs" level={props.level+2}>3시간 미만 조회 시 (5초 단위 데이터 사용)</Title> */}
+
+{/* ***Lock Wait Sessions***에서 클릭한 시간으로 ***1-Min Lock Trends***와 ***Lock Tree*** 테이블 내 시간이 동기화됩니다. 짧은 시간 간격의 락 상황을 분석할 때 유용합니다. */}
+
+* **3시간 미만 조회 시** (5초 단위 데이터 사용)
+
+  짧은 시간 간격에서 발생한 락 상황을 분석할 때 유용합니다. 
+
+  ![5초 팩 조회](/img/db-lock-tree-1-min-lock-trends-5sec.png)

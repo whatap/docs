@@ -9,8 +9,6 @@ keywords: [ 브라우저 모니터링, 에러, 통계 ]
 
 <Cmdname sid="side_errorLoadStatistics" className="uitext" /> 메뉴에서 전체 에러 현황을 시각적으로 제공하여 발생한 에러를 효율적으로 분석할 수 있습니다. 다양한 필터 옵션을 통해 원하는 데이터를 그룹화하거나 특정 조건에 맞는 정보를 조회할 수 있으며 이를 통해 사용자는 보다 세밀한 에러 분석을 수행할 수 있습니다.
 
-{/* <Cmdname sid="side_errorLoadStatistics" className="uitext" /> 메뉴에서 에러 메시지의 현황을 시각적으로 보여주며, 사용자가 특정 시간대에 발생한 에러를 분석할 수 있도록 도와줍니다. 이 기능을 통해 에러 발생 추이를 쉽게 파악하고, 그룹화 및 필터링을 통해 필요한 데이터를 조회할 수 있습니다. */}
-
 ## 기본 사용 안내 
 
 수치화한 에러 메시지를 통해 사용자는 에러 발생 추이를 실시간으로 모니터링하고 각 에러 메시지에 대한 발생 정보를 분석할 수 있습니다. 시간 선택자를 통해 조회를 원하는 시간대를 설정하여 해당 시간대의 에러 현황을 확인해 보세요.
@@ -25,16 +23,6 @@ keywords: [ 브라우저 모니터링, 에러, 통계 ]
 
 선택한 시간 범위의 에러 현황을 차트 및 목록을 통해서 조회할 수 있습니다. 바 차트에서 특정 구간 선택 시 해당 구간의 에러 현황을 에러 테이블을 통해 확인할 수 있습니다. 
 
-{/* :::note
-
-* 최대 선택할 수 있는 시간은 3일이며, 최소 선택할 수 있는 시간은 5분입니다.
-
-* 2시간 이하 범위를 선택하면 5분 단위로 데이터를 조회하고, 2시간을 초과하면 1시간 단위로 데이터를 조회합니다.
-
-* <Cmdname sid="time" className="uitext" /> 옵션 이용 방법에 대한 자세한 내용은 [다음 문서](usage-ui#timeselector)를 참조하세요.
-
-::: */}
-
 {/* 조회 시간 설정하기 */}
 import Settime from "../common-items/_browser-stat-set-time.mdx";
 
@@ -43,8 +31,6 @@ import Settime from "../common-items/_browser-stat-set-time.mdx";
 ### 그룹화 및 필터 기준 선택하기 
 
 <Cmdname sid="groupby" className="uitext" /> 및 <Cmdname sid="filter" className="uitext" /> 기준을 선택하여 사용자가 원하는 방식으로 데이터를 필터링할 수 있습니다. 
-
-{/* <Cmdname sid="ITM09123" className="uitext" /> 외 <Cmdname sid="ITM09125" className="uitext" />, <Cmdname sid="ITM06770" className="uitext" />, <Cmdname sid="TTL06358" className="uitext" />, <Cmdname sid="device" className="uitext" />를 <Cmdname sid="groupby" className="uitext" /> 및 <Cmdname sid="filter" className="uitext" /> 기준으로 제공합니다. 자세한 내용은 [다음 문서](#groupby-and-filter)를 참조하세요.  */}
 
 #### 그룹화 
 
@@ -92,27 +78,6 @@ import Settime from "../common-items/_browser-stat-set-time.mdx";
 
     ![그룹화 적용](/img/browser-statistics-error-stat-gr-tb.png)
 
-{/* ## 그룹화 및 필터링 {#groupby-and-filter}
-
-그룹화 및 필터링 기능을 통해 사용자는 데이터를 세분화하여 보다 정확한 분석을 할 수 있습니다.
-
-### 그룹화 
-
-그룹화 옵션을 선택하여 데이터를 특정 기준에 따라 그룹화할 수 있습니다. 그룹화 기준으로는 <Cmdname sid="ITM09123" className="uitext" /> 외 <Cmdname sid="ITM09125" className="uitext" />, <Cmdname sid="ITM06770" className="uitext" />, <Cmdname sid="TTL06358" className="uitext" />, <Cmdname sid="device" className="uitext" /> 등이 제공됩니다. 사용자는 특정 조건에 맞는 에러 데이터를 묶어서 분석하고 필요에 따라 그룹화된 데이터를 표시하거나 개별 데이터를 조회할 수 있습니다.
-
-#### 그룹화 미적용
-
-<Cmdname sid="ITM09123" className="uitext" /> 선택 시 데이터가 개별 항목으로 나열되어 각 항목의 발생 횟수를 직접 확인할 수 있습니다. 
-
-
-#### 그룹화 적용
-
-선택한 기준에 맞춰 에러 메시지가 그룹화된 형태로 표시됩니다.
-
-### 필터링 
-
-필터링 기능을 통해 특정 조건에 맞는 데이터만을 조회할 수 있습니다. 필터링 가능한 항목은 <Cmdname sid="ITM09125" className="uitext" />, <Cmdname sid="ITM06770" className="uitext" />, <Cmdname sid="TTL06358" className="uitext" />, <Cmdname sid="device" className="uitext" /> 등 입니다. 필터링된 조건에 따라 에러 메시지를 추출하고 특정 에러 타입이나 운영 체제에서 발생한 에러만을 선택적으로 확인할 수 있습니다. */}
-
 
 ## 컬럼 및 용어 안내 
 
@@ -135,6 +100,6 @@ import Settime from "../common-items/_browser-stat-set-time.mdx";
 
 * `onError`: 특정 리소스를 로드하지 못하거나 스크립트 오류가 발생할 때 발생하는 에러입니다.
 
-* `fetch error`: fetch API를 사용하여 HTTP 요청을 보낼 때 발생하는 에러입니다.
+* `fetchError`: fetch API를 사용하여 HTTP 요청을 보낼 때 발생하는 에러입니다.
 
-* `xhr error`: XMLHttpRequest(XHR)을 통해 HTTP 요청을 보낼 때 발생하는 에러입니다.
+* `xhrError`: XMLHttpRequest(XHR)을 통해 HTTP 요청을 보낼 때 발생하는 에러입니다.

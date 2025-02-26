@@ -504,6 +504,13 @@
         "hash": "service-2140",
         "product": "Kubernetes",
         "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">클러스터</span> &gt; <span class=\"uitext\">오브젝트 매니페스트</span> 메뉴에서 CronJob 항목 미조회 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.14.0",
+        "hash": "service-2140",
+        "product": "Kubernetes",
+        "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 Docker Node.js 설치 안내의 <code>okind</code> 설정을 위한 환경 변수명 수정</p>"
       },
       {
@@ -512,6 +519,13 @@
         "product": "Kubernetes",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> 메뉴에서 대시보드에서 적용한 필터가 상세 화면에서도 동일하게 유지되도록 수정</p>"
+      },
+      {
+        "ver": "Service 2.14.0",
+        "hash": "service-2140",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">메트릭스 차트</span> <code class=\"newfunc\">New</code> 메뉴에서 지표 라벨이 동일할 경우 중복 생성 현상 수정</p>"
       },
       {
         "ver": "Service 2.14.0",

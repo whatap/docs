@@ -7,4 +7,234 @@ keywords: [ 수집 서버 IP ]
 
 Kubernetes 모니터링 서비스를 이용하는 고객을 대상으로 수집 서버 IP 정보 변경 방법을 안내합니다. Kubernetes 모니터링을 설정한 후 특정 환경에서 수집 서버 IP 변경이 필요한 경우 다음 과정을 참고하여 변경하세요.
 
+<Tabs>
+<TabItem value='cs-yaml' label='Yaml' default>
+
+## Yaml 파일 기준
+
 1. 다음 위치에서 `whatap_host` 값을 변경하세요. 
+
+    * *yaml* 파일에서 `whatap-master-agent` 컨테이너 하위 `env` 항목 중 `WHATAP_HOST` 값을 `61.109.237.237/61.109.238.166
+  `로 변경하세요. 
+
+    * *yaml* 파일에서 `whatap-node-agent` 컨테이너 하위 `env` 항목 중 `WHATAP_HOST` 값을 `61.109.237.237/61.109.238.166
+  `로 변경하세요. 
+
+1. 변경한 *yaml* 파일을 쿠버네티스 클러스터에 적용하세요. 
+
+    ```bash 
+    kubectl apply -f 변경한 yaml 파일명.yaml
+    ```
+
+### 예시
+
+```yaml title='Yaml' showLineNumbers{22-23,121-122}
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "whatap-master-agent"
+  namespace: "whatap-monitoring"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: "whatap-master-agent"
+  template:
+    metadata:
+      labels:
+        name: "whatap-master-agent"
+    spec:
+      containers:
+      - command:
+        - "/bin/entrypoint.sh"
+        env:
+        - name: "WHATAP_LICENSE"
+          value: "x22gg93735j9v-z63jpk29lgtn68-x52sdl202an6h"
+        - name: "WHATAP_HOST"
+          value: "61.109.237.237/61.109.238.166"
+        - name: "WHATAP_PORT"
+          value: "6600"
+        - name: "WHATP_MEM_LIMIT"
+          valueFrom:
+            resourceFieldRef:
+              containerName: "whatap-master-agent"
+              resource: "limits.memory"
+        image: "whatap/kube_mon"
+        name: "whatap-master-agent"
+        ports:
+        - containerPort: 6600
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "350Mi"
+          requests:
+            cpu: "100m"
+            memory: "300Mi"
+        volumeMounts:
+        - mountPath: "/bin/entrypoint.sh"
+          name: "start-script-volume"
+          readOnly: true
+          subPath: "entrypoint.sh"
+        - mountPath: "/whatap_conf"
+          name: "whatap-config-volume"
+      serviceAccount: "whatap"
+      volumes:
+      - configMap:
+          defaultMode: 448
+          name: "master-start-script"
+        name: "start-script-volume"
+      - emptyDir: {}
+        name: "whatap-config-volume"
+---
+apiVersion: "apps/v1"
+kind: "DaemonSet"
+metadata:
+  labels:
+    name: "whatap-node-agent"
+  name: "whatap-node-agent"
+  namespace: "whatap-monitoring"
+spec:
+  selector:
+    matchLabels:
+      name: "whatap-node-agent"
+  template:
+    metadata:
+      labels:
+        name: "whatap-node-agent"
+    spec:
+      containers:
+      - command:
+        - "/data/agent/node/cadvisor_helper"
+        - "-port"
+        - "6801"
+        env:
+        - name: "NODE_NAME"
+          valueFrom:
+            fieldRef:
+              fieldPath: "spec.nodeName"
+        image: "whatap/kube_mon"
+        name: "whatap-node-helper"
+        ports:
+        - containerPort: 6801
+          name: "helperport"
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "350Mi"
+          requests:
+            cpu: "100m"
+            memory: "100Mi"
+        volumeMounts:
+        - mountPath: "/rootfs"
+          name: "rootfs"
+          readOnly: true
+        - mountPath: "/sys"
+          name: "hostsys"
+          readOnly: true
+        - mountPath: "/dev/disk"
+          name: "hostdiskdevice"
+          readOnly: true
+        - mountPath: "/var/run/docker.sock"
+          name: "dockerdomainsocket"
+      - command:
+        - "/bin/entrypoint.sh"
+        env:
+        - name: "NODE_IP"
+          valueFrom:
+            fieldRef:
+              fieldPath: "status.hostIP"
+        - name: "NODE_NAME"
+          valueFrom:
+            fieldRef:
+              fieldPath: "spec.nodeName"
+        - name: "WHATAP_LICENSE"
+          value: "x22gg93735j9v-z63jpk29lgtn68-x52sdl202an6h"
+        - name: "WHATAP_HOST"
+          value: "61.109.237.237/61.109.238.166"
+        - name: "WHATAP_PORT"
+          value: "6600"
+        - name: "HOST_PREFIX"
+          value: "/rootfs"
+        - name: "WHATP_MEM_LIMIT"
+          valueFrom:
+            resourceFieldRef:
+              containerName: "whatap-node-agent"
+              resource: "limits.memory"
+        image: "whatap/kube_mon"
+        name: "whatap-node-agent"
+        ports:
+        - containerPort: 6600
+          name: "nodeport"
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "350Mi"
+          requests:
+            cpu: "100m"
+            memory: "300Mi"
+        volumeMounts:
+        - mountPath: "/rootfs"
+          name: "rootfs"
+          readOnly: true
+        - mountPath: "/bin/entrypoint.sh"
+          name: "start-script-volume"
+          readOnly: true
+          subPath: "entrypoint.sh"
+        - mountPath: "/whatap_conf"
+          name: "whatap-config-volume"
+      initContainers:
+      - command:
+        - "/data/agent/tools/whatap_debugger"
+        - "run"
+        image: "whatap/kube_mon"
+        name: "whatap-node-debug"
+        volumeMounts:
+        - mountPath: "/rootfs"
+          name: "rootfs"
+          readOnly: true
+      serviceAccount: "whatap"
+      tolerations:
+      - effect: "NoSchedule"
+        key: "node-role.kubernetes.io/master"
+      - effect: "NoSchedule"
+        key: "node-role.kubernetes.io/control-plane"
+      volumes:
+      - hostPath:
+          path: "/"
+        name: "rootfs"
+      - hostPath:
+          path: "/sys"
+        name: "hostsys"
+      - hostPath:
+          path: "/dev/disk"
+        name: "hostdiskdevice"
+      - configMap:
+          defaultMode: 448
+          name: "node-start-script"
+        name: "start-script-volume"
+      - emptyDir: {}
+        name: "whatap-config-volume"
+      - hostPath:
+          path: "/var/run/docker.sock"
+        name: "dockerdomainsocket"
+      - hostPath:
+          path: "/var/lib/docker"
+        name: "hostdocker"
+```
+</TabItem>
+
+<TabItem value='cs-helm' label='Helm Chart' default>
+
+## Helm 차트 기준
+
+Helm 차트를 통해 Kubernetes 에이전트를 배포한 경우 *values.yaml*에서 다음 항목을 수정하세요. 
+
+```yaml title='Helm' showLineNumbers{3}
+whatap:
+  license: # license-key
+  host: host: "61.109.237.237/61.109.238.166" # whatap-server-host
+```
+
+</TabItem>
+
+</Tabs>

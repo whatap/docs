@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_14_x/",
+    "ver": "Service 2.14.1",
+    "date": "2025-02-26",
+    "Lists": [
+      {
+        "ver": "Service 2.14.1",
+        "hash": "service-2141",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span> 메뉴에서 그룹 그리드 패널의 상태별 이벤트 수 업데이트되도록 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_14_x/",
     "ver": "Service 2.14.0",
     "date": "2025-02-26",
     "Lists": [

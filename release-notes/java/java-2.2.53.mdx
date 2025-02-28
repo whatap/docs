@@ -1,0 +1,23 @@
+---
+id: java-2_2_53
+title: Java Agent v2.2.53
+toc_max_heading_level: 2
+pagination_next: release-notes/java/java-2_2_52
+displayed_sidebar: releaseSidebar
+---
+
+2025년 02월 27일
+
+- <Status priority='1'>Feature</Status> `okhttp3`, `okhttp3-4.4` 설정 사용 시 traceparent HTTP 헤더 발급 기능 추가
+
+- <Status priority='1'>Changed</Status> Jakarta 추적 시 `weaving=tomcat10` 설정 없이도 추적 가능하도록 변경
+
+- <Status priority='0'>Fixed</Status> Spring Boot 환경에서 embedded-tomcat을 사용할 때, `whatap.name`에 설정한 `{port}` 데이터가 수집되지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> OpenTelemetry 에이전트와 연계 추적 시 `okhttp` 라이브러리 사용 시 멀티 트랜잭션 탭에서 연계 추적이 끊기는 문제 수정
+
+- <Status priority='0'>Fixed</Status> ‘-’가 없는 Pod 이름을 `null`로 수집하는 문제 수정
+
+import DownloadJava from './_import_dl-java-agent.mdx';
+
+<DownloadJava ver="2.2.53" />

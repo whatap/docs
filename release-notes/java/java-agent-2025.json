@@ -1,5 +1,47 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_53/",
+    "ver": "v2.2.53",
+    "date": "2025-02-27",
+    "Lists": [
+      {
+        "ver": "v2.2.53",
+        "hash": "v2253",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>okhttp3</code>, <code>okhttp3-4.4</code> 설정 사용 시 traceparent HTTP 헤더 발급 기능 추가</p>"
+      },
+      {
+        "ver": "v2.2.53",
+        "hash": "v2253",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Jakarta 추적 시 <code>weaving=tomcat10</code> 설정 없이도 추적 가능하도록 변경</p>"
+      },
+      {
+        "ver": "v2.2.53",
+        "hash": "v2253",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Spring Boot 환경에서 embedded-tomcat을 사용할 때, <code>whatap.name</code>에 설정한 <code>{port}</code> 데이터가 수집되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "v2.2.53",
+        "hash": "v2253",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> OpenTelemetry 에이전트와 연계 추적 시 <code>okhttp</code> 라이브러리 사용 시 멀티 트랜잭션 탭에서 연계 추적이 끊기는 문제 수정</p>"
+      },
+      {
+        "ver": "v2.2.53",
+        "hash": "v2253",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> ‘-’가 없는 Pod 이름을 <code>null</code>로 수집하는 문제 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_52/",
     "ver": "v2.2.52",
     "date": "2025-02-13",

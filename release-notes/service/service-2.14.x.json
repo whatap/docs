@@ -1,6 +1,27 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_14_x/",
+    "ver": "Service 2.14.2",
+    "date": "2025-02-28",
+    "Lists": [
+      {
+        "ver": "Service 2.14.2",
+        "hash": "service-2142",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">트레이스 분석</span> 창 내 <span class=\"uitext\">멀티 트랜잭션</span> 탭 및 <span class=\"uitext\">멀티 트랜잭션 추적</span> 메뉴에서 차트 내 시작점 트랜잭션이 여러 개인 경우 노드 클릭이 동작하지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.14.2",
+        "hash": "service-2142",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">애플리케이션</span> &gt; <span class=\"uitext\">인스턴스 성능 관리</span> &gt; <span class=\"uitext\">메소드 성능 상태</span> 메뉴 진입 시 화이트아웃 발생 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_14_x/",
     "ver": "Service 2.14.1",
     "date": "2025-02-26",
     "Lists": [

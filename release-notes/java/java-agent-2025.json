@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_54/",
+    "ver": "v2.2.54",
+    "date": "2025-02-28",
+    "Lists": [
+      {
+        "ver": "v2.2.54",
+        "hash": "v2254",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 불필요한 메트릭 데이터 전송 방지</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_53/",
     "ver": "v2.2.53",
     "date": "2025-02-27",

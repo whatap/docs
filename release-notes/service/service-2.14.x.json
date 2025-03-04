@@ -1,6 +1,28 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_14_x/",
+    "ver": "Service 2.14.3",
+    "date": "2025-02-28",
+    "Lists": [
+      {
+        "ver": "Service 2.14.3",
+        "hash": "service-2143",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">리소스 보드</span> 메뉴에서 상단 서버 상태 카드와 벌집 차트의 서버별 상태가 서버 목록과 일치하지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.14.3",
+        "hash": "service-2143",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 메뉴에서 우측 상단 Disk Total 계산 시 NAS 또는 S3 디스크 용량을 제외하고 합산하도록 수정</p>",
+        "details": "<ul>\n<li>\n<p>제외되는 파일 시스템: fuse, nfs, nfs4, nfsd, pnfs, cifs, smbfs</p>\n</li></ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_14_x/",
     "ver": "Service 2.14.2",
     "date": "2025-02-28",
     "Lists": [

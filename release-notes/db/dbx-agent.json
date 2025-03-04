@@ -1,5 +1,68 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_2/",
+    "ver": "v2.4.2",
+    "date": "2025-02-26",
+    "Lists": [
+      {
+        "ver": "v2.4.2",
+        "hash": "v242",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Oracle Active Session의 <code>status</code> 지표를 <code>String</code> 값으로 변경</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.4.2",
+        "hash": "v242",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>xact_runtime</code> 지표 추가</p>",
+        "category": "PostgreSQL"
+      },
+      {
+        "ver": "v2.4.2",
+        "hash": "v242",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>xview</code>에 <code>id</code> 추가</p>",
+        "category": "Altibase"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_1/",
+    "ver": "v2.4.1",
+    "date": "2025-02-24",
+    "Lists": [
+      {
+        "ver": "v2.4.1",
+        "hash": "v241",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> MySQL 8 이상에서 Lock 수집 쿼리 수정</p>",
+        "category": "MySQL",
+        "details": "<ul>\n<li>\n<p>기존 <code>data_lock_waits</code> 건수 수집에서 대기 세션 수만 카운트하도록 변경</p>\n</li>\n<li>\n<p><code>mysql8_lock_status=false</code> 옵션 추가 시 기존 수집 쿼리 사용 가능</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v2.4.1",
+        "hash": "v241",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> PostgreSQL 17 버전 이상에서 checkpoint 지표 수집 추가</p>",
+        "category": "PostgreSQL"
+      },
+      {
+        "ver": "v2.4.1",
+        "hash": "v241",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> autoscale 에이전트에서 <em>whatap.conf</em>의 <code>aws_region</code>이 인식되지 않는 오류 수정</p>",
+        "category": "PostgreSQL"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_0/",
     "ver": "v2.4.0",
     "date": "2025-02-20",

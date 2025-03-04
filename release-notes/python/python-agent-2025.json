@@ -1,5 +1,27 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_7_6/",
+    "ver": "v1.7.6",
+    "date": "2025-03-04",
+    "Lists": [
+      {
+        "ver": "v1.7.6",
+        "hash": "v176",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 로깅 모듈(logging, loguru) 모니터링에서 mtid 값 추적 추가</p>",
+        "details": "<ul>\n<li>\n<p><strong>trace_logging_mtid_enabled</strong> <span class=\"type\">Boolean</span></p>\n<p>기본값 <code>false</code></p>\n<p>값이 <code>true</code>일 경우 활성화되며 mtid 값이 존재하면 로그에 출력합니다.</p>\n</li>\n<li>\n<p><code>trace_loguru_mtid_enabled</code> <span class=\"type\">Boolean</span></p>\n<p>기본값 <code>false</code></p>\n<p>값이 <code>true</code>일 경우 활성화되며 mtid 값이 존재하면 로그에 출력합니다.</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v1.7.6",
+        "hash": "v176",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Celery Task에서 예외 발생 시 Reraise되지 않는 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_7_5/",
     "ver": "v1.7.5",
     "date": "2025-02-17",

@@ -1,0 +1,27 @@
+---
+id: dbx-2_4_1
+title: DBX v2.4.1
+pagination_next: release-notes/db/dbx-2_4_0
+displayed_sidebar: releaseSidebar
+---
+
+2025년 02월 24일
+
+## MySQL
+
+<Status priority='0'>Fixed</Status> MySQL 8 이상에서 Lock 수집 쿼리 수정
+
+- 기존 `data_lock_waits` 건수 수집에서 대기 세션 수만 카운트하도록 변경
+
+- `mysql8_lock_status=false` 옵션 추가 시 기존 수집 쿼리 사용 가능
+
+## PostgreSQL 
+
+- <Status priority='1'>New</Status> PostgreSQL 17 버전 이상에서 checkpoint 지표 수집 추가
+
+- <Status priority='0'>Fixed</Status> autoscale 에이전트에서 *whatap.conf*의 `aws_region`이 인식되지 않는 오류 수정 
+
+
+import DownloadJava from './_import_dl-dbx-agent.mdx';
+
+<DownloadJava ver="2.4.1" />

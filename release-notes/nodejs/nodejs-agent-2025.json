@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_9/",
+    "ver": "v0.5.9",
+    "date": "2025-03-05",
+    "Lists": [
+      {
+        "ver": "v0.5.9",
+        "hash": "v059",
+        "product": "Node.js Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Prisma ORM 사용 시 데이터베이스 작업 추적 기능 추가</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_9/",
+    "ver": "v0.5.9",
+    "date": "2025-03-05",
+    "Lists": [
+      {
+        "ver": "v0.5.9",
+        "hash": "v059",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 로그 파일 자동 정리 로직 개선</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_8/",
     "ver": "v0.5.8",
     "date": "2025-02-18",

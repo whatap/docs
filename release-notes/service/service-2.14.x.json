@@ -45,6 +45,13 @@
         "product": "Application",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">트레이스 분석</span> 창에서 다음 <span class=\"uitext\">메소드 요약</span>, <span class=\"uitext\">SQL 요약</span>, <span class=\"uitext\">HTTP Call 요약</span> 내 텍스트 다운로드가 되지 않는 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.14.4",
+        "hash": "service-2144",
+        "product": "Browser",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">브라우저 모니터링 대시보드</span> &gt; <span class=\"uitext\">페이지 로드 수 Map</span>  위젯에서 러시아 지도 조회 시 백화 현상 수정</p>"
       }
     ]
   },

@@ -69,6 +69,65 @@ toc_max_heading_level: 2
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 <Cmdname sid="server_info" className="uitext" /> 패널 내 <Cmdname sid="server_alert_list" className="uitext" /> 드로워에서 조건 및 서버 목록이 잘려 전체 내용이 보이지 않는 현상 수정
 
+---
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_oomContainer" className="uitext" /> 메뉴에서 컨테이너 이름 검색 기능 추가 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_oomContainer" className="uitext" /> 메뉴에서  태그 메타 정보 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_oomContainer" className="uitext" /> 메뉴에서 상세 드로워에 컨테이너 제한값 대비 메모리 사용률(%)를 보여주는 ***Container Memory Working Set By Limit*** 차트 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_oomContainer" className="uitext" /> 메뉴에서 상세 보기 내 컨테이너 메모리 사용률 차트 이름 변경 
+
+  - 기존: **Memory Working Set per Container (byte)**
+
+  - 변경: ***Container Memory Working Set***
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_oomContainer" className="uitext" /> 메뉴에서 상세 보기 내 Pod 메모리 사용률 차트 변경 
+
+  - 기존: **메모리 사용률** 차트
+
+  - 변경: 제한값 대비 사용률(%)를 보여주는 ***Pod Memory Working Set By Limit*** 차트로 변경
+
+- <Status priority='1'>Deprecated</Status> <Status priority='1'>Feature</Status> <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_oomContainer" className="uitext" /> 메뉴에서 `state` 컬럼 제거
+
+---
+
+### `Database`
+
+<Status priority='1'>New</Status> **SAP ASE** 모니터링 상품 출시 
+
+#### 공통
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 상단 데이터베이스 목록에 더 많은 태그가 보이도록 변경 
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" /> 메뉴에서 일부 바 차트가 표시되지 않는 문제 수정
+
+#### Oracle, Oracle Pro, Altibase, MySQL, PostgreSQL, SQL Server, Cubrid V2, IBM DB2
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 <UI>SQL Elapse Map</UI> 위젯 드래그 시 나오는 테이블 컬럼 순서 변경 및 기본 너비 조정
+
+#### MySQL, PostgreSQL, Oracle, Oracle Pro
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 <UI>Elapse Map</UI> 드래그 시 나오는 테이블 컬럼 순서 수정 
+
+#### Oracle V2, Oracle Pro
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 <Cmdname sid="active_sessions" className="uitext" /> 탭의 쿼리 클릭 시 확인할 수 있는 <Cmdname sid="TTL06224" className="uitext" /> 창에서 `FILTER_PREDICATES`, `ACCESS_PREDICATES` 컬럼 값이 긴 경우 말줄임표(`...`) 표시 후 전체 내용의 경우 툴팁으로 안내하도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 <UI>Elapse Map</UI> 드래그 시 나오는 테이블 `username` 컬럼을 `schemaname` 컬럼으로 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 <UI>Elapse Map</UI> 드래그 시 나오는 테이블 `username` 컬럼을 `schemaname` 컬럼으로 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 <UI>Elapse Map</UI> 드래그 시 나오는 테이블에서 쿼리 클릭 시 확인할 수 있는 <Cmdname sid="TTL06224" className="uitext" /> 창에서 `planHash` 값이 왼쪽 쿼리의 `plan_hash_value`로 기본 설정되도록 수정 
+
+#### IBM DB2 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> 메뉴 하위에 테이블스페이스 사용 현황을 모니터링할 수있는 <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="lock_tree" className="uitext" /> 테이블의 일부 컬럼 변경
 
 </div>
 

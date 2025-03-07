@@ -9,7 +9,7 @@
         "hash": "service-2144",
         "product": "공통",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Changed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">메트릭스 차트</span> <code class=\"oldfunc\">Old</code> 메뉴에서 필터 선택 시 조회 API가 무한 호출되지 않도록 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">메트릭스 차트</span> <code class=\"oldfunc\">Old</code> 메뉴에서 필터 선택 시 조회 API가 무한 호출되지 않도록 수정</p>"
       },
       {
         "ver": "Service 2.14.4",

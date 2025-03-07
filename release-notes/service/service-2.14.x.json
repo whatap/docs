@@ -7,6 +7,13 @@
       {
         "ver": "Service 2.14.4",
         "hash": "service-2144",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Changed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">메트릭스 차트</span> <code class=\"oldfunc\">Old</code> 메뉴에서 필터 선택 시 조회 API가 무한 호출되지 않도록 수정</p>"
+      },
+      {
+        "ver": "Service 2.14.4",
+        "hash": "service-2144",
         "product": "Application",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 메뉴에서 <span class=\"uitext\">금일 TPS</span> , <span class=\"uitext\">금일 사용자</span> 위젯에 7일 전 비교 일자 선택 옵션 추가</p>"

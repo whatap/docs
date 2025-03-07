@@ -84,11 +84,6 @@
 
 ![시간 조회2](/img/db-lock-tree-1-min-lock-trends3.png)
 
-{/* <Title hashid="lock5mins" level={props.level+2}>3시간 이상 조회 시 (5분 단위 데이터 사용)</Title> */}
-
-{/* ***Lock Wait Sessions***에서 클릭한 시간에 발생한 최대 락 개수를 기준으로 ***1-Min Lock Trends***와 ***Lock Tree*** 테이블의 시간이 설정됩니다. `07:15:00` 시점을 클릭한 경우, `07:15:00~07:20:00`까지의 데이터가 포함되어 차트에서 바의 색상이 진하게 표시됩니다. */}
-
-
 * **3시간 이상 조회 시** (5분 단위 데이터 사용)
 
   조회 시점부터 5분 구간에서 바의 색상이 진하게 표시됩니다. 
@@ -96,12 +91,6 @@
   > `07:15:00` 시점을 클릭한 경우, `07:15:00~07:20:00` 구간 바 차트 색이 진하게 표시됩니다.
 
   ![5분 팩 조회](/img/db-lock-tree-1-min-lock-trends-5min.png)
-
-{/* ![1-Min Lock Trends](/img/db-lock-tree-1-min-lock-trends1.png) */}
-
-{/* <Title hashid="lock5secs" level={props.level+2}>3시간 미만 조회 시 (5초 단위 데이터 사용)</Title> */}
-
-{/* ***Lock Wait Sessions***에서 클릭한 시간으로 ***1-Min Lock Trends***와 ***Lock Tree*** 테이블 내 시간이 동기화됩니다. 짧은 시간 간격의 락 상황을 분석할 때 유용합니다. */}
 
 * **3시간 미만 조회 시** (5초 단위 데이터 사용)
 

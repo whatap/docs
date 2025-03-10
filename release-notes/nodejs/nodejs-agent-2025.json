@@ -1,5 +1,20 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_10/",
+    "ver": "v0.5.10",
+    "date": "2025-03-10",
+    "Lists": [
+      {
+        "ver": "v0.5.10",
+        "hash": "v0510",
+        "product": "Node.js Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Prisma ORM 사용을 위한 옵션 추가</p>",
+        "details": "<ul>\n<li>\n<p><strong>prisma_read_func_name</strong> <span class=\"type\">String</span></p>\n<p>기본값 <code>read</code></p>\n<p>Replication 사용 시 Read-only 클라이언트를 얻기 위해 호출하는 함수명을 설정합니다.</p>\n</li>\n<li>\n<p><strong>prisma_database_url_name</strong> <span class=\"type\">String</span></p>\n<p>기본값 <code>DATABASE_URL</code></p>\n<p>Prisma ORM에서 데이터베이스 연결 URL이 저장된 환경 변수명을 설정합니다.</p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_9/",
     "ver": "v0.5.9",
     "date": "2025-03-05",

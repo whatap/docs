@@ -1,0 +1,29 @@
+---
+id: python-1_7_7
+title: Python Agent v1.7.7
+toc_max_heading_level: 2
+pagination_next: release-notes/python/python-1_7_6
+displayed_sidebar: releaseSidebar
+---
+
+2025년 03월 11일
+
+- <Status priority='1'>New</Status> *whatap.conf*에서 와탭 모듈 로그 출력 제어 옵션 추가
+
+  - **ignore_whatap_stdout** <span class='type'>Boolean</span>
+
+    기본값 `false`
+
+    `true`로 설정 시 와탭 Python 에이전트 모듈에서 발생하는 모든 표준 출력 로그를 비활성화합니다.
+
+- <Status priority='0'>Fixed</Status> 환경변수 `OKIND` 설정 후 멀티 트랜잭션 추적 시 오류 발생 문제 수정
+
+- <Status priority='0'>Fixed</Status> SQL Connection이 2개 이상일 경우 `execute` 실행 시 DB 모니터링 오류 개선
+
+- <Status priority='0'>Fixed</Status>  `sqlalchemy`에서 `aiomysql` 사용 시 쿼리의 바인딩 변수가 표시되지 않는 문제 수정
+
+:::note
+
+Agent download: [whatap-python v1.7.7](https://pypi.org/project/whatap-python/1.7.7/)
+
+:::

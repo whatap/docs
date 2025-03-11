@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_14_x/",
+    "ver": "Service 2.14.5",
+    "date": "2025-03-11",
+    "Lists": [
+      {
+        "ver": "Service 2.14.5",
+        "hash": "service-2145",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Flex 보드</span> 메뉴에서 간헐적으로 화이트아웃이 발생하는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_14_x/",
     "ver": "Service 2.14.4",
     "date": "2025-03-07",
     "Lists": [

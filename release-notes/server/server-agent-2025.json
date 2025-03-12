@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server/server-2_8_2/",
+    "ver": "v2.8.2",
+    "date": "2025-03-11",
+    "Lists": [
+      {
+        "ver": "v2.8.2",
+        "hash": "v282",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 디스크 사용률이 100% 이상으로 표시되는 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server/server-2_8_1/",
     "ver": "v2.8.1",
     "date": "2025-03-04",

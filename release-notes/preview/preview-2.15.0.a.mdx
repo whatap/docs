@@ -14,6 +14,98 @@ toc_max_heading_level: 2
 
 :::
 
+## Preview 2.15.0.a3
+
+2025년 03월 13일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_integratedFlexboard" className="uitext" /> 메뉴의 <Cmdname sid="dashboard_list" className="uitext" />에서 <Cmdname sid="share_dashboard" className="uitext" /> 모달 내 공유된 사용자 확인 및 제거 기능 추가 
+
+- <Status priority='1'>Changed</Status> 프리셋 목록에서 저장된 프리셋 삭제 시 확인 과정 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="dashboard_list" className="uitext" />에서 저장된 <Cmdname sid="flexboard" className="uitext" /> 삭제 시 확인 과정 추가
+
+- <Status priority='1'>Changed</Status> 기존 <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴 내 <Cmdname sid="BTN07592" className="uitext" /> 간격 선택 옵션을 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agents" className="uitext" /> 메뉴로 이동
+
+- <Status priority='1'>Changed</Status> 필터 창을 닫거나 <Cmdname sid="apply" className="uitext" /> 버튼 클릭 시 필터가 즉시 반영되도록 필터 사용 방식 개선 
+
+  <details>
+  <summary><b>필터 개선 적용 메뉴</b></summary>
+
+  * ![사이트맵 아이콘](/img/ic-sitemap.svg) <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_metricsChart" className="uitext" /> <code class="oldfunc">Old</code> 
+
+  * ![사이트맵 아이콘](/img/ic-sitemap.svg) <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_metricsML" className="uitext" /> 
+
+  * ![사이트맵 아이콘](/img/ic-sitemap.svg) <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_integratedLogSearch" className="uitext" />
+
+  * <Cmdname sid="site_management" className="uitext" /> &gt; <Cmdname sid="side_metricsCategory" className="uitext" /> &gt; <Cmdname sid="side_metricsRebuild" className="uitext" />
+
+  * <Cmdname sid="side_flexboard" className="uitext" />
+
+  * <Cmdname sid="side_integratedTopology" className="uitext" />
+
+  * <Cmdname sid="side_integratedRealtimeAlert" className="uitext" />
+
+  * 서버 모니터링 &gt; <Cmdname sid="side_report" className="uitext" /> &gt; <Cmdname sid="S100_ServerDailyReport" className="uitext" />
+
+  </details>
+
+---
+
+### `Application`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" /> 메뉴에서 텍스트 다운로드 기능 추가 
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" /> 메뉴에서 스레드 덤프가 표시되지 않는 현상 수정
+
+
+---
+
+### `Server`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 ***Disk Used Space (%)*** 차트 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 우측 하단 영역에 ***File System*** 탭 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴에서 <Cmdname sid="management" className="uitext" /> 기능 동작 방식 개선
+
+  - <Cmdname sid="restart" className="uitext" /> / <Cmdname sid="paused" className="uitext" />: 기존 툴팁을 통한 동작 확인 방식을 팝오버 방식으로 변경
+
+  - <Cmdname sid="ITM09356" className="uitext" />:
+  
+    - 기존 **해지하기**를 <Cmdname sid="ITM09356" className="uitext" />로 변경
+
+    - 기존 툴팁을 통한 동작 확인 방식을 모달을 통해 선택한 에이전트 목록을 확인하고 직접 `delete` 입력 후 제외하는 방식으로 변경
+
+--- 
+
+### `Kubernetes`
+
+:::note 
+
+<Cmdname sid="side_objectManifest" className="uitext" /> 메뉴가 기존 <Cmdname sid="side_cluster" className="uitext" /> 메뉴 하위에서 <Cmdname sid="side_analysis" className="uitext" /> 메뉴 하위로 이동합니다.
+
+:::
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_objectManifest" className="uitext" /> 메뉴의 상세 보기 내 검색 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_containerMap" className="uitext" /> 메뉴의 요약 보기 내 <Cmdname sid="log" className="uitext" /> &gt; <Cmdname sid="container_stdout_stderr" className="uitext" /> 탭에서 컨테이너 선택 옵션 UI 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_projectList" className="uitext" />의 카드 뷰에서 네임스페이스 프로젝트의 경우 <Cmdname sid="edit_project_name" className="uitext" /> 옵션 표시되지 않도록 수정
+
+---
+
+### `Database`
+
+#### PostgreSQL, Oracle, MySQL, SQL Server, Cubrid, Altibase V2, IBM DB2
+
+<Status priority='1'>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 <UI>DB 서버에 부가 에이전트 (XOS) 설치 및 기타 옵션 설정</UI> 섹션의 <UI>XOS(Windows)</UI> 탭 하위에 `msvcp120.dll`, `msvcr120.dll` 누락 시 해결 방법 안내 추가
+
+</div>
+
 ## Preview 2.15.0.a2
 
 2025년 03월 10일

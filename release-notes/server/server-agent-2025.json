@@ -9,6 +9,13 @@
         "hash": "v282",
         "product": "Server Agent",
         "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Windows UUID 정보 수집 옵션화</p>"
+      },
+      {
+        "ver": "v2.8.2",
+        "hash": "v282",
+        "product": "Server Agent",
+        "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 디스크 사용률이 100% 이상으로 표시되는 현상 수정</p>"
       }
     ]

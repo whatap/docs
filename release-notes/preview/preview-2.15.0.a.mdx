@@ -60,6 +60,12 @@ toc_max_heading_level: 2
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 <Cmdname sid="server_status" className="uitext" /> 위젯의 `paused` 상태 색상을 <Cmdname sid="sms_resource_board" className="uitext" /> 색상과 일치하도록 수정
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 Disk Total 용량 합산 시 ZFS 파일 시스템을 합산 제외 대상에 포함
+
+  - 기존 제외 대상: `FUSE`, `NFS`, `NFS4`, `NFSD`, `PNFS`, `CIFS`, `SMBFS`
+
+  - 추가 제외 대상: `ZFS`
+
 ---
 
 ### `Kubernetes`

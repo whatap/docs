@@ -1,5 +1,170 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_7/",
+    "ver": "v2.4.7",
+    "date": "2025-03-18",
+    "Lists": [
+      {
+        "ver": "v2.4.7",
+        "hash": "v247",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code>  지표 수집 옵션 v2의 기본값을 <code>false</code>에서 <code>true</code>로 변경</p>",
+        "category": "MongoDB",
+        "details": "<ul>\n<li>\n<p>기존 기본값: <code>v2=false</code> → 변경 후 기본값: <code>v2=true</code></p>\n</li>\n<li>\n<p><code>v2=true</code> 설정 시 <code>serverStatus</code> 값 중 <code>opcounters</code>, <code>globalLock</code>, <code>extra_info</code>, <code>connections</code>, <code>network</code>, <code>mem, opLatencies</code>, <code>asserts</code>만 수집 및 저장</p>\n</li>\n<li>\n<p>추가 지표 수집을 원할 경우 <code>category=network,repl,indexStats…</code> 등의 <code>serverStatus</code> 출력 옵션을 지정하여 추가 수집 가능</p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://whatap.github.io/whatap-docs/release-notes/db/dbx-2_4_6/",
+    "ver": "v2.4.6",
+    "date": "2025-03-14",
+    "Lists": [
+      {
+        "ver": "v2.4.6",
+        "hash": "v246",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Yugabyte DB에 대해 <code>node_state</code>, <code>DB size</code> 수집 기능 추가</p>",
+        "category": "PostgreSQL",
+        "details": "<ul>\n<li>\n<p>기본적으로 <code>yb_pg_database_size</code> 및 <code>yb_pg_indexes_size</code> 함수를 사용하여 DB 크기 및 인덱스 크기 수집</p>\n</li>\n<li>\n<p>다른 함수명을 사용할 경우, <code>yb_pg_database_size=</code> 및 <code>yb_pg_indexes_size=</code> 옵션을 통해 지정 가능</p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_5/",
+    "ver": "v2.4.5",
+    "date": "2025-03-13",
+    "Lists": [
+      {
+        "ver": "v2.4.5",
+        "hash": "v245",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 통계 데이터 수집 주기 1분 옵션 추가 (<code>sqlstat_send_interval=1</code>, 기본값: <code>5</code>)</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.4.5",
+        "hash": "v245",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> MySQL 8.4 이상 버전에서 Master, Slave Status 쿼리 변경으로 인한 컬럼 수정</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.4.5",
+        "hash": "v245",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 통계 데이터 수집 주기 1분 옵션 추가 (<code>sqlstat_send_interval=1</code>, 기본값: <code>5</code>)</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.4.5",
+        "hash": "v245",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Oracle Active Session 텍스트가 출력되지 않는 문제 수정</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.4.5",
+        "hash": "v245",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<li><code class=\"New\" type=\"1\">New</code> 통계 데이터 수집 주기 1분 옵션 추가 (<code>sqlstat_send_interval=1</code>, 기본값: <code>5</code>)</li>",
+        "category": "Oracle Pro"
+      }
+    ]
+  },
+  {
+    "url": "https://docs/whatap.io/release-notes/db/dbx-2_4_4/",
+    "ver": "v2.4.4",
+    "date": "2025-03-10",
+    "Lists": [
+      {
+        "ver": "v2.4.4",
+        "hash": "v244",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Suspect DB 카테고리 추가</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "v2.4.4",
+        "hash": "v244",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 비정상적인 CPU 값이 나타나는 오류 수정</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "v2.4.4",
+        "hash": "v244",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Kill session 파라미터 수정</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "v2.4.4",
+        "hash": "v244",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code>  Dumpstat에서 음수 발생 시 로그 기록 추가</li>",
+        "category": "CUBRID"
+      },
+      {
+        "ver": "v2.4.4",
+        "hash": "v244",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code>  Session 카테고리에서 <code>!rectype</code>, <code>@id</code> 제거</li>",
+        "category": "MongoDB, Redis"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_3/",
+    "ver": "v2.4.3",
+    "date": "2025-03-06",
+    "Lists": [
+      {
+        "ver": "v2.4.3",
+        "hash": "v243",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> SAP ASE 제품 추가</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "v2.4.3",
+        "hash": "v243",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Tablespace size 수집 기능 추가</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.4.3",
+        "hash": "v243",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Lock 수집 쿼리 및 정보 수정</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.4.3",
+        "hash": "v243",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code>  Active session 및 SQL stat에 <code>@id</code>, <code>!rectype</code> 추가</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_2/",
     "ver": "v2.4.2",
     "date": "2025-02-26",

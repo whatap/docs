@@ -1,0 +1,20 @@
+---
+id: dbx-2_4_6
+title: DBX v2.4.6
+pagination_next: release-notes/db/dbx-2_4_5
+displayed_sidebar: releaseSidebar
+---
+
+2025년 03월 14일
+
+## PostgreSQL
+
+<Status priority='1'>New</Status> Yugabyte DB에 대해 `node_state`, `DB size` 수집 기능 추가
+
+ - 기본적으로 `yb_pg_database_size` 및 `yb_pg_indexes_size` 함수를 사용하여 DB 크기 및 인덱스 크기 수집
+
+ - 다른 함수명을 사용할 경우, `yb_pg_database_size=` 및 `yb_pg_indexes_size=` 옵션을 통해 지정 가능
+
+import DownloadJava from './_import_dl-dbx-agent.mdx';
+
+<DownloadJava ver="2.4.6" />

@@ -1,0 +1,22 @@
+---
+id: dbx-2_4_7
+title: DBX v2.4.7
+pagination_next: release-notes/db/dbx-2_4_6
+displayed_sidebar: releaseSidebar
+---
+
+2025년 03월 18일
+
+## MongoDB
+
+<Status priority='0'>Fixed</Status>  지표 수집 옵션 v2의 기본값을 `false`에서 `true`로 변경
+
+- 기존 기본값: `v2=false` → 변경 후 기본값: `v2=true`
+
+- `v2=true` 설정 시 `serverStatus` 값 중 `opcounters`, `globalLock`, `extra_info`, `connections`, `network`, `mem, opLatencies`, `asserts`만 수집 및 저장
+
+- 추가 지표 수집을 원할 경우 `category=network,repl,indexStats…` 등의 `serverStatus` 출력 옵션을 지정하여 추가 수집 가능
+
+import DownloadJava from './_import_dl-dbx-agent.mdx';
+
+<DownloadJava ver="2.4.7" />

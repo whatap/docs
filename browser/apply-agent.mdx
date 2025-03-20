@@ -351,6 +351,33 @@ config: {
 </Column>
 </Columns>
 
+
+<Columns>
+<Column className="text--left width--40">
+
+**ignoreStatusZero** <span class='type'>Boolean</span> <code className="my">optional</code>
+
+기본값 `false`
+
+AJAX 요청의 상태 코드가 `0`인 경우 해당 데이터를 수집에서 제외하는 옵션입니다.
+
+</Column>
+<Column className="text--left">
+
+```js showLineNumbers {6}
+config: {
+  projectAccessKey: {project_access_key},
+  pcode: {pcode},
+  sampleRate: 100,
+  proxyBaseUrl: "https://repo.whatap-browser-agent.io/rum/prod/v1/whatap-browser-agent.js",
+  ignoreStatusZero: true
+}
+```
+
+</Column>
+</Columns>
+
+
 :::note
 
 * 세션 리플레이에 대한 자세한 내용은 [다음 문서](session-replay)를 참조하세요.

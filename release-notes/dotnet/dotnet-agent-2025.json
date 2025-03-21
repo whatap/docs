@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_4_1/",
+    "ver": "v2.4.1",
+    "date": "2025-03-21",
+    "Lists": [
+      {
+        "ver": "v2.4.1",
+        "hash": "v241",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> ISAPI 필터 기반 트랜잭션 추적 기능 추가</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_4_0/",
     "ver": "v2.4.0",
     "date": "2025-03-04",

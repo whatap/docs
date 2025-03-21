@@ -17,31 +17,26 @@ import TR from '@site/src/components/TR';
 
 :::
 
-***vCenter***는 가상화 환경에서 데이터 센터의 리소스를 중앙에서 관리하고 모니터링하는 데 최적화된 VMware의 통합 관리 플랫폼입니다. 단일 인터페이스에서 다수의 가상 머신(VM), 호스트, 스토리지, 네트워크를 효율적으로 관리함으로써 IT 인프라 운영을 간소화하고, 관리의 효율성을 높일 수 있습니다.
+{/* 와탭 Milvus 모니터링은 Milvus Vector Database의 성능과 상태를 실시간으로 확인할 수 있도록 도와줍니다. 다양한 지표와 대시보드를 통해 빠른 문제 식별과 효율적인 운영이 가능합니다. 다양한 이벤트 기능을 통해 시스템 상태를 사전에 파악하고 장애를 예방할 수 있습니다. */}
 
-와탭은 새로운 **피쳐 프로젝트** 방식으로 ***vCenter*** 모니터링을 제공합니다. 와탭을 통해 vCenter 인프라의 성능과 상태를 실시간으로 추적하여 문제를 조기에 감지하고 해결할 수 있습니다.
+Milvus는 대규모 벡터 데이터를 고성능으로 관리하고 검색하기 위한 오픈소스 데이터베이스입니다. 와탭 ***Milvus*** 모니터링은 Milvus 클러스터를 구성하는 Proxy, Root Coordinator, Query Node 등의 성능과 자원 사용량을 실시간 및 히스토리로 추적하여, 검색 지연과 메모리 부족 및 트랜잭션 장애 등을 빠르게 발견하고 해결할 수 있도록 돕습니다.
 
-* **지표 모니터링**: 각 가상 머신과 호스트의 CPU, 메모리, 스토리지 사용량 등 다양한 시스템 지표를 실시간으로 모니터링합니다.
+와탭은 새로운 **피쳐 프로젝트** 방식으로 ***Milvus*** 모니터링을 제공합니다. Milvus 데이터베이스의 성능과 상태를 실시간으로 추적하여 문제를 조기에 감지하고 해결할 수 있습니다.
 
-* **맞춤형 대시보드**: 맞춤형 대시보드를 통해 지표를 효율적으로 조회할 수 있습니다.
-
-* **알림 설정**: 설정한 조건 감지 시 실시간으로 알림을 발송해 사용자가 문제에 신속히 대응할 수 있습니다.
-
-와탭 ***vCenter*** 모니터링을 통해 복잡한 가상화 환경을 효과적으로 관리해 보세요.
 
 ## 설치하기 
 
-와탭 ***vCenter*** 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다. 
+와탭 ***Milvus*** 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다. 
 
 와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다. 회원 가입에 관한 자세한 내용은 [다음 문서](../account/account-manage)를 참조하세요. 
 
 :::note 
 
-**지원 환경**<ScrollToLink anchor='vcenter-supported-env' />
+**지원 환경**<ScrollToLink anchor='milvus-supported-env' />
 
-와탭 ***vCenter*** 모니터링 에이전트를 설치하기 전에 지원 환경을 확인하세요. 
+와탭 ***Milvus*** 모니터링 에이전트를 설치하기 전에 지원 환경을 확인하세요. 
 
-* **vCenter**: vCenter 6.5 혹은 동등한 버전
+* **Milvus**: Milvus 2.x 혹은 동등한 버전
 
 * **Ubuntu**: Ubuntu 12.04 이상
 
@@ -57,208 +52,147 @@ import CreateFeature from "../common-items/_import_feature-project-create.mdx";
 
 <CreateFeature /> 
 
-### vCenter 에이전트 설치
+### Milvus 에이전트 설치
 
-<InstallFeature name='vCenter 에이전트 설치' />
+<InstallFeature name='Milvus 에이전트 설치' />
 
 ## 주요 메뉴 알아보기 
 
 ### 대시보드 
 
-홈 화면 > **피쳐 프로젝트**(<code class='Features'>Features</code>) 선택 > ***vCenter*** > ***vCenter 대시보드***
+홈 화면 &gt; **피쳐 프로젝트**(<code class='Features'>Features</code>) 선택 &gt; ***Milvus*** &gt; ***Milvus 대시보드***
 
-와탭 ***vCenter*** 모니터링은 vCenter 환경의 성능과 상태를 실시간으로 파악하여 전체적인 운영 현황을 관리할 수 있도록 다양한 지표를 제공합니다. 주요 지표를 정기적으로 확인하여 인프라가 안정적으로 운영되고 최적의 성능을 유지할 수 있도록 지원합니다.
+와탭 ***Milvus*** 모니터링은 벡터 검색 데이터베이스인 Milvus의 구성 요소별 주요 지표와 그래프를 제공합니다. 와탭이 제공하는 ***Milvus 대시보드***는 다음의 세 가지 프리셋으로 구성되어있습니다.
 
-와탭이 제공하는 ***vCenter 대시보드***는 다음의 다섯 가지 프리셋으로 구성되어있습니다.
+* ***Milvus Proxy and Root Coordinator***
 
-* ***VMware Summary***
-
-  전체 vCenter 환경에 대한 요약 정보를 제공합니다. vCenter 인프라의 상태를 전반적으로 확인할 수 있습니다.
-
-  <details>
-  <summary>대시보드 지표 안내 </summary>
-
-  #### ***Datacenter***
-
-  * ***vSphere Overview***: vCenter 환경에 대한 핵심 지표를 요약하여 제공합니다.
-
-    * ***vCenter***: 모니터링 중인 vCenter 인스턴스의 수를 나타냅니다.
-
-    * ***Cluster***: 관리 중인 클러스터의 총 수를 보여줍니다.
-
-    * ***ESXHost***: 현재 관리 중인 ESXi 호스트의 수를 표시합니다.
-
-    * ***VM***: 모니터링 중인 가상 머신(Virtual Machines)의 총 수를 나타냅니다.
-
-    * ***Datastore***: 현재 관리 중인 데이터스토어의 수를 표시합니다.
-
-  #### ***Cluster***
-
-  * ***Uptime***: 각 vCenter의 클러스터 가동 시간을 초 단위로 보여줍니다.
-
-    * ***vCenter***: 해당 클러스터가 관리되는 vCenter의 IP 주소를 표시합니다.
-
-    * ***clustername***: 클러스터 이름을 보여줍니다.
-
-    * ***Uptime Seconds***: 클러스터의 가동 시간(초)을 나타냅니다.
-
-  * ***CPU Usage***: 클러스터의 CPU 사용량을 퍼센트로 보여줍니다.
-
-    * ***vCenter***: CPU 사용량을 관리 중인 vCenter 서버의 IP 주소를 나타냅니다.
-
-    * ***cluster***: 클러스터 이름을 나타냅니다.
-
-    * ***CPU Usage***: 클러스터 내 CPU 사용량 퍼센트(%)를 표시합니다.
-
-  * ***Memory Usage***: 클러스터의 메모리 사용량을 퍼센트로 표시합니다.
-
-    * ***vCenter***: 관리 중인 vCenter 서버의 IP 주소를 나타냅니다.
-
-    * ***clustername***: 클러스터 이름을 표시합니다.
-
-    * ***Memory Usage***: 클러스터 내 메모리 사용량을 퍼센트로 보여줍니다.
-
-  #### ***Over Provisioned***
-
-  * ***All Overprovisioned CPU***: CPU가 과할당된 상태를 나타냅니다.
-
-    * ***Host***: CPU 리소스가 과할당된 호스트 수를 나타냅니다.
-
-    * ***VM***: CPU가 과할당된 가상 머신 수를 나타냅니다.
-
-    * ***Over Ratio***: CPU 과할당 비율을 표시합니다.
-
-  * ***All Overprovisioned Memory***: 메모리가 과할당된 상태를 나타냅니다.
-
-    * ***Host***: 메모리 리소스가 과할당된 호스트 수를 나타냅니다.
-
-    * ***VM***: 메모리가 과할당된 가상 머신 수를 나타냅니다.
-
-    * ***Over Ratio***: 메모리 과할당 비율을 표시합니다.
-
-  #### ***Cluster Status***
-
-  * ***Cluster CPU Usage %***: 클러스터의 CPU 사용률을 시간 경과에 따른 그래프로 시각화합니다.
-
-  * ***Cluster Memory Usage %***: 클러스터의 메모리 사용률을 그래프로 표시합니다.
-
-  * ***Cluster Network Usage***: 클러스터의 네트워크 사용량을 시간 경과에 따라 시각화한 그래프입니다.
-
-  * ***Cluster Storage Adapter***: 클러스터의 스토리지 어댑터 사용량을 시각적으로 보여줍니다.
-
-  * ***Datastore - Usage Capacity***: 데이터스토어의 사용량과 용량을 그래프로 표시합니다.
-
-  </details>
-
-* ***VMware Hosts***
-
-  vCenter에 연결된 각 호스트의 상태와 성능 지표를 상세하게 모니터링할 수 있는 프리셋입니다.
+  Milvus 시스템에서 Proxy 지연 시간, QPS 및 Root Coordinator의 컬렉션과 엔터티 및 DML/DDL 작업 현황을 종합적으로 모니터링할 수 있는 프리셋입니다.
 
   <details>
   <summary>대시보드 지표 안내</summary>
 
-  #### ***Hosts***
+    #### ***Proxy 모니터링***
 
-	*	***Uptime***: 각 호스트의 가동 시간을 확인할 수 있습니다.
+    * **Latency 및 요청 이벤트**
 
-	* ***CPU Usage MHZ***: 호스트의 CPU 사용량을 MHz 단위로 표시합니다.
+      프록시에서 처리되는 요청의 지연 시간을 히스토그램으로 시각화하고, 초당 요청 수(QPS) 등을 확인할 수 있습니다.
 
-	*	***Memory Usage***: 호스트에서 사용 중인 메모리 용량을 GB 단위로 보여줍니다.
+    * **프로세스 상태**
 
-	*	***CPU Usage %***: 각 호스트의 CPU 사용률을 백분율로 나타냅니다.
+      Milvus Proxy의 CPU 및 메모리 사용량을 시계열 그래프로 표시하여 시스템 리소스 상태를 파악합니다.
 
-	*	***Memory Usage %***: 호스트의 메모리 사용률을 백분율로 표시합니다.
+    #### ***Root Coordinator 모니터링***
 
+    * **컬렉션 및 엔터티 정보**
 
-  #### ***성능 지표 그래프***
+      현재 운영 중인 컬렉션 및 엔터티 개수를 통해 데이터베이스 규모를 확인합니다.
 
-	* ***CPU Utilization Avg %***: 각 호스트의 CPU 평균 사용률을 시간 경과에 따른 그래프로 표시합니다.
+    * **DML 및 DDL 작업**
 
-	*	***CPU Ready ms***: CPU가 사용 준비 상태에서 대기한 시간을 ms 단위로 보여줍니다.
+      Insert, Delete 등 DML 작업과 Create, Drop 등 DDL 작업의 처리 현황을 시각화하여 작업 빈도를 파악합니다.
 
-	*	***Disk IO***: 디스크 입출력 작업 수를 시간 경과에 따라 시각화합니다.
+    * **스트림 및 메시지 채널**
 
-	*	***Memory Utilization***: 호스트의 메모리 사용률을 시간에 따라 보여줍니다.
-
-	*	***Network Usage***: 네트워크 대역폭 사용량을 시간 경과에 따라 그래프로 시각화합니다.
-
-	*	***Storage Adapter IOPS***: 스토리지 어댑터의 초당 입출력 작업 수(IOPS)를 시각적으로 나타냅니다.
+      데이터 스트림 및 메시지 채널 개수를 추적하여 Milvus 내부 데이터 흐름을 확인합니다.
 
   </details>
 
-* ***vHost Performance Overview***
+* ***Milvus Search and Compute Performance***
 
-  ESXi 호스트의 전반적인 성능을 실시간으로 확인할 수 있는 프리셋입니다.
+  ANN, Brute Force, DiskANN 등 검색 성능을 모니터링하는 프리셋입니다.
 
   <details>
-  <summary>대시보드 지표 안내 </summary>
+  <summary>대시보드 지표 안내</summary>
 
-  #### ***[vHost] CPU/MEM***
+    #### ***Approximate Nearest Neighbor (ANN) Metrics***
 
-  *	***CPU-TotalUsage(%)***: 호스트의 CPU 총 사용률을 백분율로 표시합니다.
+    * **검색 요청 지연 시간**
 
-  * ***CPU-TotalUsage(MHz)***: 각 시간대별 호스트 CPU 사용량을 MHz 단위로 표시합니다.
+      ANN 검색의 지연 시간을 히스토그램 형태로 확인하여 검색 성능을 분석합니다. 
 
-  * ***CPU-Ready(%)***: 호스트 CPU 대기 시간을 초 단위로 나타냅니다.
+    * **검색 요청 수(QPS) 및 총 지연 시간**
 
-  * ***MEM-Usage(%)***: 호스트 메모리 사용률을 백분율로 표시합니다.
+      초당 처리된 검색 요청 횟수 및 누적 검색 지연 시간을 확인하여 시스템 부하 상태를 모니터링합니다.
 
-  * ***MEM-Granted(KB)***: 호스트에 할당된 메모리 양을 KB 단위로 표시합니다.
+    #### ***BF (Brute Force) Search***
 
-  * ***MEM-Active(KB)***: 호스트에서 실제로 사용 중인 메모리 양을 KB 단위로 보여줍니다.
+    * **BF 검색 요청 당 비교 개체 수**
 
-  * ***MEM-Vmmented(KB)***: 메모리 과할당으로 인한 오버헤드 메모리 양을 표시합니다.
+      Brute Force 검색에서 한 번의 요청 당 비교되는 개체 수를 확인합니다.
 
-  #### ***[vHost] NET Rx+Tx / Datastore R/W Total***
+    * **총 BF 검색 연산량**
 
-  * ***NET-Total(Kbps): RX+TX***: 호스트의 네트워크 송수신 데이터를 Kbps 단위로 시각화하여 표시합니다.
+      개체 비교 횟수를 통해 연산 비용을 추적하고 최적화 기회를 찾습니다.
 
-  * ***Datastore R/W Total(KBps)***: 데이터스토어의 읽기 및 쓰기 작업 속도를 KBps 단위로 표시합니다.
+    #### ***Bitset Ratio***
 
-  #### ***[vHost] Running VM(s)***
+    * **Bitset 사용률 및 계산량**
 
-  * ***Running VM(s)***: 현재 호스트에서 실행 중인 가상 머신의 수를 보여줍니다.
+      Bitset을 활용한 연산 최적화 여부를 모니터링하여 검색 속도 향싱 기회를 분석합니다.
+
+    * **Bitset 적용 요청 수 및 적용된 개체 수**
+
+      검색 요청 중 Bitset을 활용한 비율을 확인하여 인덱싱 전략의 효율성을 평가합니다. 
+
+    #### ***DiskANN***
+
+    * **DiskANN 검색 및 인덱스 성능**
+
+      DiskANN을 사용한 검색 요청의 지연 시간과 검색 횟수를 추적하여 디스크 기반 검색의 성능을 분석합니다.
+
+    * **DiskANN 인덱스 크기 및 검색 요청 수**
+
+      디스크 인덱스가 차지하는 공간과 검색 요청 수를 비교하여 효율성을 최적화합니다. 
 
   </details>
 
+* ***Milvus Query Coordinator & Query Node Metrics***
 
-* ***VMGuest Performance Overview***
-
-  개별 가상 머신(VM)의 성능 데이터를 실시간으로 제공하는 프리셋입니다.
+  QueryCoord와 QueryNode의 상태와 성능 지표를 실시간으로 모니터링할 수 있는 프리셋입니다.
 
   <details>
-  <summary>대시보드 지표 안내 </summary>
+  <summary>대시보드 지표 안내</summary>
 
-  #### ***VMGuest(s) CPU / MEM Overview***
+    #### ***Query Coordinator***
 
-   * ***VMGuest-CPU-Usage(MHz)***: 각 VM의 CPU 사용량을 MHz 단위로 시각화하여 시간대별 CPU 자원 사용 현황을 표시합니다.
+    * ***Number of collections***
 
-   * ***VMGuest-CPU-Ready(%)***: VM이 CPU를 사용하기 전 대기한 시간을 초 단위로 표시합니다.
+      QueryCoord가 관리하는 컬렉션 수를 의미합니다.
 
-   * ***VMGuest-MEM-Active(KB)***: 각 VM에서 활성화된 메모리 사용량을 KB 단위로 표시합니다.
+    * ***Number of partitions***
 
-   * ***VMGuest-MEM-Vmmentedctl(KB)***: 메모리 과할당 상태를 의미합니다. 스왑 파일 등을 통해 발생한 오버헤드 메모리 양을 KB 단위로 표시합니다.
+      컬렉션 내 파티션 개수를 모니터링하여 데이터 분할 상태를 파악합니다.
 
-  #### ***VMGuest(s) NET / Datastore Overview***
+    * ***Number of QueryNodes***
 
-   * ***VMGuest-NET-Total(Kbps)***: VM의 네트워크 트래픽(송신 및 수신)을 Kbps 단위로 표시합니다.
+      QueryCoord가 관리하는 QueryNode의 개수를 표시합니다.
 
-   * ***VMGuest-Datastore-RWTotal(KBps)***: 각 VM이 데이터스토어에서 처리하는 읽기 및 쓰기 작업을 KBps 단위로 표시하여 입출력(I/O) 성능을 보여줍니다.
+    * ***Resource Group Info***
+
+      QueryCoord에서 할당된 자원 그룹 정보를 확인하여 쿼리 실행 리소스를 분석합니다.
+
+    #### ***Query Node***
+
+    * ***Disk used size(MB)***
+
+      QueryNode에서 사용하는 디스크 용량을 모니터링하여 스토리지 최적화를 수행합니다.
+
+    * ***Number of ready read tasks in readyQueue***
+
+      대기 중인 쿼리 요청 수를 모니터링하여 검색 병목 여부를 분석합니다.
+
+    #### ***Data Coordinator & Data Node***
+
+    * ***Number of collections***
+
+      DataCoord가 관리하는 컬렉션 수를 표시하여 데이터 규모를 추적합니다.
+
+    * ***Number of data nodes***
+
+      DataCoord가 관리하는 DataNode 수를 통해 저장소 관리 상태를 확인합니다.
+
+    * ***Import tasks grouping by type and state***
+
+      데이터 Import 작업을 유형·상태별로 분류하여 로딩과 처리 속도를 분석할 수 있습니다.
 
   </details>
-
-* ***VMware Datastore***
-
-  데이터스토어의 용량과 성능을 모니터링할 수 있는 프리셋입니다.
-
-  <details>
-  <summary>대시보드 지표 안내 </summary>
-
-  * ***Usage Capacity***(사용 용량): 각 데이터스토어가 현재 사용 중인 용량을 백분율로 표시합니다.
-
-  * ***Total Capacity***(전체 용량): 데이터스토어의 총 용량을 표시합니다. 
-
-  * ***Free Capacity***(남은 용량): 데이터스토어에서 남은 용량을 표시합니다. 
-
-  </details>
-  

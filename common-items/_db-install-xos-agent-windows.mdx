@@ -6,6 +6,24 @@ start.bat
 
 화면에 표시되는 실행 로그에 에러가 없는지 확인하고 실행을 종료한 후, 다음 순서에 따라 서비스에 등록하세요.
 
+<InDoc product="postgresql,oracle,mysql,mssql,cubrid,altibase,db2">
+
+:::note
+
+**msvcp120.dll, msvcr120.dll 누락 시 해결 방법**
+
+xos 에이전트 실행 중 *msvcp120.dll*와 *msvcr120.dll* 파일이 누락되어 실행할 수 없다면, Microsoft Visual C++ 2013 Redistributable 2013이 설치되지 않았거나 손상되었기 때문입니다. **Microsoft Visual C++ 2013 Redistributable 패키지**를 설치하여 문제를 해결할 수 있습니다.
+
+다음 링크에서 자신의 시스템 환경에 맞는 패키지를 다운로드하여 설치하세요.  
+[Microsoft Visual C++ 2013 Redistributable (x86 & x64)](https://www.microsoft.com/ko-kr/download/details.aspx?id=40784)
+
+* **vcredist_x86.exe**: 32비트 프로그램 실행용
+* **vcredist_x64.exe**: 64비트 프로그램 실행용
+
+:::
+
+</InDoc>
+
 * **서비스 등록**
 
   xos 폴더에 있는 *install_WindowsService.bat* 파일을 다음과 같이 실행하여 서비스에 등록하세요. 만약 `create` 옵션 다음에 이름을 입력하지 않으면 **WhatapXOSAgent** 이름으로 서비스에 기본 등록됩니다.

@@ -316,7 +316,7 @@ SAP ASE에서는 사용자 계정을 데이터베이스 내에서 별도로 생�
 
 </Xclude>
 
-<InDoc product="postgresql,mysql,altibase,mssql,db2,sapase">
+<InDoc product="postgresql,mysql,altibase,mssql,db2">
 
 * 권한을 가진 계정이 있다면 이 단계를 생략하고 [다음 단계](#check-accesskey)로 넘어가세요.
 
@@ -324,7 +324,21 @@ SAP ASE에서는 사용자 계정을 데이터베이스 내에서 별도로 생�
 
 </InDoc>
 
+<Xclude product="sapase">
+
 * 예시 코드의 `DB_Password`에는 사용자 비밀번호를 입력하세요.
+
+</Xclude>
+
+<InDoc product="sapase">
+
+권한을 가진 계정이 있다면 이 단계를 생략하고 [다음 단계](#check-accesskey)로 넘어가세요.
+
+* 예시 코드의 `login`은 데이터베이스 서버에 접속하기 위한 사용자 인증 정보입니다. `user`는 특정 데이터베이스에서 사용할 사용자 계정입니다. 사용자가 이용하는 사용자 계정 이름으로 변경하세요.
+
+* 예시 코드의 `password`에 사용자 비밀번호를 입력하세요.
+
+</InDoc>
 
 :::
 

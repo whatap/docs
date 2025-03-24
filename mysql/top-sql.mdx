@@ -1,0 +1,50 @@
+---
+id: top-sql
+title: Top SQL
+description: 최대 30일, 최소 1분 단위로 지표와 추이 차트로 SQL 발생 패턴을 쉽게 파악할 수 있습니다.
+keywords: [ MySQL, 데이터베이스, Top SQL ]
+---
+
+{/* 기본 화면, trend 차트 안내*/}
+
+import Dbstattopsqldesc from "../common-items/_db-stat-top-sql-desc.mdx";
+
+<Dbstattopsqldesc /> 
+
+{/* 쿼리별 수행 추이, 자세히 보기*/}
+
+import Dbstatsqlviewquery from "../common-items/_db-stat-sql-view-query.mdx";
+
+<Dbstatsqlviewquery /> 
+
+import Dbstatsqlviewquerydetailssummary from "../common-items/_db-stat-sql-view-query-details-summary.mdx";
+
+<Dbstatsqlviewquerydetailssummary />
+
+import Dbproductsqlstatquerydetails from "../common-items/_db-product-sql-stat-query-details.mdx";
+
+<Dbproductsqlstatquerydetails />
+
+## 상세 차트 확인하기 {#chart-details-info}
+
+import Dbstatsqlchartdetails from "../common-items/_db-stat-sql-chart-details.mdx";
+
+<Dbstatsqlchartdetails />
+
+## 상세 정보 확인하기 {#session-details-info}
+
+<ImgLang img='db-top-sql-details.png' desc='세션 상세 정보' />
+
+차트의 막대 그래프를 선택하면 5분 동안의 통계 정보를 확인할 수 있는 <Cmdname sid="session_detail" className="uitext" /> 창이 나타납니다. 선택한 시간 동안의 SQL 실행 목록을 표시하며, 항목을 선택하면 새창과 함께 <Cmdname sid="instance_monitoring" className="uitext" /> 메뉴로 이동합니다.
+
+<Cmdname sid="instance_monitoring" className="uitext" /> 메뉴에서는 선택한 시간대의 액티브 세션 테이블과 다양한 지표들의 추이를 확인할 수 있습니다.
+
+{/* 필터 조건추가하기*/}
+
+import Dbsqlfilter from "../common-items/_db-sql-filter.mdx";
+
+<Dbsqlfilter level={2} />
+
+import Dbv2dataeditcolumn from "../common-items/_db-v2-data-edit-column.mdx";
+
+<Dbv2dataeditcolumn level={2} />

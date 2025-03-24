@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_7_8/",
+    "ver": "v1.7.8",
+    "date": "2025-03-24",
+    "Lists": [
+      {
+        "ver": "v1.7.8",
+        "hash": "v178",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> HTTP 트랜잭션의 요청 Method 수집 및 표시 기능 추가</p>"
+      },
+      {
+        "ver": "v1.7.8",
+        "hash": "v178",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> HTTP 트랜잭션 에러 발생 시 HTTP Status 수집 및 표시 기능 추가</p>"
+      },
+      {
+        "ver": "v1.7.8",
+        "hash": "v178",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Python 3.8 이하 버전에서 DB 모듈 사용 시 오류가 발생하던 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_7_7/",
     "ver": "v1.7.7",
     "date": "2025-03-11",

@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_12/",
+    "ver": "v0.5.12",
+    "date": "2025-03-24",
+    "Lists": [
+      {
+        "ver": "v0.5.12",
+        "hash": "v0512",
+        "product": "Node.js Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <code>socket.io</code>, <code>websocket</code> 모듈 모니터링 시 CPU 및 메모리 사용량 개선</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_10/",
     "ver": "v0.5.10",
     "date": "2025-03-10",

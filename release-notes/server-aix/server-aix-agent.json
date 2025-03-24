@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server-aix/server-aix-1_4_3/",
+    "ver": "v1.4.3",
+    "date": "2025-03-24",
+    "Lists": [
+      {
+        "ver": "v1.4.3",
+        "hash": "v143",
+        "product": "Server AIX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> FileSystem 정보 수집 시 타임아웃이 발생하는 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server-aix/server-aix-1_4_2/",
     "ver": "v1.4.2",
     "date": "2025-03-13",

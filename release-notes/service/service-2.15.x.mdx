@@ -18,21 +18,29 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 #### Database
 
-<Status priority='1'>New</Status> **SAP ASE** 모니터링 상품 출시
+- <Status priority='1'>New</Status> **SAP ASE** 모니터링 상품 출시
 
-:::note
+  :::note
 
-**SAP ASE** 모니터링 상품에 대한 자세한 내용은 [다음 문서](/sapase/monitoring-intro)를 참조하세요.
+  **SAP ASE** 모니터링 상품에 대한 자세한 내용은 [다음 문서](/sapase/monitoring-intro)를 참조하세요.
 
-:::
+  :::
 
-#### Java 
+- <Status priority='1'>New</Status> **Oracle**, **Oracle Pro** 플랫폼에서 <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_racMonitoring" className="uitext" /> 신규 메뉴 추가
 
-<Status priority='1'>New</Status> <Cmdname sid="side_agentResourceDashboard" className="uitext" /> 메뉴 추가
+  :::note 
+
+  <Cmdname sid="side_racMonitoring" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](/oracle/rac-monitoring)를 참조하세요.
+
+  :::
+
+#### Application 
+
+<Status priority='1'>New</Status> **Java** 플랫폼에서 <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_agentResourceDashboard" className="uitext" /> 신규 메뉴 추가
 
 :::note 
 
-이 기능은 <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_agentResourceDashboard" className="uitext" /> 메뉴 경로에서 확인할 수 있습니다. 자세한 내용은 [다음 문서](/java/agent-resource-dashboard)를 참조하세요. 
+<Cmdname sid="side_agentResourceDashboard" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](/java/agent-resource-dashboard)를 참조하세요. 
 
 :::
 
@@ -173,7 +181,7 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 ### `Server`
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverDetail" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 <Cmdname sid="process" className="uitext" /> 목록 내 <Cmdname sid="memory" className="uitext" /> 컬럼에 메모리 용량 표시 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 <Cmdname sid="process" className="uitext" /> 목록 내 <Cmdname sid="memory" className="uitext" /> 컬럼에 메모리 용량 표시 추가
 
 - <Status priority='0'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 <Cmdname sid="select_server" className="uitext" /> 시 비활성 서버 표시 활성화 토글 추가
 
@@ -294,8 +302,6 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 #### Oracle, Oracle Pro 
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <UI>RAC 모니터링</UI> 신규 메뉴 추가
-
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 <Cmdname sid="active_sessions" className="uitext" /> 탭의 쿼리 클릭 시 확인할 수 있는 <Cmdname sid="TTL06224" className="uitext" /> 창에서 `FILTER_PREDICATES`, `ACCESS_PREDICATES` 컬럼 값이 긴 경우 말줄임표(`...`) 표시 후 전체 내용의 경우 툴팁으로 안내하도록 수정
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 <UI>Elapse Map</UI> 드래그 시 나오는 테이블 `username` 컬럼을 `schemaname` 컬럼으로 수정
@@ -315,11 +321,11 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 ### `Log`
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_logSetting" className="uitext" /> &gt; <Cmdname sid="TTL08814" className="uitext" /> 탭에서 <Cmdname sid="DSC09450" className="uitext" /> 선택 후 <Cmdname sid="BTN08985" className="uitext" /> 시 확인 기능 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_logSetting" className="uitext" /> &gt; <Cmdname sid="TTL08814" className="uitext" /> 탭에서 <Cmdname sid="DSC09450" className="uitext" /> 선택 후 <Cmdname sid="BTN08985" className="uitext" /> 시 확인 과정 추가
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_logSetting" className="uitext" /> &gt; <Cmdname sid="TTL08814" className="uitext" /> 탭에서 점검 종료 후 점검 결과에 대한 샘플 로그 확인 기능 추가
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_logSetting" className="uitext" /> &gt; <Cmdname sid="TTL08814" className="uitext" /> 탭에서 점검 이력 확인 기능 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_logSetting" className="uitext" /> &gt; <Cmdname sid="TTL08814" className="uitext" /> 탭에서 <Cmdname sid="BTN09473" className="uitext" /> 기능 추가
 
 
 </div>

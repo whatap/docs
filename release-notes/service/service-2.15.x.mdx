@@ -158,9 +158,9 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_txSearch" className="uitext" /> 메뉴에서 다음 페이지 데이터 조회 시 이전 페이지의 데이터가 중복 표시되는 현상 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" /> 메뉴에서 스레드 덤프가 표시되지 않는 현상 수정
-
 - <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창 내 <Cmdname sid="TTL06377" className="uitext" /> 탭 및 <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 차트 내 시작점 트랜잭션이 여러 개인 경우 노드 클릭이 동작하지 않는 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" /> 메뉴에서 스레드 덤프가 표시되지 않는 현상 수정
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentSettingOld" className="uitext" /> <code class="oldfunc">Old</code> 메뉴 진입 시 이전 페이지에서 선택한 에이전트가 자동 선택되지 않는 현상 수정
 
@@ -189,13 +189,13 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 우측 하단 영역에 ***File System*** 탭 추가
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 기존 **상태** 컬럼명을 <Cmdname sid="CNT09472" className="uitext" />로 변경
-
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 기존 **whatap_infradVersion** 컬럼명을 ***Agent Version***으로 변경
-
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 서버 이벤트 추가 및 수정 시 <Cmdname sid="alert_rule" className="uitext" /> 내 <Cmdname sid="active" className="uitext" /> 토글 스타일 변경
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에서 서버 이벤트 추가 및 수정 시 이벤트 타입 변경할 경우 안내 모달 스타일 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 기존 **상태** 컬럼명을 <Cmdname sid="CNT09472" className="uitext" />로 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 기존 **whatap_infradVersion** 컬럼명을 ***Agent Version***으로 변경
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴에서 <Cmdname sid="management" className="uitext" /> 기능 동작 방식 개선
 
@@ -211,21 +211,21 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴 진입 시 간헐적으로 화이트아웃이 발생하는 현상 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="sms_resource_board" className="uitext" /> &gt; <UI>Server Status Map</UI> 패널의 벌집뷰에서 `paused` 상태의 서버가 `ok` 상태로 표시되는 현상 수정
-
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 <Cmdname sid="server_status" className="uitext" /> 위젯의 `paused` 상태 색상을 <Cmdname sid="sms_resource_board" className="uitext" /> 색상과 일치하도록 수정
-
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 Disk Total 용량 합산 시 `ZFS` 파일 시스템을 합산 제외 대상에 포함
 
   - 기존 제외 대상: `FUSE`, `NFS`, `NFS4`, `NFSD`, `PNFS`, `CIFS`, `SMBFS`
 
   - 추가 제외 대상: `ZFS`
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="sms_resource_board" className="uitext" /> 메뉴에서 <Cmdname sid="side_resourceMap" className="uitext" /> 차트를 드래그하여 <Cmdname sid="side_resourceMap" className="uitext" /> 이동 후 서버 선택 패널 목록이 길어질 경우 스크롤이 표시되지 않아 일부 서버가 가려지는 현상 수정
-
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 <Cmdname sid="server_info" className="uitext" /> 패널 내 <Cmdname sid="server_alert_list" className="uitext" /> 드로워에서 조건 및 서버 목록이 잘려 전체 내용이 보이지 않는 현상 수정
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 OS 타입 컬럼 사이즈 조절 시 OS 아이콘 크기가 변경되는 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 <Cmdname sid="server_status" className="uitext" /> 위젯의 `paused` 상태 색상을 <Cmdname sid="sms_resource_board" className="uitext" /> 색상과 일치하도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="sms_resource_board" className="uitext" /> &gt; <UI>Server Status Map</UI> 패널의 벌집뷰에서 `paused` 상태의 서버가 `ok` 상태로 표시되는 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="sms_resource_board" className="uitext" /> 메뉴에서 <Cmdname sid="side_resourceMap" className="uitext" /> 차트를 드래그하여 <Cmdname sid="side_resourceMap" className="uitext" /> 이동 후 서버 선택 패널 목록이 길어질 경우 스크롤이 표시되지 않아 일부 서버가 가려지는 현상 수정
 
 ---
 

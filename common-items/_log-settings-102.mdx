@@ -769,9 +769,19 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 
     :::
 
-1. 조건 입력 후 <Cmdname sid="BTN08985" className="uitext" /> 버튼을 선택하세요. 점검 중인 경우 언제든지 <Cmdname sid="BTN08986" className="uitext" /> 버튼을 통해 점검 과정을 중지할 수 있습니다. 
+1. 조건 입력 후 <Cmdname sid="BTN08985" className="uitext" /> 버튼을 선택하세요. 
 
-1. 점검 작업 완료 시 예시 이미지와 같이 오른쪽에서 <Cmdname sid="ITM08995" className="uitext" />를 확인할 수 있습니다. 
+    :::note 
+
+    점검 중인 경우 언제든지 <Cmdname sid="BTN08986" className="uitext" /> 버튼을 통해 점검 과정을 중지할 수 있습니다. 
+
+    :::
+
+1. 치환 적용 시 <Cmdname sid="TTL09446" className="uitext" /> 확인 창에서 <Cmdname sid="DSC09450" className="uitext" /> 입력 후 <Cmdname sid="BTN09452" className="uitext" /> 버튼을 클릭하세요. 
+
+    <ImgLang img="log-de-identification-confirm.png" desc="로그 개인정보 비식별화 점검 확인" />
+
+1. 점검 작업 완료 후 예시 이미지와 같이 오른쪽에서 <Cmdname sid="ITM08995" className="uitext" />를 확인할 수 있습니다. 
 
     * <Cmdname sid="category" className="uitext" />: 점검된 카테고리 정보를 표시합니다.
 
@@ -783,9 +793,20 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 
     * <Cmdname sid="ITM08984" className="uitext" />: 적용된 치환 값을 표시합니다. 
 
+    * <Cmdname sid="ITM08994" className="uitext" />: 식별된 개인정보 개수를 표시합니다. <Cmdname sid="BTN09454" className="uitext" />  클릭 시 샘플 로그를 확인할 수 있습니다. 
+
     * <Cmdname sid="ITM08995" className="uitext" /> : 개인정보가 식별된 결과를 표시합니다. 
 
       > `SUCCESS`(점검 성공), `FAILED`(점검 실패), `STOP`(점검 중지), `TIMED_OUT`(시간 초과로 점검 종료)
+
+#### <Cmdname sid="BTN09473" /> {#log-de-identification-check-history}
+
+로그 개인정보 비식별화 점검을 진행한 후 과거에 수행된 점검 결과를 조회하려면 상단 오른쪽에서 <Cmdname sid="BTN09473" className="uitext" /> 버튼을 클릭하세요. 치환 내역, 점검 시점, 적용된 개인정보 항목 등을 추적할 수 있습니다. 또한 <Cmdname sid="BTN09473" className="uitext" /> 창 상단 오른쪽에서 ![다운로드 아이콘](/img/ico-download.svg) ***CSV*** 버튼 클릭 시 *CSV* 파일 형식으로 해당 목록 정보를 다운로드할 수 있습니다. 
+
+<ImgLang img="log-de-identification-check-history.png" desc="로그 개인정보 비식별화 점검 이력 확인" />
+
+
+#### 개인정보 패턴 {#log-pi-pattern}
 
 export const regexJumin = `(?<!\w)\d{2}(0[1-9]|1[0-2])([0-2][0-9]|3[0-1])-[1-4]\d{6}(?!\w)`;
 export const regexPhone = `(?<!\w)(\+82-?1[016789]-?\d{3,4}-?\d{4}|01[016789]-?\d{3,4}-?\d{4})(?!\w)`;
@@ -796,8 +817,6 @@ export const regexEmail=`([a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{
 export const regexAccount=`(?<!\w)\d{6}-\d{2}-\d{6}(?!\w)`;
 export const regexBiz=`(?<!\w)\d{3}-\d{2}-\d{5}(?!\w)`;
 export const regexLb=`(?<!\w)\d{6}-?\d{7}(?!\w)`;
-
-#### 개인정보 패턴 {#log-pi-pattern}
 
 기존 로그 데이터에서 개인정보를 식별할 때 사용되는 정규표현식 패턴 예시는 다음과 같습니다.
 

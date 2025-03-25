@@ -5,7 +5,7 @@ description: Out Of Memory(OOM)가 발생한 컨테이너를 빠르게 검색하
 keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 컨테이너, OOM Killed 컨테이너, Out Of Memory ]
 ---
 
-홈 화면 > 프로젝트 선택 > <Cmdname sid="side_container" className="uitext" /> > <Cmdname sid="side_oomContainer" className="uitext" />
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_oomContainer" className="uitext" />
 
 <Cmdname sid="side_oomContainer" className="uitext" /> 메뉴를 통해 **Out Of Memory**(**OOM**)가 발생한 컨테이너를 빠르게 검색하고 해당 시점의 메모리 사용량의 변화 추이를 확인할 수 있습니다. 변화 추이는 급격하거나 점진적일 수 있습니다. 이를 확인해 적절한 POD 수와 메모리 임계점에 대한 객관적 판단이 가능합니다.
 
@@ -21,9 +21,13 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 컨테이너, OOM Kil
 
 <ImgLang img='whatap_kubernetes_analysis_oom_container_1.png' desc='Out Of Memory Killed 컨테이너' />
 
-* 좌측 상단의 시간 선택자를 클릭해 조회를 원하는 시간대를 선택할 수 있습니다. 최대 2일까지 조회할 수 있습니다.
+* 왼쪽 상단의 시간 선택자를 클릭해 조회를 원하는 시간대를 선택할 수 있습니다. 최대 2일까지 조회할 수 있습니다.
 
-* OOM Killed 컨테이너 정보를 목록 형식으로 제공합니다. 자세한 내용은 다음 안내를 참조하세요.
+* 오른쪽 상단의 검색 입력창에서 컨테이너 이름을 입력하여 조회를 원하는 특정 컨테이너 정보를 빠르게 찾을 수 있습니다.
+
+* 목록 오른쪽 ![상세 아이콘](/img/ic-static.svg) 상세 아이콘 클릭 시 선택한 컨테이너의 상세 정보를 확인할 수 있습니다. 
+
+* OOM이 발생한 컨테이너 정보를 목록 형식으로 제공합니다. 컨테이너가 자세한 내용은 다음 안내를 참조하세요.
 
 ### OOM Killed 컨테이너 정보 
 
@@ -31,28 +35,28 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 컨테이너, OOM Kil
 
 |컬럼|	의미|
 |---|---|
-|***OomKilledAt***|	Out Of Memory Killed 가 발생된 TimeStamp|
-|***name***|	컨테이너의 이름|
-|***podName***|	컨테이너가 속한 Pod의 이름|
-|***containerId***|	컨테이너의 ID|
-|***created***|	컨테이너가 생성된 TimeStamp|
-|***command***|	컨테이너의 실행 명령어|
-|***imageName***|	컨테이너의 이미지의 이름|
-|***onodeName***|	컨테이너가 작동 중인 노드 이름|
-|***state***|	컨테이너의 상태|
-|***memLimit***|	컨테이너의 메모리 Limit 크기|
-|***namespace***|	컨테이너의 Pod가 속한 namespace 의 이름|
-|***memory_workingset***|	컨테이너에서 비활성화 된 메모리를 제외한 실제 사용 중인 메모리|
-|***microOname***|컨테이너에서 실행중인 애플리케이션 이름|
+|***OomKilledAt***|	Out Of Memory Killed가 발생된 TimeStamp|
+|***ContainerName***|	컨테이너의 이름|
+|***ContainerId***|	컨테이너의 ID|
+|***Pod***|	컨테이너가 속한 Pod의 이름|
+|***ApplicationName***|컨테이너에서 실행중인 애플리케이션 이름|
+|***Created***|	컨테이너가 생성된 TimeStamp|
+|***Command***|	컨테이너의 실행 명령어|
+|***Image***|	컨테이너의 이미지의 이름|
+|***Namespace***|	컨테이너의 Pod가 속한 네임스페이스의 이름|
+|***Node***|	컨테이너가 작동 중인 노드 이름|
+|***MemLimit***|	컨테이너의 메모리 Limit 크기|
+|***MemWs***|	컨테이너에서 비활성화 된 메모리를 제외한 실제 사용 중인 메모리|
+
 
 :::note 
 
-* ***podName*** 클릭 시 [Pod 목록](/kubernetes/resource-pod-list) 메뉴로 이동합니다. 
+* ***ContainerId*** 클릭 시 [컨테이너 목록](/kubernetes/resource-container-list) 메뉴로 이동합니다.
 
-* ***containerId*** 클릭 시 [컨테이너 목록](/kubernetes/resource-container-list) 메뉴로 이동합니다.
+* ***Pod*** 클릭 시 [Pod 목록](/kubernetes/resource-pod-list) 메뉴로 이동합니다. 
 
-* ***onodeName*** 클릭 시 [노드 목록](/kubernetes/resource-node-list) 메뉴로 이동합니다. 
+* ***ApplicationName*** 클릭 시 해당 애플리케이션이 검색된 [컨테이너 애플리케이션 목록](/kubernetes/resource-application-list) 메뉴로 이동합니다. 
 
-* ***microOname*** 클릭 시 해당 애플리케이션이 검색된 [컨테이너 애플리케이션 목록](/kubernetes/resource-application-list) 메뉴로 이동합니다. 
+* ***Node*** 클릭 시 [노드 목록](/kubernetes/resource-node-list) 메뉴로 이동합니다. 
 
 :::

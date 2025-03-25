@@ -50,23 +50,23 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_integratedFlexboard" className="uitext" /> 메뉴의 <Cmdname sid="dashboard_list" className="uitext" />에서 <Cmdname sid="share_dashboard" className="uitext" /> 모달 내 공유된 사용자 확인 및 제거 기능 추가 
 
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 위젯 내 프로젝트 선택 창에서 키보드로 프로젝트를 선택할 수 있는 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴의 위젯에서 프로젝트 검색 시 그룹명 검색 추가
+
 - <Status priority='1'>Feature</Status> SSO 로그인만 허용하는 옵션 추가
 
 - <Status priority='1'>Feature</Status> 결제 권한 부여 시 이메일 승인 절차를 통해 부여하도록 기능 추가
 
 - <Status priority='1'>Feature</Status> 결제 권한 부여 시 하위 레벨 집단(그룹, 프로젝트)에 결제 권한을 일괄 부여할 수 있도록 기능 추가
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 위젯 내 프로젝트 선택 창에서 키보드로 프로젝트를 선택할 수 있는 기능 추가
-
-- <Status priority='1'>Feature</Status> 시간 선택자(타임 셀렉터) 선택 시간 유지 기능 추가 
+- <Status priority='1'>Feature</Status> 시간 선택자(타임 셀렉터) **선택 시간 유지** 기능 추가 
 
   :::note 
 
   <Cmdname sid="side_report" className="uitext" /> 등 일부 메뉴에서는 적용되지 않을 수 있습니다. 
 
   :::
-
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴의 위젯에서 프로젝트 검색 시 그룹명 검색 추가
 
 - <Status priority='1'>Feature</Status> ![공지 아이콘](/img/ico-noti.svg) <Cmdname sid="sms_alert_status" className="uitext" />의 설정을 개인 설정으로 저장하도록 변경
 
@@ -160,17 +160,17 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" /> 메뉴에서 스레드 덤프가 표시되지 않는 현상 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창 내 <Cmdname sid="TTL06377" className="uitext" /> 탭 및 <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 차트 내 시작점 트랜잭션이 여러 개인 경우 노드 클릭이 동작하지 않는 문제 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 창 내 <Cmdname sid="TTL06377" className="uitext" /> 탭 및 <Cmdname sid="side_multi_server_tx_trace" className="uitext" /> 메뉴에서 차트 내 시작점 트랜잭션이 여러 개인 경우 노드 클릭이 동작하지 않는 현상 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentSettingOld" className="uitext" /> <code class="oldfunc">Old</code> 메뉴 진입 시 이전 페이지에서 선택한 에이전트가 자동 선택되지 않는 문제 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentSettingOld" className="uitext" /> <code class="oldfunc">Old</code> 메뉴 진입 시 이전 페이지에서 선택한 에이전트가 자동 선택되지 않는 현상 수정
 
 - <Status priority='0'>Fixed</Status> 에이전트 셀렉터 디자인 수정 
 
-  - 에이전트 항목 선택 시 선택 상태가 시각적으로 표시되지 않는 문제 수정
+  - 에이전트 항목 선택 시 선택 상태가 시각적으로 표시되지 않는 현상 수정
 
   - 에이전트 항목에 마우스 오버 시 커서가 포인터로 변경되도록 수정
 
-  - 수정 아이콘에 마우스 오버 시 아이콘이 흐리게 보이는 문제 수정
+  - 수정 아이콘에 마우스 오버 시 아이콘이 흐리게 보이는 현상 수정
 
 #### Java
 
@@ -209,7 +209,7 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 ***Agent Version*** 컬럼 선택 시 테이블 헤더에 컬럼명이 표시되지 않는 현상 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴 진입 시 간헐적으로 화이트아웃이 발생하는 문제 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴 진입 시 간헐적으로 화이트아웃이 발생하는 현상 수정
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="sms_resource_board" className="uitext" /> &gt; <UI>Server Status Map</UI> 패널의 벌집뷰에서 `paused` 상태의 서버가 `ok` 상태로 표시되는 현상 수정
 
@@ -225,7 +225,7 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에서 <Cmdname sid="server_info" className="uitext" /> 패널 내 <Cmdname sid="server_alert_list" className="uitext" /> 드로워에서 조건 및 서버 목록이 잘려 전체 내용이 보이지 않는 현상 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 OS 타입 컬럼 사이즈 조절 시 OS 아이콘 크기가 변경되는 문제 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverInventory" className="uitext" /> 메뉴에서 OS 타입 컬럼 사이즈 조절 시 OS 아이콘 크기가 변경되는 현상 수정
 
 ---
 
@@ -263,6 +263,8 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_projectList" className="uitext" />의 카드 뷰에서 네임스페이스 프로젝트의 경우 <Cmdname sid="edit_project_name" className="uitext" /> 옵션 표시되지 않도록 수정
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_node" className="uitext" /> &gt; <Cmdname sid="side_nodeList" className="uitext" /> 메뉴에서 `Zone` 컬럼 정렬 기능이 동작하지 않는 현상 수정
+
 - <Status priority='1'>Deprecated</Status> <Cmdname sid="side_container" className="uitext" /> &gt; <Cmdname sid="side_oomContainer" className="uitext" /> 메뉴에서 `state` 컬럼 제거
 
 ---
@@ -277,7 +279,7 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 상단 데이터베이스 목록에 더 많은 태그가 보이도록 변경 
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" /> 메뉴에서 일부 바 차트가 표시되지 않는 문제 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" /> 메뉴에서 일부 바 차트가 표시되지 않는 현상 수정
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 상단 영역 여백 수정 
 
@@ -298,7 +300,7 @@ Service 2.15.0 릴리스에 포함된 신규 기능을 소개합니다.
 
 <Status priority='1'>Feature</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; <UI>Top SQL</UI> 신규 메뉴 추가
 
-#### Oracle, Oracle Pro 
+#### Oracle V2, Oracle Pro 
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에서 <Cmdname sid="active_sessions" className="uitext" /> 탭의 쿼리 클릭 시 확인할 수 있는 <Cmdname sid="TTL06224" className="uitext" /> 창에서 `FILTER_PREDICATES`, `ACCESS_PREDICATES` 컬럼 값이 긴 경우 말줄임표(`...`) 표시 후 전체 내용의 경우 툴팁으로 안내하도록 수정
 

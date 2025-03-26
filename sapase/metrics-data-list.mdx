@@ -1,0 +1,56 @@
+---
+id: metrics-data-list
+title: SAP ASE 지표
+description: SAP ASE 데이터베이스 지표를 안내합니다.
+keywords: [ SAP ASE, 메트릭스, 데이터베이스, 데이터베이스 모니터링 ]
+---
+
+데이터베이스 지표는 데이터베이스의 작업량과 리소스 사용량을 포괄적으로 수집합니다. 와탭 모니터링 서비스는 지속적으로 지표를 수집하여 데이터베이스의 병목 현상을 확인하고, 성능 문제의 근본 원인을 식별하는 데 도움이 되는 데이터를 제공합니다.
+
+<div className="metricslist">
+
+import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
+
+<AgentStatus />
+
+## db_sap_ase_counter {#db_sap_ase_counter}
+
+### Field {#db_sap_ase_counter-filed}
+
+다음은 `db_sap_ase_counter` 카테고리에 수집되는 필드값에 대한 안내입니다.
+
+| Metrics | Description | Category |
+| -- | -- | -- |
+| `active_sessions` | 쿼리를 실행 중인 세션의 수 | Connection |
+| `total_sessions` | 현재 연결된 총 세션 수, Number of active inbound connections | Connection |
+| `connect_error` |	에이전트에서 DB 접속 실패 시 카운트되는 수 | Connection |
+| `total_elapse_time` |	active session들의 실행 시간의 합 | Performance |
+| `long_running_sessions` |	long running time(기본값: 10초) 이상 수행 중인 세션 수 |  Performance |
+| `lock_wait_sessions` | lock을 대기하는 세션 수로 액티브세션에서 조회된 BlockingSPID가 0보다 큰 세션의 수 | Performance |
+| `max_connections` | 최대 연결할 수 있는 세션 수 | Connection |
+| `BytesReceived` | 수신된 바이트 수, monNetworkIO의 값	| Network |
+| `BytesSent` | 전송된 바이트 수, monNetworkIO의 값	| Network |
+| `cpu` | CPU 사용률로 @@cpu_busy+@@io_busy 값 (단위: pct) | Performance |
+| `cpu_cores` | CPU core 수	| Info |
+| `Reads` |	장치에서 읽은 수(APF 제외), monDeviceIO의 Reads 값 | IO |
+| `IOTime` | I/O 요청이 충족될 때까지 대기하는 데 소요된 총시간(단위: ms)으로 monDeviceIO의 IOTime 값 | IO |
+| `Writes` | 장치에 대한 쓰기 횟수로 monDeviceIO의 Writes 값 | IO |
+| `LockRequests` | 오브젝트에 대한 잠금 요청 수 | Throughput | 
+| `LogicalReads` | 디스크에서 읽지 않고 버퍼 캐시에서 버퍼를 검색한 총횟수 | IO |
+| `Operations` | 오브젝트에 접근한 횟수, monOpenObjectActivity의 값 | Throughput |
+| `PacketsReceived` | 수신된 패킷 수, monNetworkIO의 값 | Network |
+| `PacketsSent` | 전송된 패킷 수, monNetworkIO의 값 | Network |
+| `PagesRead` | 읽은 페이지 수 | IO |
+| `PagesWritten` | 디스크에 기록된 페이지 수 | IO | 
+| `PhysicalReads` | 디스크에서 읽은 버퍼 수 | IO |
+| `PhysicalWrites` | 디스크에 기록된 버퍼 수 | IO |
+| `RowsDeleted` | 삭제된 row의 수 | Throughput |
+| `RowsInserted` | 삽입된 row의 수 | Throughput |
+| `RowsUpdated` | 수정된 row의 수 | Throughput | 
+| `UsedCount` | 실행계획에서 객체가 사용된 횟수로, monOpenObjectActivity의 값 | Throughput | 
+
+import Xosmetrics from "../common-items/_db-xos-metrics.mdx";
+
+<Xosmetrics />
+
+</div>

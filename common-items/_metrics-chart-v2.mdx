@@ -6,17 +6,17 @@
 
 <InDoc product="kubernetes"><ImgLang img="metrics-chart-new-main-k8s.png" desc="Metrics Chart" /></InDoc>
 
-<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1,db2"><ImgLang img="metrics-chart-new-main-db.png" desc="Metrics Chart" /></InDoc>
+<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1,db2,sapase"><ImgLang img="metrics-chart-new-main-db.png" desc="Metrics Chart" /></InDoc>
 
 * 다양한 지표를 시계열 차트를 통해서 시각적으로 확인할 수 있으며, 장애 발생 시점의 여러 지표를 한번에 분석할 수 있습니다.
 
-* 특정 시간 범위를 선택하여 과거 데이터를 조회하고, 해당 기간 동안의 성능을 분석할 수 있습니다.
+* 특정 시간 범위를 선택하여 과거 데이터를 조회하고, 해당 기간의 성능을 분석할 수 있습니다.
 
 * 특정 시간대나 조건에 맞는 데이터를 필터링하여 보다 정확한 분석을 수행할 수 있습니다.
 
 * 사용자는 원하는 차트를 화면에 배치하고 레이아웃을 자유롭게 조정할 수 있습니다.
 
-* 사용자가 원하는 지표들을 배치하고 프리셋으로 저장하여 필요 시 불러올 수 있습니다.
+* 사용자가 원하는 지표들을 배치하고 프리셋으로 저장하여 필요시 불러올 수 있습니다.
 
 :::note
 
@@ -96,7 +96,7 @@
 
 <InDoc product="kubernetes"><ImgLang img="metrics-chart-new-k8s-select-metrics.png" desc="지표 선택" /></InDoc>
 
-<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1,db2"><ImgLang img="metrics-chart-new-db-select-metrics.png" desc="지표 선택" /></InDoc>
+<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1,db2,sapase"><ImgLang img="metrics-chart-new-db-select-metrics.png" desc="지표 선택" /></InDoc>
 
 선택한 지표에 해당하는 차트 위젯이 오른쪽의 대시보드에 배치됩니다. 다른 지표를 추가로 선택해 차트 위젯을 추가할 수 있습니다. 차트 영역을 확대해 넓게 보려면 <Cmdname sid="time" className="uitext" /> 옵션 오른쪽의 ![닫기 아이콘](/img/ico-close.svg) 버튼을 선택하세요. <Cmdname sid="target" className="uitext" />과 <Cmdname sid="metric" className="uitext" /> 패널이 사라지고 차트 영역만 화면에 표시됩니다.
 
@@ -138,7 +138,7 @@
 
 <InDoc product="kubernetes"><ImgLang img="metrics-chart-new-k8s-select-interval.png" desc="인터벌" /></InDoc>
 
-<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1,db2"><ImgLang img="metrics-chart-new-db-select-interval.png" desc="인터벌" /></InDoc>
+<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1,db2,sapase"><ImgLang img="metrics-chart-new-db-select-interval.png" desc="인터벌" /></InDoc>
 
 </Column>
 
@@ -152,7 +152,7 @@
 
 </Columns>
 
-예를 들어, <Cmdname sid="m5" className="uitext" /> 인터벌은 5분 단위의 평균 값을 표시하고, <Cmdname sid="1_hour" className="uitext" /> 인터벌은 1시간 단위의 평균 값을 표시합니다.
+예를 들어, <Cmdname sid="m5" className="uitext" /> 인터벌은 5분 단위의 평균값을 표시하고, <Cmdname sid="1_hour" className="uitext" /> 인터벌은 1시간 단위의 평균값을 표시합니다.
 
 <ImgLang img="metrics-chart-new-interval.png" desc="인터벌" />
 
@@ -306,7 +306,7 @@
 
 * <Cmdname sid="setting" className="uitext" />
 
-  * <Cmdname sid="CNT08116" className="uitext" />: 조회한 데이터 범위 내엣 Y축의 크기를 자동 조정할 수 있습니다.
+  * <Cmdname sid="CNT08116" className="uitext" />: 조회한 데이터 범위 내에서 Y축의 크기를 자동 조정할 수 있습니다.
 
   * <Cmdname sid="CNT08117" className="uitext" />: 차트의 그래프 영역에 최댓값을 표시할 수 있습니다.
 
@@ -384,7 +384,7 @@
 
 :::note
 
-<Cmdname sid="layout" className="uitext" />이 <Cmdname sid="ITM08273" className="uitext" />으로 설정되어 있지 않다면 위젯의 높이만 조절할 수 있습니다. 위젯 하단 가운데 영역을 마우스로 클릭한 상태로 크기를 조절하세요.
+<Cmdname sid="layout" className="uitext" />이 <Cmdname sid="ITM08273" className="uitext" />로 설정되어 있지 않다면 위젯의 높이만 조절할 수 있습니다. 위젯 하단 가운데 영역을 마우스로 클릭한 상태로 크기를 조절하세요.
 
 :::
 
@@ -403,7 +403,7 @@
 
 <InDoc product="kubernetes"><ImgLang img="metrics-chart-new-k8s-chart-batch-change.png" desc="일괄 변경" /></InDoc>
 
-<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1,db2"><ImgLang img="metrics-chart-new-db-chart-batch-change.png" desc="일괄 변경" /></InDoc>
+<InDoc product="postgresql,oracle,oracle-v1,oracle-pro,mysql,redis,mongodb,altibase,altibase-v1,cubrid,cubrid-v1,mssql,mssql-v1,db2,sapase"><ImgLang img="metrics-chart-new-db-chart-batch-change.png" desc="일괄 변경" /></InDoc>
 
 * <Cmdname sid="time" className="uitext" />: 차트의 데이터 조회 범위를 설정할 수 있습니다.
 
@@ -421,13 +421,13 @@
 
 ### 대시보드 자동 정렬하기
 
-대시보드에 배치한 위젯들의 위치를 자동 정렬하려면 <Cmdname sid="CNT08051" className="uitext" /> 버튼을 선택하세요. 위젯의 너비, 높이가 작은 크기 순으로 위젯의 배치를 자동 정렬합니다. 너비가 같으면 높이가 작은 순으로 정렬합니다.
+대시보드에 배치한 위젯들의 위치를 자동 정렬하려면 <Cmdname sid="CNT08051" className="uitext" /> 버튼을 선택하세요. 위젯의 너비, 높이가 작은 크기순으로 위젯의 배치를 자동 정렬합니다. 너비가 같으면 높이가 작은 순으로 정렬합니다.
 
 {/* 어떤 기준으로 자동 정렬되는지 ??? */}
 
 ### 여러 개의 차트 비교하기 {#chartoverlay}
 
-대시보드에 배치한 여러 개의 차트 데이터를 하나의 차트에서 확인할 수 있는 기능입니다. 이 기능을 통해서 동시간대의 여러 지표 정보를 다른 지표와 비교해가며 확인할 수 있습니다. <Cmdname sid="chart_overlay" className="uitext" /> 버튼을 선택하세요. 화면에 오버레이 차트를 배치할 수 있습니다.
+대시보드에 배치한 여러 개의 차트 데이터를 하나의 차트에서 확인할 수 있는 기능입니다. 이 기능을 통해서 동시간대의 여러 지표 정보를 다른 지표와 비교해 가며 확인할 수 있습니다. <Cmdname sid="chart_overlay" className="uitext" /> 버튼을 선택하세요. 화면에 오버레이 차트를 배치할 수 있습니다.
 
 <ImgLang img="metrics-chart-new-chart-overlay.png" desc="차트 오버레이" />
 
@@ -437,7 +437,7 @@
 
 * ![CSV 아이콘](/img/ic-csv-download.svg) : 현재 조회 중인 데이터를 기준으로 차트를 CSV 형식의 파일로 다운로드할 수 있습니다.
 
-* 오른쪽 섹션에서는 각 지표별 에이전트 목록을 확인할 수 있습니다. 개별 에이전트의 색상은 차트의 그래프 색상과 일치합니다.
+* 오른쪽 섹션에서는 지표별 에이전트 목록을 확인할 수 있습니다. 개별 에이전트의 색상은 차트의 그래프 색상과 일치합니다.
 
   {/* y축 값 조정하는 옵션에 대해 문의 */}
 
@@ -447,11 +447,11 @@
 
 ### CSV 파일로 다운로드하기
 
-대시보드에 배치한 위젯의 데이터를 CSV 형식의 파일로 다운로드할 수 있습니다. <Cmdname sid="download" className="uitext" /> &gt; <Cmdname sid="sms_summary_download_csv" className="uitext" />를 선택하세요. 각 시간대별 지표의 데이터를 확인할 수 있습니다.
+대시보드에 배치한 위젯의 데이터를 CSV 형식의 파일로 다운로드할 수 있습니다. <Cmdname sid="download" className="uitext" /> &gt; <Cmdname sid="sms_summary_download_csv" className="uitext" />를 선택하세요. 시간대별 지표의 데이터를 확인할 수 있습니다.
 
 ### 이미지 파일로 다운로드하기
 
-대시보드에 배치한 모든 위젯을 하나의 이미지 형식의 파일로 다운로드할 수 있습니다. <Cmdname sid="download" className="uitext" /> &gt; <Cmdname sid="BTN07750" className="uitext" />를 선택하세요. 대시보드 화면을 그대로 캡쳐한 이미지를 저장할 수 있습니다.
+대시보드에 배치한 모든 위젯을 하나의 이미지 형식의 파일로 다운로드할 수 있습니다. <Cmdname sid="download" className="uitext" /> &gt; <Cmdname sid="BTN07750" className="uitext" />를 선택하세요. 대시보드 화면을 그대로 캡처한 이미지를 저장할 수 있습니다.
 
 ### 이전 버전 이용하기
 
@@ -469,7 +469,7 @@
 
 <ImgLang img="metrics-chart-new-chart-dashboard-layout-options.png" desc="대시보드 옵션" />
 
-* <Cmdname sid="layout" className="uitext" />: 대시보드에서 열의 수, 즉 한 줄에 배치할 수 있는 위젯의 개수를 설정할 수 있습니다. 최대 4열까지 설정할 수 있습니다. <Cmdname sid="ITM08273" className="uitext" />을 선택하면 열의 수에 상관없이 위젯을 배치할 수 있습니다.
+* <Cmdname sid="layout" className="uitext" />: 대시보드에서 열의 수, 즉 한 줄에 배치할 수 있는 위젯의 개수를 설정할 수 있습니다. 최대 4열까지 설정할 수 있습니다. <Cmdname sid="ITM08273" className="uitext" />를 선택하면 열의 수에 상관없이 위젯을 배치할 수 있습니다.
 
   :::note
 

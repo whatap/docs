@@ -66,7 +66,7 @@ toc_max_heading_level: 3
 
 ### ![2](/img/number-02.png) 결제 권한 이양 {#transferpayauth}
 
-**결제** 권한은 **1명**만 가질 수 있습니다. 예를 들어 A 계정에서 B 계정으로 결제 권한 이양 시 A 계정은 더이상 결제 권한을 보유하지 않게 됩니다. 또한 **결제** 권한을 이양할 계정이 결제 정보를 등록한 상태여야 **결제** 권한을 이양할 수 있습니다.
+**결제** 권한은 조직, 그룹, 프로젝트 단위로 부여할 수 있으며 **1명**만 가질 수 있습니다. 예를 들어 A 계정에서 B 계정으로 결제 권한 이양 시 A 계정은 더이상 결제 권한을 보유하지 않게 됩니다. 또한 **결제** 권한을 이양할 계정이 결제 정보를 등록한 상태에서 이메일 인증 절차를 통해 승인받는 방식으로 이양할 수 있습니다. 
 
 #### 결제 권한 이양할 계정 결제 정보 등록
 
@@ -78,9 +78,9 @@ toc_max_heading_level: 3
 
 1. [와탭 모니터링 서비스](https://service.whatap.io)에서 현재 **결제** 권한 및 **수정** 권한을 보유한 계정으로 로그인하세요.
 
-1. 홈 화면에서 결제 권한을 이양할 프로젝트를 선택하세요. 
+1. 홈 화면에서 결제 권한을 이양할 조직이나 그룹 또는 프로젝트를 선택하세요. 
 
-1. <Cmdname sid="management" className="uitext" /> 메뉴 하위 <Cmdname sid="project_member" className="uitext" /> 메뉴로 이동하세요.
+1. 선택한 단위의 멤버 관리 메뉴로 이동하세요. 단위별 멤버 관리 메뉴 이동에 대한 자세한 내용은 [다음 문서](/about-billing#o-member-management)를 참조하세요. 
 
 1. 화면 오른쪽 위에 <Cmdname sid="invite_member" className="uitext" /> 버튼을 선택하세요.
 
@@ -88,19 +88,59 @@ toc_max_heading_level: 3
 
 1. <Cmdname sid="member_invite_list" className="uitext" replace=" ({length})" />에 해당 계정이 등록된 것을 확인 후 <Cmdname sid="complete" className="uitext" /> 버튼을 선택하세요.
 
+
+:::note 
+
+**조직 멤버 관리 메뉴 이동** <ScrollToLink anchor='o-member-management' />
+
+1. 사이드 메뉴 상단 조직 메뉴 옆의 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하세요. 
+
+1. 조직 목록 패널 내 조직 이름 옆의 ![설정 아이콘](/img/ico-setting.svg) 버튼을 선택하세요. 
+
+1. <Cmdname sid="side_organizationManagement" className="uitext" /> 화면에서 <Cmdname sid="side_organizationMembers" className="uitext" /> 메뉴로 이동하세요. 
+
+**그룹 멤버 관리 메뉴 이동** 
+
+1. 사이드 메뉴 상단의 <Cmdname sid="BTN07332" className="uitext" /> 메뉴를 선택하세요. 
+
+1. 그룹 및 프로젝트 목록 패널에서 그룹 이름 옆의 ![오른쪽 방향 아이콘](/img/right-arrow.svg) 버튼을 선택하세요. 
+
+1. <Cmdname sid="side_groupMember" className="uitext" /> 메뉴로 이동하세요.
+
+**프로젝트 멤버 관리 메뉴 이동**
+
+<Cmdname sid="management" className="uitext" /> 메뉴 하위의 <Cmdname sid="project_member" className="uitext" /> 메뉴로 이동하세요.
+
+:::
+
+
 #### 권한 수정
+
+{/* 이미지 추가 필요 */}
 
 <ImgLang img='best-p/about-billing-member-role.png' desc='권한 수정 sc' />
 
-1. <Cmdname sid="project_member" className="uitext" /> 목록에서 결제 권한을 이양할 계정의 오른쪽에 <LinkImage img="char-a.svg" desc="지시선 a" /> <LinkImage img="ico-edit.svg" desc="편집 아이콘" /> 버튼을 선택하세요.
+1. 선택한 단위의 멤버 목록에서 결제 권한을 이양할 계정의 오른쪽에 <LinkImage img="char-a.svg" desc="지시선 a" /> <LinkImage img="ico-edit.svg" desc="편집 아이콘" /> 버튼을 선택하세요.
 
 1. <Cmdname sid="edit_member_role" className="uitext" /> 창이 나타나면 권한 중 <LinkImage img="char-b.svg" desc="지시선 b" /> <Cmdname sid="billing" className="uitext" /> 권한을 허용하세요.
 
-1. 설정을 완료하면 <LinkImage img="char-c.svg" desc="지시선 c" /> <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
+1. <Cmdname sid="billing" className="uitext" /> 권한 토글 활성화 후 <Cmdname sid="edit_member_role" className="uitext" /> 창에서 <LinkImage img="char-c.svg" desc="지시선 c" /> <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
+
+1. 결제 확인 창이 나타나면 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
+
+1. <Cmdname sid="TTL09415" className="uitext" /> 창에서 하위 그룹 또는 하위 프로젝트에 동일한 권한 부여 여부를 설정 후 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
+
+    <ImgLang img='faq/about-billing-member-role-check.png' desc='결제 권한 변경' />
+
+1. 해당 계정에 결제 권한 변경 승인을 위한 이메일 발송 안내를 확인 후 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
+
+1. 결제 권한 변경 대상 계정 **이메일**을 통해 **승인** 시 결제 권한이 최종적으로 변경됩니다. 
 
 :::note
 
 * 결제 권한을 가진 멤버의 경우 <Cmdname sid="project_member" className="uitext" /> 목록에서 이름 오른쪽에 <code class='pay'>결제</code> 태그가 표시됩니다. 
+
+* 다른 멤버에게 결제 권한을 부여할 경우 이메일 인증을 통한 승인 절차가 필요합니다. 하지만 멤버 본인에게 직접 결제 권한 부여 시 해당 승인 절차가 생략됩니다.
 
 * <Cmdname sid="edit_member_role" className="uitext" /> 창은 프로젝트 멤버 권한 혹은 조직 및 그룹 멤버 권한 수정이냐에 따라 다르게 나타납니다. 멤버 권한에 대한 자세한 내용은 <Link to="/project/project-structure#project-auth">다음 문서</Link>를 참조하세요.
 

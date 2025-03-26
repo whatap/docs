@@ -1,0 +1,198 @@
+---
+id: milvus-introduction
+title: Milvus 모니터링
+description: 이 문서는 Milvus 모니터링 상품에 대한 소개 페이지입니다.
+displayed_sidebar: featuremonitorSidebar
+toc_max_heading_level: 2
+keywords: [milvus, Feature ]
+---
+import InstallFeature from '../common-items/_import_feature-install-agent.mdx';
+import TR from '@site/src/components/TR';
+
+:::note
+
+**피쳐 프로젝트**<ScrollToLink anchor='feature-project' />
+
+와탭은 사용자가 원하는 소프트웨어의 모니터링 지원 여부를 쉽게 확인하고 간편하게 모니터링을 시작할 수 있도록 새롭게 **피쳐 프로젝트**(<code class='Features'>Features</code>)를 도입하였습니다. 피쳐 프로젝트는 기존 모니터링 제품을 사용자가 모니터링하고자 하는 소프트웨어에 맞게 재포장해 최적화된 모니터링 솔루션을 제공합니다. 와탭 피쳐 프로젝트를 통해 서비스의 안정성과 성능을 더욱 효과적으로 관리해 보세요. 
+
+:::
+
+{/* 와탭 Milvus 모니터링은 Milvus Vector Database의 성능과 상태를 실시간으로 확인할 수 있도록 도와줍니다. 다양한 지표와 대시보드를 통해 빠른 문제 식별과 효율적인 운영이 가능합니다. 다양한 이벤트 기능을 통해 시스템 상태를 사전에 파악하고 장애를 예방할 수 있습니다. */}
+
+Milvus는 대규모 벡터 데이터를 고성능으로 관리하고 검색하기 위한 오픈소스 데이터베이스입니다. 와탭 ***Milvus*** 모니터링은 Milvus 클러스터를 구성하는 Proxy, Root Coordinator, Query Node 등의 성능과 자원 사용량을 실시간 및 히스토리로 추적하여, 검색 지연과 메모리 부족 및 트랜잭션 장애 등을 빠르게 발견하고 해결할 수 있도록 돕습니다.
+
+와탭은 새로운 **피쳐 프로젝트** 방식으로 ***Milvus*** 모니터링을 제공합니다. Milvus 데이터베이스의 성능과 상태를 실시간으로 추적하여 문제를 조기에 감지하고 해결할 수 있습니다.
+
+
+## 설치하기 
+
+와탭 ***Milvus*** 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다. 
+
+와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다. 회원 가입에 관한 자세한 내용은 [다음 문서](../account/account-manage)를 참조하세요. 
+
+:::note 
+
+**지원 환경**<ScrollToLink anchor='milvus-supported-env' />
+
+와탭 ***Milvus*** 모니터링 에이전트를 설치하기 전에 지원 환경을 확인하세요. 
+
+* **Milvus**: Milvus 2.x 혹은 동등한 버전
+
+* **Ubuntu**: Ubuntu 12.04 이상
+
+* **OS**: Red Hat 6 or equivalent(CentOS, Rocky Linux, Amazon Linux)
+
+* **운영체제 아키텍처**: Amd64/X86_64, Arm64/Aarch64
+
+:::
+
+### 피쳐 프로젝트 생성하기 
+
+import CreateFeature from "../common-items/_import_feature-project-create.mdx";
+
+<CreateFeature /> 
+
+### Milvus 에이전트 설치
+
+<InstallFeature name='Milvus 에이전트 설치' />
+
+## 주요 메뉴 알아보기 
+
+### 대시보드 
+
+홈 화면 &gt; **피쳐 프로젝트**(<code class='Features'>Features</code>) 선택 &gt; ***Milvus*** &gt; ***Milvus 대시보드***
+
+와탭 ***Milvus*** 모니터링은 벡터 검색 데이터베이스인 Milvus의 구성 요소별 주요 지표와 그래프를 제공합니다. 와탭이 제공하는 ***Milvus 대시보드***는 다음의 세 가지 프리셋으로 구성되어있습니다.
+
+* ***Milvus Proxy and Root Coordinator***
+
+  Milvus 시스템에서 Proxy 지연 시간, QPS 및 Root Coordinator의 컬렉션과 엔터티 및 DML/DDL 작업 현황을 종합적으로 모니터링할 수 있는 프리셋입니다.
+
+  <details>
+  <summary>대시보드 지표 안내</summary>
+
+    #### ***Proxy 모니터링***
+
+    * **Latency 및 요청 이벤트**
+
+      프록시에서 처리되는 요청의 지연 시간을 히스토그램으로 시각화하고, 초당 요청 수(QPS) 등을 확인할 수 있습니다.
+
+    * **프로세스 상태**
+
+      Milvus Proxy의 CPU 및 메모리 사용량을 시계열 그래프로 표시하여 시스템 리소스 상태를 파악합니다.
+
+    #### ***Root Coordinator 모니터링***
+
+    * **컬렉션 및 엔터티 정보**
+
+      현재 운영 중인 컬렉션 및 엔터티 개수를 통해 데이터베이스 규모를 확인합니다.
+
+    * **DML 및 DDL 작업**
+
+      Insert, Delete 등 DML 작업과 Create, Drop 등 DDL 작업의 처리 현황을 시각화하여 작업 빈도를 파악합니다.
+
+    * **스트림 및 메시지 채널**
+
+      데이터 스트림 및 메시지 채널 개수를 추적하여 Milvus 내부 데이터 흐름을 확인합니다.
+
+  </details>
+
+* ***Milvus Search and Compute Performance***
+
+  ANN, Brute Force, DiskANN 등 검색 성능을 모니터링하는 프리셋입니다.
+
+  <details>
+  <summary>대시보드 지표 안내</summary>
+
+    #### ***Approximate Nearest Neighbor (ANN) Metrics***
+
+    * **검색 요청 지연 시간**
+
+      ANN 검색의 지연 시간을 히스토그램 형태로 확인하여 검색 성능을 분석합니다. 
+
+    * **검색 요청 수(QPS) 및 총 지연 시간**
+
+      초당 처리된 검색 요청 횟수 및 누적 검색 지연 시간을 확인하여 시스템 부하 상태를 모니터링합니다.
+
+    #### ***BF (Brute Force) Search***
+
+    * **BF 검색 요청 당 비교 개체 수**
+
+      Brute Force 검색에서 한 번의 요청 당 비교되는 개체 수를 확인합니다.
+
+    * **총 BF 검색 연산량**
+
+      개체 비교 횟수를 통해 연산 비용을 추적하고 최적화 기회를 찾습니다.
+
+    #### ***Bitset Ratio***
+
+    * **Bitset 사용률 및 계산량**
+
+      Bitset을 활용한 연산 최적화 여부를 모니터링하여 검색 속도 향싱 기회를 분석합니다.
+
+    * **Bitset 적용 요청 수 및 적용된 개체 수**
+
+      검색 요청 중 Bitset을 활용한 비율을 확인하여 인덱싱 전략의 효율성을 평가합니다. 
+
+    #### ***DiskANN***
+
+    * **DiskANN 검색 및 인덱스 성능**
+
+      DiskANN을 사용한 검색 요청의 지연 시간과 검색 횟수를 추적하여 디스크 기반 검색의 성능을 분석합니다.
+
+    * **DiskANN 인덱스 크기 및 검색 요청 수**
+
+      디스크 인덱스가 차지하는 공간과 검색 요청 수를 비교하여 효율성을 최적화합니다. 
+
+  </details>
+
+* ***Milvus Query Coordinator & Query Node Metrics***
+
+  QueryCoord와 QueryNode의 상태와 성능 지표를 실시간으로 모니터링할 수 있는 프리셋입니다.
+
+  <details>
+  <summary>대시보드 지표 안내</summary>
+
+    #### ***Query Coordinator***
+
+    * ***Number of collections***
+
+      QueryCoord가 관리하는 컬렉션 수를 의미합니다.
+
+    * ***Number of partitions***
+
+      컬렉션 내 파티션 개수를 모니터링하여 데이터 분할 상태를 파악합니다.
+
+    * ***Number of QueryNodes***
+
+      QueryCoord가 관리하는 QueryNode의 개수를 표시합니다.
+
+    * ***Resource Group Info***
+
+      QueryCoord에서 할당된 자원 그룹 정보를 확인하여 쿼리 실행 리소스를 분석합니다.
+
+    #### ***Query Node***
+
+    * ***Disk used size(MB)***
+
+      QueryNode에서 사용하는 디스크 용량을 모니터링하여 스토리지 최적화를 수행합니다.
+
+    * ***Number of ready read tasks in readyQueue***
+
+      대기 중인 쿼리 요청 수를 모니터링하여 검색 병목 여부를 분석합니다.
+
+    #### ***Data Coordinator & Data Node***
+
+    * ***Number of collections***
+
+      DataCoord가 관리하는 컬렉션 수를 표시하여 데이터 규모를 추적합니다.
+
+    * ***Number of data nodes***
+
+      DataCoord가 관리하는 DataNode 수를 통해 저장소 관리 상태를 확인합니다.
+
+    * ***Import tasks grouping by type and state***
+
+      데이터 Import 작업을 유형·상태별로 분류하여 로딩과 처리 속도를 분석할 수 있습니다.
+
+  </details>

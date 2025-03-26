@@ -7,6 +7,14 @@ keywords: [ Java, 대시보드, 애플리케이션 ]
 
 홈 화면 &gt; <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_agentResourceDashboard" className="uitext" />
 
+:::note 
+
+**요구 사항**
+
+와탭 자바 에이전트 2.2.39 버전 이상이 필요합니다. 
+
+:::
+
 <Cmdname sid="side_agentResourceDashboard" className="uitext" /> 메뉴에서 개별 자바 에이전트의 메모리, 트랜잭션, 스레드 등 주요 지표를 실시간으로 모니터링하고, 최대 3시간 전 과거 시점까지 조회할 수 있습니다. 이를 통해 메모리 사용량 변화, 활성화된 트랜잭션, 실행 중인 스레드 정보를 파악하고, 리소스 문제를 유발하는 원인을 분석할 수 있습니다.
 
 <ImgLang img="apm-java-agent-resource-dashboard.png" desc="Agent Resource Dashboard" />
@@ -141,6 +149,22 @@ keywords: [ Java, 대시보드, 애플리케이션 ]
 #### <Cmdname sid="transaction_statistics" className="uitext" />
 
 <Cmdname sid="transaction" className="uitext" /> 탭에서 특정 시점에 수행된 트랜잭션들을 응답 시간, 실행 횟수 등의 조건으로 정렬해 상위 30개 목록을 조회할 수 있습니다. 응답 시간이 길거나 실행 횟수가 많은 항목을 우선 확인할 수 있습니다. 
+
+:::note 
+
+**<Cmdname sid="TTL06975" /> 조회 설정**
+
+과거 시점의 트랜잭션 통계에서 <Cmdname sid="TTL06975" className="uitext" /> 항목이 표시되지 않는 경우, 다음 옵션의 활성화 여부를 확인해 주세요. 단 이 옵션은 평균 TPS가 높은 애플리케이션에서는 성능 영향이 발생할 수 있으므로 **평균 TPS 300 이하의 환경**에서만 적용을 권장합니다.
+
+* **trace_malloc_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  트랜잭션별 평균 메모리 할당량을 수집합니다.
+
+
+
+:::
 
 #### <Cmdname sid="statistics_sql" className="uitext" />
 

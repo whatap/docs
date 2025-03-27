@@ -1,5 +1,55 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_55/",
+    "ver": "v2.2.55",
+    "date": "2025-03-27",
+    "Lists": [
+      {
+        "ver": "v2.2.55",
+        "hash": "v2255",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>undertow-server 2.3.0</code> 이상 버전에서 Status Code 수집 기능 추가 및 Exception 추적 범위 확장</p>"
+      },
+      {
+        "ver": "v2.2.55",
+        "hash": "v2255",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <code>mtid</code>가 없는 경우 traceparent 헤더를 생성하지 않도록 변경</p>"
+      },
+      {
+        "ver": "v2.2.55",
+        "hash": "v2255",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>undertow-server 2.3.0</code> 이상에서 <code>spring-webflux 6.0</code> 이상을 구현한 경우 트랜잭션 데이터가 중복 수집되는 현상 수정</p>"
+      },
+      {
+        "ver": "v2.2.55",
+        "hash": "v2255",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>undertow-server 2.3.0</code> 이상에서 Jakarta Filter 호출 시 트랜잭션 데이터가 중복 수집되는 현상 수정</p>"
+      },
+      {
+        "ver": "v2.2.55",
+        "hash": "v2255",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>tomcat</code> 또는 <code>embedded-tomcat</code> 실행 시 <code>whatap.oname</code>을 지정하지 않은 경우 수집 서버와 연결되지 않는 현상 수정</p>"
+      },
+      {
+        "ver": "v2.2.55",
+        "hash": "v2255",
+        "product": "Java Agent",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\" type=\"1\">Deprecated</code> <code>webflux</code> 설정 지원 종료, 기존 설정은 <code>spring-boot</code> 설정으로 대체</p>",
+        "details": "<blockquote>\n<p><code>webflux-5.3</code> → <code>spring-boot-2.1</code> or <code>spring-boot-2.5</code> or <code>spring-boot-2.7</code></p>\n</blockquote>"
+      }
+    ]
+  },  
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_54/",
     "ver": "v2.2.54",
     "date": "2025-02-28",

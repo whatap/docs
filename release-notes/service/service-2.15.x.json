@@ -21,6 +21,20 @@
       {
         "ver": "Service 2.15.1",
         "hash": "service-2151",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 시간 선택자(타임 셀렉터)에서 달력으로 변경한 시간이 검색에 반영되지 않는 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.15.1",
+        "hash": "service-2151",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">Top SQL 비교</span> 메뉴에서 조회 기준 변경 후 조회 시 발생하는 오류 수정</p>"
+      },
+      {
+        "ver": "Service 2.15.1",
+        "hash": "service-2151",
         "product": "Database",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">데이터베이스 파라미터</span> 메뉴에서 <span class=\"uitext\">기준 날짜</span>와 <span class=\"uitext\">비교 날짜</span>가 모두 현재일 경우 실시간 데이터베이스 파라미터를 조회할 수 있는 기능 추가</p>",

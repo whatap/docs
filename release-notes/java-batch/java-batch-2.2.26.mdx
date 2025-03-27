@@ -1,0 +1,42 @@
+---
+id: java-batch-2_2_26
+title: Java Batch Agent v2.2.26
+toc_max_heading_level: 2
+pagination_next: release-notes/java-batch/java-batch-2_2_25
+displayed_sidebar: releaseSidebar
+---
+
+2025년 03월 27일
+
+- <Status priority='1'>New</Status> 바인드 변수 수집 기능 추가 
+
+  - 배치 프로세스 및 배치 호스트 설정 필요
+
+    <Columns>
+    <Column className="text--left width--50-2">
+    ```bash title='batch'
+    # default: false  
+    hook_batch_pstmt_param_enabled=true
+    ```
+    </Column>
+    <Column className="text--left">
+    ```bash title='batch-host'
+    # default: false
+    trace_batch_host_param_enabled=true
+    ```
+    </Column>
+    </Columns>
+
+    :::caution
+
+    바인드 변수 수집 시 애플리케이션 성능에 영향을 줄 수 있습니다.
+
+    :::
+
+- <Status priority='1'>Feature</Status> 트랜잭션 및 SQL 통계 수집 기능 추가 
+
+- <Status priority='1'>Feature</Status> 트랜잭션의 DB Connection Time, SQL Fetch Count, SQL Fetch Time 수집 추가
+
+import DownloadJavaBatchAgent from "./_import_dl-java-batch-agent.mdx";
+
+<DownloadJavaBatchAgent />

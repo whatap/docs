@@ -639,14 +639,6 @@
         "ver": "Service 2.15.0",
         "hash": "service-2150",
         "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴에서 <span class=\"uitext\">Elapse Map</span> 드래그 시 나오는 테이블에서 쿼리 클릭 시 확인할 수 있는 <span class=\"uitext\">SQL 상세</span> 창에서 <code>planHash</code> 값이 왼쪽 쿼리의 <code>plan_hash_value</code>로 기본 설정되도록 수정</p>",
-        "category": "Oracle V2, Oracle Pro"
-      },
-      {
-        "ver": "Service 2.15.0",
-        "hash": "service-2150",
-        "product": "Database",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 및 <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴에서 DocumentDB 프리셋 추가</p>",
         "category": "MongoDB"

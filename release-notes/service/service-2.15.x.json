@@ -5,6 +5,20 @@
     "date": "2025-03-27",
     "Lists": [
       {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_15_x/",
+        "ver": "Service 2.15.2",
+        "date": "2025-03-31",
+        "Lists": [
+          {
+            "ver": "Service 2.15.2",
+            "hash": "service-2152",
+            "product": "Server",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 메뉴에서 <span class=\"uitext\">Process List</span> 조회 시 전체 항목이 로딩되지 않는 현상 수정</p>"
+          }
+        ]
+      },
+      {
         "ver": "Service 2.15.1",
         "hash": "service-2151",
         "product": "공통",

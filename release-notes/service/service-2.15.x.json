@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_15_x/",
+    "ver": "Service 2.15.2",
+    "date": "2025-03-31",
+    "Lists": [
+      {
+        "ver": "Service 2.15.2",
+        "hash": "service-2152",
+        "product": "Kubernetes",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">애플리케이션</span> &gt; <span class=\"uitext\">통계</span> 메뉴에서 데이터 조회 범위를 최대 15일 제한으로 변경</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_15_x/",
     "ver": "Service 2.15.1",
     "date": "2025-03-27",
     "Lists": [

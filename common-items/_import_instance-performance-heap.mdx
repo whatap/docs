@@ -11,32 +11,3 @@ JVM(자바 가상 머신)의 메모리에 올라가 있는 Heap 점유 객체 �
 GC 전까지 유지되는 객체의 개수를 조회하기 때문에 실제로 사용되고 있지 않더라도 해당 목록에는 표시됩니다. 정확한 조회를 위해 ***시스템 GC*** 실행 후 해당 목록을 확인하는 것을 권장합니다. ***시스템 GC***에 대한 자세한 내용은 [다음 문서](#side_systemGarbageCollection)를 참조하세요.
 
 :::
-
-:::note
-
-Java 6 ~ 8 버전에서는 JVM 옵션 없이 기본 지원하지만, 일부 Java 버전에 따라 다음과 같이 JVM 옵션을 적용해야 합니다.
-
-* Java 9 ~ Java 15 버전
-
-  ```bash
-  -Djdk.attach.allowAttachSelf=true
-  ```
-
-  ```bash title="example"
-  java -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true -jar {application.jar}
-  ```
-
-* Java 16 버전 이상
-
-  ```bash
-  -Djdk.attach.allowAttachSelf=true
-  --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED
-  ```
-
-  ```bash title="example"
-  java -javaagent:{WHATAP_HOME}/whatap.agent-X.Y.Z.jar -Djdk.attach.allowAttachSelf=true --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED -jar {application.jar}
-  ```
-
-* Java 5 버전 이하, IBM Java는 지원하지 않습니다.
-
-:::

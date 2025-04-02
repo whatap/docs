@@ -48,6 +48,28 @@ java -version
 
 :::
 
+### DB 모니터링 리소스 데이터 수집
+
+> DB 모니터링에서 CPU, Memory 등의 리소스 지표가 보이지 않아요.
+
+DB 서버의 리소스 데이터를 수집하려면 환경에 따라 방법이 다릅니다.
+
+* **DB Agent 환경**: DB Local 서버에 XOS 모듈을 설치해야 리소스 데이터를 수집할 수 있습니다. 
+
+:::note 
+
+자세한 설정 방법은 DB Agent 환경에 맞는 플랫폼의 [문서](https://docs.whatap.io/search?whatap%5Bquery%5D=XOS%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%84%A4%EC%A0%95)를 참고하세요.
+
+:::
+
+* **RDS 환경**: RDS는 Local 서버에 설치되지 않는 환경이므로 AWS CloudWatch와 연동하여 관련 메트릭을 수집할 수 있습니다. 
+
+:::note 
+
+자세한 설정 방법은 RDS 환경에 맞는 플랫폼의 [문서](https://docs.whatap.io/search?whatap%5Bquery%5D=RDS%20CloudWatch)를 참고하세요.
+
+:::
+
 ### DB 인스턴스에 데이터베이스 추가 생성 후 모니터링이 안 될 경우
 
 > DB 인스턴스에 데이터베이스를 추가로 생성했는데 와탭에서 모니터링이 되지 않습니다. 어떻게 해야 하나요?

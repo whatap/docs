@@ -1,10 +1,10 @@
+슬로우 쿼리를 수집하려면 먼저 데이터베이스(DB)를 설정한 후, 사용자의 환경(온프레미스 또는 AWS RDS/Aurora)에 따라 WhaTap 설정 방법이 달라집니다.
+
 :::note
 
 슬로우 쿼리 기능은 **MySQL**과 **PostgreSQL**만 지원합니다.
 
 :::
-
-슬로우 쿼리를 수집하려면 먼저 데이터베이스(DB)를 설정한 후, 사용자의 환경(온프레미스 또는 AWS RDS/Aurora)에 따라 WhaTap 설정 방법이 달라집니다.
 
 <InDoc product="mysql">
 
@@ -39,19 +39,22 @@ log_min_duration_statement=3000  # 3초
 
 </InDoc>
 
+<InDoc product="mysql">
+
 ### 온프레미스 환경
 
-자체 서버에서 운영하는 경우, WhaTap의 DBX/XOS 설정 방식을 사용합니다. 
+자체 서버에서 운영하는 경우, WhaTap의 DBX/XOS 설정 방식을 사용합니다. **DBX 에이전트 설치 외에 DB 서버에 XOS를 반드시 설치해야 합니다.** XOS 에이전트 설정 방법은 [다음 문서](agent-xos-settings)를 참고하세요.
 
-1. DBX *whatap.conf* 파일에 `slow_query_log=on` 옵션을 추가합니다. MySQL의 경우 기본값이 `on` 입니다. 
+1. DBX *whatap.conf* 파일에 `slow_query_log=on` 옵션을 추가합니다.
+
+    * **slow_query_log** <span class='type'>Boolean</span>  
+        슬로우 쿼리 로깅 기능을 활성화(`on`)하거나 비활성화(`off`)합니다. MySQL의 기본값은 `on`입니다
 
 1. XOS가 설치되어 있으면 파일명을 자동 인식합니다. 파일명이 자동으로 인식되지 않는다면, XOS *whatap.conf* 파일에 `slow_query=`로 설정합니다.
 
 ### AWS RDS/Aurora 환경
 
-AWS RDS/Aurora 환경은 **DBX 에이전트 설정** 또는 **클라우드 설정**을 통해 슬로우 쿼리를 수집할 수 있습니다. 
-
-<InDoc product="mysql">
+AWS RDS/Aurora 환경은 XOS 에이전트를 설치할 수 없으므로, **DBX 에이전트 설정** 또는 **클라우드 설정**을 통해 슬로우 쿼리를 수집할 수 있습니다.
 
 * **DBX 에이전트 설정하기**
 
@@ -66,15 +69,30 @@ AWS RDS/Aurora 환경은 **DBX 에이전트 설정** 또는 **클라우드 설�
     cloud_watch_instance= 
     ```
 
-* **클라우드 설정 메뉴에서 설정하기**
+* **클라우드 설정하기**
 
-    <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_dbCloudSetting" className="uitext" /> 메뉴에서 제공되는 가이드를 따라 실행하면 사용자의 AWS 환경에서 자동으로 모니터링 리소스를 생성하여 슬로우 쿼리 데이터를 수집합니다. 별도의 추가 설정이 필요하지 않습니다.
+    <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_dbCloudSetting" className="uitext" /> 메뉴에서 제공되는 가이드를 따라 실행하면 사용자의 AWS 환경에서 자동으로 모니터링 리소스를 생성하여 슬로우 쿼리 데이터를 수집합니다. 별도의 추가 설정이 필요하지 않습니다. 자세한 내용은 [다음 문서](cloudsettings)를 참고하세요.
 
 </InDoc>
 
 <InDoc product="postgresql">
 
-<Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_dbCloudSetting" className="uitext" /> 메뉴에서 제공되는 가이드를 따라 실행하면 사용자의 AWS 환경에서 자동으로 모니터링 리소스를 생성하여 슬로우 쿼리 데이터를 수집합니다. 별도의 추가 설정이 필요하지 않습니다.
+### 온프레미스 환경
+
+자체 서버에서 운영하는 경우, WhaTap의 DBX/XOS 설정 방식을 사용합니다. **DBX 에이전트 설치 외에 DB 서버에 XOS를 반드시 설치해야 합니다.** XOS 에이전트 설정 방법은 [다음 문서](agent-xos-settings)를 참고하세요.
+
+1. DBX *whatap.conf* 파일에 `slow_query_log=on` 옵션을 추가합니다. 
+
+    * **slow_query_log** <span class='type'>Boolean</span>  
+        슬로우 쿼리 로깅 기능을 활성화(`on`)하거나 비활성화(`off`)합니다. PostgreSQL의 기본값은 `off` 입니다. 
+
+1. XOS가 설치되어 있으면 파일명을 자동 인식합니다. 파일명이 자동으로 인식되지 않는다면, XOS *whatap.conf* 파일에 `slow_query=`로 설정합니다.
+
+### AWS RDS/Aurora 환경
+
+AWS RDS/Aurora 환경은 XOS 에이전트를 설치할 수 없으므로, **클라우드 설정**을 통해 슬로우 쿼리를 수집할 수 있습니다. 
+
+<Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_dbCloudSetting" className="uitext" /> 메뉴에서 제공되는 가이드를 따라 실행하면 사용자의 AWS 환경에서 자동으로 모니터링 리소스를 생성하여 슬로우 쿼리 데이터를 수집합니다. 별도의 추가 설정이 필요하지 않습니다. 자세한 내용은 [다음 문서](cloudsettings)를 참고하세요.
 
 :::note
 

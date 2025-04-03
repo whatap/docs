@@ -106,10 +106,14 @@ AWS 클라우드 환경에서 실행 중인 데이터베이스의 상태와 자�
       "Action": [
         "logs:CreateLogGroup",
         "logs:CreateLogStream",
-        "logs:PutLogEvents"
+        "logs:PutLogEvents",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:GetLogEvents",
+        "logs:FilterLogEvents"
       ],
       "Resource": "*"
-    },
+    }
     {
       "Effect": "Allow",
       "Action": [

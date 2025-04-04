@@ -1,5 +1,99 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_0/",
+    "ver": "v2.5.0",
+    "date": "2025-04-01",
+    "Lists": [
+      {
+        "ver": "v2.5.0",
+        "hash": "v250",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Multidb 환경이 아닌 경우, <code>sqlstat</code> 카테고리의 DB 값에 Instance name을 전송하도록 수정</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.5.0",
+        "hash": "v250",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Oracle 10g인 경우 lock 수집 쿼리 변경</p>",
+        "category": "Oracle"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_9/",
+    "ver": "v2.4.9",
+    "date": "2025-03-25",
+    "Lists": [
+      {
+        "ver": "v2.4.9",
+        "hash": "v298",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Agent 기동 시 DB 접속 실패할 경우 stop.sh가 동작하지 않던 오류 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.4.9",
+        "hash": "v249",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> DB 크기 수집 기능 추가</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "v2.4.9",
+        "hash": "v249",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>max_connections</code> 지표 수정</p>",
+        "category": "SAP ASE",
+        "details": "<ul>\n<li><p><code>@@max_connections</code> 값을 보냈으나, DB 파라미터인 <code>number of user connections</code>로 변경</p></li>\n</ul>"
+      },
+      {
+        "ver": "v2.4.9",
+        "hash": "v249",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> DocumentDB는 기본값으로 <code>v2=true</code> 옵션을 적용하지 않고 전체 지표를 수집하도록 수정</p>",
+        "category": "MongoDB"
+      },
+      {
+        "ver": "v2.4.9",
+        "hash": "v249",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> DocumentDB에서 파라미터 수집 제외</p>",
+        "category": "MongoDB"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_8/",
+    "ver": "v2.4.8",
+    "date": "2025-03-21",
+    "Lists": [
+      {
+        "ver": "v2.4.8",
+        "hash": "v248",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> tablespace 정보가 출력되지 않는 오류 수정</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.4.8",
+        "hash": "v248",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 수집 쿼리 주석 추가</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_7/",
     "ver": "v2.4.7",
     "date": "2025-03-18",

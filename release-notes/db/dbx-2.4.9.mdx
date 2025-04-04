@@ -1,0 +1,26 @@
+---
+id: dbx-2_4_9
+title: DBX v2.4.9
+pagination_next: release-notes/db/dbx-2_4_8
+displayed_sidebar: releaseSidebar
+---
+
+2025년 03월 25일
+
+## 공통
+
+<Status priority='0'>Fixed</Status> Agent 기동 시 DB 접속 실패할 경우 stop.sh가 동작하지 않던 오류 수정
+
+## SAP ASE
+
+- <Status priority='1'>Feature</Status> DB 크기 수집 기능 추가
+
+- <Status priority='0'>Fixed</Status> `max_connections` 지표 수정
+
+    - `@@max_connections` 값을 보냈으나, DB 파라미터인 `number of user connections`로 변경
+
+## MongoDB
+
+- <Status priority='0'>Fixed</Status> DocumentDB는 기본값으로 `v2=true` 옵션을 적용하지 않고 전체 지표를 수집하도록 수정
+
+- <Status priority='0'>Fixed</Status> DocumentDB에서 파라미터 수집 제외

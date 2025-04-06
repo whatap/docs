@@ -1,5 +1,84 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_4h/",
+    "ver": "v1.0.4h",
+    "date": "2025-04-03",
+    "Lists": [
+      {
+        "ver": "v1.0.4h",
+        "hash": "v104h",
+        "product": "DMX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 한글 깨짐 시 코드 변환 처리 옵션 추가</p>",
+        "details": "<ul><li><p><code>codefrom=</code> 및 <code>codeto=</code> 문자 인코딩 지정</p></li><li><p><code>iconv -l</code> 명령어의 결괏값 중 선택하여 지정</p></li><li><p>예시: <code>codefrom=EUC-KR</code>, <code>codeto=UTF-8</code></p></li></ul>"
+      },
+      {
+        "ver": "v1.0.4h",
+        "hash": "v104h",
+        "product": "DMX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>plan_elapse</code>, <code>bind_elapse</code> 기본값 5초 → 3초로 변경</p>"
+      },
+      {
+        "ver": "v1.0.4h",
+        "hash": "v104h",
+        "product": "DMX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>sqlstat</code> 전송 주기의 기본값 5분 → 1분으로 변경</p>"
+      },
+      {
+        "ver": "v1.0.4h",
+        "hash": "v104h",
+        "product": "DMX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>sqlstat</code>에 <code>!rectype</code>, <code>@id</code>, <code>@stime</code> 추가</p>"
+      },
+      {
+        "ver": "v1.0.4h",
+        "hash": "v104h",
+        "product": "DMX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 19 이상의 버전에서 Parallel query 정보가 수집되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "v1.0.4h",
+        "hash": "v104h",
+        "product": "DMX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> PDB가 하나일 때 multi DB 별로 지표가 조회되지 않는 문제 수정</p>"
+      },
+      {
+        "ver": "v1.0.4h",
+        "hash": "v104h",
+        "product": "DMX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 실시간 호출하는 <code>session list request/reply</code>에 <code>result2</code> 추가</p>"
+      },
+      {
+        "ver": "v1.0.4h",
+        "hash": "v104h",
+        "product": "DMX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>temp tablespace</code> 수치가 비정상적으로 나오는 문제 수정</p>",
+        "details": "<ul><li><p>Oracle 버그(18c, 19c)의 영향으로 <code>distinct</code>를 사용하여 수집 쿼리 로직 수정</p></li></ul>"
+      },
+      {
+        "ver": "v1.0.4h",
+        "hash": "v104h",
+        "product": "DMX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 5분 데이터 생성이 불필요한 <code>_no_5m_hour_</code> 카테고리 정리</p>"
+      },
+      {
+        "ver": "v1.0.4h",
+        "hash": "v104h",
+        "product": "DMX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>plan_hash</code> 값으로 플랜 실시간 조회 시 <code>child_number</code>가 없을 경우 <code>timestamp</code> 최신값으로 조회하도록 수정</p>"
+      }
+    ]
+  },  
+  {
     "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_2d/",
     "ver": "v1.0.2d",
     "date": "2025-02-04",

@@ -1,6 +1,41 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_15_x/",
+    "ver": "Service 2.15.4",
+    "date": "2025-04-04",
+    "Lists": [
+      {
+        "ver": "Service 2.15.4",
+        "hash": "service-2154",
+        "product": "MySQL v2, Oracle V2, Oracle Pro",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Top SQL 비교</span>에서 과거 시간의 차트 보여지지 않는 오류 수정</p>"
+      },
+      {
+        "ver": "Service 2.15.4",
+        "hash": "service-2154",
+        "product": "MySQL v2, Oracle V2, Oracle Pro",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Top SQL 비교</span>에서 쿼리문을 클릭하면 보여지는 SQL 상세창에 쿼리가 undefined로 보이는 오류 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_15_x/",
+    "ver": "Service 2.15.3",
+    "date": "2025-04-02",
+    "Lists": [
+      {
+        "ver": "Service 2.15.3",
+        "hash": "service-2153",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 메뉴에서 <span class=\"uitext\">Process List</span> 조회 시 전체 항목이 로딩되지 않는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_15_x/",
     "ver": "Service 2.15.2",
     "date": "2025-03-31",
     "Lists": [

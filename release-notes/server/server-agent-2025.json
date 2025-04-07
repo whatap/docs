@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server/server-2_8_4/",
+    "ver": "v2.8.4",
+    "date": "2025-04-04",
+    "Lists": [
+      {
+        "ver": "v2.8.4",
+        "hash": "v284",
+        "product": "Server Agent",
+        "type": "New",
+        "desc": "<li><code class=\"New\" type=\"1\">New</code> Nvidia 신규 데이터 수집 옵션 추가</li>"
+      },
+      {
+        "ver": "v2.8.4",
+        "hash": "v284",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> NFS Hang 걸리는 케이스 예외 처리 추가</p>"
+      },
+      {
+        "ver": "v2.8.4",
+        "hash": "v284",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Meta 정보 데이터 타입 예외 처리 추가</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server/server-2_8_3/",
     "ver": "v2.8.3",
     "date": "2025-03-18",

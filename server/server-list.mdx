@@ -83,25 +83,27 @@ keywords: [ 서버 목록, 분석하기, UI, Server ]
 
 선택한 컬럼 조합은 프리셋으로 저장할 수 있으며, 동일 프로젝트에 접근한 다른 사용자와 공유됩니다. 최근에 사용한 프리셋은 개인 브라우저에 저장되어, 재접속 시 자동으로 불러옵니다. 최근 프리셋이 삭제된 경우 기본 프리셋(<Cmdname sid="kube_default" className="uitext" />)으로 초기화됩니다. 프리셋 설정 방법은 [다음 문서](metrics-explorer#setpreset)를 참고하세요.
 
-  :::caution
+* 컬럼별 너비 및 정렬 상태는 사용자의 브라우저에 저장되며, 메뉴 재접속 시 자동으로 적용됩니다. 해당 설정은 사용자 개인에게만 적용되며, 다른 사용자와 공유할 수 없습니다.
 
-  **프로젝트 수정 권한을 가진 사용자만 프리셋을 저장 및 삭제할 수 있습니다.** 멤버 권한에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/project/project-structure#member-auth)를 참고하세요.
+:::caution
+
+**프로젝트 수정 권한을 가진 사용자만 프리셋을 저장 및 삭제할 수 있습니다.** 멤버 권한에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/project/project-structure#member-auth)를 참고하세요.
   
-  :::
+:::
 
 <ImgLang img='server-list-cl-preset.png' desc='컬럼 설정 > 프리셋' />
 
-  :::note
+:::note
 
-  **프리셋에 저장할 수 있는 대시보드의 설정**
+**프리셋에 저장할 수 있는 대시보드의 설정**
 
-    * 위젯의 크기, 위치
+  * 위젯의 크기, 위치
 
-    * 사용자 정의 위젯에 정의된 설정
+  * 사용자 정의 위젯에 정의된 설정
 
-    * <UI>Session Table</UI> 위젯에 정의된 테이블의 너비와 필터, 선택한 칼럼값
-  
-  :::
+  * <UI>Session Table</UI> 위젯에 정의된 테이블의 너비와 필터, 선택한 칼럼값
+
+:::
 
 ### 새로고침
 

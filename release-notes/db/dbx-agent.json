@@ -1,5 +1,67 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_2/",
+    "ver": "v2.5.2",
+    "date": "2025-04-08",
+    "Lists": [
+      {
+        "ver": "v2.5.2",
+        "hash": "v252",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 에이전트 기동 start.sh 파일 실행 시 에이전트 jar 파일이 여러 개 있을 경우, 동작하지 않는 버그 수정 (버전 250327 ~ 250407에서 발생)</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.5.2",
+        "hash": "v252",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Tibero 5에서 액티브 세션 수집되지 않는 버그 수정</p>",
+        "category": "Tibero"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_1/",
+    "ver": "v2.5.1",
+    "date": "2025-04-04",
+    "Lists": [
+      {
+        "ver": "v2.5.1",
+        "hash": "v250",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> sqlstat 팩에 <code>@stime</code> 태그 추가</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.5.1",
+        "hash": "v251",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> temp tablespace 수집 쿼리 변경</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.5.1",
+        "hash": "v251",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> sqlstat 팩에 <code>@stime</code> 태그 추가</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.5.1",
+        "hash": "v251",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> mslog 옵션 기본값(default) 변경 (<code>true</code> → <code>false</code>)</p>",
+        "category": "SQL Server"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_0/",
     "ver": "v2.5.0",
     "date": "2025-04-01",

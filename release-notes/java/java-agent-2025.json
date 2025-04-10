@@ -1,5 +1,20 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_56/",
+    "ver": "v2.2.56",
+    "date": "2025-04-09",
+    "Lists": [
+      {
+        "ver": "v2.2.56",
+        "hash": "v2256",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>spring async-annotation</code> (<code>org.springframework.scheduling.annotation.Async</code>) 사용하여 메소드를 호출하는 경우, 별도 트랜잭션으로 추적</p>",
+        "details": "<ul>\n<li>spring-boot 설정 추가하여 사용</li>\n</ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_55/",
     "ver": "v2.2.55",
     "date": "2025-03-27",

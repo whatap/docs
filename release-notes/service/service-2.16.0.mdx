@@ -20,11 +20,27 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" />의 TopN 위젯에 수평선 옵션 추가
 
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에 이벤트 동작 시간 기능 추가
+    
+  - **이벤트 설정 V1**
+
+    메트릭스/복합 메트릭스/이상치 탐지/실시간 복합 로그/서버 로그 → 이벤트 수신 태그 위 추가
+
+    히트맵 패턴 → 카드 최하단에 추가
+
+  - **이벤트 설정 V2**
+
+    기본/메트릭스 → 해소된 알림 다음 항목으로 추가
+
+    그 외 항목은 V1과 동일
+
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_flexboard" className="uitext" />의 차트 툴팁에서 WriteLatency, ReadLatency 데이터 소수점 5자리까지 표시
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 위젯 <Cmdname sid="project_selection" className="uitext" /> 설정 시, <Cmdname sid="project_selected_from other widgets" className="uitext" />의 툴팁 위치 변경
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="site_management" className="uitext" /> &gt; <Cmdname sid="side_metricsCategory" className="uitext" /> &gt; <Cmdname sid="side_metricsRebuild" className="uitext" /> 에서 요청이 처리되지 않았을 때 재요청이 불가능하도록 수정
+- <Status priority='1'>Changed</Status> <Cmdname sid="site_management" className="uitext" /> &gt; <Cmdname sid="side_metricsCategory" className="uitext" /> &gt; <Cmdname sid="side_metricsRebuild" className="uitext" />에서 요청이 처리되지 않았을 때 재요청이 불가능하도록 수정
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" /> 메뉴에서 알림 설정 권한이 없는 사용자가 할당된 이벤트 수신 태그를 볼 수 있도록 수정
 
 - <Status priority='0'>Fixed</Status> 시간 선택자(타임 셀렉터)에서 고정된 시간이 사라지거나 중복된 시간이 저장되는 현상 수정
 
@@ -64,6 +80,14 @@ displayed_sidebar: releaseSidebar
 ### `Kubernetes`
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_appl" className="uitext" /> 모니터링 시 <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06125" className="uitext" /> 탭에서 컨테이너 및 Pod 요약 분석 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_node" className="uitext" /> &gt; <Cmdname sid="node_list" className="uitext" /> 컬럼 왼쪽의 확장 버튼 클릭 시 디스크 정보 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_kubeEventList" className="uitext" /> 메뉴의 이벤트별 Suggestions 시나리오 추가 - Image, Container Prob, Node Not Available 이슈 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" /> 메뉴의 3rd 파티 플러그인의 Webhook JSON 응답값 커스텀 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메트릭스 이벤트 설정 시 카테고리 선택, 지표 설정, 이벤트 대상 선택 단계에서 메트릭스 검색 기능을 추가
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="container_map" className="uitext" /> 메뉴의 컨테이너 뷰의 지표 선택 옵션에서 KubeConState 지표를 기본 옵션으로 지정하고, 지표에 대한 설명 추가
 
@@ -123,6 +147,8 @@ displayed_sidebar: releaseSidebar
 
 ### `Log` 
 
-<Status priority='1'>Feature</Status> <Cmdname sid="side_logSearch" className="uitext" /> 및 <Cmdname sid="side_logTail" className="uitext" /> 메뉴에서 필터 즐겨찾기 프로젝트 공유 기능 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_logSearch" className="uitext" /> 및 <Cmdname sid="side_logTail" className="uitext" /> 메뉴에서 필터 즐겨찾기 프로젝트 공유 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logExplorer" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 서버 모니터링 트라이얼 고객은 로그 모니터링 활성화 불가하도록 수정하였으며, 사이드 메뉴 진입 시 유로 전환 안내 모달 표시
 
 </div>

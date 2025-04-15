@@ -34,6 +34,8 @@ displayed_sidebar: releaseSidebar
 
     그 외 항목은 V1과 동일
 
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_organizationMembers" className="uitext" /> 및 <Cmdname sid="invite_member" className="uitext" />에서 멤버 이메일 옆에 MFA 및 SSO 사용 여부 표시 기능 추가
+
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_flexboard" className="uitext" />의 차트 툴팁에서 WriteLatency, ReadLatency 데이터 소수점 5자리까지 표시
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 위젯 <Cmdname sid="project_selection" className="uitext" /> 설정 시, <Cmdname sid="project_selected_from other widgets" className="uitext" />의 툴팁 위치 변경
@@ -131,6 +133,14 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_dbTopSql" className="uitext" /> 메뉴 진입 시 이전 화면에서 선택된 인스턴스가 인스턴스 선택자에 유지되도록 수정
 
+#### IBM DB2
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 세션 테이블에 query_param 컬럼 추가
+
+#### SAP ASE
+
+<Status priority='1'>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴 추가
+
 ---
 
 ### `Cloud`
@@ -155,5 +165,7 @@ displayed_sidebar: releaseSidebar
 (***애플리케이션 대시보드***, <Cmdname sid="transaction_map" className="uitext" />, <Cmdname sid="tx_search" className="uitext" />, <Cmdname sid="multi_server_transaction_trace" className="uitext" /> 등 트랜잭션 정보를 확인할 수 있는 APM 페이지와 연계)
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logExplorer" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 서버 모니터링 트라이얼 고객은 로그 모니터링 활성화 불가하도록 수정하였으며, 사이드 메뉴 진입 시 유로 전환 안내 모달 표시
+
+- <Status priority='1'>Changed</Status>  로그 테이블 컬럼명 변경 (timestamp → 수집 시간, agenttime → 로그 시간)
 
 </div>

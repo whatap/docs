@@ -62,7 +62,7 @@ displayed_sidebar: releaseSidebar
 
     - 필터 항목 추가
 
-        - front.config의 `ui_transaction_map_custom_filter` 옵션(값: `true`/`false`)을 `true`로 설정하면 커스텀 필터 기능 활성화
+        - front.config의 `ui_transaction_map_custom_filter` 옵션(값: `true`/`false`)을 `true`로 설정 시, 커스텀 필터 기능 활성화
 
         <details>
         <summary>추가된 필터 항목</summary>
@@ -226,6 +226,15 @@ displayed_sidebar: releaseSidebar
 
 ---
 
+### `Browser` 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_browserErrorTracking" className="uitext" />, <Cmdname sid="side_userSessionEventSearch" className="uitext" /> URL 공유 시 UI 상태(시간, 필터 등) 유지되도록 개선
+
+    - <Cmdname sid="side_browserErrorTracking" className="uitext" />: 시간, 차트 바에서 클릭된 시간
+    - <Cmdname sid="side_userSessionEventSearch" className="uitext" />: 시간, 필터, 과거순, 최신순
+
+---
+
 ### `Log` 
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_logSearch" className="uitext" /> 및 <Cmdname sid="side_logTail" className="uitext" /> 메뉴에서 필터 즐겨찾기 프로젝트 공유 기능 추가
@@ -234,6 +243,12 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> 트레이스 로그에서 로그 검색으로 이동할 수 있는 버튼 추가
 (***애플리케이션 대시보드***, <Cmdname sid="transaction_map" className="uitext" />, <Cmdname sid="tx_search" className="uitext" />, <Cmdname sid="multi_server_transaction_trace" className="uitext" /> 등 트랜잭션 정보를 확인할 수 있는 APM 페이지와 연계)
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logExplorer" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" /> URL 공유 시 UI 상태(시간, 필터 등) 유지되도록 개선
+
+    - <Cmdname sid="side_logTail" className="uitext" />: 카테고리, 필터  
+    - <Cmdname sid="side_logExplorer" className="uitext" />: 시간, 카테고리, 차트 바에서 클릭된 시간  
+    - <Cmdname sid="side_logSearch" className="uitext" />: 시간, 필터, 과거순, 최신순
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logExplorer" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 서버 모니터링 트라이얼 고객은 로그 모니터링 활성화 불가하도록 수정하였으며, 사이드 메뉴 진입 시 유로 전환 안내 모달 표시
 

@@ -183,11 +183,7 @@ paths:
                 example:
                   data:
                     # - groupName: ''
-<<<<<<< HEAD
                     - projectCode: 35
-=======
-                      projectCode: 35
->>>>>>> 0a8cd1f308fd223f28e77eced3522c6f0aec06b0
                       projectName: 'APM_TEST2'
                       createTime: '2018-10-19T07:17:03.774'
                       status: 'subscribe'

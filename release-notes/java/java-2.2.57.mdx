@@ -1,0 +1,26 @@
+---
+id: java-2_2_57
+title: Java Agent v2.2.57
+toc_max_heading_level: 2
+pagination_next: release-notes/java/java-2_2_56
+displayed_sidebar: releaseSidebar
+---
+
+2025년 04월 16일
+
+- <Status priority='1'>Feature</Status> JVM 프로세스 기동 시, JVM 설정을 애플리케이션 로그에 표시
+
+- <Status priority='1'>Changed</Status> Tomcat의 java.security 문제로 Valve 추적 지점 선택 여부를 설정을 통해 알 수 있도록 수정
+
+    ```bash 
+    # default: false
+    hook_valve_http_enabled=true
+    ```
+
+    * spring-boot에서 spring-security exception, error status code 데이터를 수집하려면 설정 추가 후 재기동 필요
+
+- <Status priority='0'>Fixed</Status> spring async-annotation 추적 시, 레코드 요약에 표시하는 Parent txid가 절삭되는 현상 방지
+
+import DownloadJava from './_import_dl-java-agent.mdx';
+
+<DownloadJava ver="2.2.57" />

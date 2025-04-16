@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_8_0/",
+    "ver": "v1.8.0",
+    "date": "2025-04-14",
+    "Lists": [
+      {
+        "ver": "v1.8.0",
+        "hash": "v180",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Python 3.12 , 3.13 지원</p>"
+      },
+      {
+        "ver": "v1.8.0",
+        "hash": "v180",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>FastAPI</code>의 StreamingResponse 추적 기능 추가</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_7_9/",
     "ver": "v1.7.9",
     "date": "2025-03-31",

@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_16/",
+    "ver": "v0.5.16",
+    "date": "2025-04-14",
+    "Lists": [
+      {
+        "ver": "v0.5.16",
+        "hash": "v0516",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Redis 모니터링 데이터 누락 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_14/",
     "ver": "v0.5.14",
     "date": "2025-04-04",

@@ -35,9 +35,17 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
 
 * **event** <span class='type'>String</span>
 
-  기본값 
+  기본값: 
 
-  'db file scattered read', 'db file sequential read', 'direct path read', 'direct path write', 'enq: TX - row lock contention', 'latch free', 'library cache lock', 'library cache pin'
+  <details>
+  
+    <summary>총 8개 이벤트 보기</summary>
+
+    `db file scattered read`, `db file sequential read`, `direct path read`  
+    `direct path write`, `enq: TX - row lock contention`, `latch free`  
+    `library cache lock`, `library cache pin`
+  
+  </details>
 
   RAC환경일 때는 gc cr block receive time,gc current block receive time 의 2개 지표를 기본으로 더 수집합니다.
 
@@ -118,17 +126,35 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
 
 * **segments_sys** <span class='type'>String</span>
 
-  기본값 
+  기본값: 
+  
+  <details>
+    <summary>총 18개 계정 보기</summary>
 
-  'SYS', 'OUTLN', 'SYSTEM', 'AUDSYS', 'DBSNMP', 'GSMADMIN_INTERNAL', 'XDB', 'WMSYS', 'OJVMSYS', 'CTXSYS', 'ORDSYS', 'ORDDATA', 'MDSYS', 'LBACSYS', 'DVSYS', 'DBSFWUSER', 'APPQOSSYS', 'OLAPSYS'
+    `SYS`, `OUTLN`, `SYSTEM`, `AUDSYS`, `DBSNMP`, `GSMADMIN_INTERNAL`  
+    `XDB`, `WMSYS`, `OJVMSYS`, `CTXSYS`, `ORDSYS`, `ORDDATA`  
+    `MDSYS`, `LBACSYS`, `DVSYS`, `DBSFWUSER`, `APPQOSSYS`, `OLAPSYS`  
+
+  </details>
 
   sys에 해당하는 계정 목록입니다. 위 계정에 추가하고 싶으면 `segments_sys='xxx','xxx','xxx'`로 위 내용을 포함하여 추가로 적어줍니다.
 
 * **stat** <span class='type'>String</span>
 
-  기본값 
+  기본값: 
 
-  'consistent gets', 'cpu used by this session', 'db block changes', 'db block gets', 'db time', 'data blocks consistent reads - undo records applied', 'enqueue waits', 'execute count', 'logons current', 'opened cursors current', 'parse count (hard)', 'parse count (total)', 'physical reads', 'physical writes', 'redo entries', 'rollback changes - undo records applied', 'session logical reads', 'sorts (disk)', 'sorts (memory)', 'transaction tables consistent reads - undo records applied', 'user commits', 'user rollbacks'
+  <details>
+
+    <summary>총 22개 지표 보기</summary>
+
+    `consistent gets`, `cpu used by this session`, `db block changes`, `db block gets`, `db time`  
+    `data blocks consistent reads - undo records applied`, `enqueue waits`, `execute count`  
+    `logons current`, `opened cursors current`, `parse count (hard)`, `parse count (total)`  
+    `physical reads`, `physical writes`, `redo entries`, `rollback changes - undo records applied`  
+    `session logical reads`, `sorts (disk)`, `sorts (memory)`, `transaction tables consistent reads - undo records applied`
+    `user commits`, `user rollbacks`
+  
+  </details>
 
   `v$sysstat`에서 위 지표에 해당하는 값을 수집합니다. db_oracle_counter 카테고리에서 확인할 수 있습니다.
 

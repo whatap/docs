@@ -6,7 +6,11 @@
 
 데이터베이스 사이즈의 추이를 통해 사용량 패턴 및 데이터 성장을 이해할 수 있습니다. 미래 용량 요구 사항을 예측하고 조치를 취할 수 있습니다. 이러한 변화를 모니터링하는 것은 리소스 및 비용을 최적화하는데 도움이 됩니다.
 
+<Xclude product="sapase">
+
 ## 사용하기 전에
+
+</Xclude>
 
 <InDoc product='mysql'>
 
@@ -133,15 +137,29 @@ grant select on all tables in schema {schema_name} to whatap;
 
 ## 시간별 변화량 확인하기
 
+<Xclude product="sapase">
+
 <ProdImg img='db-database-size-select-db.png' desc='데이터베이스 사이즈'/>
+
+</Xclude>
 
 * <Cmdname sid="TTL06025" className="uitext" /> 
 
   시간대별로 데이터베이스의 전체 크기와 사용량 변화를 시각적으로 확인할 수 있습니다. 차트에서 각 데이터베이스의 크기를 색상으로 구분하여 표시하며, 마우스를 차트 위로 오버한 상태에서 좌우로 이동하세요. 특정 시점의 각 데이터베이스 크기를 툴팁을 통해 상세히 확인할 수 있습니다.
 
+<InDoc product='sapase'>
+
+* <Cmdname sid="disk_used" className="uitext" /> 
+
+  조회한 기간 동안 각 mount point의 디스크 사용량 변화를 확인할 수 있습니다. 시작 시점과 종료 시점의 사용량을 비교하여, 디스크 사용량이 얼마나 증가 또는 감소했는지 시각적으로 파악할 수 있습니다.
+
+</InDoc>
+
 * <Cmdname sid="TTL06026" className="uitext" />
 
   데이터베이스별 용량의 세부 정보를 테이블 형태로 제공합니다. 각 데이터베이스의 이름(**DB NAME**) 및 총 용량(**TOTAL**), 변경량(**CHANGED**)을 확인할 수 있습니다. 특정 데이터베이스를 선택하면 <Cmdname sid="TTL06572" className="uitext" /> 섹션에서 상세 정보를 확인할 수 있습니다.
+
+<Xclude product="sapase">
 
 ## 테이블별 사이즈 확인하기
 
@@ -200,6 +218,8 @@ grant select on all tables in schema {schema_name} to whatap;
 * <Cmdname sid="TTL06572" className="uitext" /> 섹션에서 테이블 컬럼의 순서를 변경하거나 특정 컬럼을 숨기려면 오른쪽 상단에 ![컬럼 아이콘](/img/ico-column.svg) 버튼을 선택하세요. 컬럼 설정에 대한 자세한 내용은 [다음 문서](instance-monitoring#change-column)를 참조하세요.
 
 :::
+
+</Xclude>
 
 ## 조회 데이터 다운로드하기
 

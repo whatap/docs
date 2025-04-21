@@ -5,27 +5,27 @@
 <div class='metric'>
 
 | Metric | Unit | Description |
-| -- | -- | -- |
-| `cpu(xos)` | pct | cpu 사용률, `cpu_user` + `cpu_sys` + `cpu_iowait`의 합입니다. |
-| `cpu_user(xos)` | pct | cpu가 사용자 코드를 실행하는데 소요한 시간입니다. |
-| `cpu_sys(xos)` | pct | cpu가 kernel code를 수행한 시간입니다. |
-| `cpu_iowait(xos)` | pct | cpu가 IO를 대기한 시간입니다. |
-| `cpu_idle(xos)` | pct | cpu 프로세서 유휴 시간입니다. |
-| `disk_reads(xos)` | block | 디스크로부터 읽은 데이터의 양입니다. |
-| `disk_read_bytes(xos)` | byte | 디스크로부터 읽은 데이터의 양입니다. |
-| `disk_writes(xos)` | block | 디스크로 쓰여진 데이터의 양입니다. |
-| `disk_write_bytes(xos)` | byte | 디스크로 쓰여진 데이터의 양입니다. |
-| `mem(xos)` | pct | 메모리 사용률입니다. |
-| `mem_total(xos)` | MB | 전체 메모리양입니다. |
-| `mem_free(xos)` | MB | 시스템에서 사용하고 있지 않은 메모리양입니다. |
-| `mem_used(xos)` | MB | 시스템에서 사용하고 있는 메모리양입니다. |
-| `mem_buffcache(xos)` | MB | buff/cache로 사용 중인 메모리양입니다. |
-| `mem_swaptotal(xos)` | MB | Swap 전체 사이즈, 물리메모리가 부족한 경우를 대비하여 설정합니다. |
-| `mem_swapfree(xos)` | MB | Swap의 사용하지 않은 영역, Swap 영역은 디스크 공간에 확보되기 때문에 Swap을 사용하고 있다면 시스템 성능이 급격하게 떨어질 수 있습니다. |
-| `mem_available(xos)` | MB | 메모리 가용영역입니다. |
-| `net_recv_bytes(xos)` | byte | 네트워크로 수신된 데이터의 양입니다. |
-| `net_recv_packets(xos)` | - | 네트워크로 수신된 데이터 패킷의 수입니다. |
-| `net_send_bytes(xos)` | byte | 네트워크로 전송한 데이터의 양입니다. |
-| `net_send_packets(xos)` | - | 네트워크로 전송한 데이터 패킷의 수입니다. |
+| --- | --- | --- |
+| `cpu(xos)` | pct | CPU 사용률. `cpu_user` + `cpu_sys` + `cpu_iowait`의 합 |
+| `cpu_idle(xos)` | pct | CPU가 유휴 상태인 시간 |
+| `cpu_iowait(xos)` | pct | CPU가 I/O 작업을 대기한 시간 |
+| `cpu_sys(xos)` | pct | CPU가 커널 코드 실행에 사용된 시간 |
+| `cpu_user(xos)` | pct | CPU가 사용자 코드 실행에 사용된 시간 |
+| `disk_read_bytes(xos)` | byte | 디스크에서 읽은 데이터 양 |
+| `disk_reads(xos)` | block | 디스크에서 읽은 블록 수 |
+| `disk_write_bytes(xos)` | byte | 디스크에 기록된 데이터 양 |
+| `disk_writes(xos)` | block | 디스크에 기록된 블록 수 |
+| `mem(xos)` | pct | 메모리 사용률 |
+| `mem_available(xos)` | MB | 가용한 메모리 크기 |
+| `mem_buffcache(xos)` | MB | buff/cache 용도로 사용 중인 메모리 크기 |
+| `mem_free(xos)` | MB | 사용 중이지 않은 메모리 크기 |
+| `mem_swapfree(xos)` | MB | 사용되지 않은 스왑 영역 크기. 스왑은 디스크 공간을 사용하므로, 사용 시 성능 저하 가능성 있음 |
+| `mem_swaptotal(xos)` | MB | 전체 스왑(Swap) 크기. 물리 메모리 부족 시 사용 |
+| `mem_total(xos)` | MB | 전체 메모리 크기 |
+| `mem_used(xos)` | MB | 사용 중인 메모리 크기 |
+| `net_recv_bytes(xos)` | byte | 네트워크에서 수신한 데이터 양 |
+| `net_recv_packets(xos)` | count | 네트워크에서 수신한 패킷 수 |
+| `net_send_bytes(xos)` | byte | 네트워크로 전송한 데이터 양 |
+| `net_send_packets(xos)` | count | 네트워크로 전송한 패킷 수 |
 
 </div>

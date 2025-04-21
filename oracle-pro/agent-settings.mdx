@@ -76,7 +76,17 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
 
 * **event** <span class='type'>String</span>
   
-  기본값 'db file sequential read', 'db file scattered read', 'enq: TX - row lock contention', 'latch free', 'direct path read', 'direct path write', 'library cache pin', 'library cache lock'
+  기본값:
+    
+  <details>
+  
+    <summary>총 8개 이벤트 보기</summary>
+
+    `db file scattered read`, `db file sequential read`, `direct path read`  
+    `direct path write`, `enq: TX - row lock contention`, `latch free`  
+    `library cache lock`, `library cache pin`
+  
+  </details>
 
   RAC환경일 때는 gc cr block receive time,gc current block receive time 의 2개 지표를 기본으로 더 수집합니다. 
 
@@ -160,14 +170,37 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
 
 * **segments_sys** <span class='type'>String</span>
   
-  기본값 'SYS', 'OUTLN', 'SYSTEM', 'AUDSYS', 'DBSNMP', 'GSMADMIN_INTERNAL', 'XDB', 'WMSYS', 'OJVMSYS', 'CTXSYS', 'ORDSYS', 'ORDDATA', 'MDSYS', 'LBACSYS', 'DVSYS', 'DBSFWUSER', 'APPQOSSYS', 'OLAPSYS'
+  기본값:
+
+  <details>
+
+    <summary>총 18개 계정 보기</summary>
+
+    `APPQOSSYS`, `AUDSYS`, `CTXSYS`, `DBSFWUSER`, `DBSNMP`, `DVSYS`  
+    `GSMADMIN_INTERNAL`, `LBACSYS`, `MDSYS`, `OJVMSYS`, `OLAPSYS`    
+    `ORDDATA`, `ORDSYS`, `OUTLN`, `SYS`, `SYSTEM`, `WMSYS`, `XDB`
+
+  </details>
 
   sys에 해당하는 계정 목록입니다. 위 계정에 추가하고 싶으면 `segments_sys+='xxx'`로 추가할 수 있습니다.
 
 * **stat** <span class='type'>String</span>
   
-  기본값 'logons current', 'user commits', 'session logical reads', 'CPU used by this session', 'DB time', 'enqueue waits', 'physical reads', 'physical writes', 'execute count', 'db block changes', 'opened cursors current', 'parse count (total)', 'parse count (hard)', 'sorts (memory)', 'transaction tables consistent reads - undo records applied', 'data blocks consistent reads - undo records applied', 'rollback changes - undo records applied', 'redo entries', 'user rollbacks', 'sorts (disk)'
+  기본값:
+    
+  <details>
   
+    <summary>총 20개 지표 보기</summary>
+
+    `CPU used by this session`, `data blocks consistent reads - undo records applied`, `db block changes`  
+    `db time`, `enqueue waits`, `execute count`, `logons current`, `opened cursors current`  
+    `parse count (hard)`, `parse count (total)`, `physical reads`, `physical writes`, `redo entries`  
+    `rollback changes - undo records applied`, `session logical reads`, `sorts (disk)`, `sorts (memory)`  
+    `transaction tables consistent reads - undo records applied`, `user commits`, `user rollbacks`
+  
+  </details>
+
+
   통계 관련 지표를 수집하도록 설정합니다. `v$sysstat`, `v$statname` 등의 `NAME` 컬럼을 참조해 수집하길 원하는 지표 이름을 작성하세요. `stat+=`와 같은 방식으로 작성하면 기본 지표들과 함께 추가로 수집할 수 있습니다. 공백 없이 쉼표(,)를 구분자로 이용해 여러 개를 입력할 수 있습니다.
 
 * **topevent** <span class='type'>Int</span>

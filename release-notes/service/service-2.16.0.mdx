@@ -139,25 +139,6 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_report" className="uitext" /> 메뉴에서 *front.conf* 옵션의 `ui_report_download_label` 설정에 따라 다운로드 파일명 포맷이 변경되도록 수정
 
-- <Status priority='1'>Changed</Status> ***워크로드*** > ***Deployment 목록*** 신규 지표 추가 (쿠버네티스 에이전트 버전 1.8.7)
-
-    - **제거되는 컬럼**
-
-        - ReplicaSets, TotalPods, Running Pods → PodPhase로 대체
-
-        - TotalContainers, RunningContainers → ContainerState로 대체
-
-    - **추가되는 컬럼**
-
-        - PodPhase, ContainerState, Ready, deployUpdatedReplicas, deployAvailableReplicas, deployCreationTime
-
-
-        :::note 
-
-        쿠버네티스 에이전트 버전 1.8.7 이상에서만 노출되며, 이전 버전의 에이전트를 사용할 경우 기존과 동일하게 표시됩니다.
-
-        :::
-
 ---
 
 ### `Database`

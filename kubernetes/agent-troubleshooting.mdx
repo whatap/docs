@@ -149,7 +149,7 @@ kubectl describe pod/<와탭 k8s 에이전트 파드명> -n whatap-monitoring
 #### 조회 결과
 
 ```yaml
-&gt; &gt; Failed to pull image "whatap/kube_mon:latest": rpc error: code = Unknown desc = toomanyrequests: You have reached your pull rate limit. Please try again later or log in to increase your rate limit.
+> > Failed to pull image "whatap/kube_mon:latest": rpc error: code = Unknown desc = toomanyrequests: You have reached your pull rate limit. Please try again later or log in to increase your rate limit.
 ```
 
 이 경우, `yaml` 파일 내 DockerHub 이미지를 public.ecr.aws 레포로 변경한 후 재설치가 필요합니다.

@@ -10,7 +10,7 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 ### Tags {#db_mysql_counter-tags}
 
-다음은 `db_mysql_counter` 카테고리에 수집되는 태그값에 대한 안내입니다.
+`db_mysql_counter` 카테고리에 수집되는 태그값에 대한 안내입니다.
 
 | Tags | Description | Additional Info |
 | -- | -- | -- |
@@ -23,18 +23,18 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 
 ### Field {#db_mysql_counter-filed}
 
-다음은 `db_mysql_counter` 카테고리에 수집되는 필드값에 대한 안내입니다.
+`db_mysql_counter` 카테고리에 수집되는 필드값에 대한 안내입니다.
 
 <div class='metric'>
 
 | Metric | Category / Unit | Description |
 | --- | --- | --- |
 | aborted_clients | Connection | 비정상적으로 종료된 클라이언트 연결 횟수 |
-| access_denied_errors | Connection | 로그인 실패 횟수 <br/> 잘못된 사용자명/비밀번호 사용 시 증가 |
-| active_sessions | Connection | 쿼리를 실행 중인 세션 수<br/> threads_running과 동일 |
+| access_denied_errors | Connection | 로그인 실패 횟수 <br/> - 잘못된 사용자명/비밀번호 사용 시 증가 |
+| active_sessions | Connection | 쿼리를 실행 중인 세션 수<br/> - threads_running과 동일 |
 | active_transactions | Throughput | Active Transaction 수 |
-| bytes_received | Throughput / Byte | 클라이언트로부터 수신한 총 바이트 수<br/> 값이 높으면 쓰기 작업 중심 서버로 추정 |
-| bytes_sent | Throughput / Byte | 클라이언트에게 전송한 총 바이트 수<br/> 값이 높으면 읽기 작업 중심 서버로 추정<br/> Questions, Uptime과 함께 분석 시 유용 |
+| bytes_received | Throughput / Byte | 클라이언트로부터 수신한 총 바이트 수<br/> - 값이 높으면 쓰기 작업 중심 서버로 추정 |
+| bytes_sent | Throughput / Byte | 클라이언트에게 전송한 총 바이트 수<br/> - 값이 높으면 읽기 작업 중심 서버로 추정<br/> - Questions, Uptime과 함께 분석 시 유용 |
 | com_commit | Throughput | COMMIT 명령을 실행한 횟수 |
 | com_delete | Throughput | DELETE 명령을 실행한 횟수 |
 | com_insert | Throughput | INSERT 명령을 실행한 횟수 |
@@ -42,36 +42,36 @@ import AgentStatus from "../common-items/_agent-status-summary-metrics.mdx";
 | com_select | Throughput | SELECT 명령을 실행한 횟수 |
 | com_update | Throughput | UPDATE 명령을 실행한 횟수 |
 | connections | Connection | 클라이언트가 MySQL 서버에 연결을 시도한 횟수 |
-| created_tmp_disk_tables | Performance | 디스크에 생성된 임시 테이블 수<br/> 조인/정렬/그룹핑 시 메모리 부족으로 발생<br/> tmp_table_size, max_heap_table_size 조정 고려 |
+| created_tmp_disk_tables | Performance | 디스크에 생성된 임시 테이블 수<br/> - 조인/정렬/그룹핑 시 메모리 부족으로 발생<br/> - tmp_table_size, max_heap_table_size 조정 고려 |
 | created_tmp_files | Performance | 생성된 임시 파일 수 |
-| created_tmp_tables | Performance | 서버에 의해 생성된 내부 임시 테이블 <br/> UNION ALL, ORDER BY, GROUP BY 등에서 사용<br/> 디스크 임시 테이블 비율 10% 미만 권장 |
+| created_tmp_tables | Performance | 서버에 의해 생성된 내부 임시 테이블 <br/> - UNION ALL, ORDER BY, GROUP BY 등에서 사용<br/> - 디스크 임시 테이블 비율 10% 미만 권장 |
 | innodb_buffer_pool_pages_free | InnoDB | 전체 버퍼 풀에서 사용하지 않은(사용 가능한) 페이지 수 |
 | innodb_buffer_pool_pages_total | InnoDB | 전체 버퍼 풀의 페이지 수 |
-| innodb_buffer_pool_read_requests | InnoDB | 버퍼 풀에서 읽기 시도된 페이지 수<br/> Buffer Hit Ratio = (1 - (innodb_buffer_pool_reads / innodb_buffer_pool_read_requests)) * 100<br/> 90% 이상 권장, 낮으면 innodb_buffer_pool_size 증설 고려 |
-| innodb_buffer_pool_reads | InnoDB | 디스크에서 읽은 페이지 수<br/> 값이 높으면 버퍼 풀 적중률이 낮음 |
+| innodb_buffer_pool_read_requests | InnoDB | 버퍼 풀에서 읽기 시도된 페이지 수<br/> - Buffer Hit Ratio = (1 - (innodb_buffer_pool_reads / innodb_buffer_pool_read_requests)) * 100<br/> - 90% 이상 권장, 낮으면 innodb_buffer_pool_size 증설 고려 |
+| innodb_buffer_pool_reads | InnoDB | 디스크에서 읽은 페이지 수<br/> - 값이 높으면 버퍼 풀 적중률이 낮음 |
 | innodb_buffer_pool_wait_free | InnoDB | 버퍼 풀에서 빈 페이지가 없어서 디스크 플러시를 기다린 횟수 |
-| innodb_log_waits | InnoDB | 로그 버퍼가 가득 차서 디스크 쓰기를 기다린 횟수<br/> Redo log 경합 비율 = innodb_log_waits / innodb_log_writes<br/> 1 미만을 권장하며 값이 높으면 innodb_log_buffer_size 증설 고려 |
+| innodb_log_waits | InnoDB | 로그 버퍼가 가득 차서 디스크 쓰기를 기다린 횟수<br/> - Redo log 경합 비율 = innodb_log_waits / innodb_log_writes<br/> - 1 미만을 권장하며 값이 높으면 innodb_log_buffer_size 증설 고려 |
 | innodb_rows_deleted | InnoDB | InnoDB 테이블에서 삭제된 행 수 |
 | innodb_rows_inserted | InnoDB | InnoDB 테이블에 삽입된 행 수 |
 | innodb_rows_read | InnoDB | SELECT에서 처리된 행 수 |
 | innodb_rows_updated | InnoDB | InnoDB 테이블로 업데이트된 행 수 |
-| innodb_rows_writes | InnoDB | 쓰기 작업 처리된 행 수<br/> innodb_rows_inserted + innodb_rows_updated + innodb_rows_deleted |
+| innodb_rows_writes | InnoDB | 쓰기 작업 처리된 행 수<br/> - innodb_rows_inserted + innodb_rows_updated + innodb_rows_deleted |
 | innodb_row_lock_time | InnoDB / ms | row lock 획득에 소비된 총 시간 (milliseconds) |
-| innodb_row_lock_waits | InnoDB | row lock을 대기한 횟수<br/> 값이 급증하면 쿼리 튜닝 필요 |
-| lock_wait_sessions | Performance | row lock을 대기 중인 세션 수<br/> innodb_row_lock_current_waits와 동일 |
-| max_connections | Connection | 최대 동시 클라이언트 연결 횟수<br/> 커넥션 수 부족 시 **Too Many Connection** 에러 발생 가능 |
-| queries | Throughput | 전체 실행된 SQL 문 개수<br/> Stored program 내에서 실행된 statement 포함 |
-| questions | Throughput | MySQL 서버에서 실행한 명령문 수<br/> Stored program 내에서 실행된 statement 제외 |
-| replication_delay | Performance / sec | replication 지연 시간 (초)<br/> Slave DB에서 측정됨 |
-| select_full_join | Performance | 인덱스를 사용하지 않고 full join이 발생한 횟수<br/> 값이 크면 인덱스 누락 검토 필요 |
-| select_scan | Performance | 인덱스를 사용하지 않고 풀 테이블 스캔한 횟수<br/> 실행 계획에서 type = ALL 쿼리 점검 필요 |
-| slow_queries | Performance | long_query_time 이상 걸린 쿼리 수<br/> 값이 급증하면 slow query log 확인 필요 |
-| sort_merge_passes | Performance | sort merge pass 횟수<br/> 값이 높으면 쿼리 색인 개선 또는 sort_buffer_size 증설 고려 |
-| table_locks_waited | Performance | 다른 잠금이 이미 해당 테이블을 사용하고 있어 기다린 횟수<br/> 잠금 대기 비율 = table_locks_waited / (table_locks_immediate + table_locks_waited) * 100<br/> 값이 높으면 쿼리 최적화 및 테이블 분할/복제 고려 |
+| innodb_row_lock_waits | InnoDB | row lock을 대기한 횟수<br/> - 값이 급증하면 쿼리 튜닝 필요 |
+| lock_wait_sessions | Performance | row lock을 대기 중인 세션 수<br/> - innodb_row_lock_current_waits와 동일 |
+| max_connections | Connection | 최대 동시 클라이언트 연결 횟수<br/> - 커넥션 수 부족 시 **Too Many Connection** 에러 발생 가능 |
+| queries | Throughput | 전체 실행된 SQL 문 개수<br/> - Stored program 내에서 실행된 statement 포함 |
+| questions | Throughput | MySQL 서버에서 실행한 명령문 수<br/> - Stored program 내에서 실행된 statement 제외 |
+| replication_delay | Performance / sec | replication 지연 시간 (초)<br/> - Slave DB에서 측정됨 |
+| select_full_join | Performance | 인덱스를 사용하지 않고 full join이 발생한 횟수<br/> - 값이 크면 인덱스 누락 검토 필요 |
+| select_scan | Performance | 인덱스를 사용하지 않고 풀 테이블 스캔한 횟수<br/> - 실행 계획에서 type = ALL 쿼리 점검 필요 |
+| slow_queries | Performance | long_query_time 이상 걸린 쿼리 수<br/> - 값이 급증하면 slow query log 확인 필요 |
+| sort_merge_passes | Performance | sort merge pass 횟수<br/> - 값이 높으면 쿼리 색인 개선 또는 sort_buffer_size 증설 고려 |
+| table_locks_waited | Performance | 다른 잠금이 이미 해당 테이블을 사용하고 있어 기다린 횟수<br/> - 잠금 대기 비율 = table_locks_waited / (table_locks_immediate + table_locks_waited) * 100<br/> - 값이 높으면 쿼리 최적화 및 테이블 분할/복제 고려 |
 | table_open_cache_misses | Performance | 테이블을 열려고 시도했으나 캐시에 없어 열린 횟수 |
-| threads_connected | Connection | 현재 연결된 클라이언트 수<br/> 갑자기 증가하면 커넥션 누수 여부 점검 권장 |
-| threads_running | Throughput | 현재 실행 중인 스레드 수<br/> 지속적으로 높다면 병목 가능성 있음 |
-| trx_rseg_history_len | Performance | Undo 레코드 저장공간 사용량<br/> 계속 증가하면 성능 저하 가능성 있음 |
+| threads_connected | Connection | 현재 연결된 클라이언트 수<br/> - 갑자기 증가하면 커넥션 누수 여부 점검 권장 |
+| threads_running | Throughput | 현재 실행 중인 스레드 수<br/> - 지속적으로 높다면 병목 가능성 있음 |
+| trx_rseg_history_len | Performance | Undo 레코드 저장공간 사용량<br/> - 계속 증가하면 성능 저하 가능성 있음 |
 | uptime | Performance | MySQL 서버 실행 이후 경과 시간 (초) |
 
 </div>

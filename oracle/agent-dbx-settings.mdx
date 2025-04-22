@@ -41,13 +41,12 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
   
     <summary>총 8개 이벤트 보기</summary>
 
-    `db file scattered read`, `db file sequential read`, `direct path read`  
-    `direct path write`, `enq: TX - row lock contention`, `latch free`  
-    `library cache lock`, `library cache pin`
+    `db file scattered read`, `db file sequential read`, `direct path read`, `direct path write`,  
+    `enq: TX - row lock contention`, `latch free`, `library cache lock`, `library cache pin`
   
   </details>
 
-  RAC환경일 때는 gc cr block receive time,gc current block receive time 의 2개 지표를 기본으로 더 수집합니다.
+  RAC환경일 때는 gc cr block receive time, gc current block receive time 의 2개 지표를 기본으로 더 수집합니다.
 
   `v$system_event`에서 위 지표에 해당하는 값을 수집합니다. db_oracle_counter 카테고리에서 확인할 수 있으며 이벤트 하나당 다음 3가지 값을 수집합니다.
 
@@ -131,8 +130,8 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
   <details>
     <summary>총 18개 계정 보기</summary>
 
-    `SYS`, `OUTLN`, `SYSTEM`, `AUDSYS`, `DBSNMP`, `GSMADMIN_INTERNAL`  
-    `XDB`, `WMSYS`, `OJVMSYS`, `CTXSYS`, `ORDSYS`, `ORDDATA`  
+    `SYS`, `OUTLN`, `SYSTEM`, `AUDSYS`, `DBSNMP`, `GSMADMIN_INTERNAL`,  
+    `XDB`, `WMSYS`, `OJVMSYS`, `CTXSYS`, `ORDSYS`, `ORDDATA`,  
     `MDSYS`, `LBACSYS`, `DVSYS`, `DBSFWUSER`, `APPQOSSYS`, `OLAPSYS`  
 
   </details>
@@ -147,11 +146,11 @@ import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.md
 
     <summary>총 22개 지표 보기</summary>
 
-    `consistent gets`, `cpu used by this session`, `db block changes`, `db block gets`, `db time`  
-    `data blocks consistent reads - undo records applied`, `enqueue waits`, `execute count`  
-    `logons current`, `opened cursors current`, `parse count (hard)`, `parse count (total)`  
-    `physical reads`, `physical writes`, `redo entries`, `rollback changes - undo records applied`  
-    `session logical reads`, `sorts (disk)`, `sorts (memory)`, `transaction tables consistent reads - undo records applied`
+    `consistent gets`, `cpu used by this session`, `db block changes`, `db block gets`, `db time`,  
+    `data blocks consistent reads - undo records applied`, `enqueue waits`, `execute count`,  
+    `logons current`, `opened cursors current`, `parse count (hard)`, `parse count (total)`,  
+    `physical reads`, `physical writes`, `redo entries`, `rollback changes - undo records applied`,  
+    `session logical reads`, `sorts (disk)`, `sorts (memory)`, `transaction tables consistent reads - undo records applied`,
     `user commits`, `user rollbacks`
   
   </details>

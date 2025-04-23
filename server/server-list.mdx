@@ -7,7 +7,7 @@ keywords: [ 서버 목록, 분석하기, UI, Server ]
 
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" />
 
-와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴를 선택하세요. <Cmdname sid="side_serverList" className="uitext" />은 수집 서버의 전체 현황을 나타내며 서버 관리기능 및 서버 간 비교 기능을 제공합니다.
+와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 후, <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴를 선택하세요. <Cmdname sid="side_serverList" className="uitext" />은 수집 서버의 전체 현황을 나타내며 서버 관리기능 및 서버 간 비교 기능을 제공합니다.
 
 <ImgLang img='server-list.png' desc='서버 목록'/>
 
@@ -41,9 +41,53 @@ keywords: [ 서버 목록, 분석하기, UI, Server ]
 
 * ![아이콘](/img/ic-s-pause.svg) <Cmdname sid="status_paused" className="b600" />: 에이전트에서 데이터 수집을 일시적으로 중지한 상태입니다.
 
-## ![](/img/number-02.png) 검색
+## ![](/img/number-01.png) 검색
 
-상단 오른쪽 ![number-s](/img/number-02.png) ***검색창***을 활용해 서버 이름(ONAME), 서버 아이디(OID), 태그 중에서 입력값이 포함된 서버 목록을 필터링할 수 있습니다.
+상단 오른쪽 ![number-s](/img/number-01.png) ***검색창***을 활용해 서버 이름(ONAME)와 서버 아이디(OID) 중에서 입력값이 포함된 서버 목록을 필터링할 수 있습니다.
+
+## ![](/img/number-02.png) 필터
+
+입력 창에 값을 직접 입력하거나 필터 추가하기로 필터를 지정할 수 있습니다. 필터 태그는 `필터 키`, `조건`, `검색 값`의 순서로 입력합니다. 
+
+#### 필터 키, 조건, 검색 값 입력
+
+* `필터 키` 입력 시 에이전트 명, CPU Used %, Memory Used %, Disk Used %, Disk I/O %, Network Traffic, private_ip 옵션을 제공합니다.
+
+* `조건` 입력 시 `>`, `<`, `<=`, `>=`, `==`, `!=` 옵션을 제공합니다.
+
+* `검색 값` 입력 시 일치 검색(`>`, `<`, `<=`, `>=`, `==`)일 때 <span class='normal'>파란색</span>으로, 제외 검색(`!=`)일 때 <span class='vslow'>붉은색</span>으로 하이라이팅합니다. 
+
+* `검색 값` 입력 시 대소문자 구분 옵션을 활용해 검색할 수 있습니다.
+
+:::note 
+
+* 필터 태그가 2줄 이상 길어지는 경우 ![아이콘](/img/up-arrow.svg) ***접기*** 아이콘을 선택해 접어둘 수 있습니다.
+
+* 필터 태그 입력 후 입력 창에서 Shift와 Tab 키를 동시에 사용하여 이전 필터 태그로 이동할 수 있습니다. 
+
+* 필터 태그 입력 후 입력 창에서 Tab 키를 통해 다음 필터 태그로 이동할 수 있습니다. 
+
+:::
+
+#### 필터 태그 제거
+
+* Backspace로 삭제할 수 있습니다.
+
+* 태그의 ***X*** 아이콘 선택 시 태그를 삭제할 수 있습니다.
+
+* 입력 창의 전체 삭제 ***X*** 아이콘 선택 시 전체 태그를 삭제할 수 있습니다.
+
+#### 필터 즐겨찾기 {#log-filter-fav}
+
+필터 ***즐겨찾기*** 기능을 제공합니다. 입력 창 오른쪽의 ![즐겨찾기 아이콘](/img/ic-star.svg) ***즐겨찾기*** 아이콘을 선택하여 원하는 필터 검색 조건을 즐겨찾기에 ***추가***, ***제거*** 및 기존 즐겨찾기를 선택할 수 있습니다.
+
+#### 필터 적용 예외 상황 
+
+* 숫자만 입력할 수 있는 인덱스(`.n`으로 끝나는 `검색 키`)를 입력한 태그에서 `검색 값`은 숫자만 입력할 수 있습니다.
+
+* 중복된 `조건 키`, `검색 값`은 입력할 수 없습니다.
+
+* `조건 키`, `검색 값` 중 하나라도 없는 태그가 존재할 때 검색할 수 없습니다. 유효하지 않는 태그의 경우 <span class='mstop'>회색</span>으로 표시합니다.
 
 ## ![](/img/number-03.png) 서버 현황
 
@@ -96,18 +140,6 @@ keywords: [ 서버 목록, 분석하기, UI, Server ]
 ### 새로고침
 
 ![새로고침 아이콘](/img/ic-refresh2.svg) <Cmdname sid="refresh" className="uitext" /> 버튼을 클릭하면 사용자는 현재 시간을 기준으로 데이터를 갱신할 수 있습니다.
-
-### 필터 
-
-![number-s](/img/number-03.png) 영역 상단 메뉴에서 ![필터 아이콘](/img/ico-filter.svg) <Cmdname sid="filter" className="uitext" /> 버튼을 클릭하면 태그를 통해 서버를 필터링할 수 있습니다. 
-
-태그는 에이전트를 설치할 때 자동으로 부여됩니다. 사용자 입력값을 추가할 수 있습니다. 태그를 통해 수집 서버를 식별하거나 서버 현황을 필터링합니다.
-
-<ImgLang img='server-list-filter.png' desc='서버 목록 필터'/>
-
-* ![number-s](/img/number-04.png) 영역에서 태그를 선택하여 서버 현황을 필터링할 수 있습니다. 
-
-* 에이전트별 태그를 입력하여 새로운 태그 기능을 활성화 할 수 있습니다. ![number-s](/img/number-05.png) 영역 입력창을 확인하세요.
 
 ### 모니터링 관리
 

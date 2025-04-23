@@ -36,6 +36,10 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_organizationMembers" className="uitext" /> 및 <Cmdname sid="invite_member" className="uitext" />에서 멤버 이메일 옆에 MFA 및 SSO 사용 여부 표시 기능 추가
 
+- <Status priority='1'>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" /> 메뉴의 3rd 파티 플러그인의 Webhook JSON 응답값 커스텀 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메트릭스 이벤트 설정 시 카테고리 선택, 지표 설정, 이벤트 대상 선택 단계에서 메트릭스 검색 기능 추가
+
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_flexboard" className="uitext" />의 차트 툴팁에서 WriteLatency, ReadLatency 데이터 소수점 5자리까지 표시
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 위젯 <Cmdname sid="project_selection" className="uitext" /> 설정 시, <Cmdname sid="project_selected_from other widgets" className="uitext" />의 툴팁 위치 변경
@@ -129,10 +133,6 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_node" className="uitext" /> &gt; <Cmdname sid="node_list" className="uitext" /> 컬럼 왼쪽의 확장 버튼 클릭 시 디스크 정보 추가
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" /> 메뉴의 3rd 파티 플러그인의 Webhook JSON 응답값 커스텀 기능 추가
-
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메트릭스 이벤트 설정 시 카테고리 선택, 지표 설정, 이벤트 대상 선택 단계에서 메트릭스 검색 기능을 추가
-
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="container_map" className="uitext" /> 메뉴의 컨테이너 뷰의 지표 선택 옵션에서 KubeConState 지표를 기본 옵션으로 지정하고, 지표에 대한 설명 추가
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" />  &gt; <Cmdname sid="container_map" className="uitext" /> 메뉴의 EventConState 지표명을 WhaTapScore로 변경
@@ -188,7 +188,7 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <UI>RAC 모니터링</UI>에서 알림 위젯에 표시된 인스턴스에 해당하는 알림만 보여지도록 개선
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_dbWaitAnalysis" className="uitext" /> Top 5 테이블 및 Latch, Enququq 차트의 데이터 조회 테이블을 `db_(platform)event_wait_top` → `db(platform)_event_time_top`으로 변경
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dbWaitAnalysis" className="uitext" /> Top 5 테이블 및 Latch, Enqueue 차트의 데이터 조회 테이블을 `db_(platform)event_wait_top` → `db(platform)_event_time_top`으로 변경
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 쿼리 클릭 시 보여지는 <Cmdname sid="TTL06224" className="uitext" /> 창에서 Runtime Plan, Plan History, Bind Capture 탭의 시간이 모두 동일하게 보여지도록 수정
 

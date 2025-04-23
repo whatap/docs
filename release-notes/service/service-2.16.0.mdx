@@ -1,0 +1,247 @@
+---
+id: service-2_16_x
+title: Service 2.16.X
+toc_max_heading_level: 2
+pagination_next: release-notes/service/service-2_15_x
+displayed_sidebar: releaseSidebar
+---
+
+## Service 2.16.0
+
+2025년 04월 23일 
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status priority='1'>Feature</Status> 프로젝트 목록에 마우스 오버 시 프로젝트 설명이 표시되도록 개선
+
+- <Status priority='1'>Feature</Status> 실시간 알림 발생 시, 브라우저 알림으로도 확인 가능
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" />의 TopN 위젯에 수평선 옵션 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_eventSetting" className="uitext" /> 메뉴에 이벤트 동작 시간 기능 추가
+    
+  - **이벤트 설정 V1**
+
+    메트릭스/복합 메트릭스/이상치 탐지/실시간 복합 로그/서버 로그 → 이벤트 수신 태그 위 추가
+
+    히트맵 패턴 → 카드 최하단에 추가
+
+  - **이벤트 설정 V2**
+
+    기본/메트릭스 → 해소된 알림 다음 항목으로 추가
+
+    그 외 항목은 V1과 동일
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_organizationMembers" className="uitext" /> 및 <Cmdname sid="invite_member" className="uitext" />에서 멤버 이메일 옆에 MFA 및 SSO 사용 여부 표시 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_flexboard" className="uitext" />의 차트 툴팁에서 WriteLatency, ReadLatency 데이터 소수점 5자리까지 표시
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 위젯 <Cmdname sid="project_selection" className="uitext" /> 설정 시, <Cmdname sid="project_selected_from other widgets" className="uitext" />의 툴팁 위치 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="site_management" className="uitext" /> &gt; <Cmdname sid="side_metricsCategory" className="uitext" /> &gt; <Cmdname sid="side_metricsRebuild" className="uitext" />에서 요청이 처리되지 않았을 때 재요청이 불가능하도록 수정
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" /> 메뉴에서 알림 설정 권한이 없는 사용자가 할당된 이벤트 수신 태그를 볼 수 있도록 수정
+
+- <Status priority='0'>Fixed</Status> 시간 선택자(타임 셀렉터)에서 고정된 시간이 사라지거나 중복된 시간이 저장되는 현상 수정
+
+- <Status priority='0'>Fixed</Status> JSON으로 <Cmdname sid="side_event" className="uitext" /> 이벤트 설정 시 중복 알람 등록 문제 수정
+
+---
+
+### `Application`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="TTL06209" className="uitext" /> 창에서 목록이 포커스된 상태일 때 키보드 방향키로 트레이스를 선택할 수 있는 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="AA002" className="uitext" /> 화면에서 액티브 트랜잭션 목록을 CSV로 다운로드 가능
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="transaction_map" className="uitext" /> 과거 데이터 조회 기능 강화
+
+    - 최대 조회 가능 시간 범위 확대(10분 → 1시간)
+
+    - 필터 항목 추가
+
+        {/* - front.config의 `ui_transaction_map_custom_filter` 옵션(값: `true`/`false`)을 `true`로 설정 시, 커스텀 필터 기능 활성화 */}
+
+        <details>
+        <summary>추가된 필터 항목</summary>
+
+        - **일반 필터**  
+
+        - **Referer**  
+        로그인 ID, WClientId, 트랜잭션 ID, 멀티 트랜잭션 ID, 커스텀 TID, 에러 (클래스, 단계, 메시지 전부 포함), 도시, 국가, HTTP 메소드, 유저 에이전트
+
+        - **트레이스 스텝 관련 필터**  
+        DBC, SQL, HTTPC, METHOD, MESSAGE
+
+        - **숫자 입력 필터**  
+        경과시간, HTTP 호출 시간, HTTP 호출 건수, SQL 시간, SQL 건수, 상태
+
+        </details>
+
+    - 필터 데이터로 조회된 총 트랜잭션 수(Read 항목) 표시 추가
+
+    - Read, Limit 항목에 대한 설명 툴팁 추가
+
+    - 과거 데이터 조회 시 일시정지 기능 추가
+
+        - 과거 데이터 검색 중(로딩중), 검색 버튼 클릭 시 조회 일시 정지
+
+        - 동일한 검색 조건(시간, 필터)으로 다시 검색하면 정지된 시점부터 이어서 데이터를 조회  
+        (검색 조건 변경 시 차트 초기화하고 새로 그리기 시작)
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="tx_search" className="uitext" /> CSV 다운로드 방식 변경
+
+- <Status priority='0'>Fixed</Status> 멀티 트랜잭션 내 다른 프로젝트의 트레이스 정보가 포함된 경우, 일부 조회 오류 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="transaction_map" className="uitext" /> 과거 데이터 조회 시 로딩이 간헐적으로 종료되지 않는 현상 수정
+
+#### Java
+
+<Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_agentResourceDashboard" className="uitext" /> 메뉴에서 GC 관련 위젯명 수정
+
+---
+
+### `Server`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴에서 서버에 마우스 오버 시 나타나는 팝오버에 상태별 이벤트 수 표시 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> &gt; **상세 보기** 창에서 서버에 마우스 오버 시 팝오버에 상태별 이벤트 수 표시 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 메뉴에서 <Cmdname sid="column_settings" className="uitext" /> 버튼 클릭 시 프리셋을 관리하고 다른 사용자와 설정 공유 가능
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverInventory" className="uitext" /> GPU Count 컬럼 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverMetricsExplorer" className="uitext" />에 단일 서버의 여러 메트릭 정보를 하나의 차트로 확인할 수 있는 카테고리 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="report" className="uitext" /> 메뉴에서 디스크 필터 템플릿 선택 시, 마운트 포인트 셀렉터 UI 추가 (예. 일간 시간별 서버 주요 지표 보고서)
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" />에 필터 및 즐겨찾기 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" />에 tag 검색, tag 기능 삭제
+
+---
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_appl" className="uitext" /> 모니터링 시 <Cmdname sid="TTL06209" className="uitext" /> 창의 <Cmdname sid="TTL06125" className="uitext" /> 탭에서 컨테이너 및 Pod 요약 분석 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_node" className="uitext" /> &gt; <Cmdname sid="node_list" className="uitext" /> 컬럼 왼쪽의 확장 버튼 클릭 시 디스크 정보 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="eventNoti" className="uitext" /> 메뉴의 3rd 파티 플러그인의 Webhook JSON 응답값 커스텀 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 메트릭스 이벤트 설정 시 카테고리 선택, 지표 설정, 이벤트 대상 선택 단계에서 메트릭스 검색 기능을 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="container_map" className="uitext" /> 메뉴의 컨테이너 뷰의 지표 선택 옵션에서 KubeConState 지표를 기본 옵션으로 지정하고, 지표에 대한 설명 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" />  &gt; <Cmdname sid="container_map" className="uitext" /> 메뉴의 EventConState 지표명을 WhaTapScore로 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_report" className="uitext" /> 메뉴에서 *front.conf* 옵션의 `ui_report_download_label` 설정에 따라 다운로드 파일명 포맷이 변경되도록 수정
+
+---
+
+### `Database`
+
+#### 공통 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />,  <Cmdname sid="side_multiInstance" className="uitext" /> 메뉴에서 테이블 다중 정렬 시 정렬 우선 순위 표시 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="db_size_increase" className="uitext" />, <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴에서 multi db가 아닌 인스턴스는 `string`으로 DB명 표시
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴에서 테이블 다중 정렬 시 정렬 우선 순위 표시 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="laboratory" className="uitext" /> &gt; ***Top SQL***  메뉴에서 테이블 다중 정렬 시 정렬 우선 순위 표시 추가
+
+- <Status priority='1'>Feature</Status> 화면의 차트 이미지 다운로드 기능 추가
+
+    - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />
+
+    - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> &gt; ***사용자 정의 위젯***
+
+    - ***분석*** > ***카운트 추이 비교***
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 메뉴에 위젯 편집, 프리셋 저장 기능 신규 추가
+
+- <Status priority='1'>Feature</Status> <UI>Session Table</UI> 필터에 key값 검색 기능 및 알파벳 순 정렬 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="db_size_increase" className="uitext" />, <Cmdname sid="side_tableSpace" className="uitext" /> 화면 개선 
+
+    - 시간 선택자(타임 셀렉터) 및 인스턴스 선택 변경 시, 데이터를 즉시 조회하도록 변경 및 조회 버튼 제거
+    - XOS 에이전트 설정 시, 보여지는 디스크 사용량 테이블 데이터 조회 방식 개선
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴 진입 시, 이전 화면에서 선택된 인스턴스가 인스턴스 선택자에 유지되도록 수정
+
+#### Oracle, Oracle Pro 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbWaitAnalysis" className="uitext" /> 메뉴의 지표에 단위를 확인할 수 있는 툴팁 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <UI>RAC 모니터링</UI>에서 선택한 클러스터가 저장되도록 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <UI>RAC 모니터링</UI>에서 알림 위젯에 표시된 인스턴스에 해당하는 알림만 보여지도록 개선
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dbWaitAnalysis" className="uitext" /> Top 5 테이블 및 Latch, Enququq 차트의 데이터 조회 테이블을 `db_(platform)event_wait_top` → `db(platform)_event_time_top`으로 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 메뉴의 쿼리 클릭 시 보여지는 <Cmdname sid="TTL06224" className="uitext" /> 창에서 Runtime Plan, Plan History, Bind Capture 탭의 시간이 모두 동일하게 보여지도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_dbTopSql" className="uitext" /> 메뉴 진입 시 이전 화면에서 선택된 인스턴스가 인스턴스 선택자에 유지되도록 수정
+
+- <Status priority='0'>Fixed</Status> <UI>SQL Elapse Map</UI> 위젯의 <Cmdname sid="TTL06224" className="uitext" /> 창에서 기본 선택된 plan_hash_value로 Plan Table이 표시되도록 수정
+
+#### IBM DB2
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 세션 테이블에 query_param 컬럼 추가
+
+#### MySQL V1
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" />에서 쿼리문 클릭 시 SQL 상세창에서 쿼리문 `undefined` 표기되는 오류 수정
+
+#### SAP ASE
+
+- <Status priority='1'>Feature</Status> 설치 페이지 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴 추가
+
+---
+
+### `Cloud`
+
+#### 공통
+
+<Status priority='1'>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_maintenancePlan" className="uitext" /> 메뉴 추가
+
+#### Amazon CloudWatch
+
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴의 설치 안내에서 계정 ID 항목에 `cloud_auth_account_no` UI 설정값이 표시되도록 수정
+
+---
+
+### `Browser` 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_browserErrorTracking" className="uitext" />, <Cmdname sid="side_userSessionEventSearch" className="uitext" /> URL 공유 시 UI 상태(시간, 필터 등) 유지되도록 개선
+
+    - <Cmdname sid="side_browserErrorTracking" className="uitext" />: 시간, 차트 바에서 클릭된 시간
+    - <Cmdname sid="side_userSessionEventSearch" className="uitext" />: 시간, 필터, 과거순, 최신순
+
+---
+
+### `Log` 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_logSearch" className="uitext" /> 및 <Cmdname sid="side_logTail" className="uitext" /> 메뉴에서 필터 즐겨찾기 프로젝트 공유 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_logExplorer" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" /> 로그에 `@txid`, `@mtid`가 포함된 경우, 트랜잭션 정보 드롭다운을 통해 트레이스 팝업 확인 기능 추가 (Log-Trace 연계)
+
+- <Status priority='1'>Feature</Status> 트레이스 로그에서 로그 검색으로 이동할 수 있는 버튼 추가
+(***애플리케이션 대시보드***, <Cmdname sid="transaction_map" className="uitext" />, <Cmdname sid="tx_search" className="uitext" />, <Cmdname sid="multi_server_transaction_trace" className="uitext" /> 등 트랜잭션 정보를 확인할 수 있는 APM 페이지와 연계)
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logExplorer" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" /> URL 공유 시 UI 상태(시간, 필터 등) 유지되도록 개선
+
+    - <Cmdname sid="side_logTail" className="uitext" />: 카테고리, 필터  
+    - <Cmdname sid="side_logExplorer" className="uitext" />: 시간, 카테고리, 차트 바에서 클릭된 시간  
+    - <Cmdname sid="side_logSearch" className="uitext" />: 시간, 필터, 과거순, 최신순
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logExplorer" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" /> 메뉴에서 서버 모니터링 트라이얼 고객은 로그 모니터링 활성화 불가하도록 수정하였으며, 사이드 메뉴 진입 시 유로 전환 안내 모달 표시
+
+- <Status priority='1'>Changed</Status>  로그 테이블 컬럼명 변경 (timestamp → 수집 시간, agenttime → 로그 시간)
+
+</div>

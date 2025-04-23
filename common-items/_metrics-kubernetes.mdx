@@ -12,44 +12,44 @@
 
 ### Tags {#container-tags}
 
-| 태그명         | 설명                                                       |  비고  |
+| Tags           | Description                                                | Additional Info |
 | -------------- | ---------------------------------------------------------- | :----: |
-| agentOid       | 노드 에이전트 고유 ID                                      | 고유값 |
-| agentPcode     | 프로젝트 코드                                              | 고유값 |
-| command        | 실행 명령어                                                |   -    |
-| containerId    | 컨테이너 ID                                                | 고유값 |
-| containerKey   | 컨테이너 Key                                               |   -    |
-| created        | 컨테이너가 생성된 TimeStamp                                |   -    |
-| image          | 컨테이너 이미지명                                          |   -    |
-| imageHash      | 이미지 해시 값                                             |   -    |
-| imageId        | 이미지 ID                                                  |   -    |
-| k8s-app        | Pod의 레이블 k8s-app에 대한 값                            |   -    |
-| microOid       | 컨테이너에 설치된 와탭 APM 에이전트의 고유 ID              |   -    |
-| name           | 컨테이너 이름                                              |   -    |
-| namespace      | 컨테이너가 소속된 네임스페이스                             |   -    |
-| namespaceHash  | 컨테이너가 소속된 네임스페이스 해시 값                     |   -    |
-| okind          | 컨테이너에 설치된 와탭 APM 에이전트에 지정한 OKIND 고유 ID |   -    |
-| okindName      | 컨테이너에 설치된 와탭 APM 에이전트에 지정한 OKIND 이름    |   -    |
-| oname          | 컨테이너에 설치된 와탭 APM 에이전트 이름                   |   -    |
-| onode          | 컨테이너가 작동 중인 노드 에이전트의 고유 ID               |   -    |
-| onodeName      | 컨테이너가 작동 중인 노드 이름                             |   -    |
-| podHash        | 컨테이너의 Pod 해시 값                                     |   -    |
-| podName        | 컨테이너의 Pod 이름                                        |   -    |
-| replicaSetHash | 컨테이너의 레플리카셋 해시 값                              |   -    |
-| replicaSetName | 컨테이너의 레플리카셋 이름                                 |   -    |
-| whatap_project | 컨테이너가 속한 와탭 프로젝트 이름                         |   -    |
+| agentOid       | 노드 에이전트 고유 ID                                          | 고유값 |
+| agentPcode     | 프로젝트 코드                                                 | 고유값 |
+| command        | 실행 명령어                                                   |   -    |
+| containerId    | 컨테이너 ID                                                  | 고유값 |
+| containerKey   | 컨테이너 Key                                                 |   -    |
+| created        | 컨테이너가 생성된 TimeStamp                                    |   -    |
+| image          | 컨테이너 이미지명                                              |   -    |
+| imageHash      | 이미지 해시 값                                                |   -    |
+| imageId        | 이미지 ID                                                   |   -    |
+| k8s-app        | Pod의 레이블 k8s-app에 대한 값                                 |   -    |
+| microOid       | 컨테이너에 설치된 와탭 APM 에이전트의 고유 ID                       |   -    |
+| name           | 컨테이너 이름                                                 |   -    |
+| namespace      | 컨테이너가 소속된 네임스페이스                                    |   -    |
+| namespaceHash  | 컨테이너가 소속된 네임스페이스 해시 값                              |   -    |
+| okind          | 컨테이너에 설치된 와탭 APM 에이전트에 지정한 OKIND 고유 ID            |   -    |
+| okindName      | 컨테이너에 설치된 와탭 APM 에이전트에 지정한 OKIND 이름               |   -    |
+| oname          | 컨테이너에 설치된 와탭 APM 에이전트 이름                            |   -    |
+| onode          | 컨테이너가 작동 중인 노드 에이전트의 고유 ID                         |   -    |
+| onodeName      | 컨테이너가 작동 중인 노드 이름                                    |   -    |
+| podHash        | 컨테이너의 Pod 해시 값                                         |   -    |
+| podName        | 컨테이너의 Pod 이름                                            |   -    |
+| replicaSetHash | 컨테이너의 레플리카셋 해시 값                                     |   -    |
+| replicaSetName | 컨테이너의 레플리카셋 이름                                        |   -    |
+| whatap_project | 컨테이너가 속한 와탭 프로젝트 이름                                  |   -    |
 
 ### Fields {#container-fields}
 
-| 필드명 | 단위 | 설명 (Shortname, Name, Description) |
+| Field | Unit | Shortname/Name/Description |
 | -- | -- | -- |
-| blkio_rbps | 바이트 | IoReadBytes | 
+| blkio_rbps | byte | IoReadBytes | 
 | ^ | ^ | Container Block I/O Read Byte | 
 | ^ | ^ | 컨테이너 전체 블럭 디바이스의 초당 읽은 바이트 합 |
 | blkio_riops | 건수 | IoReadIops 
 | ^ | ^ | Container Block I/O Read IOPS | 
 | ^ | ^ | 컨테이너 전체 블럭 디바이스의 초당 읽은 건수 합 |
-| blkio_wbps | 바이트 | IoWriteBytes |
+| blkio_wbps | byte | IoWriteBytes |
 | ^ | ^ | Container Block I/O Write Byte | 
 | ^ | ^ | 컨테이너 전체 블럭 디바이스의 초당 쓴 바이트 합 |
 | blkio_wiops | 건수 | IoWriteIops | 
@@ -60,10 +60,10 @@
 | ^ | ^ | CPU Limit 기준 CPU 전체 사용률 |
 | cpu_quota | 밀리 코어 | CpuLimit | 
 | ^ | ^ | Container CPU Limit (core) | 
-| ^ | ^ | 컨테이너 CPU Limit 할당량<br/>Limit 미설정인 경우 컨테이너가 작동 중인 해당 노드의 CPU 전체 코어가 밀리코어 단위로 표시된다. |
+| ^ | ^ | 컨테이너 CPU Limit 할당량<br/> - Limit 미설정인 경우 컨테이너가 작동 중인 해당 노드의 CPU 전체 코어가 밀리코어 단위로 표시됨 |
 | cpu_quota_percent | 퍼센트 | CpuLimitByNode | 
 | ^ | ^ | Container CPU Limit by Node (%) | 
-| ^ | ^ | 노드 CPU 대비 컨테이너 CPU Limit 할당량<br/>Limit 미설정인 경우 컨테이너가 작동 중인 해당 노드의 CPU 전체 코어가 퍼센트로 표시된다. |
+| ^ | ^ | 노드 CPU 대비 컨테이너 CPU Limit 할당량<br/>- Limit 미설정인 경우 컨테이너가 작동 중인 해당 노드의 CPU 전체 코어가 퍼센트로 표시됨 |
 | cpu_sys | 퍼센트 | CpuSysByNode |
 | ^ | ^ | Container CPU Sys Usage by Node (%) |
 | ^ | ^ | 노드 CPU 대비 컨테이너 CPU System 사용률 |
@@ -96,7 +96,7 @@
 | ^ | ^ | 컨테이너 메모리 Limit 크기 |
 | mem_maxusage | 바이트 | MemMaxUsage |
 | ^ | ^ | Container Memory Max Usage (byte) |
-| ^ | ^ | 컨테이너 메모리 최대 사용량 기록 값 <br/> (자세한 내용은 [하단 안내](#scrollTo-memmaxusage)를 참조하세요.) |
+| ^ | ^ | 컨테이너 메모리 최대 사용량 기록값 <br/> 자세한 내용은 [하단 안내](#scrollTo-memmaxusage)를 참조하세요. |
 | mem_percent | 퍼센트 | MemWsByLimit |
 | ^ | ^ | Container Memory Working Set by Limit (%) |
 | ^ | ^ | 컨테이너 메모리 Limit 기준 working set 사용량<br/>= mem_working_set / mem_limit * 100 |
@@ -130,19 +130,19 @@
 | mem_per_request | 퍼센트 | MemWsByRequest |
 | ^ | ^ | Container Memory Working Set by Request (%) |
 | ^ | ^ | 컨테이너 메모리 Request 기준 working set 사용량<br/>= mem_working_set / mem_request * 100 |
-| network_rbps | 바이트 | NetRxBytes |
+| network_rbps | byte | NetRxBytes |
 | ^ | ^ | Container Network Receive Byte |
 | ^ | ^ | 컨테이너 전체 블럭 디바이스의 초당 읽기 바이트 합 |
-| network_rdropped | 바이트 | NetRxDropped |
+| network_rdropped | byte | NetRxDropped |
 | ^ | ^ | Container Network Receive Dropped |
 | ^ | ^ | 컨테이너 네트워크 수신 dropped 건수 |
-| network_rerror | 바이트 | NetRxError |
+| network_rerror | byte | NetRxError |
 | ^ | ^ | Container Network Receive Error |
 | ^ | ^ | 컨테이너 네트워크 수신 에러 건수 |
-| network_riops | 바이트 | NetRxIops |
+| network_riops | byte | NetRxIops |
 | ^ | ^ | Container Network Receive IOPS |
 | ^ | ^ | 컨테이너 네트워크 수신 건수 |
-| network_wbps | 바이트 | NetTxByes |
+| network_wbps | byte | NetTxByes |
 | ^ | ^ | Container Network Transmit Byte |
 | ^ | ^ | 컨테이너 네트워크 송신 데이터 크기 |
 | network_wdropped | 건수 | NetTxDropped |
@@ -163,7 +163,7 @@
 |phase|문자열|Pod 라이프사이클 <br/> ① PENDING<br/> ② RUNNING <br/>③ SUCCEEDED <br/>④ FAILED <br/>⑤ UNKNOWN|
 | restart_count | 정수 | ConRestartCnt |
 | ^ | ^ | Container Restart Count |
-| ^ | ^ | 컨테이너 다시 시작 횟수 |
+| ^ | ^ | 컨테이너 재시작 횟수 |
 | state | 정수 | ConState |
 | ^ | ^ | Container Current State |
 | ^ | ^ | 컨테이너 상태 코드<br/>① RUNNING = 114<br/>② PAUSE = 112<br/>③ RESTARTING = 101<br/>④ OOMKILLED = 111<br/>⑤ DEAD = 100<br/>⑥ WAITING = 119 |
@@ -188,22 +188,22 @@
 
 ### Tags {#kube_node-tags}
 
-| 태그명   | 설명      | 비고 |
-| -------- | --------- | ---- |
-| nodeName | 노드 이름 | -    |
+| Tags     | Description |
+| -------- | ----------- |
+| nodeName | 노드 이름     |
 
 ### Fields {#kube_node-fields}
 
-| 필드명             | 단위      | 설명                      | 비고 |
-| ------------------ | --------- | ------------------------- | ---- |
-| allocatable_cpu    | 밀리 코어 | 노드 할당 가능한 CPU량    | -    |
-| allocatable_memory | 바이트    | 노드 할당 가능한 메모리량 | -    |
-| allocatable_pods   | 정수      | 노드 할당 가능한 Pod 수   | -    |
-| limit_cpu          | 밀리 코어 | 노드 CPU Limit 합계       | -    |
-| limit_memory       | 바이트    | 노드 메모리 Limit 합계    | -    |
-| pods               | 정수      | 노드 Pod 총개수           | -    |
-| request_cpu        | 밀리 코어 | 노드 CPU Request 합계     | -    |
-| request_memory     | 바이트    | 노드 메모리 Request 합계  | -    |
+| Field             | Unit      | Description                      |
+| ------------------ | --------- | ---------------------- |
+| allocatable_cpu    | 밀리 코어 | 노드 할당 가능한 CPU량    |
+| allocatable_memory | 바이트    | 노드 할당 가능한 메모리량  |
+| allocatable_pods   | 정수      | 노드 할당 가능한 Pod 수  |
+| limit_cpu          | 밀리 코어 | 노드 CPU Limit 합계     |
+| limit_memory       | 바이트    | 노드 메모리 Limit 합계   |
+| pods               | 정수      | 노드 Pod 총개수        |
+| request_cpu        | 밀리 코어 | 노드 CPU Request 합계   |
+| request_memory     | 바이트    | 노드 메모리 Request 합계  |
 
 ## 쿠버네티스 이벤트(`kube_event`) 지표 {#kube_event}
 
@@ -215,30 +215,30 @@
 
 ### Tags {#kube_event-tags}
 
-| 태그명     | 설명              | 비고                                     |
-| ---------- | ----------------- | ---------------------------------------- |
-| field_path | Field Path        | -                                        |
-| kind       | 종류              | 이벤트가 발생한 오브젝트 종류            |
-| name       | 오브젝트 이름     | 이벤트가 발생한 쿠버네티스 오브젝트 이름 |
-| namespace  | 네임스페이스 이름 | 이벤트가 발생한 네임스페이스             |
-| reason     | 이벤트 발생 사유  | -                                        |
-| type       | 이벤트 유형       | Warning 또는 Normal                      |
-| uid        | UID               | 이벤트가 발생한 오브젝트                 |
+| Tags       | Description       | Additional Info                       |
+| ---------- | ----------------- | ------------------------------------- |
+| field_path | Field Path        | -                                     |
+| kind       | 종류               | 이벤트가 발생한 오브젝트 종류                |
+| name       | 오브젝트 이름        | 이벤트가 발생한 쿠버네티스 오브젝트 이름        |
+| namespace  | 네임스페이스 이름     | 이벤트가 발생한 네임스페이스                  |
+| reason     | 이벤트 발생 사유      | -                                     |
+| type       | 이벤트 유형          | Warning 또는 Normal                    |
+| uid        | UID               | 이벤트가 발생한 오브젝트                    |
 
 ### Fields {#kube_event-fields}
 
-| 필드명                    | 단위   | 설명                            | 비고 |
-| ------------------------- | ------ | ------------------------------- | ---- |
-| action                    | 문자열 | 액션 이름                       | -    |
-| count                     | 건수   | 이벤트 발생 건수                | -    |
-| event_time                | 정수   | 이벤트 최초 발생 TimeStamp      | -    |
-| first_timestamp           | 정수   | 이벤트 최초 발생 시간           | -    |
-| last_timestamp            | 정수   | 이벤트 마지막 발생 시간         | -    |
-| message                   | 문자열 | 이벤트 메시지                   | -    |
-| reasonFiled               | 문자열 | 이벤트 Reason                   | -    |
-| reporting_component       | 문자열 | 현재 이벤트를 보고하는 컴포넌트 | -    |
-| reporting_instance        | 문자열 | 현재 이벤트를 보고하는 인스턴스 | -    |
-| series_last_observed_time | 정수   | series last observed time       | -    |
+| Field                     | Unit   | Description             |
+| ------------------------- | ------ | ----------------------- |
+| action                    | 문자열 | 액션 이름                   |
+| count                     | 건수   | 이벤트 발생 건수             |
+| event_time                | 정수   | 이벤트 최초 발생 TimeStamp   |
+| first_timestamp           | 정수   | 이벤트 최초 발생 시간         |
+| last_timestamp            | 정수   | 이벤트 마지막 발생 시간        |
+| message                   | 문자열 | 이벤트 메시지                 |
+| reasonFiled               | 문자열 | 이벤트 Reason               |
+| reporting_component       | 문자열 | 현재 이벤트를 보고하는 컴포넌트   |
+| reporting_instance        | 문자열 | 현재 이벤트를 보고하는 인스턴스   |
+| series_last_observed_time | 정수   | series last observed time |
 
 ## 쿠버네티스 클러스터(`kube_stat`) 지표 {#kube_stat}
 
@@ -250,23 +250,23 @@
 
 ### Tags {#kube_stat-tags}
 
-| 태그명 | 설명      | 비고    |
-| ------ | --------- | ------- |
-| name   | kube_stat | 고정 값 |
+| Tags   | Description  | Additional Info |
+| ------ | ------------ | --------------- |
+| name   | kube_stat    | 고정 값           |
 
 ### Fields {#kube_stat-fields}
 
-| 필드명                       | 단위      | 설명                                                                               | 비고                   |
+| Field                        | Unit      | Description                                                                         | Additional Info                   |
 | ---------------------------- | --------- | ---------------------------------------------------------------------------------- | ---------------------- |
-| alloctable_cpu               | 밀리 코어 | 클러스터 전체 코어 수                                                              | 클러스터 프로젝트 Only |
-| alloctable_ephemeral-storage | 바이트    | 클러스터 전체 할당 가능한 ephemeral storage                                        | 클러스터 프로젝트 Only |
-| alloctable_hugepages-1gi     | 바이트    | 클러스터 전체 할당 가능한 hugepages-1Gi                                            | 클러스터 프로젝트 Only |
-| alloctable_hugepages-2mi     | 바이트    | 클러스터 전체 할당 가능한 hugepages-2Mi                                            | 클러스터 프로젝트 Only |
-| alloctable_memory            | 바이트    | 클러스터 전체 할당 가능한 메모리                                                   | 클러스터 프로젝트 Only |
+| alloctable_cpu               | 밀리 코어   | 클러스터 전체 코어 수                                                                   | 클러스터 프로젝트 Only |
+| alloctable_ephemeral-storage | byte     | 클러스터 전체 할당 가능한 ephemeral storage                                                | 클러스터 프로젝트 Only |
+| alloctable_hugepages-1gi     | byte     | 클러스터 전체 할당 가능한 hugepages-1Gi                                                    | 클러스터 프로젝트 Only |
+| alloctable_hugepages-2mi     | byte     | 클러스터 전체 할당 가능한 hugepages-2Mi                                                    | 클러스터 프로젝트 Only |
+| alloctable_memory            | byte     | 클러스터 전체 할당 가능한 메모리                                                             | 클러스터 프로젝트 Only |
 | alloctable_pods              | 정수      | 할당 가능한 Pod 수                                                                 | -                      |
 | available_pod                | 정수      | Phase가 Running 상태인 Pod의 수                                                    | -                      |
 | desired_pod                  | 정수      | `metadata.ownerReferences` 없이 배포된 Pod 수와 쿠버네티스 오브젝트(ReplicaSet, Daemonset, StatefulSet)에 정의된 Desired Pod 수의 합| -                      |
-| ^                            | ^         | `kubectl get pods -A`로 조회한 Pod 수와 동일                                       | -                      |
+| ^                            | ^        | `kubectl get pods -A`로 조회한 Pod 수와 동일                                       | -                      |
 | nodes                        | 정수      | 노드 수                                                                            | -                      |
 | pod_phase_Pending            | 정수      | Pending 상태 Pod 수                                                                | -                      |
 | pod_phase_Running            | 정수      | Running 상태 Pod 수                                                                | -                      |
@@ -274,10 +274,10 @@
 | stopped_containers           | 정수      | Stopped 컨테이너 수                                                                | -                      |
 | total_available_cpu          | 정수      | 할당 가능한 CPU 총합                                                               | -                      |
 | total_available_memory       | 정수      | 할당 가능한 Memory 총합                                                            | -                      |
-| total_limit_cpu              | 밀리 코어 | Limit CPU 총합                                                                     | -                      |
-| total_limit_memory           | 바이트    | Limit Memory 총합                                                                  | -                      |
-| total_request_cpu            | 밀리 코어 | Request CPU 총합                                                                   | -                      |
-| total_request_memory         | 바이트    | Request Memory 총합                                                                | -                      |
+| total_limit_cpu              | 밀리 코어  | Limit CPU 총합                                                                     | -                      |
+| total_limit_memory           | byte    | Limit Memory 총합                                                                  | -                      |
+| total_request_cpu            | 밀리 코어  | Request CPU 총합                                                                   | -                      |
+| total_request_memory         | byte    | Request Memory 총합                                                                | -                      |
 | unavailable_pod              | 정수      | Phase가 Running 상태가 아닌(Pending, Failed, Succedded) Pod 수                     | -                      |
 | waiting_containers           | 정수      | Waiting Container 수                                                               | -                      |
 
@@ -291,7 +291,7 @@
 
 ### Tags {#kube_pod-tags}
 
-| 태그명             | 설명                                                                          | 비고   |
+| Tags               | Description                                                                   | Additional Info |
 | ------------------ | ----------------------------------------------------------------------------- | ------ |
 | agentOid           | 노드 에이전트 고유 ID                                                         | 고유값 |
 | agentPcode         | 프로젝트 코드                                                                 | 고유값 |
@@ -318,7 +318,7 @@
 
 ### Fields {#kube_pod-fields}
 
-| 필드명 | 단위 | (Shortname, Name, Description) |
+| Field | Unit | Shortname, Name, Description |
 | -- | -- | -- |
 | blkio_rbps | 바이트 | IoReadBytes |
 | ^ | ^ | Pod Block I/O Read Byte |
@@ -428,22 +428,22 @@
 
 다음 필드는 내부용으로 예약되었습니다.
 
-| 필드명               | 설명                                       | 비고 |
-| -------------------- | ------------------------------------------ | ---- |
-| kube_sless_normal    | 쿠버네티스 정보성 이벤트 발생 건수         | -    |
-| kube_sless_warning   | 쿠버네티스 경고 이벤트 발생 건수           | -    |
-| micro_sful_critical  | apm 심각 상태 기반 이벤트 발생 건수        | -    |
-| micro_sful_info      | apm 정보성 상태 기반 이벤트 발생 건수      | -    |
-| micro_sful_warning   | apm 경고 상태 기반 이벤트 발생 건수        | -    |
-| micro_sless_critical | apm 심각 무상태 이벤트 발생 건수           | -    |
-| micro_sless_info     | apm 정보성 무상태 이벤트 발생 건수         | -    |
-| micro_sless_warning  | apm 경고 무상태 이벤트 발생 건수           | -    |
-| sful_critical        | 메트릭스 심각 상태 기반 이벤트 발생 건수   | -    |
-| sful_info            | 메트릭스 정보성 상태 기반 이벤트 발생 건수 | -    |
-| sful_warning         | 메트릭스 경고 상태 기반 이벤트 발생 건수   | -    |
-| sless_critical       | 메트릭스 심각 무상태 이벤트 발생 건수      | -    |
-| sless_info           | 메트릭스 정보성 무상태 이벤트 발생 건수    | -    |
-| sless_warning        | 메트릭스 경고 무상태 이벤트 발생 건수      | -    |
+| Field                | Description                    |
+| -------------------- | ------------------------------ |
+| kube_sless_normal    | 쿠버네티스 정보성 이벤트 발생 건수      |
+| kube_sless_warning   | 쿠버네티스 경고 이벤트 발생 건수       |
+| micro_sful_critical  | apm 심각 상태 기반 이벤트 발생 건수    |
+| micro_sful_info      | apm 정보성 상태 기반 이벤트 발생 건수   |
+| micro_sful_warning   | apm 경고 상태 기반 이벤트 발생 건수     |
+| micro_sless_critical | apm 심각 무상태 이벤트 발생 건수       |
+| micro_sless_info     | apm 정보성 무상태 이벤트 발생 건수      |
+| micro_sless_warning  | apm 경고 무상태 이벤트 발생 건수        |
+| sful_critical        | 메트릭스 심각 상태 기반 이벤트 발생 건수   |
+| sful_info            | 메트릭스 정보성 상태 기반 이벤트 발생 건수 |
+| sful_warning         | 메트릭스 경고 상태 기반 이벤트 발생 건수   |
+| sless_critical       | 메트릭스 심각 무상태 이벤트 발생 건수     |
+| sless_info           | 메트릭스 정보성 무상태 이벤트 발생 건수    |
+| sless_warning        | 메트릭스 경고 무상태 이벤트 발생 건수     |
 
 ## 쿠버네티스 Pod 통계(`kube_pod_stat`) 지표 {#kube_pod_stat}
 
@@ -455,25 +455,25 @@
 
 ### Tags {#kube_pod_stat-tags}
 
-| 태그명 | 설명 | 비고 |
+| Tags | Description | Additional Info |
 | -- | -- | -- |
 | kind | 유형 | 클러스터 프로젝트의 경우 cluster 고정 값을 가지며 네임스페이스 프로젝트의 경우 Deployment 또는 ReplicaSet에 대해서만 수집합니다. |
 | name | 쿠버네티스 자원 이름 | 클러스터 프로젝트는 name 값이 없으며 네임스페이스 프로젝트는 Deployment 또는 ReplicaSet의 이름입니다. |
 
 ### Fields {#kube_pod_stat-fields}
 
-| 필드명            | 단위      | 설명                                                                               | 비고 |
-| ----------------- | --------- | ---------------------------------------------------------------------------------- | ---- |
-| available_pod     | 정수      | Phase가 Running 상태인 Pod의 수                                                    | -    |
-| desired_pod       | 정수      | `metadata.ownerReferences` 없이 배포된 Pod 수와 쿠버네티스 오브젝트(ReplicaSet, Daemonset, StatefulSet)에 정의된 Desired Pod 수의 합| -    |
-| ^                 | ^         | `kubectl get pods -A`로 조회한 Pod 수와 동일                                       | -    |
-| limit_cpu         | 밀리 코어 | CPU Limit 사용량                                                                   | -    |
-| limit_memory      | 바이트    | Memory Limit 사용량                                                                | -    |
-| request_cpu       | 밀리 코어 | CPU Request 사용량                                                                 | -    |
-| request_memory    | 바이트    | Memory Request 사용량                                                              | -    |
-| running_container | 정수      | Running Container 수                                                               | -    |
-| stopped_container | 정수      | Stopped Container 수                                                               | -    |
-| waiting_container | 정수      | Waiting Container 수                                                               | -    |
+| Field             | Unit      | Description                                                                      |
+| ----------------- | --------- | -------------------------------------------------------------------------------- |
+| available_pod     | 정수       | Phase가 Running 상태인 Pod의 수                                                       |
+| desired_pod       | 정수       | `metadata.ownerReferences` 없이 배포된 Pod 수와 쿠버네티스 오브젝트(ReplicaSet, Daemonset, StatefulSet)에 정의된 Desired Pod 수의 합|
+| ^                 | ^         | `kubectl get pods -A`로 조회한 Pod 수와 동일                                           |
+| limit_cpu         | 밀리 코어   | CPU Limit 사용량                                                                    |
+| limit_memory      | 바이트     | Memory Limit 사용량                                                                  |
+| request_cpu       | 밀리 코어   | CPU Request 사용량                                                                   |
+| request_memory    | 바이트     | Memory Request 사용량                                                                |
+| running_container | 정수       | Running Container 수                                                               |
+| stopped_container | 정수      | Stopped Container 수                                                               |
+| waiting_container | 정수      | Waiting Container 수                                                               |
 
 ## 쿠버네티스 Horizontal Pod Autoscaler(HPA)(`kube_hpa_stat`) 지표 {#kube_hpa_stat}
 
@@ -485,19 +485,19 @@
 
 ### Tags {#kube_hpa_stat-tags}
 
-| 태그명 | 설명     | 비고 |
-| ------ | -------- | ---- |
-| name   | HPA 이름 | -    |
+| Tags | Description |
+| ------ | -------- |
+| name   | HPA 이름 |
 
 ### Fields {#kube_hpa_stat-fields}
 
-| 필드명                | 단위      | 설명                                 | 비고 |
-| --------------------- | --------- | ------------------------------------ | ---- |
-| currentReplicas       | 정수      | 현재 레플리카 수                     | -    |
-| desiredReplicas       | 정수      | Desired 레플리카 수                  | -    |
-| lastScaleTime         | 정수      | 마지막으로 스케일이 변경된 TimeStamp | -    |
-| maxReplicas           | 정수      | 최대 레플리카 수                     | -    |
-| minReplicas           | 정수      | 최소 레플리카 수                     | -    |
+| Field                 | Unit     | Description                          |
+| --------------------- | -------- | ------------------------------------ |
+| currentReplicas       | 정수      | 현재 레플리카 수                         |
+| desiredReplicas       | 정수      | Desired 레플리카 수                     |
+| lastScaleTime         | 정수      | 마지막으로 스케일이 변경된 TimeStamp        |
+| maxReplicas           | 정수      | 최대 레플리카 수                         |
+| minReplicas           | 정수      | 최소 레플리카 수                         | 
 
 ## 프로세스(`kube_process`) 지표 {#kube_process}
 
@@ -517,7 +517,7 @@
 
 ### Tags {#kube_process_stat-tags}
 
-|태그명|설명|타입|비고|
+| Tags | Description | Type | Additional Info |
 |---|---|---|---|
 |ppid|부모 프로세스 ID|String|/proc/[pid]/status::PPid| 
 |pid|프로세스 ID|String|/proc/[pid]/status::Pid |
@@ -529,23 +529,23 @@
 
 ### Fields {#kube_process_stat-fields}
 
-|필드명|설명|단위|타입|비고|
-|---|---|---|---|---|
-|cpu|CPU 사용률|퍼센트 (%)|float|/proc/[pid]/stat 을 통해 계산된 필드|
-|memory|메모리 사용률|퍼센트 (%)|float|/proc/[pid]/statm 을 통해 계산된 필드|
-|rss|실제 메모리 사용량 (Resident Set Size)|바이트 (B)|long|/proc/[pid]/status::VmRSS|
-|uid|사용자 ID 또는 사용자 이름|-|String|/proc/[pid]/status::Uid|
-|state|프로세스 상태|-|String|/proc/[pid]/status::State|
-|SharedMemory|공유 메모리 크기|바이트 (B)|long|/proc/[pid]/statm 을 통해 계산된 필드|
-|openFileDescriptors|프로세스가 열어둔 파일 디스크립터 수|-|int|/proc/[pid]/fd를 통해 계산된 필드|
-|vmSize|가상 메모리 크기 (Virtual Memory Size)|바이트 (B)|long|/proc/[pid]/status의 VmSize|
-|threads|프로세스가 생성한 스레드 수|-|int|/proc/[pid]/status의 Threads|
+| Field | Unit | Description | Type | Additional Info |
+| --- | --- | --- | --- | --- |
+| cpu | pct(%)| CPU 사용률||float|/proc/[pid]/stat 을 통해 계산된 필드|
+| memory | pct(%)|메모리 사용률|float|/proc/[pid]/statm 을 통해 계산된 필드|
+| rss | Bite | 실제 메모리 사용량 (Resident Set Size) |long|/proc/[pid]/status::VmRSS|
+| uid | - | 사용자 ID 또는 사용자 이름| String |/proc/[pid]/status::Uid|
+| state | - |프로세스 상태|String|/proc/[pid]/status::State|
+| SharedMemory | Bite |공유 메모리 크기|long|/proc/[pid]/statm 을 통해 계산된 필드|
+| openFileDescriptors | - |프로세스가 열어둔 파일 디스크립터 수|int|/proc/[pid]/fd를 통해 계산된 필드|
+| vmSize | Bite | 가상 메모리 크기 (Virtual Memory Size) |long|/proc/[pid]/status의 VmSize|
+| threads | - | 프로세스가 생성한 스레드 수 |int|/proc/[pid]/status의 Threads|
 
-#### Kubernetes 환경에서의 리눅스 프로세스 상태
+#### Kubernetes 환경의 리눅스 프로세스 상태
 
 리눅스에서 */proc/[pid]/status* 파일의 `State` 필드가 프로세스의 현재 상태를 표시합니다. 각 상태 값의 의미는 다음과 같습니다.
 
-|코드|설명|상세 설명|
+|코드| Description | Additional Info |
 |---|---|---|
 |R (Running)|실행 중|프로세스가 실행 중이거나 실행될 준비가 되어 있는 상태|
 |S (Sleeping)|대기 중|인터럽트 가능한 수면 상태로, 대기 중이며 이벤트를 기다리고 있는 상태|
@@ -572,7 +572,7 @@ Kubernetes는 컨테이너와 노드의 리소스를 효율적으로 관리하�
 
 ### Fields {#agent_status_summary_filed}
 
-| 필드명 | 단위 | 설명 | 비고 |
+| Field | 단위 | Description | Additional Info |
 | ---- | :--: | ---- | ---- |
 | `inActTime` | 밀리초(ms) | 에이전트가 비활성화된 상태로 유지된 시간 | - |
 | `isActive` | - | 현재 에이전트의 활성 상태 여부 | `true` / `false` |
@@ -602,7 +602,7 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Tags {#kube_ingress-tags}
 
-|태그명|설명|단위|타입|
+| Tags | Description |단위|타입|
 |---|---|---|---|
 |`ingressUid`|Ingress 리소스의 고유 ID| - | String |
 |`ingressName`|Ingress 리소스의 이름|-|	String|
@@ -613,7 +613,7 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Fields {#kube_ingress-fields}
 
-|필드명|설명|단위|타입|
+| Field | Description |단위|타입|
 |---|---|---|---|
 |`host`|Ingress 리소스가 수신하는 호스트 이름<br/>(`*`인 경우 모든 호스트에 대해 적용됨)|-|List|
 |`path`|특정 호스트 하위에서 요청 경로	|-|List|
@@ -628,7 +628,7 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Tags {#kube_deployment-tags}
 
-|태그명|설명|단위|타입|
+| Tags | Description |단위|타입|
 |---|---|---|---|
 |`deployName`| 디플로이먼트의 이름 (`metadata.name`) | - | String |
 |`namespace`| 디플로이먼트가 속한 네임스페이스 (`metadata.namespace`) | - | String |
@@ -636,7 +636,7 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Fields {#kube_deployment-fields}
 
-|필드명|설명|단위|타입|
+| Field | Description |단위|타입|
 |---|---|---|---|
 |`deployReadyReplicas`| 준비(Ready) 상태인 파드 수 (`status.readyReplicas`) | 개수 | - |
 |`deployTotalReplicas`| 설정된 전체 파드 수 (`spec.replicas`) | 개수(count) | - |
@@ -653,15 +653,15 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Tags {#kube_cronjob-tags}
 
-|태그명|설명|단위|타입|
-|---|---|---|---|
-|`cronJobName`| CronJob의 이름 (`metadata.name`) | - | String |
-|`namespace`| CronJob이 속한 네임스페이스 (`metadata.namespace`) | - | String |
-|`cronJobUid`| CronJob의 UID (`metadata.uid`) | - | String |
+| Tags | Description |타입|
+|---|---|---|
+|`cronJobName`| CronJob의 이름 (`metadata.name`) | String |
+|`namespace`| CronJob이 속한 네임스페이스 (`metadata.namespace`) | String |
+|`cronJobUid`| CronJob의 UID (`metadata.uid`) | String |
 
 ### Fields {#kube_cronjob-fields}
 
-|필드명|설명|단위|타입|
+| Field | Description |Unit| 타입|
 |---|---|---|---|
 |`lastScheduleTime`| CronJob이 마지막으로 스케줄된 시간 (`status.lastScheduleTime`) | - | String |
 |`lastSuccessfulTime`| CronJob이 마지막으로 성공한 시간 (`status.lastSuccessfulTime`) | - | String |
@@ -677,7 +677,7 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Tags {#kube_job-tags}
 
-|태그명|설명|단위|타입|
+| Tags | Description | Unit |타입|
 |---|---|---|---|
 |`jobName`| Job의 이름 (`metadata.name`) | - | String |
 |`namespace`| Job이 소속된 네임스페이스 (`metadata.namespace`) | - | String |
@@ -688,7 +688,7 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Fields {#kube_job-fields}
 
-|필드명|설명|단위|타입|
+| Field | Description | Unit| 타입|
 |---|---|---|---|
 |`succeededPods`| 성공한 파드 수 (`status.succeeded`) | 개수 | - |
 |`failedPods`| 실패한 파드 수 (`status.failed`) | 개수 | - |

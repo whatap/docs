@@ -175,7 +175,7 @@ SAP ASE에서는 사용자 계정을 데이터베이스 내에서 별도로 생�
     go
     ```
 
-3. 사용자에게 필요한 권한을 부여하세요.
+3. 기능과 환경에 따라 사용자에게 필요한 권한을 부여하세요.
 
     ```sql
     --기본 모니터링 권한
@@ -192,7 +192,6 @@ SAP ASE에서는 사용자 계정을 데이터베이스 내에서 별도로 생�
     ```sql
     sp_configure 'enable monitoring', 1
     sp_configure 'wait event timing', 1
-    sp_configure 'max SQL text monitored', 1024
     sp_configure 'SQL batch capture', 1
     sp_configure 'per object statistics active', 1
     sp_configure 'statement statistics active', 1
@@ -342,3 +341,14 @@ SAP ASE에서는 사용자 계정을 데이터베이스 내에서 별도로 생�
 
 :::
 
+<InDoc product="sapase">
+
+#### Sql text가 보이지 않는 경우
+
+변경 사항은 즉시 반영되지 않으며, 에이전트 재시작이 필요합니다.
+
+    ```sql
+    sp_configure 'max SQL text monitored', 1024
+    ```
+
+</InDoc>

@@ -53,7 +53,7 @@ keywords: [ 서버 목록, 분석하기, UI, Server ]
 
 * ![컬럼 아이콘](/img/ic-column.svg) <Cmdname sid="column_settings" className="uitext" />
 
-  ![number-s](/img/number-03.png) 영역 상단 메뉴에서 ![컬럼 아이콘](/img/ic-column.svg) <Cmdname sid="column_settings" className="uitext" /> 버튼을 클릭하면 다음과 같이 테이블에 표시할 컬럼을 선택할 수 있습니다.
+  ![number-s](/img/number-03.png) 영역 상단 메뉴에서 ![컬럼 아이콘](/img/ic-column.svg) <Cmdname sid="column_settings" className="uitext" /> 버튼을 클릭하면 테이블에 표시할 컬럼을 선택할 수 있습니다.
 
   <ImgLang img='server-list-cl.png' desc='서버 목록 컬럼'/>
 
@@ -76,6 +76,22 @@ keywords: [ 서버 목록, 분석하기, UI, Server ]
   **컬럼 너비** 및 **컬럼 정렬** 설정값은 브라우저 쿠키로 저장되어 페이지 새로 고침 후에도 상태가 유지됩니다. 쿠키 삭제 또는 기타 이유로 설정 간 오류가 발생하면 미 설정 상태로 초기화합니다.
   
   :::
+
+#### 프리셋 관리
+
+<Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" />에서 ![컬럼 아이콘](/img/ic-column.svg) <Cmdname sid="column_settings" className="uitext" /> 버튼을 클릭하면 프리셋을 관리하고 공유할 수 있습니다. 
+
+선택한 컬럼 조합은 프리셋으로 저장할 수 있으며, 동일 프로젝트에 접근한 다른 사용자와 공유됩니다. 최근에 사용한 프리셋은 개인 브라우저에 저장되어, 재접속 시 자동으로 불러옵니다. 최근 프리셋이 삭제된 경우 기본 프리셋(<Cmdname sid="kube_default" className="uitext" />)으로 초기화됩니다. 프리셋 설정 방법은 [다음 문서](metrics-explorer#setpreset)를 참고하세요.
+
+* 컬럼별 너비 및 정렬 상태는 사용자의 브라우저에 저장되며, 메뉴 재접속 시 자동으로 적용됩니다. 해당 설정은 사용자 개인에게만 적용되며, 다른 사용자와 공유할 수 없습니다.
+
+:::caution
+
+**프로젝트 수정 권한을 가진 사용자만 프리셋을 저장 및 삭제할 수 있습니다.** 멤버 권한에 대한 자세한 내용은 [다음 문서](https://docs.whatap.io/project/project-structure#member-auth)를 참고하세요.
+  
+:::
+
+<ImgLang img='server-list-cl-preset.png' desc='컬럼 설정 > 프리셋' />
 
 ### 새로고침
 

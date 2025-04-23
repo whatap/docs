@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server/server-2_8_6/",
+    "ver": "v2.8.6",
+    "date": "2025-04-22",
+    "Lists": [
+      {
+        "ver": "v2.8.6",
+        "hash": "v286",
+        "product": "Server Agent",
+        "type": "New",
+        "desc": "<li><code class=\"New\" type=\"1\">New</code> 로그 수집에서 JSON array 분리 기능 추가 </li>"
+      },
+      {
+        "ver": "v2.8.6",
+        "hash": "v286",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> IMDSv2 적용 오류 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server/server-2_8_5/",
     "ver": "v2.8.5",
     "date": "2025-04-17",

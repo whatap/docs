@@ -136,8 +136,31 @@ helm install whatap-kube-agent whatap/kube --create-namespace --namespace <names
 
 1. <Cmdname sid="side_management" className="uitext" /> > <Cmdname sid="side_kubernetesAgentList" className="uitext" /> 메뉴에서 각 모니터링 에이전트에서 발생하는 로그를 확인하세요.
 
-</div>
+### DockerHub 이미지 pull limit으로 에이전트가 정상적으로 설치되지 않는 경우 {#troubleshooting-pull-limit}
 
+여러 노드에서 동시에 이미지를 pull할 경우 아래와 같은 오류가 발생하며 설치에 실패할 수 있습니다. 문제가 발생한 경우 아래 명령어로 yaml에 이미지를 변경해 재설치가 필요합니다.
+
+#### 에러 조회
+
+```yaml
+kubectl describe pod/<와탭 k8s 에이전트 파드명> -n whatap-monitoring
+```
+
+#### 조회 결과
+
+```yaml
+> > Failed to pull image "whatap/kube_mon:latest": rpc error: code = Unknown desc = toomanyrequests: You have reached your pull rate limit. Please try again later or log in to increase your rate limit.
+```
+
+이 경우, `yaml` 파일 내 DockerHub 이미지를 public.ecr.aws 레포로 변경한 후 재설치가 필요합니다.
+
+* 에이전트 설치 화면에서 기본 설치용 yaml을 다운로드한 경우 아래 명령어를 사용해 이미지를 변경할 수 있습니다. 명령어 수행 시 yaml에 있는 기존 dockerHub 이미지가 [public.ecr.aws](http://public.ecr.aws) 리포지토리 이미지로 대체됩니다.
+
+  ```yaml
+  sed -i 's|image: "whatap/kube_mon|image: "public.ecr.aws/whatap/kube_mon|g' kube_agent.yaml
+  ```
+
+</div>
 
 ## 애플리케이션 연동 문제 해결{#troubleshooting-k8s-application} 
 

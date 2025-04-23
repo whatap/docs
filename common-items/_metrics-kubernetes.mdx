@@ -622,4 +622,80 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 |`backendServiceUid`|	백엔드로 전달되는 서비스의 uid 	|-|List|
 |`pathType`| 	경로 일치 방식 (예, `Prefix`, `Exact`)	|-|List|
 
+## 쿠버네티스 디플로이먼트(`kube_deployment`) 지표 {#kube_deployment}
+
+디플로이먼트 리소스에 대한 메타데이터와 상태 정보를 태그로 수집합니다.
+
+### Tags {#kube_deployment-tags}
+
+|태그명|설명|단위|타입|
+|---|---|---|---|
+|`deployName`| 디플로이먼트의 이름 (`metadata.name`) | - | String |
+|`namespace`| 디플로이먼트가 속한 네임스페이스 (`metadata.namespace`) | - | String |
+|`deployUid`| 디플로이먼트의 UID (`metadata.uid`) | - | String |
+
+### Fields {#kube_deployment-fields}
+
+|필드명|설명|단위|타입|
+|---|---|---|---|
+|`deployReadyReplicas`| 준비(Ready) 상태인 파드 수 (`status.readyReplicas`) | 개수 | - |
+|`deployTotalReplicas`| 설정된 전체 파드 수 (`spec.replicas`) | 개수(count) | - |
+|`deployUpdatedReplicas`| 최신 버전으로 갱신된 파드 수 (`status.updatedReplicas`) | 개수 | - |
+|`deployAvailableReplicas`| 사용 가능한 상태의 파드 수 (`status.availableReplicas`) | 개수 | - |
+|`deployUnavailableReplicas`| 사용 불가능한 상태의 파드 수 (`status.unavailableReplicas`) | 개수 | - |
+|`deployCreationTime`| 디플로이먼트 생성 시각 (Unix Epoch milliseconds, `metadata.creationTimestamp`) | 밀리초(ms) | - |
+|`deploySelector`| 디플로이먼트의 선택자 라벨 (`spec.selector.matchLabels`) | - | String |
+|`deployStrategy`| 디플로이먼트의 배포 전략 (`spec.strategy.type`, 예: `RollingUpdate`, `Recreate`) | - | String |
+
+## 쿠버네티스 크론잡(`kube_cronjob`) 지표 {#kube_cronjob}
+
+디플로이먼트 리소스에 대한 메타데이터와 상태 정보를 태그로 수집합니다.
+
+### Tags {#kube_cronjob-tags}
+
+|태그명|설명|단위|타입|
+|---|---|---|---|
+|`cronJobName`| CronJob의 이름 (`metadata.name`) | - | String |
+|`namespace`| CronJob이 속한 네임스페이스 (`metadata.namespace`) | - | String |
+|`cronJobUid`| CronJob의 UID (`metadata.uid`) | - | String |
+
+### Fields {#kube_cronjob-fields}
+
+|필드명|설명|단위|타입|
+|---|---|---|---|
+|`lastScheduleTime`| CronJob이 마지막으로 스케줄된 시간 (`status.lastScheduleTime`) | - | String |
+|`lastSuccessfulTime`| CronJob이 마지막으로 성공한 시간 (`status.lastSuccessfulTime`) | - | String |
+|`cronJobSpecSchedule`| CronJob의 스케줄 주기 (`spec.schedule`, 예: `"0 */5 * * *"` ) | - | String |
+|`successfulJobsHistoryLimit`| 성공한 Job을 보존하는 최대 개수 (`spec.successfulJobsHistoryLimit`) | 개수 | - |
+|`failedJobsHistoryLimit`| 실패한 Job을 보존하는 최대 개수 (`spec.failedJobsHistoryLimit`) | 개수 | - |
+|`concurrencyPolicy`| 동시 실행 정책 (`Allow`, `Forbid`, `Replace`) (`spec.concurrencyPolicy`) | 문자열 | - |
+|`startingDeadlineSeconds`| 스케줄된 시간이 지난 후에도 Job을 실행할 수 있는 최대 지연 시간 (`spec.startingDeadlineSeconds`) | 시간(seconds) | - |
+
+## 쿠버네티스 잡(`kube_job`) 지표 {#kube_job}
+
+디플로이먼트 리소스에 대한 메타데이터와 상태 정보를 태그로 수집합니다.
+
+### Tags {#kube_job-tags}
+
+|태그명|설명|단위|타입|
+|---|---|---|---|
+|`jobName`| Job의 이름 (`metadata.name`) | - | String |
+|`namespace`| Job이 소속된 네임스페이스 (`metadata.namespace`) | - | String |
+|`jobUid`| Job의 UID (`metadata.uid`) | - | String |
+|`ownerKind`| 상위 오브젝트의 종류 (예: `CronJob`) | - | String |
+|`ownerName`| 상위 오브젝트의 이름 | - | String |
+|`ownerUid`| 상위 오브젝트의 UID | - | String |
+
+### Fields {#kube_job-fields}
+
+|필드명|설명|단위|타입|
+|---|---|---|---|
+|`succeededPods`| 성공한 파드 수 (`status.succeeded`) | 개수 | - |
+|`failedPods`| 실패한 파드 수 (`status.failed`) | 개수 | - |
+|`completionTime`| Job이 완료된 시간 (`status.completionTime.toString()`) | - | String |
+|`parallelism`| 동시에 실행되도록 설정된 파드 수 (`spec.parallelism`) | 개수 | - |
+|`completions`| Job이 완료되기 위해 필요한 파드 실행 횟수 (`spec.completions`) | 개수 | - |
+|`backoffLimit`| 실패 시 재시도 가능한 최대 횟수 (`spec.backoffLimit`) | 횟수 | - |
+|`activeDeadlineSeconds`| Job이 실행될 수 있는 최대 시간 (`spec.activeDeadlineSeconds`) | 초(seconds) | - |
+
 </div>

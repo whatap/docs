@@ -1,5 +1,114 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_50_02/",
+    "ver": "v2.50.02",
+    "date": "2025-04-24",
+    "Lists": [
+      {
+        "ver": "v2.50.02",
+        "hash": "v25002",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> setup.sh 수행 시 <em>jdbc</em> 폴더의 JAR 파일을 먼저 읽도록 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.50.02",
+        "hash": "v25002",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 세션 종료 수행 시 NullPoint 발생 버그 수정</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.50.02",
+        "hash": "v25002",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>xact_runtime</code> 계산 오류 수정</p>",
+        "category": "PostgreSQL"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_50_01/",
+    "ver": "v2.50.01",
+    "date": "2025-04-23",
+    "Lists": [
+      {
+        "ver": "v2.50.01",
+        "hash": "v25001",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 오브젝트 정보의 Partition, Subpartition 정보 수집 방식 수정</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.50.01",
+        "hash": "v25001",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 액티브 세션 리스트 수집 기준 변경</p>",
+        "category": "Oracle",
+        "details": "<ul>\n<li><p>기존: <code>status='active'</code></p></li><li><p>변경: <code>status!='inactive'</code></p></li>\n</ul>"
+      },
+      {
+        "ver": "v2.50.01",
+        "hash": "v25001",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 프로시저 통계 메뉴에 SQL Text가 표시되지 않던 버그 수정</p>",
+        "category": "MySQL"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_4/",
+    "ver": "v2.5.4",
+    "date": "2025-04-16",
+    "Lists": [
+      {
+        "ver": "v2.5.4",
+        "hash": "v254",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 음수값이 수집되는 지표 관련 버그 수정</p>",
+        "category": "CUBRID"
+      },
+      {
+        "ver": "v2.5.4",
+        "hash": "v254",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Cluster AutoScale 기능 추가 (요청 시 별도의 에이전트 파일 제공)</p>",
+        "category": "Redis"
+      },
+      {
+        "ver": "v2.5.4",
+        "hash": "v254",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 버전 정보 수집 시 에러 발생 버그 수정</p>",
+        "category": "SAP ASE"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_3/",
+    "ver": "v2.5.3",
+    "date": "2025-04-10",
+    "Lists": [
+      {
+        "ver": "v2.5.3",
+        "hash": "v253",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> DB2 Active Session의 username 수집 시 발생하던 버그 수정</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_2/",
     "ver": "v2.5.2",
     "date": "2025-04-08",
@@ -9,7 +118,7 @@
         "hash": "v252",
         "product": "DBX",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 에이전트 기동 start.sh 파일 실행 시 에이전트 jar 파일이 여러 개 있을 경우, 동작하지 않는 오류 수정 (버전 250327 ~ 250407에서 발생)</p>",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 기동 start.sh 파일 실행 시 에이전트 jar 파일이 여러 개 있을 경우, 동작하지 않는 오류 수정 (버전 250327 ~ 250407에서 발생)</p>",
         "category": "공통"
       },
       {

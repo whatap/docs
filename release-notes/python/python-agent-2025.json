@@ -1,5 +1,20 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_8_1/",
+    "ver": "v1.8.1",
+    "date": "2025-04-23",
+    "Lists": [
+      {
+        "ver": "v1.8.1",
+        "hash": "v181",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>starlette</code> 기반의 WebSocket 송신 추적 기능 추가</p>",
+        "details": "<ul>\n<li>\n<p><strong>trace_websocket_enabled</strong> <span class=\"type\">Boolean</span></p>\n<p>기본값 <code>false</code></p>\n<br>: <p><code>true</code>로 설정 시 해당 WebSocket 추적 기능 활성화 </p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_8_0/",
     "ver": "v1.8.0",
     "date": "2025-04-14",

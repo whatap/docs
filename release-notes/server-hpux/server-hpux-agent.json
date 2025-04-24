@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server-hpux/server-hpux-1_4_4/",
+    "ver": "v1.4.4",
+    "date": "2025-04-23",
+    "Lists": [
+      {
+        "ver": "v1.4.4",
+        "hash": "v144",
+        "product": "Server HP-UX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <em>whatap.conf</em> 갱신 오류 수정</p>"
+      },
+      {
+        "ver": "v1.4.4",
+        "hash": "v144",
+        "product": "Server HP-UX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 서버 재구동 시 에이전트 자동 재시작 기능 추가</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server-hpux/server-hpux-1_4_2/",
     "ver": "v1.4.2",
     "date": "2025-03-13",

@@ -1,0 +1,21 @@
+---
+id: dbx-2_50_01
+title: DBX v2.50.01
+pagination_next: release-notes/db/dbx-2_5_4
+displayed_sidebar: releaseSidebar
+---
+
+2025년 04월 23일
+
+## Oracle
+
+* <Status priority='0'>Fixed</Status> 오브젝트 정보의 Partition, Subpartition 정보 수집 방식 수정
+
+* <Status priority='0'>Fixed</Status> 액티브 세션 리스트 수집 기준 변경  
+
+    * 기존: `status = 'active'`  
+    * 변경: `status != 'inactive'`
+
+## MySQL
+
+<Status priority='0'>Fixed</Status> 프로시저 통계 메뉴에 SQL Text가 표시되지 않던 버그 수정

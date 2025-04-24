@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server-solaris/server-solaris-1_4_4/",
+    "ver": "v1.4.4",
+    "date": "2025-04-23",
+    "Lists": [
+      {
+        "ver": "v1.4.4",
+        "hash": "v144",
+        "product": "Server Solaris Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <em>whatap.conf</em> 갱신 오류 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server-solaris/server-solaris-1_4_2/",
     "ver": "v1.4.2",
     "date": "2025-03-13",

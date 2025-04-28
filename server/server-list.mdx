@@ -43,7 +43,7 @@ keywords: [ 서버 목록, 분석하기, UI, Server ]
 
 ## ![](/img/number-01.png) 검색
 
-상단 오른쪽 ![number-s](/img/number-01.png) ***검색창***을 활용해 서버 이름(ONAME)와 서버 아이디(OID) 중에서 입력값이 포함된 서버 목록을 필터링할 수 있습니다.
+상단 오른쪽 ![number-s](/img/number-01.png) ***검색창***을 활용해 에이전트 명과 IP를 검색할 수 있습니다.
 
 ## ![](/img/number-02.png) 필터
 
@@ -91,7 +91,11 @@ keywords: [ 서버 목록, 분석하기, UI, Server ]
 
 ## ![](/img/number-03.png) 서버 현황
 
-에이전트가 할당된 전체 서버의 현황을 나타냅니다. 목록에서 에이전트를 선택하면 <Cmdname sid="side_serverDetail" className="uitext" /> 페이지로 이동합니다. <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](server-detail)를 참조하세요.
+에이전트가 할당된 전체 서버의 현황을 나타냅니다. 에이전트 명 목록에서 에이전트를 선택하면 <Cmdname sid="side_serverDetail" className="uitext" /> 페이지로 이동합니다. <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴에 대한 자세한 내용은 [다음 문서](server-detail)를 참조하세요.
+
+#### 파일 시스템 정보
+
+***파일 시스템 정보***는 파일 시스템을 자세히 보고싶은 에이전트 명의 왼쪽 ![파일 시스템 상세보기 아이콘](/img/ico-detail-view-gr.svg) 아이콘을 클릭하면 확인할 수 있습니다.
 
 ### 컬럼 설정
 
@@ -141,16 +145,6 @@ keywords: [ 서버 목록, 분석하기, UI, Server ]
 
 ![새로고침 아이콘](/img/ic-refresh2.svg) <Cmdname sid="refresh" className="uitext" /> 버튼을 클릭하면 사용자는 현재 시간을 기준으로 데이터를 갱신할 수 있습니다.
 
-### 모니터링 관리
-
-에이전트 명령을 통해 서버를 관리하는 기능입니다. ![서버 관리 아이콘](/img/ico-setting.svg) <Cmdname sid="sms_management" className="uitext" /> 버튼을 클릭하고 목록에서 관리 기능을 적용할 서버를 선택하세요. 오른쪽에 <Cmdname sid="paused_agent" className="uitext" />, <Cmdname sid="resume_agent" className="uitext" />, <Cmdname sid="closed_agent" className="uitext" /> 버튼이 활성화됩니다.
-
-* ![일시정지 아이콘](/img/ic-s-pause.svg) <Cmdname sid="paused_agent" className="uitext" /> : 해당 에이전트의 데이터 수집을 일시 중지합니다. 서버 목록에서 일시 중지 상태로 표시됩니다.
-
-* ![재시작 아이콘](/img/ic-caret-right.svg) <Cmdname sid="resume_agent" className="uitext" /> : 에이전트를 다시 시작합니다.
-
-* ![해지 아이콘](/img/ic-delete-critical.svg) <Cmdname sid="exclude" className="uitext" /> : 에이전트의 작동을 중지합니다. 서버 목록에서 제외되며 서버 현황을 확인할 수 없습니다.
-
 ### 에이전트 이전
 
 ![이전 아이콘](/img/ic-swap.svg) <Cmdname sid="BTN07897" className="uitext" /> 버튼을 선택해 에이전트를 다른 프로젝트로 이전할 수 있습니다.
@@ -196,3 +190,13 @@ keywords: [ 서버 목록, 분석하기, UI, Server ]
 * <Cmdname sid="check_period" className="uitext" /> 버튼을 선택하면 과거 데이터를 조회할 수 있습니다.
 
 :::
+
+### 모니터링 관리
+
+에이전트 명령을 통해 서버를 관리하는 기능입니다. ![서버 관리 아이콘](/img/ico-setting.svg) <Cmdname sid="sms_management" className="uitext" /> 버튼을 클릭하고 목록에서 관리 기능을 적용할 서버를 선택하세요. 오른쪽에 <Cmdname sid="paused_agent" className="uitext" />, <Cmdname sid="resume_agent" className="uitext" />, <Cmdname sid="closed_agent" className="uitext" /> 버튼이 활성화됩니다.
+
+* ![일시정지 아이콘](/img/ic-s-pause.svg) <Cmdname sid="paused_agent" className="uitext" /> : 해당 에이전트의 데이터 수집을 일시 중지합니다. 서버 목록에서 일시 중지 상태로 표시됩니다.
+
+* ![재시작 아이콘](/img/ic-caret-right.svg) <Cmdname sid="resume_agent" className="uitext" /> : 에이전트를 다시 시작합니다.
+
+* ![해지 아이콘](/img/ic-delete-critical.svg) <Cmdname sid="exclude" className="uitext" /> : 에이전트의 작동을 중지합니다. 서버 목록에서 제외되며 서버 현황을 확인할 수 없습니다.

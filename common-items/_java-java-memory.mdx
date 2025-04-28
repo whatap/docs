@@ -7,29 +7,29 @@
 
 ### Tags {#javamemory-tags}
 
-<div className="c3-30-60-10">
+<div className="c4-20-10-10-60">
 
-|태그명|설명|비고|
-|----|----|----|
-|`host_ip`|호스트 IP 주소|고유값|
-|`okindName`|`whatap.okind`로 분류된 그룹 이름|-|
-|`oname`|에이전트 이름|고유값|
-|`onodeName`|`whatap.onode`로 분류된 그룹 이름|-|
-|`pid`|특정프로세스의 고유 식별자(ID)|-|
+| Fields     | Type | Unit | Description                          |
+| ---------- | ---- | ---- | ------------------------------------ |
+| host_ip    | -    | -    | 호스트 IP 주소 (고유값)                   |
+| okindName  | -    | -    | whatap.okind로 분류된 그룹 이름           |
+| oname      | -    | -    | 에이전트 이름 (고유값)                    |
+| onodeName  | -    | -    | whatap.onode로 분류된 그룹 이름           |
+| pid        | -    | -    | 특정프로세스의 고유 식별자(ID)              |
 
 </div>
 
 ### Fields {#javamemory-fields}
 
-<div className="c4-20-10-50-10">
+<div className="c4-20-10-10-60">
 
-|필드명|단위|설명|비고|
-|----|----|----|----|
-| `nonheap_committed` | byte | JVM에서 사용하기 위해 보장된 비 힙 메모리 크기 | - |
-| `nonheap_init` | byte | JVM이 시작 시 OS로부터 요청하는 초기 비 힙 메모리 크기 | - |
-| `nonheap_max` | byte | 메모리 관리에 사용할 수 있는 최대 비 힙 메모리 크기 | - |
-| `nonheap_used` | byte | 현재 사용 중인 비 힙 메모리의 양 | - |
-| `objectPendingFinalizationCount` | count | GC 중 finalize 수행을 위해 대기 중인 객체의 수 | - |
+| Fields                         | Type | Unit  | Description                                   |
+| ------------------------------ | ---- | ----- | --------------------------------------------- |
+| nonheap_committed              | -    | byte  | JVM에서 사용하기 위해 보장된 비 힙 메모리 크기          |
+| nonheap_init                   | -    | byte  | JVM이 시작 시 OS로부터 요청하는 초기 비 힙 메모리 크기   |
+| nonheap_max                    | -    | byte  | 메모리 관리에 사용할 수 있는 최대 비 힙 메모리 크기      |
+| nonheap_used                   | -    | byte  | 현재 사용 중인 비 힙 메모리의 양                     |
+| objectPendingFinalizationCount | -    | count | GC 중 finalize 수행을 위해 대기 중인 객체의 수       |
 
 </div>
 

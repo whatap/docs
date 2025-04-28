@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_4_2/",
+    "ver": "v2.4.2",
+    "date": "2025-04-26",
+    "Lists": [
+      {
+        "ver": "v2.4.2",
+        "hash": "v242",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 설치되는 서버의 닷넷 런타임 버전에 따라서 자동으로 버전이 선택되도록 수정</p>"
+      },
+      {
+        "ver": "v2.4.2",
+        "hash": "v242",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> ISAPI 필터 기반 트랜잭션에서 오류가 발생한 경우도 히트맵에 푸른색으로 표시되는 버그 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_4_1/",
     "ver": "v2.4.1",
     "date": "2025-03-21",

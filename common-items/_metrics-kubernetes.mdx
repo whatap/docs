@@ -704,25 +704,25 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Tags {#kube_replicaset-tags}
 
-| Tags             | Type   | Unit             | Description |
-| ---------------- | ------ | ---------------- | ----------- |
-| `replicaSetName` | string | -                | ReplicaSet의 이름 (`metadata.name`) |
-| `namespace`      | string | -                | ReplicaSet이 소속된 네임스페이스 (`metadata.namespace`) |
-| `replicaSetUid`  | string | -                | ReplicaSet의 UID (`metadata.uid`) |
-| `ownerKind`      | string | -                | 상위 오브젝트 종류 (예:` Deployment`) (`metadata.ownerReferences.kind`) |
-| `ownerName`      | string | -                | 상위 오브젝트 이름 (`metadata.ownerReferences.name`) |
-| `ownerUid `      | string | -                | 상위 오브젝트 UID (`metadata.ownerReferences.uid`) |
-| `creationTime`   | -      | milliseconds(ms) | ReplicaSet 생성 시각 (`metadata.creationTimestamp`) |
-| `age`            | string | -                | ReplicaSet 생성 이후 경과 시간 |
+| Tags             | Type    | Unit             | Description |
+| ---------------- | ------- | ---------------- | ----------- |
+| `replicaSetName` | string  | -                | ReplicaSet의 이름 (`metadata.name`) |
+| `namespace`      | string  | -                | ReplicaSet이 소속된 네임스페이스 (`metadata.namespace`) |
+| `replicaSetUid`  | string  | -                | ReplicaSet의 UID (`metadata.uid`) |
+| `ownerKind`      | string  | -                | 상위 오브젝트 종류 (예:` Deployment`) (`metadata.ownerReferences.kind`) |
+| `ownerName`      | string  | -                | 상위 오브젝트 이름 (`metadata.ownerReferences.name`) |
+| `ownerUid `      | string  | -                | 상위 오브젝트 UID (`metadata.ownerReferences.uid`) |
+| `creationTime`   | integer | milliseconds(ms) | ReplicaSet 생성 시각 (`metadata.creationTimestamp`) |
+| `age`            | string  | -                | ReplicaSet 생성 이후 경과 시간 |
 
 ### Fields {#kube_replicaset-fields}
 
-| Field                         | Type   | Unit  | Description |
-| ----------------------------- | ------ | ----- | ----------- |
-| `replicaSetReplicas`          | -      | count | 설정된 파드 수 (`spec.replicas`) |
-| `replicaSetReadyReplicas`     | -      | count | Ready 상태 파드 수 (`status.readyReplicas`) |
-| `replicaSetAvailableReplicas` | -      | count | 사용 가능한 파드 수 (`status.availableReplicas`) |
-| `replicaSetSelector`          | string | -     | Selector 라벨 (`spec.selector.matchLabels`) |
+| Field                         | Type    | Unit  | Description |
+| ----------------------------- | ------- | ----- | ----------- |
+| `replicaSetReplicas`          | integer | count | 설정된 파드 수 (`spec.replicas`) |
+| `replicaSetReadyReplicas`     | integer | count | Ready 상태 파드 수 (`status.readyReplicas`) |
+| `replicaSetAvailableReplicas` | integer | count | 사용 가능한 파드 수 (`status.availableReplicas`) |
+| `replicaSetSelector`          | string  | -     | Selector 라벨 (`spec.selector.matchLabels`) |
 
 ## 쿠버네티스 스테이트풀셋(`kube_statefulSet`) 지표 {#kube_statefulset}
 
@@ -730,23 +730,23 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Tags {#kube_statefulSet-tags}
 
-| Tags              | Type   | Unit             | Description |
-| ----------------- | ------ | ---------------- | ----------- |
-| `statefulSetName` | string | -                | StatefulSet의 이름 (`metadata.name`) |
-| `namespace`       | string | -                | StatefulSet이 소속된 네임스페이스 (`metadata.namespace`) |
-| `statefulSetUid`  | string | -                | StatefulSet의 UID (`metadata.uid`) |
-| `creationTime`    | -      | milliseconds(ms) | StatefulSet 생성 시각 (`metadata.creationTimestamp`) |
-| `age`             | string | -                | StatefulSet 생성 이후 경과 시간 |
+| Tags              | Type    | Unit             | Description |
+| ----------------- | ------- | ---------------- | ----------- |
+| `statefulSetName` | string  | -                | StatefulSet의 이름 (`metadata.name`) |
+| `namespace`       | string  | -                | StatefulSet이 소속된 네임스페이스 (`metadata.namespace`) |
+| `statefulSetUid`  | string  | -                | StatefulSet의 UID (`metadata.uid`) |
+| `creationTime`    | integer | milliseconds(ms) | StatefulSet 생성 시각 (`metadata.creationTimestamp`) |
+| `age`             | string  | -                | StatefulSet 생성 이후 경과 시간 |
 
 ### Fields {#kube_statefulSet-fields}
 
-| Field                 | Type   | Unit  | Description |
-| --------------------- | ------ | ----- | ----------- |
-| `replicas`            | -      | count | 설정된 파드 수 (`spec.replicas`) |
-| `readyReplicas`       | -      | count | Ready 상태 파드 수 (`status.readyReplicas`) |
-| `currentReplicas`     | -      | count | 현재 생성된 파드 수 (`status.currentReplicas`) |
-| `updatedReplicas`     | -      | count | 업데이트된 파드 수 (`status.updatedReplicas`) |
-| `statefulSetSelector` | string | -     | Selector 라벨 (`spec.selector.matchLabels`) |
+| Field                 | Type    | Unit  | Description |
+| --------------------- | ------- | ----- | ----------- |
+| `replicas`            | integer | count | 설정된 파드 수 (`spec.replicas`) |
+| `readyReplicas`       | integer | count | Ready 상태 파드 수 (`status.readyReplicas`) |
+| `currentReplicas`     | integer | count | 현재 생성된 파드 수 (`status.currentReplicas`) |
+| `updatedReplicas`     | integer | count | 업데이트된 파드 수 (`status.updatedReplicas`) |
+| `statefulSetSelector` | string  | -     | Selector 라벨 (`spec.selector.matchLabels`) |
 
 ## 쿠버네티스 잡(`kube_job`) 지표 {#kube_job}
 
@@ -765,14 +765,14 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Fields {#kube_job-fields}
 
-| Field                   | Type   | Unit         | Description |
-| ----------------------- | ------ | ------------ | ----------- |
-| `succeededPods`         | -      | count        | 성공한 파드 수 (`status.succeeded`) |
-| `failedPods`            | -      | count        | 실패한 파드 수 (`status.failed`) |
-| `completionTime`        | string | -            | Job이 완료된 시간 (`status.completionTime.toString()`) |
-| `parallelism`           | -      | count        | 동시에 실행되도록 설정된 파드 수 (`spec.parallelism`) |
-| `completions`           | -      | count        | Job이 완료되기 위해 필요한 파드 실행 횟수 (`spec.completions`) |
-| `backoffLimit`          | -      | count        | 실패 시 재시도 가능한 최대 횟수 (`spec.backoffLimit`) |
-| `activeDeadlineSeconds` | -      | seconds(sec) | Job이 실행될 수 있는 최대 시간 (`spec.activeDeadlineSeconds`) |
+| Field                   | Type    | Unit         | Description |
+| ----------------------- | ------- | ------------ | ----------- |
+| `succeededPods`         | integer | count        | 성공한 파드 수 (`status.succeeded`) |
+| `failedPods`            | integer | count        | 실패한 파드 수 (`status.failed`) |
+| `completionTime`        | string  | -            | Job이 완료된 시간 (`status.completionTime.toString()`) |
+| `parallelism`           | integer | count        | 동시에 실행되도록 설정된 파드 수 (`spec.parallelism`) |
+| `completions`           | integer | count        | Job이 완료되기 위해 필요한 파드 실행 횟수 (`spec.completions`) |
+| `backoffLimit`          | integer | count        | 실패 시 재시도 가능한 최대 횟수 (`spec.backoffLimit`) |
+| `activeDeadlineSeconds` | integer | seconds(sec) | Job이 실행될 수 있는 최대 시간 (`spec.activeDeadlineSeconds`) |
 
 </div>

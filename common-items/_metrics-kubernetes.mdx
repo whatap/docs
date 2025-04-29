@@ -637,15 +637,15 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Fields {#kube_cronjob-fields}
 
-| Field                      | Type   | Unit          | Description |
-| -------------------------- | ------ | ------------- | ----------- |
-|`lastScheduleTime`          | string | -             | CronJob이 마지막으로 스케줄된 시간 (`status.lastScheduleTime`) |
-|`lastSuccessfulTime`        | string | -             | CronJob이 마지막으로 성공한 시간 (`status.lastSuccessfulTime`) |
-|`cronJobSpecSchedule`       | string | -             | CronJob의 스케줄 주기 (`spec.schedule`, 예: `"0 */5 * * *"` ) |
-|`successfulJobsHistoryLimit`| -      | count         | 성공한 Job을 보존하는 최대 개수 (`spec.successfulJobsHistoryLimit`) |
-|`failedJobsHistoryLimit`    | -      | count         | 실패한 Job을 보존하는 최대 개수 (`spec.failedJobsHistoryLimit`) |
-|`concurrencyPolicy`         | string | -             | 동시 실행 정책 (`Allow`, `Forbid`, `Replace`) (`spec.concurrencyPolicy`) |
-|`startingDeadlineSeconds`   | -      | time(seconds) | 스케줄된 시간이 지난 후에도 Job을 실행할 수 있는 최대 지연 시간 (`spec.startingDeadlineSeconds`) |
+| Field                      | Type    | Unit          | Description |
+| -------------------------- | ------- | ------------- | ----------- |
+|`lastScheduleTime`          | string  | -             | CronJob이 마지막으로 스케줄된 시간 (`status.lastScheduleTime`) |
+|`lastSuccessfulTime`        | string  | -             | CronJob이 마지막으로 성공한 시간 (`status.lastSuccessfulTime`) |
+|`cronJobSpecSchedule`       | string  | -             | CronJob의 스케줄 주기 (`spec.schedule`, 예: `"0 */5 * * *"` ) |
+|`successfulJobsHistoryLimit`| integer | count         | 성공한 Job을 보존하는 최대 개수 (`spec.successfulJobsHistoryLimit`) |
+|`failedJobsHistoryLimit`    | integer | count         | 실패한 Job을 보존하는 최대 개수 (`spec.failedJobsHistoryLimit`) |
+|`concurrencyPolicy`         | string  | -             | 동시 실행 정책 (`Allow`, `Forbid`, `Replace`) (`spec.concurrencyPolicy`) |
+|`startingDeadlineSeconds`   | integer | time(seconds) | 스케줄된 시간이 지난 후에도 Job을 실행할 수 있는 최대 지연 시간 (`spec.startingDeadlineSeconds`) |
 
 ## 쿠버네티스 디플로이먼트(`kube_deployment`) 지표 {#kube_deployment}
 
@@ -661,16 +661,16 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Fields {#kube_deployment-fields}
 
-| Field                     | Type   | Unit             | Description |
-| ------------------------- | ------ | ---------------- | ----------- |
-|`deployReadyReplicas`      | -      | count            | 준비(Ready) 상태인 파드 수 (`status.readyReplicas`) |
-|`deployTotalReplicas`      | -      | count            | 설정된 전체 파드 수 (`spec.replicas`) |
-|`deployUpdatedReplicas`    | -      | count            | 최신 버전으로 갱신된 파드 수 (`status.updatedReplicas`) |
-|`deployAvailableReplicas`  | -      | count            | 사용 가능한 상태의 파드 수 (`status.availableReplicas`) |
-|`deployUnavailableReplicas`| -      | count            | 사용 불가능한 상태의 파드 수 (`status.unavailableReplicas`) |
-|`deployCreationTime`       | -      | milliseconds(ms) | 디플로이먼트 생성 시각 (Unix Epoch milliseconds, `metadata.creationTimestamp`) |
-|`deploySelector`           | string | -                | 디플로이먼트의 선택자 라벨 (`spec.selector.matchLabels`) |
-|`deployStrategy`           | string | -                | 디플로이먼트의 배포 전략 (`spec.strategy.type`, 예: `RollingUpdate`, `Recreate`) |
+| Field                     | Type    | Unit             | Description |
+| ------------------------- | ------- | ---------------- | ----------- |
+|`deployReadyReplicas`      | integer | count            | 준비(Ready) 상태인 파드 수 (`status.readyReplicas`) |
+|`deployTotalReplicas`      | integer | count            | 설정된 전체 파드 수 (`spec.replicas`) |
+|`deployUpdatedReplicas`    | integer | count            | 최신 버전으로 갱신된 파드 수 (`status.updatedReplicas`) |
+|`deployAvailableReplicas`  | integer | count            | 사용 가능한 상태의 파드 수 (`status.availableReplicas`) |
+|`deployUnavailableReplicas`| integer | count            | 사용 불가능한 상태의 파드 수 (`status.unavailableReplicas`) |
+|`deployCreationTime`       | integer | milliseconds(ms) | 디플로이먼트 생성 시각 (Unix Epoch milliseconds, `metadata.creationTimestamp`) |
+|`deploySelector`           | string  | -                | 디플로이먼트의 선택자 라벨 (`spec.selector.matchLabels`) |
+|`deployStrategy`           | string  | -                | 디플로이먼트의 배포 전략 (`spec.strategy.type`, 예: `RollingUpdate`, `Recreate`) |
 
 ## 쿠버네티스 데몬셋(`kube_daemonset`) 지표 {#kube_daemonset}
 
@@ -678,25 +678,25 @@ Ingress 리소스에 대한 메타 데이터와 관련 정보를 모니터링할
 
 ### Tags {#kube_daemonset-tags}
 
-| Tags            | Type   | Unit             | Description |
-| --------------- | ------ | ---------------- | ----------- |
-| `daemonSetName` | string | -                | DaemonSet의 이름 (`metadata.name`) |
-| `namespace`     | string | -                | DaemonSet이 소속된 네임스페이스 (`metadata.namespace`)|
-| `daemonSetUid`  | string | -                | DaemonSet의 UID (`metadata.uid`) |
-| `creationTime`  | -      | milliseconds(ms) | DaemonSet 생성 시각 (`metadata.creationTimestamp`) |
-| `age`           | string | -                | DaemonSet 생성 이후 경과 시간 |	
+| Tags            | Type    | Unit             | Description |
+| --------------- | ------- | ---------------- | ----------- |
+| `daemonSetName` | string  | -                | DaemonSet의 이름 (`metadata.name`) |
+| `namespace`     | string  | -                | DaemonSet이 소속된 네임스페이스 (`metadata.namespace`)|
+| `daemonSetUid`  | string  | -                | DaemonSet의 UID (`metadata.uid`) |
+| `creationTime`  | integer | milliseconds(ms) | DaemonSet 생성 시각 (`metadata.creationTimestamp`) |
+| `age`           | string  | -                | DaemonSet 생성 이후 경과 시간 |	
 
 ### Fields {#kube_daemonset-fields}
 
-| Field                    | Type   | Unit  | Description |
-| ------------------------ | ------ | ----- | ----------- |
-| `currentNumberScheduled` | -      | count | 현재 스케줄된 파드 수 (`status.currentNumberScheduled`) |
-| `desiredNumberScheduled` | -      | count | 기대하는 파드 수 (`status.desiredNumberScheduled`) |
-| `numberReady`            | -      | count | Ready 상태인 파드 수 (`status.numberReady`) |
-| `numberAvailable`        | -      | count | 사용 가능한 파드 수 (`status.numberAvailable`) |
-| `numberMisscheduled`     | -      | count | 잘못 스케줄된 파드 수 (`status.numberMisscheduled`) |
-| `updatedNumberScheduled` | -      | count | 업데이트된 파드 수 (`status.updatedNumberScheduled`) |
-| `daemonSetSelector`      | string | -     | Selector 라벨 (`spec.selector.matchLabels`) |
+| Field                    | Type    | Unit  | Description |
+| ------------------------ | ------- | ----- | ----------- |
+| `currentNumberScheduled` | integer | count | 현재 스케줄된 파드 수 (`status.currentNumberScheduled`) |
+| `desiredNumberScheduled` | integer | count | 기대하는 파드 수 (`status.desiredNumberScheduled`) |
+| `numberReady`            | integer | count | Ready 상태인 파드 수 (`status.numberReady`) |
+| `numberAvailable`        | integer | count | 사용 가능한 파드 수 (`status.numberAvailable`) |
+| `numberMisscheduled`     | integer | count | 잘못 스케줄된 파드 수 (`status.numberMisscheduled`) |
+| `updatedNumberScheduled` | integer | count | 업데이트된 파드 수 (`status.updatedNumberScheduled`) |
+| `daemonSetSelector`      | string  | -     | Selector 라벨 (`spec.selector.matchLabels`) |
 
 ## 쿠버네티스 레플리카셋(`kube_replicaset`) 지표 {#kube_replicaset}
 

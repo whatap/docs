@@ -1,0 +1,90 @@
+---
+id: otel-v0_2_4
+title: OTEL Agent v0.2.4
+toc_max_heading_level: 2
+---
+
+2025년 04월 30일
+
+* <Status priority='1'>Feature</Status> HTTP Status code가 400 이상일 경우 오류로 표기하는 설정 추가
+
+  * **transaction_status_error_enable** <span class='type'>bool</span> (기본값 `false`)
+
+* <Status priority='1'>Feature</Status> HTTP Status Code 통계 수집
+
+  * 전체 URL의 Status Code별 건수 수집 (10초 간격)
+
+    * **tx_status_meter_enabled** <span class='type'>bool</span> (기본값 `true`)
+
+  * URL별 Status Code 건수 수집 (5분 간격)
+
+    * **stat_txstatus_enabled** <span class='type'>bool</span> (기본값 `true`)
+
+
+## Features
+
+### 1. HTTP Status 오류 표시
+- **설정 키**: `transaction_status_error_enable`  
+- **설명**: HTTP Status 코드가 400 이상일 경우 오류로 표기  
+- **기본값**: `false`
+
+### 2. HTTP Status Code 통계 수집
+- **전체 URL 단위 Status Code별 건수 수집**  
+  - 설정 키: `tx_status_meter_enabled`  
+  - 주기: 10초  
+  - 기본값: `true`
+- **URL별 Status Code 건수 수집**  
+  - 설정 키: `stat_txstatus_enabled`  
+  - 주기: 5분  
+  - 기본값: `true`
+
+### 3. 분산 추적용 HTTP call span 정보 강제 설정
+- **설명**: HTTP call span 정보가 없을 때 가상 span을 생성하여 분산 추적 연계  
+- **설정 키**  
+  - `otel_virtual_httpc_enabled` (기본값: `false`)  
+  - `otel_virtual_httpc_name` (기본값: `"external http call"`)
+
+### 4. Gateway 관련 정보 수집
+- **게이트웨이 정보 수집 활성화**  
+  - 설정 키: `otel_gateway_enabled`  
+  - 기본값: `false`
+- **게이트웨이 경과 시간 속성 키**  
+  - 설정 키: `otel_attr_tx_gw_time_keys`  
+  - 기본값: `"duration.kong"`
+- **API 호출 경과 시간 속성 키**  
+  - 설정 키: `otel_attr_tx_api_time_keys`  
+  - 기본값: `"duration.proxy"`
+- **수집 항목 및 주기**  
+  - 전체 URL 단위 트랜잭션·게이트웨이·API 호출 경과 시간 수집 (10초)  
+  - URL·Status별 트랜잭션·게이트웨이·API 호출 경과 시간 수집 (5분)
+- **응답시간 대체 기능**  
+  - 설정 키: `otel_replace_tx_resp_time_enabled` (기본값: `false`)  
+  - 대체에 사용할 속성 키: `otel_attr_replace_tx_resp_time_keys` (기본값: `"duration.kong"`)
+
+## Fixed
+
+- **HTTP Method 무시 설정 오류 수정**  
+  - 기본적으로 `PATCH`, `OPTIONS`, `HEAD`, `TRACE` 메소드는 트랜잭션으로 수집되지 않음
+
+
+
+:::info
+
+**다운로드**
+
+| OS | 파일 형식 | 아키텍처 | 다운로드 |
+| - | :-: | :-: | :-: |
+| Red Hat / CentOS / Amazon linux | RPM | x86 x64 | [다운로드](http://repo.whatap.io/centos/6/x86_64/whatap-otel-0.2-3.x86_6) |
+| \^ | \^ | aarch64 | [다운로드](http://repo.whatap.io/centos/7/aarch64/whatap-otel-0.2-3.aarch64.rpm) |
+| Ubuntu 12 and above / Debian | DEB | amd64 | [다운로드](http://repo.whatap.io/debian/unstable/whatap-otel_0.2.3_amd64.deb) |
+| \^ | \^ | arm64 | [다운로드](http://repo.whatap.io/debian/unstable/whatap-otel_0.2.3_arm64.deb) |
+| Alpine linux | tar gzip | x86 x64 | [다운로드](http://repo.whatap.io/alpine/x86_64/whatap-otel-0.2.3.tar.gz) |
+| \^ | \^ | aarch64 | [다운로드](http://repo.whatap.io/alpine/aarch64/whatap-otel-0.2.3.tar.gz) |
+
+:::
+
+:::note
+
+**OpenTelemetry**로 수집한 데이터를 와탭 모니터링 서비스에서 확인하는 방법에 대한 자세한 내용은 [다음 문서](../../opentelemetry/introduction)를 참조하세요.
+
+:::

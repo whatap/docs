@@ -182,14 +182,16 @@ paths:
                     description: 프로젝트 수
                 example:
                   data:
+<<<<<<< HEAD
                     # - groupName: ''
+=======
+>>>>>>> 6a51c2cb16a4f456acc4ca97a54434b9ee38f398
                     - projectCode: 35
                       projectName: 'APM_TEST2'
                       createTime: '2018-10-19T07:17:03.774'
                       status: 'subscribe'
                       productType: 'APM'
                       platform: 'JAVA'
-                      # gatewayName: 'LOCAL'
                       apiToken: '5**********************R'
                   accountEmail: 'xxx@whatap.io'
                   total: 6

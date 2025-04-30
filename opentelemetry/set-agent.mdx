@@ -46,6 +46,19 @@ OpenTelemetry로부터 다양한 지표를 수집하고 처리하도록 에이�
 
   OpenTelemetry Trace 데이터 처리에 관련된 디버그 로그의 출력을 활성화합니다.
 
+### 에이전트 로그 
+
+* **log_keep_days Day** <span class='type'>Int</span>
+
+  기본값 `7`
+
+  로그 파일 보관 기간을 설정합니다.
+
+* **log_stdout_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  파일 로그와 동일하게 Stdout으로 출력하는 옵션을 추가합니다.
 
 ## Trace
 
@@ -201,6 +214,66 @@ otel_attr_tx_useragent_keys=http.user_agent
   기본값 `error.type`
 
   트랜잭션의 에러 정보로 활용할 속성 이름을 입력하세요.
+
+* **otel_events_exception_keys** <span class='type'>String</span>
+
+  기본값 `exception.type`
+
+  Event 데이터의 속성(Attribute) 이름을 지정하여 오류 타입 정보로 활용합니다.
+
+* **otel_events_error_message_keys** <span class='type'>String</span>
+
+  기본값 `exception.message`
+
+  Event 데이터의 속성(Attribute) 이름을 지정하여 오류 메시지 정보로 활용합니다.
+
+* **otel_events_error_stack_keys** <span class='type'>String</span>
+
+  기본값 `exception.stacktrace`
+
+  Event 데이터의 속성(Attribute) 이름을 지정하여 오류 스택 정보로 활용합니다.
+
+* **otel_tx_path_setby_name_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  트랜잭션 이름을 Span의 이름으로 지정합니다.
+
+* **otel_mtrace_stepid_setby_trace_spanid_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  Trace Span의 SpanID를 외부 연결의 ParentSpanID로 인식하게 설정합니다. HTTP call span 정보가 없을 때 강제로 설정합니다.
+
+* **otel_virtual_httpc_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  분산 추적을 위해서 HTTP call span 정보가 없을 때 강제로 설정합니다. HTTP call 주소는 자신의 트랜잭션 이름(URL)에 `otel_virtual_httpc_name`을 붙여서 설정합니다.
+
+* **otel_virtual_httpc_name** <span class='type'>String</span>
+
+  기본값 `external http call`
+
+  HTTP call span 정보가 없을 때 강제로 설정하는 이름을 지정합니다. 
+
+* **transaction_status_error_enable** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  status code가 400 이상일 경우 오류로 표기하도록 설정합니다.
+
+* **tx_status_meter_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  전체 URL의 Status Code별로 건수를 10초 간격으로 수집합니다.
+
+* **stat_txstatus_enabled** <span class='type'>Boolean</span>
+
+  기본값 `true`
+
+  URL별 Status Code 건수를 5분 간격으로 수집합니다.
 
 
 ## Metric

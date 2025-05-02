@@ -52,27 +52,31 @@ toc_max_heading_level: 2
     * Key: **otel_gateway_enabled** 
     * Type: <span class='type'>bool</span> 
     * Default: `false`
+    * 수집 항목 및 주기  
+      * 전체 URL 단위 트랜잭션·게이트웨이·API 호출 경과 시간 수집 주기: 10초  
+      * URL·Status별 트랜잭션·게이트웨이·API 호출 경과 시간 수집 주기: 5분
 
-  * 게이트웨이 경과 시간 
+  * 지정된 속성(attribute)의 값으로 게이트웨이 경과 시간을 설정
 
     * Key: **otel_attr_tx_gw_time_keys** 
     * Type: <span class='type'>string</span> 
     * Default: `duration.kong`
 
-
-  * API 호출 경과 시간 
+  * 지정된 속성(attribute)의 값으로 API 호출 경과 시간을 설정 
 
     * Key: **otel_attr_tx_api_time_keys** 
     * Type: <span class='type'>string</span> 
     * Default: `duration.proxy`
 
-  * 수집 항목 및 주기  
-    * 전체 URL 단위 트랜잭션·게이트웨이·API 호출 경과 시간 수집 (10초)  
-    * URL·Status별 트랜잭션·게이트웨이·API 호출 경과 시간 수집 (5분)
+  * 지정된 속성(attribute)의 값으로 응답시간을 설정  
 
-  * 응답시간 대체 기능  
-    * 설정 키: `otel_replace_tx_resp_time_enabled` (기본값: `false`)  
-    * 대체에 사용할 속성 키: `otel_attr_replace_tx_resp_time_keys` (기본값: `"duration.kong"`)
+    * Key: **otel_replace_tx_resp_time_enabled** 
+    * Type: <span class='type'>bool</span> 
+    * Default: `false`  
+    * Key: **otel_attr_replace_tx_resp_time_keys** 
+    * Type: <span class='type'>string</span> 
+    * Default: `duration.kong`
+
 
 * <Status priority='0'>Fixed</Status> HTTP Method 무시 설정 오류를 수정
 

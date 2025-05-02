@@ -275,6 +275,42 @@ otel_attr_tx_useragent_keys=http.user_agent
 
   URL별 Status Code 건수를 5분 간격으로 수집합니다.
 
+## Gateway
+
+OpenTelemetry Gateway 데이터 처리와 관련한 에이전트 설정 옵션입니다.
+
+* **otel_gateway_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  게이트웨이 정보 수집 여부를 설정합니다.  
+  * 전체 URL의 트랜잭션, 게이트웨이, API 호출 각각의 경과 시간 10초 간격으로 수집합니다.  
+  * URL, status별로 트랜잭션, 게이트웨이, API 호출 각각의 경과 시간을 5분 간격으로 수집합니다.
+
+* **otel_attr_tx_gw_time_keys** <span class='type'>String</span>
+
+  기본값 `duration.kong`
+
+  게이트웨이 경과 시간을 가진 속성(attribute) 이름(key)을 지정합니다.
+
+* **otel_attr_tx_api_time_key** <span class='type'>String</span>
+
+  기본값 `duration.proxy`
+
+  지정된 속성(attribute)의 값으로 API 호출 경과 시간을 설정합니다. API 호출 경과 시간을 가진 속성(attribute) 이름(key)을 지정합니다.
+
+* **otel_replace_tx_resp_time_enabled** <span class='type'>Boolean</span>
+
+  기본값 `duration.proxy`
+
+  트랜잭션은 시작시간과 종료시간으로 응답시간을 계산합니다. 지정한 속성의 키값으로 트랜잭션의 응답시간을 변경하는 기능을 활성화합니다.
+  * 응답시간을 특정 속성(attribute)의 키 값은 `otel_attr_replace_tx_resp_time_keys`로 설정합니다.
+
+* **otel_attr_replace_tx_resp_time_keys** <span class='type'>String</span>
+
+  기본값 `duration.kong`
+
+  응답시간으로 설정할 속성의 키 이름을 지정합니다.
 
 ## Metric
 

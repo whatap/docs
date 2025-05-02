@@ -42,6 +42,9 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="column_settings" className="uitext" />에서 프리셋 명 앞뒤에 공백이 있는 경우, 프리셋 명을 중복으로 등록할 수 있었던 문제 수정
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" />에서 조회한 시간 구간에 데이터가 없는 경우, 라인 차크 패널의 CSV 및 이미지 다운로드 버튼 숨김 처리
+
+
 ---
 
 ### `Kubernetes`
@@ -67,6 +70,17 @@ displayed_sidebar: releaseSidebar
 ---
 
 ### `Database`
+
+#### 공통
+
+- <Status priority='1'>Feature</Status> 락 트리 테이블에 컬럼 선택 기능 추가 
+
+    - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />,  <Cmdname sid="side_multiInstance" className="uitext" />
+    - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" />
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 실시간 모드가 아닐 때 차트 데이터를 CSV 파일 다운로드 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 위젯 헤더의 아이콘을 더보기 버튼으로 변경
 
 #### Oracle 
 

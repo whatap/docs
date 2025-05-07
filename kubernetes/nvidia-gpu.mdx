@@ -27,6 +27,12 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
 
   :::
 
+* **MIG 환경 지원** 
+
+  WhaTap Kubernetes는 NVIDIA GPU 클러스터 환경에서 **MIG(Multi-Instance GPU)** 기능을 지원하여, **물리 GPU 단위뿐만 아니라 MIG 인스턴스까지 세분화된 모니터링**을 제공합니다. 
+  
+  MIG 모드를 사용하면 하나의 물리 GPU를 여러 논리 인스턴스로 분할해 워크로드를 격리하고 자원을 할당할 수 있습니다. WhaTap은 이러한 환경에서도 정확한 지표 수집과 시각화를 지원합니다.
+
 ## 수집 메트릭스
 
 다음은 DCGM Exporter를 통해 수집되는 주요 GPU 메트릭스 항목들입니다. 
@@ -58,3 +64,32 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
 * **DCGM_FI_DEV_GPU_TEMP 및 DCGM_FI_DEV_MEMORY_TEMP** <span class='type'>Gauge</span>
 
   * 각 GPU의 온도와 메모리 온도를 섭씨(C) 단위로 측정합니다.
+
+<div style={{ overflowX: 'auto' }}>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Metrics</th>
+      <th>Unit</th>
+      <th>Lable</th>
+      <th>Description</th>
+      <th>Code</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`DCGM_FI_PROF_GR_ENGINE_ACTIVE for Devices`</td>
+      <td>`DCGM_FI_PROF_GR_ENGINE_ACTIVE`</td>
+      <td>%</td>
+      <td>`GPU ${gpu} [Node: ${onodeName}]` <br /> `e.g) GPU 5 [Node: ip-10-143-180]`</td>
+      <td>
+        DCGM에서 수집한 DCGM_FI_PROF_GR_ENGINE_ACTIVE 지표를 MIG 모드에서는 가중치(Compute Instance 비율)로 보정하여, GPU 물리 디바이스 단위로 집계합니다.
+      </td>
+      <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">1001</a></td>
+      <td>DCP</td>
+    </tr>
+  </tbody>
+</table>
+</div>

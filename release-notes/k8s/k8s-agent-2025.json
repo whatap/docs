@@ -1,5 +1,42 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_8_7/",
+    "ver": "v1.8.7",
+    "date": "2025-05-08",
+    "Lists": [
+      {
+        "ver": "v1.8.7",
+        "hash": "v187",
+        "product": "Kubernetes Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>kube_pod</code> 태그카운트 카테고리에 파드 상태 및 소유 정보 확인을 위한 태그카운트 항목 추가</p>",
+        "details": "<ul>\n<li>\n<p><code>kube_display_status</code>: 파드의 표시 상태(Display Status)</p>\n</li>\n<li>\n<p><code>ownerUid</code>: 파드 소유자의 UID</p>\n</li>\n<li>\n<p><code>ownerName</code>: 파드 소유자 이름</p>\n</li>\n<li>\n<p><code>ownerKind</code>: 파드 소유자 종류(Deployment, StatefulSet 등)</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v1.8.7",
+        "hash": "v187",
+        "product": "Kubernetes Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 기존 <code>kube_pod</code> 외에 워크로드 리소스에 대한 태그카운트 추가로 태그카운트 리소스 범위 확장</p>"
+      },
+      {
+        "ver": "v1.8.7",
+        "hash": "v187",
+        "product": "Kubernetes Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>container_gpu</code> MIG 환경 지원하도록 필드 추가</p>",
+        "details": "<ul>\n<li>\n<p><code>kube_replicaset</code></p>\n</li>\n<li>\n<p><code>kube_statefulset</code></p>\n</li>\n<li>\n<p><code>kube_daemonset</code></p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v1.8.7",
+        "hash": "v187",
+        "product": "Kubernetes Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>server_disk</code> 데이터가 누락되던 버그 해결</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_8_6/",
     "ver": "v1.8.6",
     "date": "2025-03-28",

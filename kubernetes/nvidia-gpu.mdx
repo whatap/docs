@@ -38,13 +38,13 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
 다음은 DCGM Exporter를 통해 수집되는 주요 GPU 메트릭스 항목들입니다. 
 
 <div style={{ overflowX: 'auto' }}>
-<table>
+<table style={{ whiteSpace: 'nowrap' }}>
   <thead>
     <tr>
       <th>Title</th>
       <th>Metrics</th>
       <th>Unit</th>
-      <th>Lable</th>
+      <th>Label</th>
       <th>Description</th>
       <th>Code</th>
       <th>Category</th>
@@ -83,8 +83,8 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_PROF_GR_ENGINE_ACTIVE`</td>
       <td>%</td>
       <td>`namespace=${namespace}, pod=${pod}, node=${onodeName}` <br />
-      `[GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID}]`<br />
-      e.g) `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]`<br />
+      `[GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID}]`<br /> <br />
+      e.g) <br /> `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]`<br />
       `namespace=whatap, pod=gpu-no-mig-2, node=ip-10-143-140 [GPU 2 / null(null) / GPU-bcde-fghi]`</td>
       <td>DCGM에서 수집한 DCGM_FI_PROF_GR_ENGINE_ACTIVE 지표를 MIG 모드에서는 가중치(Compute Instance 비율)로 보정하여, 파드 단위로 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">1001</a></td>
@@ -103,7 +103,8 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_PROF_DRAM_ACTIVE for MIG Instance`</td>
       <td>`DCGM_FI_PROF_DRAM_ACTIVE`</td>
       <td>%</td>
-      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` <br /> e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
+      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` <br /> 
+      e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
       <td>DCGM에서 수집한 DCGM_FI_PROF_DRAM_ACTIVE 지표를 MIG 모드에서는 가중치(Compute Instance 비율)로 보정하여, MIG 인스턴스 단위로 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">1005</a></td>
       <td>DCP</td>
@@ -122,8 +123,9 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_PROF_DRAM_ACTIVE`</td>
       <td>%</td>
       <td>`namespace=${namespace}, pod=${pod}, node=${onodeName}` <br /> 
-      `[GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID}]` <br />
-      e.g) `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]`<br />
+      `[GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID}]` <br /> <br />
+      e.g) <br />
+      `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]`<br />
       `namespace=whatap, pod=gpu-no-mig-2, node=ip-10-143-140 [GPU 2 / null(null) / GPU-bcde-fghi]`</td>
       <td>DCGM에서 수집한 DCGM_FI_PROF_DRAM_ACTIVE 지표를 MIG 모드에서는 가중치(Compute Instance 비율)로 보정하여, 파드 단위로 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">1005</a></td>
@@ -142,7 +144,8 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_PROF_SM_ACTIVE for MIG Instance`</td>
       <td>`DCGM_FI_PROF_SM_ACTIVE`</td>
       <td>%</td>
-      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` <br /> e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
+      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` <br /> 
+      e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
       <td>DCGM에서 수집한 DCGM_FI_PROF_SM_ACTIVE 지표를 MIG 모드에서는 가중치(Compute Instance 비율)로 보정하여, MIG 인스턴스 단위로 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">1002</a></td>
       <td>DCP</td>
@@ -161,8 +164,9 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_PROF_SM_ACTIVE`</td>
       <td>%</td>
       <td>`namespace=${namespace}, pod=${pod}, node=${onodeName}` <br /> 
-      `[GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID}]`
-      e.g) `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]` <br /> 
+      `[GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID}]` <br /> <br />
+      e.g) <br />
+      `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]` <br /> 
       `namespace=whatap, pod=gpu-no-mig-2, node=ip-10-143-140 [GPU 2 / null(null) / GPU-bcde-fghi]`</td>
       <td>DCGM에서 수집한 DCGM_FI_PROF_SM_ACTIVE 지표를 MIG 모드에서는 가중치(Compute Instance 비율)로 보정하여, 파드 단위로 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">1002</a></td>
@@ -181,7 +185,8 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_PROF_PIPE_TENSOR_ACTIVE for MIG Instance`</td>
       <td>`DCGM_FI_PROF_PIPE_TENSOR_ACTIVE`</td>
       <td>%</td>
-      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
+      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` <br />
+      e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
       <td>DCGM에서 수집한 DCGM_FI_PROF_PIPE_TENSOR_ACTIVE 지표를 MIG 모드에서는 가중치(Compute Instance 비율)로 보정하여, MIG 인스턴스 단위로 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">1004</a></td>
       <td>DCP</td>
@@ -200,8 +205,9 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_PROF_PIPE_TENSOR_ACTIVE`</td>
       <td>%</td>
       <td>`namespace=${namespace}, pod=${pod}, node=${onodeName}` <br />
-      `[GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID}]`
-      e.g) `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]` <br />
+      `[GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID}]`<br /> <br />
+      e.g) <br />
+      `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]` <br />
       `namespace=whatap, pod=gpu-no-mig-2, node=ip-10-143-140 [GPU 2 / null(null) / GPU-bcde-fghi]`</td>
       <td>DCGM에서 수집한 DCGM_FI_PROF_PIPE_TENSOR_ACTIVE 지표를 MIG 모드에서는 가중치(Compute Instance 비율)로 보정하여, 파드 단위로 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">1004</a></td>
@@ -240,8 +246,9 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_PROF_SM_OCCUPANCY`</td>
       <td>%</td>
       <td>`namespace=${namespace}, pod=${pod}, node=${onodeName}` <br />
-      `[GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID}]` <br />
-      e.g) `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]`<br />
+      `[GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID}]` <br /> <br />
+      e.g)<br />
+      `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]`<br />
       `namespace=whatap, pod=gpu-no-mig-2, node=ip-10-143-140 [GPU 2 / null(null) / GPU-bcde-fghi]`</td>
       <td> </td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">1003</a></td>
@@ -261,7 +268,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_GPU_UTIL Node-Level Average`</td>
       <td>`DCGM_FI_DEV_GPU_UTIL`</td>
       <td>%</td>
-      <td>`${onodeName}e.g) 10.143.140`</td>
+      <td>`${onodeName}` <br /> e.g) `10.143.140`</td>
       <td>DCGM에서 수집한 DCGM_FI_DEV_GPU_UTIL 지표를 노드 단위로 평균하여 노드 전체 GPU 평균 사용률을 보여줌</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">203</a></td>
       <td>Utilization</td>
@@ -270,7 +277,9 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_GPU_UTIL Pod-Level`</td>
       <td>`DCGM_FI_DEV_GPU_UTIL`</td>
       <td>%</td>
-      <td>`namespace=${namespace}, pod=${pod}, node=${onodeName}[GPU ${gpu} / ${uuid}]e.g)namespace=whatap, pod=gpu-no-mig-4, node=ip-10-143-180 [GPU 4/ GPU-defg-hijk]namespace=gpu, pod=gpu-no-mig-4, node=ip-10-143-180 [GPU 6/ GPU-efgh-ijkl]`</td>
+      <td>`namespace=${namespace}, pod=${pod}, node=${onodeName} [GPU ${gpu} /` <br /> 
+      `${uuid} ]e.g)namespace=whatap, pod=gpu-no-mig-4, node=ip-10-143-180 [GPU 4/ GPU-defg-`<br />
+      `hijk]namespace=gpu, pod=gpu-no-mig-4, node=ip-10-143-180 [GPU 6/ GPU-efgh-ijkl]`</td>
       <td>DCGM에서 수집한 DCGM_FI_DEV_GPU_UTIL 지표를 파드 단위로 평균하여 파드별 GPU 사용률을 확인할 수 있음</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">203</a></td>
       <td>Utilization</td>
@@ -279,7 +288,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_POWER_USAGE for Devices`</td>
       <td>`DCGM_FI_DEV_POWER_USAGE`</td>
       <td>W</td>
-      <td>`GPU ${gpu} [Node: ${onodeName}]` e.g) `GPU 5 [Node: ip-10-143-180]`</td>
+      <td>`GPU ${gpu} [Node: ${onodeName}]` <br /> e.g) `GPU 5 [Node: ip-10-143-180]`</td>
       <td>DCGM에서 수집한 GPU 전력 사용량 (Watt) 지표로, GPU 물리 디바이스 단위로 현재 전력 사용률 측정</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">155</a></td>
       <td>Power</td>
@@ -288,7 +297,8 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_POWER_USAGE for MIG Instance`</td>
       <td>`DCGM_FI_DEV_POWER_USAGE`</td>
       <td>W</td>
-      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
+      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` <br /> 
+      e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
       <td>DCGM에서 수집한 GPU 전력 사용량 지표를 MIG 인스턴스 단위로 측정</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">155</a></td>
       <td>Power</td>
@@ -297,7 +307,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_POWER_USAGE Node-Level Average`</td>
       <td>`DCGM_FI_DEV_POWER_USAGE`</td>
       <td>W</td>
-      <td>`${onodeName}` e.g) `ip-10-143-180`</td>
+      <td>`${onodeName}` <br /> e.g) `ip-10-143-180`</td>
       <td>DCGM에서 수집한 GPU 전력 사용량 지표를 노드 단위로 평균 측정</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">155</a></td>
       <td>Power</td>
@@ -318,7 +328,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_FB_USED for Devices`</td>
       <td>`DCGM_FI_DEV_FB_USED`</td>
       <td>MiB</td>
-      <td>`GPU ${gpu} [Node: ${onodeName}]` e.g) `GPU 2 [Node: ip-10-143-140]`</td>
+      <td>`GPU ${gpu} [Node: ${onodeName}]` <br />e.g) `GPU 2 [Node: ip-10-143-140]`</td>
       <td>DCGM에서 수집한 DCGM_FI_DEV_FB_USED 지표를 GPU 물리 디바이스 단위로 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">252</a></td>
       <td>Framebuffer</td>
@@ -347,7 +357,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_FB_USED`</td>
       <td>MiB</td>
       <td>`namespace=${namespace}, pod=${pod}, node=${onodeName}`<br /> `[GPU ${gpu} / ${uuid}]`<br />
-      e.g) `namespace=whatap, pod=gpu-no-mig-4, node=ip-10-143-180 [GPU 4/ GPU-defg-hijk]`</td>
+      e.g) <br /> `namespace=whatap, pod=gpu-no-mig-4, node=ip-10-143-180 [GPU 4/ GPU-defg-hijk]`</td>
       <td>DCGM에서 수집한 DCGM_FI_DEV_FB_USED 지표를 파드 단위로 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">252</a></td>
       <td>Framebuffer</td>
@@ -356,7 +366,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_FB_USED_PERCENT for Devices`</td>
       <td>`DCGM_FI_DEV_FB_USED_PERCENT`</td>
       <td>%</td>
-      <td>`GPU ${gpu} [Node: ${onodeName}]` e.g) `GPU 5 [Node: ip-10-143-180]`</td>
+      <td>`GPU ${gpu} [Node: ${onodeName}]` <br /> e.g) `GPU 5 [Node: ip-10-143-180]`</td>
       <td>DCGM에서 수집한 DCGM_FI_DEV_FB_USED_PERCENT 지표를 GPU 물리 디바이스 단위로 계산</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">254</a></td>
       <td>Framebuffer</td>
@@ -365,7 +375,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_FB_USED_PERCENT for MIG Instance`</td>
       <td>`DCGM_FI_DEV_FB_USED_PERCENT`</td>
       <td>%</td>
-      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
+      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` <br /> e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
       <td>DCGM에서 수집한 DCGM_FI_DEV_FB_USED_PERCENT 지표를 MIG 인스턴스 단위로 계산</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">254</a></td>
       <td>Framebuffer</td>
@@ -374,7 +384,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_FB_USED_PERCENT Node-Level Average`</td>
       <td>`DCGM_FI_DEV_FB_USED_PERCENT`</td>
       <td>%</td>
-      <td>`${onodeName}` e.g) `ip-10-143-180`</td>
+      <td>`${onodeName}` <br /> e.g) `ip-10-143-180`</td>
       <td>DCGM에서 수집한 DCGM_FI_DEV_FB_USED_PERCENT 지표를 노드 단위로 평균 계산</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">254</a></td>
       <td>Framebuffer</td>
@@ -433,7 +443,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>%</td>
       <td>`namespace=${namespace}, pod=${pod}, node=${onodeName}`<br />
       `[GPU ${gpu} / ${uuid}]` <br />
-      e.g) `namespace=whatap, pod=gpu-no-mig-4, node=ip-10-143-180 [GPU 4/ GPU-defg-hijk]`</td>
+      e.g) <br />`namespace=whatap, pod=gpu-no-mig-4, node=ip-10-143-180 [GPU 4/ GPU-defg-hijk]`</td>
       <td>DCGM에서 수집한 DCGM_FI_DEV_MEM_COPY_UTIL 지표를 파드 단위로 계산</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">204</a></td>
       <td>Utilization</td>
@@ -442,7 +452,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_SM_CLOCK for Devices`</td>
       <td>`DCGM_FI_DEV_SM_CLOCK`</td>
       <td>MHz</td>
-      <td>`GPU ${gpu} [Node: ${onodeName}]` e.g) `GPU 5 [Node: ip-10-143-180]`</td>
+      <td>`GPU ${gpu} [Node: ${onodeName}]` <br /> e.g) `GPU 5 [Node: ip-10-143-180]`</td>
       <td>DCGM에서 수집한 SM 클럭(MHz) 정보를 GPU 물리 디바이스 단위로 평균하여 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">100</a></td>
       <td>Clocks</td>
@@ -451,7 +461,8 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_SM_CLOCK for MIG Instance`</td>
       <td>`DCGM_FI_DEV_SM_CLOCK`</td>
       <td>MHz</td>
-      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
+      <td>`GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID} [${onodeName}]` <br />
+      e.g) `GPU 5 / 11(2g.10gb) / MIG-1234-5678-c [ip-10-143-180]`</td>
       <td>DCGM에서 수집한 SM 클럭 정보를 MIG 인스턴스 단위로 평균하여 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">100</a></td>
       <td>Clocks</td>
@@ -460,7 +471,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_SM_CLOCK Node-Level Average`</td>
       <td>`DCGM_FI_DEV_SM_CLOCK`</td>
       <td>MHz</td>
-      <td>`${onodeName}` e.g) `ip-10-143-180`</td>
+      <td>`${onodeName}` <br /> e.g) `ip-10-143-180`</td>
       <td>DCGM에서 수집한 SM 클럭 정보를 노드 단위로 평균하여 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">100</a></td>
       <td>Clocks</td>
@@ -471,7 +482,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>MHz</td>
       <td>`namespace=${namespace}, pod=${pod}, node=${onodeName}` <br />
       `[GPU ${gpu} / ${GPU_I_ID}(${GPU_I_PROFILE}) / ${DCGM_FI_DEV_UUID}]` <br />
-      e.g) `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]` <br />
+      e.g)<br /> `namespace=whatap, pod=gpu-mig-5-a, node=ip-10-143-180 [GPU 5 / 11(2g.10gb) / MIG-1234-5678-c]` <br />
       `namespace=whatap, pod=gpu-no-mig-2, node=ip-10-143-140 [GPU 2 / null(null) / GPU-bcde-fghi]`</td>
       <td>DCGM에서 수집한 SM 클럭 정보를 파드 단위로 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">100</a></td>
@@ -500,7 +511,7 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 지원 환경, GPU ]
       <td>`DCGM_FI_DEV_MEM_CLOCK Node-Level Average`</td>
       <td>`DCGM_FI_DEV_MEM_CLOCK`</td>
       <td>MHz</td>
-      <td>`${onodeName}` e.g) `ip-10-143-180`</td>
+      <td>`${onodeName}` <br /> e.g) `ip-10-143-180`</td>
       <td>DCGM에서 수집한 DCGM_FI_DEV_MEM_CLOCK 지표를 노드 단위로 집계</td>
       <td><a href="https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html">101</a></td>
       <td>Clock</td>

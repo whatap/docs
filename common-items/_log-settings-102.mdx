@@ -1,5 +1,3 @@
-{/* 개인정보 비식별화 탭 추가로 로그 설정 전체 업데이트 필요 1212 */}
-
 <InDoc product='aws-log'>
 
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_logSetting" className="uitext" />
@@ -123,8 +121,6 @@
 ![number 2](/img/number-02.png) 영역에서 <Cmdname sid="log_usage" className="uitext" />을 확인할 수 있습니다. 또한 <UI>로그 보존 기간</UI> 및 <Cmdname sid="log_lookup_password" className="uitext" /> 설정을 변경할 수 있습니다.
 
 #### 로그 보존 기간 {#data-retention}
-
-{/* <Cmdname sid="DSC08751" className="uitext" /> */}
 
 공통으로 적용할 기본(default) 데이터 보존 기간입니다. 미지정 시 기본값은 1일입니다. 로그 보존 기간 선택 옵션 외에 사용자가 원하는 기간을 입력할 수 있습니다. <Cmdname sid="log_usage" className="uitext" /> 목록에서 별도로 설정하지 않으면 이 로그 데이터 보존 기간이 기본적으로 적용됩니다. <Cmdname sid="log_usage" className="uitext" /> 목록에서 카테고리별 데이터 보존 기간을 설정하고 <Cmdname sid="initialized" className="uitext" /> 버튼을 선택하면 기본 데이터 보존 기간으로 초기화됩니다. 
 
@@ -263,11 +259,7 @@
 
 :::
 
-{/* 설정하기 문서에서는 각 패턴별 이미지 안내 제외 1031 */}
-
 ### GROK 파서 패턴 등록 {#log-pattern-grok}
-
-{/* <ImgLang img='log-1st-grok.png' desc='GROK 파서 패턴 등록'/> */}
 
 기본 문법은 `%{SYNTAX:SEMANTIC}` 입니다. GROK 파서에 대한 자세한 내용은 [다음 문서](log-parser#grok-parser-detail)를 참조하세요. 패턴 등록 및 시뮬레이션이 필수적입니다. 
 
@@ -286,8 +278,6 @@
   :::
 
 ### JSON 포맷 파서 패턴 등록 {#log-pattern-json}
-
-{/* <ImgLang img='log-1st-json.png' desc='JSON 포맷 파서 패턴 등록'/>  */}
 
 로그 전체 혹은 일부가 JSON 형태로 출력되는 경우 JSON 포맷 파서를 통해 JSON으로 출력된 부분을 파싱할 수 있습니다. 로그 중 JSON 형태로 출력된 부분을 검출하기 위하여 ***Prefix***, ***Postfix*** 옵션을 조합해 로그의 어느 부분을 JSON으로 인식해 파싱할지 지정합니다. JSON 파서에 대한 자세한 내용은 [다음 문서](log-parser#json-parser-detail)를 참조하세요. 시뮬레이션이 필수적입니다. 
 
@@ -372,26 +362,6 @@
 
 :::
 
-{/* 
-    * **시뮬레이션 성공 화면**
-
-      <ImgLang img='log-simulation-success.png' desc='시뮬레이션 성공'/>
-
-    * **시뮬레이션 실패 화면**
-
-      <ImgLang img='log-simulation-fail.png' desc='시뮬레이션 실패'/>  
-*/}
-
-{/* 
-
-### 퍼포먼스 측정 {#log-performance}
-
-시뮬레이션 성공 후 <Cmdname sid="performance_measurement" className="uitext" /> 버튼을 선택해 파서에 대한 퍼포먼스를 측정할 수 있습니다. 시뮬레이션 수행 대상 문자열에 대하여 파서의 반복 파싱 소요 시간을 측정 후 다음과 같이 측정 결과를 확인하세요.
-
-<ImgLang img='log-performance.png' desc='퍼포먼스 측정'/>  
-
-*/}
-
 ### 파싱 성공 {#log-parsed}
 
 파싱 로직을 등록해 **키**(key)가 생성되면 로그 조회 시 해당 키로 파싱된 값이 추가됩니다. 다음 <Cmdname sid="side_logTail" className="uitext" /> 메뉴 예시와 같이 파싱된 키와 값이 추가됩니다. 
@@ -453,8 +423,6 @@
 
 ### 4xx, 5xx 상태 코드 파서 제외할 상태 코드 등록 {#4xx-5xx-status-parser}
 
-{/* <ImgLang img='log-2nd-4xx5xx.png' desc='4XX 5XX 상태 코드 파서'/> */}
-
 <Cmdname sid="status_4xx5xx_parser" className="uitext" />는 status가 이미 파싱된 경우 사용할 수 있는 파서입니다. 파싱된 status를 이용하여 추가적으로 4xx, 5xx 상태 코드를 파싱합니다. 파싱한 데이터로 4xx, 5xx 건수 데이터를 생성할 수 있습니다. 제외할 상태 코드로 4xx, 5xx 상태 코드를 입력 또는 선택할 수 있습니다. 입력된 상태 코드는 로그에서 4xx, 5xx 상태 코드를 파싱할 때 제외됩니다. 
 
 #### 설정 항목 {#log-parser-comp-4xx5xx}
@@ -488,8 +456,6 @@
 * ***recently***: 조회 기간 데이터 중 마지막 값입니다.
 
 ### 상태 코드 성공률 파서 제외할 상태 코드 등록 {#log-pattern-status}
-
-{/* <ImgLang img='log-2nd-status.png' desc='상태 코드 성공률 파서'/> */}
 
 <Cmdname sid="status_success_rate" className="uitext" />는 status가 이미 파싱된 경우 사용할 수 있는 파서입니다. status 파싱에 관한 내용은 [다음 문서](#4xx-5xx-status-parser)를 참조하세요. 파싱된 status를 이용해 추가로 2xx, 3xx 상태 코드를 파싱합니다. 파싱한 데이터로 HTTP 요청 성공률 데이터를 생성할 수 있습니다. 제외할 상태 코드에는 2xx, 3xx 상태 코드를 입력 또는 선택할 수 있습니다. 입력된 상태 코드는 로그에서 2xx, 3xx 상태 코드를 파싱할 때 제외됩니다. 
 
@@ -560,32 +526,6 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 
 <Cmdname sid="side_logSetting" className="uitext" /> 메뉴 상단에서 <Cmdname sid="logsink_mcube_config_statistics" className="uitext" /> 탭을 선택하세요. 로그 데이터는 용량이 매우 커서 장기간 보관하기가 어렵습니다. 따라서 로그 통계 데이터 설정 기능을 사용하여 **특정 조건을 만족하는 로그 데이터가 5분마다 몇 건씩 수집되었는지에 대한 정보를 저장**할 수 있습니다. 장기간 시 실제 로그 데이터는 삭제되어도 해당 조건을 만족하는 로그가 얼마나 수집되었는지 추이를 확인할 수 있습니다.
 
-{/* 
-
->
-
-![로그 장기 보관 통계](https://img.whatap.io/22/11/28/090932log_022_long_period_stat_config.png)
-
-1. ***로그 장기 보관 통계*** 탭에서 ***+ 추가하기*** 버튼을 선택하세요. ***로그 장기 보관 통계 추가*** 창이 나타납니다.
-
-1. 규칙을 적용할 ***카테고리***를 선택하세요.
-
-1. ***데이터 보관일***을 선택하세요.
-
-1. 규칙을 만족하는 로그 발생 시 저장할 ***통계 키***를 설정하세요. 동일한 키를 중복 설정할 수 없습니다.
-
-1. ***규칙 이름*** 입력창에 해당 규칙 이름을 입력하세요.
-
-1. ***태그***를 추가하세요.
-
-1. ***제외***를 체크하면 입력한 조건에 해당하지 않는 값을 기반으로 통계 데이터를 생성합니다.
-
-1. ***대소문자 구분***을 체크하면 입력한 규칙의 값에 대해 대소문자 구분 여부를 지정합니다.
-
-1. 생성한 규칙은 ***-*** 아이콘을 통해 삭제하거나 ***+ 추가하기*** 버튼을 통해 추가할 수 있습니다.
-
-*/}
-
 ### 로그 장기 보관 통계 추가 {#log-long-term-archive-add}
 
 <ImgLang img='log-long-term-archive.png' desc='로그 장기 보관 통계'/>
@@ -633,12 +573,6 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 * 마스킹 처리: 로그 화면에 표시될 때 민감 정보는 기본적으로 마스킹(`***`) 처리되어 표시됩니다.
 
 * 치환 처리: 민감한 정보를 사용자가 지정한 안전한 값으로 변경합니다. 
-
-{/* 
-<Cmdname sid="TTL08814" className="uitext" /> 탭에서 로그 데이터 내에 포함된 개인정보를 암호화 및 마스킹 처리하여 민감 정보의 노출을 방지할 수 있습니다.
-
-<Cmdname sid="TTL08814" className="uitext" /> 기능은 로그 데이터 내에 포함된 개인정보를 암호화 및 마스킹 처리하여 민감 정보의 노출을 방지하고 개인정보 보호 관련 법규를 준수하기 위해 설계되었습니다. 이 기능은 민감 데이터를 다루는 환경에서 보안 강화를 위한 필수적인 도구로 제공됩니다. 
-*/}
 
 ### 개인정보 분류 {#log-personal-info-list}
 
@@ -720,18 +654,6 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
   > 예시, <code class='filter'>status.pii</code> `***`
 
 :::
-
-{/* 로그 1차 파서 설정 탭에서 검색 키 이름을 검색 키.p로 지정하면 개인정보 비식별화 탭에서는 지정된 검색 키로 표시되면서 기본적인 비식별화 대상이 됩니다.
-지정된 검색 키 외에 업무 상 민감정보로 처리해야 하는 검색 키가 있다면 추가적으로 암호화 저장 및 비식별화 대상으로 지정할 수 있습니다. */}
-
-{/* :::note 
-
-<Cmdname sid="log_parser_setting_primary" className="uitext" /> 탭에서 시 검색 키 이름을 <code class='filter'>검색 키.p</code>로 지정한 경우 기본적으로 비식별화 대상이됩니다. <Cmdname sid="TTL08814" className="uitext" /> 탭에서 추가 또는 수정 시 해당 <Cmdname sid="category" className="uitext" /> 선택 후 <Cmdname sid="TTL08835" className="uitext" />에서 확인할 수 있습니다. 마스킹 처리를 원하지 않는 경우 해제할 수 있습니다. 파서 설정 중 비식별화 대상 지정하는 방식보다 <Cmdname sid="TTL08814" className="uitext" /> 탭 사용을 권장합니다. 개인정보 비식별화에 대한 자세한 내용은 [다음 문서](#log-deidentification-of-personal-info)에서 참조하세요. 
-
-::: */}
-
-{/* 사용자가 비식별화 설정을 하지 않아도 비식별화 처리됩니다. 이 경우 <Cmdname sid="TTL08814" className="uitext" /> 탭에서 조작할 수 없습니다. */}
-
 
 ### 로그 개인정보 비식별화 점검 {#log-deidentification-pi-check} 
 
@@ -832,7 +754,3 @@ export const regexLb=`(?<!\w)\d{6}-?\d{7}(?!\w)`;
 |계좌번호|123456-01-654321|<pre>{regexAccount}</pre>|`******-**-******`|
 |사업자등록번호|111-11-01111|<pre>{regexBiz}</pre>|`***-**-*****`|
 |법인등록번호|111111-1111111|<pre>{regexLb}</pre>|`******-*******`|
-
-{/* 이 섹션에서는 기존 데이터에 대해 치환 값을 설정하여 개인정보를 완전히 치환합니다. 설정된 치환 값은 원본 데이터와 동일한 유형을 유지하면서, 민감한 정보를 안전한 값으로 변경합니다. 치환된 데이터는 복원할 수 없으므로 신중하게 적용해야 합니다. */}
-
-{/* 250203 번역 발주 작업 후에 개인정보 패턴 안내 수정 사항 발생 */}

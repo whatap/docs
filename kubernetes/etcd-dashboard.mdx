@@ -6,8 +6,6 @@ keywords: [ 쿠버네티스, 쿠버네티스 모니터링, etcd, 컨트롤 플�
 toc_max_heading_level: 3
 ---
 
-{/* 프로젝트 데이터가 없음. 다국어 이미지는 나중에 */}
-
 홈 화면 &gt; 클러스터 프로젝트(<code class='my'>CP</code>) 선택 &gt; <Cmdname sid="side_controlPlane" className="uitext" /> &gt; <Cmdname sid="side_etcdDashboard" className="uitext" />
 
 :::note 
@@ -36,14 +34,6 @@ toc_max_heading_level: 3
 
 * etcd 리더의 존재 여부 및 리더의 변경 이력을 제공합니다. 
 
-{/* •	etcd 리소스 사용량
-•	CPU 및 메모리 사용량, 파드 재기동 수, 관련 로그 데이터 제공.
-•	작업 처리 상태
-•	etcd의 commit 및 apply 횟수.
-•	리더 상태 추적
-•	etcd 리더의 존재 여부와 리더 변경 이력. */}
-
-
 ## etcd 모니터링 활성화 
 
 와탭 쿠버네티스 에이전트 설치 시 다운로드한 *YAML* 파일 수정 및 mTLS 인증서를 등록하여 에이전트를 활성화하세요.
@@ -61,8 +51,6 @@ etcd의 mTLS 인증서가 필요합니다. etcd 인증서는 일반적으로 Con
 * *server.key*
 
 `kubectl` 명령을 실행할 머신에서 다음 명령어를 통해 인증서가 존재하는지 확인하세요. 
-
-{/* 경로에서 필요한 인증서 파일(*ca.crt*, *server.crt*, *server.key*)이 존재하는지 확인하려면 다음 명령어를 실행하세요. */}
 
 ```bash 
 sudo ls /etc/kubernetes/pki/etcd
@@ -83,8 +71,6 @@ secret/whatap-etcd-cert created
 ```
 
 ##### root 계정을 사용할 수 없는 경우
-
-{/* root 계정에서 `kubectl` 명령을 사용할 수 없는 경우 인증서 파일을 복제한 뒤 소유자를 변경하여 등록하세요.  */}
 
 root 계정에서 `kubectl` 명령을 사용할 수 없는 경우 다음 안내를 참조하세요. 
 

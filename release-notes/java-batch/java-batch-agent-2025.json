@@ -1,5 +1,19 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java-batch/java-batch-2_2_27",
+    "ver": "v2.2.27",
+    "date": "2025-05-08",
+    "Lists": [
+      {
+        "ver": "v2.2.27",
+        "hash": "v2227",
+        "product": "Java Batch Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 배치 애플리케이션의 부팅 과정에서 JMX 호출로 인해 데드락이 발생하지 않도록 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java-batch/java-batch-2_2_26/",
     "ver": "v2.2.26",
     "date": "2025-03-27",

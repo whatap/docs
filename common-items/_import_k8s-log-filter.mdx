@@ -81,67 +81,6 @@
 모든 네임스페이스에서 `containerName`이 `db`로 시작하는 컨테이너의 로그는 제외됩니다.
 
 
-{/* 
-
-### 쿠버네티스 에이전트 로그 필터 
-
-#### 로그 네이밍 규칙 
-
-쿠버네티스 로그는 컨테이너 기준으로 수집됩니다. 노드의 /var/log/containers/ 경로 하위에 다음과 같은 네이밍 규칙에 따라 생성됩니다.
-
-```bash
-<podName>_<namespace>_<containerName>-<containerId>.log
-```
-
-
-#### 로그 필터 옵션
-
-* **log_filter_enabled** <span class='type'>bool</span>
-
-  기본값 `false`
-
-  로그 필터 사용 여부를 설정합니다. 
-
-* **log_filter_allow_list** <span class='type'>list</span>
-
-  허용할 로그의 리스트를 설정합니다. 필터링 적용 시 포함할 항목을 의미합니다. 
-
-* **log_filter_deny_list** <span class='type'>list</span>
-
-  제외할 로그의 리스트를 설정합니다. 필터링 적용 시 제외할 항목을 의미합니다. 
-
-
-#### 로그 필터 동작 
-
-#### 로그 필터 예시 
-
-### 컨테이너 표준 출력 로그 필터 
-
-컨테이너 표준 출력(containerStdOut) 로그에서 필요한 정보를 선별하기 위한 필터링 옵션을 안내합니다. 필터링을 통해 허용하거나 제외할 로그를 설정할 수 있습니다. 
-
-#### 에이전트 설정
-
-<Cmdname sid="side_agentSetting" className="uitext" />
-
-#### 컨테이너 표준 출력 로그 필터 옵션 
-
-* **log_filter_enabled** <span class='type'>bool</span>
-
-  기본값 `false`
-
-  로그 필터 사용 여부를 설정합니다. 
-
-* **log_filter_allow_list** <span class='type'>list</span>
-
-  허용할 로그의 리스트를 설정합니다. 필터링 적용 시 포함할 항목을 의미합니다. 
-
-* **log_filter_deny_list** <span class='type'>list</span>
-
-  제외할 로그의 리스트를 설정합니다. 필터링 적용 시 제외할 항목을 의미합니다.  
-  
-*/}
-
-
 
 
 

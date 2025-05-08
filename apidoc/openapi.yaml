@@ -196,6 +196,7 @@ paths:
           source: |
             curl -L \
               -w "\n" \
+              -H "Content-Type: application/json" \
               -H "x-whatap-token: {{ACCOUNT_API_TOKEN}}" \
               "https://api.whatap.io/open/api/json/projects"
   /open/api/json/project:
@@ -266,6 +267,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/project"
@@ -312,6 +314,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/agents"
@@ -365,6 +368,7 @@ paths:
           source: |
             curl -L \
               -w "\n" \
+              -H "Content-Type: application/json" \
               -H "x-whatap-token: {{ACCOUNT_API_TOKEN}}" \
               "https://api.whatap.io/open/api/json/project/{projectCode}/members"
   /open/api/json/groups:
@@ -412,6 +416,7 @@ paths:
           source: |
             curl -L \
               -w "\n" \
+              -H "Content-Type: application/json" \
               -H "x-whatap-token: {{ACCOUNT_API_TOKEN}}" \
               "https://api.whatap.io/open/api/v2/json/groups"
   /open/api/json/group/{groupKey}/members:
@@ -464,6 +469,7 @@ paths:
           source: |
             curl -L \
               -w "\n" \
+              -H "Content-Type: application/json" \
               -H "x-whatap-token: {{ACCOUNT_API_TOKEN}}" \
               "https://api.whatap.io/open/api/json/group/{groupKey}/members"
   /open/api/json/group/{groupKey}/projects:
@@ -528,6 +534,7 @@ paths:
           source: |
             curl -L \
               -w "\n" \
+              -H "Content-Type: application/json" \
               -H "x-whatap-token: {{ACCOUNT_API_TOKEN}}" \
               "https://api.whatap.io/open/api/json/group/{groupKey}/projects"
   /open/api/json/event/history:
@@ -720,6 +727,7 @@ paths:
           source: |
             curl --location \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H 'x-whatap-token: {{PROJECT_API_TOKEN}}' \
             -H 'x-whatap-pcode: {{projectCode}}' \
             "https://api.whatap.io/open/api/json/event/history?stime=1733065200000&etime=1733103557000&progress=true&oids=-17079562%2C352247167"
@@ -851,6 +859,7 @@ paths:
           source: |
             curl --location \
             'https://api.whatap.io/open/api/v2/agent/list' \
+            -H "Content-Type: application/json" \
             -H 'x-whatap-token: {{PROJECT_API_TOKEN}}' \
             -H 'x-whatap-pcode: {{projectCode}}' \
             -d '{"stime":{stime},"etime":{etime}}'
@@ -899,6 +908,7 @@ paths:
           source: |
             curl -L \
               -w "\n" \
+              -H "Content-Type: application/json" \
               -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
               -H "x-whatap-pcode: {{projectCode}}" \
               "https://api.whatap.io/open/api/json/spot"
@@ -1226,6 +1236,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/exception/{stime}/{etime}"
@@ -1268,6 +1279,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/httpc/{stime}/{etime}"
@@ -1337,6 +1349,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/httpc/{stime}/{etime}/filter/host/{host}/port/{port}"
@@ -1381,6 +1394,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/sql/{stime}/{etime}"
@@ -1414,6 +1428,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/remote/{stime}/{etime}"
@@ -1461,6 +1476,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/transaction/{stime}/{etime}"
@@ -1500,6 +1516,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/heap_use/{stime}/{etime}/avg"
@@ -1539,6 +1556,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/heap_use/{stime}/{etime}/max"
@@ -1586,6 +1604,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/{metric_type}/{stime}/{etime}"
@@ -1625,6 +1644,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/{metric_type}/{stime}/{etime}/avg"
@@ -1673,6 +1693,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/{metric_type}/{stime}/{etime}/{oids}"
@@ -1712,6 +1733,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/{metric_type}/{stime}/{etime}/avg/{oids}"
@@ -1746,6 +1768,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/visitor_5m/{stime}/{etime}"
@@ -1780,6 +1803,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/visitor_h/{stime}/{etime}"
@@ -1816,6 +1840,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/visitor_d/{stime}/{etime}"
@@ -1861,6 +1886,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/visitor_m/{stime}/{etime}"
@@ -2045,6 +2071,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/tag/db_pool_detail/dbconn?stime={stime}&etime={etime}&timeMerge={timeMerge}"
@@ -2087,6 +2114,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/tag/db_pool_detail/dbconn?etime={etime}"
@@ -2195,6 +2223,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/act_agent"
@@ -2222,6 +2251,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/inact_agent"
@@ -2249,6 +2279,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/host"
@@ -2276,6 +2307,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/cpucore"
@@ -2311,6 +2343,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/infra_cpu"
@@ -2354,6 +2387,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/infra_disk_iops"
@@ -2388,6 +2422,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/infra_net_traffic"
@@ -2429,6 +2464,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/infra_proc"
@@ -2475,6 +2511,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/sm_servers"
@@ -2683,6 +2720,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/sm"
@@ -2737,6 +2775,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/json/stat/sm_stat?stime={stime}&etime={etime}&{filter}&{oid}"
@@ -2851,6 +2890,7 @@ paths:
           source: |
             curl -L \
             -w "\n" \
+            -H "Content-Type: application/json" \
             -H "x-whatap-token: {{PROJECT_API_TOKEN}}" \
             -H "x-whatap-pcode: {{projectCode}}" \
             "https://api.whatap.io/open/api/json/db/statistics/sql?oids={oids}&period={period}&date={date}"

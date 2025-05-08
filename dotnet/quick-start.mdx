@@ -59,32 +59,6 @@ keywords: [ 애플리케이션, .NET, 에이전트 설치, 트러블슈팅, 빠�
 
   * [.NET 에이전트 지원 환경 분석](https://whatap-dotnet.s3.ap-northeast-2.amazonaws.com/analysis.html)
 
-{/* 
-
-### 기타 
-
-위에서 안내한 방법으로 오류가 해결되지 않을 경우 상세한 디버깅 정보를 전달해 주세요. 디버깅 데이터 수집 과정은 다음과 같습니다. 
-
-1. 다음 링크에서 모니터링 프로그램(*UdpMonitor.exe*)을 다운 후 실행하세요. 
-
-    * [모니터링 프로그램](https://whatap-dotnet.s3.ap-northeast-2.amazonaws.com/UdpMonitor.exe)
-
-1. 디버깅용 에이전트를 다음 링크에서 다운 후 설치하세요.
-
-    * [디버깅용 에이전트](https://whatap-dotnet.s3.ap-northeast-2.amazonaws.com/whatap_dotnet_debug.exe)
-
-1. 트랜잭션을 발생시키세요. 
-
-1. 트랜잭션을 충분히 유발한 경우 *UdpMonitor.exe*를 종료하세요.
-
-1. *UdpMonitor.exe*와 동일한 폴더에 *UdpMonitor.txt*가 생성됩니다. 
-
-1. *UdpMonitor.txt* 파일을 담당자에게 전달해 주세요. 
-
-1. 디버깅 완료 시 디버깅용 에이전트를 제거하세요. 
-
-*/}
-
 ## WCF 및 공식 미지원 라이브러리 모니터링 
 
 WCF(Windows Communication Foundation)와 같이 와탭 .NET 에이전트가 공식적으로 지원하지 않는 라이브러리를 모니터링하려면 다음 안내를 확인하세요. 
@@ -135,8 +109,6 @@ WCF(Windows Communication Foundation)와 같이 와탭 .NET 에이전트가 공�
 
   모니터링 대상이 되는 메소드가 특정 시간 내에 완료되지 않을 경우 자동으로 타임아웃을 설정합니다. 기본값은 5초(`5000`ms)입니다.
   
-  {/* 모니터링 대상이 되는 메소드에서 예외가 처리되지 않는 경우 트랜잭션 종료 시점을 알 수 없습니다. 이런 상황에 대비하여 웹 서비스 모니터링은 기본적으로 5초 후에 타임아웃 처리됩니다.  */}
-
 ### 사용 예시 
 
 #### whatap.conf 수정 
@@ -171,100 +143,6 @@ webservice_method_timeout=10000
 <ImgLang img='dotnet-trst03.png' desc='에이전트 설정' />
 
 :::
-
-{/* 
-#### WCF 소스 코드
-
-다음은 모니터링 대상이 되는 WCF 소스 코드 예제입니다. 
-
-```c {3-13}
-namespace Whatap.DotNet.Examples
-{
-    public class Service1 : IService1
-    {
-        public string GetData(int value)
-        {
-            ...
-        }
-
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            ...
-        }
-
-        private string getFromDB()
-        {
-            ...
-        }
-
-        private string getFromHttp()
-        {
-            ...
-        }
-    }
-
-    public class Service2 : IService1
-    {
-        ...
-    }
-
-    public class Service3 : IService1
-    {
-        public string IwantToSeeOnlyThis(int value)
-        {
-            ...
-        }
-    }
-}
-```
-
-* **GetData** 
-
-  `GetData()` 메소드는 `Whatap.DotNet.Examples.Service1` 클래스에 속해 있습니다. 또한 Public 메소드이기 때문에 모니터링 대상이 됩니다. 이 메소드는 설정 파일의 `webservice_method_prefix` 옵션에 명시된 값에 포함되기 때문에 트랜잭션으로 처리됩니다. 메소드의 호출 경로는 다음과 같습니다. 
-
-    > `Whatap.DotNet.Examples.Service1.GetData`
-
-* **GetDataUsingDataContract**
-
-  `GetDataUsingDataContract()` 메소드는 Public 메소드이기 때문에 모니터링 대상이 됩니다. 메소드의 호출 경로는 다음과 같습니다. 
-
-    > `Whatap.DotNet.Examples.Service1.GetDataUsingDataContract`
-
-:::note 
-
-* `getFromDB()`, `getFromHttp()` 메소드는 Private 메소드이기 때문에 모니터링 대상이 아닙니다. 
-
-* `webservice_method_prefix` 옵션에 `Whatap.DotNet.Examples.Service3`를 추가할 경우 Public 메소드인 `IwantToSeeOnlyThis()` 메소드가 모니터링 대상이 될 수 있습니다.
-
-::: 
-
-*/}
-
-{/* 
-
-### 네임스페이스와 클래스 이름을 찾기 어려울 경우
-
-WCF 서버 메소드가 정의된 네임스페이스를 찾기 어려울 경우 다음 방법을 사용해 네임스페이스와 클래스 이름을 찾을 수 있습니다. 
-
-1. 다음 링크에서 *GetNamesapces.exe* 파일을 다운로드하세요. 
-
-    * [GetNamesapces.exe](https://repo.whatap.io/windows/GetNamesapces.exe)
-
-1. 다음과 같이 웹 애플리케이션의 폴더 경로를 파라미터로 전달해 *GetNamesapces.exe* 파일을 실행하세요. 
-
-    ```
-    C:...\> GetNamesapces.exe C:\inetpub
-    ```
-
-1. 실행이 완료되면 해당 폴더와 그 하위 폴더에 있는 모든 *dll* 파일을 스캔해 네임스페이스와 클래스 이름을 목록으로 출력합니다. 
-
-:::note 
-
-결과 적용이 어려울 경우 *GetNamesapces.exe* 실행 후 동일한 폴더에 생성된 *GetNamesapces.txt* 파일을 담당자에게 전달하세요. 
-
-::: 
-
-*/}
 
 ## 네임스페이스와 클래스 이름 찾기
 

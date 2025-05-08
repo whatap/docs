@@ -1,0 +1,31 @@
+---
+id: java-2_2_59
+title: Java Agent v2.2.59
+toc_max_heading_level: 2
+pagination_next: release-notes/java/java-2_2_58
+displayed_sidebar: releaseSidebar
+---
+
+2025년 05월 08일
+
+<Status priority='0'>Fixed</Status> IBM Java 및 Windows 환경에서 JMX가 호출되지 않도록 수정
+
+- 성능 지표 수집을 위해서 `oshi` 또는 `sigar` 설정 권장
+
+    - Java 1.8 이상인 경우 `oshi` 설정 권장
+
+    ```bash 
+    # default: false
+    oshi_enabled=true
+    ```
+
+    - Java 1.8 미만인 경우 `sigar` 설정 권장
+
+    ```bash 
+    # default: false
+    sigar_enabled=true
+    ```
+
+import DownloadJava from './_import_dl-java-agent.mdx';
+
+<DownloadJava ver="2.2.59" />

@@ -3,135 +3,49 @@
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.8",
     "date": "2025-01-20",
-    "Lists": [
-      {
-        "ver": "Service 2.12.8",
-        "hash": "service-2128",
-        "product": "공통",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 시간 선택자에서 키보드를 이용해 시간을 변경한 후 검색 버튼을 선택하면 변경된 시간이 적용되지 않는 문제 수정</p>"
-      },
-      {
-        "ver": "Service 2.12.8",
-        "hash": "service-2128",
-        "product": "Application",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계</span> &gt; <span class=\"uitext\">트랜잭션</span> 메뉴에서  <span class=\"uitext\">추이 비교</span> 기능을 이용할 때 표시되는 팝업창의 상단에 날짜가 변경되지 않는 문제 수정</p>"
-      }
-    ]
+    "Lists": []
   },
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.7",
     "date": "2025-01-09",
-    "Lists": [
-      {
-        "ver": "Service 2.12.7",
-        "hash": "service-2127",
-        "product": "공통",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통합 Flex 보드</span> 또는 <span class=\"uitext\">Flex 보드</span> 메뉴에서 실시간 조회 모드일 때 알림 목록 위젯에서 업데이트마다 알림음이 발생하는 현상 수정</p>"
-      }
-    ]
+    "Lists": []
   },
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.6",
     "date": "2025-01-09",
-    "Lists": [
-      {
-        "ver": "Service 2.12.6",
-        "hash": "service-2126",
-        "product": "Application",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 메뉴에서 에이전트 필터 적용 사항이 <span class=\"uitext\">액티브 트랜잭션</span> 팝업창에 적용되지 않는 문제 수정</p>"
-      }
-    ]
+    "Lists": []
   },
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.5",
     "date": "2025-01-08",
-    "Lists": [
-      {
-        "ver": "Service 2.12.5",
-        "hash": "service-2125",
-        "product": "공통",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">트랜잭션 검색</span> 메뉴에서 <span class=\"uitext\">운영체제</span> 컬럼의 내용이 표시되지 않는 문제 수정</p>"
-      }
-    ]
+    "Lists": []
   },
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.4",
     "date": "2025-01-03",
-    "Lists": [
-      {
-        "ver": "Service 2.12.4",
-        "hash": "service-2124",
-        "product": "공통",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통합 Flex 보드</span> 또는 <span class=\"uitext\">Flex 보드</span> 메뉴에서 대시보드 변경 후 시간 선택자를 조작하면 변경 전 대시보드로 초기화되는 문제 수정</p>"
-      }
-    ]
+    "Lists": []
   },
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.3",
     "date": "2024-12-27",
-    "Lists": [
-      {
-        "ver": "Service 2.12.3",
-        "hash": "service-2123",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스터스 모니터링</span> 메뉴의 시리즈 차트에서 연동된 클라우드 지표의 데이터가 표시되지 않는 문제 수정</p>"
-      }
-    ]
+    "Lists": []
   },
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.2",
     "date": "2024-12-26",
-    "Lists": [
-      {
-        "ver": "Service 2.12.2",
-        "hash": "service-2122",
-        "product": "Application",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 메뉴 재진입 시 데이터 미표시 현상 수정</p>"
-      },
-      {
-        "ver": "Service 2.12.2",
-        "hash": "service-2122",
-        "product": "Application",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 메뉴의 <span class=\"uitext\">히트맵</span> 위젯에서 상세 보기를 통해 <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">히트맵</span> 메뉴로 이동 시 조회된 데이터의 시간값으로 타임 셀렉터와 차트의 x축이 설정되지 않는 현상 수정</p>"
-      }
-    ]
+    "Lists": []
   },
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
     "ver": "Service 2.12.1",
     "date": "2024-12-24",
-    "Lists": [
-      {
-        "ver": "Service 2.12.1",
-        "hash": "service-2121",
-        "product": "공통",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"1\">Fixed</code> 공통 모달이 페이지 최상단에 위치하는 문제 수정</p>"
-      },
-      {
-        "ver": "Service 2.12.1",
-        "hash": "service-2121",
-        "product": "Application",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">IIS 성능 카운트</span> 메뉴에서 위젯의 <img decoding=\"async\" loading=\"lazy\" alt=\"확대 아이콘\" src=\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik01IDlIM1YzSDVIOVY1SDVWOVpNMyAyMVYxNUg1VjE5SDlWMjFINUgzWk0xNSAxOVYyMUgyMVYxOVYxNUgxOVYxOUgxNVpNMTUgNVYzSDIxVjVWOUgxOVY1SDE1WiIgZmlsbD0iIzc1NzU3NSIvPgo8L3N2Zz4K\" width=\"24\" height=\"24\" class=\"img_ev3q medium-zoom-image\"> 버튼을 클릭해 전체 화면으로 차트를 확인할 때, 시간 선택자가 표시되는 문제 수정</p>",
-        "category": ".NET"
-      }
-    ]
+    "Lists": []
   },
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_12_x",
@@ -178,41 +92,6 @@
       {
         "ver": "Service 2.12.0",
         "hash": "service-2120",
-        "product": "공통",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 프로젝트의 <span class=\"uitext\">Flex 보드</span> 메뉴에서 대시보드 목록 정렬 선택 옵션 중 <span class=\"uitext\">프로젝트 명</span> 제거</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "공통",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메뉴의 이벤트 추가 또는 수정 화면에서 <span class=\"uitext\">수신 테스트</span> 기능을 실행하면, 이벤트 수신 태그 선택 사항을 적용하여 테스트하도록 수정</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "공통",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> &gt; <span class=\"uitext\">메트릭스</span> 탭의 이벤트 추가 또는 수정 화면에서, <span class=\"uitext\">이벤트 발생 조건</span> 옵션의 <span class=\"uitext\">선택 입력</span>을 선택했을 때 모든 필드에 <code>${ }</code> 적용하도록 변경</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "공통",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">계정 정보</span> 메뉴에서 <span class=\"uitext\">알림 수신 언어</span> 설정이 'ja'로 표시되는 문제 수정</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "공통",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 일부 메뉴에서 화면 상단의 제목이 누락되거나 표기 오작동 개선</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
         "product": "Application",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">트레이스 분석</span> 창의 <span class=\"uitext\">테이블 뷰</span> 탭에서 SQL 상세 정보 확인 시 바인드 변수 복사 기능 추가</p>"
@@ -234,80 +113,9 @@
       {
         "ver": "Service 2.12.0",
         "hash": "service-2120",
-        "product": "Application",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> .NET 4.6.1 버전 미만 또는 Windows 2008 환경을 사용 중인 .NET 플랫폼에 대응하는 에이전트 설치 파일 다운로드 및 관련 문구 추가</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Application",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 메뉴의 <span class=\"uitext\">금일 사용자</span> 위젯에서 전일 데이터의 최댓값이 오늘 데이터의 최댓값보다 높으면, 오늘의 최댓값이 표시되지 않는 문제 수정</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
         "product": "Server",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 인벤토리</span> 메뉴에서 CSV 파일을 업로드해 서버 목록의 사용자 정의 컬럼을 교체하는 기능 추가</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Server",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span> 메뉴에서 그룹화 옵션 선택 도구의 초기화 방식 변경</p>",
-        "details": "<blockquote>\n<p>Clear 버튼 클릭 방식에서 목록에서 <span class=\"uitext\">미설정</span> 항목을 선택하는 방식으로 변경</p>\n</blockquote>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Server",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 인벤토리</span> 메뉴의 <span class=\"uitext\">필터</span> 옵션을 <span class=\"uitext\">서버 인벤토리 맵</span> 메뉴의 <span class=\"uitext\">필터</span> 옵션과 동일한 UI로 교체</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Server",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> &gt; <span class=\"uitext\">HP-UX</span>에서 IA64 커널 11.31 버전에 대응하는 에이전트 다운로드 버튼 추가</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Server",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span> 메뉴의 그룹 요약 패널에서 <span class=\"uitext\">서버 업타임</span> 차트가 간헐적으로 클릭되지 않는 문제 수정</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Server",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span> 메뉴에서 시간 선택자(타임 셀렉터) 컴포넌트 교체 후 과거 시점 선택이 가능한 버그 수정</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Server",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 목록</span> 메뉴에서 시간 선택자(타임 셀렉터)의 실시간 모드를 일시 정지하면 시간이 NaN으로 표시되는 문제 및 과거 시점 선택 가능한 버그 수정</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Server",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 목록</span> 메뉴의 <span class=\"uitext\">컬럼 설정</span>에서 <span class=\"uitext\">초기화</span> 버튼을 클릭하면 전체 컬럼 선택이 해제되는 문제 수정</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Server",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 메뉴에서 사이드 메뉴의 Agent/IP 검색 기능을 통해 조회한 에이전트를 선택하면 해당 페이지로 이동하지 않는 문제 수정</p>"
       },
       {
         "ver": "Service 2.12.0",
@@ -349,13 +157,6 @@
       {
         "ver": "Service 2.12.0",
         "hash": "service-2120",
-        "product": "Kubernetes",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 네임스페이스 프로젝트의 <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">프로젝트 관리</span> 메뉴에서 프로젝트 이름을 수정할 수 없도록 변경</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
         "product": "Database",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 다음 메뉴 경로의 <span class=\"uitext\">액티브 세션</span> 테이블에 페이지네이션 적용</p>",
@@ -382,31 +183,6 @@
         "ver": "Service 2.12.0",
         "hash": "service-2120",
         "product": "Database",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 데이터베이스 <code class=\"my\">V1</code>의 지원 기간을 2024년 12월 31일에서 <strong>2025년 6월 26일</strong>로 변경</p>",
-        "category": "공통"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 실시간 조회 범위를 변경하면 차트에 공백이 생기는 현상 수정</p>",
-        "category": "공통"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 다음 메뉴 경로의 <span class=\"uitext\">액티브 세션</span> 테이블에 1분 범위가 초과되는 데이터가 표시되는 문제 수정</p>",
-        "category": "공통",
-        "details": "<ul>\n<li><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span></li>\n<li><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">카운트 추이 비교</span></li>\n</ul>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴의 사용자 정의 위젯에 선택한 지표의 단위를 표시하도록 추가</p>",
         "category": "Database V2"
@@ -417,78 +193,6 @@
         "product": "Database",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> APM 프로젝트의 <span class=\"uitext\">트레이스 분석</span> 창에서 복사한 바인드 변수 값을 <span class=\"uitext\">연계 데이터베이스 정보</span> 창에서 붙여 넣는 버튼 추가</p>",
-        "category": "Database V2"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">카운트 추이 비교</span> 메뉴에서 <span class=\"uitext\">액티브 세션</span> 테이블의 제목 변경</p>",
-        "category": "Database V2"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">연계 데이터베이스 정보</span> 창에서 <span class=\"uitext\">인스턴스 모니터링</span> 메뉴로 이동할 때 시작 시간, 종료 시간, 세션 시간을 쿼리 파라미터로 포함하도록 변경</p>",
-        "category": "Database V2"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 위젯의 Y축이 변경한 지표에 맞게 변경되지 않는 문제 수정</p>",
-        "category": "Database V2"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 조회하는 데이터가 없으면 로딩 인디케이터이 지속하는 문제 수정, 빈 데이터에 대한 안내 메시지 추가</p>",
-        "category": "Database V2"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 차트 데이터는 있으나 테이블 데이터가 없을 경우 <span class=\"uitext\">최근 조회된 내역이 없습니다.</span> 문구 추가</p>",
-        "category": "Database V2"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴의 <span class=\"uitext\">액티브 세션</span> 테이블에서 인스턴스 이름이 컬럼의 너비보다 길어지는 경우 말 줄임표(...)를 표시하도록 수정</p>",
-        "category": "Database V2"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 과거 데이터를 조회할 때 <span class=\"uitext\">세션 상세 정보</span> 창을 열면 Full Text를 조회하지 못하는 문제 수정</p>",
-        "category": "Database V2"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴에서 이퀄라이저 차트 형식의 사용자 정의 위젯에 표시된 인스턴스 순서를 화면 상단의 인스턴스 목록 순서와 일치하도록 수정</p>",
-        "category": "Database V2"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">카운트 추이 비교</span> 메뉴에서 위젯의 툴팁에 [<span class=\"uitext\">기준</span>]/[<span class=\"uitext\">비교</span>] 정보 및 인스턴스 정보 추가</p>",
         "category": "Database V2"
       },
       {
@@ -510,55 +214,10 @@
       {
         "ver": "Service 2.12.0",
         "hash": "service-2120",
-        "product": "Database",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에서 <span class=\"uitext\">TOP STAT</span>, <span class=\"uitext\">TOP EVENT</span> 창의 스타일 수정 및 테이블 내용 변경</p>",
-        "category": "Oracle, Oracle Pro"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴의 <span class=\"uitext\">계정 생성</span> 단계에서 히든 파라미터 조회 권한을 부여하는 명령어의 잘못 표기된 내용 수정</p>",
-        "category": "Oracle, Oracle Pro"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Database",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">MYSQL SQL 통계</span> 메뉴의 <span class=\"uitext\">SQL 상세</span> 창에서 hash 값이 <code>undefined</code>로 표기되는 문제 수정</p>",
-        "category": "MySQL"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
         "product": "Browser",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 리소스별 성능 데이터를 시각적으로 제공하며, 로드 시간, 리소스 크기, 유형별 성능 추이 등을 분석할 수 있는 <span class=\"uitext\">리소스 로드 통계</span> 메뉴 추가</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "AWS Log",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> 메뉴에서 <strong>AWS Region</strong> 선택 목록에 자카르타 리전 추가</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Log",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 검색</span> 메뉴에서 데이터 로딩일 때 검색 버튼을 비활성화하도록 변경</p>"
-      },
-      {
-        "ver": "Service 2.12.0",
-        "hash": "service-2120",
-        "product": "Log",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 로그 활성화 안내 모달의 닫기 버튼 표시하도록 수정</p>"
       }
     ]
   }
-]
+  ]

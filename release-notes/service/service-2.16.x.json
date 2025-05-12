@@ -1,0 +1,351 @@
+[
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_16_x",
+    "ver": "Service 2.16.3",
+    "date": "2025-05-07",
+    "Lists": [
+      {
+        "ver": "Service 2.16.3",
+        "hash": "service-2163",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">보고서</span> &gt; 일간 시간별 서버 주요 지표 보고서에서 디스크 항목만 표시 옵션 추가</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_16_x",
+    "ver": "Service 2.16.2",
+    "date": "2025-04-29",
+    "Lists": [
+      {
+        "ver": "Service 2.16.2",
+        "hash": "service-2162",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">메트릭스 차트</span> <code class=\"newfunc\">New</code>에 에이전트 및 지표 이름 오름차순 정렬 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.2",
+        "hash": "service-2162",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">이용 내역</span> &gt; <span class=\"uitext\">청구서 미리보기</span>, <span class=\"uitext\">청구 및 납부 내역</span>, <span class=\"uitext\">사용량</span>에 Kubernetes 제품의 application namespace별 분리 과금 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.2",
+        "hash": "service-2162",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 목록</span>에 에이전트명, IP 검색 인풋 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.2",
+        "hash": "service-2162",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 목록</span>에 파일 시스템 정보 팝업 추가</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_16_x",
+    "ver": "Service 2.16.1",
+    "date": "2025-04-23",
+    "Lists": []
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_16_x",
+    "ver": "Service 2.16.0",
+    "date": "2025-04-23",
+    "Lists": [
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 프로젝트 목록에 마우스 오버 시 프로젝트 설명이 표시되도록 개선</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 실시간 알림 발생 시, 브라우저 알림으로도 확인 가능</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Flex 보드</span>의 TopN 위젯에 수평선 옵션 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">이벤트 설정</span> 메뉴에 이벤트 동작 시간 기능 추가</p>",
+        "details": "<ul>\n<li>\n<p><strong>이벤트 설정 V1</strong></p>\n<p>메트릭스/복합 메트릭스/이상치 탐지/실시간 복합 로그/서버 로그 → 이벤트 수신 태그 위 추가</p>\n<p>히트맵 패턴 → 카드 최하단에 추가</p>\n</li>\n<li>\n<p><strong>이벤트 설정 V2</strong></p>\n<p>기본/메트릭스 → 해소된 알림 다음 항목으로 추가</p>\n<p>그 외 항목은 V1과 동일</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">멤버 목록</span> 및 <span class=\"uitext\">멤버 초대</span>에서 멤버 이메일 옆에 MFA 및 SSO 사용 여부 표시 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 수신 설정</span> 메뉴의 3rd 파티 플러그인의 Webhook JSON 응답값 커스텀 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 메트릭스 이벤트 설정 시 카테고리 선택, 지표 설정, 이벤트 대상 선택 단계에서 메트릭스 검색 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">트레이스 분석</span> 창에서 목록이 포커스된 상태일 때 키보드 방향키로 트레이스를 선택할 수 있는 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">액티브 트랜잭션</span> 화면에서 액티브 트랜잭션 목록을 CSV로 다운로드 가능</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">트랜잭션 맵</span> 과거 데이터 조회 기능 강화</p>",
+        "details": "<ul>\n<li>\n<p>최대 조회 가능 시간 범위 확대(10분 → 1시간)</p>\n</li>\n<li>\n<p>필터 항목 추가</p>\n<!-- -->\n<details class=\"details_lb9f alert alert--info details_b_Ee\" data-collapsed=\"true\"><summary>추가된 필터 항목</summary><div><div class=\"collapsibleContent_i85q\"><ul>\n<li>\n<p><strong>일반 필터</strong></p>\n</li>\n<li>\n<p><strong>Referer</strong><br>\n<!-- -->로그인 ID, WClientId, 트랜잭션 ID, 멀티 트랜잭션 ID, 커스텀 TID, 에러 (클래스, 단계, 메시지 전부 포함), 도시, 국가, HTTP 메소드, 유저 에이전트</p>\n</li>\n<li>\n<p><strong>트레이스 스텝 관련 필터</strong><br>\n<!-- -->DBC, SQL, HTTPC, METHOD, MESSAGE</p>\n</li>\n<li>\n<p><strong>숫자 입력 필터</strong><br>\n<!-- -->경과시간, HTTP 호출 시간, HTTP 호출 건수, SQL 시간, SQL 건수, 상태</p>\n</li>\n</ul></div></div></details>\n</li>\n<li>\n<p>필터 데이터로 조회된 총 트랜잭션 수(Read 항목) 표시 추가</p>\n</li>\n<li>\n<p>Read, Limit 항목에 대한 설명 툴팁 추가</p>\n</li>\n<li>\n<p>과거 데이터 조회 시 일시정지 기능 추가</p>\n<ul>\n<li>\n<p>과거 데이터 검색 중(로딩중), 검색 버튼 클릭 시 조회 일시 정지</p>\n</li>\n<li>\n<p>동일한 검색 조건(시간, 필터)으로 다시 검색하면 정지된 시점부터 이어서 데이터를 조회<br>\n<!-- -->(검색 조건 변경 시 차트 초기화하고 새로 그리기 시작)</p>\n</li>\n</ul>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span> 메뉴에서 서버에 마우스 오버 시 나타나는 팝오버에 상태별 이벤트 수 표시 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span> &gt; <strong>상세 보기</strong> 창에서 서버에 마우스 오버 시 팝오버에 상태별 이벤트 수 표시 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 목록</span> 메뉴에서 <span class=\"uitext\">컬럼 설정</span> 버튼 클릭 시 프리셋을 관리하고 다른 사용자와 설정 공유 가능</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 인벤토리</span> GPU Count 컬럼 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">메트릭스 익스플로러</span>에 단일 서버의 여러 메트릭 정보를 하나의 차트로 확인할 수 있는 카테고리 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">보고서</span> 메뉴에서 디스크 필터 템플릿 선택 시, 마운트 포인트 셀렉터 UI 추가 (예. 일간 시간별 서버 주요 지표 보고서)</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 목록</span>에 필터 및 즐겨찾기 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">애플리케이션</span> 모니터링 시 <span class=\"uitext\">트레이스 분석</span> 창의 <span class=\"uitext\">레코드 요약</span> 탭에서 컨테이너 및 Pod 요약 분석 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">노드</span> &gt; <span class=\"uitext\">노드 목록</span> 컬럼 왼쪽의 확장 버튼 클릭 시 디스크 정보 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span>,  <span class=\"uitext\">멀티 인스턴스 모니터링</span> 메뉴에서 테이블 다중 정렬 시 정렬 우선 순위 표시 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">데이터베이스 사이즈</span>, <span class=\"uitext\">테이블스페이스 사이즈</span> 메뉴에서 multi db가 아닌 인스턴스는 <code>string</code>으로 DB명 표시</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 메뉴에서 테이블 다중 정렬 시 정렬 우선 순위 표시 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">실험실</span> &gt; <em><strong>Top SQL</strong></em>  메뉴에서 테이블 다중 정렬 시 정렬 우선 순위 표시 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 화면의 차트 이미지 다운로드 기능 추가</p>",
+        "category": "공통",
+        "details": "<ul>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span></p>\n</li>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 목록</span> &gt; <em><strong>사용자 정의 위젯</strong></em></p>\n</li>\n<li>\n<p><em><strong>분석</strong></em> &gt; <em><strong>카운트 추이 비교</strong></em></p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 메뉴에 위젯 편집, 프리셋 저장 기능 신규 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Session Table</span> 필터에 key값 검색 기능 및 알파벳 순 정렬 기능 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Flex 보드</span> 데이터베이스 위젯 추가</p>",
+        "category": "공통",
+        "details": "<ul>\n<li>\n<p>CloudWatch 인스턴스별 CPU 사용률(%)</p>\n</li>\n<li>\n<p>CloudWatch 인스턴스별 여유 메모리</p>\n</li>\n<li>\n<p>CloudWatch 인스턴스별 여유 스토리지</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">Wait 분석</span> 메뉴의 지표에 단위를 확인할 수 있는 툴팁 추가</p>",
+        "category": "Oracle, Oracle Pro"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">RAC 모니터링</span>에서 선택한 클러스터가 저장되도록 변경</p>",
+        "category": "Oracle, Oracle Pro"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 설치 페이지 추가</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">테이블스페이스 사이즈</span> 메뉴 추가</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통합 Flex 보드</span> 및 <span class=\"uitext\">Flex 보드</span>에 위젯 추가</p>",
+        "category": "SQL Server",
+        "details": "<ul>\n<li>\n<p>SQL Server 액티브 세션 리스트</p>\n</li>\n<li>\n<p>SQL Server SQL Elapse Map</p>\n</li>\n<li>\n<p>SQL Server 인스턴스별 액티브 세션 수</p>\n</li>\n<li>\n<p>SQL Server Long Active Session Count</p>\n</li>\n<li>\n<p>SQL Server Long Waiting Session Count</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Cloud",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">정비 계획</span> 메뉴 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Browser",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">에러 추적</span>, <span class=\"uitext\">사용자 세션 로그 검색</span> URL 공유 시 UI 상태(시간, 필터 등) 유지되도록 개선</p>",
+        "details": "<ul>\n<li><span class=\"uitext\">에러 추적</span>: 시간, 차트 바에서 클릭된 시간</li>\n<li><span class=\"uitext\">사용자 세션 로그 검색</span>: 시간, 필터, 과거순, 최신순</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Log",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">로그 검색</span> 및 <span class=\"uitext\">라이브 테일</span> 메뉴에서 필터 즐겨찾기 프로젝트 공유 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Log",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">로그 트렌드</span>, <span class=\"uitext\">로그 검색</span> 로그에 <code>@txid</code>, <code>@mtid</code>가 포함된 경우, 트랜잭션 정보 드롭다운을 통해 트레이스 팝업 확인 기능 추가 (Log-Trace 연계)</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Log",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 트레이스 로그에서 로그 검색으로 이동할 수 있는 버튼 추가\n(<em><strong>애플리케이션 대시보드</strong></em>, <span class=\"uitext\">트랜잭션 맵</span>, <span class=\"uitext\">트랜잭션 검색</span>, <span class=\"uitext\">멀티 트랜잭션 추적</span> 등 트랜잭션 정보를 확인할 수 있는 APM 페이지와 연계)</p>"
+      },
+      {
+        "ver": "Service 2.16.0",
+        "hash": "service-2160",
+        "product": "Log",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">라이브 테일</span>, <span class=\"uitext\">로그 트렌드</span>, <span class=\"uitext\">로그 검색</span> URL 공유 시 UI 상태(시간, 필터 등) 유지되도록 개선</p>",
+        "details": "<ul>\n<li><span class=\"uitext\">라이브 테일</span>: 카테고리, 필터</li>\n<li><span class=\"uitext\">로그 트렌드</span>: 시간, 카테고리, 차트 바에서 클릭된 시간</li>\n<li><span class=\"uitext\">로그 검색</span>: 시간, 필터, 과거순, 최신순</li>\n</ul>"
+      }
+    ]
+  }
+  ]

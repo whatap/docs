@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_19/",
+    "ver": "v0.5.19",
+    "date": "2025-05-14",
+    "Lists": [
+      {
+        "ver": "v0.5.19",
+        "hash": "v0519",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 로그가 삭제되지 않던 문제 수정</p>"
+      },
+      {
+        "ver": "v0.5.19",
+        "hash": "v0519",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Prisma 오류 발생 시 오류 클래스 명칭이 잘못 표시되던 문제 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_16/",
     "ver": "v0.5.16",
     "date": "2025-04-14",
@@ -24,14 +45,7 @@
         "product": "Node.js Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> oracledb 패키지 모니터링 추가</p>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_14/",
-    "ver": "v0.5.14",
-    "date": "2025-04-04",
-    "Lists": [
+      },
       {
         "ver": "v0.5.14",
         "hash": "v0514",

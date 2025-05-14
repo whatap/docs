@@ -210,7 +210,7 @@ SAP ASE에서는 사용자 계정을 데이터베이스 내에서 별도로 생�
   grant select any dictionary to {DB_User};
   ```
 
-* 12c 이상에서 멀티 테넌트 DB를 사용하는 경우: 접두어 `c##` 추가
+* 멀티 테넌트 DB(Oracle 12c 이상)에서 기본 모니터링을 사용할 경우: `c##` 계정 생성
 
   ```sql title="SQL"
   create user c##{DB_User} identified by "{DB_Password}";
@@ -224,6 +224,16 @@ SAP ASE에서는 사용자 계정을 데이터베이스 내에서 별도로 생�
   ```sql title="SQL"
   grant alter system to {DB_User}
   ```
+
+<InDoc product="oracle">
+
+* 멀티 테넌트 DB에서 kill session 기능을 사용할 경우: `c##` 계정으로 실행
+
+  ```sql title="SQL"
+  grant alter system to c##whatap container=all;
+  ```
+
+</InDoc>
 
 * 히든 파라미터를 조회할 경우
 

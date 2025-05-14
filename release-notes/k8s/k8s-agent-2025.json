@@ -10,7 +10,7 @@
         "product": "Kubernetes Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>kube_pod</code> 태그카운트 카테고리에 파드 상태 및 소유 정보 확인을 위한 태그카운트 항목 추가</p>",
-        "details": "<ul>\n<li>\n<p><code>kube_display_status</code>: 파드의 표시 상태(Display Status)</p>\n</li>\n<li>\n<p><code>ownerUid</code>: 파드 소유자의 UID</p>\n</li>\n<li>\n<p><code>ownerName</code>: 파드 소유자 이름</p>\n</li>\n<li>\n<p><code>ownerKind</code>: 파드 소유자 종류(Deployment, StatefulSet 등)</p>\n</li>\n</ul>"
+        "details": "<ul>\n<li>\n<p><code>kube_display_status</code>: 파드의 표시 상태(Display Status)</p>\n</li>\n</ul>"
       },
       {
         "ver": "v1.8.7",

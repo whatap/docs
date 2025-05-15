@@ -11,6 +11,13 @@
         "type": "Feature",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 병렬로 호출하는 CompletableFuture 추적 시 발생하던 문제 수정</p>",
         "details": "<ul>\n<li>성능 지표 수집을 위해서 <code>oshi</code> 또는 <code>sigar</code> 설정 권장</li>\n</ul>"
+      },
+      {
+        "ver": "v2.2.59",
+        "hash": "v229",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 간헐적으로 발생하는 Log 추적이 되지 않는 현상 수정(Java agent 2.2.58)</p>"
       }
     ]
   },

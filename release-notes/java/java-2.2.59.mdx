@@ -8,9 +8,9 @@ displayed_sidebar: releaseSidebar
 
 2025년 05월 08일
 
-<Status priority='0'>Fixed</Status> IBM Java 및 Windows 환경에서 JMX가 호출되지 않도록 수정
+- <Status priority='0'>Fixed</Status> IBM Java 및 Windows 환경에서 JMX가 호출되지 않도록 수정
 
-- 성능 지표 수집을 위해서 `oshi` 또는 `sigar` 설정 권장
+  - 성능 지표 수집을 위해서 `oshi` 또는 `sigar` 설정 권장
 
     - Java 1.8 이상인 경우 `oshi` 설정 권장
 
@@ -25,6 +25,8 @@ displayed_sidebar: releaseSidebar
     # default: false
     sigar_enabled=true
     ```
+
+- <Status priority='0'>Fixed</Status> 간헐적으로 발생하는 Log 추적이 되지 않는 현상 수정(Java agent 2.2.58)
 
 import DownloadJava from './_import_dl-java-agent.mdx';
 

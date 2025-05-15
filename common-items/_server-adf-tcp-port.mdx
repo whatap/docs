@@ -10,8 +10,8 @@
 
 * 대상 서버에서 다음 명령을 추가하세요. 
 
-  <Tabs groupId='server-user-script'>
-  <TabItem value="lxs" label="Linux Shell">
+<Tabs groupId='server-user-script'>
+<TabItem value="lxs" label="Linux Shell">
 
   ```bash title=SH
   #아래 변수에 모니터링 대상 아이피를 지정합니다.
@@ -21,8 +21,8 @@
   echo "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT" |sudo tee -a /usr/whatap/infra/conf/whatap.conf
   ```
 
-  </TabItem>
-  <TabItem value="wps" label="Windows Powershell">
+</TabItem>
+<TabItem value="wps" label="Windows Powershell">
 
   ```bash title=SH
   #아래 변수에 모니터링 대상 아이피를 지정합니다.
@@ -32,8 +32,8 @@
   Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "tcp.check.${TARGET_PORT}=tcp://${TARGET_IP}:${TARGET_PORT}"
   ```
 
-  </TabItem>
-  </Tabs>
+</TabItem>
+</Tabs>
 
 import TcpMulti from "../common-items/_server-tcp-port-multi.mdx";
 

@@ -24,8 +24,8 @@ import TabItem from '@theme/TabItem';
 
     <Cmdname sid="server_installAgent_add_whatapRepo" className="uitext" /> 탭에서 해당하는 명령어를 복사하여 입력합니다.
     
-    <Tabs>
-    <TabItem value="du" label="Debian / Ubuntu" default>
+  <Tabs>
+  <TabItem value="du" label="Debian / Ubuntu" default>
 
     ```bash title=SH
     curl -s https://repo.whatap.io/debian/release.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/whatap-release.gpg > /dev/null
@@ -33,8 +33,8 @@ import TabItem from '@theme/TabItem';
     sudo apt-get update
     ```
 
-    </TabItem>
-    <TabItem value="suse" label="SUSE">
+  </TabItem>
+  <TabItem value="suse" label="SUSE">
 
     ```bash title=SH
     sudo rpm --import http://repo.whatap.io/suse/release.gpg
@@ -46,16 +46,16 @@ import TabItem from '@theme/TabItem';
     sudo zypper refresh
     ```
 
-    </TabItem>
-    <TabItem value="co" label="CentOS">
+  </TabItem>
+  <TabItem value="co" label="CentOS">
 
     ```bash title=SH
     sudo rpm --import http://repo.whatap.io/centos/release.gpg
     sudo rpm -Uvh http://repo.whatap.io/centos/5/noarch/whatap-repo-1.0-1.noarch.rpm
     ```
 
-    </TabItem>
-    <TabItem value="al" label="Amazon Linux">
+  </TabItem>
+  <TabItem value="al" label="Amazon Linux">
 
     ```bash title=SH
     sudo rpm --import http://repo.whatap.io/centos/release.gpg
@@ -66,36 +66,36 @@ import TabItem from '@theme/TabItem';
     echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
     ```
 
-    </TabItem>
+  </TabItem>
     </Tabs> 
 
 1. 다음 명령어를 통해 **패키지**를 설치하세요.
 
     <Cmdname sid="server_installAgent_installPackages" className="uitext" /> 탭에서 해당하는 명령어를 복사해 입력합니다.
     
-    <Tabs>
-    <TabItem value="du" label="Debian / Ubuntu" default>
+  <Tabs>
+  <TabItem value="du" label="Debian / Ubuntu" default>
 
     ```bash title=SH
     sudo apt-get install whatap-infra
     ```
 
-    </TabItem>
-    <TabItem value="suse" label="SUSE">
+  </TabItem>
+  <TabItem value="suse" label="SUSE">
 
     ```bash title=SH
     sudo zypper install whatap-infra
     ```
 
-    </TabItem>
+  </TabItem>
 
-    <TabItem value="cax" label="CentOS / Amazon Linux">
+  <TabItem value="cax" label="CentOS / Amazon Linux">
 
     ```bash title=SH
     sudo yum install whatap-infra
     ```
     
-    </TabItem>
+  </TabItem>
 
     </Tabs>
 

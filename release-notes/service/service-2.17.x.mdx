@@ -43,6 +43,7 @@ displayed_sidebar: releaseSidebar
 - <Status priority='1'>Feature</Status> <Cmdname sid="transaction_map" className="uitext" /> 정지 상태에서 사용할 수 있는 필터 항목에 '도시' 필터 추가
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="transaction_map" className="uitext" /> `STEP_SQL_BIND`, `STEP_ALL` 필터 항목 추가
+
     - 해당 필터 항목 사용 시 복호화 키 입력 필요
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_hitmap" className="uitext" />에서 드래그로 프로파일 데이터 조회 시, 데이터 조회 가능 기간이 지난 경우 테이블에 알림 문구 표시 
@@ -116,14 +117,23 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> 락 트리 테이블에 컬럼 선택 기능 추가 
 
-    - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />,  <Cmdname sid="side_multiInstance" className="uitext" />
+    - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />, <Cmdname sid="side_multiInstance" className="uitext" />
     - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" />
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 실시간 모드가 아닐 때 차트 데이터를 CSV 파일 다운로드 기능 추가
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" />의 Disk Usage 위젯 테이블 상태를 프리셋으로 저장되도록 추가
 
+- <Status priority='1'>Feature</Status> 인스턴스의 Replication Role 또는 Cluster 구성 표시 태그 추가
+
+    - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 화면의 인스턴스 셀렉터
+    - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 화면의 인스턴스 태그
+
+    - <Cmdname sid="side_management" className="uitext" /> &gt; ***에이전트 목록***의 Role 칼럼
+
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 위젯 헤더의 아이콘을 더보기 버튼으로 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 화면의 인스턴스 셀렉터에 표시되는 상태 색상을 인스턴스 목록의 상태 색상과 통일
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 페이지에서 Multi DB인 경우, 인스턴스 재클릭 시 태그 모양이 해제되는 오류 수정
 
@@ -132,6 +142,10 @@ displayed_sidebar: releaseSidebar
 #### Oracle 
 
 <Status priority='1'>Feature</Status> 설치 페이지에 멀티 테넌트 DB의 kill session 기능을 사용하기 위해 필요한 명령어 추가
+
+#### PostgreSQL
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dbMonitoring" className="uitext" />, <Cmdname sid="side_multiInstance" className="uitext" />, <Cmdname sid="side_dbLockTree" className="uitext" />의 락트리 테이블에 holder_relation, waiter_relation,state 컬럼 추가
 
 ---
 

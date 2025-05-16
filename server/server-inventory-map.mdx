@@ -100,34 +100,34 @@ import ServerInventoryFilter from "../common-items/_server-inventory-filter.mdx"
 
     * **Linux**
 
-    <Tabs>
-    <TabItem value="linux-opt" label="옵션 추가 명령어" default>
+<Tabs>
+<TabItem value="linux-opt" label="옵션 추가 명령어" default>
 
       ```bash
       grep -q '^categoryv2.enabled' /usr/whatap/infra/conf/whatap.conf || echo 'categoryv2.enabled=true' | sudo tee -a /usr/whatap/infra/conf/whatap.conf
       ```
 
-    </TabItem>
-    <TabItem value="linux-restart" label="에이전트 재시작">
+</TabItem>
+<TabItem value="linux-restart" label="에이전트 재시작">
 
       ```bash
       sudo service whatap-infra restart
       ```
 
-    </TabItem>
-    </Tabs> 
+</TabItem>
+</Tabs> 
 
     * **Unix**
 
-    <Tabs>
-    <TabItem value="unix-opt" label="옵션 추가 명령어" default>
+<Tabs>
+<TabItem value="unix-opt" label="옵션 추가 명령어" default>
 
       ```bash
       grep -q '^categoryv2.enabled' /usr/whatap/infra/conf/whatap.conf || echo 'categoryv2.enabled=true' | tee -a /usr/whatap/infra/conf/whatap.conf
       ```
 
-    </TabItem>
-    <TabItem value="unix-restart" label="에이전트 재시작">
+</TabItem>
+<TabItem value="unix-restart" label="에이전트 재시작">
 
       * **AIX** 
 
@@ -142,27 +142,27 @@ import ServerInventoryFilter from "../common-items/_server-inventory-filter.mdx"
         /etc/init.d/whatap-infra restart
         ```
 
-    </TabItem>
-    </Tabs> 
+</TabItem>
+</Tabs> 
 
     * **Windows**
 
-    <Tabs>
-    <TabItem value="windows-opt" label="옵션 추가 명령어" default>
+<Tabs>
+<TabItem value="windows-opt" label="옵션 추가 명령어" default>
 
       ```bash
       if (-not (Select-String -Path "C:\Program Files\WhatapInfra\whatap.conf" -Pattern "^categoryv2.enabled" -Quiet)) { Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "categoryv2.enabled=true" }
       ```
 
-    </TabItem>
-    <TabItem value="windows-restart" label="에이전트 재시작">
+</TabItem>
+<TabItem value="windows-restart" label="에이전트 재시작">
 
       ```bash
       Restart-Service -Name "Whatap Infra"
       ```
 
-    </TabItem>
-    </Tabs> 
+</TabItem>
+</Tabs> 
 
 
 ## 기본 화면 안내 

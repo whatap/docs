@@ -146,8 +146,8 @@
 
   이 템플릿을 사용하려면 에이전트 설정에서 Port 모니터링을 위한 옵션을 추가해야 합니다. 모니터링 대상 서버에서 다음 명령어를 실행하세요.
 
-<Tabs groupId="operating-systems">
-<TabItem value="lx" label="Linux Shell">
+  <Tabs groupId="operating-systems">
+  <TabItem value="lx" label="Linux Shell">
 
   ```bash title="SH"
   export TARGET_IP=127.0.0.1 # Monitoring target IP address
@@ -155,8 +155,8 @@
   echo "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT" |sudo tee -a /usr/whatap/infra/conf/whatap.conf
   ```
 
-</TabItem>
-<TabItem value="wd" label="Windows Powershell">
+  </TabItem>
+  <TabItem value="wd" label="Windows Powershell">
 
   ```bash title="SH"
   $TARGET_IP="127.0.0.1" # Monitoring target IP address
@@ -164,8 +164,8 @@
   Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "tcp.check.$TARGET_PORT=tcp://$TARGET_IP:$TARGET_PORT"
   ```
 
-</TabItem>
-</Tabs>
+  </TabItem>
+  </Tabs>
 
   :::
 

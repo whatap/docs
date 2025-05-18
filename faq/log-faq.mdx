@@ -41,4 +41,115 @@ keywords: [ Log 모니터링, FAQ ]
 
 현재 타사 로그 솔루션과의 연동 기능은 제공하지 않습니다.
 
+### 플랫폼별 로그 수집 방식
+
+> 애플리케이션, 서버, 쿠버네티스 로그 수집을 어떻게 하나요?
+
+플랫폼별 로그 수집 방식은 아래와 같습니다.
+
+<details>
+<summary>**JAVA**</summary>
+
+`log4j`, `logback` 로그 라이브러리에서 로깅되는 로그를 후킹하여 수집합니다.
+
+:::note
+
+`logback` 또는 `log4j` 사용 시, Appender 기반 로그 수집을 위한 옵션 설정이 필요할 수 있습니다. 자세한 내용은 WhaTap Docs의 [오픈소스 추적](../java/agent-weaving#지원-오픈소스-목록) 문서를 참고하세요.
+
+:::
+
+</details>
+
+<details>
+<summary>**Node.js**</summary>
+
+Node.js의 내장 패키지 process를 후킹하여 `process.stdout`, `process.stderr` 로그를 수집합니다.
+
+</details>
+
+<details>
+<summary>**Python**</summary>
+
+`logging`, `loguru` 로그 라이브러리에서 로깅되는 로그를 후킹하여 수집합니다.
+
+</details>
+
+<details>
+<summary>**PHP / Server**</summary>
+
+모니터링할 로그 파일을 지정하여 수집합니다.
+
+</details>
+
+<details>
+<summary>**Go**</summary>
+
+* 모니터링할 로그 파일을 지정하여 수집합니다.
+
+* 애플리케이션의 `Standard out`, `Standard error` 로그를 수집합니다.
+
+:::note
+
+Standard out 및 error 로그 수집을 위해 별도 설정이 필요합니다.  
+자세한 내용은 WhaTap Docs의 [Go 모니터링 > API 가이드](../golang/api-guide) 문서를 참고하세요.
+
+:::
+
+</details>
+
+<details>
+<summary>**Kubernetes**</summary>
+
+1. **Container StdOut**
+
+    WhaTap Kubernetes 에이전트는 <strong>Container의 표준 출력 로그(Container stdout/stderr)</strong>를 수집합니다.
+    해당 로그는 활용 목적에 따라 두 가지 방식으로 수집됩니다.
+
+    * **로그 파일 기반 수집**
+
+        쿠버네티스 노드의 파일 시스템에 저장된 로그 파일을 직접 읽어오는 방식입니다.  
+        수집된 로그는 <Cmdname sid="side_log" className="uitext" /> &gt; <Cmdname sid="side_logExplorer" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" />, <Cmdname sid="side_logTail" className="uitext" /> 기능을 통해 확인할 수 있습니다.
+    
+
+        ```ini title="와탭 에이전트 로그 파일 수집 경로"
+        /var/log/pods/<namespace>_<pod-name>_<uid>/<container-name>/*.log
+        ```
+
+        ```ini title="예시"
+        /var/log/pods/whatap_agent_7ddf2a4c-0877-4602-a38c-df07c4501ede/agent/0.log
+        ```
+
+        :::caution
+
+        로그가 수집되지 않을 경우, 노드에 접속해서 위 경로에 로그 파일이 존재하는지 확인합니다. 로그 수집 필터에 대한 자세한 내용은 WhaTap Docs의 [Kubernetes 모니터링 > 로그](../kubernetes/log#containerStdOut-로그-필터-설정) 문서를 참고하세요.
+
+        :::
+
+    * **kube-apiserver 기반 실시간 조회**
+
+        컨테이너 맵에서 특정 컨테이너를 클릭하면, kubectl logs 명령과 유사한 방식으로 Kubernetes API(kube-apiserver)를 호출해 해당 컨테이너 로그를 실시간으로 가져옵니다.
+
+        이 방식은 빠르게 컨테이너의 상태를 확인할 때 유용하지만, 검색 기능이나 장기 보존은 제공하지 않습니다.
+
+        | 구분     | 로그 탭                                                           | 컨테이너 맵 > 컨테이너 클릭 |
+        | ------- | ---------------------------------------------------------------- | ----------------------- |
+        | 수집 방식 | 노드의 파일 시스템 직접 접근                                            | kube-apiserver API 호출 |
+        | 로그 위치 | `/var/log/pods/<namespace><pod-name><uid>/<container-name>/*.log` | kube-apiserver API 호출 |
+        | 활용     | 검색, 필터링, 라이브 테일                                              | 실시간 상태 확인  |
+        | 보존 여부 | O                                                                 | X (실시간 조회만 가능) |
+
+2. **K8s Event**
+
+    쿠버네티스 이벤트를 수집한 로그이며 kubectl get events를 통해 확인되는 로그를 수집합니다.
+
+</details>
+
 </div>
+
+:::note
+
+**로그 설정 방법** 
+
+로그 설정 방법은 WhaTap Docs의 [Log 모니터링](../log/introduction)에서 각 플랫폼(JAVA,Node.js 등)에서 확인할 수 있습니다.
+
+:::

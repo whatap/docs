@@ -1,0 +1,335 @@
+<InDoc product="mongodb,mysql,mssql,oracle,oracle-pro">
+
+이 문서는 AWS 환경에서 WhaTap 클라우드 에이전트를 설정하기 위한 가이드입니다. 주요 설정 항목, 필드 설명, 권한 구성, 실행 명령까지 포함하여 운영 환경에 바로 적용할 수 있도록 구성되어 있습니다.
+
+</InDoc>
+
+<InDoc product="postgresql">
+
+이 문서는 AWS 및 NCP 환경에서 WhaTap 클라우드 에이전트를 설정하기 위한 가이드입니다. 주요 설정 항목, 필드 설명, 권한 구성, 실행 명령까지 포함하여 운영 환경에 바로 적용할 수 있도록 구성되어 있습니다.
+
+</InDoc>
+
+## 요금 안내
+
+:::caution
+
+클라우드 모니터링 에이전트는 무료지만, 클라우드 서비스 사용에 따라 별도 요금이 발생할 수 있으니 확인이 필요합니다.
+
+:::
+
+<InDoc product="postgresql,mongodb,mysql,mssql,oracle,oracle-pro">
+
+### AWS 요금
+
+클라우드 모니터링 에이전트는 별도의 SaaS 요금 없이 제공되며, 에이전트 설치만으로 모니터링 기능을 사용할 수 있습니다. 단, AWS CloudWatch 등 클라우드 서비스의 API를 통해 메트릭을 수집하기 때문에, **CloudWatch 사용량에 따라 별도 요금이 부과될 수 있습니다**.
+
+본 에이전트는 기본적으로 **1분 주기로 GetMetricData API를 호출**하여 메트릭을 수집하며, 호출 빈도와 수집 대상에 따라 요금이 증가할 수 있으므로 주의가 필요합니다.
+
+자세한 요금 정책은 [AWS 공식 문서의 Amazon CloudWatch 요금](https://aws.amazon.com/cloudwatch/pricing/) 페이지를 참고하시기 바랍니다.
+
+</InDoc>
+
+<InDoc product="postgresql">
+
+### NCP 요금
+
+클라우드 모니터링 에이전트는 별도의 SaaS 요금 없이 제공되며, 에이전트 설치만으로 모니터링 기능을 사용할 수 있습니다. 클라우드 모니터링 에이전트는 5분 주기로 Cloud Insight API를 호출하여 1분 단위의 메트릭 데이터를 수집합니다.  
+
+네이버 클라우드 플랫폼(NCP)의 Cloud Insight 서비스는 현재 무료로 제공되고 있으나, 향후 정책에 따라 유료화될 수 있습니다. Cloud Insight 서비스가 유료화될 경우 **API 호출 횟수에 따라 요금이 부과될 수 있으므로**, 사용량에 유의하시기 바랍니다.
+
+자세한 요금 정책은 [네이버 클라우드 플랫폼의 공식 요금 안내](https://www.ncloud.com/product/management/cloudInsight#pricing) 페이지를 참고하시기 바랍니다.
+
+</InDoc>
+
+## 에이전트 설정
+
+<InDoc product="mysql,mssql,oracle,oracle-pro">
+
+AWS Aurora and RDS 설정 방법입니다.
+
+</InDoc>
+
+<InDoc product="postgresql">
+
+AWS Aurora and RDS와 NCP Cloud DB for PostgreSQL 설정 방법입니다.
+
+</InDoc>
+
+<InDoc product="postgresql,mysql,mssql,oracle,oracle-pro">
+
+### AWS Aurora and RDS 설정
+
+```yaml title='config.yaml'
+input:
+  csp: "aws" # 클라우드 서비스 제공자를 입력합니다.
+  namespace: "rds"
+  region: "ap-northeast-2"
+  instances: # 명시한 인스턴스는 항상 수집합니다. 클러스터 내의 인스턴스를 이 속성에 명시하면, 오토스케일 여부와 관계없이 항상 수집합니다.
+    - name: "mysql-rds"
+      slow_query: true # 슬로우 쿼리 페이지를 이용하시려면, true로 설정해주세요.
+  clusters:
+    autoscale:
+      enabled: false # 오토스케일이 활성화되면, 오토스케일된 인스턴스들을 수집 대상에서 추가하거나 삭제합니다.
+      interval: 60 # 명시한 클러스터들의 오토스케일 체크 주기입니다. (단위: 초)
+    names:
+      - "database-cluster-name"
+  metrics: # 수집할 메트릭을 입력합니다.
+    - "CPUUtilization"
+    - "FreeStorageSpace"
+    - "FreeableMemory"
+    - "ReadLatency"
+    - "WriteLatency"
+
+output: # 수집한 메트릭 데이터를 받는 WhaTap 정보를 입력합니다.
+  license: "abcdefg-higjgkgjk-zxcvnbnbmc"
+  host: "127.0.0.1"
+```
+
+| 필드                           | 설명 |
+| ----------------------------- | --- |
+| `csp`                         | 클라우드 서비스 제공자로  `aws`(Amazon Web Services)를 의미 |
+| `namespace`                   | 수집 대상 서비스의 네임스페이스<br />- Aurora and RDS 설정 시 **고정값**으로 `rds` 입력 |
+| `region`                      | AWS 리전 코드<br />- 예. `ap-northeast-2` (서울 리전) |
+| `instances`                   | 항상 수집할 인스턴스 목록으로 오토스케일 여부와 관계없이 지정된 인스턴스는 무조건 수집함 |
+| `instances[].name`            | RDS 인스턴스 이름<br />- 예. `mysql-rds` |
+| `instances[].slow_query`      | 해당 인스턴스의 슬로우 쿼리 수집 여부<br />- `true`: 수집<br />- `false`: 미수집 |
+| `clusters`                    | RDS 클러스터 관련 설정 |
+| `clusters.autoscale.enabled`  | 클러스터 오토스케일 수집 여부<br />- `true`: 자동으로 인스턴스를 추가/제거하며 수집  <br />- `false`: `instances`에 직접 입력한 인스턴스만 수집 대상에 포함 |
+| `clusters.autoscale.interval` | 오토스케일 여부를 감지하는 주기(단위: 초) |
+| `clusters.names`              | 오토스케일 여부를 체크할 클러스터 이름 목록 |
+| `metrics`                     | 수집할 메트릭 항목 목록<br />- 예. `CPUUtilization`, `FreeStorageSpace` 등<br />- 참고. [Amazon RDS에 대한 Amazon CloudWatch 지표 공식 문서 바로가기](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-metrics.html)  |
+| `output.license`              | 수집된 데이터를 전송할 WhaTap의 라이선스 키 |
+| `output.host`                 | 수집 데이터를 전송할 WhaTap 서버 호스트 주소(IP) |
+
+</InDoc>
+
+<InDoc product="mongodb">
+
+AWS DocumentDB 에이전트 설정 방법입니다.
+
+### AWS DocumentDB 에이전트
+
+```yaml title='config.yaml'
+input:
+  csp: "aws" # 클라우드 서비스 제공자를 입력합니다.
+  namespace: "docdb"
+  region: "ap-northeast-2"
+  instances: # 명시한 인스턴스는 항상 수집합니다. 클러스터 내의 인스턴스를 이 속성에 명시하면, 오토스케일 여부와 관계없이 항상 수집합니다.
+    - name: "docdb-instance-name"
+  clusters:
+    autoscale:
+      enabled: false # 오토스케일이 활성화되면, 오토스케일된 인스턴스들을 수집 대상에서 추가하거나 삭제합니다.
+      interval: 60 # 명시한 클러스터들의 오토스케일 체크 주기입니다. (단위: 초)
+    names:
+      - "docdb-cluster-name"
+  metrics: # 수집할 메트릭을 입력합니다.
+    - "CPUUtilization"
+    - "FreeableMemory"
+    - "ReadLatency"   
+    - "WriteLatency"  
+    - "DatabaseConnections"
+
+output: # 수집한 메트릭 데이터를 받는 WhaTap 정보를 입력합니다.
+  license: "4544ee05-wfwefwefb205-2987709519af"
+  host: "127.0.0.1"
+```
+
+| 필드                           | 설명 |
+| ----------------------------- | --- |
+| `csp`                         | 클라우드 서비스 제공자로 `aws` (Amazon Web Services)를 의미 |
+| `namespace`                   | 수집 대상 서비스의 네임스페이스<br />- AWS DocumentDB 설정 시 **고정값**으로 `docdb` 입력 |
+| `region`                      | AWS 리전 코드<br />- 예: `ap-northeast-2` (서울 리전) |
+| `instances`                   | 항상 수집할 인스턴스 목록으로 오토스케일 여부와 관계없이 지정된 인스턴스는 무조건 수집함 |
+| `instances[].name`            | DocumentDB 인스턴스 이름<br />- 예. `docdb-2025-04-08-01-21-05` |
+| `clusters`                    | DocumentDB 클러스터 관련 설정 |
+| `clusters.autoscale.enabled`  | 클러스터 오토스케일 수집 여부<br />- `true`: 자동으로 인스턴스를 추가/제거하며 수집<br />- `false`: `instances`에 직접 입력한 인스턴스만 수집 대상에 포함 |
+| `clusters.autoscale.interval` | 오토스케일 여부를 감지하는 주기(단위: 초) |
+| `clusters.names`              | 오토스케일 여부를 체크할 클러스터 이름 목록 |
+| `metrics`                     | 수집할 메트릭 항목 목록<br />- 예. `CPUUtilization`, `FreeableMemory` 등<br />- 참고. [Amazon DocumentDB 지표 공식 문서](https://docs.aws.amazon.com/documentdb/latest/developerguide/cloud_watch.html) |
+| `output.license`              | 수집된 데이터를 전송할 WhaTap의 라이선스 키 |
+| `output.host`                 | 수집 데이터를 전송할 WhaTap 서버 호스트 주소(IP) |
+
+</InDoc>
+
+<InDoc product="postgresql">
+
+### NCP Cloud DB for PostgreSQL 설정 
+
+```yaml title='config.yaml'
+input:
+  csp: "ncp" # 클라우드 서비스 제공자를 입력합니다.
+  namespace: "vpc_postgresql"
+  region: "KR" # KR | SGN | JPN | USWN | DEN
+  accessKey: "YOUR_ACCESS_KEY"
+  secretKey: "YOUR_SECRET_KEY"
+  instances: # Cloud DB for PostgreSQL (VPC) 목록에서 모니터링 대상 DB Server 이름을 명시합니다.
+    - name: "instance-name"
+      domain: "pg-xxxxx.vpc-pub-cdb-kr.ntruss.com" # 접속 가능한 private 또는 public 도메인을 입력합니다.
+  metrics: # 수집할 메트릭을 입력합니다.
+    - "cpu_user"
+    - "mem_used"
+    - "disk_usage"
+    - "nic_total"
+    - "cpu_load_1"
+    - "tup_inserted"
+
+output: # 수집한 메트릭 데이터를 받는 WhaTap 정보를 입력합니다.
+  license: "4544ee0few5-a880410bb205-2987709519af"
+  host: "127.0.0.1"
+```
+
+| 필드 경로              | 설명 |
+| -------------------- | --- |
+| `csp`                | 클라우드 서비스 제공자로 Naver Cloud Platform(`ncp`) 사용을 나타냄 |
+| `namespace`          | 모니터링 대상의 구분자 또는 그룹 이름으로 사용됨<br />-  예. `vpc_postgresql`  |
+| `region`             | 클라우드 리전(region) 코드<br />- 지원 값: `KR`, `SGN`, `JPN`, `USWN`, `DEN` |
+| `accessKey`          | Naver Cloud의 API 호출을 위한 액세스 키<br />- 참고. [Access Key / Secret Key 발급 방법](https://www.notion.so/1ee20702704a802492c9ee6dd6c179e1?pvs=21) |
+| `secretKey`          | Naver Cloud의 API 호출을 위한 시크릿 키 |
+| `instances`          | 모니터링 대상인 PostgreSQL 인스턴스 목록<br />- 각 인스턴스는 `name`과 `domain` 필드를 포함함 |
+| `instances[].name`   | Cloud DB for PostgreSQL (VPC) 인스턴스 이름<br />- NAVER CLOUD PLATFORM 콘솔의 DB Server > DB Server 이름 항목에서 확인 가능<br />- 예. `whatap-001-70ld`|
+| `instances[].domain` | 해당 인스턴스의 접근 가능한 도메인 주소<br />- NAVER CLOUD PLATFORM 콘솔의 DB Server > Private 또는 Public 도메인 항목에서 확인 가능<br />- DBX 에이전트가 실제 접속 중인 **Private 또는 Public 도메인 주소**를 입력해야 함<br />- 예. `pg-33rr40.vpc-pub-cdb-kr.ntruss.com` |
+| `metrics`            | 수집할 메트릭 항목의 목록<br />- 참고. [Cloud DB for PostgreSQL (VPC) 지표 공식 문서](https://api.ncloud-docs.com/docs/database-vpostgresql-metric) |
+| `output`             | 수집한 메트릭 데이터를 받는 WhaTap 정보 |
+| `output.license`     | 수집된 메트릭 데이터를 전송할 WhaTap의 라이선스 키 |
+| `output.host`        | 수집 데이터를 전송할 WhaTap 서버 호스트 주소(IP) |
+
+</InDoc>
+
+## 권한 설정
+
+에이전트가 정상적으로 동작하려면, 서비스별로 필요한 권한을 설정해야 합니다.
+
+<InDoc product="postgresql,mysql,mssql,oracle,oracle-pro">
+
+### AWS Aurora and RDS 권한
+
+클라우드 에이전트는 다음 기능을 수행하기 위해 AWS API를 호출합니다.
+
+* AWS Aurora and RDS 인스턴스 및 클러스터 정보를 조회하여 모니터링 대상 확인
+* CloudWatch 메트릭 수집
+
+#### IAM 인라인 정책
+
+JSON 정책을 IAM 사용자 또는 역할에 **인라인 정책**으로 추가하세요. EC2에서 에이전트를 실행하는 경우, 해당 EC2 인스턴스에 연결된 IAM 역할에 해당 정책을 부여합니다.
+
+* 본 정책은 **Aurora와 RDS 서비스 모두에 적용**됩니다.
+* Resource 항목은 모든 Aurora와 RDS 리소스를 대상으로 지정되어 있으며, 보안 정책에 따라 필요한 경우 리소스 ARN을 제한할 수 있습니다.
+* 에이전트는 조회(Read-only) API만 사용합니다. 데이터베이스에 영향을 주는 권한은 포함되지 않습니다.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "RDSPermissions",
+      "Effect": "Allow",
+      "Action": [
+        "rds:DescribeDBInstances",
+        "rds:DescribeDBClusters",
+        "rds:DescribeDBClusterParameters",
+        "rds:DescribeOptionGroups"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CloudWatchMetricsPermissions",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:GetMetricData",
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListMetrics"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CloudWatchLogsPermissions",
+      "Effect": "Allow",
+      "Action": [
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:FilterLogEvents",
+        "logs:GetLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:*:*:log-group:/aws/rds/*"
+      ]
+    }
+  ]
+}
+```
+
+</InDoc>
+
+<InDoc product="mongodb">
+
+### AWS DocumentDB 권한
+
+클라우드 에이전트는 DocumentDB에 대해 다음 기능을 수행합니다.
+
+* DocumentDB 인스턴스 및 클러스터 정보 조회
+* CloudWatch 메트릭 수집
+
+#### DocumentDB용 IAM 인라인 정책
+
+JSON 정책을 IAM 사용자 또는 역할에 **인라인 정책**으로 추가하세요. EC2에서 에이전트를 실행하는 경우, 해당 EC2 인스턴스에 연결된 IAM 역할에 부여합니다.
+
+* Resource 항목은 모든 DocumentDB 리소스를 대상으로 지정되어 있으며, 보안 정책에 따라 필요한 경우 리소스 ARN을 제한할 수 있습니다.
+* 에이전트는 조회(Read-only) API만 사용합니다. 데이터베이스에 영향을 주는 권한은 포함되지 않습니다.  
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DocDBPermissions",
+      "Effect": "Allow",
+      "Action": [
+        "docdb:DescribeDBInstances",
+        "docdb:DescribeDBClusters"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CloudWatchMetricsPermissions",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:GetMetricData",
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListMetrics"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CloudWatchLogsPermissions",
+      "Effect": "Allow",
+      "Action": [
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:FilterLogEvents",
+        "logs:GetLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:*:*:log-group:/aws/docdb/*"
+      ]
+    }
+  ]
+}
+```
+
+</InDoc>
+
+<InDoc product="postgresql">
+
+### NCP Cloud DB for PostgreSQL 권한
+
+클라우드 에이전트는 NCP Cloud DB for PostgreSQL 인스턴스의 메트릭과 설정 정보를 수집하기 위해 NCP Cloud Insight API를 호출합니다. 이를 위해서는 Access Key와 Secret Key가 필요합니다.
+
+**Access Key / Secret Key 발급 방법**
+
+1. [NAVER CLOUD PLATFORM 콘솔](https://www.ncloud.com)에 로그인합니다.
+2. 상단 메뉴에서 **My Page> 계정 관리**로 이동합니다.
+3. 메뉴에서 **인증키 관리**를 선택합니다.
+4. **[키 생성]** 버튼을 클릭하여 새로운 Access Key와 Secret Key를 생성합니다.
+
+</InDoc>

@@ -1,4 +1,4 @@
-<InDoc product="mongodb,mysql,mssql,oracle,oracle-pro">
+<InDoc product="mongodb,mysql,mssql,oracle">
 
 이 문서는 AWS 환경에서 WhaTap 클라우드 에이전트를 설정하기 위한 가이드입니다. 주요 설정 항목, 필드 설명, 권한 구성, 실행 명령까지 포함하여 운영 환경에 바로 적용할 수 있도록 구성되어 있습니다.
 
@@ -17,7 +17,7 @@
 
 :::
 
-<InDoc product="postgresql,mongodb,mysql,mssql,oracle,oracle-pro">
+<InDoc product="postgresql,mongodb,mysql,mssql,oracle">
 
 ### AWS 요금
 
@@ -43,7 +43,7 @@
 
 ## 에이전트 설정
 
-<InDoc product="mysql,mssql,oracle,oracle-pro">
+<InDoc product="mysql,mssql,oracle">
 
 AWS Aurora and RDS 설정 방법입니다.
 
@@ -55,7 +55,7 @@ AWS Aurora and RDS와 NCP Cloud DB for PostgreSQL 설정 방법입니다.
 
 </InDoc>
 
-<InDoc product="postgresql,mysql,mssql,oracle,oracle-pro">
+<InDoc product="postgresql,mysql,mssql,oracle">
 
 ### AWS Aurora and RDS 설정
 
@@ -66,7 +66,7 @@ input:
   region: "ap-northeast-2"
   instances: # 명시한 인스턴스는 항상 수집합니다. 클러스터 내의 인스턴스를 이 속성에 명시하면, 오토스케일 여부와 관계없이 항상 수집합니다.
     - name: "mysql-rds"
-      slow_query: true # 슬로우 쿼리 페이지를 이용하시려면, true로 설정해주세요.
+      slow_query: true # 슬로우 쿼리 페이지를 사용하려면, true로 설정합니다. 해당 기능은 MySQL 및 PostgreSQL 인스턴스에서만 지원됩니다.
   clusters:
     autoscale:
       enabled: false # 오토스케일이 활성화되면, 오토스케일된 인스턴스들을 수집 대상에서 추가하거나 삭제합니다.
@@ -88,13 +88,13 @@ output: # 수집한 메트릭 데이터를 받는 WhaTap 정보를 입력합니�
 | 필드                           | 설명 |
 | ----------------------------- | --- |
 | `csp`                         | 클라우드 서비스 제공자로  `aws`(Amazon Web Services)를 의미 |
-| `namespace`                   | 수집 대상 서비스의 네임스페이스<br />- Aurora and RDS 설정 시 **고정값**으로 `rds` 입력 |
+| `namespace`                   | 수집 대상 서비스의 네임스페이스<br />- 고정값: Aurora and RDS 설정 시 `rds` 입력 |
 | `region`                      | AWS 리전 코드<br />- 예. `ap-northeast-2` (서울 리전) |
 | `instances`                   | 항상 수집할 인스턴스 목록으로 오토스케일 여부와 관계없이 지정된 인스턴스는 무조건 수집함 |
 | `instances[].name`            | RDS 인스턴스 이름<br />- 예. `mysql-rds` |
-| `instances[].slow_query`      | 해당 인스턴스의 슬로우 쿼리 수집 여부<br />- `true`: 수집<br />- `false`: 미수집 |
+| `instances[].slow_query`      | 해당 인스턴스의 슬로우 쿼리 수집 여부, **MySQL 및 PostgreSQL 인스턴스에서만 지원** <br />- `true`: 수집<br />- `false`: 미수집<br />  |
 | `clusters`                    | RDS 클러스터 관련 설정 |
-| `clusters.autoscale.enabled`  | 클러스터 오토스케일 수집 여부<br />- `true`: 자동으로 인스턴스를 추가/제거하며 수집  <br />- `false`: `instances`에 직접 입력한 인스턴스만 수집 대상에 포함 |
+| `clusters.autoscale.enabled`  | 클러스터 오토스케일 수집 여부<br />- `true`: 자동으로 인스턴스를 추가/제거하며 수집 <br />- `false`: `instances`에 직접 입력한 인스턴스만 수집 대상에 포함 |
 | `clusters.autoscale.interval` | 오토스케일 여부를 감지하는 주기(단위: 초) |
 | `clusters.names`              | 오토스케일 여부를 체크할 클러스터 이름 목록 |
 | `metrics`                     | 수집할 메트릭 항목 목록<br />- 예. `CPUUtilization`, `FreeStorageSpace` 등<br />- 참고. [Amazon RDS에 대한 Amazon CloudWatch 지표 공식 문서 바로가기](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-metrics.html)  |
@@ -199,7 +199,7 @@ output: # 수집한 메트릭 데이터를 받는 WhaTap 정보를 입력합니�
 
 에이전트가 정상적으로 동작하려면, 서비스별로 필요한 권한을 설정해야 합니다.
 
-<InDoc product="postgresql,mysql,mssql,oracle,oracle-pro">
+<InDoc product="postgresql,mysql,mssql,oracle">
 
 ### AWS Aurora and RDS 권한
 

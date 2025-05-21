@@ -30,6 +30,8 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='0'>Fixed</Status> 시리즈 차트의 개별 시간 설정이 적용되지 않는 버그 수정
 
+- <Status priority='0'>Fixed</Status> 연계 프로젝트 추가 페이지 테이블 리사이징 되도록 수정
+
 ---
 
 ### `Application`
@@ -160,13 +162,36 @@ displayed_sidebar: releaseSidebar
 
     - <Cmdname sid="side_management" className="uitext" /> &gt; ***에이전트 목록***의 Role 칼럼
 
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> <code class="newfunc">New</code> 화면 개선
+
+    - 사용자 정의 위젯 시리즈 차트에 클릭 및 드래그 이벤트 추가
+    - 차트 옵션 아이콘을 더보기 버튼으로 변경
+    - 비활성화된 인스턴스 선택 시 안내 문구 추가
+    - 기본 제공 시리즈 차트에 메트릭스 선택 버튼 추가
+
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 위젯 헤더의 아이콘을 더보기 버튼으로 변경
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 화면의 인스턴스 셀렉터에 표시되는 상태 색상을 인스턴스 목록의 상태 색상과 통일
 
+- <Status priority='1'>Changed</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="db_size_increase" className="uitext" />, <Cmdname sid="side_tableSpace" className="uitext" /> 선택된 `dbName`이 없을 경우 테이블에 데이터 없음이 표시되도록 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> <code class="newfunc">New</code> 세션 테이블 CSV 다운로드 불가 및 차트 이미지 다운로드 시 테마 미적용 문제 수정
+
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 페이지에서 Multi DB인 경우, 인스턴스 재클릭 시 태그 모양이 해제되는 오류 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSize" className="uitext" />, <Cmdname sid="side_tableSpace" className="uitext" /> 화면의 디스크 사용량 테이블 데이터가 최신화되지 않는 현상 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="db_size_increase" className="uitext" />, <Cmdname sid="side_tableSpace" className="uitext" /> 차트의 인덱스가 선택된 `dbName`에 따라 변경되지 않거나, 디스크 사용량 테이블 데이터가 최신화되지 않는 현상 수정
+
+### PostgreSQL, MySQL, Oracle V2, Oracle Pro
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTopSqlComparison" className="uitext" /> 페이지 테이블 리사이징 되도록 수정
+
+#### MySQL, Cubrid
+
+- <Status priority='0'>Fixed</Status> ***테이블 사이즈 증감*** 페이지 테이블 리사이징 되도록 수정
+
+#### MySQL 
+
+<Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; ***테이블 사이즈 증감*** 페이지의 ***테이블별 용량 상세*** 테이블에 증감량 컬럼 추가
 
 #### Oracle 
 

@@ -37,10 +37,14 @@
 
 | 항목 | 설명 |
 | -- | -- |
-| `holder type` | `holder` 세션의 `type` (transaction id, tuple 등) |
-| `lock mode` | `holder_mode` (exclusive lock, shared lock 등) |
-| `waiter type` | `waiter` 세션의 `type` (transaction id, tuple 등) |
-| `lock request` | `waiter_mode` (exclusive lock, shared lock 등) |
+| `holder_relation` | `holder` 세션이 락을 보유 중인 객체(테이블 또는 인덱스) |
+| `holder_type` | `holder` 세션의 `type` (transaction id, tuple 등) |
+| `lock_mode` | `holder_mode` (exclusive lock, shared lock 등) |
+| `lock_request` | `waiter_mode` (exclusive lock, shared lock 등) |
+| `state` | 각 세션(벡엔드 프로세스)의 현재 상태 |
+| `waiter_relation` | `waiter` 세션이 락 획득을 대기 중인 객체 |
+| `waiter_type` | `waiter` 세션의 `type` (transaction id, tuple 등) |
+
 
 </TabItem>
 

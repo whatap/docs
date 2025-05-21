@@ -183,15 +183,25 @@ displayed_sidebar: releaseSidebar
 
 ### PostgreSQL, MySQL, Oracle V2, Oracle Pro
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTopSqlComparison" className="uitext" /> 페이지 테이블 리사이징 되도록 수정
+<Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTopSqlComparison" className="uitext" /> 페이지 테이블 리사이징 되도록 수정
 
 #### MySQL, Cubrid
 
-- <Status priority='0'>Fixed</Status> ***테이블 사이즈 증감*** 페이지 테이블 리사이징 되도록 수정
+<Status priority='0'>Fixed</Status> ***테이블 사이즈 증감*** 페이지 테이블 리사이징 되도록 수정
 
 #### MySQL 
 
-<Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; ***테이블 사이즈 증감*** 페이지의 ***테이블별 용량 상세*** 테이블에 증감량 컬럼 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dbLockTree" className="uitext" /> 테이블에 락 조회 권한 안내 문구 추가
+
+    - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />
+
+    - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" />
+
+    - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" />
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; ***테이블 사이즈 증감*** 페이지의 ***테이블별 용량 상세*** 테이블에 증감량 컬럼 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="management" className="uitext" /> > <Cmdname sid="agent_installation" className="uitext" /> 페이지에 MySQL 8 이상 사용 시 락 조회 권한 추가 안내
 
 #### Oracle 
 
@@ -199,7 +209,7 @@ displayed_sidebar: releaseSidebar
 
 #### PostgreSQL
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_dbMonitoring" className="uitext" />, <Cmdname sid="side_multiInstance" className="uitext" />, <Cmdname sid="side_dbLockTree" className="uitext" />의 락트리 테이블에 holder_relation, waiter_relation,state 컬럼 추가
+<Status priority='1'>Feature</Status> <Cmdname sid="side_dbMonitoring" className="uitext" />, <Cmdname sid="side_multiInstance" className="uitext" />, <Cmdname sid="side_dbLockTree" className="uitext" />의 락트리 테이블에 holder_relation, waiter_relation,state 컬럼 추가
 
 ---
 

@@ -20,13 +20,11 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" /> 공유 권한 변경 기능 추가
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_eventSetting" className="uitext" /> <code class="newfunc">New</code> 페이지에 이벤트 설정 내역 Excel 파일로 다운로드할 수 있는 버튼 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_eventSetting" className="uitext" /> <code class="newfunc">New</code> 페이지에 이벤트 설정 내역 Excel 파일 다운로드 버튼 추가
 
-- <Status priority='1'>Feature</Status> 각 페이지 타이틀 우측에 해당 페이지에 대한 WhaTap Docs 문서 링크 추가
+- <Status priority='1'>Feature</Status> 각 페이지 타이틀 우측에 해당 페이지에 대한 문서 링크 추가
 
-- <Status priority='1'>Changed</Status> ***정비 계획*** <code class="newfunc">New</code> 메뉴가 사이드 메뉴에 노출되도록 변경, 기존(<code class="oldfunc">Old</code>) 메뉴는 숨김 처리
-
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_metricsChart" className="uitext" /> <code class="oldfunc">Old</code>에서 위젯 드래그 후 새로운 위젯 추가 시, 타임셀렉터에 설정한 시간으로 설정되도록 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_metricsChart" className="uitext" /> <code class="oldfunc">Old</code>에서 위젯 드래그 후 새로운 위젯 추가 시, 타임셀렉터 설정갑이 유지되도록 수정
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> ***관리***의 위젯 내 프로젝트 태그가 클릭되지 않는 현상 수정
 
@@ -36,7 +34,7 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='0'>Fixed</Status> 시리즈 차트의 개별 시간 설정이 적용되지 않는 버그 수정
 
-- <Status priority='0'>Fixed</Status> 연계 프로젝트 추가 페이지 테이블 리사이징 되도록 수정
+- <Status priority='0'>Fixed</Status> 연계 프로젝트 추가 페이지 테이블 리사이징 적용
 
 ---
 
@@ -44,11 +42,9 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="TTL06377" className="uitext" /> <Cmdname sid="BTN07120" className="uitext" />에 클라이언트 IP 정보 표시 옵션 추가
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="TTL06209" className="uitext" /> > ***타임라인***, <Cmdname sid="TTL06126" className="uitext" />의 메시지 스텝 중 에러 속성이 있는 경우 이를 표시하도록 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="TTL06209" className="uitext" /> > ***타임라인***, <Cmdname sid="TTL06126" className="uitext" />의 메시지 스텝 중 에러 속성 표시
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="transaction_map" className="uitext" /> 최초 데이터 조회 시 테이블 영역에 로딩 표시 추가
-
-- <Status priority='1'>Feature</Status> <Cmdname sid="transaction_map" className="uitext" /> 데이터가 없어도 차트에 데이터를 요청한 시간에 세로 선 로딩이 표시되도록 수정
+- <Status priority='1'>Feature</Status> <Cmdname sid="transaction_map" className="uitext" /> 최초 데이터 조회 시 테이블 영역 로딩 표시, 데이터 없을 경우 데이터 요청 시간에 세로 선 로딩 표시
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="transaction_map" className="uitext" /> 정지 상태에서 사용할 수 있는 필터 항목에 '도시' 필터 추가
 
@@ -56,69 +52,51 @@ displayed_sidebar: releaseSidebar
 
     - 해당 필터 항목 사용 시 복호화 키 입력 필요
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_hitmap" className="uitext" />에서 드래그로 프로파일 데이터 조회 시, 데이터 조회 가능 기간이 지난 경우 테이블에 알림 문구 표시
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_hitmap" className="uitext" />에서 드래그로 프로파일 데이터 조회 시, 최대 조회 기간 초과 시 가능 기간 안내 문구 표시
 
-    - 최대 조회 가능 기간을 안내 문구
+- <Status priority='1'>Feature</Status> <Cmdname sid="transaction_map" className="uitext" /> 위젯 및 설정 항목 추가
 
-- <Status priority='1'>Feature</Status> 애플리케이션 대시보드에 <Cmdname sid="transaction_map" className="uitext" /> 위젯 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" />의 <Cmdname sid="transaction_map" className="uitext" /> 위젯 옵션 UI 개선(Read 개수 표시 제외)
 
-    <details>
-    <summary>트랜잭션 맵 위젯 설정 기능</summary>
-    - Y축 최댓값 상·하 이동
-    - Y축 최댓값 직접 입력/설정
-    - Y축 기준 변경
-    - 전체 개수 표시
-    - 에러 개수 표시
-    - 에러만 선택
-    - Read 개수 출력(정지 상태에서만 제공)
-    - Limit 개수 출력
-    </details>
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentLog" className="uitext" /> 메뉴에서 동일한 에이전트 로그 파일 선택 시, 에이전트 간 데이터 표시 오류 수정
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" />의 <Cmdname sid="transaction_map" className="uitext" /> 위젯 옵션 UI를 최신화(Read 개수 표시 제외)
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> 탭별 테이블 컬럼 공유 문제 수정 
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="transaction_map" className="uitext" /> 안내 모달 제거
-
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_agentLog" className="uitext" /> 메뉴에서 서로 다른 에이전트의 동일한 로그 파일명을 선택할 경우, 처음 선택한 에이전트의 로그 파일 내용이 표시되는 현상 수정
-
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_stack" className="uitext" /> 탭별 테이블 컬럼이 다름에도 선택된 컬럼이 탭 간에 공유되어, 현재 탭에 없는 컬럼 정보가 표시되고 선택 가능한 문제 수정
-
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_tx" className="uitext" />의 <Cmdname sid="TTL08868" className="uitext" /> 내부에서 트랜잭션명 표기 누락 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_statistics" className="uitext" /> &gt; <Cmdname sid="side_tx" className="uitext" />의 <Cmdname sid="TTL08868" className="uitext" /> 트랜잭션명 표기 누락 수정
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="transaction_map" className="uitext" /> 실시간 모드에서 최초 데이터가 없을 경우 전체 데이터가 표시되지 않던 문제 수정
 
-- <Status priority='1'>Deprecated</Status> <Cmdname sid="side_topology" className="uitext" /> 관련 메뉴의 서비스 종료 안내(`2025/12/31`)
-
-- <Status priority='1'>Deprecated</Status> 커스텀 히트맵 메뉴의 서비스 종료 안내(기존 deprecated 상태에 기간 적용 `2025/12/31`)
+- <Status priority='1'>Deprecated</Status> <Cmdname sid="side_topology" className="uitext" />, ***커스텀 히트맵*** 메뉴 서비스 종료(`2025/12/31`)
 
 ---
 
 ### `Server`
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="eventNoti" className="uitext" /> &gt; ***Webhook JSON*** 사용 가능 변수 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="eventNoti" className="uitext" /> &gt; ***Webhook JSON*** 변수 추가
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> 상세 버튼 클릭 시, <Cmdname sid="side_serverDetail" className="uitext" /> 페이지 콘텐츠를 드로워로 제공하는 기능 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 페이지 콘텐츠 드로워로 제공
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 페이지 차트에 Y축 최댓값을 직접 입력할 수 있는 설정 팝 오버 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 메뉴의 차트에 Y축 최댓값을 직접 입력할 수 있는 설정 팝 오버 추가
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="sm_log_event_tab" className="uitext" />의 ***윈도우 이벤트 추가/수정*** 드로워에 반복(회), 기간(초) 입력 기능 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="sm_log_event_tab" className="uitext" /> 반복(회), 기간(초) 추가/수정 가능 
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="sm_log_event_tab" className="uitext" />의 ***윈도우 이벤트***에 Event ID가 있을 경우, 이벤트 목록에서 Event ID를 확인할 수 있도록 개선
+- <Status priority='1'>Feature</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="sm_log_event_tab" className="uitext" /> 이벤트 목록에서 Event ID 표시 개선
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" />에서 에이전트명 input 검색 시 대소문자 구분 없이 검색되도록 개선
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" />에서 에이전트 검색 시 대소문자 구분 해제
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_serverMetricsExplorer" className="uitext" /> 카테고리 지표 리스트 정렬 기준을 기존 알파벳 순에서 사전 정의된 순서로 변경 
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_serverMetricsExplorer" className="uitext" /> 지표 리스트 정렬 기준 개선(사전 정의된 순서 적용)
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; ***그룹 요약보기*** &gt; ***진행 중 이벤트 현황*** 탭의 <Cmdname sid="TTL08086" className="uitext" /> 컬럼에 hostname이 아닌 에이전트 명이 표시되던 이슈를 수정하고, 에이전트 명 컬럼 추가 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; ***그룹 요약보기*** &gt; ***진행 중 이벤트 현황*** 탭의 <Cmdname sid="TTL08086" className="uitext" /> 컬럼에 서버 이름 컬럼 표시 오류 수정 및 에이전트 명 컬럼 추가
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴 &gt; ***상세 보기*** 화면에서 ***진행 중 이벤트 현황*** 탭의 <Cmdname sid="TTL08086" className="uitext" /> 컬럼에 hostname이 아닌 에이전트 명이 표시되던 이슈를 수정하고, 에이전트 명 컬럼 추가
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴 &gt; ***상세 보기*** 화면에서 ***진행 중 이벤트 현황*** 탭의 <Cmdname sid="TTL08086" className="uitext" /> 컬럼에 서버 이름 컬럼 표시 오류 수정 및 에이전트 명 컬럼 추가
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="column_settings" className="uitext" />에서 프리셋 명 앞뒤에 공백이 있는 경우, 프리셋 명을 중복으로 등록할 수 있었던 문제 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="column_settings" className="uitext" />에서 공백 포함 시 중복 등록 방지
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" />에서 조회한 시간 구간에 데이터가 없는 경우, 라인 차크 패널의 CSV 및 이미지 다운로드 버튼 숨김 처리
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" />에서 라인 차트 패널에서 조회 구간에 데이터가 없을 경우 다운로드 버튼 숨김 처리
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> &gt; <Cmdname sid="server_info" className="uitext" /> 패널 &gt; <Cmdname sid="server_alert_list" className="uitext" /> Drawer에서 이벤트 수신 태그가 유효하지 않은 태그로 표시되는 문제 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> &gt; <Cmdname sid="server_info" className="uitext" />에서 <Cmdname sid="server_alert_list" className="uitext" /> 이벤트 수신 태그 표시 오류 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverMetricsExplorer" className="uitext" />에서 대상 프로젝트 1개 선택 상태로 위젯 추가 시, depth 2 리스트 오픈 상태가 유지되지 않던 문제 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverMetricsExplorer" className="uitext" />에서 위젯 추가 시 리스트 오픈 상태 유지 문제 수정
 
 ---
 
@@ -126,13 +104,13 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Changed</Status> ***워크로드*** > ***Deployment 목록*** 신규 지표 추가 (쿠버네티스 에이전트 버전 1.8.7)
 
-    - **제거되는 컬럼**
+    - **제거 컬럼**
 
         - ReplicaSets, TotalPods, Running Pods → PodPhase로 대체
 
         - TotalContainers, RunningContainers → ContainerState로 대체
 
-    - **추가되는 컬럼**
+    - **추가 컬럼**
 
         - PodPhase, ContainerState, Ready, deployUpdatedReplicas, deployAvailableReplicas, deployCreationTime
 

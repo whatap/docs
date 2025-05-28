@@ -1,5 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/server-aix/server-aix-1_4_5",
+    "ver": "v1.4.5",
+    "date": "2025-05-23",
+    "Lists": [
+      {
+        "ver": "v1.4.5",
+        "hash": "v145",
+        "product": "Server AIX Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> AIX errpt 시스템 로그 파일 리다이렉트 옵션 추가 (로그 알림 활용 목적)</p>"
+      },
+      {
+        "ver": "v1.4.5",
+        "hash": "v145",
+        "product": "Server AIX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> AIX Shared-SMT 타입인 경우 CPU 사용량 불일치 현상 수정</p>"
+      },
+      {
+        "ver": "v1.4.5",
+        "hash": "v145",
+        "product": "Server AIX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> disk 정보 수집 오래 걸리는 경우 timeout 처리 추가</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server-aix/server-aix-1_4_4/",
     "ver": "v1.4.4",
     "date": "2025-04-23",

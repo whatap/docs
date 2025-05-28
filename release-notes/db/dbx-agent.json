@@ -1,5 +1,107 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_52_04",
+    "ver": "v2.52.04",
+    "date": "2025-05-20",
+    "Lists": [
+      {
+        "ver": "v2.52.04",
+        "hash": "v25204",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> autoscale aws 인증권한 만료 시간 체크 200s -&gt; 120s 변경</p>",
+        "category": "공통",
+        "details": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 인증발급순서 버그 수정</p>"
+      },
+      {
+        "ver": "v2.52.04",
+        "hash": "v25204",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 인증발급순서 버그 수정</p>",
+        "category": "공통"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_52_02",
+    "ver": "v2.52.02",
+    "date": "2025-05-14",
+    "Lists": [
+      {
+        "ver": "v2.52.02",
+        "hash": "v25202",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Total 지표만 보내는 버그 수정</p>",
+        "category": "MS SQL Server"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_52_01",
+    "ver": "v2.52.01",
+    "date": "2025-05-07",
+    "Lists": [
+      {
+        "ver": "v2.52.01",
+        "hash": "v25201",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> bloating 수집 옵션 추가 (pg_bloat, default=true)</p>",
+        "category": "PostgreSQL"
+      },
+      {
+        "ver": "v2.52.01",
+        "hash": "v25201",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> show slave status 누적 예외 처리 수정</p>",
+        "category": "MySQL"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_51_01",
+    "ver": "v2.51.01",
+    "date": "2025-04-30",
+    "Lists": [
+      {
+        "ver": "v2.51.01",
+        "hash": "v25101",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> db2 Catalog Cache Hit Ratio 지표 추가</p>",
+        "category": "DB2",
+        "details": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> db2 일부 지표 오버플로우 버그 수정</p>"
+      },
+      {
+        "ver": "v2.51.01",
+        "hash": "v25101",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> db2 일부 지표 오버플로우 버그 수정</p>",
+        "category": "DB2"
+      },
+      {
+        "ver": "v2.51.01",
+        "hash": "v25101",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 락트리 정보에 pg_relation(waiter_relation, holer_relation) 추가</p>",
+        "category": "PostgreSQL"
+      },
+      {
+        "ver": "v2.51.01",
+        "hash": "v25101",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 알림 기능 원복</p>",
+        "category": "Oracle"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dbx-2_50_02/",
     "ver": "v2.50.02",
     "date": "2025-04-24",

@@ -127,13 +127,6 @@
 				"ver":"Service 2.17.0",
 				"hash":"service-2170",
 				"product":"Application",
-				"type":"Feature",
-				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Flex 보드</span>의 <span class=\"uitext\">트랜잭션 맵</span> 위젯 옵션 UI 개선(Read 개수 표시 제외)</p>"
-			},
-			{
-				"ver":"Service 2.17.0",
-				"hash":"service-2170",
-				"product":"Application",
 				"type":"Fixed",
 				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">인스턴스 성능 관리</span> &gt; <span class=\"uitext\">에이전트 로그</span> 메뉴에서 동일한 에이전트 로그 파일 선택 시, 에이전트 간 데이터 표시 오류 수정</p>"
 			},

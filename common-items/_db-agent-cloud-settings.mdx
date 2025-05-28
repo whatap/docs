@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-## 클라우드 에이전트 설정 {#db-agent-cloud-setting}
-
-이 문서는 AWS 및 NCP 환경에서 WhaTap 클라우드 에이전트를 설정하기 위한 가이드입니다. 주요 설정 항목, 필드 설명, 권한 구성, 실행 명령까지 포함하여 운영 환경에 바로 적용할 수 있도록 구성되어 있습니다.
-
-## 요금 안내
-
-=======
 <InDoc product="mongodb,mysql,mssql,oracle">
 
 이 문서는 AWS 환경에서 WhaTap 클라우드 에이전트를 설정하기 위한 가이드입니다. 주요 설정 항목, 필드 설명, 권한 구성, 실행 명령까지 포함하여 운영 환경에 바로 적용할 수 있도록 구성되어 있습니다.
@@ -27,7 +19,6 @@
 
 <InDoc product="postgresql,mongodb,mysql,mssql,oracle">
 
->>>>>>> 5a7b88d987fd43dc4cac1fc0107706d96f9f8285
 ### AWS 요금
 
 클라우드 모니터링 에이전트는 별도의 SaaS 요금 없이 제공되며, 에이전트 설치만으로 모니터링 기능을 사용할 수 있습니다. 단, AWS CloudWatch 등 클라우드 서비스의 API를 통해 메트릭을 수집하기 때문에, **CloudWatch 사용량에 따라 별도 요금이 부과될 수 있습니다**.
@@ -36,13 +27,10 @@
 
 자세한 요금 정책은 [AWS 공식 문서의 Amazon CloudWatch 요금](https://aws.amazon.com/cloudwatch/pricing/) 페이지를 참고하시기 바랍니다.
 
-<<<<<<< HEAD
-=======
 </InDoc>
 
 <InDoc product="postgresql">
 
->>>>>>> 5a7b88d987fd43dc4cac1fc0107706d96f9f8285
 ### NCP 요금
 
 클라우드 모니터링 에이전트는 별도의 SaaS 요금 없이 제공되며, 에이전트 설치만으로 모니터링 기능을 사용할 수 있습니다. 클라우드 모니터링 에이전트는 5분 주기로 Cloud Insight API를 호출하여 1분 단위의 메트릭 데이터를 수집합니다.  
@@ -51,9 +39,6 @@
 
 자세한 요금 정책은 [네이버 클라우드 플랫폼의 공식 요금 안내](https://www.ncloud.com/product/management/cloudInsight#pricing) 페이지를 참고하시기 바랍니다.
 
-<<<<<<< HEAD
-## 에이전트 설정 
-=======
 </InDoc>
 
 ## 에이전트 설정
@@ -71,7 +56,6 @@ AWS Aurora and RDS와 NCP Cloud DB for PostgreSQL 설정 방법입니다.
 </InDoc>
 
 <InDoc product="postgresql,mysql,mssql,oracle">
->>>>>>> 5a7b88d987fd43dc4cac1fc0107706d96f9f8285
 
 ### AWS Aurora and RDS 설정
 
@@ -82,17 +66,10 @@ input:
   region: "ap-northeast-2"
   instances: # 명시한 인스턴스는 항상 수집합니다. 클러스터 내의 인스턴스를 이 속성에 명시하면, 오토스케일 여부와 관계없이 항상 수집합니다.
     - name: "mysql-rds"
-<<<<<<< HEAD
-      slow_query: true # 슬로우 쿼리 페이지를 이용하시려면, true로 설정해주세요.
-  clusters:
-    autoscale:
-      enabled: false # 오토 스케일이 활성화되면, 오토스케일된 인스턴스들을 수집 대상에서 추가하거나 삭제합니다.
-=======
       slow_query: true # 슬로우 쿼리 페이지를 사용하려면, true로 설정합니다. 해당 기능은 MySQL 및 PostgreSQL 인스턴스에서만 지원됩니다.
   clusters:
     autoscale:
       enabled: false # 오토스케일이 활성화되면, 오토스케일된 인스턴스들을 수집 대상에서 추가하거나 삭제합니다.
->>>>>>> 5a7b88d987fd43dc4cac1fc0107706d96f9f8285
       interval: 60 # 명시한 클러스터들의 오토스케일 체크 주기입니다. (단위: 초)
     names:
       - "database-cluster-name"
@@ -108,25 +85,6 @@ output: # 수집한 메트릭 데이터를 받는 WhaTap 정보를 입력합니�
   host: "127.0.0.1"
 ```
 
-<<<<<<< HEAD
-| 필드 경로                       | 설명 |
-| ----------------------------- | --- |
-| `csp`                         | 클라우드 서비스 제공자로  `aws` (Amazon Web Services)를 의미 |
-| `namespace`                   | 수집 대상 서비스의 네임스페이스<br /> - Aurora and RDS 설정 시 **고정값**으로 `rds` 입력 |
-| `region`                      | AWS 리전 코드 <br />- 예: `ap-northeast-2` (서울 리전) |
-| `instances`                   | 항상 수집할 인스턴스 목록으로 오토스케일 여부와 관계없이 지정된 인스턴스는 무조건 수집함 |
-| `instances[].name`            | RDS 인스턴스 이름 <br /> - 예: `mysql-rds` |
-| `instances[].slow_query`      | 해당 인스턴스의 슬로우 쿼리 수집 여부 <br /> - `true`: 수집 <br />- `false`: 미수집 |
-| `clusters`                    | RDS 클러스터 관련 설정 |
-| `clusters.autoscale.enabled`  | 클러스터 오토스케일 수집 여부<br />- `true`: 자동으로 인스턴스를 추가/제거하며 수집<br />- `false`: `instances`에 직접 입력한 인스턴스만 수집 대상에 포함 |
-| `clusters.autoscale.interval` | 오토스케일 여부를 감지하는 주기(단위: 초) |
-| `clusters.names`              | 오토스케일 여부를 체크할 클러스터 이름 목록 |
-| `metrics`                     | 수집할 메트릭 항목 목록<br /> - 예: `CPUUtilization`, `FreeStorageSpace` 등<br />- [Amazon RDS에 대한 Amazon CloudWatch 지표 공식 문서 바로가기](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-metrics.html)  |
-| `output.license`              | 수집된 데이터를 전송할 WhaTap의 라이선스 키 |
-| `output.host`                 | 수집 데이터를 전송할 WhaTap 서버 호스트 주소(IP) |
-
-### AWS DocumentDB 설정
-=======
 | 필드                           | 설명 |
 | ----------------------------- | --- |
 | `csp`                         | 클라우드 서비스 제공자로  `aws`(Amazon Web Services)를 의미 |
@@ -150,7 +108,6 @@ output: # 수집한 메트릭 데이터를 받는 WhaTap 정보를 입력합니�
 AWS DocumentDB 에이전트 설정 방법입니다.
 
 ### AWS DocumentDB 에이전트
->>>>>>> 5a7b88d987fd43dc4cac1fc0107706d96f9f8285
 
 ```yaml title='config.yaml'
 input:
@@ -161,11 +118,7 @@ input:
     - name: "docdb-instance-name"
   clusters:
     autoscale:
-<<<<<<< HEAD
-      enabled: false # 오토 스케일이 활성화되면, 오토스케일된 인스턴스들을 수집 대상에서 추가하거나 삭제합니다
-=======
       enabled: false # 오토스케일이 활성화되면, 오토스케일된 인스턴스들을 수집 대상에서 추가하거나 삭제합니다.
->>>>>>> 5a7b88d987fd43dc4cac1fc0107706d96f9f8285
       interval: 60 # 명시한 클러스터들의 오토스케일 체크 주기입니다. (단위: 초)
     names:
       - "docdb-cluster-name"
@@ -179,9 +132,6 @@ input:
 output: # 수집한 메트릭 데이터를 받는 WhaTap 정보를 입력합니다.
   license: "4544ee05-wfwefwefb205-2987709519af"
   host: "127.0.0.1"
-<<<<<<< HEAD
-```
-=======
 ```
 
 | 필드                           | 설명 |
@@ -382,4 +332,3 @@ JSON 정책을 IAM 사용자 또는 역할에 **인라인 정책**으로 추가�
 4. **[키 생성]** 버튼을 클릭하여 새로운 Access Key와 Secret Key를 생성합니다.
 
 </InDoc>
->>>>>>> 5a7b88d987fd43dc4cac1fc0107706d96f9f8285

@@ -6,7 +6,7 @@
 
 * 각 테이블스페이스의 전체 크기, 사용 크기, 사용 비율을 상세히 제공합니다.
 
-<Xclude product="altibase,tibero">
+<Xclude product="altibase,tibero,db2">
 
 * 상위 50개의 세그먼트 크기를 확인할 수 있습니다.
 
@@ -97,7 +97,40 @@ grant select any dictionary to whatap;
 
 </InDoc>
 
-<Xclude product="altibase,tibero">
+<InDoc product="db2">
+
+## 사용하기 전에
+
+테이블스페이스 사이즈 데이터를 수집하기 위해서는 데이터베이스 권한 설정과 에이전트 옵션 설정이 필요합니다. 세그먼트 사이즈 데이터는 하루에 한 번 수집하며, 다음과 같이 설정을 완료해야 합니다.
+
+### 조회 권한 부여하기
+
+세그먼트 사이즈 데이터를 수집하려면 모니터링 유저에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어를 사용하여 권한을 설정하세요.
+
+```sql title="SQL"
+GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_TABLESPACE TO USER whatap
+GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_CONTAINER TO USER whatap
+```
+
+### 에이전트 옵션 설정하기
+
+에이전트 옵션을 통해 세그먼트 사이즈 데이터 수집 기준을 설정할 수 있습니다.
+
+* **tablespace** <span class='type'>Int</span>
+
+  기본값 `1`
+
+  테이블스페이스 사용량 수집 여부를 설정합니다. `1`로 설정하면 수집을 활성화하며, `0`으로 설정하면 비활성화됩니다.  
+
+* **tablespace_interval** <span class='type'>Int</span>
+
+  기본값 `60`
+
+  테이블스페이스 사용량을 수집하는 주기를 분(m) 단위로 설정합니다. 기본값은 60분입니다.
+
+</InDoc>
+
+<Xclude product="altibase,tibero,db2">
 
 ## 사용하기 전에
 
@@ -163,7 +196,7 @@ grant select on dba_segments to whatap;
 
 ## 기본 화면 안내
 
-<Xclude product="altibase"><ProdImg img='db-stat-table-space.png' desc='Tablespace size' /></Xclude>
+<Xclude product="altibase,db2"><ProdImg img='db-stat-table-space.png' desc='Tablespace size' /></Xclude>
 
 <InDoc product="altibase">
 
@@ -223,11 +256,25 @@ Altibase 모니터링에서는 다른 DBMS와 달리 메모리 테이블스페�
 
 <Cmdname sid="table_space_detail" className="uitext" /> 섹션에서는 각 테이블스페이스의 상세 정보를 제공합니다.
 
-<InDoc product="oracle,oracle-pro,db2"><ImgLang img="db-stat-table-space-size-details-oracle-pro.png" desc="Tablespace size" /></InDoc>
+<InDoc product="oracle,oracle-pro"><ImgLang img="db-stat-table-space-size-details-oracle-pro.png" desc="Tablespace size" /></InDoc>
 
 <InDoc product="tibero"><ImgLang img="db-stat-table-space-size-details-tibero.png" desc="Tablespace size" /></InDoc>
 
-<InDoc product="oracle,oracle-pro,tibero,db2">
+<InDoc product="oracle,oracle-pro,tibero">
+
+최초 조회한 시간과 현재 시간을 비교하여 각 테이블스페이스의 사용량 변화를 확인할 수 있습니다. 테이블스페이스의 세부 내역을 확인하려면 테이블스페이스 이름 옆의 ![화살표 아이콘](/img/ic-caret-right.svg) 버튼을 선택하세요.
+
+* <Cmdname sid="table_space_total" className="uitext" />: 테이블스페이스의 전체 크기입니다.
+
+* <Cmdname sid="table_space_used" className="uitext" />: 현재 사용 중인 크기입니다.
+
+* <Cmdname sid="table_space_usage" className="uitext" />: 전체 크기 대비 사용 비율입니다.
+
+* <Cmdname sid="table_space_changed_amount" className="uitext" />: 최초 조회한 시간 대비 현재 시간의 사용량 변화입니다.
+
+</InDoc>
+
+<InDoc product="db2">
 
 최초 조회한 시간과 현재 시간을 비교하여 각 테이블스페이스의 사용량 변화를 확인할 수 있습니다. 테이블스페이스의 세부 내역을 확인하려면 테이블스페이스 이름 옆의 ![화살표 아이콘](/img/ic-caret-right.svg) 버튼을 선택하세요.
 

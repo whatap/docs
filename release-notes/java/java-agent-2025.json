@@ -1,12 +1,40 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_60/",
+    "ver": "v2.2.60",
+    "date": "2025-05-29",
+    "Lists": [
+      {
+        "ver": "v2.2.60",
+        "hash": "v2260",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>spring-cloud-openfeign-core</code>, <code>spring-cloud-circuitbreaker-resilience4j</code> 추적</p>"
+      },
+      {
+        "ver": "v2.2.60",
+        "hash": "v2260",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>feign-hystrix</code> 추적</p>"
+      },
+      {
+        "ver": "v2.2.60",
+        "hash": "v2260",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>log4j-1.x</code> 추적</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_59/",
     "ver": "v2.2.59",
     "date": "2025-05-08",
     "Lists": [
       {
         "ver": "v2.2.59",
-        "hash": "v229",
+        "hash": "v2259",
         "product": "Java Agent",
         "type": "Feature",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 병렬로 호출하는 CompletableFuture 추적 시 발생하던 문제 수정</p>",
@@ -14,7 +42,7 @@
       },
       {
         "ver": "v2.2.59",
-        "hash": "v229",
+        "hash": "v2259",
         "product": "Java Agent",
         "type": "Feature",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 간헐적으로 발생하는 Log 추적이 되지 않는 현상 수정(Java agent 2.2.58)</p>"

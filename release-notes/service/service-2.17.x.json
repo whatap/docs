@@ -1,0 +1,445 @@
+[
+	{
+		"url":"https://docs.whatap.io/release-notes/service/service-2_17_x",
+		"ver":"Service 2.17.0",
+		"date":"2025-05-28",
+		"Lists":[
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"공통",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">실시간 알림 목록</span>, <span class=\"uitext\">프로젝트 멤버</span>(<span class=\"uitext\">통합 그룹 관리</span>) 옵션 및 선택 상태가 URL에 포함되어 링크 공유 시 동일 상태로 공유 가능</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"공통",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">보고서</span> 엑셀 다운로드 기능 추가(일부 보고서 템플릿에서만 제공)</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"공통",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Flex 보드</span> 공유 권한 변경 기능 추가</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"공통",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">이벤트 설정</span> <code class=\"newfunc\">New</code> 이벤트 설정 내역 Excel 파일 다운로드 버튼 추가</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"공통",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">메트릭스 차트</span> <code class=\"oldfunc\">Old</code> 위젯 드래그 후 새로운 위젯 추가 시, 타임셀렉터 설정값이 유지되도록 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"공통",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Flex 보드</span> <em><strong>관리</strong></em>의 위젯 내 프로젝트 태그가 클릭 되지 않는 현상 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"공통",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Flex 보드</span> 위젯의 <em><strong>이전 시간과 비교</strong></em> 기능 버그 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"공통",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> 화면 우측 상단의 <em><strong>프로필</strong></em> 아이콘 &gt; <em><strong>와탭 모니터링 정보</strong></em> 메뉴 클릭 시 조직 정보가 사라지는 버그 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"공통",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> 시리즈 차트의 개별 시간 설정이 적용되도록 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"공통",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> 연계 프로젝트 추가 페이지 테이블 리사이징 적용</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">멀티 트랜잭션</span> <span class=\"uitext\">차트</span> 클라이언트 IP 정보 표시 옵션 추가</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">트레이스 분석</span> &gt; <em><strong>타임라인</strong></em>, <span class=\"uitext\">테이블 뷰</span> 메시지 스텝 중 에러 속성 표시</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">트랜잭션 맵</span> 최초 데이터 조회 시 테이블 영역 로딩 표시, 데이터 없으면 데이터 요청 시간에 세로선 로딩 표시</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">트랜잭션 맵</span> 정지 상태에서 사용할 수 있는 필터 항목에 '도시' 필터 추가</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">트랜잭션 맵</span> <code>STEP_SQL_BIND</code>, <code>STEP_ALL</code> 필터 항목 추가(사용 시 복호화 키 입력 필요)</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">히트맵</span> 드래그로 프로파일 데이터 조회 시, 최대 조회 기간 초과 시 가능 기간 안내 문구 표시</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">트랜잭션 맵</span> 위젯 및 설정 항목 추가</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">인스턴스 성능 관리</span> &gt; <span class=\"uitext\">에이전트 로그</span> 메뉴에서 동일한 에이전트 로그 파일 선택 시, 에이전트 간 데이터 표시 오류 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">스택</span> 탭별 테이블 칼럼 공유 문제 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계</span> &gt; <span class=\"uitext\">트랜잭션</span>의 <span class=\"uitext\">추이 비교</span> 트랜잭션 명 표기 누락 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">트랜잭션 맵</span> 실시간 모드에서 최초 데이터가 없으면 전체 데이터가 표시되지 않던 문제 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Application",
+				"type":"Deprecated",
+				"desc":"<p><code class=\"Deprecated\" type=\"1\">Deprecated</code> <span class=\"uitext\">토폴로지</span>, <em><strong>커스텀 히트맵</strong></em> 메뉴 서비스 종료(<code>2025/12/31</code>)</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">이벤트 수신 설정</span> &gt; <em><strong>Webhook JSON</strong></em> 변수 추가</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 페이지 콘텐츠 드로워로 제공</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 메뉴의 차트에 Y축 최댓값을 직접 입력할 수 있는 설정 팝 오버 추가</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> &gt; <span class=\"uitext\">로그 파일 / 윈도우 이벤트</span> 반복(회), 기간(초) 추가/수정 가능</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> &gt; <span class=\"uitext\">로그 파일 / 윈도우 이벤트</span>의 이벤트 목록에서 Event ID 표시 개선</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Changed",
+				"desc":"<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">서버 목록</span> 에이전트 검색 시 대소문자 구분 해제</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Changed",
+				"desc":"<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">실험실</span> &gt; <span class=\"uitext\">메트릭스 익스플로러</span> 지표 리스트 정렬 기준 개선(사전 정의된 순서 적용)</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <em><strong>그룹 요약보기</strong></em> &gt; <em><strong>진행 중 이벤트 현황</strong></em> 탭의 <span class=\"uitext\">서버 이름</span> 칼럼에 서버 이름 칼럼 표시 오류 수정 및 에이전트 명 칼럼 추가</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span> 메뉴 &gt; <em><strong>상세 보기</strong></em> 화면에서 <em><strong>진행 중 이벤트 현황</strong></em> 탭의 <span class=\"uitext\">서버 이름</span> 칼럼에 서버 이름 칼럼 표시 오류 수정 및 에이전트 명 칼럼 추가</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">컬럼 설정</span> 공백 포함 시 중복 등록 방지</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 라인 차트 패널에서 조회 구간에 데이터가 없을 경우 다운로드 버튼 숨김 처리</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> &gt; <span class=\"uitext\">서버 정보</span>에서 <span class=\"uitext\">서버 알림 목록</span> 이벤트 수신 태그 표시 오류 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Server",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">메트릭스 익스플로러</span> 위젯 추가 시 리스트 오픈 상태 유지 문제 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Kubernetes",
+				"type":"Changed",
+				"desc":"<p><code class=\"Changed\" type=\"1\">Changed</code> <em><strong>워크로드</strong></em> &gt; <em><strong>Deployment 목록</strong></em> 신규 지표 추가 (쿠버네티스 에이전트 버전 1.8.7)</p>",
+				"details":"<ul>\n<li>\n<p><strong>제거 컬럼</strong></p>\n<ul>\n<li>\n<p>ReplicaSets, TotalPods, Running Pods → PodPhase로 대체</p>\n</li>\n<li>\n<p>TotalContainers, RunningContainers → ContainerState로 대체</p>\n</li>\n</ul>\n</li>\n<li>\n<p><strong>추가 컬럼</strong></p>\n<ul>\n<li>PodPhase, ContainerState, Ready, deployUpdatedReplicas, deployAvailableReplicas, deployCreationTime</li>\n</ul>\n<div class=\"theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary\"><div class=\"admonitionHeading_Gvgb\"><span class=\"admonitionIcon_Rf37\"><svg viewbox=\"0 0 14 16\"><path fill-rule=\"evenodd\" d=\"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z\"></path></svg></span>노트</div><div class=\"admonitionContent_BuS1\"><p>쿠버네티스 에이전트 버전 1.8.7 이상에서만 노출되며, 이전 버전의 에이전트를 사용할 경우 기존과 동일하게 표시됩니다.</p></div></div>\n</li>\n</ul>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Kubernetes",
+				"type":"Changed",
+				"desc":"<p><code class=\"Changed\" type=\"1\">Changed</code> <em><strong>네임스페이스</strong></em> 프로젝트명을 수정할 수 있도록 변경</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> 락 트리 테이블에 컬럼 선택 기능 추가</p>",
+				"category":"공통",
+				"details":"<ul>\n<li><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span>, <span class=\"uitext\">멀티 인스턴스 모니터링</span></li>\n<li><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span></li>\n</ul>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 실시간 모드가 아닐 때 차트 데이터를 CSV 다운로드 기능 추가</p>",
+				"category":"공통"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span>의 Disk Usage 위젯 테이블 상태 프리셋 저장 기능 추가</p>",
+				"category":"공통"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> 인스턴스의 Replication Role 또는 Cluster 구성 표시 태그 추가</p>",
+				"category":"공통",
+				"details":"<ul>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 화면의 인스턴스 셀렉터</p>\n</li>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 화면의 인스턴스 태그</p>\n</li>\n<li>\n<p><span class=\"uitext\">관리</span> &gt; <em><strong>에이전트 목록</strong></em>의 Role 칼럼</p>\n</li>\n</ul>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> <code class=\"newfunc\">New</code> 화면 개선</p>",
+				"category":"공통",
+				"details":"<ul>\n<li>사용자 정의 위젯 시리즈 차트에 클릭 및 드래그 이벤트 추가</li>\n<li>차트 옵션 아이콘을 더보기 버튼으로 변경</li>\n<li>비활성화 인스턴스 선택 시 안내 문구 추가</li>\n<li>기본 제공 시리즈 차트에 메트릭스 선택 버튼 추가</li>\n</ul>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Changed",
+				"desc":"<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 위젯 헤더의 아이콘을 더보기 버튼으로 변경</p>",
+				"category":"공통"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Changed",
+				"desc":"<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 화면의 인스턴스 셀렉터와 인스턴스 목록의 상태 색상 통일</p>",
+				"category":"공통"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Changed",
+				"desc":"<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">데이터베이스 사이즈</span>, <span class=\"uitext\">테이블스페이스 사이즈</span> 선택된 <code>dbName</code>이 없을 경우 테이블에 데이터 없음 표시</p>",
+				"category":"공통"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> <code class=\"newfunc\">New</code> 세션 테이블 CSV 다운로드 불가 및 차트 이미지 다운로드 시 테마 미적용 문제 수정</p>",
+				"category":"공통"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> Multi DB인 경우, 인스턴스 재클릭 시 태그 해제 오류 수정</p>",
+				"category":"공통"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Fixed",
+				"desc":"<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">데이터베이스 사이즈</span>, <span class=\"uitext\">테이블스페이스 사이즈</span> <code>dbName</code>에 따른 인덱스 변경 및 데이터 최신화 문제 수정</p>",
+				"category":"공통"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> DB 에이전트 설치 클라우드 에이전트 항목 추가</p>",
+				"category":"MongoDB, MySQL, Oracle, PostgreSQL, SQL Server"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">락 트리</span> 테이블에 락 조회 권한 안내 문구 추가</p>",
+				"category":"MySQL",
+				"details":"<ul>\n<li>\n<p><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span></p>\n</li>\n<li>\n<p><span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">락 트리</span></p>\n</li>\n</ul>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계/보고서</span> &gt; <em><strong>테이블 사이즈 증감</strong></em>의 <em><strong>테이블별 용량 상세</strong></em> 테이블에 증감량 컬럼 추가</p>",
+				"category":"MySQL"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Changed",
+				"desc":"<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 설치</span> MySQL 8 이상 사용 시 락 조회 권한 추가 안내</p>",
+				"category":"MySQL"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> 설치 페이지에 멀티 테넌트 DB kill session 명령어 안내 추가</p>",
+				"category":"Oracle"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">실험실</span> &gt; <span class=\"uitext\">스크립트 매니저</span>에서 멀티 스크립트 및 인스턴스 다중 스크립트 실행 결과 확인 기능 추가</p>",
+				"category":"Oracle Pro"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Database",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">인스턴스 모니터링</span>, <span class=\"uitext\">멀티 인스턴스 모니터링</span>, <span class=\"uitext\">락 트리</span> 락트리 테이블에 <code>holder_relation</code>, <code>waiter_relation</code>, <code>state</code> 컬럼 추가</p>",
+				"category":"PostgreSQL"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Cloud",
+				"type":"Feature",
+				"desc":"<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <em><strong>애플리케이션 히트맵</strong></em>, <em><strong>멀티서비스 히트맵</strong></em> 드래그로 프로파일 데이터 조회 시, 최대 조회 기간 초과 시 알림 문구 표시</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Log",
+				"type":"Changed",
+				"desc":"<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">라이브 테일</span>, <span class=\"uitext\">로그 검색</span> &gt; <em><strong>필터 즐겨찾기</strong></em> 즐겨찾기 추가/수정/삭제 시 토스트 메시지 표시 및 즐겨찾기 이름 공백 입력 방지</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Log",
+				"type":"Changed",
+				"desc":"<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">라이브 테일</span>, <span class=\"uitext\">로그 검색</span> &gt; <em><strong>필터 즐겨찾기</strong></em> 즐겨찾기가 없는 상태에서 <em><strong>개인 필터</strong></em> 즐겨찾기 추가 시 무한 로딩 문제 수정</p>"
+			},
+			{
+				"ver":"Service 2.17.0",
+				"hash":"service-2170",
+				"product":"Log",
+				"type":"Changed",
+				"desc":"<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">로그 표시 상세 설정</span> &gt; <em><strong>태그 관리</strong></em> 기본적으로 로그 리스트에 있는 모든 태그 표시</p>"
+			}
+		]
+	}
+]

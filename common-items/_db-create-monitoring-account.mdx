@@ -210,7 +210,7 @@ SAP ASE에서는 사용자 계정을 데이터베이스 내에서 별도로 생�
   grant select any dictionary to {DB_User};
   ```
 
-* 12c 이상에서 멀티 테넌트 DB를 사용하는 경우: 접두어 `c##` 추가
+* 멀티 테넌트 DB(Oracle 12c 이상)에서 기본 모니터링을 사용할 경우: `c##` 계정 생성
 
   ```sql title="SQL"
   create user c##{DB_User} identified by "{DB_Password}";
@@ -224,6 +224,16 @@ SAP ASE에서는 사용자 계정을 데이터베이스 내에서 별도로 생�
   ```sql title="SQL"
   grant alter system to {DB_User}
   ```
+
+<InDoc product="oracle">
+
+* 멀티 테넌트 DB에서 kill session 기능을 사용할 경우: `c##` 계정으로 실행
+
+  ```sql title="SQL"
+  grant alter system to c##whatap container=all;
+  ```
+
+</InDoc>
 
 * 히든 파라미터를 조회할 경우
 
@@ -260,7 +270,7 @@ SAP ASE에서는 사용자 계정을 데이터베이스 내에서 별도로 생�
 | 기본 권한 | `grant create session to whatap;` | `grant create session to c##whatap;` | 접속 | - |
 | \^ | <code>grant <span class="vslow">select any dictionary</span> to whatap;</code> | <code>grant <span class="vslow">select any dictionary</span> to c##whatap;</code> | <Cmdname sid="side_dbMonitoring" className="uitext" /> / <Cmdname sid="side_multiInstance" className="uitext" /> / <Cmdname sid="side_dbSqlStat" className="uitext" /> | 개별 권한 부여 시 다음 표 내용 참조 |
 | \^ | - | `alter user c##whatap set container_data = ALL container = CURRENT;` | \^ | 멀티태넌트 DB를 사용하는 경우(12C 이상) pdb 조회를 위한 필수 권한임 |
-| <Cmdname sid="session_kill" className="uitext" /> | `grant alter system to whatap;` | `grant alter system to c##whatap;` | <Cmdname sid="active_sessions" className="uitext" /> &gt; <Cmdname sid="session_kill" className="uitext" /> | - |
+| <Cmdname sid="session_kill" className="uitext" /> | `grant alter system to whatap;` | `grant alter system to c##whatap container=all;` | <Cmdname sid="active_sessions" className="uitext" /> &gt; <Cmdname sid="session_kill" className="uitext" /> | - |
 | 히든 파라미터 조회 | \> | `create view sys.whatap_vw_ksppi as select * from sys.x$ksppi;`<br/>`grant select on sys.whatap_vw_ksppi to DB_User;`<br/>`create synonym DB_User.whatap_vw_ksppi for sys.whatap_vw_ksppi;` | 파라미터 조회 메뉴에 히든 파라미터 내용 포함 | 히든 파라미터를 조회하려면 별도의 뷰/시노님 생성 및 권한 부여 필요 |
 | \^ | \> | `create view sys.whatap_vw_ksppcv as select * from sys.x$ksppcv;`<br/>`grant select on sys.whatap_vw_ksppcv to DB_User;`<br/>`create synonym DB_User.whatap_vw_ksppcv for sys.whatap_vw_ksppcv;` | \^ | \^ |
 

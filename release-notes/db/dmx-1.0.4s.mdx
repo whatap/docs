@@ -1,0 +1,34 @@
+---
+id: dmx-1_0_4s
+title: DMX v1.0.4s
+pagination_prev: release-notes/db/dmx-1_0_4h
+displayed_sidebar: releaseSidebar
+---
+
+2025년 05월 21일
+
+- <Status priority='1'>New</Status> sqlstat 에 wait 정보 추가
+
+  * Event별 wait time 및 wait class별 wait time 추가
+
+  * Event 명을 db_index_event 카테고리로 1일 2회 전송
+
+- <Status priority='1'>New</Status> Linux용, AIX용 Oracle 10.2.0.5 버전 지원
+
+- <Status priority='1'>New</Status> ASM disk 사이즈 정보 추가
+
+- <Status priority='1'>New</Status> Multi Script Manager 기능 추가
+
+- <Status priority='1'>New</Status> Plan 정보에 index의 table명 추가
+
+- <Status priority='1'>New</Status> SQL trace on/off 기능 추가
+
+- <Status priority='0'>Changed</Status> session 에 port 정보 추가
+
+- <Status priority='0'>Fixed</Status> sqlstat 정보 수정
+
+  * cpu_time, wait_time 값에 `/ 100` 처리
+
+  * include_txnsession 옵션 추가
+
+  * Memory leak 수정

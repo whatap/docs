@@ -13,15 +13,15 @@ keywords: [ db2, 데이터베이스, 통계 ]
 
 * 각 테이블스페이스의 전체 크기, 사용 크기, 사용 비율을 상세히 제공합니다.
 
-테이블스페이스 사용량을 실시간으로 모니터링하여 용량을 관리하고, 사용률이 높은 테이블스페이스와 세그먼트를 추적해 용량 관리와 성능을 최적화하세요. 과도한 사용도 사전에 감지하고 대응할 수 있습니다.
+테이블스페이스 사용량을 실시간으로 모니터링하여 용량을 관리하고, 사용률이 높은 테이블스페이스를 추적해 용량 관리와 성능을 최적화하세요. 과도한 사용도 사전에 감지하고 대응할 수 있습니다.
 
 ## 사용하기 전에
 
-테이블스페이스 사이즈 데이터를 수집하려면 데이터베이스 권한과 에이전트 옵션을 설정해야 합니다. 세그먼트 사이즈 데이터는 하루 한 번 수집하며, 아래 절차에 따라 설정을 완료하세요.
+테이블스페이스 사이즈 데이터를 수집하려면 데이터베이스 권한과 에이전트 옵션을 설정해야 합니다. 테이블 스페이스 사이즈 데이터는 한 시간에 한번 수집하며, 아래 절차에 따라 설정을 완료하세요.
 
 ### 조회 권한 부여하기
 
-세그먼트 사이즈 데이터를 수집하려면 모니터링 사용자에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어로 권한을 설정하세요.
+테이블스페이스 사이즈 데이터를 수집하려면 모니터링 사용자에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어로 권한을 설정하세요.
 
 ```sql title="SQL"
 GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_TABLESPACE TO USER whatap
@@ -30,7 +30,7 @@ GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_CONTAINER TO USER whatap
 
 ### 에이전트 옵션 설정하기
 
-에이전트 옵션에서 세그먼트 사이즈 데이터의 수집 기준을 설정할 수 있습니다.
+에이전트 옵션에서 테이블 스페이스 사이즈 데이터의 수집 기준을 설정할 수 있습니다.
 
 * **tablespace** <span class='type'>Int</span>
 
@@ -62,14 +62,14 @@ GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_CONTAINER TO USER whatap
 
 :::
 
-## 테이블스페이스 사이즈 변화 확인하기 {#table_space}
+### 테이블스페이스 사이즈 변화 확인하기 {#table_space}
 
 <Cmdname sid="table_space" className="uitext" /> 섹션에서는 시간대별로 테이블스페이스의 전체 크기와 사용량 변화를 시각적으로 확인할 수 있습니다.
 * 색상은 각 테이블스페이스를 나타냅니다. 차트 위에 마우스를 올리면 특정 시간대의 상세 정보를 툴팁으로 확인할 수 있습니다.
 
 <InDoc product="db2"><ImgLang img="db-stat-table-space-check-trend-oracle-pro.png" desc="Tablespace size" /></InDoc>
 
-## 테이블스페이스 사이즈 상세 확인하기 {#table_space_detail}
+### 테이블스페이스 사이즈 상세 확인하기 {#table_space_detail}
 
 <Cmdname sid="table_space_detail" className="uitext" /> 섹션에서는 각 테이블스페이스의 상세 정보를 제공합니다.
 

@@ -10,8 +10,7 @@
         "product": "DBX",
         "type": "Changed",
         "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> autoscale aws 인증권한 만료 시간 체크 200s -&gt; 120s 변경</p>",
-        "category": "공통",
-        "details": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 인증발급순서 버그 수정</p>"
+        "category": "공통"
       },
       {
         "ver": "v2.52.04",
@@ -72,8 +71,7 @@
         "product": "DBX",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> db2 Catalog Cache Hit Ratio 지표 추가</p>",
-        "category": "DB2",
-        "details": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> db2 일부 지표 오버플로우 버그 수정</p>"
+        "category": "DB2"
       },
       {
         "ver": "v2.51.01",

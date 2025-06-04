@@ -5,6 +5,82 @@ description: 각 테이블 스페이스별 최대 용량과 사용량을 시간�
 keywords: [ db2, 데이터베이스, 통계 ]
 ---
 
-import Dbtablespacesize from "../common-items/_db-tablespace-size.mdx";
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" />
 
-<Dbtablespacesize />
+데이터베이스 테이블스페이스의 전체 크기와 사용량을 시각적으로 확인하고, 상세 사용 내역까지 모니터링할 수 있습니다. 
+
+* 테이블스페이스의 크기와 사용량 변화를 시간대별로 시각적으로 확인할 수 있습니다.
+
+* 각 테이블스페이스의 전체 크기, 사용 크기, 사용 비율을 상세히 제공합니다.
+
+테이블스페이스 사용량을 실시간으로 모니터링하여 용량을 관리하고, 사용률이 높은 테이블스페이스를 추적해 용량 관리와 성능을 최적화하세요. 과도한 사용도 사전에 감지하고 대응할 수 있습니다.
+
+## 사용하기 전에
+
+테이블스페이스 사이즈 데이터를 수집하려면 데이터베이스 권한과 에이전트 옵션을 설정해야 합니다. 테이블 스페이스 사이즈 데이터는 한 시간에 한번 수집하며, 아래 절차에 따라 설정을 완료하세요.
+
+### 조회 권한 부여하기
+
+테이블스페이스 사이즈 데이터를 수집하려면 모니터링 사용자에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어로 권한을 설정하세요.
+
+```sql title="SQL"
+GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_TABLESPACE TO USER whatap
+GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_CONTAINER TO USER whatap
+```
+
+### 에이전트 옵션 설정하기
+
+에이전트 옵션에서 테이블 스페이스 사이즈 데이터의 수집 기준을 설정할 수 있습니다.
+
+* **tablespace** <span class='type'>Int</span>
+
+  기본값 `1`
+
+  테이블스페이스 사용량 수집 여부를 설정합니다. `1`(기본값)로 설정하면 수집을 활성화하며, `0`으로 설정하면 비활성화됩니다.  
+
+* **tablespace_interval** <span class='type'>Int</span>
+
+    기본값 `60`
+
+    테이블스페이스 사용량을 수집하는 주기를 분(m) 단위로 설정합니다. 기본값은 60분입니다.
+
+## 기본 화면 안내
+
+<ImgLang img="db-table-space-size-db2.png" desc="Tablespace size" />
+
+기본 화면에서 테이블스페이스 사용 현황을 기간별로 조회할 수 있습니다. 조회 기간은 최대 3주까지 설정할 수 있습니다. 3일 이상 조회하면, 그래프는 1일 평균으로 표시됩니다.
+
+1. 화면 상단의 <Cmdname sid="time" className="uitext" />에서 분석 기간을 설정하세요.
+
+2. <Cmdname sid="instance" className="uitext" />에서 분석할 데이터베이스 인스턴스를 선택하세요.
+
+3. ![검색 아이콘](/img/ico-btn-search.png) 아이콘을 클릭하세요.
+
+:::note
+
+<Cmdname sid="time" className="uitext" /> 옵션 이용 방법에 대한 자세한 내용은 [다음 문서](usage-ui#timeselector)를 참고하세요.
+
+:::
+
+### 테이블스페이스 사이즈 변화 확인하기 {#table_space}
+
+<Cmdname sid="table_space" className="uitext" /> 섹션에서는 시간대별로 테이블스페이스의 전체 크기와 사용량 변화를 시각적으로 확인할 수 있습니다.
+* 색상은 각 테이블스페이스를 나타냅니다. 차트 위에 마우스를 올리면 특정 시간대의 상세 정보를 툴팁으로 확인할 수 있습니다.
+
+<ImgLang img="db-stat-table-space-check-trend-oracle-pro.png" desc="Tablespace size" />
+
+### 테이블스페이스 사이즈 상세 확인하기 {#table_space_detail}
+
+<Cmdname sid="table_space_detail" className="uitext" /> 섹션에서는 각 테이블스페이스의 상세 정보를 제공합니다.
+
+최초 조회한 시간과 현재 시간을 비교하여 각 테이블스페이스의 사용량 변화를 확인할 수 있습니다. 테이블스페이스의 세부 내역을 확인하려면 테이블스페이스 이름 옆의 ![화살표 아이콘](/img/ic-caret-right.svg) 아이콘을 클릭하세요.
+
+* <Cmdname sid="TTL08166" className="uitext" />: 테이블스페이스의 이름
+
+* ***TYPE***: 테이블스페이스의 유형
+
+* ***BPNAME***: 테이블스페이스가 연결된 버퍼풀의 이름
+
+* ***AUTOEXTENSION***: 테이블스페이스의 자동확장 여부
+
+* ***MAXSIZE***: 테이블스페이스의 최대 크기

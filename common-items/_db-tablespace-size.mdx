@@ -1,18 +1,18 @@
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" />
 
-데이터베이스 테이블스페이스의 전체 크기와 사용량을 시각적으로 확인하고, 상세 사용 내역까지 모니터링할 수 있습니다. 
+데이터베이스 테이블스페이스의 사용 현황을 모니터링하고 관리할 수 있는 메뉴입니다. 이 메뉴는 테이블스페이스의 전체 크기와 사용량을 시각적으로 제공하며, 세부적인 사용 내역을 확인할 수 있습니다.
 
 * 테이블스페이스의 크기와 사용량 변화를 시간대별로 시각적으로 확인할 수 있습니다.
 
 * 각 테이블스페이스의 전체 크기, 사용 크기, 사용 비율을 상세히 제공합니다.
 
-<Xclude product="altibase,tibero,db2">
+<Xclude product="altibase,tibero">
 
 * 상위 50개의 세그먼트 크기를 확인할 수 있습니다.
 
 </Xclude>
 
-테이블스페이스 사용량을 실시간으로 모니터링하여 용량을 관리하고, 사용률이 높은 테이블스페이스와 세그먼트를 추적해 용량 관리와 성능을 최적화하세요. 과도한 사용도 사전에 감지하고 대응할 수 있습니다.
+테이블스페이스의 사용 현황을 실시간으로 모니터링함으로써 사용량을 확인하고 적절한 용량 관리를 할 수 있습니다. 사용량이 높은 테이블스페이스와 세그먼트를 추적해 용량 관리와 성능 최적화를 위한 조치를 취하세요. 또한 테이블스페이스의 과도한 사용을 사전에 감지하고 대응할 수 있습니다.
 
 <InDoc product="altibase">
 
@@ -24,7 +24,7 @@
 
 ## 사용하기 전에
 
-테이블스페이스 사이즈 데이터를 수집하려면 에이전트 옵션을 설정해야 합니다.
+테이블스페이스 사이즈 데이터를 수집하기 위해서는 에이전트 옵션 설정이 필요합니다.
 
 * **segments** <span class='type'>Boolean</span>
 
@@ -50,11 +50,11 @@
 
 ## 사용하기 전에
 
-테이블스페이스 사이즈 데이터를 수집하려면 데이터베이스 권한과 에이전트 옵션을 설정해야 합니다. 세그먼트 사이즈 데이터는 하루 한 번 수집하며, 아래 절차에 따라 설정을 완료하세요.
+테이블스페이스 사이즈 데이터를 수집하기 위해서는 데이터베이스 권한 설정과 에이전트 옵션 설정이 필요합니다. 세그먼트 사이즈 데이터는 하루에 한 번 수집하며, 다음과 같이 설정을 완료해야 합니다.
 
 ### 조회 권한 부여하기
 
-세그먼트 사이즈 데이터를 수집하려면 모니터링 사용자에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어로 권한을 설정하세요.
+세그먼트 사이즈 데이터를 수집하려면 모니터링 유저에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어를 사용하여 권한을 설정하세요.
 
 ```sql title="SQL"
 grant select any dictionary to whatap;
@@ -68,13 +68,14 @@ grant select any dictionary to whatap;
 
 ### 에이전트 옵션 설정하기
 
-에이전트 옵션에서 테이블스페이스 사이즈 데이터의 수집 기준을 설정할 수 있습니다.
+에이전트 옵션을 통해 테이블스페이스 사이즈 데이터 수집 기준을 설정할 수 있습니다.
 
 * **tables** <span class='type'>Boolean</span>
 
   기본값 `true`
 
   테이블 사이즈 정보를 수집합니다. <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> 메뉴에서 해당 데이터베이스를 선택하면 테이블 사이즈 정보를 확인할 수있습니다.
+
 
 * **tables_hour** <span class='type'>Int</span>
 
@@ -96,48 +97,15 @@ grant select any dictionary to whatap;
 
 </InDoc>
 
-<InDoc product="db2">
+<Xclude product="altibase,tibero">
 
 ## 사용하기 전에
 
-테이블스페이스 사이즈 데이터를 수집하려면 데이터베이스 권한과 에이전트 옵션을 설정해야 합니다. 세그먼트 사이즈 데이터는 하루 한 번 수집하며, 아래 절차에 따라 설정을 완료하세요.
+테이블스페이스 사이즈 데이터를 수집하기 위해서는 데이터베이스 권한 설정과 에이전트 옵션 설정이 필요합니다. 세그먼트 사이즈 데이터는 하루에 한 번 수집하며, 다음과 같이 설정을 완료해야 합니다.
 
 ### 조회 권한 부여하기
 
-세그먼트 사이즈 데이터를 수집하려면 모니터링 사용자에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어로 권한을 설정하세요.
-
-```sql title="SQL"
-GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_TABLESPACE TO USER whatap
-GRANT EXECUTE ON FUNCTION SYSPROC.MON_GET_CONTAINER TO USER whatap
-```
-
-### 에이전트 옵션 설정하기
-
-에이전트 옵션에서 세그먼트 사이즈 데이터의 수집 기준을 설정할 수 있습니다.
-
-* **tablespace** <span class='type'>Int</span>
-
-  기본값 `1`
-
-  테이블스페이스 사용량 수집 여부를 설정합니다. `1`(기본값)로 설정하면 수집을 활성화하며, `0`으로 설정하면 비활성화됩니다.  
-
-* **tablespace_interval** <span class='type'>Int</span>
-
-  기본값 `60`
-
-  테이블스페이스 사용량을 수집하는 주기를 분(m) 단위로 설정합니다. 기본값은 60분입니다.
-
-</InDoc>
-
-<Xclude product="altibase,tibero,db2">
-
-## 사용하기 전에
-
-테이블스페이스 사이즈 데이터를 수집하려면 데이터베이스 권한과 에이전트 옵션을 설정해야 합니다. 세그먼트 사이즈 데이터는 하루 한 번 수집하며, 아래 절차에 따라 설정을 완료하세요.
-
-### 조회 권한 부여하기
-
-세그먼트 사이즈 데이터를 수집하려면 모니터링 사용자에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어로 권한을 설정하세요.
+세그먼트 사이즈 데이터를 수집하려면 모니터링 유저에게 적절한 데이터베이스 권한을 부여해야 합니다. 다음 SQL 명령어를 사용하여 권한을 설정하세요.
 
 ```sql title="SQL"
 grant select any dictionary to whatap;
@@ -195,9 +163,7 @@ grant select on dba_segments to whatap;
 
 ## 기본 화면 안내
 
-<Xclude product="altibase,db2"><ProdImg img='db-stat-table-space.png' desc='Tablespace size' /></Xclude>
-
-<InDoc product="db2"><ImgLang img="db-table-space-size-db2.png" desc="Tablespace size" /></InDoc>
+<Xclude product="altibase"><ProdImg img='db-stat-table-space.png' desc='Tablespace size' /></Xclude>
 
 <InDoc product="altibase">
 
@@ -227,24 +193,23 @@ Altibase 모니터링에서는 다른 DBMS와 달리 메모리 테이블스페�
 
 </InDoc>
 
-기본 화면에서 테이블스페이스 사용 현황을 기간별로 조회할 수 있습니다. 조회 기간은 최대 3주까지 설정할 수 있습니다. 3일 이상 조회하면, 그래프는 1일 평균으로 표시됩니다.
-
-1. 화면 상단의 <Cmdname sid="time" className="uitext" />에서 분석 기간을 설정하세요.
+1. <Cmdname sid="time" className="uitext" />에서 분석할 기간을 설정하세요.
 
 2. <Cmdname sid="instance" className="uitext" />에서 분석할 데이터베이스 인스턴스를 선택하세요.
 
-3. ![검색 아이콘](/img/ico-btn-search.png) 아이콘을 클릭하세요.
+3. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
 
 :::note
 
-<Cmdname sid="time" className="uitext" /> 옵션 이용 방법에 대한 자세한 내용은 [다음 문서](usage-ui#timeselector)를 참고하세요.
+* 조회 시간은 최대 3주까지 설정할 수 있습니다. 3일 이상 조회할 경우 그래프에는 1일 평균으로 표시됩니다
+
+* <Cmdname sid="time" className="uitext" /> 옵션 이용 방법에 대한 자세한 내용은 [다음 문서](usage-ui#timeselector)를 참조하세요.
 
 :::
 
 ## 테이블스페이스 사이즈 변화 확인하기 {#table_space}
 
 <Cmdname sid="table_space" className="uitext" /> 섹션에서는 시간대별로 테이블스페이스의 전체 크기와 사용량 변화를 시각적으로 확인할 수 있습니다.
-* 색상은 각 테이블스페이스를 나타냅니다. 차트 위에 마우스를 올리면 특정 시간대의 상세 정보를 툴팁으로 확인할 수 있습니다.
 
 <InDoc product="oracle,oracle-pro,db2"><ImgLang img="db-stat-table-space-check-trend-oracle-pro.png" desc="Tablespace size" /></InDoc>
 
@@ -252,41 +217,27 @@ Altibase 모니터링에서는 다른 DBMS와 달리 메모리 테이블스페�
 
 <InDoc product="altibase"><ImgLang img="db-stat-table-space-check-trend-altibase.png" desc="Tablespace size" /></InDoc>
 
+각 색상은 개별 테이블스페이스를 나타냅니다. 차트에서 특정 시간대의 데이터를 확인하려면 마우스를 차트 위로 오버한 상태에서 이동하세요. 해당 시간대의 상세 정보를 툴팁으로 확인할 수 있습니다.
+
 ## 테이블스페이스 사이즈 상세 확인하기 {#table_space_detail}
 
 <Cmdname sid="table_space_detail" className="uitext" /> 섹션에서는 각 테이블스페이스의 상세 정보를 제공합니다.
 
-<InDoc product="oracle,oracle-pro"><ImgLang img="db-stat-table-space-size-details-oracle-pro.png" desc="Tablespace size" /></InDoc>
+<InDoc product="oracle,oracle-pro,db2"><ImgLang img="db-stat-table-space-size-details-oracle-pro.png" desc="Tablespace size" /></InDoc>
 
 <InDoc product="tibero"><ImgLang img="db-stat-table-space-size-details-tibero.png" desc="Tablespace size" /></InDoc>
 
-<InDoc product="oracle,oracle-pro,tibero">
+<InDoc product="oracle,oracle-pro,tibero,db2">
 
-최초 조회한 시간과 현재 시간을 비교하여 각 테이블스페이스의 사용량 변화를 확인할 수 있습니다. 테이블스페이스의 세부 내역을 확인하려면 테이블스페이스 이름 옆의 ![화살표 아이콘](/img/ic-caret-right.svg) 아이콘을 클릭하세요.
+최초 조회한 시간과 현재 시간을 비교하여 각 테이블스페이스의 사용량 변화를 확인할 수 있습니다. 테이블스페이스의 세부 내역을 확인하려면 테이블스페이스 이름 옆의 ![화살표 아이콘](/img/ic-caret-right.svg) 버튼을 선택하세요.
 
-* <Cmdname sid="table_space_total" className="uitext" />: 테이블스페이스의 전체 크기
+* <Cmdname sid="table_space_total" className="uitext" />: 테이블스페이스의 전체 크기입니다.
 
-* <Cmdname sid="table_space_used" className="uitext" />: 현재 사용 중인 크기
+* <Cmdname sid="table_space_used" className="uitext" />: 현재 사용 중인 크기입니다.
 
-* <Cmdname sid="table_space_usage" className="uitext" />: 전체 크기 대비 사용 비율
+* <Cmdname sid="table_space_usage" className="uitext" />: 전체 크기 대비 사용 비율입니다.
 
-* <Cmdname sid="table_space_changed_amount" className="uitext" />: 최초 조회한 시간 대비 현재 시간의 사용량 변화
-
-</InDoc>
-
-<InDoc product="db2">
-
-최초 조회한 시간과 현재 시간을 비교하여 각 테이블스페이스의 사용량 변화를 확인할 수 있습니다. 테이블스페이스의 세부 내역을 확인하려면 테이블스페이스 이름 옆의 ![화살표 아이콘](/img/ic-caret-right.svg) 아이콘을 클릭하세요.
-
-* <Cmdname sid="TTL08166" className="uitext" />: 테이블스페이스의 이름
-
-* ***TYPE***: 테이블스페이스의 유형
-
-* ***BPNAME***: 테이블스페이스가 연결된 버퍼풀의 이름
-
-* ***AUTOEXTENSION***: 테이블스페이스의 자동확장 여부
-
-* ***MAXSIZE***: 테이블스페이스의 최대 크기
+* <Cmdname sid="table_space_changed_amount" className="uitext" />: 최초 조회한 시간 대비 현재 시간의 사용량 변화입니다.
 
 </InDoc>
 
@@ -294,31 +245,31 @@ Altibase 모니터링에서는 다른 DBMS와 달리 메모리 테이블스페�
 
 <ImgLang img="db-stat-table-space-size-details-altibase.png" desc="Tablespace size" />
 
-최초 조회한 시간과 현재 시간을 비교하여 각 테이블스페이스의 사용량 변화를 확인할 수 있습니다. 테이블스페이스의 세부 내역을 확인하려면 테이블스페이스 이름 옆의 ![화살표 아이콘](/img/ic-caret-right.svg) 아이콘을 클릭하세요 Altibase에서 제공하는 테이블스페이스 및 데이터 파일 사이즈 정보는 `MAX`, `ALLOC`, `CURR`, `USED` 등 다양한 값을 포함합니다. 화면에 표시된 값은 이러한 항목을 기반으로 구성했습니다.
+최초 조회한 시간과 현재 시간을 비교하여 각 테이블스페이스의 사용량 변화를 확인할 수 있습니다. 테이블스페이스의 세부 내역을 확인하려면 테이블스페이스 이름 옆의 ![화살표 아이콘](/img/ic-caret-right.svg) 버튼을 선택하세요. Altibase에서 제공하는 테이블스페이스 및 데이터 파일 사이즈 정보는 `MAX`, `ALLOC`, `CURR`, `USED` 등 다양한 값을 포함합니다. 화면에 표시된 값은 이러한 항목을 기반으로 구성했습니다.
 
 ### ![](/img/number-01.png) TABLESPACE TYPE
 
 DISK, MEMORY, TEMP, UNDO 등 `V$TABLESPACES.TYPE` 별로 테이블스페이스의 사이즈를 확인할 수 있습니다.
 
-* <UI>TOTAL</UI>: 테이블스페이스의 `TOTAL` 크기의 합계
+* <UI>TOTAL</UI>: 테이블스페이스의 `TOTAL` 크기의 합계입니다
 
-* <UI>USED</UI>: 테이블스페이스의 `USED` 크기의 합계
+* <UI>USED</UI>: 테이블스페이스의 `USED` 크기의 합계입니다.
 
-* <UI>USAGE</UI>: (`USED` / `TOTAL`) 🞨 100으로 계산된 사용 비율
+* <UI>USAGE</UI>: (`USED` / `TOTAL`) 🞨 100으로 계산된 사용 비율입니다.
 
 ### ![](/img/number-02.png) TABLESPACE
 
 하나의 테이블스페이스는 여러 개의 데이터 파일로 구성됩니다.
 
-* <UI>TOTAL</UI>: 데이터 파일의 `TOTAL` 크기(`V$DATAFILES.CURRSIZE` 🞨 `PAGESIZE`)의 합계
+* <UI>TOTAL</UI>: 데이터 파일의 `TOTAL` 크기(`V$DATAFILES.CURRSIZE` 🞨 `PAGESIZE`)의 합계입니다.
 
-* <UI>USED</UI>: `X$SEGMENT.TOTAL_USED_SIZE`를 기반으로 계산된 사용된 크기
+* <UI>USED</UI>: `X$SEGMENT.TOTAL_USED_SIZE`를 기반으로 계산된 사용된 크기입니다.
 
-* <UI>USAGE</UI>: (`USED` / `TOTAL` ) 🞨 100으로 계산된 사용 비율
+* <UI>USAGE</UI>: (`USED` / `TOTAL` ) 🞨 100으로 계산된 사용 비율입니다.
 
 ### ![](/img/number-03.png) DATAFILE
 
-<UI>TOTAL</UI>: 데이터 파일의 `TOTAL` 크기(`V$DATAFILES.CURRSIZE` 🞨 `PAGESIZE`)의 합계
+<UI>TOTAL</UI>: 데이터 파일의 `TOTAL` 크기(`V$DATAFILES.CURRSIZE` 🞨 `PAGESIZE`)의 합계입니다.
 
 :::note
 
@@ -336,19 +287,19 @@ Altibase에서는 데이터 파일 단위의 `USED` 및 `USAGE` 정보를 제공
 
 <ImgLang img="db-stat-table-space-size-top50-oracle-pro.png" desc="Tablespace size" />
 
-* <Cmdname sid="TTL08165" className="uitext" />: 세그먼트가 속한 컨테이너 이름
+* <Cmdname sid="TTL08165" className="uitext" />: 세그먼트가 속한 컨테이너 이름입니다.
 
-* <Cmdname sid="TTL08166" className="uitext" />: 세그먼트가 속한 테이블스페이스 이름
+* <Cmdname sid="TTL08166" className="uitext" />: 세그먼트가 속한 테이블스페이스 이름입니다.
 
-* <Cmdname sid="TTL08167" className="uitext" />: 세그먼트를 소유하고 있는 사용자 또는 스키마
+* <Cmdname sid="TTL08167" className="uitext" />: 세그먼트를 소유하고 있는 사용자 또는 스키마입니다.
 
-* <Cmdname sid="TTL08168" className="uitext" />: 세그먼트의 이름, <Cmdname sid="TTL08168" className="uitext" /> 선택 시 오브젝트 상세 정보를 확인 가능
+* <Cmdname sid="TTL08168" className="uitext" />: 세그먼트의 이름입니다. <Cmdname sid="TTL08168" className="uitext" /> 선택 시 오브젝트 상세 정보를 확인할 수 있습니다.
 
-* <Cmdname sid="TTL08169" className="uitext" />: 세그먼트의 유형 (예: TABLE, INDEX)
+* <Cmdname sid="TTL08169" className="uitext" />: 세그먼트의 유형입니다. (예: TABLE, INDEX)
 
-* <Cmdname sid="TTL08177" className="uitext" />: 해당하는 경우 세그먼트의 파티션 이름
+* <Cmdname sid="TTL08177" className="uitext" />: 해당하는 경우 세그먼트의 파티션 이름입니다.
 
-* <Cmdname sid="table_space_size" className="uitext" />: 세그먼트의 크기
+* <Cmdname sid="table_space_size" className="uitext" />: 세그먼트의 크기입니다.
 
 </Xclude>
 
@@ -358,20 +309,22 @@ Altibase에서는 데이터 파일 단위의 `USED` 및 `USAGE` 정보를 제공
 
 <Cmdname sid="TTL08164" className="uitext" />은 섹션 테이블스페이스 내에서 가장 많은 공간을 차지하는 상위 50개의 세그먼트 정보를 제공합니다. 이 정보를 통해 사용자는 특정 세그먼트가 얼마나 많은 공간을 사용하고 있는지 파악할 수 있습니다. 각 세그먼트는 다양한 속성을 기반으로 상세하게 표시됩니다. 이러한 정보를 통해 비정상적으로 큰 세그먼트를 식별하고, 필요 시 공간 최적화 작업을 수행할 수 있습니다.
 
+{/* <ImgLang img="db-stat-table-space-size-top50-altibase.png" desc="Segment size" /> */}
+
 <ImgLang img="db-stat-table-space-size-top50-oracle-pro.png" desc="Tablespace size" />
 
-* ***Tablespace Type***: 테이블스페이스의 유형
+* ***Tablespace Type***: 테이블스페이스의 유형입니다.
 
-* ***Tablespace***: 해당 세그먼트가 속한 테이블스페이스의 이름, 테이블스페이스는 데이터베이스에서 데이터를 저장하는 논리적인 공간
+* ***Tablespace***: 해당 세그먼트가 속한 테이블스페이스의 이름입니다. 테이블스페이스는 데이터베이스에서 데이터를 저장하는 논리적인 공간입니다.
 
-* ***Table***: 해당 세그먼트가 속한 테이블의 이름, 어떤 테이블이 공간을 차지하고 있는지 식별 가능함
+* ***Table***: 해당 세그먼트가 속한 테이블의 이름입니다. 이를 통해 어떤 테이블이 공간을 차지하고 있는지 식별할 수 있습니다.
 
-* ***User***: 해당 세그먼트를 소유하고 있는 데이터베이스 사용자 계정의 이름, 어떤 사용자가 해당 데이터를 관리하는지 파악 가능함
+* ***User***: 해당 세그먼트를 소유하고 있는 데이터베이스 사용자 계정의 이름입니다. 어떤 사용자가 해당 데이터를 관리하는지 파악할 수 있습니다.
 
-* ***Segment Type***: 세그먼트의 유형
+* ***Segment Type***: 세그먼트의 유형입니다.
 
-* ***Partition***: 파티셔닝된 테이블이나 인덱스의 경우 해당 세그먼트가 속한 파티션 정보 표시, 파티셔닝은 큰 테이블을 더 작은 단위로 나누는 관리 방법
+* ***Partition***: 파티셔닝된 테이블이나 인덱스의 경우 해당 세그먼트가 어떤 파티션에 속하는지를 나타냅니다. 파티셔닝은 큰 테이블을 더 작은 단위로 나누어 관리하는 방법입니다.
 
-* ***mbytes***: 해당 세그먼트가 차지하고 있는 메가바이트(MB) 단위의 공간 크기로 각 세그먼트가 사용하고 있는 물리적 저장 공간의 양을 확인 가능함
+* ***mbytes***: 해당 세그먼트가 차지하고 있는 메가바이트(MB) 단위의 공간 크기입니다. 이를 통해 각 세그먼트가 사용하고 있는 물리적 저장 공간의 양을 확인할 수 있습니다.
 
 </InDoc>

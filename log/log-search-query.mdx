@@ -1,0 +1,41 @@
+---
+id: log-search-query
+title: WhaTap log search query 문법
+description: WhaTap log search query 문법을 안내합니다.
+keywords: [ 로그 모니터링, 로그, 로그 탐색, UI ]
+toc_max_heading_level: 3
+---
+
+:::tip
+
+WhaTap 로그 탐색에서 사용할 수 있는 WhaTap log search query 문법에 관한 문서입니다.
+
+:::
+
+    1. **Equal**
+        * `field : value`
+
+    1. **Not**
+        * `not field : value`
+
+    1. **Wildcard** (`String` 타입 필드만 사용 가능, 검색 값 앞뒤에 `"` 사용 금지)
+        * `field : val*`
+
+    1. **Exist**
+        * `field : *`
+
+    1. **Range** (`Number` 타입 필드만 사용 가능)
+        * `<`, `>`, `<=`, `>=` 사용 가능
+        * 예: `field < 30 and field >= 10`
+
+    1. **Combining Multiple Queries**
+        * AND 예: `field < 30 and field >= 10`
+        * OR 예: `field < 30 or field >= 10`
+
+    1. **Grouping**
+        * 예: `(field < 30 or field >= 10) and other : 70`
+
+    1. **Escaping Special Characters**
+        * Lucene의 이스케이프 지원 특수 문자 목록: `&&` `||` `!` `( )` `{ }` `^` `"` `~` `*` `?` `:` `\` `/`
+        * 문자 앞에 `\`를 사용해 이스케이프함
+        * 예: `(1+1):2` 검색하려면, `\(1\+1\)\:2`

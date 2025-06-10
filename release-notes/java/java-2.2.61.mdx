@@ -1,0 +1,22 @@
+---
+id: java-2_2_61
+title: Java Agent v2.2.61
+toc_max_heading_level: 2
+pagination_next: release-notes/java/java-2_2_60
+displayed_sidebar: releaseSidebar
+---
+
+2025년 06월 09일
+
+- <Status priority='1'>Changed</Status> opentelemetry 연계 추적용 헤더키를 기본으로 전송하지 않도록 수정
+
+    ```bash 
+    # default: false
+    mtrace_traceparent_enabled=true
+    ```
+
+- <Status priority='1'>Changed</Status> spring-boot에서 `async-annotation`을 사용하는 경우, 별도 스레드 동작을 기본으로 연계 추적하도록 수정
+
+import DownloadJava from './_import_dl-java-agent.mdx';
+
+<DownloadJava ver="2.2.61" />

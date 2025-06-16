@@ -202,7 +202,7 @@ spec:
             name: otelcol-config
 ```
 
-```yaml title="otelcol-whatap-deploy.yaml"
+```yaml title="otelcol-cm.yaml"
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -321,6 +321,87 @@ OpenTelemetry Collector 설치와 관련한 자세한 내용은 다음 링크를
 
 1. 연결된 OpenTelemetry Collector에 whatap-otel 에이전트가 연결되면 트레이스 정보를 수집합니다.
 
+### Kong gateway
+
+Kong Gateway의 내장 OpenTelemetry 플러그인을 설정하면 OpenTelemetry Collector를 통해 트랜잭션 정보를 확인할 수 있습니다.
+
+OpenTelemetry 플러그인에서 OpenTelemetry Collector의 endpoint를 지정합니다. Collector에 Whatap-otel 에이전트가 연결되면 trace 정보가 수집됩니다.
+
+1. kong.conf 
+    
+    trace 설정을 활성화 합니다. 
+    
+    ```jsx
+    tracing_instrumentations = all
+    tracing_sampling_rate = 1
+    ```
+    
+
+1. OpenTelemetry 플러그인 설정 
+    
+    OpenTelemetry Collector의 endpoint URL을 등록합니다. 
+    
+    Collector의 OTLP receiver 기본 설정은 아래와 같습니다.
+    
+    - Protocol : http
+    - Port : 4318
+    - URL :
+        - Trace :  /v1/traces
+            - http://192.168.56.104:4318/v1/traces
+        - Log  : /v1/logs
+            - http://192.168.56.104:4318/v1/logs
+    
+    * 기본 설정 예시
+
+      ```jsx
+      traces_endpoint: http://otelcollector:4318/v1/traces
+      logs_endpoint: http://otelcollector:4318/v1/logs
+      ```
+
+    * kong.yaml 설정 예시
+    
+      ```jsx
+      plugins:
+        - name: opentelemetry
+          config:
+            traces_endpoint: http://otelcollector:4318/v1/traces
+            logs_endpoint: http://otelcollector:4318/v1/logs
+            resource_attributes:
+              service.name: kong-otel
+      
+      ```
+
+    * Admin API로 플러그인 설정 예시
+
+      ```jsx
+      curl -X POST http://localhost:8001/services/plugins \
+      --header "accept: application/json" \
+      --header "Content-Type: application/json" \
+      --data '
+      {
+          "name": "opentelemetry",
+          "config": {
+              "traces_endpoint": "http://otelcollector:4318/v1/traces",
+              "logs_endpoint": "http://otelcollector:4318/v1/logs",
+              "resource_attributes": {
+                  "service.name": "kong-dev"
+              }
+          }
+      }
+      '
+      ```
+
+* 지원 버전: Kong Gateway 3.3.x 이상
+
+:::info
+
+  설정에 대한 자세한 내용은 다음 링크를 참조하세요.
+
+  * [Set up Kong Gateway](https://docs.konghq.com/hub/kong-inc/opentelemetry/how-to/getting-started/)
+
+  * [OpenTelemetry Configuration](https://docs.konghq.com/hub/kong-inc/opentelemetry/configuration/)
+
+:::
 
 ## 모니터링 시작하기
 

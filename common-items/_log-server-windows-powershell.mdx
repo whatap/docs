@@ -1,11 +1,11 @@
-* ***기본 설치***
+* **기본 설치**
 
   ```bash title='Windows Powershell'
   $LOGFILES="c:\\whatap\\logs\\%Y-%m-%d\\*.log,c:\\whatap\\logs\\*.log"
   Add-Content "c:\Program Files\WhatapInfra\whatap.conf" -Value "logsink.files=$LOGFILES"
   ```
 
-* ***카테고리와 함께 설치***
+* **카테고리와 함께 설치**
 
   ```powershell title='Windows Powershell' {7-11,14,15,20,21,24-26,29-30} showLineNumbers
   # 관리자 권한 필요

@@ -6,7 +6,6 @@
 
 | 항목 | 설명 |
 | -- | -- |
-| `pid` | 프로세스 ID | 
 | `db` | 데이터베이스 이름 |
 | `user` | SQL 수행 계정 |
 | `application` | 클라이언트 애플리케이션 이름 |
@@ -54,18 +53,19 @@
 
 | 항목 | 설명 |
 | -- | -- |
-| `cputime` | CPU 사용 시간 |
-| `cpuusage` | CPU 사용률 |
-| `elapse` | CPU 사용 경과 시간 |
-| `vsize` | 가상 메모리 사이즈(Kb) |
-| `rss` | Resident Set Size(RSS), 프로세스와 관련한 물리적 페이지 수 |
-| `state` | 프로세스 상태 |
-| `ioread` | 블록을 읽는 데 소요된 실제 시간(milliseconds) |
-| `iowrite` | 블록을 쓰는 데 소요된 실제 시간(milliseconds) |
-| `pss` | 프로세스 고유 메모리 사용량 + 하나의 프로세스가 차지하는 공유 메모리 비율 |
-| `uid` | user id |
-| `cmd` | 수행 중인 명령어 |
-| `longcmd` | cmd의 전체 경로 |
+| `pid` | 프로세스 ID |
+| `cputime` | 프로세스가 지금까지 사용한 누적 CPU 시간 |
+| `cpuusage` | 프로세스가 사용하는 CPU 사용률 |
+| `elapse` | 프로세스가 실행된 이후 경과 시간 |
+| `vsize` | Virtual memory size. 전체 가상 메모리 사용량 (RAM + Swap + 예약) |
+| `rss` | Resident Set Size. 현재 프로세스가 차지한 실제 물리 메모리 크기 |
+| `pss` | Proportional Set Size. 공유 메모리 포함한 실제 물리 메모리 사용량 |
+| `state` | 프로세스의 현재 상태 코드 (예: R, S, D, T, Z 등) |
+| `ioread` | 누적된 읽기 바이트 수 (read_bytes) |
+| `iowrite` | 누적된 쓰기 바이트 수 (write_bytes) |
+| `uid` | 해당 프로세스를 실행한 사용자 ID |
+| `cmd` | 실행된 명령어의 짧은 형태 |
+| `longcmd` | 실행된 명령어 전체 (전체 경로 및 인자 포함) |
 
 </TabItem>
 </Tabs>

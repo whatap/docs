@@ -6,12 +6,23 @@ pagination_next: release-notes/service/service-2_18_x
 displayed_sidebar: releaseSidebar
 ---
 
+## Service 2.17.4
+
+2025년 6월 18일 
+
+<div class='indentTab'>
+
+### `Server`
+
+<Status priority='1'>Changed</Status> 이벤트 v2에서 이벤트 조건 생성 시 필수 입력 요소 검증 추가
+
+</div>
+
 ## Service 2.17.1
 
 2025년 6월 4일 
 
 <div class='indentTab'>
-
 
 ### `Server`
 
@@ -65,11 +76,11 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_metricsChart" className="uitext" /> <code class="oldfunc">Old</code> 위젯 드래그 후 새로운 위젯 추가 시, 타임셀렉터 설정값이 유지되도록 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> ***관리*** 위젯 내 프로젝트 태그가 클릭 되지 않는 현상 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> **관리** 위젯 내 프로젝트 태그가 클릭 되지 않는 현상 수정
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 위젯의 ***이전 시간과 비교*** 기능 버그 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 위젯의 **이전 시간과 비교** 기능 버그 수정
 
-- <Status priority='0'>Fixed</Status> 화면 우측 상단의 ***프로필*** 아이콘 > ***와탭 모니터링 정보*** 메뉴 클릭 시 조직 정보가 사라지는 버그 수정
+- <Status priority='0'>Fixed</Status> 화면 우측 상단의 **프로필** 아이콘 > **와탭 모니터링 정보** 메뉴 클릭 시 조직 정보가 사라지는 버그 수정
 
 - <Status priority='0'>Fixed</Status> 시리즈 차트의 개별 시간 설정이 적용되도록 수정
 
@@ -137,7 +148,7 @@ displayed_sidebar: releaseSidebar
 
 ### `Kubernetes`
 
-- <Status priority='1'>Changed</Status> ***워크로드*** > ***Deployment 목록*** 신규 지표 추가 (쿠버네티스 에이전트 버전 1.8.7)
+- <Status priority='1'>Changed</Status> **워크로드** > **Deployment 목록** 신규 지표 추가 (쿠버네티스 에이전트 버전 1.8.7)
 
     - **제거 칼럼**
 
@@ -155,7 +166,7 @@ displayed_sidebar: releaseSidebar
 
         :::
 
-- <Status priority='1'>Changed</Status> ***네임스페이스*** 프로젝트명을 수정할 수 있도록 변경
+- <Status priority='1'>Changed</Status> **네임스페이스** 프로젝트명을 수정할 수 있도록 변경
 
 ---
 
@@ -210,7 +221,7 @@ displayed_sidebar: releaseSidebar
 
     - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" />
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; ***테이블 사이즈 증감***의 ***테이블별 용량 상세*** 테이블에 증감량 칼럼 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; ***테이블 사이즈 증감***의 **테이블별 용량 상세** 테이블에 증감량 칼럼 추가
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="management" className="uitext" /> > <Cmdname sid="agent_installation" className="uitext" /> MySQL 8 이상 사용 시 락 조회 권한 추가 안내
 
@@ -230,16 +241,16 @@ displayed_sidebar: releaseSidebar
 
 ### `Cloud`
 
-<Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; ***애플리케이션 히트맵***, ***멀티서비스 히트맵*** 드래그로 프로파일 데이터 조회 시, 최대 조회 기간 초과 시 알림 문구 표시
+<Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; **애플리케이션 히트맵**, **멀티서비스 히트맵** 드래그로 프로파일 데이터 조회 시, 최대 조회 기간 초과 시 알림 문구 표시
 
 ---
 
 ### `Log`
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" /> &gt; ***필터 즐겨찾기*** 즐겨찾기 추가/수정/삭제 시 토스트 메시지 표시 및 즐겨찾기 이름 공백 입력 방지
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" /> &gt; **필터 즐겨찾기** 즐겨찾기 추가/수정/삭제 시 토스트 메시지 표시 및 즐겨찾기 이름 공백 입력 방지
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" /> &gt; ***필터 즐겨찾기*** 즐겨찾기가 없는 상태에서 ***개인 필터*** 즐겨찾기 추가 시 무한 로딩 문제 수정
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" /> &gt; **필터 즐겨찾기** 즐겨찾기가 없는 상태에서 **개인 필터** 즐겨찾기 추가 시 무한 로딩 문제 수정
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="ITM08349" className="uitext" /> &gt; ***태그 관리*** 기본적으로 로그 리스트에 있는 모든 태그 표시
+- <Status priority='1'>Changed</Status> <Cmdname sid="ITM08349" className="uitext" /> &gt; **태그 관리** 기본적으로 로그 리스트에 있는 모든 태그 표시
 
 </div>

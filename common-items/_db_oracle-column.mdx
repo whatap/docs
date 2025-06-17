@@ -1,11 +1,14 @@
 <Title level={props.level} hashid="column-info">컬럼 정보 안내</Title>
 
+<Tabs groupId="db-columns">
+
+<TabItem value="activesession" label="Active session">
+
 컬럼 정보에 대한 보다 자세한 내용은 [다음 링크](https://docs.oracle.com/)를 참조하세요.
 
 | 항목 | 설명 |
 | -- | -- |
 | `sid` | 세션의 id |
-| `cpu(xos)` | XOS를 설치한 경우 수집되는 CPU 사용율 |
 | `serial#` | 동일한 세션 id를 사용한경우 판별하기 위해 증가시키는 값 |
 | `username` | db 사용자 이름 |
 | `command` | `COMMAND_TYPE`과 동일, SQL command number  |
@@ -79,13 +82,35 @@
 | `service_name` | 해당 세션의 서비스 이름, DB 이름과 유사 |
 | `saddr` | 세션 주소 |
 | `con_id` | 데이터와 관련한 컨테이너의 id (멀티 데이터베이스를 지원하는 경우에만 해당) |
-| `rss(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `pss(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `ioread(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `iowrite(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
 
 :::note
 
 와탭은 클라이언트와 관련한 정보를 기본 저장합니다.
 
 :::
+
+</TabItem>
+
+<TabItem value="process-info" label="Process information">
+
+다음 항목은 XOS 에이전트를 설치한 경우 수집되는 지표입니다.
+
+| 항목 | 설명 |
+| -- | -- |
+| `pid` | 프로세스 ID |
+| `cputime` | 프로세스가 지금까지 사용한 누적 CPU 시간 |
+| `cpuusage` | 프로세스가 사용하는 CPU 사용률 |
+| `elapse` | 프로세스가 실행된 이후 경과 시간 |
+| `vsize` | Virtual memory size. 전체 가상 메모리 사용량 (RAM + Swap + 예약) |
+| `rss` | Resident Set Size. 현재 프로세스가 차지한 실제 물리 메모리 크기 |
+| `pss` | Proportional Set Size. 공유 메모리 포함한 실제 물리 메모리 사용량 |
+| `state` | 프로세스의 현재 상태 코드 (예: R, S, D, T, Z 등) |
+| `ioread` | 누적된 읽기 바이트 수 (read_bytes) |
+| `iowrite` | 누적된 쓰기 바이트 수 (write_bytes) |
+| `uid` | 해당 프로세스를 실행한 사용자 ID |
+| `cmd` | 실행된 명령어의 짧은 형태 |
+| `longcmd` | 실행된 명령어 전체 (전체 경로 및 인자 포함) |
+
+</TabItem>
+
+</Tabs>

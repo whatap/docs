@@ -4,8 +4,6 @@
 
 | 항목 | 설명 |
 | -- | -- |
-| `Instance Name` | 인스턴스 명 |
-| `id` | connection 식별자 |
 | `user` | SQL 수행 계정 |
 | `host` | 이 스레드가 연결된 hostname |
 | `db` | default database명, 없다면 NULL |
@@ -22,15 +20,16 @@
 
 <TabItem value="locktree" label="Lock tree">
 
-| 항목 | 설명 |
-| -- | -- |
-| `holder type` | holder 세션의 type |
-| `lock mode` | holder\_mode |
-| `waiter type` | waiter 세션의 type |
-| `lock request` | waiter\_mode |
-| `state` | 현재 프로세스가 진행 중인 단계입니다. |
-| `table` | holder\_table\/waiter_table |
-| `index` | holder\_index\/waiter_index |
+| 항목         | 설명 |
+|--------------|------|
+| Instance     | 인스턴스(에이전트) 이름 |
+| id           | 세션 ID |
+| holder_type  | 락이 어떤 대상에 걸려 있는지를 나타냄 <br />- RECORD: 테이블의 레코드(행) 수준의 락<br />- TABLE: 전체 테이블에 대한 락 |
+| holder_mode  | 홀더 세션의 락 모드 <br />- S (Shared): 공유락. 다른 트랜잭션도 읽기는 가능 <br />- X (Exclusive): 배타락. 다른 트랜잭션은 접근 불가 |
+| waiter_type  | 락이 어떤 대상에 걸려 있는지를 나타냄  <br />holder_type 설명 참조 |
+| waiter_mode  | 락을 대기 중인 세션의 락 모드 <br />holder_mode 설명 참조 |
+| table        | 락을 대기중인 테이블 |
+| index        | 락을 대기 중인 인덱스 |
 
 </TabItem>
 

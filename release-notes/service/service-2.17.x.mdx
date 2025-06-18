@@ -12,6 +12,10 @@ displayed_sidebar: releaseSidebar
 
 <div class='indentTab'>
 
+### `Application`
+
+<Status priority='0'>Fixed</Status> **Java** 연계 프로젝트 성능 지표에서 차트 무한 로딩되는 버그 수정
+
 ### `Server`
 
 <Status priority='1'>Changed</Status> 이벤트 v2에서 이벤트 조건 생성 시 필수 입력 요소 검증 추가
@@ -92,7 +96,7 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="TTL06377" className="uitext" /> <Cmdname sid="BTN07120" className="uitext" /> 클라이언트 IP 정보 표시 옵션 추가
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="TTL06209" className="uitext" /> > ***타임라인***, <Cmdname sid="TTL06126" className="uitext" /> 메시지 스텝 중 에러 속성 표시
+- <Status priority='1'>Feature</Status> <Cmdname sid="TTL06209" className="uitext" /> > **타임라인**, <Cmdname sid="TTL06126" className="uitext" /> 메시지 스텝 중 에러 속성 표시
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="transaction_map" className="uitext" /> 최초 데이터 조회 시 테이블 영역 로딩 표시, 데이터 없으면 데이터 요청 시간에 세로선 로딩 표시
 
@@ -112,13 +116,13 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="transaction_map" className="uitext" /> 실시간 모드에서 최초 데이터가 없으면 전체 데이터가 표시되지 않던 문제 수정
 
-- <Status priority='1'>Deprecated</Status> <Cmdname sid="side_topology" className="uitext" />, ***커스텀 히트맵*** 서비스 종료(`2025/12/31`)
+- <Status priority='1'>Deprecated</Status> <Cmdname sid="side_topology" className="uitext" />, **커스텀 히트맵** 서비스 종료(`2025/12/31`)
 
 ---
 
 ### `Server`
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="eventNoti" className="uitext" /> &gt; ***Webhook JSON*** 변수 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="eventNoti" className="uitext" /> &gt; **Webhook JSON** 변수 추가
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 페이지 콘텐츠 드로워로 제공
 
@@ -132,9 +136,9 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_serverMetricsExplorer" className="uitext" /> 지표 리스트 정렬 기준 개선(사전 정의된 순서 적용)
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; ***그룹 요약보기*** &gt; ***진행 중 이벤트 현황*** 탭의 <Cmdname sid="TTL08086" className="uitext" /> 칼럼에 서버 이름 칼럼 표시 오류 수정 및 에이전트 명 칼럼 추가
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; **그룹 요약보기** &gt; **진행 중 이벤트 현황** 탭의 <Cmdname sid="TTL08086" className="uitext" /> 칼럼에 서버 이름 칼럼 표시 오류 수정 및 에이전트 명 칼럼 추가
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴 &gt; ***상세 보기*** 화면에서 ***진행 중 이벤트 현황*** 탭의 <Cmdname sid="TTL08086" className="uitext" /> 칼럼에 서버 이름 칼럼 표시 오류 수정 및 에이전트 명 칼럼 추가
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 메뉴 &gt; **상세 보기** 화면에서 **진행 중 이벤트 현황** 탭의 <Cmdname sid="TTL08086" className="uitext" /> 칼럼에 서버 이름 칼럼 표시 오류 수정 및 에이전트 명 칼럼 추가
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="column_settings" className="uitext" /> 공백 포함 시 중복 등록 방지
 
@@ -188,7 +192,7 @@ displayed_sidebar: releaseSidebar
     - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 화면의 인스턴스 셀렉터
     - <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 화면의 인스턴스 태그
 
-    - <Cmdname sid="side_management" className="uitext" /> &gt; ***에이전트 목록***의 Role 칼럼
+    - <Cmdname sid="side_management" className="uitext" /> &gt; **에이전트 목록**의 Role 칼럼
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> <code class="newfunc">New</code> 화면 개선
 
@@ -221,7 +225,7 @@ displayed_sidebar: releaseSidebar
 
     - <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbLockTree" className="uitext" />
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; ***테이블 사이즈 증감***의 **테이블별 용량 상세** 테이블에 증감량 칼럼 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; **테이블 사이즈 증감**의 **테이블별 용량 상세** 테이블에 증감량 칼럼 추가
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="management" className="uitext" /> > <Cmdname sid="agent_installation" className="uitext" /> MySQL 8 이상 사용 시 락 조회 권한 추가 안내
 

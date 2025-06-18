@@ -12,8 +12,6 @@
 
 #### <Cmdname sid="ITM08349" className="uitext" />
 
-<ImgLang img='log-table-contents.png' desc='로그 테이블 컨텐츠 설정'/>
-
 <InDoc pages="log-search,aws-log-search,log-exp,aws-log-exp"><LinkImage img="number-03.png" className="ico" /> 영역 오른쪽</InDoc><InDoc pages="log-lt,aws-log-lt"><LinkImage img="number-02.png" className="ico" /> 영역 오른쪽</InDoc>에서 ![설정 아이콘](/img/ic-setting.svg) <Cmdname sid="ITM08349" className="uitext" /> 버튼을 선택하세요. 기본으로 ***content***, <Cmdname sid="tag" className="uitext" /> 모두 체크가 되어있으며 두 가지 항목 모두 표시합니다. ***content***와 <Cmdname sid="tag" className="uitext" /> 중 하나는 반드시 선택하세요. 
 
 체크가 해제된 항목은 테이블에 표시되지 않습니다. 다음과 같이 <Cmdname sid="tag" className="uitext" />를 해제할 경우 테이블에서 로그의 <Cmdname sid="tag" className="uitext" />는 표시되지 않습니다.
@@ -24,8 +22,18 @@
 
 :::note 
 
-* <Cmdname sid="column_settings" className="uitext" />과 <Cmdname sid="ITM08349" className="uitext" />은 <Cmdname sid="logTail" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" />, <Cmdname sid="logExplorer" className="uitext" /> 메뉴에서 사용할 수 있습니다. 
+**컬럼 및 로그 표시 설정 적용 범위**
 
-* 동일한 프로젝트 내 <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" />, <Cmdname sid="side_logExplorer" className="uitext" /> 메뉴는 <Cmdname sid="column_settings" className="uitext" />과 <Cmdname sid="ITM08349" className="uitext" />을 공유합니다. 
+* <Cmdname sid="column_settings" className="uitext" />과 <Cmdname sid="ITM08349" className="uitext" />은 <Cmdname sid="logTail" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" />, <Cmdname sid="logExplorer" className="uitext" />에서 사용할 수 있습니다. 
+
+* 동일한 프로젝트 내 <Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" />, <Cmdname sid="side_logExplorer" className="uitext" />는 <Cmdname sid="column_settings" className="uitext" />과 <Cmdname sid="ITM08349" className="uitext" />을 공유합니다. 
 
 :::
+
+## 로그 파일 다운로드
+
+검색한 로그의 결과값을 *CSV*, *TXT* 파일 형식으로 수집된 로그를 다운로드 받을 수 있습니다. 
+
+1. 화면 중앙의 오른쪽의 ![다운로드 아이콘](/img/ico-download.svg) <Cmdname sid="download" className="uitext" /> 버튼을 클릭합니다.
+
+1. **CSV 다운로드** 또는 **Log 다운로드**를 클릭해 원하는 형태의 파일을 다운로드 받습니다. 

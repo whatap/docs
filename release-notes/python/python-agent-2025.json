@@ -1,5 +1,20 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_8_5/",
+    "ver": "v1.8.5",
+    "date": "2025-06-18",
+    "Lists": [
+      {
+        "ver": "v1.8.5",
+        "hash": "v185",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 매트릭스 조회에 <code>app_context_stat</code> 카테고리 추가</p>",
+        "details": "<ul>\n<li><p><strong>app_context_enabled</strong> <span class=\"type\">Boolean</span></p>\n<br /><p><code>false</code>: 기본값</p>\n<br /><p><code>true</code>: <code>app_context_stat</code> 수집 기능 전체 활성화</p></li>\n<li><p><strong>app_context_parser</strong> (<code>default, prefix, match</code> 중 사용)</p>\n<br /><p><code>false</code>: 기본값</p>\n<br /><p><code>default</code>: 기본 파서 (첫 번째 경로 세그먼트 추출)</p>\n<p><code>prefix</code>: 접두사 매칭 파서 (가장 유연함)</p>\n<p><code>match</code>: 정확한 매칭 파서 (완전 일치만)</p></li>\n<li><p><strong>app_context_parser_reset</strong> <span class=\"type\">Number</span></p>\n<br /><p>파서의 내부 캐시와 설정을 강제로 재설정하는 카운터</p>\n<br /><p><code>0</code>: 기본값</p>\n</li>\n<li><p><strong>app_context_path_depth</strong> <span class=\"type\">Number</span></p>\n<p><code>1</code>: 기본값</p>\n<p>URL에서 추출할 경로 세그먼트의 깊이 지정 (<code>default</code> 파서에서만 사용)</p></li>\n<li><p><strong>app_context_path_set</strong> <span class=\"type\">String</span></p>\n<br /><p>기본값 없음</p>\n<br /><p>모니터링할 경로와 해당 이름을 정의하는 매핑 설정 (쉼표 <code>,</code>로 구분)</p>\n<br /><p>예: <code>name1@url1,name2@url2,url3,name4@url4</code></p></li>\n</ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_8_3/",
     "ver": "v1.8.3",
     "date": "2025-05-19",

@@ -1,0 +1,48 @@
+---
+id: php-2_11_0
+title: PHP Agent v2.11.0
+toc_max_heading_level: 2
+pagination_next: release-notes/php/php-2_10_0
+displayed_sidebar: releaseSidebar
+---
+
+2025년 06월 18일
+
+- <Status priority='0'>Feature</Status> CPU 부하 감소
+
+  - 모니터링 대상 판정 기준 변경으로 CPU 부하 감소
+
+  - 사용자 함수 모니터링 해제 시 추가 부하 감소
+
+    `whatap.profile_method_enabled=false`
+
+- <Status priority='1'>New</Status> CLI 호출 파라미터 URL 표기
+
+  - CLI 호출 시 파라미터를 포함해 URL 수집
+
+    - 예) php /home/www/test.php aaa bbb
+    → /home/www/test.php aaa bbb로 표기
+
+- <Status priority='1'>New</Status> file 파라미터 정보 수집
+
+  - 최대 20개, 각 256byte까지 파라미터 일부만 수집
+
+- <Status priority='0'>Fixed</Status> 메모리 릭 수정
+
+  - DB 함수 실패 시 error 함수 호출로 인한 메모리 릭 수정
+
+:::info
+
+**다운로드**
+
+| OS | 파일 형식 | 아키텍처 | 다운로드 |
+| - | :-: | :-: | :-: |
+| Red Hat / CentOS / Amazon linux | RPM | x86 x64 | [다운로드](https://repo.whatap.io/centos/6/x86_64/whatap-php-2.11-0.x86_64.rpm) |
+| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/centos/7/aarch64/whatap-php-2.11-0.aarch64.rpm) |
+| Ubuntu 12 and above / Debian | DEB | amd64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-php_2.11.0_amd64.deb) |
+| \^ | \^ | arm64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-php_2.11.0_arm64.deb) |
+| Alpine linux | tar gzip | x86 x64 | [다운로드](https://repo.whatap.io/alpine/x86_64/whatap-php-2.11.0.tar.gz) |
+| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/alpine/aarch64/whatap-php-2.11.0.tar.gz) |
+| Freebsd 10 and above | TXZ | x86 x64 | [다운로드](https://repo.whatap.io/freebsd/10/whatap-php-2.11.0.txz) |
+
+:::

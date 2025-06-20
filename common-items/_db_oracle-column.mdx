@@ -1,12 +1,15 @@
+import ProcessColumns from "../common-items/_db-process-column.mdx";
+
 <Title level={props.level} hashid="column-info">컬럼 정보 안내</Title>
+
+<Tabs groupId="db-columns">
+
+<TabItem value="activesession" label="Active session">
 
 컬럼 정보에 대한 보다 자세한 내용은 [다음 링크](https://docs.oracle.com/)를 참조하세요.
 
 | 항목 | 설명 |
 | -- | -- |
-| `sid` | 세션의 id |
-| `cpu(xos)` | XOS를 설치한 경우 수집되는 CPU 사용율 |
-| `serial#` | 동일한 세션 id를 사용한경우 판별하기 위해 증가시키는 값 |
 | `username` | db 사용자 이름 |
 | `command` | `COMMAND_TYPE`과 동일, SQL command number  |
 | `status` | 세션 상태 |
@@ -79,13 +82,35 @@
 | `service_name` | 해당 세션의 서비스 이름, DB 이름과 유사 |
 | `saddr` | 세션 주소 |
 | `con_id` | 데이터와 관련한 컨테이너의 id (멀티 데이터베이스를 지원하는 경우에만 해당) |
-| `rss(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `pss(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `ioread(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
-| `iowrite(xos)` | XOS 에이전트에서 수집하는 OS 지표 |
 
 :::note
 
 와탭은 클라이언트와 관련한 정보를 기본 저장합니다.
 
 :::
+
+</TabItem>
+
+<TabItem value="locktree" label="Lock tree">
+
+| 항목           | 설명                                                             |
+|----------------|----------------------------------------------------------------|
+| `Instance`     | 인스턴스(에이전트) 이름                                              |
+| `sid`          | 세션 ID                                                         |
+| `serial#`      | 세션의 고유 식별자와 함께 사용하는 세션 일련번호                           |
+| `holder_type`  | 락을 보유한 세션의 락 유형 (예: TX, TM 등)                            |
+| `holder_mode`  | 보유 중인 락의 모드 (예: 0 ~ 6, 6은 exclusive)                      |
+| `waiter_type`  | 락을 기다리고 있는 세션의 락 유형                                      |
+| `waiter_mode`  | 현재 요청 중인 락 모드                                              |
+| `id1`          | 락 식별자 1 (락 대상 오브젝트를 식별하는 데 사용됨, 예: 트랜잭션 ID 등)       |
+| `id2`          | 락의 세부 정보나 버전 정보를 나타냄                                     |
+
+</TabItem>
+
+<TabItem value="process-info" label="Process information">
+
+<ProcessColumns />
+
+</TabItem>
+
+</Tabs>

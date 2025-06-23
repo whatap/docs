@@ -52,11 +52,24 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_hitmap" className="uitext" /> 차트 축 범위를 초과한 데이터 표시 문제 수정
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="AA005" className="uitext" /> 위젯 에이전트 필터가 히트맵 일부만 적용되는 현상 수정 
+
 ---
 
 ### `Server`
 
+- <Status priority='1'>Feature</Status> **GPU 인벤토리**, **GPU 성능요약** 신규 메뉴 출시
+
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 과거 조회 시 삭제된 에이전트를 서버 선택(셀렉터)에서 조회할 수 있도록 수정
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverDetail" className="uitext" /> 과거 시점 조회 시, 삭제된 서버라도 데이터가 남아 있는 경우 서버 선택 셀렉터에 비활성 상태로 표시
+
+    - `yard.conf`의 `show_deleted_servers_in_range` 옵션이 활성화된 프로젝트에 적용
+
+- <Status priority='0'>Fixed</Status> **Feature 프로젝트** &gt; **KAFKA 대시보드**  시간 갱신 시 모든 위젯에 매번 로더가 표시되어 데이터를 가리던 문제 개선
+
+    - 실시간 모드에서는 최초 데이터 로딩 시에만 로더 표시
+    - 일시정지 모드에서는 시간 변경 시 로더 표시
 
 ---
 
@@ -67,6 +80,44 @@ displayed_sidebar: releaseSidebar
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="container_map" className="uitext" /> GPU 지표 기반 색상 표시 기능 추가
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="podList" className="uitext" /> &gt; **상세** 메트릭스 대시보드의 조회 기간을 30일까지 가능하도록 변경
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 지표에 마우스 오버 시 설명 표시 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_logViewer" className="uitext" /> 한 페이지 당 2,000자 → 20,000자 까지 조회되도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 테이블 필드명, 컬럼 셀렉터 필드명, 필터 지표 필드명이 다르게 보여지는 오류 수정
+
+- <Status priority='0'>Fixed</Status> 대시보드 위젯의 불필요한 스크롤 발생 문제 개선
+
+    - Long Active session Count
+
+    - Lock Waiting Session Count
+
+    - Wait Event
+
+    - Database Map
+
+#### MySQL, Oracle V2, Oracle Pro
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; **Top SQL** 필터 추가
+
+- <Status priority='1'>Feature</Status> **Top SQL** 특정 지표에 마우스 오버 시 설명 표시 기능 추가
+
+- <Status priority='0'>Fixed</Status> **Top SQL** 테이블 필드명, 컬럼 셀렉터 필드명, 필터 지표 필드명이 다르게 보여지는 오류 수정
+
+#### PostgreSQL
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> SQL Elapse Map 위젯 테이블 정보에 state 컬럼 추가
+
+#### PostgreSQL V2
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> > <Cmdname sid="dbObjectInfo" className="uitext" /> 바이트 단위의 값이 보이지 않는 오류 수정
 
 ---
 

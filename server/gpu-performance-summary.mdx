@@ -1,0 +1,62 @@
+---
+id: gpu-performance-summary
+title: GPU 성능요약
+description: GPU 성능요약 메뉴를 안내합니다. 
+keywords: [ 서버 목록, GPU 성능요약, 분석하기, UI, Server ]
+toc_max_heading_level: 3
+---
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_serverList" className="uitext" /> &gt; **GPU 성능요약**
+
+시스템에 연결된 GPU의 상태 및 성능 지표를 실시간으로 모니터링하고 관리할 수 있습니다. 물리 GPU와 MIG 인스턴스의 정보를 함께 확인할 수 있으며, 각 항목을 정렬하거나 필터링하여 효율적으로 사용할 수 있습니다.
+
+## **기본 화면 안내**
+
+![Pause icon](/img/ic-pause-green.svg) <UI>Live</UI> 를 클릭하여 실시간 데이터 조회를 일시 정지하거나 실시간 데이터를 조회하거나 일시 정지할 수 있습니다. 검색창에서 GPU 정보를 검색할 수 있습니다. 
+
+데이터 목록에서 조회 결과의 항목명을 클릭하면 오름차순 또는 내림차순으로 정렬을 변경할 수 있습니다. 
+
+* **Total**: 전체 GPU 인스턴스 수 (Physical + MIG 포함)
+* **Physical**: 실제 GPU 장치 수
+* **MIG**: MIG(Multi-Instance GPU) 인스턴스 수
+
+### GPU 정보
+
+| 컬럼명 | 설명 |
+| --- | --- |
+| Status | 해당 GPU 인스턴스의 현재 상태 (예: `Inactive`, `N/A`) |
+| HostName | GPU가 연결된 서버의 호스트명 |
+| GPU Index | 물리 GPU 또는 MIG 인스턴스의 고유 인덱스 (MIG 인스턴스는 `0/6/0` 등 형태로 표기) |
+| Model Name | GPU 모델명 (예: NVIDIA A100-SXM4 등) |
+| GPU Type | `Physical` 또는 `MIG` 중 해당 인스턴스의 종류 |
+
+
+### GPU 성능 지표
+
+| 컬럼명 | 설명 |
+| ---- | --- |
+| GPU_Util (%) | GPU 연산 자원의 사용률 (%) |
+| Memory_Util (%)| 전체 GPU 메모리 중 사용 중인 비율 (%) |
+| FB_Memory_Usage | 실제 사용 중인 프레임 버퍼 메모리 크기 (단위: MB/GB) |
+| GPU_Temperature | GPU의 현재 온도 (°C) |
+| Power_Usage (W) | GPU가 소비 중인 전력량 (Watt) |
+
+### 컬럼 설정
+
+화면 오른쪽 상단의 **컬럼 설정** 버튼을 클릭한 후, 표시할 컬럼을 선택할 수 있습니다. **컬럼 설정** 창에서 컬럼 선택 및 커스텀 컬럼 추가 후, **확인** 버튼을 클릭해 설정을 저장하세요. 표시 항목에서 컬럼의 순서를 드래그해 변경할 수 있습니다. 
+
+:::caution
+
+컬럼 표시 항목 중 Status, HostName은 삭제할 수 없습니다. 
+
+:::
+
+- **컬럼 선택**
+
+    사용자는 테이블에 표시할 컬럼을 선택할 수 있습니다. **초기화** 클릭 시 기본 항목 선택 상태로 돌아갑니다.
+
+    :::note
+
+    선택한 컬럼은 브라우저 쿠키값으로 저장되어 페이지를 새로 고침해도 상태가 유지됩니다. 쿠키가 삭제되거나 다른 이유로 설정 오류가 발생하면 기본 항목 선택 상태로 초기화합니다.
+
+    :::

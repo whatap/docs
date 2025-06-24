@@ -46,12 +46,12 @@ Linux에서만 지원되며, 에이전트 2.6.5 이상 버전이 필요합니다
 | GPU_Util (%) | GPU 사용률 (%) <br /> - Physical GPU에서만 표시되며, MIG 인스턴스는 제외 |
 | Encoder_Util (%) | 하드웨어 인코더 사용률 (%) <br /> - Physical GPU에서만 표시 |
 | Decoder_Util (%) | 하드웨어 디코더 사용률 (%) <br /> - Physical GPU에서만 표시 |
-| GR_Engine_Active_Util (%) | Graphic 엔진 활성 시간 비율 <br />- 이 메트릭은 GPU의 전반적인 활용도를 측정하는 데 사용되며, MIG 환경에서 인스턴스 간 오베헤드도 물리 GPU 사용률에 반영되어 표시됨  |
+| GR_Engine_Active_Util (%) | GPU의 graphic 엔진 또는 compute 엔진이 활성화된 시간의 비율 <br />- 이 메트릭은 GPU의 전반적인 활용도를 측정하는 데 사용되며, MIG 환경에서 인스턴스 간 오베헤드도 물리 GPU 사용률에 반영되어 표시됨  |
 | SM_Active_Util (%) | SM에서 최소 하나의 워프(Warp)가 실행된 시간 비율 <br />- GPU에서 스레드를 개별적으로 실행하는 것이 아니라, 32개의 스레드를 묶어 Warp 단위로 실행 |
 | SM_Occupancy (%) | SM에서 실행할 수 있는 최대 워프(Warp) 수 대비 실제 실행 중인 워프(Warp) 수의 비율 <br />- GPU에서는 스레드를 개별적으로 실행하는 것이 아니라, 32개의 스레드를 묶어 Warp 단위로 실행 |
 | Tensor_Core_Util (%) | Tensor 코어가 활성 상태였던 시간 비율 |
 | Memory_Copy_Util (%) | GPU의 메모리 복사 엔진(memory copy engine) 사용률 (%) <br /> - GPU와 호스트 간 또는 GPU 내부에서 메모리 전송이 얼마나 이루어지고 있는지 측정한 값 <br />- Physical GPU에서만 값을 표시하며, MIG 인스턴스는 값이 표시되지 않음 |
-| DRAM_Active_Util (%) | DRAM이 활성화된 시간 비율 <br /> - Physical GPU에서만 값을 표시하며, MIG 인스턴스는 값이 표시되지 않음 |
+| DRAM_Active_Util (%) | DRAM의 Read/Write 활용률 <br /> - Physical GPU에서만 값을 표시하며, MIG 인스턴스는 값이 표시되지 않음 |
 | FP64_Compute_Util (%) | FP64(64비트 부동소수점) 연산 파이프의 활성 시간 비율 |
 | FP32_Compute_Util (%) | FP32 (32비트 부동소수점) 연산 파이프의 활성 시간 비율 |
 | FP16_Compute_Util (%) | FP16 (16비트 부동소수점) 연산 파이프의 활성 시간 비율|

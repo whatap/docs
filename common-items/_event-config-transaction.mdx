@@ -108,7 +108,6 @@
 패턴: "hello"
 "hello"     → 일치
 "Hello"     → 불일치 (대소문자 구분)
-
 ```
 
 **2. 접두사 매칭**
@@ -149,7 +148,6 @@
 **6. 복합 패턴**
 
 ```
-
 패턴: "hello*world"
 "hellobeautifulworld"  → 일치
 
@@ -252,7 +250,6 @@
 이벤트 메시지의 트랜잭션 정보는 조건에 부합한 마지막 트랜잭션의 값을 표시합니다. 
 
 ```
-
 (ignored count: 3)
 [Per Agent] limit: 2, count: 3
 [Condition]
@@ -266,8 +263,6 @@ url: /api/posts/test/timeout
 txid: 408093121470636540
 status: 408
 error class: java.util.concurrent.TimeoutException
-error message:
-
 ```
 
 ### 이벤트 메시지 구성 설명
@@ -297,8 +292,8 @@ error message:
     - url: 트랜잭션 URL
     - txid: 트랜잭션 고유 식별자
     - status: HTTP 응답 상태 코드 (HTTP 트랜잭션이 아닌 경우 미표시)
-    - error class: 에러 클래스 (에러 클래스가 없는 경우 비어있음)
-    - error message: 에러 메시지 (에러 메시지가 없는 경우 비어있음)
+    - error class: 에러 클래스 (에러 클래스가 없는 경우 미표시)
+    - error message: 에러 메시지 (에러 메시지가 없는 경우 미표시)
 
 이벤트 메시지는 설정한 조건과 실제 발생한 트랜잭션의 정보를 모두 포함하여, 어떤 조건에 의해 알림이 발생했는지 명확히 확인할 수 있습니다.
 

@@ -11,7 +11,7 @@
 이벤트 목록에서는 생성된 트랜잭션 이벤트를 확인하고 관리할 수 있습니다.
 
 - **활성화 상태**: 스위치를 통해 이벤트 활성화 여부를 설정 
-- **이벤트 레벨**: Info(회색), Warning(주황색), Critical(빨간색)으로 구분
+- **이벤트 레벨**: 위험(<span className="vslow">Critical</span>), 경고(<span className="slow">Warning</span>), 정상(<span className="info">Info</span>) 
 - **검색 기능**: 이벤트 이름, 수신자, 대상 패턴을 기준으로 검색 
 - **컬럼 크기 조정**: 각 컬럼의 경계를 드래그하여 너비를 조정
 
@@ -166,17 +166,17 @@
 
     - `/api/*` : /api/로 시작하는 모든 URL
 
-    - `/users/*` : users가 포함된 모든 URL
+    - `*/users/*` : users가 포함된 모든 URL
 
     - `/api/v1/users` : 정확히 일치하는 URL만
 
 - 에러 클래스 패턴
 
-    - `Exception` : Exception으로 끝나는 모든 에러
+    - `*Exception` : Exception으로 끝나는 모든 에러
 
     - `java.lang.*` : java.lang으로 시작하는 모든 클래스
 
-    - `Timeout*` : Timeout이 포함된 모든 에러
+    - `*Timeout*` : Timeout이 포함된 모든 에러
 
 - 상태 코드 패턴
 
@@ -194,7 +194,7 @@
 
 - **연속된 와일드카드**: 연속된 `**`는 하나의 `*`와 동일하게 처리됩니다.
 
-- **복잡한 패턴**: `*`이 3개 이상 포함된 패턴은 완전히 지원되지 않을 수 있습니다.
+- **복잡한 패턴**: `*`이 3개 이상 포함된 패턴은 지원하지 않습니다.
 
 - **정규식 미지원**: 문자 클래스(`[a-z]`), 수량자(`+`, `?`), 그룹화(`()`) 등은 지원하지 않습니다.
 
@@ -214,11 +214,11 @@
 
 - **이벤트 레벨** (필수)
 
-    - Critical: 심각한 문제
+    - <span className="vslow">Critical</span>: 위험
 
-    - Warning: 주의가 필요한 상황
+    - <span className="slow">Warning</span>: 경고
 
-    - Info: 정보성 알림
+    - <span className="info">Info</span>: 정상, 정보
 
 - **이벤트 수신**
 
@@ -235,7 +235,7 @@
 
 다음은 트랜잭션 이벤트가 실제로 발생한 예시입니다:
 
-**설정 조건**
+### 설정 조건
 
 - URL 패턴: /api/posts/**, /delete/*, /\*test\*/
 - 에러 클래스 패턴: \*TimeoutException\*, *NullPointerException
@@ -244,16 +244,19 @@
 - 제외 상태 코드: 5**
 - 집계 기준: 에이전트별
 - 발생 횟수: 2회
+- 일시 중지: 5분
 
-**발생한 알림 메시지 예시**
+
+### 발생한 알림 메시지 예시
 
 이벤트 메시지의 트랜잭션 정보는 조건에 부합한 마지막 트랜잭션의 값을 표시합니다. 
 
 ```
 
+(ignored count: 3)
 [Per Agent] limit: 2, count: 3
 [Condition]
-url patterns: /api/posts/**, /delete/*, */test/*, /eureka/app/ACCOUNT/ACCOUNT/*
+url patterns: /api/posts/**, /delete/*, */test/*
 error class patterns: *TimeoutException*, *NullPointerException
 status patterns: 4**
 exclude error class patterns: *IOException
@@ -266,6 +269,39 @@ error class: java.util.concurrent.TimeoutException
 error message:
 
 ```
+
+### 이벤트 메시지 구성 설명
+
+- **(ignored count: n)**: 일시 중지 시간 동안 조건에 부합했지만 알림이 발생하지 않은 트랜잭션 수입니다. 일시 중지 시간 동안 무시된 건이 없으면 이 항목은 표시되지 않습니다.
+- **집계 정보**: 설정한 집계 방식에 따라 다르게 표시됩니다.
+    - **에이전트별**: `[Per Agent] limit: n, count: n`
+    - **URL별**: `[Per Url] limit: n` 후 각 URL과 발생 건수 나열
+    - **에러 클래스별**: `[Per Error Class] limit: n` 후 각 에러 클래스와 발생 건수 나열
+    - **컨텍스트별**: `[Per Context] limit: n` 후 각 컨텍스트와 발생 건수 나열
+    - **각 에이전트의 URL별**: `[Per Agent & Url] limit: n` 후 각 URL과 발생 건수 나열
+    - **각 에이전트의 에러 클래스별**: `[Per Agent & Error Class] limit: n` 후 각 에러 클래스와 발생 건수 나열
+    - **에이전트별 컨텍스트별**: `[Per Agent & Context] limit: n` 후 각 컨텍스트와 발생 건수 나열
+    - **전체**: `[Total] limit: n, count: n`
+- **[Condition]**: 이벤트 발생 시점에 설정되어 있던 조건들을 표시합니다. 설정된 패턴만 표시됩니다.
+    - context patterns: 컨텍스트 일치 패턴
+    - url patterns: URL 일치 패턴
+    - error class patterns: 에러 클래스 일치 패턴
+    - error message patterns: 에러 메시지 일치 패턴
+    - status patterns: 상태 코드 일치 패턴
+    - exclude context patterns: 컨텍스트 제외 패턴
+    - exclude url patterns: URL 제외 패턴
+    - exclude error class patterns: 에러 클래스 제외 패턴
+    - exclude error message patterns: 에러 메시지 제외 패턴
+    - exclude status patterns: 상태 코드 제외 패턴
+- **[Transaction]**: 조건에 부합한 마지막 트랜잭션의 상세 정보입니다.
+    - url: 트랜잭션 URL
+    - txid: 트랜잭션 고유 식별자
+    - status: HTTP 응답 상태 코드 (HTTP 트랜잭션이 아닌 경우 미표시)
+    - error class: 에러 클래스 (에러 클래스가 없는 경우 비어있음)
+    - error message: 에러 메시지 (에러 메시지가 없는 경우 비어있음)
+
+이벤트 메시지는 설정한 조건과 실제 발생한 트랜잭션의 정보를 모두 포함하여, 어떤 조건에 의해 알림이 발생했는지 명확히 확인할 수 있습니다.
+
 
 :::note
 
@@ -281,7 +317,7 @@ error message:
 
 :::
 
-## Support Agent Version {#support-agent-version}
+## 최신 에이전트 버전 {#support-agent-version}
 
 트랜잭션 이벤트는 최신 에이전트 버전이 요구됩니다.  
 

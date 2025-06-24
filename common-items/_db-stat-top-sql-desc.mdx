@@ -1,28 +1,32 @@
-홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="laboratory" className="uitext" /> &gt; ***Top SQL***
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="laboratory" className="uitext" /> &gt; **Top SQL**
 
-***TOP SQL***은 기존 SQL 통계 메뉴의 기능을 확장해 긴 기간 동안 데이터를 조회하고 분석할 수 있습니다. 최대 30일~최소 1분 단위로 조회할 수 있으며, 분석 지표를 탭 형태로 제공해 한눈에 볼 수 있습니다. 또한, 추이 차트를 추가하여 특정 시간의 SQL 발생 패턴을 쉽게 파악할 수 있습니다.
+**TOP SQL**은 기존 SQL 통계 메뉴의 기능을 확장해 긴 기간 동안 데이터를 조회하고 분석할 수 있습니다. 최대 30일~최소 1분 단위로 조회할 수 있으며, 분석 지표를 탭 형태로 제공해 한눈에 볼 수 있습니다. 또한, 추이 차트를 추가하여 특정 시간의 SQL 발생 패턴을 쉽게 파악할 수 있습니다.
 
 ## 기본 화면 안내
 
-<InDoc product='mysql,oracle,oracle-pro'><ProdImg img='db-top-sql-stat.png' desc='Top SQL' /></InDoc>
+<InDoc product='mysql,oracle,oracle-pro'><ImgLang img='db-top-sql-stat.png' desc='Top SQL' /></InDoc>
 
-1. ![숫자 1](/img/number-01.png) <Cmdname sid="time" className="uitext" />에서 데이터를 조회할 시간과 날짜를 선택하세요. 녹색 버튼을 선택해 조회 시간을 선택할 수도 있습니다.
+1. **시간**에서 데이터를 조회할 시간과 날짜를 선택하세요. 
 
-1. ![숫자 1](/img/number-01.png) <Cmdname sid="instance" className="uitext" />에서 데이터를 조회할 대상을 선택하세요.
+    - 녹색 버튼을 클릭해 조회 시간을 선택하거나 날짜와 시간 텍스트 영역을 클릭하면 날짜와 시간을 옵션으로 선택할 수 있습니다.
+    
+1. **인스턴스**에서 데이터를 조회할 대상을 선택하세요.
 
-1. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
+1. **필터** 조건을 추가하세요. **필드**에서 **필터**에 추가할 컬럼을 쉽게 검색하고 추가할 수 있습니다. 
+    
+1. <Cmdname sid="TTL07773" className="uitext" />에서 테이블에 표시할 건수를 설정하세요.
+
+    - 데이터는 10~100건까지 테이블에 표시합니다.
+
+1. ![검색 아이콘](/img/ico-btn-search.png) 버튼을 클릭하세요.
+
+    - 조회한 내용을 CSV 형식의 파일로 다운받으려면 ![다운로드 아이콘](/img/ico-download.svg) 버튼을 클릭하세요.
+
+    - 테이블 헤더의 각 컬럼을 클릭하면 선택한 컬럼을 기준으로 목록을 정렬할 수 있습니다.
 
 :::note
 
-* 날짜와 시간 텍스트 영역을 클릭하면 날짜와 시간을 선택할 수 있는 옵션이 나타납니다.
-
-* 테이블 헤더의 각 컬럼을 클릭하면 선택한 컬럼을 기준으로 목록을 정렬할 수 있습니다.
-
-* 데이터는 10~100건까지 테이블에 표시합니다. <Cmdname sid="TTL07773" className="uitext" />에서 테이블에 표시할 건 수를 설정할 수 있습니다. 설정을 완료한 다음 <LinkImage img="ico-btn-search.png" className="ico" /> 버튼을 선택하세요.
-
-* 조회한 내용을 CSV 형식의 파일로 다운받으려면 ![다운로드 아이콘](/img/ico-download.svg) 버튼을 선택하세요.
-
-* <Cmdname sid="time" className="uitext" /> 옵션 이용 방법에 대한 자세한 내용은 [다음 문서](usage-ui#timeselector)를 참조하세요.
+<Cmdname sid="time" className="uitext" /> 옵션 이용 방법은 [다음 문서](usage-ui#timeselector)를 참고하세요.
 
 :::
 
@@ -30,7 +34,7 @@
 
 <InDoc product='mysql,oracle,oracle-pro'><ProdImg img='db-top-sql-trends-chart.png' desc='Top SQL' /></InDoc>
 
-![숫자 3](/img/number-03.png) ***Trends*** 차트의 SQL 통계 데이터 수집 주기와 데이터 조회 범위는 아래 기준에 따라 다릅니다. 
+**Trends** 차트의 SQL 통계 데이터 수집 주기와 데이터 조회 범위는 아래 기준에 따라 다릅니다. 
 
 * **3시간 이하**
     * **SQL 통계 데이터 수집 주기 옵션이 1분으로 설정된 경우**: 1분 간격으로 데이터 수집

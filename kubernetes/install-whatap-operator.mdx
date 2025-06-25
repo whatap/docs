@@ -55,16 +55,17 @@ toc_max_heading_level: 2
     ```
 
     * 명령어 실행 결과, `whatap-operator` 파드가 **Running** 상태여야 합니다.
+        <ImgLang img='whatap-operator-running-pod.png' desc='whatap-operator-pod' />
 
-2. WhatapAgent CR를 생성합니다.
+2. **WhatapAgent CR를 생성합니다.**
 
-아래의 명령어로 whatapAgent 커스텀 리소스를 생성합니다.
+    * 아래의 명령어로 whatapAgent 커스텀 리소스를 생성합니다.
 
-```yaml
-kubectl apply -f values.yaml
-```
+    ```yaml
+    kubectl apply -f values.yaml
+    ```
 
-`WhatapAgent` CR은 와탭 에이전트의 배포와 구성을 정의합니다. K8s 에이전트, APM 자동 설치, 그리고 Open Agent를 통한 오픈메트릭 수집을 설정할 수 있습니다.
+    * `WhatapAgent` CR은 와탭 에이전트의 배포와 구성을 정의합니다. K8s 에이전트, APM 자동 설치, 그리고 Open Agent를 통한 오픈메트릭 수집을 설정할 수 있습니다.
 
 ### 최소 구성
 
@@ -87,6 +88,8 @@ spec:
 ```
 
 최소 구성으로 설치하게 되면 아래와 같이 whatap-master-agent, whatap-node-agent가 추가로 설치됩니다.
+
+<ImgLang img='whatap-operator-whatapagent-cr.png' desc='whatap-master-agent, whatap-node-agent' />
 
 ### 기본 구성
 

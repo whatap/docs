@@ -1,0 +1,98 @@
+---
+id: gpu-performance-summary
+title: GPU 성능요약
+description: GPU 성능요약 메뉴를 안내합니다. 
+keywords: [ 서버 목록, GPU 성능요약, 분석하기, UI, Server ]
+toc_max_heading_level: 3
+---
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_serverList" className="uitext" /> &gt; **GPU 성능요약**
+
+시스템에 연결된 GPU의 상태 및 성능 지표를 실시간으로 모니터링하고 관리할 수 있습니다. 물리 GPU와 MIG 인스턴스의 정보를 함께 확인할 수 있으며, 각 항목을 정렬하거나 필터링하여 효율적으로 사용할 수 있습니다.
+
+:::note
+
+**지원 에이전트 버전**
+
+Linux에서만 지원되며, 에이전트 2.8.5 이상 버전이 필요합니다.
+
+:::
+
+## **기본 화면 안내**
+
+![Pause icon](/img/ic-pause-green.svg) <UI>Live</UI> 를 클릭하여 실시간 데이터 조회를 일시 정지하거나 실시간 데이터를 조회하거나 일시 정지할 수 있습니다. 검색창에서 GPU 정보를 검색할 수 있습니다. 
+
+데이터 목록에서 조회 결과의 항목명을 클릭하면 오름차순 또는 내림차순으로 정렬을 변경할 수 있습니다. 
+
+* **Total**: 전체 GPU 인스턴스 수 (Physical + MIG 포함)
+* **Physical**: 실제 GPU 장치 수
+* **MIG**: MIG(Multi-Instance GPU) 인스턴스 수
+
+### GPU 정보
+
+| 컬럼명 | 설명 |
+| --- | --- |
+| Status | 해당 GPU 인스턴스의 현재 상태 (예: `Inactive`, `N/A`) |
+| HostName | GPU가 연결된 서버의 호스트명 |
+| GPU Index | 물리 GPU 또는 MIG 인스턴스의 고유 인덱스 (MIG 인스턴스는 `0/6/0` 등 형태로 표기) |
+| Model Name | GPU 모델명 (예: NVIDIA A100-SXM4 등) |
+| GPU Type | `Physical` 또는 `MIG` 중 해당 인스턴스의 종류 |
+
+
+### GPU 성능 지표
+
+| 컬럼명 | 설명 |
+| --------------- |------|
+| GPU_Util (%) | GPU 사용률 (%) <br /> - Physical GPU에서만 표시되며, MIG 인스턴스는 제외 |
+| Encoder_Util (%) | 하드웨어 인코더 사용률 (%) <br /> - Physical GPU에서만 표시 |
+| Decoder_Util (%) | 하드웨어 디코더 사용률 (%) <br /> - Physical GPU에서만 표시 |
+| GR_Engine_Active_Util (%) | GPU의 graphic 엔진 또는 compute 엔진이 활성화된 시간의 비율 <br />- 이 메트릭은 GPU의 전반적인 활용도를 측정하는 데 사용되며, MIG 환경에서 인스턴스 간 오베헤드도 물리 GPU 사용률에 반영되어 표시됨  |
+| SM_Active_Util (%) | SM에서 최소 하나의 워프(Warp)가 실행된 시간 비율 <br />- GPU에서 스레드를 개별적으로 실행하는 것이 아니라, 32개의 스레드를 묶어 Warp 단위로 실행 |
+| SM_Occupancy (%) | SM에서 실행할 수 있는 최대 워프(Warp) 수 대비 실제 실행 중인 워프(Warp) 수의 비율 <br />- GPU에서는 스레드를 개별적으로 실행하는 것이 아니라, 32개의 스레드를 묶어 Warp 단위로 실행 |
+| Tensor_Core_Util (%) | Tensor 코어가 활성 상태였던 시간 비율 |
+| Memory_Copy_Util (%) | GPU의 메모리 복사 엔진(memory copy engine) 사용률 (%) <br /> - GPU와 호스트 간 또는 GPU 내부에서 메모리 전송이 얼마나 이루어지고 있는지 측정한 값 <br />- Physical GPU에서만 값을 표시하며, MIG 인스턴스는 값이 표시되지 않음 |
+| DRAM_Active_Util (%) | DRAM의 Read/Write 활용률 <br /> - Physical GPU에서만 값을 표시하며, MIG 인스턴스는 값이 표시되지 않음 |
+| FP64_Compute_Util (%) | FP64(64비트 부동소수점) 연산 파이프의 활성 시간 비율 |
+| FP32_Compute_Util (%) | FP32 (32비트 부동소수점) 연산 파이프의 활성 시간 비율 |
+| FP16_Compute_Util (%) | FP16 (16비트 부동소수점) 연산 파이프의 활성 시간 비율|
+| BAR1_Total_Memory (Bytes) | BAR1 메모리 총량 <br /> - BAR1 메모리: GPU와 CPU 간 데이터 전송 시 사용 |
+| BAR1_Used_Memory (Bytes) | 사용 중인 BAR1 메모리 크기<br />- BAR1 메모리: GPU와 CPU 간 데이터 전송 시 사용 |
+| BAR1_Free_Memory (Bytes) | 남은 BAR1 메모리 크기<br />- BAR1 메모리: GPU와 CPU 간 데이터 전송 시 사용 |
+| FB_Total_Memory (Bytes) | 프레임 버퍼 전체 메모리 크기 |
+| FB_Free_Memory (Bytes) | 프레임 버퍼 사용 가능 메모리 크기 |
+| FB_Used_Memory (Bytes) | 프레임 버퍼 사용 중인 메모리 크기 |
+| FB_Reserved_Memory (Bytes) | 예약된 프레임 버퍼 메모리 크기 |
+| FB_Memory_Usage (%) | 프레임 버퍼 메모리 사용률(%) |
+| ECC_SBE_Total | ECC SBE(Single Bit Error) 누적 합계 |
+| ECC_DBE_Total | ECC DBE(Double Bit Error) 누적 합계 |
+| GPU_Temperature (°C) | GPU의 현재 온도 |											
+| Power_Usage (W) | GPU가 현재 사용하는 전력량 | 
+| Performance_State (P) | 현재 GPU의 Performance State(P-State)를 0 ~ 15 사이의 숫자로만 표시 <br /> - P0 ~ P15의 값을 가지며 P0가 가장 빠름 |
+| Fan_Speed (%) | GPU 팬의 현재 작동 속도 비율 | 
+| SM_Clock (MHz) | SM(Streaming Multiprocessor)의 현재 클럭 속도 |
+| Memory_Clock (MHz) | 메모리의 현재 클럭 속도 |
+| Video_Clock (MHz) | 비디오 처리를 담당하는 클럭 속도 |
+| PCIE_TX (Bytes/s) | GPU가 PCIe 인터페이스를 통해 전송한 데이터양 <br /> - Physical GPU만 값이 표시되고, MIG는 N/A로 표시되어 수집되지 않을 수 있음 | 
+| PCIE_RX (Bytes/s) | GPU가 PCIe 인터페이스를 통해 수신한 데이터양 <br /> - Physical GPU만 값이 표시되고, MIG는 N/A로 표시되어 수집되지 않을 수 있음 | 
+| NVLink_TX (Bytes/s) | NVlink를 통해 전송한 데이터양 |
+| NVLink_RX (Bytes/s) | NVlink를 통해 수신한 데이터양 |
+
+### 컬럼 설정
+
+화면 오른쪽 상단의 **컬럼 설정** 버튼을 클릭한 후, 표시할 컬럼을 선택할 수 있습니다. **컬럼 설정** 창에서 컬럼 선택 후, **확인** 버튼을 클릭해 설정을 저장하세요.
+
+:::caution
+
+컬럼 표시 항목 중 Status, HostName은 삭제할 수 없습니다. 
+
+:::
+
+- **컬럼 선택**
+
+    사용자는 테이블에 표시할 컬럼을 선택할 수 있습니다. **초기화** 클릭 시 기본 항목 선택 상태로 돌아갑니다.
+
+    :::note
+
+    선택한 컬럼은 브라우저 쿠키값으로 저장되어 페이지를 새로 고침해도 상태가 유지됩니다. 쿠키가 삭제되거나 다른 이유로 설정 오류가 발생하면 기본 항목 선택 상태로 초기화합니다.
+
+    :::

@@ -1,0 +1,169 @@
+---
+id: service-2_18_x
+title: Service 2.18.X
+toc_max_heading_level: 2
+pagination_next: release-notes/service/service-2_18_x
+displayed_sidebar: releaseSidebar
+---
+
+## Service 2.18.0
+
+2025년 06월 26일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status priority='1'>Feature</Status> 서비스 페이지 타이틀 오른쪽에 WhaTap Docs 링크 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" /> 위젯의 가려진 프로젝트 이름 툴팁 표시 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_flexboard" className="uitext" /> 위젯 검색 시, 폴더 내 위젯이 없을 경우 해당 폴더 미노출
+
+- <Status priority='1'>Feature</Status> 실시간 알림을 최신순으로 정렬되도록 개선
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_flexboard" className="uitext" /> 수정 모드 위젯 편집 화면 스크롤 제거
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="group_management" className="uitext" /> 현재 그룹 삭제 후, 초기 페이지로 이동
+
+- <Status priority='0'>Fixed</Status> 다른 창에서 돌아왔을 때 알림이 자동으로 사라지지 않던 문제 수정
+
+- <Status priority='0'>Fixed</Status> 결제 권한을 넘길 때 동의 안내 팝업이 프로젝트 선택 팝업으로 가려지던 문제 수정
+
+- <Status priority='0'>Fixed</Status> 잘못된 시간값으로 에이전트 정보 조회하는 현상 수정
+
+---
+
+### `Application`
+
+- <Status priority='1'>Feature</Status> 전체 데이터 갱신 시 로딩 표시 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="transaction_map" className="uitext" /> 필터 저장 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="transaction_map" className="uitext" /> 실시간 모드가 아닐 때, 조회 시간과 필터 정보를 URL에 저장
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_perfTrend" className="uitext" /> 종류별·서버별 에이전트를 선택할 수 있도록 개선 (종류와 관계없이 하나만 선택 가능)
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; **비즈니스 대시보드** 메뉴 추가
+
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_perfTrend" className="uitext" /> 통계 화면과 동일하게 에이전트 선택자 UI 변경
+
+- <Status priority='0'>Fixed</Status> 실시간 모드에서 전체 데이터에 필터 미적용 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_hitmap" className="uitext" /> 차트 축 범위를 초과한 데이터 표시 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="AA005" className="uitext" /> 위젯 에이전트 필터가 히트맵 일부만 적용되는 현상 수정 
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06209" className="uitext" /> 팝아웃에서 내부 데이터가 간헐적으로 표시되지 않던 문제 수정
+
+---
+
+### `Server`
+
+- <Status priority='1'>Feature</Status> **GPU 인벤토리**, **GPU 성능요약** 신규 메뉴 출시
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 과거 조회 시 삭제된 에이전트를 서버 선택(셀렉터)에서 조회할 수 있도록 수정
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverList" className="uitext" /> 관리 기능 버튼명 변경 및 설명 툴팁 추가
+
+    - **일시정지** → **알림 정지**: “선택된 서버의 이벤트 발생을 일시 정지시킵니다"
+    - **재시작** → **알림 재시작**: “선택된 서버 중 알림 정지 상태인 서버의 이벤트 알림을 다시 활성화합니다.”
+    - **제외**: “선택된 서버의 작동을 중지합니다. 서버 목록에서 제외되며 서버 현황을 확인할 수 없습니다.”
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverDetail" className="uitext" /> 과거 시점 조회 시, 삭제된 서버라도 데이터가 남아 있는 경우 서버 선택 셀렉터에 비활성 상태로 표시
+
+    - `yard.conf`의 `show_deleted_servers_in_range` 옵션이 활성화된 프로젝트에 적용
+
+- <Status priority='0'>Fixed</Status> **Feature 프로젝트** &gt; **KAFKA 대시보드** 시간 갱신 시 모든 위젯에 매번 로더가 표시되어 데이터를 가리던 문제 개선
+
+    - 실시간 모드에서 최초 데이터 로딩 시에만 로더 표시
+    - 일시정지 모드에서 시간 변경 시 로더 표시
+
+---
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> **분석** &gt; **오픈메트릭 탐색기** 추가
+
+- <Status priority='1'>Feature</Status> **GPU 모니터링** 출시
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="container_map" className="uitext" /> GPU 지표 기반 색상 표시 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="podList" className="uitext" /> &gt; **상세** 메트릭스 대시보드의 조회 기간을 30일까지 가능하도록 변경
+
+- <Status priority='1'>Changed</Status> **타임라인** 메뉴의 5분 단위 시간 선택 제한 해제
+
+    - <Cmdname sid="side_container" className="uitext" /> &gt; **컨테이너 타임라인**
+
+    - <Cmdname sid="side_workload" className="uitext" /> &gt; **Pod 타임라인**
+
+    - <Cmdname sid="side_node" className="uitext" /> &gt; <Cmdname sid="side_nodeTimeline" className="uitext" />
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> helm 설치 명령어 수정
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 지표에 마우스 오버 시 설명 표시 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_logViewer" className="uitext" /> 한 페이지 당 2,000자 → 20,000자 까지 조회되도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> 테이블 필드명, 컬럼 셀렉터 필드명, 필터 지표 필드명이 다르게 보여지는 오류 수정
+
+- <Status priority='0'>Fixed</Status> 대시보드 위젯의 불필요한 스크롤 발생 문제 개선
+
+    - Long Active session Count
+
+    - Lock Waiting Session Count
+
+    - Wait Event
+
+    - Database Map
+
+#### Altibase, Cubrid, MySQL, Oracle, PostgreSQL, SQL Server, Tibero
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_dbScriptManager" className="uitext" /> 쿼리가 조회되지 않는 오류 수정
+
+#### MySQL, Oracle, Oracle Pro, PostgreSQL
+
+- <Status priority='1'>Feature</Status> 인스턴스 맵 화면 신규 출시
+
+#### MySQL, Oracle V2, Oracle Pro
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; **Top SQL** 필터 추가
+
+- <Status priority='1'>Feature</Status> **Top SQL** 특정 지표에 마우스 오버 시 설명 표시 기능 추가
+
+- <Status priority='0'>Fixed</Status> **Top SQL** 테이블 필드명, 컬럼 셀렉터 필드명, 필터 지표 필드명이 다르게 보여지는 오류 수정
+
+#### PostgreSQL
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> SQL Elapse Map 위젯 테이블 정보에 state 컬럼 추가
+
+#### PostgreSQL V2
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> > <Cmdname sid="dbObjectInfo" className="uitext" /> 바이트 단위의 값이 보이지 않는 오류 수정
+
+---
+
+### `Browser` 
+
+- <Status priority='1'>Feature</Status> iOS 프로젝트 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="hitmap" className="uitext" />, <Cmdname sid="TTL08103" className="uitext" /> 개선
+
+---
+
+### `Log`
+
+- <Status priority='1'>Feature</Status> 로그 CSV, TXT 다운로드 기능 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_logSetting" className="uitext" /> &gt; <Cmdname sid="log_parser_setting_primary" className="uitext" /> 등록 및 수정 시 로그 샘플 선택 동선 제공
+
+- <Status priority='0'>Fixed</Status> **로그 태그** 옵션 > <Cmdname sid="TTL06582" className="uitext" /> 시간 옵션 변경하면 로그 기준이 바뀌던 문제 수정
+
+</div>

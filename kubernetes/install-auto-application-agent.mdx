@@ -1,0 +1,377 @@
+---
+id: install-auto-application-agent
+title: APM 자동 설치 구성
+description: APM 자동 설치 구성 가이드입니다.
+keywords: [ 쿠버네티스, 쿠버네티스 모니터링, 와탭 오퍼레이터, 애플리케이션 자동 설치 ]
+toc_max_heading_level: 3
+---
+
+WhatapOperator 설치 후, 사용자는 `WhatapAgent` CR(Custom Resource) 리소스를 정의하여 각 Kubernetes 파드나 네임스페이스에 APM을 자동으로 주입할 수 있습니다. 
+
+## 설치 전 요구 사항
+
+* Kubernetes 환경
+* Helm 3.2 이상
+* Whatap 라이선스 키(필수)
+* Whatap 수집 서버 정보(IP 주소와 포트)
+* whatap-operator([오퍼레이터 설치](install-whatap-operator) 가이드)
+
+## CR 기본 구성
+
+다음은 CR을 구성한 기본 샘플입니다. 추가적인 설정이 필요한 경우 [예제. APM 설정 방법](install-auto-application-agent#example_set_up_apm)를 참고합니다.
+
+```yaml
+apiVersion: monitoring.whatap.com/v2alpha1
+kind: WhatapAgent
+metadata:
+  name: default                                # 리소스 이름
+  namespace: whatap-monitoring                 # 설치 대상 네임스페이스
+spec:
+  features:
+    apm:
+      instrumentation:
+        targets:
+          - name: "java-sample"                # APM 대상 이름 (식별용)
+            enabled: "true"                    # 자동 주입 활성화 여부
+            language: "java"                   # 언어: java, python, nodejs 등
+            whatapApmVersions:
+              java: "2.2.58"                   # 해당 언어의 APM 에이전트 버전
+            namespaceSelector:
+              matchNames:
+                - default                      # APM 주입 대상 네임스페이스
+            podSelector:
+              matchLabels:
+                app: hello-world               # APM 주입 대상 파드 라벨
+            config:
+              mode: default                    # 기본 설정 또는 configMap 참조 가능
+```
+
+### 예제. APM 설정 방법 {#example_set_up_apm}
+
+#### 예제 1. 특정 네임스페이스의 파드에 APM 자동 주입
+
+* `backend` 네임스페이스에 존재하며 `app=shop` 라벨을 가진 파드에 Java APM을 자동 주입합니다.
+
+* 와탭 APM은 현재 `latest` Java 버전만 지원합니다. (다른 언어는 추후 지원 예정)
+
+* ConfigMapRef로 설정 정보를 전달합니다.
+
+```yaml
+apiVersion: monitoring.whatap.com/v2alpha1
+kind: WhatapAgent
+metadata:
+  name: whatap
+  namespace: whatap-monitoring
+spec:
+  features:
+    apm:
+      instrumentation:
+        targets:
+          - name: shop-api
+            enabled: "true"
+            language: "java"
+            whatapApmVersions:
+              java: "latest"
+            namespaceSelector:
+              matchNames:
+                - backend
+            podSelector:
+              matchLabels:
+                app: shop
+            config:
+              mode: configMapRef
+              configMapRef:
+                name: shop-api-config
+                namespace: backend
+
+```
+
+```yaml title='shop-api-config.yaml'
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: shop-api-config
+  namespace: backend
+data:
+  whatap.conf: |
+    mtrace_enabled=true
+    mtrace_basetime=0
+    trace_normalize_enabled=true
+```
+
+#### 예제 2. 서로 다른 ConfigMap으로 서로 다른 워크로드 모니터링
+
+`system` 네임스페이스의 `app=router` 파드와 `backend` 네임스페이스의 `app=shop` 파드에 각각 다른 ConfigMapRef 설정(`request-router-config`, `shop-api-config`)을 주입합니다.
+
+```yaml
+apiVersion: monitoring.whatap.com/v2alpha1
+kind: WhatapAgent
+metadata:
+  name: whatap
+  namespace: whatap-monitoring
+spec:
+  features:
+    apm:
+      instrumentation:
+        targets:
+          - name: request-router
+            enabled: "true"
+            language: "java"
+            whatapApmVersions:
+              java: "latest"
+            namespaceSelector:
+              matchNames:
+                - system
+            podSelector:
+              matchLabels:
+                app: router
+            config:
+              mode: configMap
+              configMapRef:
+                name: request-router-config
+                namespace: system
+          - name: shop-api
+            enabled: "true"
+            language: "java"
+            whatapApmVersions:
+              java: "latest"
+            namespaceSelector:
+              matchNames:
+                - backend
+            podSelector:
+              matchLabels:
+                app: shop
+            config:
+              mode: configMapRef
+              configMapRef:
+                name: shop-api-config
+                namespace: backend
+
+```
+
+```yaml title='shop-api-config.yaml'
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: shop-api-config
+  namespace: backend
+data:
+  whatap.conf: |
+    mtrace_enabled=true
+    mtrace_basetime=0
+    trace_normalize_enabled=true
+```
+
+```yaml title='request-router-config.yaml'
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: request-router-config
+  namespace: backend
+data:
+  whatap.conf: |
+    mtrace_enabled=false
+    mtrace_basetime=100
+    trace_normalize_enabled=true
+```
+
+### 필드
+
+```yaml
+apiVersion: monitoring.whatap.com/v2alpha1
+kind: WhatapAgent
+metadata:
+  name: whatap
+spec:
+  features:
+    apm:
+      instrumentation:
+        targets:
+          - name: <name>
+            enabled: <true | false>
+            language: <java | python | nodejs>
+            whatapApmVersions:
+              <language> : <version>
+            namespaceSelector:
+              matchNames:
+                - <namespace>
+            podSelector:
+              matchLabels:
+                <key>: <values>
+            config:
+              mode: default
+```
+
+| 필드명 | 설명 |
+| --- | --- |
+| `name` | 타겟 이름. 모니터링에는 영향 없고 식별용입니다. |
+| `enabled` | `"true"`일 경우 해당 타겟에 APM 에이전트가 자동 주입됩니다. |
+| `language` | 타겟 애플리케이션의 언어. `java`, `python`, `nodejs` 등 |
+| `whatapApmVersions` | 언어별 와탭 APM 에이전트 버전 지정 |
+| `namespaceSelector` | APM 자동 주입 대상 네임스페이스 목록 |
+| `podSelector` | APM 자동 주입 대상 파드를 라벨 기준으로 선택 |
+| `config.mode` | 기본값 `"default"` 또는 ConfigMap 참조 방식 `"configMapRef"` 가능 |
+
+### 선택자(Selector)
+
+WhatapAgent는 쿠버네티스 표준 라벨 선택자를 지원합니다.
+
+#### namespaceSelector
+
+| 필드명 | 설명 |
+| --- | --- |
+| `matchNames` | 대상 네임스페이스 이름 목록 |
+| `matchLabels` | 키-값 쌍으로 네임스페이스 라벨 선택(AND 조건) |
+| `matchExpressions` | 고급 라벨 선택 표현식(AND 조건) |
+
+#### podSelector
+
+| 필드명 | 설명 |
+| --- | --- |
+| `matchLabels` | 키-값 쌍으로 파드 라벨 선(AND 조건) |
+| `matchExpressions` | 고급 라벨 선택 표현식(AND 조건) |
+
+#### matchExpressions 연산자
+
+| 연산자 | 설명 |
+| --- | --- |
+| `In` | 라벨 값이 지정된 값 목록에 포함되어야 함 |
+| `NotIn` | 라벨 값이 지정된 값 목록에 포함되지 않아야 함 |
+| `Exists` | 지정된 키의 라벨이 존재해야 함(values 필드는 비움) |
+| `DoesNotExist` | 지정된 키의 라벨이 존재하지 않아야 함(values 필드는 비움) |
+
+#### K8sAgent 설정
+
+| 필드명 | 설명 |
+| --- | --- |
+| `agentImageVersion` | 에이전트 이미지 버전(기본값: "latest") |
+| `masterAgent.enabled` | 마스터 에이전트 활성화 여부 |
+| `masterAgent.resources` | 마스터 에이전트의 리소스 요청 및 제한 설정 |
+| `masterAgent.envs` | 마스터 에이전트에 추가할 환경 변수 목록 |
+| `nodeAgent.enabled` | 노드 에이전트 활성화 여부 |
+| `nodeAgent.resources` | 노드 에이전트의 리소스 요청 및 제한 설정 |
+| `nodeAgent.envs` | 노드 에이전트에 추가할 환경 변수 목록 |
+| `gpuMonitoring.enabled` | GPU 모니터링 활성화 여부 |
+| `apiserverMonitoring.enabled` | API Server 모니터링 활성화 여부 |
+| `etcdMonitoring.enabled` | etcd 모니터링 활성화 여부 |
+| `schedulerMonitoring.enabled` | scheduler 모니터링 활성화 여부 |
+
+```yaml
+# 여러 조건을 조합한 선택자 예제
+namespaceSelector:
+  matchNames:
+    - production
+    - staging
+  matchLabels:
+    environment: production
+  matchExpressions:
+    - {key: tier, operator: In, values: [frontend, backend]}
+    - {key: restricted, operator: DoesNotExist}
+
+podSelector:
+  matchLabels:
+    app: web-service
+    version: v2
+  matchExpressions:
+    - {key: tier, operator: In, values: [backend, backend2, backend3]}
+    - {key: environment, operator: NotIn, values: [dev, test]}
+    - {key: ready, operator: Exists}
+```
+
+* namespaceSelector 상세 설명
+    
+    네임스페이스 선택자는 세 가지 방식으로 대상 네임스페이스를 필터링합니다.
+    
+    1. **matchNames**: 네임스페이스 이름으로 직접 선택
+
+        * `production` 또는 `staging` 이름을 가진 네임스페이스만 선택
+
+        * 이름 기반 필터링은 가장 기본적인 방법
+
+    1. **matchLabels**: 키-값 쌍으로 라벨 일치 여부 확인(AND 조건)
+
+        * `environment=production` 라벨을 가진 네임스페이스만 선택
+
+        * 모든 키-값 쌍이 일치해야 함(여러 라벨이 있을 경우 모두 만족해야 함)
+
+    1. **matchExpressions**: 고급 표현식으로 복잡한 조건 지정(AND 조건)
+
+        * `tier` 라벨이 `frontend` 또는 `backend` 값을 가져야 함(`In` 연산자)
+
+        * `restricted` 라벨이 존재하지 않아야 함(`DoesNotExist` 연산자)
+
+        * 모든 표현식이 참이어야 함(AND 조건)
+
+* **podSelector 상세 설명**
+    
+    파드 선택자는 두 가지 방식으로 대상 파드를 필터링합니다.
+    
+    1. **matchLabels**: 키-값 쌍으로 라벨 일치 여부 확인(AND 조건)
+
+        * `app=web-service` 및 `version=v2` 라벨을 모두 가진 파드만 선택
+
+        * 지정된 모든 라벨이 정확히 일치해야 함
+
+    1. **matchExpressions**: 고급 표현식으로 복잡한 조건 지정(AND 조건)
+
+        * `tier` 라벨이 `backend`, `backend2`, `backend3` 중 하나여야 함(`In` 연산자)
+
+        * `environment` 라벨이 `dev` 또는 `test`가 아니어야 함(`NotIn` 연산자)
+
+        * `ready` 라벨이 존재해야 함(`Exists` 연산자)
+
+        * 모든 표현식이 참이어야 함(AND 조건)
+
+### 테스트
+
+APM 자동 주입 테스트가 목적인 경우 아래 yaml을 받아 설치합니다.
+
+    ```yaml title='test-values.yaml'
+    ### 테스트 목적 샘플 자바 어플리케이션
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: hello-world
+      labels:
+        app: hello-world
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: hello-world
+      template:
+        metadata:
+          labels:
+            app: hello-world
+        spec:
+          containers:
+          - name: hello-world
+            image: whatap/base_java:0.0.13   # or 사용자 어플리케이션 이미지
+            ports:
+            - containerPort: 8080
+    --- 
+    
+    apiVersion: monitoring.whatap.com/v2alpha1
+    kind: WhatapAgent
+    metadata:
+      name: default                                # 리소스 이름
+      namespace: whatap-monitoring                 # 설치 대상 네임스페이스
+    spec:
+      features:
+        apm:
+          instrumentation:
+            targets:
+              - name: "java-sample"                # APM 대상 이름 (식별용)
+                enabled: "true"                    # 자동 주입 활성화 여부
+                language: "java"                   # 언어: java, python, nodejs 등
+                whatapApmVersions:
+                  java: "latest"                   # 해당 언어의 APM 에이전트 버전
+                namespaceSelector:
+                  matchNames:
+                    - default                      # APM 주입 대상 네임스페이스
+                podSelector:
+                  matchLabels:
+                    app: hello-world               # APM 주입 대상 파드 라벨
+                config:
+                  mode: default                    # 기본 설정 또는 configMap 참조 가능
+    ```

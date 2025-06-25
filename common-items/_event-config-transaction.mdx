@@ -50,17 +50,23 @@
 
 - **집계 기준 (필수)**  
 
-  - 에이전트별  
+    - 전체
+    - 에이전트별  
+    - URL별
+    - 각 에이전트의 URL별
+    - 에러 클래스별
+    - 각 에이전트의 에러 클래스별
+    - 컨텍스트별
+    - 각 에이전트의 컨텍스트별
 
-  - 각 에이전트의 URL별
+        :::note
 
-  - 각 에이전트의 에러 클래스별
+            컨텍스트가 없는 경우 집계되지 않습니다.
 
-  - URL별
+            - 에이전트 옵션 설정을 하지 않은 경우 (`app_context_enabled=true`)
+            - 웹 트랜잭션이 아닌 경우
 
-  - 에러 클래스별
-
-  - 전체
+        :::
 
 - **발생 횟수 (필수)**: 지정 횟수 이상 발생 시 알림
 
@@ -72,17 +78,19 @@
 
 트랜잭션 필터링을 위한 패턴을 설정합니다.
 
-:::note 
+**패턴 설정 방법**
 
-입력 방법 안내
+- Enter로 구분하여 여러 패턴을 입력할 수 있습니다.
+- 와일드카드(*)를 사용하여 패턴을 설정할 수 있습니다.
+- 같은 유형의 패턴은 OR 조건으로, 다른 유형의 패턴은 AND 조건으로 적용됩니다.
+- 아무 패턴도 설정하지 않으면 프로젝트의 전체 트랜잭션이 대상이 됩니다.
 
-* 필터링 조건을 입력한 뒤 Enter를 눌러 적용하세요.
+:::tip 
 
-* 와일드카드(*) 사용이 가능합니다.
+**슬래시(`/`)와 와일드카드(`*`) 조합에 주의하세요**
 
-* 동일한 유형의 조건은 OR, 다른 유형 간의 조건은 AND로 처리됩니다.
-
-* 조건을 입력하지 않으면 전체 트랜잭션을 대상으로 검색합니다.
+- `/api/*` : `/api`는 매칭되지 않음, `/api/` 뒤에 경로가 있어야 매칭 (예: ✅ /api/users, ❌ /api)
+- `/api*` : `/api` 자체도 매칭됨 (예: ✅ /api, ✅ /api/users, ✅ /apitest)
 
 :::
 
@@ -90,10 +98,11 @@
 
 지정한 항목과 일치하는 데이터를 필터링합니다. 일치 패턴은 적용 후 **파란색 태그**로 표시됩니다.
 
-- URL (예: `/api/*`, `*/users/*`)  
-- 에러 클래스 (예: `*Exception`, `*Error`)  
-- 에러 메시지  
-- 상태 코드 (예: `4**`, `5**`)  
+- **컨텍스트**: 애플리케이션 컨텍스트 패턴
+- **URL**: 트랜잭션 URL 패턴 (예: /api/*, */users/*)
+- **에러 클래스**: 에러 클래스명 패턴 (예: *Exception, *Error)
+- **에러 메시지**: 에러 메시지 내용 패턴
+- **상태 코드**: HTTP 상태 코드 패턴 (예: 4**, 5**)
 
 #### 제외 패턴
 
@@ -108,7 +117,6 @@
 패턴: "hello"
 "hello"     → 일치
 "Hello"     → 불일치 (대소문자 구분)
-
 ```
 
 **2. 접두사 매칭**
@@ -149,7 +157,6 @@
 **6. 복합 패턴**
 
 ```
-
 패턴: "hello*world"
 "hellobeautifulworld"  → 일치
 
@@ -252,7 +259,6 @@
 이벤트 메시지의 트랜잭션 정보는 조건에 부합한 마지막 트랜잭션의 값을 표시합니다. 
 
 ```
-
 (ignored count: 3)
 [Per Agent] limit: 2, count: 3
 [Condition]
@@ -266,8 +272,6 @@ url: /api/posts/test/timeout
 txid: 408093121470636540
 status: 408
 error class: java.util.concurrent.TimeoutException
-error message:
-
 ```
 
 ### 이벤트 메시지 구성 설명
@@ -282,23 +286,25 @@ error message:
     - **각 에이전트의 에러 클래스별**: `[Per Agent & Error Class] limit: n` 후 각 에러 클래스와 발생 건수 나열
     - **에이전트별 컨텍스트별**: `[Per Agent & Context] limit: n` 후 각 컨텍스트와 발생 건수 나열
     - **전체**: `[Total] limit: n, count: n`
+
 - **[Condition]**: 이벤트 발생 시점에 설정되어 있던 조건들을 표시합니다. 설정된 패턴만 표시됩니다.
-    - context patterns: 컨텍스트 일치 패턴
-    - url patterns: URL 일치 패턴
-    - error class patterns: 에러 클래스 일치 패턴
-    - error message patterns: 에러 메시지 일치 패턴
-    - status patterns: 상태 코드 일치 패턴
-    - exclude context patterns: 컨텍스트 제외 패턴
-    - exclude url patterns: URL 제외 패턴
-    - exclude error class patterns: 에러 클래스 제외 패턴
-    - exclude error message patterns: 에러 메시지 제외 패턴
-    - exclude status patterns: 상태 코드 제외 패턴
+    - **context patterns**: 컨텍스트 일치 패턴
+    - **url patterns**: URL 일치 패턴
+    - **error class patterns**: 에러 클래스 일치 패턴
+    - **error message patterns**: 에러 메시지 일치 패턴
+    - **status patterns**: 상태 코드 일치 패턴
+    - **exclude context patterns**: 컨텍스트 제외 패턴
+    - **exclude url patterns**: URL 제외 패턴
+    - **exclude error class patterns**: 에러 클래스 제외 패턴
+    - **exclude error message patterns**: 에러 메시지 제외 패턴
+    - **exclude status patterns**: 상태 코드 제외 패턴
+
 - **[Transaction]**: 조건에 부합한 마지막 트랜잭션의 상세 정보입니다.
-    - url: 트랜잭션 URL
-    - txid: 트랜잭션 고유 식별자
-    - status: HTTP 응답 상태 코드 (HTTP 트랜잭션이 아닌 경우 미표시)
-    - error class: 에러 클래스 (에러 클래스가 없는 경우 비어있음)
-    - error message: 에러 메시지 (에러 메시지가 없는 경우 비어있음)
+    - **url**: 트랜잭션 URL  
+    - **txid**: 트랜잭션 고유 식별자  
+    - **status**: HTTP 응답 상태 코드 (HTTP 트랜잭션이 아닌 경우 미표시)  
+    - **error class**: 에러 클래스 (에러 클래스가 없는 경우 미표시)  
+    - **error message**: 에러 메시지 (에러 메시지가 없는 경우 미표시)  
 
 이벤트 메시지는 설정한 조건과 실제 발생한 트랜잭션의 정보를 모두 포함하여, 어떤 조건에 의해 알림이 발생했는지 명확히 확인할 수 있습니다.
 

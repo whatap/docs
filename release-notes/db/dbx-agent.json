@@ -1,5 +1,76 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_54_02",
+    "ver": "v2.54.02",
+    "date": "2025-06-20",
+    "Lists": [
+      {
+        "ver": "v2.54.02",
+        "hash": "v25402",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> xview 카테고리에 state 필드 추가</p>",
+        "category": "PostgreSQL"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_54_01",
+    "ver": "v2.54.01",
+    "date": "2025-06-18",
+    "Lists": [
+      {
+        "ver": "v2.54.01",
+        "hash": "v25401",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> PostgreSQL SQL 통계 기능에 pg_stat_statements 스키마 지정 옵션 추가</p>",
+        "category": "PostgreSQL",
+        "details": "<ul>\n<li>옵션명: statements_schema=</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_53_02",
+    "ver": "v2.53.02",
+    "date": "2025-06-12",
+    "Lists": [
+      {
+        "ver": "v2.53.02",
+        "hash": "v25302",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Autoscale 에이전트 DB 클러스터 scale in 시 에이전트 디렉토리 삭제</p>",
+        "category": "공통"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_53_01",
+    "ver": "v2.53.01",
+    "date": "2025-05-28",
+    "Lists": [
+      {
+        "ver": "v2.53.01",
+        "hash": "v25301",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> MySQL 8 이상인 경우 락 수집 쿼리 변경(sys.innodb_lock_waits조회) 및 에이전트 옵션 추가\n<a href=\"https://docs.whatap.io/mysql/agent-dbx-settings#%EB%9D%BD-%EC%88%98%EC%A7%91-%EA%B4%80%EB%A0%A8-%EC%84%A4%EC%A0%95\" target=\"_blank\" rel=\"noopener noreferrer\">다음 문서</a> 의 옵션 참조</p>",
+        "category": "MySQL",
+        "details": "<p><code class=\"Change\" type=\"0\">Change</code> whatap.log 내 수집 session 정보 표기 방식 변경</p>"
+      },
+      {
+        "ver": "v2.53.01",
+        "hash": "v25301",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> PGSQL통계 수집 시 order by 옵션 추가</p>",
+        "category": "PostgreSQL",
+        "details": "<ul>\n<li>default : statements_order_by=total_time</li>\n<li>컬럼 추가 시 : ex) statements_order_by=total_time,calls</li>\n</ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dbx-2_52_04",
     "ver": "v2.52.04",
     "date": "2025-05-20",

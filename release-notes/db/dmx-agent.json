@@ -1,5 +1,119 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_5a",
+    "ver": "v1.0.5a",
+    "date": "2025-06-23",
+    "Lists": [
+      {
+        "ver": "v1.0.5a",
+        "hash": "v105",
+        "product": "DMX a",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> db_oracle_dma_lock_info 에 holder_inst_id 추가</p>"
+      },
+      {
+        "ver": "v1.0.5a",
+        "hash": "v105",
+        "product": "DMX a",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> db_oracle_dma_sqlstat 에 wait_class 추가</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_4y",
+    "ver": "v1.0.4y",
+    "date": "2025-06-10",
+    "Lists": [
+      {
+        "ver": "v1.0.4y",
+        "hash": "v104",
+        "product": "DMX y",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 쉘 스크립트를 주기적으로 수행하여 결과값을 수집할 수 있는 shmon 기능 추가</p>",
+        "details": "<ul>\n<li>\n<p>xos.conf 에 shmon=1 로 사용</p>\n</li>\n<li>\n<p>agent 디렉토리 하위에 shmon 디렉토리를 만들어 .sh 파일을 두면 주기적 실행 및 결과 수집 가능</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v1.0.4y",
+        "hash": "v104",
+        "product": "DMX y",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> AIX 머신에서 Oracle Pro 11.2.0.4, 19.3 지원 가능</p>"
+      },
+      {
+        "ver": "v1.0.4y",
+        "hash": "v104",
+        "product": "DMX y",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> script manager thread 로 처리</p>"
+      },
+      {
+        "ver": "v1.0.4y",
+        "hash": "v104",
+        "product": "DMX y",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> sql trace 시 tkprof 수행을 thread 로 처리</p>"
+      },
+      {
+        "ver": "v1.0.4y",
+        "hash": "v104",
+        "product": "DMX y",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> trace_tkprof_path= 에이전트 옵션 추가</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_4s",
+    "ver": "v1.0.4s",
+    "date": "2025-05-21",
+    "Lists": [
+      {
+        "ver": "v1.0.4s",
+        "hash": "v104",
+        "product": "DMX s",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> sqlstat에 wait 정보 추가</p>",
+        "details": "<ul>\n<li>\n<p>Event별 wait time 및 wait class별 wait time 추가</p>\n</li>\n<li>\n<p>Event 명을 db_index_event 카테고리로 1일 2회 전송</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v1.0.4s",
+        "hash": "v104",
+        "product": "DMX s",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Linux용, AIX용 Oracle 10.2.0.5 버전 지원</p>"
+      },
+      {
+        "ver": "v1.0.4s",
+        "hash": "v104",
+        "product": "DMX s",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> ASM disk 사이즈 정보 추가</p>"
+      },
+      {
+        "ver": "v1.0.4s",
+        "hash": "v104",
+        "product": "DMX s",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Multi Script Manager 기능 추가</p>"
+      },
+      {
+        "ver": "v1.0.4s",
+        "hash": "v104",
+        "product": "DMX s",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Plan 정보에 index의 table명 추가</p>"
+      },
+      {
+        "ver": "v1.0.4s",
+        "hash": "v104",
+        "product": "DMX s",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> SQL trace on/off 기능 추가</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_4h/",
     "ver": "v1.0.4h",
     "date": "2025-04-03",

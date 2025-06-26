@@ -6,6 +6,40 @@ pagination_next: release-notes/service/service-2_18_x
 displayed_sidebar: releaseSidebar
 ---
 
+## Service 2.18.1
+
+2025년 06월 26일
+
+<div class='indentTab'>
+
+### `공통`
+
+<Status priority='0'>Fixed</Status> 로고가 일시적으로 보이지 않는 현상 수정
+
+---
+
+### `Database`
+
+#### MySQL, Oracle V2, Oracle Pro, PostgreSQL
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; **인스턴스 맵** 임계치 설정 항목 추가 시 발생하는 오류 수정
+
+#### MySQL, Oracle V2, Oracle Pro
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; **Top SQL** 세로 필터에서 퀵 필터가 작동하지 않는 오류 수정
+
+#### PostgreSQL
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_pgStat" className="uitext" /> 화이트아웃 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; **Top SQL** `plan_hash_value` 보이지 않도록 수정
+
+#### MySQL
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; **Top SQL** 키 값 중복 출력 오류 수정
+
+</div>
+
 ## Service 2.18.0
 
 2025년 06월 26일
@@ -87,7 +121,7 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> **GPU 모니터링** 출시
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="container_map" className="uitext" /> GPU 지표 기반 색상 표시 기능 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="container_map" className="uitext" /> GPU 지표 기반 색상 표시 기능 추가
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="podList" className="uitext" /> &gt; **상세** 메트릭스 대시보드의 조회 기간을 30일까지 가능하도록 변경
 
@@ -129,7 +163,7 @@ displayed_sidebar: releaseSidebar
 
 #### MySQL, Oracle, Oracle Pro, PostgreSQL
 
-- <Status priority='1'>Feature</Status> 인스턴스 맵 화면 신규 출시
+- <Status priority='1'>Feature</Status> **인스턴스 맵** 신규 출시
 
 #### MySQL, Oracle V2, Oracle Pro
 

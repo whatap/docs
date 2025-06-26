@@ -1,58 +1,69 @@
 ---
 id: analyze-pageload
-title: 페이지 로드 분석하기
+title: 사용자 액션 히트맵
 description: 페이지 로드 이벤트를 차트 형태로 제공하고, 이벤트에 대한 상세 정보를 분석할 수 있습니다.
 keywords: [ 브라우저 모니터링, 에이전트, 페이지 로드 ]
 ---
 
-홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="rumPageLoadHitmap" className="uitext" />
-
-[페이지 로드](before-starting#load-page) 이벤트는 웹 애플리케이션을 방문한 최종 사용자가 페이지로드를 완료했을 때 발생하는 이벤트입니다. <b>페이지 로드</b> 이벤트를 히트맵 차트 형태로 제공하고 각 이벤트에 대한 상세 정보를 타임라인 형식으로 확인할 수 있습니다. 이를 통해 웹 페이지를 로드하는 데 장애를 발생시키는 요소를 파악할 수 있습니다. 다음의 정보를 포함합니다.
-
-* **페이지 로드** 이벤트 구간별 세부 시간 정보
-
-* 로드한 리소스의 세부 정보
-
-* 브라우저 에러 데이터
-
-## 페이지 로드 이벤트 목록 확인 {#pageload-events-list}
-
-단일 페이지별로 로드 이벤트를 분석할 수 있습니다. 페이지 로드 성능을 분석하기 위해 히트맵과 다양한 지표를 제공합니다.
-
-<ImgLang img='browser-analysis-pageload-hitmap.png' desc='페이지 로드 히트맵' />
-
-![지시선 1](/img/number-01.png) <Cmdname sid="rumPageLoadHitmap" className="uitext" /> 위젯의 차트 영역을 드래그하세요. 드래그한 영역의 페이지 로드 이벤트 목록을 화면 아래에 ![지시선 2](/img/number-02.png) <Cmdname sid="page" className="uitext" /> <Cmdname sid="list" className="uitext" />으로 불러오고, [페이지 그룹](before-starting#page-group)별로 분류해 화면 오른쪽에 ![지시선 4](/img/number-04.png) <Cmdname sid="page_group" className="uitext" /> <Cmdname sid="list" className="uitext" />으로 불러옵니다. ![지시선 3](/img/number-03.png) <Cmdname sid="page_url" className="uitext" />에서 원하는 페이지 목록을 검색할 수 있습니다.
-
 :::note
 
-<Cmdname sid="time" className="uitext" /> 옵션 이용 방법에 대한 자세한 내용은 [다음 문서](usage-ui#timeselector)를 참조하세요.
+**기능 개편 안내**
+
+기존 **페이지 로드 분석** 기능이 **사용자 액션 분석**으로 개편되었습니다. 페이지 로드 이벤트뿐만 아니라 클릭, 터치 등 다양한 사용자 상호작용을 통합적으로 분석할 수 있도록 기능이 확장되었습니다.
 
 :::
 
-### ![](/img/number-01.png) 페이지 로드 히트맵 {#pageload-hitmap}
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="analysis" className="uitext" /> &gt; **사용자 액션 히트맵**
 
-<Cmdname sid="rumPageLoadHitmap" className="uitext" /> 위젯은 시간에 따른 <b>페이지 로드</b>의 응답시간을 분포도 차트로 표현합니다. 
+[사용자 액션](before-starting#user-actions) 이벤트는 웹 애플리케이션을 방문한 최종 사용자가 페이지 로드를 완료하거나 클릭, 터치 등의 상호작용을 할 때 발생합니다. 이 이벤트는 히트맵 차트로 제공하고, 각 이벤트의 상세 정보는 타임라인 형식으로 확인할 수 있습니다. 이를 통해 웹 페이지의 성능 문제와 사용자 경험을 저해하는 요소를 파악할 수 있으며, 다음과 같은 정보를 포함합니다.
 
-* 가로축은 <b>페이지 로드</b> 이벤트의 종료 시간입니다.
+* **페이지 로드 이벤트**
 
-* 세로축은 <b>페이지 로드</b> 이벤트의 경과 시간입니다.
+    * 페이지 로드 이벤트 구간별 세부 시간 정보
+    * 로드한 리소스의 세부 정보
+    * 브라우저 에러 데이터
 
-* <span class='lowfg'>하늘색</span> → <span class='normal'>파란색</span> → <span class='highfg'>남색</span> 순으로 정상 <b>페이지 로드</b> 이벤트를 표현합니다.
+* **클릭/터치 이벤트**
 
-* <span class='logwr'>노란색</span> → <span class='slow'>주황색</span> → <span class='vslow'>빨간색</span> 순으로 에러 발생 <b>페이지 로드</b> 이벤트를 표현합니다. 에러 <b>페이지 로드</b> 이벤트는 페이지를 불러오는 중 브라우저 에러가 발생한 경우입니다.
+    * 클릭 반응 시간
+    * 클릭 시 발생한 로드된 리소스 정보
+    * 클릭 시 발생한 에러 정보
 
+## 사용자 액션 이벤트 목록 확인 {#user-actions-events-list}
 
-### ![](/img/number-02.png) 페이지 목록 {#page-list}
+단일 사용자 액션 이벤트를 분석할 수 있습니다. 사용자 액션 성능을 분석하기 위해 히트맵과 다양한 지표를 제공합니다.
 
-<Cmdname sid="rumPageLoadHitmap" className="uitext" /> 위젯에서 드래그한 영역의 <b>페이지 로드</b> 이벤트들이 <Cmdname sid="page" className="uitext" /> <Cmdname sid="list" className="uitext" /> 위젯의 테이블에 나타납니다. 목록에서 각 항목의 가장 왼쪽에 <LinkImage img="ico-detail-view.svg" className="ico" desc="상세 보기 아이콘" /> 버튼을 선택하면 <Cmdname sid="page_load" className="uitext" /> <Cmdname sid="detail" className="uitext" /> 창이 나타납니다.
+<ImgLang img='browser-user-action-hitmap.png' desc='user-action-hitmap' />
 
-<Cmdname sid="page" className="uitext" /> <Cmdname sid="list" className="uitext" /> 위젯의 테이블에는 다음 기본 정보를 포함합니다.
+1. **사용자 액션 히트맵** 위젯의 차트 영역을 드래그하세요. 
 
-* <Cmdname sid="start_time" className="uitext" />: <b>페이지 로드</b> 이벤트의 시작 시간
+1. 드래그한 영역의 이벤트 목록은 **사용자 액션 히트맵** 아래에 **사용자 액션 목록**으로 나타나고, 페이지 그룹별로 화면 오른쪽의 <Cmdname sid="page_group" className="uitext" /> <Cmdname sid="list" className="uitext" />에서 확인할 수 있습니다.
 
-* <Cmdname sid="elapsed" className="uitext" />: <b>페이지 로드</b> 이벤트 완료까지의 소요 시간
+    * **사용자 액션 목록**의 <Cmdname sid="page_url" className="uitext" />에서 원하는 페이지 목록을 검색할 수 있습니다.
 
-* <Cmdname sid="page_url" className="uitext" />: 최종 사용자가 접속한 페이지 URL 경로
+### 사용자 액션 히트맵 {#useraction-hitmap}
+
+**사용자 액션 히트맵** 위젯은 시간에 따른 사용자 액션의 응답 시간을 분포도 차트로 표현합니다. 위젯의 차트 영역을 드래그하세요. 드래그한 영역의 **사용자 액션 목록**을 화면 아래에 표시합니다.
+
+* **가로축**은 사용자 액션 이벤트의 종료 시간입니다.
+
+* **세로축**은 사용자 액션 이벤트의 경과 시간(응답 시간)입니다.
+
+* <span class='lowfg'>하늘색</span> → <span class='normal'>파란색</span> → <span class='highfg'>남색</span> 순으로 정상 사용자 액션 이벤트 밀도를 표현합니다.
+
+* <span class='logwr'>노란색</span> → <span class='slow'>주황색</span> → <span class='vslow'>빨간색</span> 순으로 에러 발생 사용자 액션 이벤트 밀도를 표현합니다. 에러 사용자 액션 이벤트는 이벤트 처리 중 브라우저 에러가 발생한 경우입니다.
+
+### 사용자 액션 목록 {#useraction-list}
+
+**사용자 액션 히트맵**에서 드래그한 영역의 사용자 액션 이벤트들이 **사용자 액션 목록**에 나타납니다. 목록에서 각 항목의 가장 왼쪽에  <LinkImage img="ico-detail-view.svg" className="ico" desc="상세 보기 아이콘" /> 아이콘을 클릭하면, **사용자 액션 분석** 상세 창이 나타납니다.
+
+**사용자 액션 목록**은 다음 기본 정보를 포함합니다.
+
+* <Cmdname sid="start_time" className="uitext" />: 사용자 액션 이벤트의 시작 시간
+
+* <Cmdname sid="elapsed" className="uitext" />: 사용자 액션 이벤트 완료까지 소요 시간
+
+* <Cmdname sid="page_url" className="uitext" />: 사용자 액션이 발생한 페이지 URL 경로
 
 * <Cmdname sid="browser" className="uitext" />: 최종 사용자가 사용한 브라우저 종류
 
@@ -62,22 +73,20 @@ keywords: [ 브라우저 모니터링, 에이전트, 페이지 로드 ]
 
 * <Cmdname sid="client_ip" className="uitext" />: 최종 사용자가 사용한 기기의 IP 주소
 
-테이블에 다른 정보 컬럼을 추가하거나, 추가한 컬럼을 숨길 수도 있습니다. <Cmdname sid="page" className="uitext" /> <Cmdname sid="list" className="uitext" /> 위젯의 오른쪽 위에 ![컬럼 아이콘](/img/ico-column.svg) 버튼을 선택하세요.
-
 :::note
 
-* 페이지 목록 중 브라우저 에러 데이터를 포함하고 있는 페이지 로드 이벤트는 빨간색으로 표시됩니다.
-
-  <ImgLang img='browser-pageload-error-list.png' desc='브라우저 에러 데이터' />
-
-* 와탭은 클라이언트와 관련한 정보를 기본 저장합니다.
+와탭은 클라이언트와 관련한 정보를 기본 저장합니다.
 
 :::
 
+#### 컬럼 정보 추가 및 수정
 
-### ![](/img/number-03.png) 페이지 목록 필터링하기 {#filtering-page-list}
+테이블에 다른 정보 컬럼을 추가하거나, 추가한 컬럼을 숨길 수도 있습니다. **사용자 액션 목록**의 오른쪽 위의 ![컬럼 아이콘](/img/ico-column.svg) **컬럼 설정** 버튼을 클릭하세요.
 
-페이지 목록을 대상으로 검색어를 입력하고 일치하는 대상을 필터링할 수 있습니다. 조회 기준은 다음과 같습니다. 원하는 항목을 선택한 다음 검색어를 입력하고 엔터키를 입력하거나 ![검색 아이콘](/img/ico-search.svg) 버튼을 선택하세요.
+
+#### 사용자 액션 목록 필터링하기 {#filtering-action-list}
+
+사용자 액션 목록을 대상으로 검색어를 입력하고 일치하는 대상을 필터링할 수 있습니다. 조회를 원하는 항목을 선택한 후, 검색어를 입력하고 엔터키를 입력하거나 ![검색 아이콘](/img/ico-search.svg)을 클릭하세요.
 
 * <Cmdname sid="page_url" className="uitext" />
 
@@ -92,77 +101,135 @@ keywords: [ 브라우저 모니터링, 에이전트, 페이지 로드 ]
 * <Cmdname sid="user_id" className="uitext" />
 
 
-### ![](/img/number-04.png) 페이지 그룹 목록 {#page-group-list}
+#### 페이지 그룹 목록 필터링하기 {#filtering-page-group-list}
 
-<ImgLang img='browser-analysis-pageload-hitmap-pagegroup.png' desc='페이지 그룹 목록' />
+페이지 그룹 목록을 대상으로 필터링할 수 있습니다. 원하는 페이지 그룹 목록을 선택하세요.
 
-<Cmdname sid="rumPageLoadHitmap" className="uitext" /> 위젯에서 드래그한 영역의 <b>페이지 로드</b> 이벤트들을 <Link to="before-starting#page-group">페이지 그룹</Link>별로 확인할 수 있습니다. 목록에서 원하는 항목을 선택하면, 선택한 <b>페이지 그룹</b>에 해당하는 <b>페이지 로드</b> 이벤트만 <Cmdname sid="page" className="uitext" /> <Cmdname sid="list" className="uitext" />에 나타납니다.
+## 사용자 액션 이벤트 상세 정보 {#useraction-details}
 
+**사용자 액션 목록**에서 각 항목 왼쪽의 <LinkImage img="ico-detail-view.svg" className="ico" desc="상세 보기 아이콘" /> 아이콘을 클릭하면 **사용자 액션 분석** 상세 창이 나타납니다. 상세 창은 왼쪽의 이벤트 목록과 오른쪽의 상세 정보로 구성되어 있습니다. 사용자 액션의 성능을 분석하기 위해 다양한 지표를 제공하고, 성능에 영향을 주는 요소를 파악할 수 있습니다.
 
+### 이벤트 목록 {#event-list}
 
-## 페이지 로드 이벤트 상세 정보 {#pageload-details}
+**사용자 액션 분석** 상세 창의 오른쪽에 선택한 시간 범위의 사용자 액션 이벤트가 목록으로 표시되며, 경과 시간 순으로 정렬됩니다. 목록에서 특정 이벤트를 클릭하면 오른쪽 패널에 해당 이벤트의 상세 정보가 표시됩니다. 
 
-<Cmdname sid="page" className="uitext" /> <Cmdname sid="list" className="uitext" />에서 각 항목의 가장 왼쪽에 <LinkImage img="ico-detail-view.svg" className="ico" desc="상세 보기 아이콘" /> 버튼을 선택하면 <Cmdname sid="page_load" className="uitext" /> <Cmdname sid="detail" className="uitext" /> 창이 나타납니다. <b>페이지 로드</b>의 성능을 분석하기 위해 다양한 지표를 제공하고, 성능에 영향을 주는 요소를 파악할 수 있습니다.
+<ImgLang img='browser-analyze-pageload-event-list.png' desc='event-list' />
 
-<ImgLang img='rum-pageload-event-02.png' desc='페이지 로드 상세' />
+* **응답 시간**: 사용자 액션의 응답 시간 (ms)
 
-### ![](/img/number-01.png) URL 목록 {#url-list}
+* **페이지 URL**: 사용자 액션이 발생한 페이지 URL
 
-<Cmdname sid="page" className="uitext" /> <Cmdname sid="list" className="uitext" />의 항목을 URL 기준으로 확인할 수 있습니다. <Cmdname sid="url_list" className="uitext" />의 정렬 기준은 경과 시간입니다. URL 항목을 선택하면 <b>페이지 로드</b> 이벤트에 대한 상세 정보를 <LinkImage img="number-02.png" className="ico" desc="숫자 2" /> 오른쪽 화면에서 조회할 수 있습니다.
+* **브라우저**: 사용자가 사용한 브라우저 종류
 
-* 각 항목의 파랑색 막대 그래프는 <b>페이지 로드</b> 경과 시간입니다.
-* 각 항목의 막대 그래프 오른쪽의 시간은 <b>페이지 로드</b> 시작 시간입니다.
+* **디바이스**: 사용자가 사용한 기기 종류
 
-### ![](/img/number-02.png) 개요(페이지 로드 이벤트 요약) {#pageload-events-summary}
+* **운영체제**: 사용자가 사용한 운영체제
 
-<Cmdname sid="summary" className="uitext" /> 탭에서는 <b>페이지 로드</b> 과정 중 구간별 소요된 시간을 그래프 차트로 제공합니다. 이를 통해 <b>페이지 로드</b> 과정 중 느린 구간을 파악할 수 있습니다.
+### 상세 정보 {#details-events-summary}
 
-* <Cmdname sid="page" className="uitext" /> <Cmdname sid="info" className="uitext" />: 최종 사용자의 접속 환경, 접속 페이지 정보, <Cmdname sid="user_id" className="uitext" />, <Cmdname sid="session_id" className="uitext" /> 정보를 제공합니다.
+**사용자 액션 분석** 상세 창의 왼쪽에 선택한 이벤트의 상세 정보는 개요, 사용자 세션 분석, 세션 리플레이 탭을 클릭해 확인할 수 있습니다. 정보는 다음과 같이 구성됩니다. 
 
-* <Cmdname sid="page_load_timing" className="uitext" /> <Cmdname sid="info" className="uitext" /> : <b>페이지 로드</b> 시 구간별 소요 시간을 확인할 수 있습니다.
+<ImgLang img='browser-analyze-pageload-details.png' desc='details-events' />
 
-  * ***redirect***: 브라우저가 리디렉션에 소요한 시간
-  
-  * ***cache***: 브라우저가 캐시된 리소스를 검색하는데 소요한 시간
-  
-  * ***dns***: 브라우저가 도메인을 조회하는데 소요한 시간
-  
-  * ***wait***: 브라우저가 <b>페이지 로드</b>에 필요한 데이터에 대한 응답을 기다리는데 소요한 시간
-  
-  * ***download***: 브라우저가 서버로부터 리소스를 다운로드하는데 소요한 시간
-  
-  * ***render***: 서버로부터 다운로드한 리소스를 화면에 렌더링하고 <b>페이지 로드</b> 이벤트를 완료하는데 걸린 시간
+#### **기본 정보**
+
+* **페이지 URL**: 이벤트가 발생한 페이지의 전체 URL
+
+* **페이지 타이틀**: 웹 페이지의 제목
+
+* **사용자 에이전트**: 브라우저와 운영체제의 상세 정보
+
+* **브라우저/버전**: 브라우저 종류와 버전
+
+* **운영체제/버전**: 운영체제 종류와 버전
+
+* **디바이스**: 사용 기기 종류 (desktop, mobile 등)
+
+* **도시**: 사용자의 접속 위치
+
+* **세션 ID**: 사용자 세션 식별자
+
+* **클라이언트 IP**: 사용자의 IP 주소
+
+* **유효 연결 유형**: 네트워크 연결 타입 (3g, 4g, wifi 등)
+
+* **유효 대역폭**: 네트워크 대역폭 정보
+
+* **RTT**: Round Trip Time (왕복 시간)
+
+#### 시간 정보
+
+이벤트의 전체 경과 시간, 시작 시간, 종료 시간을 확인할 수 있습니다.
+
+#### 구간별 소요 시간 (타임라인 차트)
+
+<b>페이지 로드</b> 이벤트는 구간별 소요 시간을 시각적으로 확인할 수 있습니다.
+
+* **리다이렉트 시간**: 페이지 리디렉션에 소요된 시간
+
+* **요청 대기 시간**: 서버 응답 대기 시간
+
+* **다운로드 시간**: 리소스 다운로드 시간
+
+* **Time to first byte**: 첫 바이트 수신 시간
+
+* **Dom Interactive**: DOM 상호작용 가능 시점
+
+* **Dom Content Loaded**: DOM 콘텐츠 로드 시간
+
+* **Dom Complete**: DOM 완료 시간
+
+* **OnLoad 이벤트 시간**: 페이지 로드 완료 시간
+
+* **캐싱 시간**: 캐시된 리소스 검색 시간
+
+* **DNS 탐색**: 도메인 조회 시간
+
+* **TCP 연결 시간**: TCP 연결 수립 시간
 
 ### 리소스 목록 {#resource-list}
 
-브라우저가 서버로부터 다운로드하는 리소스는 <b>페이지 로드</b> 성능에 큰 영향을 줄 수 있습니다. <Cmdname sid="resource" className="uitext" /> <Cmdname sid="list" className="uitext" />에서는 로딩 속도가 느리거나 파일 사이즈가 큰 리소스를 빠르게 파악할 수 있습니다.
+이벤트 처리 과정에서 로드된 리소스들의 상세 정보를 제공합니다. 각 리소스는 타임라인 형태로 표시되어 로딩 순서와 소요 시간을 한눈에 파악할 수 있습니다.
 
-<ImgLang img='rum-pageload-event-03.png' desc='리소스 목록' />
+* **이름**: 리소스 파일명 또는 URL
 
-각 리소스의 시작 시간을 기준으로 타임라인 차트를 제공해 로딩 속도가 느린 리소스를 파악할 수 있습니다. 각 리소스의 파일 크기를 같이 참조해 성능에 영향을 끼치는 부분을 개선할 수 있습니다. 각 리소스를 클릭하면 <Cmdname sid="resource" className="uitext" /> <Cmdname sid="detail" className="uitext" /> 창을 통해 상세 시간 정보를 확인할 수 있습니다.
+* **경과 시간**: 각 리소스의 로딩 시간
 
-<ImgLang img='rum-pageload-event-04.png' desc='리소스 상세' />
+<ImgLang img='browser-analyze-pageload-resource-list.png' desc='resource-list' />
+
+#### 리소스 상세 정보
+
+리소스 목록에서 특정 리소스를 클릭하면 해당 리소스의 상세 정보를 툴팁으로 확인할 수 있습니다. 리소스 상세 정보를 통해 성능 병목 구간을 정확히 파악하고, 최적화가 필요한 리소스를 식별할 수 있습니다.
+
+* **리소스 타이밍 정보**
+
+    * **캐싱 시간**: 캐시된 리소스 검색 시간
+
+    * **DNS 탐색**: 도메인 조회에 소요된 시간
+
+    * **연결 시간**: 서버와의 연결 수립에 소요된 시간
+
+    * **요청 대기 시간**: 서버 응답을 기다리는 시간 (TTFB)
+
+    * **다운로드 시간**: 리소스 다운로드에 소요된 시간
+
+    * **경과 시간**: 전체 리소스 로딩에 소요된 총 시간
+
+* **리소스 정보**
+
+    * **타입**: 리소스 유형 (css, js, image 등)
+
+    * **크기**: 리소스 파일 크기
+
+    * **Delivery Type**: 전송 방식 (캐시 로드 등)
 
 ### 브라우저 에러 확인하기
 
-브라우저 에러 데이터를 포함하고 있는 페이지 로드 이벤트의 경우 빨간색으로 표시됩니다. <Cmdname sid="resource" className="uitext" /> <Cmdname sid="list" className="uitext" />에서 에러가 발생한 스텝을 확인할 수 있습니다.
+브라우저 에러 데이터를 포함하고 있는 페이지 로드 이벤트의 경우 <span class='vslow'>빨간색</span>으로 표시됩니다. <Cmdname sid="resource" className="uitext" /> <Cmdname sid="list" className="uitext" />에서 에러가 발생한 스텝을 확인할 수 있습니다.
 
-<ImgLang img='browser-pageload-details-resource-error.png' desc='리소스 목록 - 에러 데이터' />
-
-1. <Cmdname sid="resource" className="uitext" /> <Cmdname sid="list" className="uitext" />에서 에러가 발생한 스텝을 선택하면 <Cmdname sid="exception_stack" className="uitext" /> 창이 나타납니다.
-
-    <ImgLang img='browser-pageload-details-resource-error-stack.png' desc='에러 스택' />
-
-1. ***Upload*** 버튼을 선택하세요.
-
-1. 해당 코드 스택에 대한 소스 맵 파일을 선택하세요.
-
-난독화된 스택 정보와 자바스크립트 소스맵 정보를 비교하여 실제 에러가 발생한 코드를 확인할 수 있습니다.
-
+<ImgLang img='browser-analyze-pageload-check-error.png' desc='check-browser-error' />
 
 ### 사용자 세션 분석 {#TTL07736}
-
-<ImgLang img='browser-pageload-details-user-session.png' desc='사용자 세션 분석' />
 
 사용자 세션을 기준으로 웹 페이지와 상호 작용하면서 발생시킨 이벤트 및 에러 등을 시간순으로 확인할 수 있습니다. <Cmdname sid="TTL07736" className="uitext" />에 대한 자세한 내용은 [다음 문서](user-session-log-search#analysisusersession)를 참조하세요.
 

@@ -1,0 +1,70 @@
+---
+id: dashboard-gpu
+title: GPU 대시보드
+description: 노드- GPU(MIG) - Pod간 연결 관계를 추적할 수 있는 쿠버네티스 관점의 GPU 대시보드입니다. 
+keywords: [ 쿠버네티스, 쿠버네티스 모니터링, GPU 대시보드 ]
+---
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="dashboard" className="uitext" /> &gt;  **GPU 대시보드**
+
+노드- GPU(MIG) - Pod간 연결 관계를 추적할 수 있는 쿠버네티스 관점의 **GPU 대시보드**입니다.
+
+* 노드- GPU(MIG) - Pod간 매핑을 시각적으로 제공하여 GPU 자원 현황을 쉽게 파악할 수 있습니다.
+
+* 사용률·온도·메모리 기준 Top5 추이를 통해 리소스 과다 사용이나 편중을 빠르게 인지할 수 있습니다.
+
+* Pending, 미사용 GPU 등 주요 상태를 표시하여 할당 누락이나 사용 불균형 같은 이상 징후를 한눈에 식별할 수 있습니다.
+
+### 권한 및 조건
+
+* **지원 환경**: 쿠버네티스 클러스터 프로젝트
+
+* **에이전트 버전**: 쿠버네티스 에이전트 버전 1.8.7 이상
+
+* 오픈 에이전트 설치 필요
+
+## 기본 화면
+
+클러스터 내 GPU 자원 상태와 활용도를 한눈에 파악할 수 있는 시각화 대시보드입니다. 
+
+<ImgLang img='gpu-dashboard-main.png' desc='GPU dashboard' />
+
+### GPU 리소스 상태 요약
+
+조회 종료 시각 기준 5분 동안 수집된 GPU 정보(할당된 노드, Pod, GPU의 상태별 개수)를 4개의 위젯으로 요약된 정보를 확인할 수 있습니다.
+
+### GPU Map
+
+조회 시점의 수집된 디바이스를 맵 차트로 확인할 수 있습니다. 
+
+* 물리 장치는 P, MIG 인스턴스는 M 라벨로 표기됩니다.
+
+* 노드/물리 장치 기준으로 그룹화 가능하며, 상태 또는 사용률 기반 색상 표시 옵션을 선택할 수 있습니다.
+
+### 사용량
+
+조회 종료 시각 기준 1분 간의 전체 클러스터의 VRAM 크기와 사용량, 장치별 평균 GPU 사용량, VRAM 사용량을 확인할 수 있습니다.
+
+### GPU Performance Summary(Top 5)
+
+조회 범위 동안의 물리 장치별 주요 성능 지표 추이를 확인할 수 있습니다.
+
+* Utilization (%)
+
+* VRAM Usage (MiB)
+
+* Temperature (℃)
+
+* SM Active (%)
+
+### GPU / 노드 / 파드 목록
+
+GPU 목록, 노드 목록, 파드 목록을 확인할 수 있습니다. 노드 목록과 파드 목록은 GPU 사용률 기준 상위 5개 항목만 표시되며, GPU 목록은 조회된 모든 GPU를 표시합니다. 표시되는 정보는 조회 시간 기준 1분간 수집된 GPU 데이터입니다.
+
+<ImgLang img='gpu-top5-list.png' desc='GPU top5 list' />
+
+## 상세 보기
+
+GPU 맵 또는 GPU 목록 좌측 상세 아이콘을 클릭하면 선택한 GPU의 관계도와 메트릭 추이를 확인할 수 있습니다.
+
+<ImgLang img='gpu-detail-relation.png' desc='GPU dashboard details' />

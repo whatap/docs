@@ -1,5 +1,27 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_4_3/",
+    "ver": "v2.4.3",
+    "date": "2025-06-25",
+    "Lists": [
+      {
+        "ver": "v2.4.3",
+        "hash": "v243",
+        "product": ".NET Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> URL 정규화한 경우, 원본 URL이 step에서도 노출되는 옵션 추가</p>",
+        "details": "<ul><li><p><strong>step_origin_url_enabled</strong> <span class='type'>Boolean</span></p><ul><li>기본값 <code>false</code></li><li>URL을 정규화한 경우, 원본 URL이 step에서도 표시됩니다.</li></ul></li></ul>"
+      },
+      {
+        "ver": "v2.4.3",
+        "hash": "v243",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> ISAPI 필터 기반 트랜잭션에서 오류가 발생한 경우도 히트맵에 푸른색으로 표시되는 버그 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_4_2/",
     "ver": "v2.4.2",
     "date": "2025-04-26",

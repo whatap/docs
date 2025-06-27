@@ -8,49 +8,13 @@ displayed_sidebar: releaseSidebar
 
 2025년 06월 25일
 
-- <Status priority='1'>New</Status> 매트릭스 조회에 `app_context_stat` 카테고리 추가
-
-    * **app_context_enabled** <span class='type'>Boolean</span> 
-
-        * 기본값 `false`
-
-        * `true` 설정 시 `app_context_stat` 수집 기능 전체 활성화
-    
-    * **app_context_parser**
-    
-        * `default, prefix, match`중 사용
-
-        * `default`: 기본 파서(첫 번째 경로 세그먼트 추출)
-
-        * `prefix`: 접두사 매칭 파서(가장 유연함)
-
-        * `match`: 정확한 매칭 파서(완전 일치만)
-    
-    * **app_context_parser_reset** <span class='type'>Number</span> 
-    
-        * 기본값 `0`
-
-        * 파서의 내부 캐시와 설정을 강제로 재설정하는 카운터
-    
-    * **app_context_path_depth** <span class='type'>Number</span> 
-    
-        * 기본값 `1`
-
-        * URL에서 추출할 경로 세그먼트의 깊이 지정 (default 파서에서만 사용)
-    
-    * **app_context_path_set** <span class='type'>String</span> 
-    
-        * 기본값 없음
-
-        * 모니터링할 경로와 해당 이름을 정의하는 매핑 설정 (콤마로 구분하여 사용)
-
-            * 예. `name1@url1,name2@url2,url3,name4@url4`
+- <Status priority='1'>New</Status> URL 정규화한 경우, 원본 URL이 step에서도 노출되는 옵션 추가
 
     * **step_origin_url_enabled** <span class='type'>Boolean</span> 
     
         * 기본값 `false`
 
-        * URL을 정규화한 경우, 원본 URL이 step에서도 노출됩니다.
+        * URL을 정규화한 경우, 원본 URL이 step에서도 표시됩니다.
 
 - <Status priority='0'>Fixed</Status> URL을 정규화한 경우, 레코드 요약에서 원본 URL이 노출되지 않던 현상 수정
 

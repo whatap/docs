@@ -160,11 +160,11 @@ features:
     - port: "metrics"
       path: "/metrics"
       interval: "30s"
-      metricRelabelConfigs:
-        # 노드 라벨을 사용한 재라벨링 예제
-        - source_labels: [node]
-          target_label: kubernetes_node
-          action: replace
+  metricRelabelConfigs:
+    # 노드 라벨을 사용한 재라벨링 예제
+    - source_labels: [node]
+      target_label: kubernetes_node
+      action: replace
 
 # 엔드포인트 레벨에서 addNodeLabel 설정
 - targetName: dcgm-exporter

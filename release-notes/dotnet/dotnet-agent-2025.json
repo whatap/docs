@@ -25,11 +25,7 @@
         "hash": "v243",
         "product": ".NET Agent",
         "type": "Fixed",
-<<<<<<< HEAD
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> URL을 정규화한 경우, 레코드 요약에서 원본 URL이 노출되지 않던 현상 수정</p>"
-=======
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> URL 정규화한 경우, 레코드 요약에서 원본 URL이 노출되지 않던 현상 수정</p>"
->>>>>>> 462f838328900d1ee69a60a9188723e4874c5c45
       }
     ]
   },  

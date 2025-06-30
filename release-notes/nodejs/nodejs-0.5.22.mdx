@@ -1,0 +1,23 @@
+---
+id: nodejs-0_5_22
+title: Node.js Agent v0.5.22
+toc_max_heading_level: 2
+pagination_next: release-notes/nodejs/nodejs-0_5_21
+displayed_sidebar: releaseSidebar
+---
+
+2025년 06월 30일
+
+- <Status priority='1'>New</Status> `profile_mongodb_param_enabled` <span class='type'>Boolean</span> 
+
+    * 기본값: `false`
+
+    * mongoose 모듈 추적 시 쿼리 내 실제 파라미터 값을 표기할 수 있는 옵션 추가
+
+- <Status priority='0'>Fixed</Status> HTTP 서버와 Socket.IO 서버를 함께 사용하는 구성에서 하나의 클라이언트 요청에 대해 APM에 트랜잭션이 3건(API 요청, Socket.IO handshake, polling)으로 기록되던 문제 수정
+
+    * API 요청만 단일 트랜잭션으로 기록되며, Socket.IO 연결 관련 handshake/polling 요청은 별도 트랜잭션으로 기록되지 않음
+
+import DownloadNode2 from './_import_dl-nodejs-agent2.mdx';
+
+<DownloadNode2 ver="0.5.22" />

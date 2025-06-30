@@ -99,6 +99,7 @@ spec:
 ### 기본 구성
 
 ```yaml
+
 apiVersion: monitoring.whatap.com/v2alpha1
 kind: WhatapAgent
 metadata:
@@ -136,8 +137,6 @@ spec:
     ### 오픈메트릭(프로메테우스 형태의 지표수집) 사용 시 주석 해제 - Prometheus 형식의 메트릭을 수집합니다.
     # openAgent:
     #     enabled: true                 # OpenAgent 활성화
-    #     globalInterval: "60s"         # 기본 스크래핑 간격
-    #     globalPath: "/metrics"        # 기본 메트릭 경로
     #     targets:
     #       - targetName: kube-apiserver
     #         type: ServiceMonitor      # 대상 유형: ServiceMonitor, PodMonitor, StaticEndpoints
@@ -155,10 +154,10 @@ spec:
     #             scheme: "https"       # HTTP 스키마 (http 또는 https)
     #             tlsConfig:
     #               insecureSkipVerify: true  # TLS 인증서 검증 건너뛰기
-    #         metricRelabelConfigs:
-    #           - source_labels: ["__name__"]
-    #             regex: "apiserver_request_total"  # 수집할 메트릭 필터링
-    #             action: "keep"                    # 일치하는 메트릭만 유지
+        #         metricRelabelConfigs:
+        #           - source_labels: ["__name__"]
+        #             regex: "apiserver_request_total"  # 수집할 메트릭 필터링
+        #             action: "keep"                    # 일치하는 메트릭만 유지
 ```
 
 ## 다양한 구성 예제
@@ -277,8 +276,6 @@ spec:
   features:
     openAgent:
         enabled: true
-        globalInterval: "60s"
-        globalPath: "/metrics"
         targets:
           - targetName: kube-apiserver
             type: ServiceMonitor
@@ -290,16 +287,16 @@ spec:
                 component: apiserver
                 provider: kubernetes
             endpoints:
-              - port: "https"
-                path: "/metrics"
-                interval: "30s"
-                scheme: "https"
-                tlsConfig:
-                  insecureSkipVerify: true
-            metricRelabelConfigs:
-              - source_labels: ["__name__"]
-                regex: "apiserver_request_total"
-                action: "keep"
+            - port: "https"
+              path: "/metrics"
+              interval: "30s"
+              scheme: "https"
+              tlsConfig:
+                insecureSkipVerify: true
+              metricRelabelConfigs:
+                - source_labels: ["__name__"]
+                  regex: "apiserver_request_total"
+                  action: "keep"
 ```
 
 ### Kubernetes 모니터링과 APM 계측 함께 사용
@@ -310,9 +307,6 @@ kind: WhatapAgent
 metadata:
   name: whatap
 spec:
-  license: "your-license-key"
-  host: "whatap-server"
-  port: "6600"
   features:
     apm:
       instrumentation:
@@ -337,8 +331,6 @@ spec:
         enabled: true
     openAgent:
         enabled: true
-        globalInterval: "60s"
-        globalPath: "/metrics"
         targets:
           - targetName: kube-apiserver
             type: ServiceMonitor
@@ -350,14 +342,14 @@ spec:
                 component: apiserver
                 provider: kubernetes
             endpoints:
-              - port: "https"
-                path: "/metrics"
-                interval: "30s"
-                scheme: "https"
-                tlsConfig:
+            - port: "https"
+              path: "/metrics"
+              interval: "30s"
+              scheme: "https"
+              tlsConfig:
                 insecureSkipVerify: true
-        metricRelabelConfigs:
-          - source_labels: ["__name__"]
-            regex: "apiserver_request_total"
-            action: "keep"
+              metricRelabelConfigs:
+              - source_labels: ["__name__"]
+                regex: "apiserver_request_total"
+                action: "keep"
 ```

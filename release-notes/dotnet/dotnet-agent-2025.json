@@ -10,7 +10,7 @@
         "product": ".NET Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> 매트릭스 조회에서 <code>app_context_stat</code> 카테고리 추가</p>",
-        "details": "<ul><li><p><strong>app_context_enabled</strong> <span class='type'>Boolean</span></p><ul><li>기본값 <code>false</code></li><li><code>true</code> 설정 시 <code>app_context_stat</code> 수집 기능 전체 활성화</li></ul></li><li><p><strong>app_context_parser</strong></p><ul><li><code>default, prefix, match</code> 중 사용</li><li><code>default</code>: 기본 파서(첫 번째 경로 세그먼트 추출)</li><li><code>prefix</code>: 접두사 매칭 파서(가장 유연함)</li><li><code>match</code>: 정확한 매칭 파서(완전 일치만)</li></ul></li><li><p><strong>app_context_parser_reset</strong> <span class='type'>Number</span></p><ul><li>기본값 <code>0</code></li><li>파서의 내부 캐시와 설정을 강제로 재설정하는 카운터</li></ul></li><li><p><strong>app_context_path_depth</strong> <span class='type'>Number</span></p><ul><li>기본값 <code>1</code></li></ul></li></ul>"
+        "details": "<ul><li><p><strong>app_context_enabled</strong> <span class='type'>Boolean</span></p><ul><li>기본값 <code>false</code></li><li><code>true</code> 설정 시 <code>app_context_stat</code> 수집 기능 전체 활성화</li></ul></li><li><p><strong>app_context_parser</strong></p><ul><li><code>default, prefix, match</code> 중 사용</li><li><code>default</code>: 기본 파서(첫 번째 경로 세그먼트 추출)</li><li><code>prefix</code>: 접두사 매칭 파서(가장 유연함)</li><li><code>match</code>: 정확한 매칭 파서(완전 일치만)</li></ul></li><li><p><strong>app_context_parser_reset</strong> <span class='type'>Number</span></p><ul><li>기본값 <code>0</code></li><li>파서의 내부 캐시와 설정을 강제로 재설정하는 카운터</li></ul></li><li><p><strong>app_context_path_depth</strong> <span class='type'>Number</span></p><ul><li>기본값 <code>1</code></li></ul></li><li><p><strong>app_context_path_mapping</strong> <span class='type'>String</span></p><ul><li>모니터링할 경로와 해당 이름을 정의하는 매핑 설정</li><li>여러 개 설정 시 <code>,</code>(쉼표)로 구분</li><li>예: <code>name1@url1,name2@url2,url3,name4@url4</code></li></ul></li></ul>"
       },
       {
         "ver": "v2.4.3",
@@ -28,7 +28,7 @@
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> URL 정규화한 경우, 레코드 요약에서 원본 URL이 노출되지 않던 현상 수정</p>"
       }
     ]
-  },
+  },  
   {
     "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_4_2/",
     "ver": "v2.4.2",

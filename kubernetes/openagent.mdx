@@ -34,19 +34,19 @@ features:
           matchLabels:
             app: my-app
         endpoints:
-          - port: "web-metrics"  # Pod Spec에 정의된 Port 이름 또는 실제 Port 번호
-            path: "/metrics"     # 기본값은 /metrics, 필요시 재정의
-            interval: "15s"      # 기본값은 전역 설정, 필요시 재정의
-            scheme: "http"
-            timeout: "10s"
-        metricRelabelConfigs:  # 스크래핑 후 메트릭 재라벨링 설정
-          - source_labels: [__name__]
-            regex: "http_requests_total"
-            action: keep
-          - source_labels: [method]
-            target_label: http_method
-            replacement: "${1}"
-            action: replace
+        - port: "web-metrics"  # Pod Spec에 정의된 Port 이름 또는 실제 Port 번호
+          path: "/metrics"     # 기본값은 /metrics, 필요시 재정의
+          interval: "15s"      # 기본값은 전역 설정, 필요시 재정의
+          scheme: "http"
+          timeout: "10s"
+	        metricRelabelConfigs:  # 스크래핑 후 메트릭 재라벨링 설정
+	          - source_labels: [__name__]
+	            regex: "http_requests_total"
+	            action: keep
+	          - source_labels: [method]
+	            target_label: http_method
+	            replacement: "${1}"
+	            action: replace
 
       # 2. ServiceMonitor: Service 레이블 셀렉터를 이용한 동적 디스커버리
       - targetName: my-service-metrics
@@ -58,39 +58,35 @@ features:
           matchLabels:
             service: my-backend-service
         endpoints:
-          - port: "http-metrics"  # Service Spec에 정의된 Port 이름 또는 실제 Target Port 번호
-            path: "/actuator/prometheus"
-            interval: "30s"
-        metricRelabelConfigs:
-          - source_labels: [__name__]
-            regex: "jvm_.*"
-            action: keep
-          - source_labels: [area]
-            target_label: memory_area
-            replacement: "${1}"
-            action: replace
+        - port: "http-metrics"  # Service Spec에 정의된 Port 이름 또는 실제 Target Port 번호
+          path: "/actuator/prometheus"
+          interval: "30s"
+          metricRelabelConfigs:
+            - source_labels: [__name__]
+              regex: "jvm_.*"
+              action: keep
+            - source_labels: [area]
+              target_label: memory_area
+              replacement: "${1}"
+              action: replace
 
       # 3. StaticEndpoints: 고정된 IP 주소와 포트를 직접 입력
       - targetName: my-external-db-metrics
         type: StaticEndpoints
-        scheme: "http"  # http 또는 https, 기본값 http
-        addresses:  # 대상의 주소 목록 (IP:PORT 또는 HOSTNAME:PORT)
-          - "192.168.1.100:9100"
-          - "external-node-exporter.example.com:9100"
-        labels:  # 이 타겟들에 공통적으로 추가될 레이블
-          environment: "staging"
-          component: "database-exporter"
-        path: "/metrics"  # 모든 addresses에 적용될 기본 path
-        interval: "60s"   # 모든 addresses에 적용될 기본 interval
-        metricRelabelConfigs:   # 모든 addresses에 적용될 기본 metricRelabelConfigs
-          - source_labels: [__name__]
-            regex: "node_(cpu|memory).*"
-            action: keep
-          - source_labels: [instance]
-            target_label: server
-            replacement: "${1}"
-            action: replace
-
+        # enabled: true  # 타겟 활성화 여부 (기본값: true, 생략 가능)
+        endpoints:
+          - address: "192.168.1.100:9100"
+            scheme: "http"
+            path: "/metrics"
+            interval: "60s"
+            metricRelabelConfigs:
+              - source_labels: [__name__]
+                regex: "node_(cpu|memory).*"
+                action: keep
+              - source_labels: [instance]
+                target_label: server
+                replacement: "${1}"
+                action: replace
 ```
 
 ### PodMetrics 및 ServiceMetrics 설정 요소
@@ -123,17 +119,19 @@ features:
 
 * **type**: 타겟 유형("StaticEndpoints")
 
-* **scheme**: 스크래핑 프로토콜(http 또는 https, 기본값 http)
+* **endpoints**: 스크래핑할 엔드포인트 정의
 
-* **addresses**: 스크래핑할 대상 주소 목록(IP:PORT 또는 HOSTNAME:PORT)
-
-* **labels**: 모든 타겟에 추가할 레이블
-
-* **path**: 메트릭 경로(기본값은 globalPath, 필요시 재정의)
-
-* **interval**: 스크래핑 간격(기본값은 globalInterval, 필요시 재정의)
-
-* **metricRelabelConfigs**: 스크래핑 후 메트릭 재라벨링 설정(프로메테우스의 metric_relabel_configs와 유사)
+    * `address`: 스크래핑할 대상 주소 (IP:PORT 또는 HOSTNAME:PORT)
+    
+    * `path`: 메트릭 경로 (기본값: /metrics)
+    
+    * `scheme`: 스크래핑 프로토콜 (http 또는 https, 기본값 http)
+    
+    * `interval`: 스크래핑 간격 (기본값: 60s)
+    
+    * `tlsConfig`: TLS 설정
+    
+    * `metricRelabelConfigs`: 스크래핑 후 메트릭 재라벨링 설정
 
 ### addNodeLabel 기능
 
@@ -149,7 +147,6 @@ features:
 # 타겟 레벨에서 addNodeLabel 설정
 - targetName: node-exporter
   type: PodMonitor
-  addNodeLabel: true  # 이 타겟의 모든 엔드포인트에 노드 라벨 추가
   namespaceSelector:
     matchNames:
       - "monitoring"
@@ -160,11 +157,12 @@ features:
     - port: "metrics"
       path: "/metrics"
       interval: "30s"
-  metricRelabelConfigs:
-    # 노드 라벨을 사용한 재라벨링 예제
-    - source_labels: [node]
-      target_label: kubernetes_node
-      action: replace
+      addNodeLabel: true  # 이 엔드포인트에 노드 라벨 추가
+      metricRelabelConfigs:
+        # 노드 라벨을 사용한 재라벨링 예제
+        - source_labels: [node]
+          target_label: kubernetes_node
+          action: replace
 
 # 엔드포인트 레벨에서 addNodeLabel 설정
 - targetName: dcgm-exporter
@@ -176,14 +174,14 @@ features:
     matchLabels:
       app: dcgm-exporter
   endpoints:
-    - port: "metrics"
-      path: "/metrics"
-      interval: "30s"
-      addNodeLabel: true  # 이 엔드포인트에만 노드 라벨 추가
-  metricRelabelConfigs:
-    - source_labels: [node]
-      target_label: gpu_node
-      action: replace
+  - port: "metrics"
+    path: "/metrics"
+    interval: "30s"
+    addNodeLabel: true  # 이 엔드포인트에만 노드 라벨 추가
+		metricRelabelConfigs:
+      - source_labels: [node]
+        target_label: gpu_node
+        action: replace
 ```
 
 ## TLS 설정
@@ -237,9 +235,7 @@ endpoints:
 
 ### 설정 예제
 
-#### 1. ServiceMonitor에서 TLS 설정 예제
-
-```yaml
+```yaml title='ServiceMonitor에서 TLS 설정 예제'
 - targetName: kube-apiserver
   type: ServiceMonitor
   namespaceSelector:
@@ -256,36 +252,14 @@ endpoints:
       scheme: "https"  # 명시적으로 HTTPS 지정 (선택사항)
       tlsConfig:
         insecureSkipVerify: true  # 인증서 검증 건너뛰기
-  metricRelabelConfigs:
-    - source_labels: [__name__]
-      regex: "apiserver_request_total"
-      action: keep
-    - source_labels: [verb]
-      target_label: http_verb
-      replacement: "${1}"
-      action: replace
-```
-
-#### 2. StaticEndpoints에서 TLS 설정 예제
-
-```yaml
-- targetName: external-secure-service
-  type: StaticEndpoints
-  scheme: "https"  # 명시적으로 HTTPS 지정
-  addresses:
-    - "secure-service.example.com:443"
-  path: "/metrics"
-  interval: "60s"
-  tlsConfig:
-    insecureSkipVerify: true  # 인증서 검증 건너뛰기
-  metricRelabelConfigs:
-    - source_labels: [__name__]
-      regex: "http_requests_total"
-      action: keep
-    - source_labels: [method]
-      target_label: http_method
-      replacement: "${1}"
-      action: replace
+      metricRelabelConfigs:
+        - source_labels: [__name__]
+          regex: "apiserver_request_total"
+          action: keep
+        - source_labels: [verb]
+          target_label: http_verb
+          replacement: "${1}"
+          action: replace
 ```
 
 ## 메트릭 재라벨링 설정 {#metricRelabelConfigs}
@@ -503,8 +477,6 @@ apiserver_request_total{code="200", resource="pods", verb="GET", http_verb="GET"
 features:
   openAgent:
     enabled: true
-    globalInterval: "60s"
-    globalPath: "/metrics"
     targets:
       - targetName: kube-apiserver
         type: ServiceMonitor
@@ -519,17 +491,16 @@ features:
           - port: "https"
             path: "/metrics"
             interval: "30s"
-        metricRelabelConfigs:
-          - source_labels: [__name__]
-            regex: "apiserver_request_total"
-            action: keep
-          - source_labels: [verb]
-            target_label: http_verb
-            replacement: "${1}"
-            action: replace
-          # 정적 레이블 추가
-          - target_label: metric_src
-            replacement: "whatap-open-agent"
-            action: replace
-
+            metricRelabelConfigs:
+              - source_labels: [__name__]
+                regex: "apiserver_request_total"
+                action: keep
+              - source_labels: [verb]
+                target_label: http_verb
+                replacement: "${1}"
+                action: replace
+              # 정적 레이블 추가
+              - target_label: metric_src
+                replacement: "whatap-open-agent"
+                action: replace
 ```

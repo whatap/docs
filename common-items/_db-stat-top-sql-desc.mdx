@@ -30,7 +30,11 @@
 
 :::
 
-### 필드 조건 추가하기
+### 필터링 조건 설정하기
+
+원하는 데이터를 빠르게 찾기 위해 필드 조건을 추가하거나 필터 조건을 설정할 수 있습니다.
+
+#### 필드 조건 추가하기
 
 **필드**에서 필드명을 확인하고, 검색해 원하는 조건의 데이터를 조회할 수 있습니다. 
 
@@ -47,6 +51,52 @@
 2. 원하는 조건 아이콘을 클릭한 후, 값을 입력합니다. 
 
 3. **적용** 버튼을 클릭해 필드 조건을 추가합니다.
+
+#### 필터 조건 설정하기
+
+1. <Cmdname sid="filter" className="uitext" /> 옵션에서 <LinkImage img="ico-add.svg" className="ico" /> 아이콘을 클릭하세요.
+
+1. <Cmdname sid="TTL06740" className="uitext" /> 항목에서 원하는 필터링 기준을 선택하세요.
+
+    * 선택한 항목의 값이 문자에 해당한다면 <Cmdname sid="includes" className="uitext" />(파란색), <Cmdname sid="excludes" className="uitext" />(빨간색) 조건을 선택할 수 있습니다.
+
+        <InDoc pages="stat,top-sql"><ImgLang img="db-sql-filter-condition-color.png" desc="example" multi /></InDoc>
+
+        <InDoc pages="analysis-sql"><ImgLang img="db-sql-analysis-filter-condition-color.png" desc="example" multi /></InDoc>
+
+1. <Cmdname sid="condition" className="uitext" /> 항목에서 조건을 선택하고, 조건과 일치시킬 문자열 또는 숫자를 입력하세요.
+
+1. <Cmdname sid="apply" className="uitext" /> 버튼을 클릭하세요.
+
+    * 필터링 조건을 추가하려면 <Cmdname sid="bsm_button_add" className="uitext" /> 버튼을 클릭한 후, 1 ~ 4를 반복하세요. 추가한 조건은 AND(`&&`) 조건으로 적용됩니다.
+
+
+#### 필터 조건 삭제하기 
+
+* 특정 조건을 삭제하려면 필터 조건 오른쪽 ![삭제 아이콘](/img/ico-trash.svg) 버튼을 클릭하세요.
+
+* 전체 조건을 삭제하려면 ![삭제 아이콘](/img/ico-trash.svg) <Cmdname sid="BTN06616" className="uitext" /> 버튼 클릭하세요.
+
+* <Cmdname sid="filter" className="uitext" /> 옵션에 적용된 조건을 빠르게 삭제하려면 <LinkImage img="ico-close.svg" className="ico" /> 버튼을 클릭하세요.
+
+:::note
+
+<InDoc pages="stat,top-sql">
+
+    `sqlText`에 'WhaTap'이 포함된 경우 제외하도록 기본 설정되어 있습니다.
+
+    <ImgLang img='db-sql-filter-default.png' desc='WhaTap' />
+
+</InDoc>
+
+:::
+
+
+#### 필터 조건 수정하기
+
+1. <Cmdname sid="filter" className="uitext" /> 옵션에 적용된 항목을 클릭하세요. 
+
+1. <Cmdname sid="TTL06737" className="uitext" /> 창에서 원하는 항목을 수정하고 <Cmdname sid="apply" className="uitext" /> 버튼을 클릭하세요.
 
 ### Trends 차트 확인하기 {#trends-chart}
 

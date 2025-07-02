@@ -15,6 +15,12 @@ SQL Server에서 발생한 데드락 정보를 5초 간격으로 수집한 데�
 
 * 이 기능은 [DBX 에이전트 2.2.2 버전](../release-notes/db/dbx-2_2_2) 이상에서 지원합니다.
 
+* 기능을 사용하려면 아래 권한이 필요하며, 권한이 없다면 다음 SQL 명령어로 부여할 수 있습니다.
+
+  ```sql
+  USE master;
+  GRANT EXECUTE ON xp_readerrorlog TO whatap;
+  ```
 :::
 
 ## 기본 사용 안내

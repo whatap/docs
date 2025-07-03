@@ -34,10 +34,18 @@ import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-acc
 <TabItem value="mysql" label="MySQL">
 
 ```bash
-create user DB_User identified by 'DB_PASSWORD'; # 원하는 password를 입력하세요.
-grant process on *.* to DB_User;
-grant select on performance_schema.* to DB_User;
-grant show databases on *.* to DB_User;
+  create user DB_User identified by 'DB_PASSWORD'; # 원하는 password를 입력하세요.
+  grant process on *.* to DB_User;
+  grant select on performance_schema.* to DB_User;
+  grant show databases on *.* to DB_User;
+
+  MySQL 8.0 이상에서 락 정보를 모니터링하려면 다음 권한이 반드시 필요합니다.
+
+  grant select on `sys`.`sys_config` TO DB_User;
+  grant select on `sys`.`innodb_lock_waits` TO DB_User;
+  grant execute on function `sys`.`format_statement` TO DB_User;
+  grant execute on function `sys`.`quote_identifier` TO DB_User;
+  grant execute on function `sys`.`sys_get_config` TO DB_User;  
 ```
 
 기능 및 사용 환경에 따라 추가 권한을 부여하세요.

@@ -114,6 +114,13 @@ grant select, execute to DB_User;
   grant showplan to DB_User;
   ```
 
+* **데드락 조회시 필요 권한**
+
+  ```sql
+  USE master;
+  GRANT EXECUTE ON xp_readerrorlog TO whatap;
+  ```
+
 </InDoc>
 
 <InDoc product="db2">

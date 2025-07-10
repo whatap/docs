@@ -1,5 +1,26 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_23/",
+    "ver": "v0.5.23",
+    "date": "2025-07-10",
+    "Lists": [
+      {
+        "ver": "v0.5.23",
+        "hash": "v0523",
+        "product": "Node.js Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Socket.io 모듈 모니터링에서 Broadcast 유형 모니터링 추가</p>"
+      },
+      {
+        "ver": "v0.5.23",
+        "hash": "v0523",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> HTTP 요청 엔드포인트를 탐지하지 못하는 현상 개선</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_22/",
     "ver": "v0.5.22",
     "date": "2025-06-30",

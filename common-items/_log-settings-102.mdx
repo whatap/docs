@@ -278,7 +278,7 @@
 
 #### JSON 포맷 파서 패턴 등록 {#log-pattern-json}
 
-로그 전체 혹은 일부가 JSON 형태로 출력되는 경우 JSON 포맷 파서를 통해 JSON으로 출력된 부분을 파싱할 수 있습니다. 로그 중 JSON 형태로 출력된 부분을 검출하기 위하여 ***Prefix***, ***Postfix*** 옵션을 조합해 로그의 어느 부분을 JSON으로 인식해 파싱할지 지정합니다. JSON 파서에 대한 자세한 내용은 [다음 문서](log-parser#json-parser-detail)를 참조하세요. 시뮬레이션이 필수적입니다. 
+로그 전체 혹은 일부가 JSON 형태로 출력되는 경우 JSON 포맷 파서를 통해 JSON으로 출력된 부분을 파싱할 수 있습니다. 로그 중 JSON 형태로 출력된 부분을 검출하기 위하여 **Prefix**, **Postfix** 옵션을 조합해 로그의 어느 부분을 JSON으로 인식해 파싱할지 지정합니다. JSON 파서에 대한 자세한 내용은 [다음 문서](log-parser#json-parser-detail)를 참조하세요. 시뮬레이션이 필수적입니다. 
 
 | 옵션    | 설명                                                                                                             |
 | ------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -312,7 +312,7 @@
   io.whatap.logsink.parser.JsonFormatParser{}
   ```
 
-  로그 중 JSON 형태로 출력된 부분을 검출하기 위해 ***Prefix***, ***Postfix*** 옵션을 조합해 로그의 어느 부분을 JSON으로 인식하여 파싱할지 지정하세요.
+  로그 중 JSON 형태로 출력된 부분을 검출하기 위해 **Prefix**, **Postfix** 옵션을 조합해 로그의 어느 부분을 JSON으로 인식하여 파싱할지 지정하세요.
 
   `JsonFormatParser{}`의 `{}` 에 옵션을 지정합니다.
 
@@ -396,7 +396,7 @@
 
   <ImgLang img='log-2nd-parser-add.png' desc='로그 2차 파서 등록 순서' />
 
-1. ***+*** <Cmdname sid="adding" className="uitext" /> 버튼을 선택하면 <Cmdname sid="parser" className="uitext" /> <Cmdname sid="add" className="uitext" /> 창이 나타납니다.
+1. **+** <Cmdname sid="adding" className="uitext" /> 버튼을 선택하면 <Cmdname sid="parser" className="uitext" /> <Cmdname sid="add" className="uitext" /> 창이 나타납니다.
 
 1. <Cmdname sid="parser" className="uitext" /> 선택 창에서 파서를 선택하세요. 각 파서 설정 항목 및 제외할 상태 코드 등록에 관한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -440,11 +440,11 @@
 
 <ImgLang img='log-flexboard-widget-chart-4xx5xx.png' desc='로그 플렉스 보드 위젯 차트-4xx5xx'/>
 
-* ***avg***: 조회 기간 데이터 평균값입니다.
+* **avg**: 조회 기간 데이터 평균값입니다.
 
-* ***max***: 조회 기간 데이터 중 최댓값입니다.
+* **max**: 조회 기간 데이터 중 최댓값입니다.
 
-* ***recently***: 조회 기간 데이터 중 마지막 값입니다.
+* **recently**: 조회 기간 데이터 중 마지막 값입니다.
 
 ### 상태 코드 성공률 파서 제외할 상태 코드 등록 {#log-pattern-status}
 
@@ -490,7 +490,7 @@
 
 1. 하나의 프로젝트에 파서 설정 및 <Cmdname sid="fast_index_setting" />을 추가하세요.
 
-1. 각 설정 탭에서 화면 오른쪽 위에 ***JSON*** ![내보내기 아이콘](/img/ico-export.svg) 버튼을 선택하세요.
+1. 각 설정 탭에서 화면 오른쪽 위에 **JSON** ![내보내기 아이콘](/img/ico-export.svg) 버튼을 선택하세요.
 
 1. <Cmdname sid="export_json" className="uitext" /> 창이 나타나면 화면 오른쪽 위에 <Cmdname sid="export" className="uitext" /> 버튼을 선택하세요.
 
@@ -521,7 +521,7 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 
 <ImgLang img='log-long-term-archive.png' desc='로그 장기 보관 통계'/>
 
-<Cmdname sid="logsink_mcube_config_statistics" className="uitext" /> 탭에서 ***+*** <Cmdname sid="adding" className="uitext" /> 버튼을 선택하면 <Cmdname sid="logsink_mcube_config_statistics" className="uitext" /> <Cmdname sid="add" className="uitext" /> 창이 나타납니다. ***+*** <Cmdname sid="adding" className="uitext" /> 버튼을 통해 규칙을 추가하거나 생성한 규칙을 ***-*** 아이콘을 통해 삭제할 수 있습니다.
+<Cmdname sid="logsink_mcube_config_statistics" className="uitext" /> 탭에서 **+** <Cmdname sid="adding" className="uitext" /> 버튼을 선택하면 <Cmdname sid="logsink_mcube_config_statistics" className="uitext" /> <Cmdname sid="add" className="uitext" /> 창이 나타납니다. **+** <Cmdname sid="adding" className="uitext" /> 버튼을 통해 규칙을 추가하거나 생성한 규칙을 **-** 아이콘을 통해 삭제할 수 있습니다.
 
 #### 설정 항목 {#log-long-term-archive-comp}
 
@@ -536,7 +536,7 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 
 #### 예시
 
-다음과 같이 설정을 추가한 경우 수집된 로그 중 status가 `200`, `300`인 로그를 대상으로 ***TotalCount***라는 키값으로 통계 데이터를 생성합니다. 
+다음과 같이 설정을 추가한 경우 수집된 로그 중 status가 `200`, `300`인 로그를 대상으로 **TotalCount**라는 키값으로 통계 데이터를 생성합니다. 
 
 <ImgLang img='log-long-term-totalcount.png' desc='로그 장기 보관 통계 예시'/>
 
@@ -621,7 +621,7 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 
     * <Cmdname sid="TTL08814" className="uitext" /> 목록 내 <Cmdname sid="enable" className="uitext" /> 컬럼에서 비식별화 항목을 ![토글 활성화 아이콘](/img/ic-toggle-on.svg)<Cmdname sid="enable" className="uitext" />할 수 있습니다.
     
-    * <Cmdname sid="TTL08814" className="uitext" /> 목록 내 <Cmdname sid="TLT08066" className="uitext" /> 컬럼에서 ![수정 아이콘](/img/ic-edit.svg) ***수정*** 및 ![제거 아이콘](/img/ic-delete-critical.svg) ***제거***할 수 있습니다.
+    * <Cmdname sid="TTL08814" className="uitext" /> 목록 내 <Cmdname sid="TLT08066" className="uitext" /> 컬럼에서 ![수정 아이콘](/img/ic-edit.svg) **수정** 및 ![제거 아이콘](/img/ic-delete-critical.svg) ***제거***할 수 있습니다.
 
 
 :::note 
@@ -714,7 +714,7 @@ JSON 설정 파일을 가져온 다음 <Cmdname sid="save" className="uitext" />
 
 #### <Cmdname sid="BTN09473" /> {#log-de-identification-check-history}
 
-로그 개인정보 비식별화 점검을 진행한 후 과거에 수행된 점검 결과를 조회하려면 상단 오른쪽에서 <Cmdname sid="BTN09473" className="uitext" /> 버튼을 클릭하세요. 치환 내역, 점검 시점, 적용된 개인정보 항목 등을 추적할 수 있습니다. 또한 <Cmdname sid="BTN09473" className="uitext" /> 창 상단 오른쪽에서 ![다운로드 아이콘](/img/ico-download.svg) ***CSV*** 버튼 클릭 시 *CSV* 파일 형식으로 해당 목록 정보를 다운로드할 수 있습니다. 
+로그 개인정보 비식별화 점검을 진행한 후 과거에 수행된 점검 결과를 조회하려면 상단 오른쪽에서 <Cmdname sid="BTN09473" className="uitext" /> 버튼을 클릭하세요. 치환 내역, 점검 시점, 적용된 개인정보 항목 등을 추적할 수 있습니다. 또한 <Cmdname sid="BTN09473" className="uitext" /> 창 상단 오른쪽에서 ![다운로드 아이콘](/img/ico-download.svg) **CSV** 버튼 클릭 시 *CSV* 파일 형식으로 해당 목록 정보를 다운로드할 수 있습니다. 
 
 <ImgLang img="log-de-identification-check-history.png" desc="로그 개인정보 비식별화 점검 이력 확인" />
 

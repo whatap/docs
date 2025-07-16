@@ -1,5 +1,61 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_62",
+    "ver": "v2.2.62",
+    "date": "2025-07-03",
+    "Lists": [
+      {
+        "ver": "v2.2.62",
+        "hash": "v2262",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 자바 에이전트의 web_static_content_extensions 설정에 등록된 .html, .js 등의 정적 리소스 호출 시, 메트릭스 지표인 arrival_rate가 과도하게 수집되던 현상을 수정</p>"
+      },
+      {
+        "ver": "v2.2.62",
+        "hash": "v2262",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 일부 http call 수행시 exception을 수집하지 못하는 현상 수정</p>"
+      },
+      {
+        "ver": "v2.2.62",
+        "hash": "v2262",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> weaving=lettuce-6.2 설정 시, lettuce 6.5 이상 버전에서 오류가 발생해 호출이 누락되던 현상 수정</p>"
+      },
+      {
+        "ver": "v2.2.62",
+        "hash": "v2262",
+        "product": "Java Agent",
+        "type": "Deprecated",
+        "desc": "<p><code class=\"Deprecated\" type=\"0\">Deprecated</code> log4j-1 추적 기능 제거 (별도 플러그인으로 제공)</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_61",
+    "ver": "v2.2.61",
+    "date": "2025-06-09",
+    "Lists": [
+      {
+        "ver": "v2.2.61",
+        "hash": "v2261",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> opentelemetry 연계 추적용 헤더키를 기본으로 전송하지 않도록 수정</p>"
+      },
+      {
+        "ver": "v2.2.61",
+        "hash": "v2261",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> spring-boot에서 <code>async-annotation</code>을 사용하는 경우, 별도 스레드 동작을 기본으로 연계 추적하도록 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_60/",
     "ver": "v2.2.60",
     "date": "2025-05-29",

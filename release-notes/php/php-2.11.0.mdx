@@ -6,21 +6,6 @@ pagination_next: release-notes/php/php-2_10_0
 displayed_sidebar: releaseSidebar
 ---
 
-2025년 07월 09일
-
-- <Status priority='0'>Fixed</Status> whatap-php.service 등록 및 실행 실패 문제 수정
-
-  - 신규 설치 시, environment 값 누락으로 접속 정보(Access Key 및 서버 주소)를 인식하지 못해 에이전트가 비활성화됨
-
-    아래 명령어를 통해 수동 설정 가능
-
-    ```bash title='php command'
-    1. /usr/whatap/php/install.sh 실행
-    2. cp /usr/lib/systemd/system/whatap-php.service /etc/systemd/system/whatap-php.service
-    ```
-
-  - 기존 설치 환경에서는 업데이트 시 정상 설치됨
-
 2025년 06월 18일
 
 - <Status priority='0'>Feature</Status> CPU 부하 감소

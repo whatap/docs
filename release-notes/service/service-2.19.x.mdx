@@ -42,8 +42,6 @@ displayed_sidebar: releaseSidebar
 
 ### `Server`
 
-
-
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> 태그 필터 원복
 
 - <Status priority='0'>Fixed</Status> 에이전트 설치 시 설치 그룹 항목이 많을 경우, 메트릭스 선택 UI가 사라지던 문제 수정
@@ -57,6 +55,8 @@ displayed_sidebar: releaseSidebar
 ### `Kubernetes`
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="container_map" className="uitext" /> STATUS 라벨 표시 옵션 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="podList" className="uitext" />, **컨테이너 요약 분석** PV, PVC 정보 추가
 
 ---
 
@@ -74,6 +74,17 @@ displayed_sidebar: releaseSidebar
 
     - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" />,  <Cmdname sid="side_slowQueryLog" className="uitext" /> 차트 드래그 시 커서가 차트 영역을 벗어나면 드래그되지 않는 현상 수정
 
+    - <Status priority='0'>Fixed</Status> **사용자 그룹별 표시 설정** 페이지 디자인 개선 
+
+#### Altibase, Cubrid, MySQL, Oracle, Oracle Pro, PostgreSQL, SQL Server, Tibero
+
+    - <Status priority='1'>Changed</Status> <Cmdname sid="side_dbScriptManager" className="uitext" /> 실험실 → 분석으로 메뉴 이동 
+
+
+#### MySQL, Oracle, Oracle Pro, postgresql
+
+    - <Status priority='1'>Changed</Status> **Top SQL** 실험실 → 분석으로 메뉴 이동
+
 #### MySQL
 
     - <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt;  **테이블 사이즈 증감** 인스턴스 셀렉터 개선 
@@ -81,6 +92,10 @@ displayed_sidebar: releaseSidebar
 #### Oracle Pro
 
     - <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> ASM 디스크 사용량 테이블 추가
+
+    - <Status priority='1'>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> wait class 관련 필드 추가
+
+    - <Status priority='1'>Feature</Status> **Wait 별 Top SQL** 추가
 
 ---
 

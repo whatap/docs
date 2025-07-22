@@ -44,7 +44,31 @@ displayed_sidebar: releaseSidebar
 
 ### `Server`
 
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 서버 가상자산(클라우드) 지표가 추가되어 필터, 그룹화 옵션 셀렉터, 컬럼 설정 등에 표시
+
+    - 추가된 지표: Cloud Service Provider, Cloud Instance ID, Cloud Instance Name, Cloud Instance type, Cloud Instance Lifecycle, Cloud Region, Cloud Security Group, Cloud Image
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverInventory" className="uitext" /> 서버 가상자산 지표 추가되어 테이블 및 필터 조건에 표시
+
+- <Status priority='1'>Feature</Status> **GPU 인벤토리** 목록 CSV 데이터로 다운로드 기능 추가
+
+- <Status priority='1'>Feature</Status> **GPU 인벤토리** 목록 데이터 중 custom 데이터를 CSV 파일로 일괄 업데이트 가능
+
+- <Status priority='1'>Feature</Status> **GPU 성능요약** 모든 필드에 적용할 수 있는 필터 추가
+
+- <Status priority='1'>Feature</Status> **GPU 성능요약** GPU를 선택해 성능지표를 차트로 비교 가능
+
+- <Status priority='1'>Feature</Status> **GPU 성능요약** 선택한 컬럼과 조회한 시점의 테이블 데이터를 다운로드 받을 수 있는 CSV 다운로드 기능 추가
+
+- <Status priority='1'>Feature</Status> **GPU 성능요약** &gt; **기능 활성화 안내** GPU 모니터링 지원 환경 안내 문구 추가
+
+- <Status priority='1'>Feature</Status> **컬럼 설정** 그룹별로 컬럼을 선택하고 순서를 조정할 수 있음
+
+- <Status priority='1'>Changed</Status>  **GPU 성능요약** &gt; **기능소개 모달**, **에이전트 업데이트 필요**, **기능 활성화 가이드** 기능 사용을 위한 linux 에이전트 최소 버전이 2.8.5 → 2.8.9로 업데이트
+
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> 태그 필터 원복
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverInventory" className="uitext" /> 자동 수집되는 지표 정보 영문으로 일괄 변경
 
 - <Status priority='0'>Fixed</Status> 에이전트 설치 시 설치 그룹 항목이 많을 경우, 메트릭스 선택 UI가 사라지던 문제 수정
 

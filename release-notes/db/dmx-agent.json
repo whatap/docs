@@ -1,5 +1,57 @@
 [
   {
+    "ver": "v1.0.5g",
+    "date": "2025-07-08",
+    "Lists": [
+      {
+        "ver": "v1.0.5g",
+        "hash": "v105g",
+        "product": "DMX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>sqlmon</code> 기능 개선: 다중 행 결과를 최대 100건까지 저장하고, 결과가 <code>int</code> 또는 <code>float</code>일 경우 숫자로 인식</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v1.0.5g",
+        "hash": "v105g",
+        "product": "DMX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Oracle 12.1.0.2 버전에서 <code>con_id</code>별로 <code>event</code> 처리하도록 수정</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v1.0.5g",
+        "hash": "v105g",
+        "product": "DMX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> ASM 디스크 정보 처리 시 <code>null</code> 값으로 인해 발생하던 오류 수정</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v1.0.5g",
+        "hash": "v105g",
+        "product": "DMX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>tablespace</code>의 <code>increment_by</code> 값이 block 단위로 처리되던 문제를 <code>MB</code> 단위로 변환하여 전송 (float 타입 적용)</p>",
+        "category": "Oracle"
+      }
+    ]
+  },
+  {
+    "ver": "v1.0.5b",
+    "date": "2025-06-25",
+    "Lists": [
+      {
+        "ver": "v1.0.5b",
+        "hash": "v105b",
+        "product": "DMX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>db_oracle_dma_sqlstat</code>에 추가된 <code>wait_class</code> 이름에서 잘못 포함된 <code>\\n</code> 문자 제거</p>",
+        "category": "Oracle"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/dmx-1_0_5a",
     "ver": "v1.0.5a",
     "date": "2025-06-23",

@@ -3,6 +3,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_8_1",
     "ver": "v1.8.1",
     "date": "2024-12-24",
+    "JavaVersion": "Java v2.2.47",
     "Lists": [
       {
         "ver": "v1.8.1",
@@ -18,6 +19,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_8_0",
     "ver": "v1.8.0",
     "date": "2024-12-02",
+    "JavaVersion": "Java v2.2.42",
     "Lists": [
       {
         "ver": "v1.8.0",
@@ -32,6 +34,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_16",
     "ver": "v1.7.16",
     "date": "2024-11-22",
+    "JavaVersion": "Java v2.2.41",
     "Lists": [
       {
         "ver": "v1.7.16",
@@ -55,6 +58,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_15",
     "ver": "v1.7.15",
     "date": "2024-10-30",
+    "JavaVersion": "Java v2.2.39",
     "Lists": [
       {
         "ver": "v1.7.15",
@@ -70,6 +74,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_14",
     "ver": "v1.7.14",
     "date": "2024-10-29",
+    "JavaVersion": "Java v2.2.39",
     "Lists": [
       {
         "ver": "v1.7.14",
@@ -84,6 +89,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_13",
     "ver": "v1.7.13",
     "date": "2024-10-21",
+    "JavaVersion": "Java v2.2.39",
     "Lists": [
       {
         "ver": "v1.7.13",
@@ -115,6 +121,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_5",
     "ver": "v1.7.5",
     "date": "2024-06-18",
+    "JavaVersion": "Java v2.2.34",
     "Lists": [
       {
         "ver": "v1.7.5",
@@ -130,6 +137,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_11",
     "ver": "v1.7.11",
     "date": "2024-09-11",
+    "JavaVersion": "Java v2.2.38",
     "Lists": [
       {
         "ver": "v1.7.11",
@@ -153,6 +161,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_9",
     "ver": "v1.7.9",
     "date": "2024-08-19",
+    "JavaVersion": "Java v2.2.38",
     "Lists": [
       {
         "ver": "v1.7.9",
@@ -184,6 +193,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_12",
     "ver": "v1.7.12",
     "date": "2024-09-30",
+    "JavaVersion": "Java v2.2.38",
     "Lists": [
       {
         "ver": "v1.7.12",
@@ -222,6 +232,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_7",
     "ver": "v1.7.7",
     "date": "2024-07-11",
+    "JavaVersion": "Java v2.2.35",
     "Lists": [
       {
         "ver": "v1.7.7",
@@ -244,6 +255,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_8",
     "ver": "v1.7.8",
     "date": "2024-07-24",
+    "JavaVersion": "Java v2.2.36",
     "Lists": [
       {
         "ver": "v1.7.8",
@@ -267,6 +279,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_6",
     "ver": "v1.7.6",
     "date": "2024-07-01",
+    "JavaVersion": "Java v2.2.35",
     "Lists": [
       {
         "ver": "v1.7.6",
@@ -289,6 +302,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_10",
     "ver": "v1.7.10",
     "date": "2024-08-29",
+    "JavaVersion": "Java v2.2.38",
     "Lists": [
       {
         "ver": "v1.7.10",
@@ -311,6 +325,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_6_1",
     "ver": "v1.6.1",
     "date": "2024-04-17",
+    "JavaVersion": "Java v2.2.32",
     "Lists": [
       {
         "ver": "v1.6.1",
@@ -325,6 +340,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_3",
     "ver": "v1.7.3",
     "date": "2024-06-04",
+    "JavaVersion": "Java v2.2.33",
     "Lists": [
       {
         "ver": "v1.7.3",
@@ -339,6 +355,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_0",
     "ver": "v1.7.0",
     "date": "2024-05-13",
+    "JavaVersion": "Java v2.2.32",
     "Lists": [
       {
         "ver": "v1.7.0",
@@ -354,6 +371,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_5_9",
     "ver": "v1.5.9",
     "date": "2024-04-04",
+    "JavaVersion": "Java v2.2.31",
     "Lists": [
       {
         "ver": "v1.5.9",
@@ -368,6 +386,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_1",
     "ver": "v1.7.1",
     "date": "2024-05-17",
+    "JavaVersion": "Java v2.2.32",
     "Lists": [
       {
         "ver": "v1.7.1",
@@ -383,6 +402,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_2",
     "ver": "v1.7.2",
     "date": "2024-06-02",
+    "JavaVersion": "Java v2.2.33",
     "Lists": [
       {
         "ver": "v1.7.2",
@@ -398,6 +418,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_7_4",
     "ver": "v1.7.4",
     "date": "2024-06-07",
+    "JavaVersion": "Java v2.2.33",
     "Lists": [
       {
         "ver": "v1.7.4",
@@ -419,6 +440,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_6_0",
     "ver": "v1.6.0",
     "date": "2024-04-05",
+    "JavaVersion": "Java v2.2.31",
     "Lists": [
       {
         "ver": "v1.6.0",
@@ -433,6 +455,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_5_8",
     "ver": "v1.5.8",
     "date": "2024-03-26",
+    "JavaVersion": "Java v2.2.30",
     "Lists": [
       {
         "ver": "v1.5.8",
@@ -454,6 +477,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_5_7",
     "ver": "v1.5.7",
     "date": "2024-03-07",
+    "JavaVersion": "Java v2.2.28",
     "Lists": [
       {
         "ver": "v1.5.7",
@@ -483,6 +507,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_5_5",
     "ver": "v1.5.5",
     "date": "2024-02-14",
+    "JavaVersion": "Java v2.2.27",
     "Lists": [
       {
         "ver": "v1.5.5",
@@ -497,6 +522,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_5_3",
     "ver": "v1.5.3",
     "date": "2024-01-30",
+    "JavaVersion": "Java v2.2.26",
     "Lists": [
       {
         "ver": "v1.5.3",
@@ -518,6 +544,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_5_2",
     "ver": "v1.5.2",
     "date": "2024-01-26",
+    "JavaVersion": "Java v2.2.26",
     "Lists": [
       {
         "ver": "v1.5.2",
@@ -532,6 +559,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_5_6",
     "ver": "v1.5.6",
     "date": "2024-02-23",
+    "JavaVersion": "Java v2.2.27",
     "Lists": [
       {
         "ver": "v1.5.6",
@@ -553,6 +581,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_5_1",
     "ver": "v1.5.1",
     "date": "2024-01-25",
+    "JavaVersion": "Java v2.2.26",
     "Lists": [
       {
         "ver": "v1.5.1",
@@ -581,6 +610,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_4_9",
     "ver": "v1.4.9",
     "date": "2024-01-08",
+    "JavaVersion": "Java v2.2.25",
     "Lists": [
       {
         "ver": "v1.4.9",
@@ -595,6 +625,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_5_0",
     "ver": "v1.5.0",
     "date": "2024-01-16",
+    "JavaVersion": "Java v2.2.26",
     "Lists": [
       {
         "ver": "v1.5.0",
@@ -617,6 +648,7 @@
     "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_5_4",
     "ver": "v1.5.4",
     "date": "2024-02-06",
+    "JavaVersion": "Java v2.2.26",
     "Lists": [
       {
         "ver": "v1.5.4",

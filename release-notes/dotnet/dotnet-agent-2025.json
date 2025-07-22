@@ -1,5 +1,19 @@
 [ 
   {
+    "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_4_4/",
+    "ver": "v2.4.4",
+    "date": "2025-07-22",
+    "Lists": [
+      {
+        "ver": "v2.4.4",
+        "hash": "v244",
+        "product": ".NET Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 순환 호출 발생 시, 트랜잭션이 정상적으로 종료되었음에도 불구하고 <strong>Lost Connection</strong>으로 표시되던 현상 수정 </p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_4_3/",
     "ver": "v2.4.3",
     "date": "2025-06-25",

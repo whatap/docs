@@ -1,0 +1,148 @@
+---
+id: service-2_19_x
+title: Service 2.19.X
+toc_max_heading_level: 2
+pagination_next: release-notes/service/service-2_18_x
+displayed_sidebar: releaseSidebar
+---
+
+## Service 2.19.0
+
+2025년 07월 23일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="my_usage" className="uitext" /> &gt; **프로젝트 사용량 미리보기** 추가
+
+---
+
+### `Application`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_threadList" className="uitext" /> AI 기반 스레드 덤프 내용 분석 기능 추가(프로젝트별 일일 20건 제한) <code class="Beta">Beta</code> 
+
+- <Status priority='1'>Changed</Status> **비즈니스 대시보드** 사이드 메뉴로 이동
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="agent_list" className="uitext" /> 에이전트 명 수정 시 처음 에이전트 정보가 남아있는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="speed_chart" className="uitext" /> 최소 크기로 줄였다 늘릴 경우, 차트가 다시 그려지지 않는 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="transaction_map" className="uitext" /> 공유된 URL 진입 시, 특정 필터키가 검색에 적용되지 않는 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_agentSetting" className="uitext" /> 일본어 수정 및 적용
+
+#### PHP
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="add_project" className="uitext" />, <Cmdname sid="TTL07075" className="uitext" /> 지원 버전 안내 문구 수정
+
+#### Node.js 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_agentsConfiguration" className="uitext" /> &gt; <Cmdname sid="side_systemGarbageCollection" className="uitext" /> 추가 (Node.js 에이전트 0.5.21 버전 이상 사용 가능)
+
+---
+
+### `Server`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_serverInventoryMap" className="uitext" /> 서버 가상자산(클라우드) 지표가 추가되어 필터, 그룹화 옵션 셀렉터, 컬럼 설정 등에 표시
+
+    - 추가된 지표: Cloud Service Provider, Cloud Instance ID, Cloud Instance Name, Cloud Instance type, Cloud Instance Lifecycle, Cloud Region, Cloud Security Group, Cloud Image
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverInventory" className="uitext" /> 서버 가상자산 지표 추가되어 테이블 및 필터 조건에 표시
+
+- <Status priority='1'>Feature</Status> **GPU 인벤토리** 목록 CSV 데이터로 다운로드 기능 추가
+
+- <Status priority='1'>Feature</Status> **GPU 인벤토리** 목록 데이터 중 custom 데이터를 CSV 파일로 일괄 업데이트 가능
+
+- <Status priority='1'>Feature</Status> **GPU 성능요약** 모든 필드에 적용할 수 있는 필터 추가
+
+- <Status priority='1'>Feature</Status> **GPU 성능요약** GPU를 선택해 성능지표를 차트로 비교 가능
+
+- <Status priority='1'>Feature</Status> **GPU 성능요약** 선택한 컬럼과 조회한 시점의 테이블 데이터를 다운로드 받을 수 있는 CSV 다운로드 기능 추가
+
+- <Status priority='1'>Feature</Status> **GPU 성능요약** &gt; **기능 활성화 안내** GPU 모니터링 지원 환경 안내 문구 추가
+
+- <Status priority='1'>Feature</Status> **컬럼 설정** 그룹별로 컬럼을 선택하고 순서를 조정할 수 있음
+
+- <Status priority='1'>Changed</Status>  **GPU 성능요약** &gt; **기능소개 모달**, **에이전트 업데이트 필요**, **기능 활성화 가이드** 기능 사용을 위한 linux 에이전트 최소 버전이 2.8.5 → 2.8.9로 업데이트
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverList" className="uitext" /> 태그 필터 원복
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverInventory" className="uitext" /> 자동 수집되는 지표 정보 영문으로 일괄 변경
+
+- <Status priority='0'>Fixed</Status> 에이전트 설치 시 설치 그룹 항목이 많을 경우, 메트릭스 선택 UI가 사라지던 문제 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverList" className="uitext" /> &gt; <Cmdname sid="side_serverDetail" className="uitext" /> 서버 상태 API 오류 시 전체 페이지 화이트 아웃 문제 수정
+
+    - 서버 상태 아이콘에 `?` 표시 및 기타 데이터는 표시되도록 개선
+
+---
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="container_map" className="uitext" /> STATUS 라벨 표시 옵션 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_workload" className="uitext" /> &gt; <Cmdname sid="podList" className="uitext" />, **컨테이너 요약 분석** PV, PVC 정보 추가
+
+---
+
+### `Database`
+
+#### 공통
+
+    - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> 이퀄라이저 위젯 클릭 시, 해당 지표의 추이를 볼 수 있는 시리즈 차트 팝업 추가
+
+    - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> <code class="newfunc">New</code>, <Cmdname sid="side_multiInstance" className="uitext" /> 시리즈 차트에 y축 조절 기능 추가
+
+    - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> <code class="newfunc">New</code>, <Cmdname sid="side_multiInstance" className="uitext" /> Info 아이콘 및 y축 조절 버튼 수정
+
+    - <Status priority='1'>Changed</Status> 실시간 상태에 따라 대시보드의 이퀄라이저 차트 애니메이션 변경
+
+    - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" />,  <Cmdname sid="side_slowQueryLog" className="uitext" /> 차트 드래그 시 커서가 차트 영역을 벗어나면 드래그되지 않는 현상 수정
+
+    - <Status priority='0'>Fixed</Status> **사용자 그룹별 표시 설정** 페이지 디자인 개선 
+
+#### Altibase, Cubrid, MySQL, Oracle, Oracle Pro, PostgreSQL, SQL Server, Tibero
+
+    - <Status priority='1'>Changed</Status> <Cmdname sid="side_dbScriptManager" className="uitext" /> 실험실 → 분석으로 메뉴 이동 
+
+
+#### MySQL, Oracle, Oracle Pro, postgresql
+
+    - <Status priority='1'>Changed</Status> **Top SQL** 실험실 → 분석으로 메뉴 이동
+
+#### MySQL
+
+    - <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt;  **테이블 사이즈 증감** 인스턴스 셀렉터 개선 
+
+#### Oracle Pro
+
+    - <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt; <Cmdname sid="side_tableSpace" className="uitext" /> ASM 디스크 사용량 테이블 추가
+
+    - <Status priority='1'>Feature</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_dbSqlStat" className="uitext" /> wait class 관련 필드 추가
+
+    - <Status priority='1'>Feature</Status> **Wait 별 Top SQL** 추가
+
+---
+
+### `Network`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="MNU06848" className="uitext" /> 수정한 내용을 서버에 저장하도록 변경하여, 프로젝트 간 공유 가능 (기존은 브라우저에만 저장되어 공유 불가)
+
+---
+
+### `Log`
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_log" className="uitext" /> &gt; **로그 탐색** 드릴다운 기능 동작 시 쿼리 연산자 우선 순위 문제 수정
+
+---
+
+### `WhaTap AI Chatbot`
+
+- <Status priority='1'>Feature</Status> 다국어(일본어, 영어) 지원 기능 추가 (챗봇 UI 및 메시지 언어 자동 적용)
+
+- <Status priority='1'>Feature</Status> 스크린샷 기능 추가
+
+- <Status priority='1'>Feature</Status> fullscreen 기능 추가
+
+</div> 

@@ -109,11 +109,42 @@ displayed_sidebar: releaseSidebar
 
 #### MySQL, Oracle, Oracle Pro, postgresql
 
+    - <Status priority='1'>Feature</Status> **인스턴스 맵** 
+    
+        - 락 트리 탭, Top SQL 탭 추가
+        
+        - 비활성 인스턴스 표시 옵션 추가
+        
+        - 그룹화 및 라벨 옵션으로 Replication Role 추가
+        
+        - 진행 중인 이벤트 일괄 해소 기능 추가
+        
+        - 임계치 설정 시 인스턴스 개요 탭의 지표 카드와 색상이 연동되도록 추가
+        
+        - 인스턴스 아이콘 색상이 진행 중인 이벤트 상태와 연동되도록 개선 (설정 아이콘으로 연동 여부 설정 가능)
+
+    - <Status priority='1'>Feature</Status> **인스턴스 맵** &gt; **인스턴스 개요** 탭
+    
+        - 데이터베이스 파라미터 화면 이동 버튼 추가
+        
+        - 지표 카드 클릭 시, 해당 지표의 추이를 확인할 수 있는 시리즈 차트가 팝업되도록 추가
+        
+        - Disk Usage 지표 카드 클릭 시, 디스크 사용량 상세를 확인할 수 있는 팝업창 추가
+
+    - <Status priority='1'>Changed</Status> **인스턴스 맵** 임계치 표시가 화면 크기에 따라 동적으로 조절되고, 추가 항목은 팝오버로 확인할 수 있도록 변경
+
     - <Status priority='1'>Changed</Status> **Top SQL** 실험실 → 분석으로 메뉴 이동
+
+    - <Status priority='0'>Fixed</Status> **인스턴스 맵** 간헐적으로 발생하던 화이트아웃 현상 수정
+
 
 #### MySQL
 
-    - <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt;  **테이블 사이즈 증감** 인스턴스 셀렉터 개선 
+    - <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_sessionHistory" className="uitext" /> 추가
+
+    - <Status priority='1'>Feature</Status> <Cmdname sid="reportStat" className="uitext" /> &gt;  **테이블 사이즈 증감** 인스턴스 셀렉터 개선
+
+    - <Status priority='1'>Feature</Status> **통계/보고서** > **테이블 사이즈 증감** 엑셀 파일 다운로드 제공 및 CSV 파일 컬럼 다국어 적용
 
 #### Oracle Pro
 

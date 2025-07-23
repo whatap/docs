@@ -1,5 +1,73 @@
 [
   {
+    "ver": "v1.2.0k",
+    "date": "2025-07-18",
+    "Lists": [
+      {
+        "ver": "v1.2.0k",
+        "hash": "v120k",
+        "product": "XOS",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> CentOS 7 이상에서 <code>mem_used=1</code> 옵션 사용 시 메모리 사용량이 <code>total - free - buff/cache</code>로 계산되도록 수정 (이는 <code>free</code> 명령어의 used 값과 동일)</p>",
+        "category": "공통"
+      }
+    ]
+  },
+  {
+    "ver": "v1.2.0j",
+    "date": "2025-07-16",
+    "Lists": [
+      {
+        "ver": "v1.2.0j",
+        "hash": "v120j",
+        "product": "XOS",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>use_tcp=1</code> 사용 시 PostgreSQL slow query에서 1 byte 밀림으로 <code>[CPU]</code>부터 잘못 해석되어 unknown packet 오류 발생하던 문제 수정</p>",
+        "category": "PostgreSQL"
+      },
+      {
+        "ver": "v1.2.0j",
+        "hash": "v120j",
+        "product": "XOS",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> MySQL에서 <code>slow_query=</code> 지정 시 <code>use_midinfo</code> 처리 플래그가 1로 설정되던 문제 수정</p>",
+        "category": "MySQL",
+        "details": "<ul><li>버그 현상: slow query에서 SQL text가 표시되지 않거나 깨짐</li></ul>"
+      },
+      {
+        "ver": "v1.2.0j",
+        "hash": "v120j",
+        "product": "XOS",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> PostgreSQL slow query에서 <code>log_error_verbosity=verbose</code> 설정 시 <code>00000:</code> 에러 코드가 노출되어 SQL text가 표시되지 않던 문제 수정</p>",
+        "category": "PostgreSQL",
+        "details": "<ul><li>버그 현상: slow query에서 SQL text가 표시되지 않음</li></ul>"
+      }
+    ]
+  },
+  {
+    "ver": "v1.2.0d",
+    "date": "2025-05-29",
+    "Lists": [
+      {
+        "ver": "v1.2.0d",
+        "hash": "v120d",
+        "product": "XOS",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>sun</code>, <code>aix</code> 운영체제 지원 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v1.2.0d",
+        "hash": "v120d",
+        "product": "XOS",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> PostgreSQL slow query에서 한글 및 midinfo 인식 오류 수정</p>",
+        "category": "PostgreSQL"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/db/xos-1_1_8v",
     "ver": "v1.1.8v",
     "date": "2024-12-24",

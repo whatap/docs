@@ -1,0 +1,1041 @@
+[
+  {
+    "ver": "v2.55.02",
+    "date": "2025-07-17",
+    "Lists": [
+      {
+        "ver": "v2.55.02",
+        "hash": "v25502",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>max_connection</code> 항목의 전송 주기를 5분에서 5초로 변경 (수집 주기는 5분 유지)</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.55.02",
+        "hash": "v25502",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> INDEX 레이아웃 실시간 조회 로직의 카테고리명 수정</p>",
+        "category": "Oracle"
+      }
+    ]
+  },
+  {
+    "ver": "v2.55.01",
+    "date": "2025-07-16",
+    "Lists": [
+      {
+        "ver": "v2.55.01",
+        "hash": "v25501",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> shell script 실행을 지원하는 <code>shellmon</code> 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.55.01",
+        "hash": "v25501",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Agentinfo에 DB 종류를 나타내는 <code>sub_type</code> 필드 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.55.01",
+        "hash": "v25501",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Autoscale 에이전트가 <code>AgentinfoPack</code> 전송하도록 개선</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.55.01",
+        "hash": "v25501",
+        "product": "DBX",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\" type=\"0\">Change</code> <code>max_connection</code> 수집 주기를 5분으로 변경</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.55.01",
+        "hash": "v25501",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> MySQL 5.6에서 액티브 세션 수집 시 발생하던 오류 수정</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.55.01",
+        "hash": "v25501",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> slave DB 손상 시 <code>node_state</code> 값을 2에서 -2로 변경되도록 수정</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.55.01",
+        "hash": "v25501",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> slow query 수집 시 타임스탬프 형식에 따라 <code>text</code>가 누락되던 문제 수정</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.55.01",
+        "hash": "v25501",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> slow query 수집 시 타임스탬프 형식에 따라 <code>text</code>가 누락되던 문제 수정</p>",
+        "category": "PostgreSQL"
+      }
+    ]
+  },
+  {
+    "ver": "v2.54.02",
+    "date": "2025-06-20",
+    "Lists": [
+      {
+        "ver": "v2.54.02",
+        "hash": "v25402",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> xview 카테고리에 state 필드 추가</p>",
+        "category": "PostgreSQL"
+      }
+    ]
+  },
+  {
+    "ver": "v2.54.01",
+    "date": "2025-06-18",
+    "Lists": [
+      {
+        "ver": "v2.54.01",
+        "hash": "v25401",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> PostgreSQL SQL 통계 기능에 pg_stat_statements 스키마 지정 옵션 추가</p>",
+        "category": "PostgreSQL",
+        "details": "<ul>\n<li>옵션명: statements_schema=</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_53_02",
+    "ver": "v2.53.02",
+    "date": "2025-06-12",
+    "Lists": [
+      {
+        "ver": "v2.53.02",
+        "hash": "v25302",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Autoscale 에이전트 DB 클러스터 scale in 시 에이전트 디렉토리 삭제</p>",
+        "category": "공통"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_53_01",
+    "ver": "v2.53.01",
+    "date": "2025-05-28",
+    "Lists": [
+      {
+        "ver": "v2.53.01",
+        "hash": "v25301",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> MySQL 8 이상인 경우 락 수집 쿼리 변경(sys.innodb_lock_waits조회) 및 에이전트 옵션 추가\n<a href=\"https://docs.whatap.io/mysql/agent-dbx-settings#%EB%9D%BD-%EC%88%98%EC%A7%91-%EA%B4%80%EB%A0%A8-%EC%84%A4%EC%A0%95\" target=\"_blank\" rel=\"noopener noreferrer\">다음 문서</a> 의 옵션 참조</p>",
+        "category": "MySQL",
+        "details": "<p><code class=\"Change\" type=\"0\">Change</code> whatap.log 내 수집 session 정보 표기 방식 변경</p>"
+      },
+      {
+        "ver": "v2.53.01",
+        "hash": "v25301",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> PGSQL통계 수집 시 order by 옵션 추가</p>",
+        "category": "PostgreSQL",
+        "details": "<ul>\n<li>default : statements_order_by=total_time</li>\n<li>컬럼 추가 시 : ex) statements_order_by=total_time,calls</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_52_04",
+    "ver": "v2.52.04",
+    "date": "2025-05-20",
+    "Lists": [
+      {
+        "ver": "v2.52.04",
+        "hash": "v25204",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> autoscale aws 인증권한 만료 시간 체크 200s -&gt; 120s 변경</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.52.04",
+        "hash": "v25204",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 인증발급순서 버그 수정</p>",
+        "category": "공통"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_52_02",
+    "ver": "v2.52.02",
+    "date": "2025-05-14",
+    "Lists": [
+      {
+        "ver": "v2.52.02",
+        "hash": "v25202",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Total 지표만 보내는 버그 수정</p>",
+        "category": "MS SQL Server"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_52_01",
+    "ver": "v2.52.01",
+    "date": "2025-05-07",
+    "Lists": [
+      {
+        "ver": "v2.52.01",
+        "hash": "v25201",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> bloating 수집 옵션 추가 (pg_bloat, default=true)</p>",
+        "category": "PostgreSQL"
+      },
+      {
+        "ver": "v2.52.01",
+        "hash": "v25201",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> show slave status 누적 예외 처리 수정</p>",
+        "category": "MySQL"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_51_01",
+    "ver": "v2.51.01",
+    "date": "2025-04-30",
+    "Lists": [
+      {
+        "ver": "v2.51.01",
+        "hash": "v25101",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> db2 Catalog Cache Hit Ratio 지표 추가</p>",
+        "category": "DB2"
+      },
+      {
+        "ver": "v2.51.01",
+        "hash": "v25101",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> db2 일부 지표 오버플로우 버그 수정</p>",
+        "category": "DB2"
+      },
+      {
+        "ver": "v2.51.01",
+        "hash": "v25101",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 락트리 정보에 pg_relation(waiter_relation, holer_relation) 추가</p>",
+        "category": "PostgreSQL"
+      },
+      {
+        "ver": "v2.51.01",
+        "hash": "v25101",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 알림 기능 원복</p>",
+        "category": "Oracle"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_50_02/",
+    "ver": "v2.50.02",
+    "date": "2025-04-24",
+    "Lists": [
+      {
+        "ver": "v2.50.02",
+        "hash": "v25002",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> setup.sh 수행 시 <em>jdbc</em> 폴더의 JAR 파일을 먼저 읽도록 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.50.02",
+        "hash": "v25002",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 세션 종료 수행 시 NullPoint 발생 버그 수정</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.50.02",
+        "hash": "v25002",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>xact_runtime</code> 계산 오류 수정</p>",
+        "category": "PostgreSQL"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_50_01/",
+    "ver": "v2.50.01",
+    "date": "2025-04-23",
+    "Lists": [
+      {
+        "ver": "v2.50.01",
+        "hash": "v25001",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 오브젝트 정보의 Partition, Subpartition 정보 수집 방식 수정</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.50.01",
+        "hash": "v25001",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 액티브 세션 리스트 수집 기준 변경</p>",
+        "category": "Oracle",
+        "details": "<ul>\n<li><p>기존: <code>status='active'</code></p></li><li><p>변경: <code>status!='inactive'</code></p></li>\n</ul>"
+      },
+      {
+        "ver": "v2.50.01",
+        "hash": "v25001",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 프로시저 통계 메뉴에 SQL Text가 표시되지 않던 버그 수정</p>",
+        "category": "MySQL"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_4/",
+    "ver": "v2.5.4",
+    "date": "2025-04-16",
+    "Lists": [
+      {
+        "ver": "v2.5.4",
+        "hash": "v254",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 음수값이 수집되는 지표 관련 버그 수정</p>",
+        "category": "CUBRID"
+      },
+      {
+        "ver": "v2.5.4",
+        "hash": "v254",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Cluster AutoScale 기능 추가 (요청 시 별도의 에이전트 파일 제공)</p>",
+        "category": "Redis"
+      },
+      {
+        "ver": "v2.5.4",
+        "hash": "v254",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 버전 정보 수집 시 에러 발생 버그 수정</p>",
+        "category": "SAP ASE"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_3/",
+    "ver": "v2.5.3",
+    "date": "2025-04-10",
+    "Lists": [
+      {
+        "ver": "v2.5.3",
+        "hash": "v253",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> DB2 Active Session의 username 수집 시 발생하던 버그 수정</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_2/",
+    "ver": "v2.5.2",
+    "date": "2025-04-08",
+    "Lists": [
+      {
+        "ver": "v2.5.2",
+        "hash": "v252",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 기동 start.sh 파일 실행 시 에이전트 jar 파일이 여러 개 있을 경우, 동작하지 않는 오류 수정 (버전 250327 ~ 250407에서 발생)</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.5.2",
+        "hash": "v252",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Tibero 5에서 액티브 세션 수집되지 않는 오류 수정</p>",
+        "category": "Tibero"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_1/",
+    "ver": "v2.5.1",
+    "date": "2025-04-04",
+    "Lists": [
+      {
+        "ver": "v2.5.1",
+        "hash": "v250",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> sqlstat 팩에 <code>@stime</code> 태그 추가</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.5.1",
+        "hash": "v251",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> temp tablespace 수집 쿼리 변경</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.5.1",
+        "hash": "v251",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> sqlstat 팩에 <code>@stime</code> 태그 추가</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.5.1",
+        "hash": "v251",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> mslog 옵션 기본값(default) 변경 (<code>true</code> → <code>false</code>)</p>",
+        "category": "SQL Server"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_5_0/",
+    "ver": "v2.5.0",
+    "date": "2025-04-01",
+    "Lists": [
+      {
+        "ver": "v2.5.0",
+        "hash": "v250",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Multidb 환경이 아닌 경우, <code>sqlstat</code> 카테고리의 DB 값에 Instance name을 전송하도록 수정</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.5.0",
+        "hash": "v250",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Oracle 10g인 경우 lock 수집 쿼리 변경</p>",
+        "category": "Oracle"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_9/",
+    "ver": "v2.4.9",
+    "date": "2025-03-25",
+    "Lists": [
+      {
+        "ver": "v2.4.9",
+        "hash": "v298",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Agent 기동 시 DB 접속 실패할 경우 stop.sh가 동작하지 않던 오류 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.4.9",
+        "hash": "v249",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> DB 크기 수집 기능 추가</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "v2.4.9",
+        "hash": "v249",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>max_connections</code> 지표 수정</p>",
+        "category": "SAP ASE",
+        "details": "<ul>\n<li><p><code>@@max_connections</code> 값을 보냈으나, DB 파라미터인 <code>number of user connections</code>로 변경</p></li>\n</ul>"
+      },
+      {
+        "ver": "v2.4.9",
+        "hash": "v249",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> DocumentDB는 기본값으로 <code>v2=true</code> 옵션을 적용하지 않고 전체 지표를 수집하도록 수정</p>",
+        "category": "MongoDB"
+      },
+      {
+        "ver": "v2.4.9",
+        "hash": "v249",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> DocumentDB에서 파라미터 수집 제외</p>",
+        "category": "MongoDB"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_8/",
+    "ver": "v2.4.8",
+    "date": "2025-03-21",
+    "Lists": [
+      {
+        "ver": "v2.4.8",
+        "hash": "v248",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> tablespace 정보가 출력되지 않는 오류 수정</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.4.8",
+        "hash": "v248",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 수집 쿼리 주석 추가</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_7/",
+    "ver": "v2.4.7",
+    "date": "2025-03-18",
+    "Lists": [
+      {
+        "ver": "v2.4.7",
+        "hash": "v247",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code>  지표 수집 옵션 v2의 기본값을 <code>false</code>에서 <code>true</code>로 변경</p>",
+        "category": "MongoDB",
+        "details": "<ul>\n<li>\n<p>기존 기본값: <code>v2=false</code> → 변경 후 기본값: <code>v2=true</code></p>\n</li>\n<li>\n<p><code>v2=true</code> 설정 시 <code>serverStatus</code> 값 중 <code>opcounters</code>, <code>globalLock</code>, <code>extra_info</code>, <code>connections</code>, <code>network</code>, <code>mem, opLatencies</code>, <code>asserts</code>만 수집 및 저장</p>\n</li>\n<li>\n<p>추가 지표 수집을 원할 경우 <code>category=network,repl,indexStats…</code> 등의 <code>serverStatus</code> 출력 옵션을 지정하여 추가 수집 가능</p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://whatap.github.io/whatap-docs/release-notes/db/dbx-2_4_6/",
+    "ver": "v2.4.6",
+    "date": "2025-03-14",
+    "Lists": [
+      {
+        "ver": "v2.4.6",
+        "hash": "v246",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Yugabyte DB에 대해 <code>node_state</code>, <code>DB size</code> 수집 기능 추가</p>",
+        "category": "PostgreSQL",
+        "details": "<ul>\n<li>\n<p>기본적으로 <code>yb_pg_database_size</code> 및 <code>yb_pg_indexes_size</code> 함수를 사용하여 DB 크기 및 인덱스 크기 수집</p>\n</li>\n<li>\n<p>다른 함수명을 사용할 경우, <code>yb_pg_database_size=</code> 및 <code>yb_pg_indexes_size=</code> 옵션을 통해 지정 가능</p>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_5/",
+    "ver": "v2.4.5",
+    "date": "2025-03-13",
+    "Lists": [
+      {
+        "ver": "v2.4.5",
+        "hash": "v245",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 통계 데이터 수집 주기 1분 옵션 추가 (<code>sqlstat_send_interval=1</code>, 기본값: <code>5</code>)</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.4.5",
+        "hash": "v245",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> MySQL 8.4 이상 버전에서 Master, Slave Status 쿼리 변경으로 인한 컬럼 수정</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.4.5",
+        "hash": "v245",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 통계 데이터 수집 주기 1분 옵션 추가 (<code>sqlstat_send_interval=1</code>, 기본값: <code>5</code>)</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.4.5",
+        "hash": "v245",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Oracle Active Session 텍스트가 출력되지 않는 문제 수정</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.4.5",
+        "hash": "v245",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<li><code class=\"New\" type=\"1\">New</code> 통계 데이터 수집 주기 1분 옵션 추가 (<code>sqlstat_send_interval=1</code>, 기본값: <code>5</code>)</li>",
+        "category": "Oracle Pro"
+      }
+    ]
+  },
+  {
+    "url": "https://docs/whatap.io/release-notes/db/dbx-2_4_4/",
+    "ver": "v2.4.4",
+    "date": "2025-03-10",
+    "Lists": [
+      {
+        "ver": "v2.4.4",
+        "hash": "v244",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Suspect DB 카테고리 추가</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "v2.4.4",
+        "hash": "v244",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 비정상적인 CPU 값이 나타나는 오류 수정</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "v2.4.4",
+        "hash": "v244",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Kill session 파라미터 수정</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "v2.4.4",
+        "hash": "v244",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code>  Dumpstat에서 음수 발생 시 로그 기록 추가</li>",
+        "category": "CUBRID"
+      },
+      {
+        "ver": "v2.4.4",
+        "hash": "v244",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code>  Session 카테고리에서 <code>!rectype</code>, <code>@id</code> 제거</li>",
+        "category": "MongoDB, Redis"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_3/",
+    "ver": "v2.4.3",
+    "date": "2025-03-06",
+    "Lists": [
+      {
+        "ver": "v2.4.3",
+        "hash": "v243",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> SAP ASE 제품 추가</p>",
+        "category": "SAP ASE"
+      },
+      {
+        "ver": "v2.4.3",
+        "hash": "v243",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Tablespace size 수집 기능 추가</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.4.3",
+        "hash": "v243",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Lock 수집 쿼리 및 정보 수정</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.4.3",
+        "hash": "v243",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code>  Active session 및 SQL stat에 <code>@id</code>, <code>!rectype</code> 추가</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_2/",
+    "ver": "v2.4.2",
+    "date": "2025-02-26",
+    "Lists": [
+      {
+        "ver": "v2.4.2",
+        "hash": "v242",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Oracle Active Session의 <code>status</code> 지표를 <code>String</code> 값으로 변경</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.4.2",
+        "hash": "v242",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>xact_runtime</code> 지표 추가</p>",
+        "category": "PostgreSQL"
+      },
+      {
+        "ver": "v2.4.2",
+        "hash": "v242",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>xview</code>에 <code>id</code> 추가</p>",
+        "category": "Altibase"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_1/",
+    "ver": "v2.4.1",
+    "date": "2025-02-24",
+    "Lists": [
+      {
+        "ver": "v2.4.1",
+        "hash": "v241",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> MySQL 8 이상에서 Lock 수집 쿼리 수정</p>",
+        "category": "MySQL",
+        "details": "<ul>\n<li>\n<p>기존 <code>data_lock_waits</code> 건수 수집에서 대기 세션 수만 카운트하도록 변경</p>\n</li>\n<li>\n<p><code>mysql8_lock_status=false</code> 옵션 추가 시 기존 수집 쿼리 사용 가능</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v2.4.1",
+        "hash": "v241",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> PostgreSQL 17 버전 이상에서 checkpoint 지표 수집 추가</p>",
+        "category": "PostgreSQL"
+      },
+      {
+        "ver": "v2.4.1",
+        "hash": "v241",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> autoscale 에이전트에서 <em>whatap.conf</em>의 <code>aws_region</code>이 인식되지 않는 오류 수정</p>",
+        "category": "PostgreSQL"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_4_0/",
+    "ver": "v2.4.0",
+    "date": "2025-02-20",
+    "Lists": [
+      {
+        "ver": "v2.4.0",
+        "hash": "v240",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 다음 카테고리에 대하여 5분 통계 생성하지 않도록 변경</p>",
+        "category": "PostgreSQL, MySQL, MS SQL Server, Altibase, Cubrid, Mongo, Redis, IBM DB2",
+        "details": "<blockquote>\n<p><code>active session</code>, <code>xview</code>, <code>lockinfo</code>, <code>pq_tree</code>, <code>segments</code>, <code>tablespace</code></p>\n</blockquote>"
+      },
+      {
+        "ver": "v2.4.0",
+        "hash": "v240",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 다음 카테고리에 대하여 5분 통계 생성하지 않도록 변경 및 <code>!rectype</code>, <code>@id</code> 필드 추가</p>",
+        "category": "PostgreSQL, MySQL, MS SQL Server, Altibase, Cubrid, Mongo, Redis, DB2",
+        "details": "<blockquote>\n<p><code>active_session</code>, <code>xos_disk_usage</code></p>\n</blockquote>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_9/",
+    "ver": "v2.3.9",
+    "date": "2025-02-18",
+    "Lists": [
+      {
+        "ver": "v2.3.9",
+        "hash": "v239",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Plan 정보 전송 시 <code>parent_id</code>가 <code>null</code>일 경우 <code>-1</code>로 전송 (20250220 버전부터 적용)</p>",
+        "category": "Tibero"
+      },
+      {
+        "ver": "v2.3.9",
+        "hash": "v239",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Tibero 5(rev. 125305부터 rev. 127709까지) <code>v$session</code>의 status 컬럼명 오류 처리</p>",
+        "category": "Tibero"
+      },
+      {
+        "ver": "v2.3.9",
+        "hash": "v239",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 다음 카테고리에 <code>!rectype</code>, <code>@id</code> 필드 추가</p>",
+        "category": "Oracle",
+        "details": "<blockquote>\n<p><code>db_oracle_active_session</code>, <code>db_oracle_xos_disk_usage</code></p>\n</blockquote>"
+      },
+      {
+        "ver": "v2.3.9",
+        "hash": "v239",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Plan 정보 전송 시 <code>parent_id</code>가 <code>null</code>일 경우 <code>-1</code>로 전송</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.3.9",
+        "hash": "v239",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 다음 카테고리에 대하여 5분 통계 생성하지 않도록 변경</p>",
+        "category": "Oracle",
+        "details": "<blockquote>\n<p><code>db_oracle_active_session</code>, <code>db_oracle_xview</code>, <code>db_oracle_bind_save</code>, <code>db_oracle_lockinfo</code>, <code>db_oracle_plan_save</code>, <code>db_oracle_pq_tree</code>, <code>db_oracle_segments</code>, <code>db_oracle_tablespace</code>, <code>db_oracle_sga</code></p>\n</blockquote>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_8/",
+    "ver": "v2.3.8",
+    "date": "2025-02-05",
+    "Lists": [
+      {
+        "ver": "v2.3.8",
+        "hash": "v238",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Altibase disk tablespace 쿼리 오류 수정</p>",
+        "category": "Altibase"
+      },
+      {
+        "ver": "v2.3.8",
+        "hash": "v238",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Bufferpool 정보 타입 <code>int</code>에서 <code>long</code>으로 변경</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_7/",
+    "ver": "v2.3.7",
+    "date": "2025-01-23",
+    "Lists": [
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>tablespace</code> 옵션을 추가하여 Free space 조회 시 쿼리 타임아웃 발생 문제 해결을 위해 옵션에 따라 다른 뷰를 조회</p>",
+        "category": "Oracle",
+        "details": "<ul>\n<li>\n<p><code>tablespace=1</code>: <code>dba_free_space</code> 조회</p>\n</li>\n<li>\n<p><code>tablespace=2</code>: <code>dba_lmt_free_space</code> 조회</p>\n</li>\n<li>\n<p><code>tablespace=3</code>: <code>usage_metrics</code> 조회</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Datafile 수집 시 <code>maxsize</code> 정보 추가</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Datafile 수집 시 <code>autoextensible</code>, <code>maxsize</code> 정보 추가</p>",
+        "category": "Tibero"
+      },
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Tablespace 정보 수집 시 에이전트에 로그 남기도록 수정</p>",
+        "category": "Tibero"
+      },
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Datafile 수집 시 max_m을 maxsize로 이름 변경</p>",
+        "category": "Altibase"
+      },
+      {
+        "ver": "v2.3.7",
+        "hash": "v237",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Tablespace 정보 수집 시 에이전트에 로그 남기도록 수정</p>",
+        "category": "Altibase"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_6/",
+    "ver": "v2.3.6",
+    "date": "2025-01-22",
+    "Lists": [
+      {
+        "ver": "v2.3.6",
+        "hash": "v236",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Autoscale 에이전트 ARN 토큰 재발급 처리 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.3.6",
+        "hash": "v236",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> DB2 10.5 버전 이상에서 PID 추가</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.3.6",
+        "hash": "v236",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> DB2 9.7 버전에서 Active Session 쿼리 분리</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_5",
+    "ver": "v2.3.5",
+    "date": "2025-01-17",
+    "Lists": [
+      {
+        "ver": "v2.3.5",
+        "hash": "v235",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트가 기동 후 처음에 <code>db_process_check</code> 카테고리로 데이터를 전송하지 않는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.3.5",
+        "hash": "v235",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> sqlmon 버그 수정: V2 버전의 프로젝트에서 동작하지 않는 문제 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.3.5",
+        "hash": "v235",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> JDBC 연결 옵션(<code>connect_option</code>) 추가</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.3.5",
+        "hash": "v235",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 데이터베이스 서버와 재연결하는 로직의 오류 수정</p>",
+        "category": "IBM DB2"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_4",
+    "ver": "v2.3.4",
+    "date": "2025-01-15",
+    "Lists": [
+      {
+        "ver": "v2.3.4",
+        "hash": "v234",
+        "product": "DBX",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> IBM DB2 모니터링을 위한 에이전트 추가</p>",
+        "category": "IBM DB2"
+      },
+      {
+        "ver": "v2.3.4",
+        "hash": "v234",
+        "product": "DBX",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"0\">Changed</code> 정상 알림이 발생하도록 <code>db_process_check</code> 카테고리에 비어있는 값을 하루에 2번 전송하는 기능 추가</p>",
+        "category": "공통"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/db/dbx-2_3_3",
+    "ver": "v2.3.3",
+    "date": "2025-01-07",
+    "Lists": [
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <code>mssql_query_hash</code> 필드 추가 (active session, xview, query stat, sql 통계)</p>",
+        "category": "SQL Server"
+      },
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <code>filegroup</code>에 <code>growth</code> 필드 추가</p>",
+        "category": "SQL Server"
+      },
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>query_stat</code> 2008 버전 이하 버그 수정</p>",
+        "category": "SQL Server"
+      },
+      {
+        "ver": "v2.3.3",
+        "hash": "v233",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>buffer cache hit ratio</code>, <code>cache hit ratio</code> 지표가 100%를 넘지 않도록 수정</p>",
+        "category": "SQL Server"
+      }
+    ]
+  }
+]

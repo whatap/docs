@@ -10,6 +10,8 @@ toc_min_heading_level: 2
 <meta name="robots" content="noindex, nofollow"/>
 </head>
 
+### 최신 버전: 2.11.2
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -19,22 +21,16 @@ import ReleaseNotes202x from "./php-agent-202x.json";
 
 <Tabs>
 
-<TabItem value="2025">
+    <TabItem value="2025" label="2025">
+        <ImportJson filePath={ReleaseNotes2025} sort="date" category="agent" />
+    </TabItem>
 
-    <ImportJson filePath={ReleaseNotes2025} sort="date" category="agent" />
-
-</TabItem>
-
-<TabItem value="2024">
-
-    <ImportJson filePath={ReleaseNotes2024} sort="date" category="agent" />
-
-</TabItem>
-
-<TabItem value="2024 이전">
-
-    <ImportJson filePath={ReleaseNotes202x} sort="date" category="agent" />
-
-</TabItem>
+    <TabItem value="2024" label="2024">
+        <ImportJson filePath={ReleaseNotes2024} sort="date" category="agent" />
+    </TabItem>
+    
+    <TabItem value="2024 이전" label="2024 이전">
+        <ImportJson filePath={ReleaseNotes202x} sort="date" category="agent" />
+    </TabItem>
 
 </Tabs>

@@ -1,0 +1,198 @@
+[
+    {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_19_x",
+    "ver": "Service 2.19.0",
+    "date": "2025-07-23",
+    "Lists": [
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">프로젝트 사용량 미리보기</span> 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "공통",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 프로젝트 목록 새로고침 시 카드 뷰 상태 유지</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">AI 기반 스레드 덤프 분석</span> 기능 추가 <code class=\"Beta\">Beta</code></p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>비즈니스 대시보드</strong> 사이드 메뉴로 이동</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 명 수정 시 정보가 남아있는 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 최소 크기로 줄였다 늘릴 경우 차트 미표시 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 공유된 URL 진입 시 필터키 적용 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 일본어 수정 및 적용</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Application",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> PHP 지원 버전 안내 문구 수정</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Application",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Node.js 시스템 GC 화면 추가 (v0.5.21+)</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 서버 가상자산 필터 및 컬럼 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> GPU 인벤토리 CSV 다운로드 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> GPU 성능요약 필터 개선</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 서버 상태 API 오류 시 페이지 화이트아웃 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 컨테이너 맵 STATUS 라벨 표시 옵션 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Kubernetes",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> PV, PVC 정보 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 이퀄라이저 위젯 시리즈 차트 팝업 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> DB 모니터링 y축 조절 및 애니메이션 개선</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 대시보드 차트 드래그 동작 개선</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> MySQL 세션 히스토리 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Oracle Pro ASM 디스크 사용량 테이블 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Wait 별 Top SQL 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Network",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> MNU06848 서버 저장 방식으로 변경</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Log",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 로그 탐색 드릴다운 쿼리 우선순위 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "WhaTap AI Chatbot",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 다국어(일본어, 영어) 지원</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "WhaTap AI Chatbot",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 스크린샷 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "WhaTap AI Chatbot",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> fullscreen 기능 추가</p>"
+      }
+    ]
+  }
+]

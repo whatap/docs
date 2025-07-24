@@ -1,25 +1,52 @@
 [
   {
+    "ver": "v2.9.0",
+    "date": "2025-07-23",
+    "Lists": [
+      {
+        "ver": "v2.9.0",
+        "hash": "v2900",
+        "product": "Server Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Cronjob 기능 추가</p>"
+      },
+      {
+        "ver": "v2.9.0",
+        "hash": "v2900",
+        "product": "Server Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>Memory Used</code> 계산식 옵션 추가</p>"
+      },
+      {
+        "ver": "v2.9.0",
+        "hash": "v2900",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>zfs io</code> 지표가 잘못 출력되는 문제 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://whatap.github.io/whatap-docs/release-notes/server/server-2_8_9/",
-    "ver": "v2.8.9",
+    "ver": "v2.9.0",
     "date": "2025-07-15",
     "Lists": [
       {
-        "ver": "v2.8.9",
+        "ver": "v2.9.0",
         "hash": "v289",
         "product": "Server Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> Infiniband 지표 수집 기능 추가</p>"
       },
       {
-        "ver": "v2.8.9",
+        "ver": "v2.9.0",
         "hash": "v289",
         "product": "Server Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> Browser Monitoring Metering 옵션 추가</p>"
       },
       {
-        "ver": "v2.8.9",
+        "ver": "v2.9.0",
         "hash": "v289",
         "product": "Server Agent",
         "type": "Fixed",

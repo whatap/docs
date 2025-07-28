@@ -1,24 +1,44 @@
 [
   {
-    "ver": "v2.9.0",
+    "ver": "v2.9.1",
+    "date": "2025-07-25",
+    "Lists": [
+      {
+        "ver": "v2.9.1",
+        "hash": "v291",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>cronjob timeout</code> 옵션 추가</p>"
+      },
+      {
+        "ver": "v2.9.1",
+        "hash": "v291",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>agent.log.prefix</code> 옵션이 적용되지 않던 케이스 수정</p>"
+      }
+    ]
+  },  
+  {
+    "ver": "v2.9.1",
     "date": "2025-07-23",
     "Lists": [
       {
-        "ver": "v2.9.0",
+        "ver": "v2.9.1",
         "hash": "v2900",
         "product": "Server Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> Cronjob 기능 추가</p>"
       },
       {
-        "ver": "v2.9.0",
+        "ver": "v2.9.1",
         "hash": "v2900",
         "product": "Server Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>Memory Used</code> 계산식 옵션 추가</p>"
       },
       {
-        "ver": "v2.9.0",
+        "ver": "v2.9.1",
         "hash": "v2900",
         "product": "Server Agent",
         "type": "Fixed",
@@ -28,25 +48,25 @@
   },
   {
     "url": "https://whatap.github.io/whatap-docs/release-notes/server/server-2_8_9/",
-    "ver": "v2.9.0",
+    "ver": "v2.9.1",
     "date": "2025-07-15",
     "Lists": [
       {
-        "ver": "v2.9.0",
+        "ver": "v2.9.1",
         "hash": "v289",
         "product": "Server Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> Infiniband 지표 수집 기능 추가</p>"
       },
       {
-        "ver": "v2.9.0",
+        "ver": "v2.9.1",
         "hash": "v289",
         "product": "Server Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> Browser Monitoring Metering 옵션 추가</p>"
       },
       {
-        "ver": "v2.9.0",
+        "ver": "v2.9.1",
         "hash": "v289",
         "product": "Server Agent",
         "type": "Fixed",

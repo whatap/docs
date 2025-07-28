@@ -1,5 +1,18 @@
 [
   {
+    "ver": "v1.4.5",
+    "date": "2025-07-25",
+    "Lists": [
+      {
+        "ver": "v1.4.5",
+        "hash": "v145",
+        "product": "Server HP-UX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 디스크 사용량이 잘못 표시되는 문제 수정</p>"
+      }
+    ]
+  },  
+  {
     "url": "https://docs.whatap.io/release-notes/server-hpux/server-hpux-1_4_4/",
     "ver": "v1.4.4",
     "date": "2025-04-23",

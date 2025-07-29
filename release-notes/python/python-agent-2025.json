@@ -1,5 +1,28 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_8_7",
+    "ver": "v1.8.7",
+    "date": "2025-07-29",
+    "Lists": [
+      {
+        "ver": "v1.8.7",
+        "hash": "v187",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>whatap_code_start</strong> 옵션 추가</p>",
+        "details": "<ul><li><p>기본값: <code>false</code></p>\n<br /><li><p><code>true</code> 설정 시, <a href='http://sitecustomize.py'>sitecustomize.py</a> 에서 <code>import whatap</code> 후 <code>whatap.agent()</code> 실행 가능</p><p>whatap-start-agent 명령어 없이 기존 파이썬 실행 명령어로 에이전트 실행 가능</p></li></ul>"
+      },
+      {
+        "ver": "v1.8.7",
+        "hash": "v187",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>open_file_descriptor_enabled</strong> 옵션 수정</p>",
+        "details": "<ul><li></span></p><p><code>false</code> 설정 시, 파일 디스크립터를 추적하는 스레드도 비활성화됨</p></li></ul>"
+      }
+    ]
+  },  
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_8_6/",
     "ver": "v1.8.6",
     "date": "2025-07-15",

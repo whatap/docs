@@ -9,15 +9,15 @@
         "hash": "v187",
         "product": "Python Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>whatap_code_start</strong> 옵션 추가</p>",
-        "details": "<ul><li><p>기본값: <code>false</code></p>\n<br /><li><p><code>true</code> 설정 시, <a href='http://sitecustomize.py'>sitecustomize.py</a> 에서 <code>import whatap</code> 후 <code>whatap.agent()</code> 실행 가능</p><p>whatap-start-agent 명령어 없이 기존 파이썬 실행 명령어로 에이전트 실행 가능</p></li></ul>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>whatap_code_start</strong> 옵션 추가 <span class='type'>Boolean</span> 기본값 <code>false</code></p>",
+        "details": "<ul><li><p><code>true</code> 설정 시, <em>sitecustomize.py</em>에서 <code>import whatap</code> 후 <code>whatap.agent()</code> 실행 가능하여, whatap-start-agent 명령어 없이 기존 파이썬 실행 명령어로 에이전트 실행 가능</p></li></ul>"
       },
       {
         "ver": "v1.8.7",
         "hash": "v187",
         "product": "Python Agent",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>open_file_descriptor_enabled</strong> 옵션 수정</p>",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>open_file_descriptor_enabled</strong> 옵션 수정 <span class='type'>Boolean</span> </p>",
         "details": "<ul><li></span></p><p><code>false</code> 설정 시, 파일 디스크립터를 추적하는 스레드도 비활성화됨</p></li></ul>"
       }
     ]
@@ -33,7 +33,7 @@
         "product": "Python Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> URL을 정규화한 경우, 원본 URL이 step에서 노출되는 옵션 추가</p>",
-        "details": "<ul><li><p><strong>step_origin_url_enabled</strong> <span class='type'>Boolean</span></p><p>기본값 <code>false</code></p></li></ul>"
+        "details": "<ul><li><p><strong>step_origin_url_enabled</strong> <span class='type'>Boolean</span></p><p> 기본값 <code>false</code></p></li></ul>"
       },
       {
         "ver": "v1.8.6",
@@ -41,7 +41,7 @@
         "product": "Python Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> standalone Python 프로세스 추적 옵션 추가</p>",
-        "details": "<ul><li><p><strong>standalone_enabled</strong> <span class='type'>Boolean</span></p><p>기본값 <code>false</code></p></li><li><p><strong>standalone_type</strong> <span class='type'>String</span></p>\n<br /><p><code>single-transaction</code>: 기본값, 하나의 트랜잭션으로 모니터링</p>\n<br /><p><code>multiple-transaction</code>: 모듈·클래스·메소드 단위 트랜잭션 지정 가능</p></li><li><p><strong>standalone_transaction_patterns</strong> <span class='type'>String</span></p>\n<br /><p>기본값 없음</p>\n<br /><p>형식: <code>[MODULE]:[CLASS].[FUNC]</code> 또는 <code>[MODULE]:[FUNC]</code></p>\n<br /><p>예: <code>myPackage:MyClass.__init__, myPackage:my_function</code></p></li></ul>"
+        "details": "<ul><li><p><strong>standalone_enabled</strong> <span class='type'>Boolean</span></p><p> 기본값 <code>false</code></p></li><li><p><strong>standalone_type</strong> <span class='type'>String</span></p>\n<br /><p><code>single-transaction</code>: 기본값, 하나의 트랜잭션으로 모니터링</p>\n<br /><p><code>multiple-transaction</code>: 모듈·클래스·메소드 단위 트랜잭션 지정 가능</p></li><li><p><strong>standalone_transaction_patterns</strong> <span class='type'>String</span></p>\n<br /><p>기본값 없음</p>\n<br /><p>형식: <code>[MODULE]:[CLASS].[FUNC]</code> 또는 <code>[MODULE]:[FUNC]</code></p>\n<br /><p>예: <code>myPackage:MyClass.__init__, myPackage:my_function</code></p></li></ul>"
       },
       {
         "ver": "v1.8.6",

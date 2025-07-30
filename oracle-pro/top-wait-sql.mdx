@@ -1,0 +1,40 @@
+---
+id: top-wait-sql
+title: Wait 별 Top SQL
+description: Wait 별 Top SQL 통계를 제공합니다. 
+keywords: [ Oracle Pro, 데이터베이스, 통계, Wait 별 Top SQL ]
+---
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_statistics" className="uitext" /> &gt; **Wait 별 Top SQL**
+
+**Wait 별 Top SQL**은 튜닝 우선순위를 빠르게 파악하는 데 중점을 두고 분석합니다. 특정 시간대에 가장 많은 대기 시간이 발생한 Wait Class와 Wait Event를 차트와 테이블로 한눈에 확인할 수 있으며, Top SQL 테이블에서 실행 횟수와 평균 시간을 비교할 수 있습니다.
+
+## 기본 화면 안내
+
+<ImgLang img="db-top-wait-sql.png" desc="top wait sql" />
+
+### Wait Class 차트
+
+클래스 차트 또는 범레를 클릭하면 해당 클래스가 필터에 적용됩니다. 차트나 범례를 다시 클릭하면 필터가 해제됩니다.
+
+- 차트 상단의 Wait Class 막대 차트는 현재 분석 기간의 전체 대기 시간 비중을 시각적으로 보여줍니다.
+
+- 선택된 필터는 태그 형태로 표시됩니다.
+
+### Wait Event 목록
+
+클래스가 선택되지 않은 초기에 선택한 타임셀렉터 범위 중 발생 빈도가 가장 높은 이벤트를 기준으로 표시됩니다. Wait Class 필터가 적용되면 해당 클래스의 이벤트 목록이 표시됩니다.
+
+Wait Event 목록에서 **Wait Event**를 선택하면, 해당 내역이 **SQL List** 필터에 추가됩니다.
+
+### Wait / System Stat Trends
+
+시간대별 Wait Class의 분포 및 세션 수를 시각적으로 표시합니다. 특정 시간대의 대기 이벤트 증가 패턴을 확인할 수 있습니다. Wait(time), Wait(count), Latch, Enqueue, Stat, Cpu, Memory, Session Count의 분석 카테고리를 선택할 수 있습니다.
+
+### SQL List 목록
+
+각 SQL 항목에 대해 Elapsed Time, CPU Time, Wait Time, Execute Count, Logical Reads 등 주요 실행 성능 지표가 함께 표시되어 빠른 비교 분석이 가능합니다.
+
+- **기본 상태(미선택 시)**: Elapsed Time이 가장 높은 50개 쿼리 표시
+
+- **클래스 선택 시**: 선택한 클래스의 Wait Time이 가장 높은 50개 쿼리 표시

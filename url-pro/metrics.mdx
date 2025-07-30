@@ -1,0 +1,40 @@
+---
+id: metrics
+title: 메트릭스 설명
+description: URL 모니터링에 사용되는 주요 메트릭스와 필드, 태그 정보를 정리합니다.
+keywords: [메트릭스, 필드 설명, url_check, 상태 통계, alert_event]
+---
+
+## 메트릭스 설명
+
+URL 모니터링에서 사용하는 주요 메트릭스와 필드, 태그 정보입니다.
+
+### 주요 메트릭스 예시
+
+#### `url_check`
+- URL별 상태 측정 데이터
+- 필드 예시:
+  - `status`: HTTP 응답 코드
+  - `elapsed`: 응답 시간(ms)
+  - `title_changed`: HTML 타이틀 변경 여부
+- 태그 예시:
+  - `name`: 사이트명
+  - `url`: 대상 URL
+
+#### `url_stat_all`
+- 전체 URL 상태 통계
+- 필드: `total_url`, `normal_url`, `error_url`
+
+#### `url_stat_category`
+- 카테고리별 URL 상태 통계
+- 태그: `category_name`
+
+#### `url_stat_issue`
+- 이슈별 URL 상태 통계
+- 태그: `issue_name`
+
+#### `url_status`
+- URL 상태 기록 및 알림 판단 기준
+- 필드: `event`, `msg`, `status_level`
+
+> 이 외에도 알림용 통계 메트릭스인 `alert_event`, `alert_count` 등은 참고용 지표로 활용할 수 있습니다.

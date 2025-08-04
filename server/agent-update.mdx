@@ -46,63 +46,6 @@ import TabItem from '@theme/TabItem';
   sudo yum install whatap-infra-{version}
   ```
 
-### GPU 인벤토리
-
-GPU 인벤토리 기능을 사용하려면 다음 에이전트 버전 이상의 업데이트 및 설정이 필요합니다.
-
-:::tip
-
-지원 버전:  Linux 2.8.9 이상
-
-:::
-
-* **Amazon Linux, RHEL, Fedora, Oracle Linux, CentOS, Rocky Linux, SUSE**
-
-  ```bash
-  sudo yum update whatap-infra
-  ```
-
-* **Debian, Ubuntu**
-
-  ```bash
-  sudo apt-get update
-  sudo apt-get install whatap-infra
-  ```
-
-#### GPU 옵션 
-
-GPU 인벤토리 기능을 활성화하기 위해 아래 옵션이 활성화되어야 합니다.
-
-* **nvidiav2.enabled** <span class='type'>Boolean</span>
-
-  기본값 `false`
-  
-  nvidia gpu 지표 수집 옵션으로 물리GPU 구성정보 및 리소스 사용량 정보입니다.
-
-* **nvidiav2.mig.enabled** <span class='type'>Boolean</span>
-
-  기본값 `false`
-  
-  nvidia gpu mig 관련 지표 수집 옵션으로 MIG 구성정보 및 리소스 사용량 정보입니다. **nvidiav2.enabled** 옵션 `true` 설정이 필요합니다.
-
-* **nvidiav2.proc.enabled** <span class='type'>Boolean</span>
-
-  기본값 `false`
-
-  nvidia gpu 할당 process 정보 수집 옵션입니다. **nvidiav2.enabled** 옵션 `true` 설정이 필요합니다.
-
-* **nvidiav2.dcp.enabled** <span class='type'>Boolean</span>
-
-  기본값 `true`
-
-  nvidia dcp(Data Center Profiling) 지표 수집 옵션입니다. **nvidiav2.enabled** 옵션 `true` 설정이 필요합니다.
-
-* **nvidiav2.interval.sec**
-
-  기본값 `30초`
-
-  nvidia 지표 수집 주기입니다. 
-
 ## Unix
 
 * **FreeBSD**

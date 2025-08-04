@@ -1,5 +1,27 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_8_8",
+    "ver": "v1.8.8",
+    "date": "2025-08-04",
+    "Lists": [
+      {
+        "ver": "v1.8.8",
+        "hash": "v188",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>httpx</code> 모듈 추적 기능 추가</p>"
+      },
+      {
+        "ver": "v1.8.8",
+        "hash": "v188",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>openai</code> 모듈 추적 기능 추가</p>",
+        "details": "<ul><li><p><strong>trace_llm_log_enabled</strong> <span class='type'>Boolean</span></p><p> 기본값 <code>false</code></p>\n<br /><code>true</code> 설정 시, openai API 로그 모니터링으로 추적함</li></ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_8_7",
     "ver": "v1.8.7",
     "date": "2025-07-29",

@@ -16,8 +16,8 @@
         "hash": "v188",
         "product": "Python Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>openai</code> 모듈 추적 기능 추가<span class='type'>Boolean</span> 기본값 <code>false</code></p>",
-        "details": "<ul><li><p><code>true</code> 설정 시, openai API 로그 모니터링으로 추적함</p></li></ul>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>openai</code> 모듈 추적 기능 추가</p>",
+        "details": "<ul><li><p><strong>trace_llm_log_enabled</strong> <span class='type'>Boolean</span></p><p> 기본값 <code>false</code></p>\n<br /><code>true</code> 설정 시, openai API 로그 모니터링으로 추적함</li></ul>"
       }
     ]
   },

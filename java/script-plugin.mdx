@@ -272,7 +272,7 @@ Java 에이전트 플러그인은 메소드 시작/종료 부분에 삽입해 �
 
 ### Elasticsearch 엔진의 검색 요청 모니터링
 
-Elasticsearch(이하 ES) 엔진은 서블릿 엔진이 아니기 때문에 비정형 모니터링을 해야 합니다. 타상품이 지표 중심의 모니터링을 한다면 와탭의 플러그인을 활용해 ES의 요청 및 처리시간, 검색 키워드를 트레이싱할 수 있습니다.
+Elasticsearch(이하 ES) 엔진은 서블릿 엔진이 아니기 때문에 비정형 모니터링을 해야 합니다. 타제품이 지표 중심의 모니터링을 한다면 와탭의 플러그인을 활용해 ES의 요청 및 처리시간, 검색 키워드를 트레이싱할 수 있습니다.
 
 ```ini title='whatap.conf'
 # 트랜잭션 EndPoint로 org.elasticsearch.search.SearchService.executeQueryPhase를 설정합니다.

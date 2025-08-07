@@ -210,7 +210,7 @@ APM:
   properties:
     platform:
       type: string
-      description: 애플리케이션 상품 플랫폼
+      description: 애플리케이션 제품 플랫폼
     createTime:
       type: string
       description: 프로젝트 생성 날짜
@@ -239,7 +239,7 @@ APM:
       description: 프로젝트 이름
     productType:
       type: string
-      description: 애플리케이션 상품 유형
+      description: 애플리케이션 제품 유형
 Server:
   type: object
   properties:
@@ -1271,7 +1271,7 @@ MXQLPathResponse:
       description: 서버별 에이전트 그룹 이름
     type:
       type: string
-      description: 상품 종류
+      description: 제품 종류
     subtype:
       type: string
       description: 플랫폼 종류

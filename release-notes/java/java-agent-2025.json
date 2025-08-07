@@ -18,7 +18,7 @@
         "hash": "v2262",
         "product": "Java Agent",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 일부 http call 수행시 exception을 수집하지 못하는 현상 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 일부 http call 수행 시 exception을 수집하지 못하는 현상 수정</p>"
       },
       {
         "ver": "v2.2.62",
@@ -68,24 +68,24 @@
         "hash": "v2260",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>spring-cloud-openfeign-core</code>, <code>spring-cloud-circuitbreaker-resilience4j</code> 추적</p>",
-        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">feign-11,resilience4j-circuitbreaker</span></span></code></pre></div></div>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>spring-cloud-openfeign-core, spring-cloud-circuitbreaker-resilience4j 추적</code></p>",
+        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">feign-11,resilience4j-circuitbreaker</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.60",
         "hash": "v2260",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>feign-hystrix</code> 추적</p>",
-        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">feign-11,feign-hystrix,hystrix-circuitbreaker</span></span></code></pre></div></div>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>feign-hystrix 추적</code></p>",
+        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">feign-11,feign-hystrix,hystrix-circuitbreaker</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.60",
         "hash": "v2260",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>log4j-1.x</code> 로그 수집</p>",
-        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">log4j-1</span></span></code></pre></div></div>\n<p><code>log4j-1.x</code> 로그 수집 설정</p>\n<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\">\n<span class=\"token-line\"><span class=\"token comment\"># default: false</span></span>\n<span class=\"token-line\"><span class=\"token comment\"># trace exception stack</span></span>\n<span class=\"token-line\"><span class=\"token assign-left variable\">trace_log4j_stack_enabled</span><span class=\"token operator\">=</span><span class=\"token plain\">true</span></span>\n<span class=\"token-line\"><br /></span>\n<span class=\"token-line\"><span class=\"token comment\"># default: true</span></span>\n<span class=\"token-line\"><span class=\"token comment\"># trace standard out log</span></span>\n<span class=\"token-line\"><span class=\"token assign-left variable\">trace_log4j_stdout_enabled</span><span class=\"token operator\">=</span><span class=\"token plain\">true</span></span>\n<span class=\"token-line\"><br /></span>\n<span class=\"token-line\"><span class=\"token comment\"># default: true</span></span>\n<span class=\"token-line\"><span class=\"token comment\"># trace log4j appender log</span></span>\n<span class=\"token-line\"><span class=\"token assign-left variable\">trace_log4j_appender_enabled</span><span class=\"token operator\">=</span><span class=\"token plain\">true</span></span>\n<span class=\"token-line\"><br /></span>\n<span class=\"token-line\"><span class=\"token comment\"># example: ignore appender accessfile, file</span></span>\n<span class=\"token-line\"><span class=\"token comment\"># ignore_log4j_appender_set=accessfile,file</span></span>\n<span class=\"token-line\"><span class=\"token assign-left variable\">ignore_log4j_appender_set</span><span class=\"token operator\">=</span></span>\n</code></pre></div></div>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>log4j-1.x 로그 수집</code></p>",
+        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">log4j-1</span></span></code></pre></div></div>\n<p><code>log4j-1.x</code> 로그 수집 설정</p>\n<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># default: false</span></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># trace exception stack</span></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token assign-left variable\">trace_log4j_stack_enabled</span><span class=\"token operator\">=</span><span class=\"token plain\">true</span></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># default: true</span></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># trace standard out log</span></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token assign-left variable\">trace_log4j_stdout_enabled</span><span class=\"token operator\">=</span><span class=\"token plain\">true</span></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># default: true</span></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># trace log4j appender log</span></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token assign-left variable\">trace_log4j_appender_enabled</span><span class=\"token operator\">=</span><span class=\"token plain\">true</span></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># example: ignore appender accessfile, file</span></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># ignore_log4j_appender_set=accessfile,file</span></span>\n<span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token assign-left variable\">ignore_log4j_appender_set</span><span class=\"token operator\">=</span><span class=\"token plain\"></span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.60",
@@ -155,7 +155,7 @@
     ]
   },
   {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_2_57/",
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_57",
     "ver": "v2.2.57",
     "date": "2025-04-16",
     "Lists": [
@@ -163,7 +163,7 @@
         "ver": "v2.2.57",
         "hash": "v2257",
         "product": "Java Agent",
-        "type": "Feature",
+        "type": "New",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> JVM 프로세스 기동 시, JVM 설정을 애플리케이션 로그에 표시</p>"
       },
       {
@@ -172,7 +172,7 @@
         "product": "Java Agent",
         "type": "Changed",
         "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Tomcat의 java.security 문제로 Valve 추적 지점 선택 여부를 설정을 통해 알 수 있도록 수정</p>",
-        "details": "<ul>\n<li>spring-boot에서 spring-security exception, error status code 데이터를 수집하려면 설정 추가 후 재기동 필요</li>\n</ul>"
+        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># default: false</span></span><br /><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token assign-left variable\">hook_valve_http_enabled</span><span class=\"token operator\">=</span><span class=\"token plain\">true</span></span></code></pre></div></div><ul><li>spring-boot에서 spring-security exception, error status code 데이터를 수집하려면 설정 추가 후 재기동 필요</li></ul>"
       },
       {
         "ver": "v2.2.57",
@@ -184,7 +184,7 @@
     ]
   },
   {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_2_56/",
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_56",
     "ver": "v2.2.56",
     "date": "2025-04-09",
     "Lists": [
@@ -194,12 +194,12 @@
         "product": "Java Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>spring async-annotation</code> (<code>org.springframework.scheduling.annotation.Async</code>) 사용하여 메소드를 호출하는 경우, 별도 트랜잭션으로 추적</p>",
-        "details": "<ul>\n<li>spring-boot 설정 추가하여 사용</li>\n</ul>"
+        "details": "<p><li>spring-boot 설정 추가하여 사용</li></p><div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># example using spring-boot-2.5.10</span></span><br /><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">spring-boot-2.5</span></span></code></pre></div></div>"
       }
     ]
   },
   {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_2_55/",
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_55",
     "ver": "v2.2.55",
     "date": "2025-03-27",
     "Lists": [
@@ -222,7 +222,8 @@
         "hash": "v2255",
         "product": "Java Agent",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>undertow-server 2.3.0</code> 이상에서 <code>spring-webflux 6.0</code> 이상을 구현한 경우 트랜잭션 데이터가 중복 수집되는 현상 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>undertow-server 2.3.0</code> 이상에서 <code>spring-webflux 6.0</code> 이상을 구현한 경우 트랜잭션 데이터가 중복 수집되는 현상 수정</p>",
+        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\">## example using spring-boot-3.4.3 on undertow-2.3.18.Final</span></span><br /><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">spring-boot-3.2,undertow-2.3.0</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.55",
@@ -243,8 +244,7 @@
         "hash": "v2255",
         "product": "Java Agent",
         "type": "Deprecated",
-        "desc": "<p><code class=\"Deprecated\" type=\"1\">Deprecated</code> <code>webflux</code> 설정 지원 종료, 기존 설정은 <code>spring-boot</code> 설정으로 대체</p>",
-        "details": "<blockquote>\n<p><code>webflux-5.3</code> → <code>spring-boot-2.1</code> or <code>spring-boot-2.5</code> or <code>spring-boot-2.7</code></p>\n</blockquote>"
+        "desc": "<p><code class=\"Deprecated\" type=\"1\">Deprecated</code> <code>webflux</code> 설정 지원 종료, 기존 설정은 <code>spring-boot</code> 설정으로 대체</p><ul><li><code>webflux-5.3</code> → <code>spring-boot-2.1</code> or <code>spring-boot-2.5</code> or <code>spring-boot-2.7</code></li></ul>"
       }
     ]
   },  
@@ -300,12 +300,12 @@
         "hash": "v2253",
         "product": "Java Agent",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> ‘-’가 없는 Pod 이름을 <code>null</code>로 수집하는 문제 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>-</code>가 없는 Pod 이름을 <code>null</code>로 수집하는 문제 수정</p>"
       }
     ]
   },
   {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_2_52/",
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_52",
     "ver": "v2.2.52",
     "date": "2025-02-13",
     "Lists": [
@@ -314,7 +314,8 @@
         "hash": "v2252",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> Thread가 OutOfMemoryError로 중단되는 경우 알림 전송</p>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Thread가 OutOfMemoryError로 중단되는 경우 알림 전송</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token comment\"># 기본값: false</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\">event_oom_enabled</span><span class=\"token operator\">=</span><span class=\"token plain\">true</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.52",
@@ -322,14 +323,15 @@
         "product": "Java Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> 오픈소스 추적을 위한 TraceContext 지원</p>",
-        "details": "<ul>\n<li>traceparent 헤더를 추가하여 다양한 HTTP 클라이언트 라이브러리에서 추적 지원</li>\n</ul>"
+        "details": "<p>traceparent 헤더를 추가하여 다양한 HTTP 클라이언트 라이브러리에서 추적 지원</p><div class=\"theme-admonition theme-admonition-note admonition_xJq3 alert alert--info\"><div class=\"admonitionHeading_Gvgb\"><span class=\"admonitionIcon_Rf37\">💡</span>note</div><div class=\"admonitionContent_BuS1\"><p><strong>지원되는 라이브러리</strong></p><ul><li>spring-boot-2 ~: RestTemplate, WebClient, RestClient</li><li>okhttp</li><li>feign client</li><li>Apache HttpClient4, Apache HttpClient5</li><li>HttpURLConnection</li></ul></div></div>"
       },
       {
         "ver": "v2.2.52",
         "hash": "v2252",
         "product": "Java Agent",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code>  CompletableFuture 추적 범위에 <code>java.util.function.Function</code> 추가</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> CompletableFuture 추적 범위에 <code>java.util.function.Function</code> 추가</p>",
+        "details": "<div class=\"theme-admonition theme-admonition-note admonition_xJq3 alert alert--info\"><div class=\"admonitionHeading_Gvgb\"><span class=\"admonitionIcon_Rf37\">💡</span>note</div><div class=\"admonitionContent_BuS1\"><p>자세한 내용은 <a href=\"/java/async-tracking#completablefuture\">다음 문서</a>를 참조하세요.</p></div></div>"
       },
       {
         "ver": "v2.2.52",
@@ -343,7 +345,8 @@
         "hash": "v2252",
         "product": "Java Agent",
         "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> spring-boot 설정에서 hikari 설정 분리</p>"
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> spring-boot 설정에서 hikari 설정 분리</p>",
+        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\">ex. spring-boot-3.0</span><br /><span class=\"token-line\">weaving=spring-boot-3.0,hikari-5.0</span><br /><br /><span class=\"token-line\">ex. spring-boot-2.7</span><br /><span class=\"token-line\">weaving=spring-boot-2.7,hikari-4.0</span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.52",
@@ -354,6 +357,45 @@
       }
     ]
   },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_50",
+    "ver": "v2.2.50",
+    "date": "2025-01-22",
+    "Lists": [
+      {
+        "ver": "v2.2.50",
+        "hash": "v2250",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> logstash-logback-encoder-7.3 추적</p><p>logback 인코더로 <code>net.logstash.logback.encoder.LogstashEncoder</code> 설정한 경우 추적</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">logback-1.2.8,logstash-logback-encoder-7.3</span></span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.50",
+        "hash": "v2250",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> logback-ecs-encoder-1.5.0 추적</p><p>logback 인코더로 <code>co.elastic.logging.logback.EcsEncoder</code> 설정한 경우 추적</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">logback-1.2.8,logback-ecs-encoder-1.5.0</span></span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.50",
+        "hash": "v2250",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> logback async appender 추적</p><p>logback appender로 async appender 설정한 경우 추적</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">logback-1.2.8</span></span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.50",
+        "hash": "v2250",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>service_name_mode</code> 옵션에 return 방식 추가</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">service_name_mode</span><span class=\"token operator\">=</span><span class=\"token plain\">return</span></span></code></pre></div></div><p>예, <code>io.home.Test</code> 클래스의 test 메소드의 return 값을 트랜잭션 이름으로 지정</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">hook_service_patterns</span><span class=\"token operator\">=</span><span class=\"token plain\">io.home.Test.test</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\">service_name_mode</span><span class=\"token operator\">=</span><span class=\"token plain\">return</span></span></code></pre></div></div>"
+      }
+    ]
+  },  
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_49",
     "ver": "v2.2.49",

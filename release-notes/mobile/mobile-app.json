@@ -110,7 +110,7 @@
         "hash": "v107",
         "product": "WhaTap Mobile App",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> MySQL 상품에서 <span class=\"uitext\">Thread Connected 차트</span>의 그래프가 생성되지 않는 문제 수정</p>",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> MySQL 제품에서 <span class=\"uitext\">Thread Connected 차트</span>의 그래프가 생성되지 않는 문제 수정</p>",
         "category": "Database"
       }
     ]

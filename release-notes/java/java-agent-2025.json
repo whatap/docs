@@ -315,7 +315,7 @@
         "product": "Java Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> Thread가 OutOfMemoryError로 중단되는 경우 알림 전송</p>",
-        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token comment\"># 기본값: false</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\">event_oom_enabled</span><span class=\"token operator\">=</span><span class=\"token plain\">true</span></span></code></pre></div></div>"
+        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># 기본값: false</span></span><br /><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token assign-left variable\">event_oom_enabled</span><span class=\"token operator\">=</span><span class=\"token plain\">true</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.52",
@@ -346,7 +346,8 @@
         "product": "Java Agent",
         "type": "Changed",
         "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> spring-boot 설정에서 hikari 설정 분리</p>",
-        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\">ex. spring-boot-3.0</span><br /><span class=\"token-line\">weaving=spring-boot-3.0,hikari-5.0</span><br /><br /><span class=\"token-line\">ex. spring-boot-2.7</span><br /><span class=\"token-line\">weaving=spring-boot-2.7,hikari-4.0</span></code></pre></div></div>"
+        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token comment\">ex. spring-boot-3.0</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:#bfc7d5\">weaving</span><span class=\"token operator\" style=\"color:#bfc7d5\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">spring-boot-3.0,hikari-5.0</span></span><br /><br /><span class=\"token-line\"><span class=\"token comment\">ex. spring-boot-2.7</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:#bfc7d5\">weaving</span><span class=\"token operator\" style=\"color:#bfc7d5\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">spring-boot-2.7,hikari-4.0</span></span></code></pre></div></div>"
+
       },
       {
         "ver": "v2.2.52",
@@ -358,7 +359,7 @@
     ]
   },
   {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_2_50",
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_50/",
     "ver": "v2.2.50",
     "date": "2025-01-22",
     "Lists": [
@@ -367,24 +368,24 @@
         "hash": "v2250",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> logstash-logback-encoder-7.3 추적</p><p>logback 인코더로 <code>net.logstash.logback.encoder.LogstashEncoder</code> 설정한 경우 추적</p>",
-        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">logback-1.2.8,logstash-logback-encoder-7.3</span></span></code></pre></div></div>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> logstash-logback-encoder-7.3 추적</p>",
+        "details": "<p>logback 인코더로 <code>net.logstash.logback.encoder.LogstashEncoder</code> 설정한 경우 추적</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:#bfc7d5\">weaving</span><span class=\"token operator\" style=\"color:#bfc7d5\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">logback-1.2.8,logstash-logback-encoder-7.3</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.50",
         "hash": "v2250",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> logback-ecs-encoder-1.5.0 추적</p><p>logback 인코더로 <code>co.elastic.logging.logback.EcsEncoder</code> 설정한 경우 추적</p>",
-        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">logback-1.2.8,logback-ecs-encoder-1.5.0</span></span></code></pre></div></div>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> logback-ecs-encoder-1.5.0 추적</p>",
+        "details": "<p>logback 인코더로 <code>co.elastic.logging.logback.EcsEncoder</code> 설정한 경우 추적</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:#bfc7d5\">weaving</span><span class=\"token operator\" style=\"color:#bfc7d5\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">logback-1.2.8,logback-ecs-encoder-1.5.0</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.50",
         "hash": "v2250",
         "product": "Java Agent",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> logback async appender 추적</p><p>logback appender로 async appender 설정한 경우 추적</p>",
-        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">weaving</span><span class=\"token operator\">=</span><span class=\"token plain\">logback-1.2.8</span></span></code></pre></div></div>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> logback async appender 추적</p>",
+        "details": "<p>logback appender로 async appender 설정한 경우 추적</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:#bfc7d5\">weaving</span><span class=\"token operator\" style=\"color:#bfc7d5\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">logback-1.2.8</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.50",
@@ -392,10 +393,10 @@
         "product": "Java Agent",
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>service_name_mode</code> 옵션에 return 방식 추가</p>",
-        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">service_name_mode</span><span class=\"token operator\">=</span><span class=\"token plain\">return</span></span></code></pre></div></div><p>예, <code>io.home.Test</code> 클래스의 test 메소드의 return 값을 트랜잭션 이름으로 지정</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\">hook_service_patterns</span><span class=\"token operator\">=</span><span class=\"token plain\">io.home.Test.test</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\">service_name_mode</span><span class=\"token operator\">=</span><span class=\"token plain\">return</span></span></code></pre></div></div>"
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:#bfc7d5\">service_name_mode</span><span class=\"token operator\" style=\"color:#bfc7d5\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">return</span></span></code></pre></div></div><p>예, <code>io.home.Test</code> 클래스의 <code>test</code> 메소드의 return 값을 트랜잭션 이름으로 지정</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:#bfc7d5\">hook_service_patterns</span><span class=\"token operator\" style=\"color:#bfc7d5\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">io.home.Test.test</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:#bfc7d5\">service_name_mode</span><span class=\"token operator\" style=\"color:#bfc7d5\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">return</span></span></code></pre></div></div>"
       }
     ]
-  },  
+  },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_49",
     "ver": "v2.2.49",
@@ -408,44 +409,6 @@
         "type": "Feature",
         "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> log4j 로그 수집 기능 확장</p>",
         "details": "<ul>\n<li>\n<p>log4j-2.17 사용 시, <code>org.apache.logging.log4j.core.layout.AbstractStringLayout</code>의 serialize를 구현한 경우에도 로그를 수집할 수 있는 기능 추가</p>\n</li>\n<li>\n<p>예, AbstractStringLayout을 상속 받아 사용자 정의에 의해 serialize를 구현한 경우</p>\n</li>\n</ul>"
-      }
-    ]
-  },
-  {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_2_50",
-    "ver": "v2.2.50",
-    "date": "2025-01-22",
-    "Lists": [
-      {
-        "ver": "v2.2.50",
-        "hash": "v2250",
-        "product": "Java Agent",
-        "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> logstash-logback-encoder-7.3 추적</p>",
-        "details": "<p>logback 인코더로 <code>net.logstash.logback.encoder.LogstashEncoder</code> 설정한 경우 추적</p>"
-      },
-      {
-        "ver": "v2.2.50",
-        "hash": "v2250",
-        "product": "Java Agent",
-        "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> logback-ecs-encoder-1.5.0 추적</p>",
-        "details": "<p>logback 인코더로 <code>co.elastic.logging.logback.EcsEncoder</code> 설정한 경우 추적</p>"
-      },
-      {
-        "ver": "v2.2.50",
-        "hash": "v2250",
-        "product": "Java Agent",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> logback async appender 추적</p>",
-        "details": "<p>logback appender로 async appender 설정한 경우 추적</p>"
-      },
-      {
-        "ver": "v2.2.50",
-        "hash": "v2250",
-        "product": "Java Agent",
-        "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>service_name_mode</code> 옵션에 return 방식 추가</p>"
       }
     ]
   },

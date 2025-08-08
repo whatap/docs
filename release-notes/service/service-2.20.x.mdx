@@ -20,7 +20,7 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="MNU07360" className="uitext" /> GPU, GPU MIG, Open Metric High, Open Metric Low 등 새로운 사용량 지표가 청구서, 과금, 프로젝트 구독, 미터링 요약 등에 추가
 
-- <Status priority='0'>Fixed</Status> 모든 메트릭스를 통해 추가한 위젯의 색상 변경 옵션이 적용되지 않는 현상 수정
+- <Status priority='0'>Fixed</Status> 모든 메트릭스를 통해 위젯 추가 시, 색상 변경 옵션 및 설명이 적용되지 않는 현상 수정
 
 ---
 
@@ -33,6 +33,24 @@ displayed_sidebar: releaseSidebar
 ### `Server`
 
 - <Status priority='1'>Feature</Status> **GPU 인벤토리** 키워드 검색 필터 추가
+
+- <Status priority='1'>Changed</Status> **GPU 성능요약** `Performance_State` 필드값이 P0~P15 사이 값으로 표시되도록 변경
+
+- <Status priority='1'>Changed</Status> **GPU 성능요약** &gt; <Cmdname sid="compare" className="uitext" /> 패널 
+
+    - 단위가 bytes/s인 차트 값이 자동으로 단위 변환되도록 변경
+
+    - `Performance_State` 차트의 Y축 범위를 P0~P15 고정하도록 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverMetricsExplorer" className="uitext" /> by GPU Process 하위의 지표 선택 시, 차트의 범례 label의 형식을 `process_name, pid, (process_type) - index(uuid)`로 표시되도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_serverInventory" className="uitext" /> 신규 에이전트 수집 필드 추가 시, 테이블 헤더에 필드명이 표시되지 않는 현상 수정
+
+- <Status priority='0'>Fixed</Status> **GPU 성능요약** &gt; <Cmdname sid="compare" className="uitext" /> 패널 
+
+    - 단위가 % 인 차트의 y축 최댓값이 100%를 넘지 않도록 수정
+
+    - 단위가 없는 차트에서 제목에 빈 괄호가 표시되던 현상 수정
 
 ---
 
@@ -56,6 +74,10 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='0'>Fixed</Status> **Top SQL** 세로 필터 팝아웃에서 셀렉트 박스 클릭 불가 문제 수정
 
+#### Oracle V2, Oracle Pro, postgresql
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dbWaitAnalysis" className="uitext" /> 재조회 시 파이 차트의 이전 툴팁이 남는 오류 수정
+
 #### Oracle V2, Oracle Pro
 
 - <Status priority='0'>Fixed</Status> APM 연계 DB 상세창에서 락트리 `serial#` 필드가 표시되지 않는 오류 수정
@@ -70,6 +92,6 @@ displayed_sidebar: releaseSidebar
 
 #### Oracle Pro
 
-- <Status priority='0'>Fixed</Status>  <Cmdname sid="side_dbWaitAnalysis" className="uitext" /> 차트 범례가 화면 크기에 맞춰 조절되도록 수정 (가로 스크롤 제거)
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dbWaitAnalysis" className="uitext" /> 차트 범례가 화면 크기에 맞춰 조절되도록 수정 (가로 스크롤 제거)
 
 </div> 

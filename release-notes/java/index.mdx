@@ -13,7 +13,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 import ReleaseNotes2025 from "./java-agent-2025.json";
-import ReleaseNotes2024 from "./java-agent.json";
+import ReleaseNotes2024 from "./java-agent-2024.json";
+import ReleaseNotes2023 from "./java-agent-2023.json";
 
 <Tabs>
 
@@ -23,6 +24,10 @@ import ReleaseNotes2024 from "./java-agent.json";
 
     <TabItem value="2024" label="2024">
         <ImportJson filePath={ReleaseNotes2024} sort="date" category="agent" />
+    </TabItem>
+
+    <TabItem value="2023" label="2023">
+        <ImportJson filePath={ReleaseNotes2023} sort="date" category="agent" />
     </TabItem>
 
 </Tabs>

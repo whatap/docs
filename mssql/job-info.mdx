@@ -45,21 +45,21 @@ Job 목록에 조회하려는 항목이 없다면 ![새로 고침 아이콘](/im
 
 SQL Server에서 등록된 Job의 기본 정보를 제공합니다. Job의 생성/수정 시간, 실행 상태 및 알림 설정 등을 확인할 수 있습니다. 제공하는 컬럼 항목에 대한 자세한 내용은 다음을 참조하세요.
 
-* ***job_id***: Job의 고유 식별자(UUID)입니다.
+* **job_id**: Job의 고유 식별자(UUID)입니다.
 
-* ***job_name***: Job의 이름입니다.
+* **job_name**: Job의 이름입니다.
 
-* ***enabled***: Job이 활성화되어 있는지 여부입니다. 활성화 상태이면 <UI>yes</UI>, 비활성화 상태이면 <UI>no</UI>로 표시합니다.
+* **enabled**: Job이 활성화되어 있는지 여부입니다. 활성화 상태이면 <UI>yes</UI>, 비활성화 상태이면 <UI>no</UI>로 표시합니다.
 
-* ***description***: Job에 대한 설명입니다. 설명이 없으면 <UI>No description available</UI>로 표시합니다.
+* **description**: Job에 대한 설명입니다. 설명이 없으면 <UI>No description available</UI>로 표시합니다.
 
-* ***date_created***: Job이 생성된 날짜 및 시간입니다.
+* **date_created**: Job이 생성된 날짜 및 시간입니다.
 
-* ***date_modified***: Job이 마지막으로 수정된 날짜 및 시간입니다.
+* **date_modified**: Job이 마지막으로 수정된 날짜 및 시간입니다.
 
-* ***notify_level_eventlog***: Job 실행 결과에 따른 이벤트 로그 알림 설정 수준입니다.
+* **notify_level_eventlog**: Job 실행 결과에 따른 이벤트 로그 알림 설정 수준입니다.
 
-* ***notify_level_email***: Job 실행 결과에 따른 이메일 알림 설정 수준입니다.
+* **notify_level_email**: Job 실행 결과에 따른 이메일 알림 설정 수준입니다.
 
 :::note
 
@@ -71,21 +71,21 @@ Job 목록은 최대 50건까지 조회할 수 있습니다.
 
 <UI>Job</UI> 섹션에서 선택한 Job의 실행 이력을 상세히 확인할 수 있습니다. Job의 각 단계(Step)별 실행 결과와 메시지, 실행 시간, 소요 시간을 포함합니다. 제공하는 컬럼 항목에 대한 자세한 내용은 다음을 참조하세요.
 
-* ***step_id***: Job 내 실행된 단계의 고유 식별자입니다.
+* **step_id**: Job 내 실행된 단계의 고유 식별자입니다.
 
-* ***step_name***: 실행된 단계의 이름입니다.
+* **step_name**: 실행된 단계의 이름입니다.
 
-* ***run_status***: 단계 실행 결과입니다.
+* **run_status**: 단계 실행 결과입니다.
 
-* ***messages***: 단계 실행 중 발생한 메시지입니다. 성공 또는 오류에 대한 상세 정보를 포함합니다.
+* **messages**: 단계 실행 중 발생한 메시지입니다. 성공 또는 오류에 대한 상세 정보를 포함합니다.
 
-* ***run_date***: 해당 단계가 실행된 날짜입니다.
+* **run_date**: 해당 단계가 실행된 날짜입니다.
 
-* ***run_duration***: 단계가 마ㅅ지막으로 실행되었을 때의 시간(hhmmss)입니다.
+* **run_duration**: 단계가 마ㅅ지막으로 실행되었을 때의 시간(hhmmss)입니다.
 
-* ***last_run_retries***: 단계의 마지막 실행에서 재시도 시도 횟수입니다.
+* **last_run_retries**: 단계의 마지막 실행에서 재시도 시도 횟수입니다.
 
-* ***last_run_outcome***: 단계의 이전 실행 결과입니다.
+* **last_run_outcome**: 단계의 이전 실행 결과입니다.
 
 {/* 필터 조건추가하기*/}
 import Dbsqlfilter from "../common-items/_db-sql-filter.mdx";

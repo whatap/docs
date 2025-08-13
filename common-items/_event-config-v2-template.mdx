@@ -8,13 +8,13 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Transaction***
+* **Active Transaction**
 
   카테고리: [`app_counter`](metrics-app#app_counter)
 
   액티브 트랜잭션 발생 건수(`active_tx_count`)가 100개를 초과한 상태하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-app#agent_status_summary)
 
@@ -26,37 +26,37 @@
 
   :::
 
-* ***Apdex 100 by kind***
+* **Apdex 100 by kind**
 
   카테고리: [`app_counter`](metrics-app#app_counter)
 
   에이전트 종류별 애플리케이션 성능 지표 백분률(`apdex100`)이 95% 미만이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90% 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Apdex 100 by project***
+* **Apdex 100 by project**
 
   카테고리: [`app_counter`](metrics-app#app_counter)
 
   프로젝트 전체 에이전트의 애플리케이션 성능 지표 백분률(`apdex100`)이 95% 미만이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90% 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Server CPU***
+* **Server CPU**
 
   카테고리: [`app_host_resource`](metrics-app#app_host_resource)
 
   호스트의 CPU 사용률(`cpu`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Server Memory***
+* **Server Memory**
 
   카테고리: [`app_host_resource`](metrics-app#app_host_resource)
 
   호스트의 메모리 사용률(`mem`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Transaction Error Count***
+* **Transaction Error Count**
 
   카테고리: [`app_counter`](metrics-app#app_counter)
 
   트랜잭션 에러 건수(`tx_error`)가 10개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
-* ***Transaction Response Time***
+* **Transaction Response Time**
 
   카테고리: [`app_counter`](metrics-app#app_counter)
 
@@ -76,7 +76,7 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-server#agent_status_summary)
 
@@ -88,55 +88,55 @@
 
   :::
 
-* ***CPU***
+* **CPU**
 
   카테고리: [`server_base`](metrics-server#server_base)
 
   CPU 사용률(`cpu`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***CPU Steal***
+* **CPU Steal**
 
   카테고리: [`server_base`](metrics-server#server_base)
 
   [CPU steal 사용률](../glossary#cpusteal)(`cpu_steal`)이 5를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 10을 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Disk***
+* **Disk**
 
   카테고리: [`server_disk`](metrics-server#server_disk)
 
   파일 시스템 사용률(`usedPercent`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Disk I/O***
+* **Disk I/O**
 
   카테고리: [`server_disk`](metrics-server#server_disk)
 
   [Disk I/O 사용률](../glossary#diskio)(`ioPercent`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Disk Inode***
+* **Disk Inode**
 
   카테고리: [`server_disk`](metrics-server#server_disk)
 
   Disk Inode 사용률(`usedInodePercent`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory***
+* **Memory**
 
   카테고리: [`server_base`](metrics-server#server_base)
 
   메모리 사용률(`memory_pused`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Network BPS***
+* **Network BPS**
 
   카테고리: [`server_network`](metrics-server#server_network)
 
   네트워크 인바운드 트래픽(`trafficIn`)과 아웃바운드 트래픽(`trafficOut`)의 합이 150,000,000byte(150MB)를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 200,000,000byte(200MB)를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Network IOPS***
+* **Network IOPS**
 
   카테고리: [`server_network`](metrics-server#server_network)
 
   네트워크 인바운드 패킷(`packetIn`)과 아웃바운드 패킷(`packetOut`)의 합이 45000byte를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50000byte를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Port Alive Check***
+* **Port Alive Check**
 
   카테고리: `server_tcpport`
 
@@ -169,25 +169,25 @@
 
   :::
 
-* ***Process CPU***
+* **Process CPU**
 
   카테고리: [`server_process`](metrics-server#server_process)
 
   CPU 전체 사용률(`cpu`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Process Count***
+* **Process Count**
 
   카테고리: [`server_process`](metrics-server#server_process)
 
   프로세스의 수(`count`)가 2개 이상이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 1개 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Process Memory***
+* **Process Memory**
 
   카테고리: [`server_process`](metrics-server#server_process)
 
   프로세스 메모리 사용률(`memory`)이 90%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 95%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Server Reboot Check***
+* **Server Reboot Check**
 
   카테고리: [`agent_status_summary`](metrics-server#agent_status_summary)
 
@@ -199,7 +199,7 @@
 
   :::
 
-* ***Swap Memory***
+* **Swap Memory**
 
   카테고리: [`server_base`](metrics-server#server_base)
 
@@ -219,31 +219,31 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Transaction***
+* **Active Transaction**
 
   카테고리: <Link to="../java/metrics-app#app_counter" target="_blank"><code>app_counter</code></Link>
 
   액티브 트랜잭션 발생 건수(`active_tx_count`)가 100개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
-* ***Container CPU Utilization Relative to Container CPU Limit***
+* **Container CPU Utilization Relative to Container CPU Limit**
 
   카테고리: [`container`](metrics-kubernetes#container)
 
   컨테이너의 실제 CPU 사용률(`cpu_per_quota`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Container Memory Utilization Relative to Container Memory Limit***
+* **Container Memory Utilization Relative to Container Memory Limit**
 
   카테고리: [`container`](metrics-kubernetes#container)
 
   컨테이너의 실제 메모리 사용량(`mem_percent`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Deployment Replicas Pending Pods Count***
+* **Deployment Replicas Pending Pods Count**
 
   카테고리: [`kube_pod_stat`](metrics-kubernetes#kube_pod_stat)
 
   사용할 수 있는 Pod 개수(`available_pod`)가 배포 시 필요한 Pod 개수(`desired_pod`)보다 작으면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 사용할 수 있는 Pod 개수와 배포 시 필요한 Pod 개수의 차이를 임곗값으로 입력하세요.
 
-* ***Master Agent Alive***
+* **Master Agent Alive**
 
   카테고리: [`agent_status_summary`](metrics-kubernetes#agent_status_summary)
 
@@ -255,7 +255,7 @@
 
   :::
 
-* ***Node Agent Alive***
+* **Node Agent Alive**
 
   카테고리: [`agent_status_summary`](metrics-kubernetes#agent_status_summary)
 
@@ -267,49 +267,49 @@
 
   :::
 
-* ***Node CPU***
+* **Node CPU**
 
   카테고리: <Link to="../server/metrics-server#server_base" target="_blank"><code>server_base</code></Link>
 
   Node의 CPU 사용률(`cpu`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Node Disk(/) Utilization***
+* **Node Disk(/) Utilization**
 
   카테고리: <Link to="../server/metrics-server#server_disk" target="_blank"><code>server_disk</code></Link>
 
   Node의 루트 경로에 해당하는 디스크 사용률(`usedPercent`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Node Memory***
+* **Node Memory**
 
   카테고리: <Link to="../server/metrics-server#server_base" target="_blank"><code>server_base</code></Link>
 
   Node의 메모리 사용률(`memory_pused`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Restart Count Of Container In Pod***
+* **Restart Count Of Container In Pod**
 
   카테고리: [`kube_pod`](metrics-kubernetes#kube_pod)
 
   Pod의 재시작 횟수(`RestartCount`)가 5개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
-* ***Transaction Error***
+* **Transaction Error**
 
   카테고리: <Link to="../java/metrics-app#app_counter" target="_blank"><code>app_counter</code></Link>
 
   트랜잭션 에러 건수(`tx_error`)가 10개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
-* ***Transaction Response Time***
+* **Transaction Response Time**
 
   카테고리: <Link to="../java/metrics-app#app_counter" target="_blank"><code>app_counter</code></Link>
 
   트랜잭션의 평균 응답 시간(`resp_time`)이 10회 연속, 2,000ms(2초)를 초과한 상태로 지속되면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
-* ***kube-apiserver CPU Limit Alert***
+* **kube-apiserver CPU Limit Alert**
 
   카테고리: [`kube_pod`](metrics-kubernetes#kube_pod)
 
   kube-apiserver의 CPU 사용률이 50%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 80%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***kube-apiserver Memory Limit Alert***
+* **kube-apiserver Memory Limit Alert**
 
   카테고리: [`kube_pod`](metrics-kubernetes#kube_pod)
 
@@ -329,25 +329,25 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Sessions***
+* **Active Sessions**
 
   카테고리: [`db_db2_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***CPU Utilization***
+* **CPU Utilization**
 
   카테고리: [`db_db2_counter`](metrics-data-list)
 
   CPU 사용률(`cpu(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***DB2 CPU Utilizaion***
+* **DB2 CPU Utilizaion**
 
   카테고리: [`db_db2_counter`](metrics-data-list)
 
   CPU 사용률(`cpu_usage_total`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory Utilization***
+* **Memory Utilization**
 
   카테고리: [`db_db2_counter`](metrics-data-list)
 
@@ -359,7 +359,7 @@
 
   :::
 
-* ***lock wait Sessions***
+* **lock wait Sessions**
 
   카테고리: [`db_db2_counter`](metrics-data-list)
 
@@ -373,25 +373,25 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Sessions***
+* **Active Sessions**
 
   카테고리: [`db_sap_ase_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***CPU Utilization***
+* **CPU Utilization**
 
   카테고리: [`db_sap_ase_counter`](metrics-data-list)
 
   CPU 사용률(`cpu(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Connection Failed***
+* **Connection Failed**
 
   카테고리: [`db_sap_ase_counter`](metrics-data-list)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory Utilization***
+* **Memory Utilization**
 
   카테고리: [`db_sap_ase_counter`](metrics-data-list)
 
@@ -403,7 +403,7 @@
 
   :::
 
-* ***lock wait Sessions***
+* **lock wait Sessions**
 
   카테고리: [`db_sap_ase_counter`](metrics-data-list)
 
@@ -417,13 +417,13 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Sessions***
+* **Active Sessions**
 
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
@@ -435,31 +435,31 @@
 
   :::
 
-* ***CPU***
+* **CPU**
 
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
   CPU 사용률(`cpu(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Connection Failed***
+* **Connection Failed**
 
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Lock Wait Sessions***
+* **Lock Wait Sessions**
 
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Long running session count***
+* **Long running session count**
 
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
   장시간 실행 중인 세션 수(`long_running_sessions`)가 1개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory***
+* **Memory**
 
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
@@ -471,19 +471,19 @@
 
   :::
 
-* ***Replication Delay***
+* **Replication Delay**
 
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
   Replication 구조일 경우 replication db에 반영되는 지연시간(`replication_delay`)이 50초를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 100초를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Replication broken***
+* **Replication broken**
 
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
   Replication 구조일 경우 복제 실패(`replication_broken`)가 발생하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Uptime***
+* **Uptime**
 
   카테고리: [`db_mysql_counter`](metrics-data-list)
 
@@ -497,13 +497,13 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Sessions***
+* **Active Sessions**
 
   카테고리: [`db_postgresql_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
@@ -515,25 +515,25 @@
 
   :::
 
-* ***CPU***
+* **CPU**
 
   카테고리: [`db_postgresql_counter`](metrics-data-list)
 
   CPU 사용률(`cpu(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Connection Failed***
+* **Connection Failed**
 
   카테고리: [`db_postgresql_counter`](metrics-data-list)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Lock Wait Sessions***
+* **Lock Wait Sessions**
 
   카테고리: [`db_postgresql_counter`](metrics-data-list)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory***
+* **Memory**
 
   카테고리: [`db_postgresql_counter`](metrics-data-list)
 
@@ -545,7 +545,7 @@
 
   :::
 
-* ***Replication Delay***
+* **Replication Delay**
 
   카테고리: [`db_postgresql_counter`](metrics-data-list)
 
@@ -559,13 +559,13 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Sessions***
+* **Active Sessions**
 
   카테고리: [`db_oracle_counter`](metrics-data-list#db_oracle_counter)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
@@ -577,25 +577,25 @@
 
   :::
 
-* ***CPU***
+* **CPU**
 
   카테고리: [`db_oracle_counter`](metrics-data-list#db_oracle_counter)
 
   CPU 사용률(`cpu(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Connection Failed***
+* **Connection Failed**
 
   카테고리: [`db_oracle_counter`](metrics-data-list#db_oracle_counter)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Lock Wait Sessions***
+* **Lock Wait Sessions**
 
   카테고리: [`db_oracle_counter`](metrics-data-list#db_oracle_counter)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory***
+* **Memory**
 
   카테고리: [`db_oracle_counter`](metrics-data-list#db_oracle_counter)
 
@@ -607,7 +607,7 @@
 
   :::
 
-* ***Tablespace Usage***
+* **Tablespace Usage**
 
   카테고리: [`db_oracle_tablespace`](metrics-data-list#db_oracle_tablespace)
 
@@ -621,13 +621,13 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Sessions***
+* **Active Sessions**
 
   카테고리: [`db_oracle_dma_counter`](metrics-data-list#db_oracle_dma_counter)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
@@ -639,25 +639,25 @@
 
   :::
 
-* ***CPU***
+* **CPU**
 
   카테고리: [`db_oracle_dma_counter`](metrics-data-list#db_oracle_dma_counter)
 
   CPU 사용률(`cpu(xos)`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Connection Failed***
+* **Connection Failed**
 
   카테고리: [`db_oracle_dma_counter`](metrics-data-list#db_oracle_dma_counter)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Lock Wait Sessions***
+* **Lock Wait Sessions**
 
   카테고리: [`db_oracle_dma_counter`](metrics-data-list#db_oracle_dma_counter)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory***
+* **Memory**
 
   카테고리: [`db_oracle_dma_counter`](metrics-data-list#db_oracle_dma_counter)
 
@@ -669,7 +669,7 @@
 
   :::
 
-* ***Tablespace Usage***
+* **Tablespace Usage**
 
   카테고리: [`db_oracle_dma_tablespace`](metrics-data-list#db_oracle_dma_tablespace)
 
@@ -683,13 +683,13 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Sessions***
+* **Active Sessions**
 
   카테고리: [`db_cubrid_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
@@ -701,25 +701,25 @@
 
   :::
 
-* ***CPU***
+* **CPU**
 
   카테고리: [`db_cubrid_counter`](metrics-data-list)
 
   CPU 사용률(`cpu(xos)`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Connection Failed***
+* **Connection Failed**
 
   카테고리: [`db_cubrid_counter`](metrics-data-list)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Lock Wait Sessions***
+* **Lock Wait Sessions**
 
   카테고리: [`db_cubrid_counter`](metrics-data-list)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory***
+* **Memory**
 
   카테고리: [`db_cubrid_counter`](metrics-data-list)
 
@@ -739,13 +739,13 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Sessions***
+* **Active Sessions**
 
   카테고리: [`db_tibero_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
@@ -757,25 +757,25 @@
 
   :::
 
-* ***CPU***
+* **CPU**
 
   카테고리: [`db_tibero_counter`](metrics-data-list)
 
   CPU 사용률(`cpu(xos)`)이 70%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Connection Failed***
+* **Connection Failed**
 
   카테고리: [`db_tibero_counter`](metrics-data-list)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Lock Wait Sessions***
+* **Lock Wait Sessions**
 
   카테고리: [`db_tibero_counter`](metrics-data-list)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory***
+* **Memory**
 
   카테고리: [`db_tibero_counter`](metrics-data-list)
 
@@ -795,13 +795,13 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Sessions***
+* **Active Sessions**
 
   카테고리: [`db_altibase_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
@@ -813,25 +813,25 @@
 
   :::
 
-* ***CPU***
+* **CPU**
 
   카테고리: [`db_altibase_counter`](metrics-data-list)
 
   CPU 사용률(`cpu(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Connection Failed***
+* **Connection Failed**
 
   카테고리: [`db_altibase_counter`](metrics-data-list)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Lock Wait Sessions***
+* **Lock Wait Sessions**
 
   카테고리: [`db_altibase_counter`](metrics-data-list)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 3개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 5개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory***
+* **Memory**
 
   카테고리: [`db_altibase_counter`](metrics-data-list)
 
@@ -851,13 +851,13 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active Sessions***
+* **Active Sessions**
 
   카테고리: [`db_mssql_counter`](metrics-data-list)
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
@@ -869,25 +869,25 @@
 
   :::
 
-* ***CPU***
+* **CPU**
 
   카테고리: [`db_mssql_counter`](metrics-data-list)
 
   CPU 사용률(`cpu`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Connection Failed***
+* **Connection Failed**
 
   카테고리: [`db_mssql_counter`](metrics-data-list)
 
   데이터베이스 연결이 15회 이상 실패하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Lock Wait Sessions***
+* **Lock Wait Sessions**
 
   카테고리: [`db_mssql_counter`](metrics-data-list)
 
   현재 row lock을 획득하기 위해 대기 중인 세션 수(`lock_wait_sessions`)가 30를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory***
+* **Memory**
 
   카테고리: [`db_mssql_counter`](metrics-data-list)
 
@@ -907,7 +907,7 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
@@ -919,19 +919,19 @@
 
   :::
 
-* ***CPU Utilization***
+* **CPU Utilization**
 
   카테고리: [`db_redis_counter`](metrics-data-list)
 
   CPU 사용률(`cpu(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Connection Failed***
+* **Connection Failed**
 
   카테고리: [`db_redis_counter`](metrics-data-list)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory Utilization***
+* **Memory Utilization**
 
   카테고리: [`db_redis_counter`](metrics-data-list)
 
@@ -943,13 +943,13 @@
 
   :::
 
-* ***Redis Cache Hit Ratio***
+* **Redis Cache Hit Ratio**
 
   카테고리: [`db_redis_counter`](metrics-data-list)
 
   모든 읽기 수행 작업의 성공률이 70% 미만이면 경고(<span class="slow">Warning</span>) 수준의 알림을, 30% 미만이면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Used Memory Size***
+* **Used Memory Size**
 
   카테고리: [`db_redis_counter`](metrics-data-list)
 
@@ -963,13 +963,13 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* ***Active connections***
+* **Active connections**
 
   카테고리: [`db_mongodb_counter`](metrics-data-list)
 
   현재 작업 중인 클라이언트의 연결 수(`active$connections`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Agent Alive Check***
+* **Agent Alive Check**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
@@ -981,25 +981,25 @@
 
   :::
 
-* ***CPU Utilization***
+* **CPU Utilization**
 
   카테고리: [`db_mongodb_counter`](metrics-data-list)
 
   CPU 사용률(`cpu(xos)`)이 80%를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 90%를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Connection Failed***
+* **Connection Failed**
 
   카테고리: [`db_mongodb_counter`](metrics-data-list)
 
   데이터베이스 연결이 15회 이상 실패(`connect_error`)하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Global Lock Queue count***
+* **Global Lock Queue count**
 
   카테고리: [`db_mongodb_counter`](metrics-data-list)
 
   현재 대기 중인 클라이언트의 연결 수(`total$currentQueue$globalLock`)가 10개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 20개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Memory Utilization***
+* **Memory Utilization**
 
   카테고리: [`db_mongodb_counter`](metrics-data-list)
 
@@ -1017,43 +1017,43 @@
 
 <ImgLang img='event-config-v2-npm.png' desc='이벤트 목록' />
 
-* ***Jitter***
+* **Jitter**
 
   카테고리: [`npm_process_tag_data`](metrics-npm#npm_process_tag_data)
 
   패킷 왕복 지연 시간 변동 횟수의 평균(`avg_jitter`)이 30회를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 60회를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Latency***
+* **Latency**
 
   카테고리: [`npm_process_tag_data`](metrics-npm#npm_process_tag_data)
 
   패킷 왕복 지연 시간의 평균(`avg_latency`)이 200ms(0.2초)를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 400ms(0.4초)를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Loss Packet***
+* **Loss Packet**
 
   카테고리: [`npm_process_tag_data`](metrics-npm#npm_process_tag_data)
 
   손실된 패킷 수(`lost_count`)가 1개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 10개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Retransmission Packet***
+* **Retransmission Packet**
 
   카테고리: [`npm_process_tag_data`](metrics-npm#npm_process_tag_data)
 
   재전송이 발생한 패킷 수(`retransmission_count`)가 1개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 10개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Session Count***
+* **Session Count**
 
   카테고리: [`npm_process_tag_data`](metrics-npm#npm_process_tag_data)
 
   중복을 제외한 세션 개수(`session_count`)가 100개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 1000개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Total Packet Count***
+* **Total Packet Count**
 
   카테고리: [`npm_process_tag_data`](metrics-npm#npm_process_tag_data)
 
   송신한 패킷의 수(`send_packet_count`)와 수신한 패킷의 수(`recv_packet_count`)의 합이 50,000개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 100,000개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Total Packet Size***
+* **Total Packet Size**
 
   카테고리: [`npm_process_tag_data`](metrics-npm#npm_process_tag_data)
 
@@ -1071,31 +1071,31 @@
 
 <ImgLang img='event-config-v2-browser.png' desc='이벤트 목록' />
 
-* ***Abnormal ajax load count***
+* **Abnormal ajax load count**
 
   카테고리: [`rum_ajax_each_page`](metrics-browser#rum_ajax_each_page)
 
   AJAX 로드 수(`ajax_count`)가 50개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 100개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Abnormal ajax response time***
+* **Abnormal ajax response time**
 
   카테고리: [`rum_ajax_each_page`](metrics-browser#rum_ajax_each_page)
 
   AJAX 요청 평균 응답 시간(`ajax_duration`)이 20,000ms(20초)를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50,000ms(50초)를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Abnormal error count***
+* **Abnormal error count**
 
   카테고리: [`rum_error_total_each_page`](metrics-browser#rum_error_total_each_page)
 
   에러 발생 건수(`error_count`)가 10개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Abnormal page load***
+* **Abnormal page load**
 
   카테고리: [`rum_page_load_each_page`](metrics-browser#rum_page_load_each_page)
 
   페이지 로드 수(`page_load_count`)가 50개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 100개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* ***Abnormal page load time***
+* **Abnormal page load time**
 
   카테고리: [`rum_page_load_each_page`](metrics-browser#rum_page_load_each_page)
 

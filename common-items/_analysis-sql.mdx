@@ -2,9 +2,9 @@
 
 데이터베이스에서 실행되는 SQL 문을 분석하여 성능 문제를 진단하는 데 유용한 자료를 제공합니다. <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> 메뉴는 두 가지 주요 탭으로 구성되어 있습니다. 
 
-* ***Access Statistics***: 성능 저하의 원인이 될 수 있는 Full Scan이 발생한 SQL을 확인할 수 있습니다.
+* **Access Statistics**: 성능 저하의 원인이 될 수 있는 Full Scan이 발생한 SQL을 확인할 수 있습니다.
 
-* ***Plan Change History***: 동일한 SQL ID를 가진 SQL 문이 옵티마이저에 의해 다른 실행 플랜으로 변경된 경우를 감지합니다. 이는 성능에 영향을 줄 수 있으므로 모니터링이 필요합니다.
+* **Plan Change History**: 동일한 SQL ID를 가진 SQL 문이 옵티마이저에 의해 다른 실행 플랜으로 변경된 경우를 감지합니다. 이는 성능에 영향을 줄 수 있으므로 모니터링이 필요합니다.
 
 ## Access Statistics {#access_statistics}
 
@@ -14,9 +14,9 @@
 
 화면 위에서 조회 시간 및 대상을 선택하세요. <Cmdname sid="time" className="uitext" />과 <Cmdname sid="instance" className="uitext" /> 옵션을 설정한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요. 필요한 경우 <Cmdname sid="filter" className="uitext" /> 옵션을 설정해 원하는 조회 결과를 필터링할 수 있습니다.
 
-* ***Access Count***: 시간대별 Full Scan 발생 횟수를 확인할 수 있는 막대 그래프 차트입니다. 특정 시간대를 선택하면, 선택한 시간에 수행된 SQL 목록이 화면 아래 목록과 오른쪽 ***Operation Count*** 차트에 표시됩니다.
+* **Access Count**: 시간대별 Full Scan 발생 횟수를 확인할 수 있는 막대 그래프 차트입니다. 특정 시간대를 선택하면, 선택한 시간에 수행된 SQL 목록이 화면 아래 목록과 오른쪽 **Operation Count** 차트에 표시됩니다.
 
-* ***Operation Count***: Full Scan이 발생한 유형과 그 수를 확인할 수 있습니다. 각 막대에 마우스를 오버하면 오브젝트 이름을 확인할 수 있습니다.
+* **Operation Count**: Full Scan이 발생한 유형과 그 수를 확인할 수 있습니다. 각 막대에 마우스를 오버하면 오브젝트 이름을 확인할 수 있습니다.
 
   ![Operation Count](/img/db-analysis-sql-access-statistics-op-count.png)
 
@@ -30,9 +30,9 @@ import QueryDetails from "../common-items/_db-query-details.mdx";
 
 :::info
 
-* ***Access Type***: **Full Scan** 또는 **Index Scan** 기준으로 결과를 필터링할 수 있습니다.
+* **Access Type**: **Full Scan** 또는 **Index Scan** 기준으로 결과를 필터링할 수 있습니다.
 
-* ***Object Name***: 오브젝트 이름을 기준으로 필터링할 수 있습니다.
+* **Object Name**: 오브젝트 이름을 기준으로 필터링할 수 있습니다.
 
 :::
 
@@ -42,7 +42,7 @@ import QueryDetails from "../common-items/_db-query-details.mdx";
 
     <ImgLang img="db-analysis-sql-access-statistics-filter.png" desc="필터" />
 
-1. <Cmdname sid="TTL06737" className="uitext" />에서 ***FULL*** 또는 ***INDEX*** 항목을 선택하세요.
+1. <Cmdname sid="TTL06737" className="uitext" />에서 **FULL** 또는 **INDEX** 항목을 선택하세요.
 
 1. <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
 
@@ -50,7 +50,7 @@ import QueryDetails from "../common-items/_db-query-details.mdx";
 
 :::note
 
-Full Scan, Index Scan을 모두 검색하려면 <Cmdname sid="TTL06737" className="uitext" />에서 ***FULL***, ***INDEX*** 옵션을 모두 선택하세요. 또는 ![더하기 아이콘](/img/ic-s-plus.svg) 버튼을 선택해 필터 옵션을 추가할 수도 있습니다.
+Full Scan, Index Scan을 모두 검색하려면 <Cmdname sid="TTL06737" className="uitext" />에서 **FULL**, **INDEX** 옵션을 모두 선택하세요. 또는 ![더하기 아이콘](/img/ic-s-plus.svg) 버튼을 선택해 필터 옵션을 추가할 수도 있습니다.
 
 :::
 
@@ -60,7 +60,7 @@ Full Scan, Index Scan을 모두 검색하려면 <Cmdname sid="TTL06737" classNam
 
 1. <Cmdname sid="filter" className="uitext" /> 옵션에서 <LinkImage img="ico-add.svg" className="ico" /> 버튼을 선택하세요.
 
-1. <Cmdname sid="TTL06617" className="uitext" /> 팝업에서 ***Object Name*** 항목과 <Cmdname sid="equal" className="uitext" /> 조건을 선택하세요.
+1. <Cmdname sid="TTL06617" className="uitext" /> 팝업에서 **Object Name** 항목과 <Cmdname sid="equal" className="uitext" /> 조건을 선택하세요.
 
 1. 빈 입력란을 선택하고, 표시되는 오브젝트 목록에서 원하는 오브젝트 이름을 선택하세요.
 
@@ -93,14 +93,14 @@ Full Scan, Index Scan을 모두 검색하려면 <Cmdname sid="TTL06737" classNam
 
 화면 위에서 조회 시간 및 대상을 선택하세요. <Cmdname sid="time" className="uitext" />과 <Cmdname sid="instance" className="uitext" /> 옵션을 설정한 다음 ![검색 아이콘](/img/ico-btn-search.png) 버튼을 선택하세요.
 
-***Plan Change Count*** 섹션은 시간대별 플랜 변경이 일어난 횟수를 확인할 수 있는 막대 그래프 차트입니다. 특정 시간대를 선택하면, 선택한 시간의 플랜 변경 목록을 표시합니다.
+**Plan Change Count** 섹션은 시간대별 플랜 변경이 일어난 횟수를 확인할 수 있는 막대 그래프 차트입니다. 특정 시간대를 선택하면, 선택한 시간의 플랜 변경 목록을 표시합니다.
 
 ### Plan 변경 사항 확인하기
 
-화면 하단의 목록에서 특정 변경 항목을 선택하면 화면 아래에 플랜 변경 전후의 세부 내용을 확인할 수 있는 ***Query*** 섹션이 표시됩니다. 플랜 변경 전후의 차이를 상세히 비교함으로써 어떤 변경이 성능에 영향을 미쳤는지 파악할 수 있습니다.
+화면 하단의 목록에서 특정 변경 항목을 선택하면 화면 아래에 플랜 변경 전후의 세부 내용을 확인할 수 있는 **Query** 섹션이 표시됩니다. 플랜 변경 전후의 차이를 상세히 비교함으로써 어떤 변경이 성능에 영향을 미쳤는지 파악할 수 있습니다.
 
 <ImgLang img="db-analysis-sql-plan-change-history-diff.png" desc="Plan Change History" />
 
-* ***Query*** 섹션에서 오른쪽 상단의 ![새창보기 아이콘](/img/ic-popup.svg) 버튼을 선택하면 해당 섹션을 새창으로 열어 확인할 수 있습니다.
+* **Query** 섹션에서 오른쪽 상단의 ![새창보기 아이콘](/img/ic-popup.svg) 버튼을 선택하면 해당 섹션을 새창으로 열어 확인할 수 있습니다.
 
-* ***Query*** 섹션을 닫으려면 오른쪽 상단의 ![닫기 아이콘](/img/ico-close.svg) 버튼을 선택하세요.
+* **Query** 섹션을 닫으려면 오른쪽 상단의 ![닫기 아이콘](/img/ico-close.svg) 버튼을 선택하세요.

@@ -891,92 +891,458 @@
         "hash": "v223",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\">New</code> <b>spring-webflux-6.x</b> 추적 추가</p>\n<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">weaving</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">webflux-6.0</span></span></code></pre></div></div>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>spring-webflux-6.x</strong> 추적 추가</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">weaving</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">webflux-6.0</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\">New</code> database connection close를 step에 표시</p>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> database connection close를 step에 표시</p>",
+        "details": "<ul><li>close 표시 클래스 정보 목록<ul><li>org.apache.commons.dbcp.<br />PoolingDataSource$PoolGuardConnectionWrapper.close()V</li><li>org.apache.tomcat.dbcp.dbcp.<br />PoolingDataSource$PoolGuardConnectionWrapper.close()V</li><li>org.apache.tomcat.dbcp.dbcp2.<br />PoolingDataSource$PoolGuardConnectionWrapper.close()V</li><li>org.apache.commons.dbcp2.<br />PoolingDataSource$PoolGuardConnectionWrapper.close()V</li><li>com.zaxxer.hikari.pool.<br />ProxyConnection.close()V</li></ul></li><li>patterns 설정을 통해서 database connection close를 표시할 클래스 추가 가능 (기본값 <code>true</code>)</li></ul><ul><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">hook_connection_close_default_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">true</span></span><br /><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">hook_connection_close_patterns</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">a.b.c.D</span></span></code></pre></div></div></ul>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p>close 표시 클래스 정보 목록</p><ul><li>org.apache.commons.dbcp.PoolingDataSource$PoolGuardConnectionWrapper.close()V</li><li>org.apache.tomcat.dbcp.dbcp.PoolingDataSource$PoolGuardConnectionWrapper.close()V</li><li>org.apache.tomcat.dbcp.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper.close()V</li><li>org.apache.commons.dbcp2.PoolingDataSource$PoolGuardConnectionWrapper.close()V</li><li>com.zaxxer.hikari.pool.ProxyConnection.close()V</li></ul>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> jdbc url 표시 설정 추가</p>",
+        "details": "<p><code>jdbc_url_enabled=false</code>로 설정 시 자바 에이전트가 추적하고 있는 database connection 정보를 url이 아닌 클래스로 표시 (기본값 <code>true</code>)</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">jdbc_url_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">true</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p>patterns 설정을 통해 database connection close를 표시할 클래스 추가 가능 (기본값 <code>true</code>)</p>\n<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">hook_connection_close_default_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">true</span></span><br /><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">hook_connection_close_patterns</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">a.b.c.D</span></span></code></pre></div></div>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> database connection pool 클래스 표시 설정 추가</p>",
+        "details": "<p>database connection pool의 클래스 이름을 jdbc url 데이터 뒤에 표시하여 connection pool의 정보를 추가로 확인할 수 있도록 설정 추가 (기본값 <code>false</code>)</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">trace_dbc_append_classname_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">false</span></span></code></pre></div></div><p>database connection 정보를 자세하게 표시하기 위한 예시</p><p><code>jdbc_url</code> + \"@클래스 정보\"; connection close 정보; 표시</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">trace_dbc_append_classname_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">true</span></span><br /><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">trace_dbc_close_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">true</span></span><br /><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">trace_dbc_wrap_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">true</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\">New</code> jdbc url 표시 설정 추가</p><p><code>jdbc_url_enabled=false</code>로 설정 시 자바 에이전트가 추적하고 있는 database connection 정보를 url이 아닌 클래스로 표시 (기본값 <code>true</code>)</p>\n<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">jdbc_url_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">true</span></span></code></pre></div></div>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> kubernetes 마스터 에이전트 연결 여부 설정 추가 (기본값 <code>false</code>)</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">kube_agent_connect_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">false</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
         "type": "New",
-        "desc": "<p><code class=\"New\">New</code> database connection pool 클래스 표시 설정 추가</p><p>database connection pool의 클래스 이름을 jdbc url 데이터 뒤에 표시하여 connection pool의 정보를 추가로 확인할 수 있도록 설정 (기본값 <code>false</code>)</p>\n<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">trace_dbc_append_classname_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">false</span></span></code></pre></div></div>"
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> (batch) 액티브 스택 수집 여부 설정 추가 (기본값 <code>false</code>)</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">active_stack_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">false</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
-        "type": "Change",
-        "desc": "<p><code class=\"Change\">Change</code> 자바에이전트 내장 오픈소스 플러그인의 <b>webflux-5.x</b> 업데이트</p>"
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> (batch) batch job에 트랜잭션을 분리하여 추적 기능 추가 (기본값 <code>false</code>)</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">split_trace_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">false</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
-        "type": "Change",
-        "desc": "<p><code class=\"Change\">Change</code> ResultSet의 fetch time을 system time에서 jvm의 nanotime으로 수정</p>"
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> (batch) batch job의 시작 트랜잭션의 최대 step 설정 추가 (기본값 <code>2000</code>)</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">trace_batch_main_step_max_count</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">2000</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
-        "type": "Change",
-        "desc": "<p><code class=\"Change\">Change</code> <code>service_patterns</code>로 트랜잭션을 등록하는 경우 트랜잭션 이름을 \"클래스#메서드\" 방식으로 표시</p>"
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> (batch) 실시간으로 분리된 트랜잭션 추적 예시</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">trace_batch_main_step_max_count</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">2000</span></span><br /><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">split_trace_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">true</span></span></code></pre></div></div>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
-        "type": "Change",
-        "desc": "<p><code class=\"Change\">Change</code> SQL 모니터링 시 null sql이 전달되는 경우 step에 <b>sql is null</b> 표시</p>"
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 자바에이전트 내장 오픈소스 플러그인의 <strong>webflux-5.x</strong> 업데이트</p>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
-        "type": "Change",
-        "desc": "<p><code class=\"Change\">Change</code> (batch) DeadLock 제거</p>"
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> ResultSet의 fetch time을 system time에서 jvm의 nanotime으로 수정</p>"
+      },
+      {
+        "ver": "v2.2.3",
+        "hash": "v223",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <code>service_patterns</code>로 트랜잭션을 등록하는 경우 트랜잭션 이름을 \"클래스#메서드\" 방식으로 표시</p>"
+      },
+      {
+        "ver": "v2.2.3",
+        "hash": "v223",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> SQL 모니터링 시 null sql이 전달되는 경우 step에 <strong>sql is null</strong> 표시</p>"
+      },
+      {
+        "ver": "v2.2.3",
+        "hash": "v223",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> (batch) DeadLock 제거</p>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> ResultSet wrapper 이중 카운팅 버그 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> ResultSet wrapper 이중 카운팅 버그 수정</p>"
       },
       {
         "ver": "v2.2.3",
         "hash": "v223",
         "product": "Java Agent",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\">Fixed</code> SQL parameter의 Big Decimal 수집 버그 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> SQL parameter의 Big Decimal 수집 버그 수정</p>"
       }
     ]
-  }          
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_2",
+    "ver": "v2.2.2",
+    "date": "2022-12-21",
+    "Lists": [
+      {
+        "ver": "v2.2.2",
+        "hash": "v222",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> <strong>aws-mysql-jdbc-1.1.1</strong> 추적</p>"
+      },
+      {
+        "ver": "v2.2.2",
+        "hash": "v222",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> <strong>mariadb-java-client-3.0.3</strong> 추적</p>"
+      },
+      {
+        "ver": "v2.2.2",
+        "hash": "v222",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> 정규 분포를 활용해 resp90, resp95 응답 시간 메트릭 지표 생성</p>"
+      },
+      {
+        "ver": "v2.2.2",
+        "hash": "v222",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> <code>hook_method_ignore_class_patterns</code> 옵션키 추가: hooking하려는 메서드들 중에서 무시할 class 추가</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">hook_method_ignore_class_patterns</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">a.b.c.D</span></span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.2",
+        "hash": "v222",
+        "product": "Java Agent",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\">Change</code> 자바 에이전트 로고에 asm api 버전 표시 추가</p>"
+      },
+      {
+        "ver": "v2.2.2",
+        "hash": "v222",
+        "product": "Java Agent",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\">Change</code> mariadb-java-client-3.0.9의 ResultSet 추적</p>"
+      },
+      {
+        "ver": "v2.2.2",
+        "hash": "v222",
+        "product": "Java Agent",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\">Change</code> 자바 에이전트 로고에서 R2 제거</p>"
+      },
+      {
+        "ver": "v2.2.2",
+        "hash": "v222",
+        "product": "Java Agent",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\">Change</code> 프로세스의 cputime 측정을 system time 기준에서 JVM의 nano time으로 수정</p>"
+      },
+      {
+        "ver": "v2.2.2",
+        "hash": "v222",
+        "product": "Java Agent",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\">Change</code> <code>hook_method_ignore</code> 항목에 access$ 메서드를 기본 hooking에서 제외</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">hook_method_ignore</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">get,set,access$</span></span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.2",
+        "hash": "v222",
+        "product": "Java Agent",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\">Change</code> 매시간마다 text reset을 수행할 수 있도록 <code>text_zip_enabled</code>의 기본값을 <code>true</code>로 수정</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">text_zip_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">true</span></span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.2",
+        "hash": "v222",
+        "product": "Java Agent",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\">Change</code> tps, 응답시간을 기존 30초 평균에서 5초 평균으로 계산하도록 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_0",
+    "ver": "v2.2.0",
+    "date": "2022-11-01",
+    "Lists": [
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> virtual 애플리케이션에서 logsink 데이터를 생성하도록 기능 추가</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> logsink의 stdout 로그도 txid 정보를 연결할 수 있도록 기능 추가</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> 2초 데이터 수집 기능 추가</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">fast_perf_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>false</span><br /><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">fast_perf_interval</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>2000</span><br /><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">fast_perf_gc_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>true</span><br /><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">fast_perf_os_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>true</span><br /><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">debug_fast_perf_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>false</span></code></pre></div></div><p>수집데이터</p><ul><li>경과시간</li><li>액티브 트랜잭션</li><li>gc 정보: gc건수, gc경과시간, old generation gc건수, old generation gc경과시간</li><li>OS 정보</li></ul>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> 액티브 트랜잭션 건수에 따라 알림을 보내도록 기능 추가</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(128, 147, 147)\"># 엑티브 트랜잭션 알림 설정 여부</span></span><br /><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">too_many_actx_alert_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>false</span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(128, 147, 147)\"># 엑티브 트랜잭션 알림 무시 시간 (ms)</span></span><br /><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">too_many_actx_alert_silent_time</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>30000</span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(128, 147, 147)\"># 엑티브 트랜잭션 알림 기준 건수</span></span><br /><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">too_many_actx_alert_count</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>50</span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(128, 147, 147)\"># 엑티브 트랜잭션 알림 메시지 표시 건수</span></span><br /><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">too_many_actx_alert_msg_url_count</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>5</span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(128, 147, 147)\"># 엑티브 트랜잭션 알림 기준 시간</span></span><br /><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">too_many_actx_alert_over_time</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>30000</span></code></pre></div></div><ul><li>엑티브 트랜잭션 기준 건수는 <code>too_many_actx_alert_count &gt;= (too_many_actx_alert_over_time / 5000)</code>으로 결정</li><li>엑티브 트랜잭션 기준 건수와 같거나 넘어가는 경우 <code>too_many_actx_alert_msg_url_count</code> 만큼의 url 정보를 알림 메시지에 추가해 알림 전송</li></ul>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> 프로파일 디버그 옵션: 디버그 대상 패턴을 등록한 경우 프로파일과 에이전트 로그에서 스텍을 확인</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">hook_method_debug_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>true</span><br /><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">hook_method_debug_patterns</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span></span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> 플러그인 활용 클래스 추가: <code>HashTable</code> 제공 및 <code>whatap.agent.api.Ref.h</code>로 접근</p>",
+        "details": "<div class=\"language-java codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">Example</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-java codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\">Class hashTable = (Class) whatap.agent.api.Ref.h;</code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> TTA BMT 시연용 전용 클래스 제공</p>",
+        "details": "<div class=\"language-java codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">Java Class</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-java codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"># map<br />bmt.m.MyMap<br /><br /># datasource<br />bmt.ds.MyDataSource<br />bmt.ds.MyConnection<br /><br /># jdbc<br />bmt.jdbc.Config<br />bmt.jdbc.FakeBlob<br />bmt.jdbc.FakeClob<br />bmt.jdbc.FakeConnection<br />bmt.jdbc.FakeDatabaseMetaData<br />bmt.jdbc.FakeDriver<br />bmt.jdbc.FakeCallableStatement<br />bmt.jdbc.FakePreparedStatement<br />bmt.jdbc.FakeResultSet<br />bmt.jdbc.FakeStatement<br />bmt.jdbc.FakeSocket<br />bmt.jdbc.Lock</code></pre></div></div><div class=\"language-java codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">Tracing</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-java codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\">// Connection Pool 추적<br />// ConnectionPoolASM<br />target.put(\"bmt/ds/MyDataSource\", MyDataSource.className);<br /><br />// Connection Pool 추적<br />// DBConCountCollectorThread<br />add(new MyDataSource());<br /><br />// JDBC Connection 추적<br />// JDBCConnectionOpenASM<br />AsmUtil.add(reserved, \"bmt/ds/MyDataSource\", \"getConnection()Ljava/sql/Connection;\");<br /><br />// JDBC Statement 추적<br />// JDBCStatementASM<br />target.add(\"bmt/jdbc/FakeStatement\");<br /><br />// JDBC PreparedStatement 추적<br />// JDBCPreparedStatementASM <br />target.add(\"bmt/jdbc/FakePreparedStatement\");<br /><br />// JDBC ResultSet 추적<br />// JDBCResultSetASM<br />target.add(\"bmt/jdbc/FakeResultSet\");</code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> 에러 스텝</p><ul><li>프로파일에 에러 스텝을 추가할 수 있도록 기능 추가</li><li>설정 추가해 프로파일에 에러 관련 정보를 표시하는 스텝 추가</li></ul>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">profile_error_step_enabled</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span>false</span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> jmx 설정 추가: 임의의 jmx 정보를 추가로 조회</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\">perfx_tomcat_enabled=false</span><br /><span class=\"token-line\">perfx_jmx_value_limit=100</span><br /><span class=\"token-line\">perfx_jmx_tag_from_objectname_enabled=false</span></code></pre></div></div><p>tomcat의 jmx 정보를 수집하여 메트릭스 조회에서 test1, test2로 확인하기 위한 설정은 다음과 같습니다.</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\">perfx_jmx_enabled=true</span><br /><span class=\"token-line\">perfx_jmx@test1=Catalina:type=Connector,*</span><br /><span class=\"token-line\">perfx_jmx@test2=java.lang:type=GarbageCollector,*</span><br /><span class=\"token-line\">perfx_jmx_ignore@test2=LastGcInfo</span><br /><span class=\"token-line\"># perfx_debug_enabled=true</span><br /><span class=\"token-line\"># perfx_jmx_tag_from_objectname_enabled=false</span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> oshi 라이브러리 활용, 프로세스의 proc_mem_rss 데이터 추적 기능 추가</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\">oshi_proc_mem_enabled=false</span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> <code>org.edb.jdbc.PgCallableStatement</code>를 JDBC statement 추적에 추가</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> 오라클 프로시저에서 SQL 파라미터 추적 기능</p><ul><li>오라클 프로시저에서 SQL 파라미터를 추적할 수 있는 기능을 추가</li><li>CallableStatement에서 SQL 파라미터를 추적할 수 있도록 기능 추가</li></ul>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> WebLogic 환경에서 <code>HttpURLConnection</code> 호출 시 <code>weblogic.net.http.HttpURLConnection</code> 추적</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\">HttpURLConnection_weblogic=true</span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> sigar 라이브러리 활용, 프로세스의 네이티브 메모리 데이터(proc_mem_rss) 수집 기능 추가</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> 기존 30초 평균으로 수집하던 TPS를 5초 평균으로 수집하도록 변경</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\">service_metrics_spike_enabled=false</span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> 프로파일 데이터 압축 전송 기능 추가</p>",
+        "details": "<ul><li>프로파일 데이터가 <code>profile_zip_max_buffer_size</code> 크기를 넘는 경우 즉시 전송</li><li>큐에 데이터가 쌓이고 <code>profile_zip_max_wait_time</code> 값을 넘는 경우 전송</li><li>전송 시 큐의 데이터가 <code>profile_zip_min_size</code> 미만인 경우를 제외하고 압축 전송</li></ul><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"># 프로파일 데이터 압축 여부</span><br /><span class=\"token-line\">profile_zip_enabled=true</span><br /><br /><span class=\"token-line\"># 프로파일 데이터들을 가지고 있을 큐 사이즈</span><br /><span class=\"token-line\"># ZipProfileThread.java가 사용하는 RequestQueue 사이즈를 결정</span><br /><span class=\"token-line\">profile_zip_queue_size=1000</span><br /><br /><span class=\"token-line\"># 프로파일 데이터를 보내는 대기 시간</span><br /><span class=\"token-line\"># 1000ms 지난 경우 프로파일 데이터 전송</span><br /><span class=\"token-line\">profile_zip_max_wait_time=1000</span><br /><br /><span class=\"token-line\"># 프로파일 데이터 버퍼 사이즈</span><br /><span class=\"token-line\"># 프로파일 데이터가 1MB가 넘는 경우 데이터를 전송</span><br /><span class=\"token-line\">profile_zip_max_buffer_size=1024*1024</span><br /><br /><span class=\"token-line\"># 프로파일 데이터 압축 여부 결정 최소 사이즈</span><br /><span class=\"token-line\"># 프로파일 데이터가 100byte 미만인 경우 압축하지 않음</span><br /><span class=\"token-line\">profile_zip_min_size=100</span><br /><br /><span class=\"token-line\"># 프로파일 데이터 압축 디버그 여부</span><br /><span class=\"token-line\"># ZipPack 상태/recordCount/buffer/큐사이즈를 에이전트 로그에 출력</span><br /><span class=\"token-line\">debug_profile_zip_enabled=false</span><br /><br /><span class=\"token-line\"># 프로파일 데이터 압축 디버그 로그 출력 간격</span><br /><span class=\"token-line\"># 옵션이 켜져 있는 경우 5000ms 간격으로 출력</span><br /><span class=\"token-line\">debug_profile_zip_interval=5000</span></code></pre></div></div>"
+      },
+  
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> logsink 데이터 전송 주기 옵션명을 <code>max_wait_time</code> → <code>logsink_max_wait_time</code>으로 변경</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> 플러그인 CustomCounter 수집을 <em>CustomCounterTask</em> → <em>CustomTaskLoader</em>로 대체</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\">custom_task_enabled=true</span><br /><span class=\"token-line\">custom_task_jarfile={full_path}</span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> 에이전트-프록시 간 서버시간 차이가 10초 이상인 경우 로그 출력</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> 경과시간 측정 방식 변경</p><ul><li>트랜잭션/프로파일 경과시간 측정 시 시스템 시간 대신 JVM 시간 사용</li><li><code>System.currentTimeMillis()</code> → <code>System.nanoTime()</code></li></ul>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> 에이전트 로그에 서버시간 차이를 표시하도록 수정</p>",
+        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">Agent log</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"># 30초 이상 차이가 나는 경우 </span><br /><span class=\"token-line\">\"fatal warning time-reverse (시간 차이) ms\"</span><br /><br /><span class=\"token-line\"># 30초 미만 차이가 나는 경우</span><br /><span class=\"token-line\">\"warning time-reverse (시간 차이) ms\"</span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> 사용자 카운팅 옵션을 <code>wclient_*</code> 형태로 개편 (기존 옵션도 동작하나 신규 권장)</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"># 교체</span><br /><span class=\"token-line\">trace_user_method=IP</span><br /><span class=\"token-line\">wclient_trace_type=IP</span><br /><br /><span class=\"token-line\"># 교체</span><br /><span class=\"token-line\">trace_user_jsession_key=JSESSIONID</span><br /><span class=\"token-line\">wclient_jsession_key=JSESSIONID</span><br /><br /><span class=\"token-line\"># 교체</span><br /><span class=\"token-line\">trace_user_header_key=token</span><br /><span class=\"token-line\">wclient_header_key=token</span><br /><br /><span class=\"token-line\"># 교체</span><br /><span class=\"token-line\">trace_user_cookie_limit=4000</span><br /><span class=\"token-line\">wclient_cookie_limit=4000</span><br /><br /><span class=\"token-line\"># 교체</span><br /><span class=\"token-line\">trace_user_cookie_domain=</span><br /><span class=\"token-line\">wclient_cookie_domain=</span><br /><br /><span class=\"token-line\"># 교체</span><br /><span class=\"token-line\">realtime_user_thinktime_max=300000</span><br /><span class=\"token-line\">wclient_thinktime_max=300000</span><br /><br /><span class=\"token-line\"># 교체</span><br /><span class=\"token-line\">trace_user_using_ip=true</span><br /><span class=\"token-line\">wclient_using_ip=true</span><br /><br /><span class=\"token-line\"># 교체</span><br /><span class=\"token-line\">user_header_ticket=</span><br /><span class=\"token-line\">wclient_header_ticket=</span><br /><br /><span class=\"token-line\"># 추가</span><br /><span class=\"token-line\">wclient_max_count=70000</span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> 사용자 수 카운팅 설정 반영하여 내장 weaving 컴포넌트 재컴파일</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> CounterPack 경과시간 계산에 <code>System.nanoTime()</code> 사용</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> 로그 출력 로고에 릴리즈 버전 포함</p>",
+        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">Logo</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\">    _       ____  ______           </span><br /><span class=\"token-line\">  | |     / / /_/_  __/___ _____   ___  ___ </span><br /><span class=\"token-line\">  | | /| / / __ \\/ / / __ `/ __ \\ | _ \\|_  ) </span><br /><span class=\"token-line\">  | |/ |/ / / / / / / /_/ / /_/ / |   / / /</span><br /><span class=\"token-line\">  |__/|__/_/ /_/_/  \\__,_/ .___/  |_|_\\/___|</span><br /><span class=\"token-line\">                        /_/                    </span><br /><span class=\"token-line\">  The Best Observability in Java</span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> 자바 에이전트의 통계 수집 기본값을 5000 → 10000으로 수정(2초마다 체크)</p>",
+        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\">stat_tx_max_count=10000</span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> oshi 라이브러리 버전을 oshi-core-5.4.1 → oshi-core-6.1.6으로 업데이트</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Change\">Change</code> 성능지표 수집 라이브러리 폴더 이름 변경 (<code>{AGENT_HOME}</code>)</p><ul><li>sigar: <code>lib</code> → <code>lib3</code></li><li>oshi: <code>lib2</code> → <code>lib4</code></li></ul>"
+      },
+  
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> Webflux 위빙 플러그인에서 read-only <code>HttpHeaders</code>에 멀티트랜잭션 헤더 추가 시 발생하던 에러 수정</p><p>webflux-5.1, webflux-5.2, webflux-5.3 버전에 전부 적용</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 트랜잭션과 스텝의 경과시간이 0보다 작은 경우 발생하는 버그 수정</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 경과시간이 0보다 작은 경우 경과시간을 0으로 표시하던 버그 수정</p>"
+      },
+      {
+        "ver": "v2.2.0",
+        "hash": "v220",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> <code>blocking_detect_count</code> 건수 처리 버그 수정</p>"
+      }
+    ]
+  }
 ]

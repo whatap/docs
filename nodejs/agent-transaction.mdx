@@ -29,46 +29,6 @@ import Transactionprofileactivecolor from "../common-items/_transaction-profile-
 
 <Transactionprofileactivecolor />
 
-* **hook_method_patterns** <span class='type'>String</span>
-
-  응답시간을 측정할 메소드를 설정합니다. 마지막 마침표(.)를 구분자로 클래스 FullName과 메소드로 구분되며 별표(*)를 와일드 카드로 사용할 수 있습니다. 대상이 여러 개인 경우 쉼표(,)로 구분합니다.
-
-  ```ini title='Example'
-  hook_method_patterns=a.b.C1.*
-  ```
-
-  :::note
-
-  * 이 옵션을 통해 등록한 메소드는 <Cmdname sid="side_hitmap" className="uitext" />, <Cmdname sid="TTL06209" className="uitext" /> 또는 <Cmdname sid="TTL06527" className="uitext" /> 창에서 Method 스텝으로 확인할 수 있습니다.
-
-  * 가급적 국소 범위에 적용할 것을 권장합니다. 광범위한 범위로 적용할 경우 애플리케이션의 성능 저하를 유발할 수 있습니다.
-
-  :::
-
-* **hook_method_access_public_enabled** <span class='type'>Boolean</span>
-
-  기본값 `true`
-
-  메소드 트레이스를 설정할 때 public 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
-
-* **hook_method_access_protected_enabled** <span class='type'>Boolean</span>
-
-  기본값 `true`
-
-  메소드 트레이스를 설정할 때 protected 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
-
-* **hook_method_access_private_enabled** <span class='type'>Boolean</span>
-
-  기본값 `false`
-
-  메소드 트레이스를 설정할 때 private 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
-
-* **hook_method_access_none_enabled** <span class='type'>Boolean</span>
-
-  기본값 `true`
-
-  메소드 트레이스를 설정할 때 no access indicated 메소드에 대해서만 별도 대상으로 처리할지 여부를 설정합니다.
-
 * **trace_service_port_enabled** <span class='type'>Boolean</span>
 
   기본값 `false`

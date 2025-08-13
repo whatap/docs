@@ -18,17 +18,17 @@ keywords: [ AWS Log, 설치하기 ]
 
 1. AWS Lambda Function 콘솔에서 **WhaTap Forwarder**를 선택하세요.
 
-1. ***Configuration*** 탭의 ***Permissions*** 메뉴에서 ***Execution role***을 확인 후 선택해 AWS IAM 콘솔로 이동하세요.
+1. **Configuration** 탭의 **Permissions** 메뉴에서 **Execution role**을 확인 후 선택해 AWS IAM 콘솔로 이동하세요.
 
     ![Lambda 실행 역할](/img/whatap-forwarder-vpc-lambda.png)
 
-1. IAM 콘솔 ***Permissions*** 탭의 ***Permissions policies*** 메뉴로 이동하세요. 
+1. IAM 콘솔 **Permissions** 탭의 **Permissions policies** 메뉴로 이동하세요. 
 
-1. 정책 목록에서 ***forwarderpolicy***를 선택해 정책 편집 화면으로 이동하세요.
+1. 정책 목록에서 **forwarderpolicy**를 선택해 정책 편집 화면으로 이동하세요.
 
     ![IAM 콘솔](/img/whatap-forwarder-vpc-aws-iam.png)
 
-1. ***JSON*** 탭을 선택 후 다음 정책을 복사해 붙여넣기 하세요. 해당 정책은 *ENI*를 생성, 정의, 삭제합니다.
+1. **JSON** 탭을 선택 후 다음 정책을 복사해 붙여넣기 하세요. 해당 정책은 *ENI*를 생성, 정의, 삭제합니다.
 
 ```json title='IAM Policy'
 
@@ -74,11 +74,11 @@ keywords: [ AWS Log, 설치하기 ]
 
 1. AWS Lambda Function 콘솔에서 **WhaTap Forwarder**를 선택하세요.
 
-1. ***Configuration*** 탭의 ***VPC*** 메뉴에서 ***Edit*** 버튼을 선택해 VPC 편집 화면으로 이동하세요.
+1. **Configuration** 탭의 **VPC** 메뉴에서 **Edit** 버튼을 선택해 VPC 편집 화면으로 이동하세요.
 
     ![VPC 편집](/img/whatap-forwarder-vpc-edit.png)
 
-1. 다음을 참조해 ***VPC***와 ***Subnets*** 및 ***Security groups*** 지정 후 ***Save*** 버튼을 선택해 저장하세요.
+1. 다음을 참조해 **VPC**와 **Subnets** 및 **Security groups** 지정 후 **Save** 버튼을 선택해 저장하세요.
 
     ![서브넷과 보안 그룹](/img/whatap-forwarder-vpc-sg.png)
 

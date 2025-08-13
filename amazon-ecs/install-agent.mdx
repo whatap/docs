@@ -57,15 +57,15 @@ import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
 Amazon ECS의 Launch Type에 따라 아이템이 구분됩니다. 모니터링 대상은 Task, Service, Deployment, Container Instance입니다.
 
-* ***EC2 Launch Type***: Task, Service, Deployment, Container Instance
+* **EC2 Launch Type**: Task, Service, Deployment, Container Instance
 
   ![EC2 DAEMON](/img/ecs_ec2_whatap_monitoring.png)
 
-* ***Fargate Launch Type***: Task, Service, Deployment
+* **Fargate Launch Type**: Task, Service, Deployment
 
   ![ECS Fargate Sidecar](/img/ecs_fargate_whatap_monitoring.png)
 
-다음의 모니터링 절차도 ***EC2 Launch Type*** 모니터링을 위한 절차와 ***Fargate Launch Type*** 모니터링을 위한 절차로 구분되어 진행됩니다.
+다음의 모니터링 절차도 **EC2 Launch Type** 모니터링을 위한 절차와 **Fargate Launch Type** 모니터링을 위한 절차로 구분되어 진행됩니다.
 
 :::note
 
@@ -83,9 +83,9 @@ Amazon ECS launch types에 대한 자세한 설명은 [다음 문서](https://do
 
 ### EC2 Launch Type
 
-1. 프로젝트를 생성하고 ***사전 점검 사항***을 확인했다면 ***관리*** > ***에이전트 설치***의 설치 안내 섹션으로 이동하세요. 
+1. 프로젝트를 생성하고 **사전 점검 사항**을 확인했다면 **관리** > **에이전트 설치**의 설치 안내 섹션으로 이동하세요. 
 
-1. ![number-s](/img/number-01.png) ***Task 생성하기*** 탭에서 ***EC2 Launch Type***을 선택하세요.
+1. ![number-s](/img/number-01.png) **Task 생성하기** 탭에서 **EC2 Launch Type**을 선택하세요.
 
 1. 다음 스크립트를 실행해 DAEMON 타입 Task를 생성하세요. `CLUSTER`, `REGION`을 추가하고 `ACCESSKEY` 및 `WHATAP_HOST`를 설정해 수집서버와 통신할 수 있게 합니다.
 
@@ -163,9 +163,9 @@ Amazon ECS launch types에 대한 자세한 설명은 [다음 문서](https://do
 
 ### Fargate Launch Type 
 
-1. 프로젝트를 생성하고 ***사전 점검 사항***을 확인했다면 ***관리*** > ***에이전트 설치***의 설치 안내 섹션으로 이동하세요. 
+1. 프로젝트를 생성하고 **사전 점검 사항**을 확인했다면 **관리** > **에이전트 설치**의 설치 안내 섹션으로 이동하세요. 
 
-2. ![number-s](/img/number-01.png) ***Task 생성하기*** 탭에서 ***Fargate Launch Type***을 선택하세요.
+2. ![number-s](/img/number-01.png) **Task 생성하기** 탭에서 **Fargate Launch Type**을 선택하세요.
 
     * 스크립트를 실행하여 AWS ECS API READONLY IAM ROLE을 만듭니다. 
 
@@ -309,7 +309,7 @@ Amazon ECS launch types에 대한 자세한 설명은 [다음 문서](https://do
 
 ### 모니터링 서비스 활성화
 
-![number-s](/img/number-02.png) ***모니터링 시작하기*** 탭에서 ***모니터링 서비스 활성화*** 버튼을 선택해 모니터링 서비스를 시작하세요.
+![number-s](/img/number-02.png) **모니터링 시작하기** 탭에서 **모니터링 서비스 활성화** 버튼을 선택해 모니터링 서비스를 시작하세요.
 
 * 모니터링 서비스 활성화 가능
 

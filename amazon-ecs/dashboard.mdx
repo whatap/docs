@@ -5,62 +5,62 @@ description: 와탭 모니터링 대시보드는 프로젝트의 전체 현황�
 keywords: [ Amazon ECS, 대시보드, UI ]
 ---
 
-와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 ***프로젝트 메뉴*** 하위에 ***Amazon ECS*** 메뉴에서 아이템별 대시보드에 진입하세요.
+와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 다음 **프로젝트 메뉴** 하위에 **Amazon ECS** 메뉴에서 아이템별 대시보드에 진입하세요.
 
 ## Amazon ECS
 
 |대시보드 메뉴|Launch Type|설명|
 |---|---|---|
-|***TASK***|Fargate, EC2|***Task***에 속한 컨테이너별 성능 ***CPU***, ***Memory***, ***Traffic***, ***BLKIO*** 조회|
-|***Service***|Fargate, EC2|***Service***별 ***running***, ***pending***, ***desired task*** 및 연관 메트릭|
-|***ContainerInstance***|EC2|***ContainerInstance***별 ***running***, ***pending***, ***desired task*** 및 연관 메트릭|
+|**TASK**|Fargate, EC2|**Task**에 속한 컨테이너별 성능 **CPU**, **Memory**, **Traffic**, **BLKIO** 조회|
+|**Service**|Fargate, EC2|**Service**별 **running**, **pending**, **desired task** 및 연관 메트릭|
+|**ContainerInstance**|EC2|**ContainerInstance**별 **running**, **pending**, **desired task** 및 연관 메트릭|
 
 ### Task
 
-ECS ***Task*** 별 주요 지수를 시각화합니다.
+ECS **Task** 별 주요 지수를 시각화합니다.
 
 * **표시 차트**
-    * ***Total Task CPU Usage*** (프로젝트 총 CPU 사용량)
-    * ***Total Task Memory***(***WorkingSet***) ***Usage*** (프로젝트 총 메모리 사용량)
-    * ***Task CPU Usage***(***millicore***) (Task 별 CPU 사용량)
-    * ***Task Memory***(***WorkingSet***) ***Usage***(***byte***) (Task 별 메모리 사용량)
-    * ***Task Block I/O Read Byte*** (Task 별 Block I/O 읽기 사용량)
-    * ***Task Block I/O Write Byte*** (Task 별 Block I/O 쓰기 사용량)
-    * ***Task CPU Usage*** (%) (Task 별 제한 대비 CPU 사용량)
-    * ***Task Memory Usage*** (%) (Task 별 제한 대비 메모리 사용량)
-    * ***Task CPU Limit 설정*** (***millis***) (Task 별 CPU 제한 사용량)
-    * ***Task Memory Limit 설정*** (***byte***) (Task 별 메모리 제한 사용량)
-    * ***Task Network Read Byte*** (Task 별 네트워크 수신 사용량)
-    * ***Task Network Transmit Byte*** (Task 별 네트워크 송신 사용량)
+    * **Total Task CPU Usage** (프로젝트 총 CPU 사용량)
+    * **Total Task Memory**(**WorkingSet**) **Usage** (프로젝트 총 메모리 사용량)
+    * **Task CPU Usage**(**millicore**) (Task 별 CPU 사용량)
+    * **Task Memory**(**WorkingSet**) **Usage**(**byte**) (Task 별 메모리 사용량)
+    * **Task Block I/O Read Byte** (Task 별 Block I/O 읽기 사용량)
+    * **Task Block I/O Write Byte** (Task 별 Block I/O 쓰기 사용량)
+    * **Task CPU Usage** (%) (Task 별 제한 대비 CPU 사용량)
+    * **Task Memory Usage** (%) (Task 별 제한 대비 메모리 사용량)
+    * **Task CPU Limit 설정** (**millis**) (Task 별 CPU 제한 사용량)
+    * **Task Memory Limit 설정** (**byte**) (Task 별 메모리 제한 사용량)
+    * **Task Network Read Byte** (Task 별 네트워크 수신 사용량)
+    * **Task Network Transmit Byte** (Task 별 네트워크 송신 사용량)
 
 ### Service
 
-ECS ***Service*** 별 주요 지수를 시각화합니다.
+ECS **Service** 별 주요 지수를 시각화합니다.
 ![ECS Service](https://img.whatap.io/media/images/aws_ecs_whatap_monitoring_service.png)
 * **표시 차트**
-    * ***DesiredCount*** (희망수)
-    * ***RunningCount*** (현재수)
-    * ***PendingCount*** (미결수)
-    * ***Cpu*** (Service Task의 CPU 사용량 합산)
-    * ***WorkingSet*** (Service Task의 메모리 사용량 합산) 
+    * **DesiredCount** (희망수)
+    * **RunningCount** (현재수)
+    * **PendingCount** (미결수)
+    * **Cpu** (Service Task의 CPU 사용량 합산)
+    * **WorkingSet** (Service Task의 메모리 사용량 합산) 
 
 ### ContainerInstance
 
-ECS ***ContainerInstance***, ***Service*** 주요 지수를 시각화합니다.
+ECS **ContainerInstance**, **Service** 주요 지수를 시각화합니다.
 
 * **표시 차트**
-    * ***RunningCount Per Service*** (서비스별 태스크 현재 Task)
-    * ***PendingCount Per Service*** (서비스별 미결수)
-    * ***RunningTasksCount Per Node*** (노드별 현재수)
-    * ***PendingTasksCount Per Node*** (노드별 미결수)
-    * ***TrafficIn*** (노드별 네트워크 수신 bps)
-    * ***TrafficOut*** (노드별 네트워크 송신 bps)
-    * ***PacketIn*** (노드별 네트워크 수신 패킷)
-    * ***PacketOut*** (노드별 네트워크 송신 패킷)
-    * ***ReadBps*** (노드 디스크별 읽기 BPS)
-    * ***WriteBps*** (노드 디스크별 쓰기 BPS)
-    * ***ReadIops*** (노드 디스크별 읽기 횟수)
-    * ***WriteIops*** (노드 디스크별 쓰기 횟수)
-    * ***TotalSpace*** (노드 디스크별 크기)
-    * ***UsedSpace*** (노드 디스크별 사용량 byte)
-    * ***UsedPercent*** (노드 디스크별 사용량 %)
+    * **RunningCount Per Service** (서비스별 태스크 현재 Task)
+    * **PendingCount Per Service** (서비스별 미결수)
+    * **RunningTasksCount Per Node** (노드별 현재수)
+    * **PendingTasksCount Per Node** (노드별 미결수)
+    * **TrafficIn** (노드별 네트워크 수신 bps)
+    * **TrafficOut** (노드별 네트워크 송신 bps)
+    * **PacketIn** (노드별 네트워크 수신 패킷)
+    * **PacketOut** (노드별 네트워크 송신 패킷)
+    * **ReadBps** (노드 디스크별 읽기 BPS)
+    * **WriteBps** (노드 디스크별 쓰기 BPS)
+    * **ReadIops** (노드 디스크별 읽기 횟수)
+    * **WriteIops** (노드 디스크별 쓰기 횟수)
+    * **TotalSpace** (노드 디스크별 크기)
+    * **UsedSpace** (노드 디스크별 사용량 byte)
+    * **UsedPercent** (노드 디스크별 사용량 %)

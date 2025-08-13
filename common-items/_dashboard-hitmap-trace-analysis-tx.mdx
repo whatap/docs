@@ -54,33 +54,33 @@
 
 수집하는 **스텝**(**Step**)의 종류는 다음과 같습니다. 다이어그램과 텍스트 색상을 구분해 표시합니다.
 
-* ***DB Connection*** 스텝 <span class='type'>START-END</span>
+* **DB Connection** 스텝 <span class='type'>START-END</span>
 
   RDB에 대한 연결에 대한 성능을 포함합니다. 스텝 정보에는 이름, 응답시간, 에러를 포함합니다.
 
-* ***SQL*** 스텝 <span class='type'>START-END</span>
+* **SQL** 스텝 <span class='type'>START-END</span>
 
   JDBC SQL에 대한 성능을 포함합니다. 스텝 정보에는 연결 정보, SQL문, 에러가 포함되어 있습니다.
 
-* ***HTTP Call*** 스텝 <span class='type'>START-END</span>
+* **HTTP Call** 스텝 <span class='type'>START-END</span>
 
   외부 http 서비스 호출에 대한 성능을 포함합니다. 스텝 정보에는 url, host, port, 응답시간, 에러가 포함됩니다.
 
-* ***Message*** 스텝 <span class='type'>ADD</span>
+* **Message** 스텝 <span class='type'>ADD</span>
 
   트레이스를 수집하는 과정에서 비정형적인 모든 구간에 대한 이력을 수집할 때 메시지 스텝을 사용합니다.  
 
-* ***Socket*** 스텝 <span class='type'>ADD</span>
+* **Socket** 스텝 <span class='type'>ADD</span>
 
   Socket 오픈을 표현하는 스텝입니다.
 
-* ***Method*** 스텝 <span class='type'>START-END</span>
+* **Method** 스텝 <span class='type'>START-END</span>
 
   메소드 응답시간을 추적합니다.
 
 <Xclude product='php,nodejs,golang'>
 
-* ***Active Stack*** 스텝 <span class='type'>START-END</span>
+* **Active Stack** 스텝 <span class='type'>START-END</span>
 
   액티브 스택에 대한 정보를 포함합니다. 별도 스레드가 생성하여 트레이스에 추가하는 방식으로 수집합니다.
 

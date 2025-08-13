@@ -9,7 +9,7 @@ toc_max_heading_level: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-다음과 같이 마스터 및 노드 에이전트 설치 과정을 안내합니다. ***설치 안내*** 화면과 동일한 과정입니다.
+다음과 같이 마스터 및 노드 에이전트 설치 과정을 안내합니다. **설치 안내** 화면과 동일한 과정입니다.
 
 :::note 
 
@@ -75,7 +75,7 @@ gcloud 명령 설치에 대한 자세한 내용은 [구글 클라우드 문서](
 
 <ImgLang img='kube-install-openshift.png' desc='OpenShift'/>
 
-***설치 안내*** 화면에서 ***OpenShift 환경일 경우 추가 설정*** 섹션을 열어 ***whatap_openshift_scc.yaml*** 버튼을 선택하세요. 파일을 다운로드 후 다음 명령을 실행하세요.
+**설치 안내** 화면에서 **OpenShift 환경일 경우 추가 설정** 섹션을 열어 **whatap_openshift_scc.yaml** 버튼을 선택하세요. 파일을 다운로드 후 다음 명령을 실행하세요.
 
 ```bash
 oc create -f whatap_openshift_scc.yaml
@@ -229,7 +229,7 @@ Helm 차트 기준 **설치 문제 해결**에 대한 안내는 [다음 문서](
 
     ![](/img/k8s-check-version.svg)
 
-1. ***에이전트 설치*** 화면에서 **VERSION**과 **CONTAINER-RUNTIME**에 맞는 *YAML* 파일을 선택하고 ***다운로드*** 버튼을 클릭하세요.
+1. **에이전트 설치** 화면에서 **VERSION**과 **CONTAINER-RUNTIME**에 맞는 *YAML* 파일을 선택하고 **다운로드** 버튼을 클릭하세요.
 
     <ImgLang img='k8s-download-yaml.png' desc='yaml 다운로드' />
 
@@ -266,7 +266,7 @@ kubectl get pod -n whatap-monitoring
 
 #### Running 상태인 경우
 
-다음과 같이 **STATUS** 항목이 **Running**인 경우 **설치를 완료한 상태**입니다. 마스터 및 노드 에이전트의 설치를 완료하면 쿠버네티스 환경의 자원 모니터링을 시작합니다. [와탭 모니터링 서비스](https://service.whatap.io)로 이동한 다음 ***프로젝트 목록***과 ***대시보드*** > ***컨테이너 맵*** 메뉴에서 성능 정보를 수집하는 것을 확인하세요. 
+다음과 같이 **STATUS** 항목이 **Running**인 경우 **설치를 완료한 상태**입니다. 마스터 및 노드 에이전트의 설치를 완료하면 쿠버네티스 환경의 자원 모니터링을 시작합니다. [와탭 모니터링 서비스](https://service.whatap.io)로 이동한 다음 **프로젝트 목록**과 **대시보드** > **컨테이너 맵** 메뉴에서 성능 정보를 수집하는 것을 확인하세요. 
 
 ![](/img/k8s-check-running-agent-monitoring.svg)
 
@@ -295,7 +295,7 @@ kubectl get pod -n whatap-monitoring
 
 :::note
 
-* 애플리케이션 에이전트를 설치를 진행하려면 화면 오른쪽 아래에 ***애플리케이션 에이전트 설치*** 버튼을 선택하세요. 자세한 내용은 [다음 문서](install-application-agent)를 참조하세요.
+* 애플리케이션 에이전트를 설치를 진행하려면 화면 오른쪽 아래에 **애플리케이션 에이전트 설치** 버튼을 선택하세요. 자세한 내용은 [다음 문서](install-application-agent)를 참조하세요.
 * 에이전트를 최신 버전으로 업데이트하려면 [다음 문서](agent-update)를 참조하세요.
 
 :::

@@ -20,13 +20,13 @@ import TR from '@site/src/components/TR';
 
 NGINX는 고성능 HTTP 및 역방향 프록시 서버로, 웹 애플리케이션을 위한 로드 밸런싱, 캐싱, HTTP 캐시와 같은 기능을 제공합니다. NGINX는 높은 동시 처리 성능을 바탕으로 웹 트래픽을 효과적으로 분산하고 관리할 수 있어 대규모 웹사이트 운영에 적합합니다.
 
-와탭은 새로운 **피쳐 프로젝트** 방식으로 ***NGINX*** 모니터링을 제공합니다. NGINX 서버의 성능과 상태를 실시간으로 추적하여 문제를 조기에 감지하고 해결할 수 있도록 돕습니다.
+와탭은 새로운 **피쳐 프로젝트** 방식으로 **NGINX** 모니터링을 제공합니다. NGINX 서버의 성능과 상태를 실시간으로 추적하여 문제를 조기에 감지하고 해결할 수 있도록 돕습니다.
 
 * **지표 모니터링**: NGINX 서버의 요청 처리 상태, 응답 코드, 연결 상태 등 다양한 메트릭을 실시간으로 모니터링합니다.
 
 * **대시보드**: 대시보드를 통해 필요한 지표를 효율적으로 조회하고 분석할 수 있습니다.
 
-와탭 ***NGINX*** 모니터링을 통해 NGINX 서버를 안정적으로 운영하고 관리해 보세요.
+와탭 **NGINX** 모니터링을 통해 NGINX 서버를 안정적으로 운영하고 관리해 보세요.
 
 ## 설치하기
 
@@ -64,11 +64,11 @@ import Createprojectintrov2 from "../getting-started/_create-project-v2.mdx";
 
 ### 대시보드
 
-홈 화면 > **피쳐 프로젝트**(<code class='Features'>Features</code>) 선택 > ***NGINX*** > ***NGINX 대시보드***
+홈 화면 > **피쳐 프로젝트**(<code class='Features'>Features</code>) 선택 > **NGINX** > **NGINX 대시보드**
 
-와탭이 제공하는 ***NGINX 대시보드***는 웹 서버의 실시간 성능을 한눈에 확인할 수 있는 시각적 도구로, 트래픽 패턴, 요청 처리 상황 등을 효과적으로 모니터링할 수 있습니다. 주요 지표를 통해 NGINX 서버 성능을 분석하고 관리해 보세요.
+와탭이 제공하는 **NGINX 대시보드**는 웹 서버의 실시간 성능을 한눈에 확인할 수 있는 시각적 도구로, 트래픽 패턴, 요청 처리 상황 등을 효과적으로 모니터링할 수 있습니다. 주요 지표를 통해 NGINX 서버 성능을 분석하고 관리해 보세요.
 
-* ***NGINX Requests Status Code***
+* **NGINX Requests Status Code**
 
   NGINX 서버가 처리한 요청의 상태 코드를 실시간으로 모니터링합니다. 2XX, 3XX, 4XX, 5XX, 503 등 상태 코드에 따른 응답 수를 분류하여 실시간으로 확인합니다.
 
@@ -79,39 +79,39 @@ import Createprojectintrov2 from "../getting-started/_create-project-v2.mdx";
 
   </details>
 
-* ***Nginx Metrics***
+* **Nginx Metrics**
 
   NGINX의 성능과 상태를 종합적으로 보여주는 다양한 메트릭을 제공합니다. 실시간으로 연결 상태 및 처리 상황을 추적할 수 있습니다.
 
   <details>
   <summary>대시보드 지표 안내 </summary>
 
-  * ***NGINX Connections Accepted***: NGINX 서버가 허용한 연결 수를 표시합니다. 
+  * **NGINX Connections Accepted**: NGINX 서버가 허용한 연결 수를 표시합니다. 
 
-  * ***NGINX Writing***: 클라이언트에게 응답을 쓰고 있는 연결 수를 추적합니다. 
+  * **NGINX Writing**: 클라이언트에게 응답을 쓰고 있는 연결 수를 추적합니다. 
 
-  * ***Active Connections(accepted)***: NGINX 서버가 현재 처리 중인 클라이언트와의 연결 수를 표시합니다. 
+  * **Active Connections(accepted)**: NGINX 서버가 현재 처리 중인 클라이언트와의 연결 수를 표시합니다. 
 
-  * ***Waiting***: Keep-alive 상태에서 대기 중인 연결을 표시합니다. 
+  * **Waiting**: Keep-alive 상태에서 대기 중인 연결을 표시합니다. 
 
-  * ***Handled Request***: NGIMX 서버가 성공적으로 처리한 요청 수를 표시합니다. 
+  * **Handled Request**: NGIMX 서버가 성공적으로 처리한 요청 수를 표시합니다. 
 
-  * ***NGINX Requests***: NGIMX 서버가 수신한 총 요청 수를 실시간으로 추적합니다.
+  * **NGINX Requests**: NGIMX 서버가 수신한 총 요청 수를 실시간으로 추적합니다.
 
-  * ***NGINX Reading***: 클라이언트로부터 요청 데이터를 읽는 중인 연결 수를 표시합니다. 
+  * **NGINX Reading**: 클라이언트로부터 요청 데이터를 읽는 중인 연결 수를 표시합니다. 
 
   </details>
 
 
-* ***Domain Throughput***
+* **Domain Throughput**
 
   도메인 단위에서의 트래픽과 성능을 추적할 수 있습니다. 
 
   <details>
   <summary>대시보드 지표 안내 </summary>
   
-  * ***Response Bytes SUM***: 응답으로 전송된 총 바이트 수를 표시합니다. 서버가 처리한 전체 트래픽 양을 모니터링할 수 있습니다.
+  * **Response Bytes SUM**: 응답으로 전송된 총 바이트 수를 표시합니다. 서버가 처리한 전체 트래픽 양을 모니터링할 수 있습니다.
 
-  * ***Latency Average***: 평균 응답 지연 시간을 표시합니다. 서버의 응답 속도를 평가하는 중요한 지표입니다.
+  * **Latency Average**: 평균 응답 지연 시간을 표시합니다. 서버의 응답 속도를 평가하는 중요한 지표입니다.
 
   </details>

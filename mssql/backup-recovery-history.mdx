@@ -31,37 +31,37 @@ SQL Server에서 수행된 데이터베이스 백업 및 복구 작업의 기록
 
 제공하는 컬럼 항목에 대한 자세한 내용은 다음을 참조하세요.
 
-* ***database_name***: 백업 작업에 관련된 데이터베이스의 이름입니다.
+* **database_name**: 백업 작업에 관련된 데이터베이스의 이름입니다.
 
-* ***backup_name***: 백업 집합의 이름입니다.
+* **backup_name**: 백업 집합의 이름입니다.
 
-* ***backup_type***: 백업 유형입니다.
+* **backup_type**: 백업 유형입니다.
 
-* ***device_type***: 백업 기기의 유형입니다.
+* **device_type**: 백업 기기의 유형입니다.
 
-* ***software_name***: 백업을 수행한 소프트웨어의 이름입니다.
+* **software_name**: 백업을 수행한 소프트웨어의 이름입니다.
 
-* ***recovery_model***: 데이터베이스의 복구 모델입니다.
+* **recovery_model**: 데이터베이스의 복구 모델입니다.
 
-* ***compatibility_level***: 데이터베이스의 호환성 수준 설정입니다.
+* **compatibility_level**: 데이터베이스의 호환성 수준 설정입니다.
 
-* ***backup_start_date***: 백업 작업이 시작된 날짜와 시간입니다.
+* **backup_start_date**: 백업 작업이 시작된 날짜와 시간입니다.
 
-* ***backup_finish_date***: 백업 작업이 완료된 날짜와 시간입니다.
+* **backup_finish_date**: 백업 작업이 완료된 날짜와 시간입니다.
 
-* ***latest_backup_location***: 백업 디바이스의 물리적 경로입니다.
+* **latest_backup_location**: 백업 디바이스의 물리적 경로입니다.
 
-* ***backup_size_mb***: 백업 세트의 크기(Byte)입니다.
+* **backup_size_mb**: 백업 세트의 크기(Byte)입니다.
 
-* ***compressed_backup_size_mb***: 디스크에 저장된 백업의 총 크기입니다.
+* **compressed_backup_size_mb**: 디스크에 저장된 백업의 총 크기입니다.
 
-* ***database_backup_lsn***: 가장 최근 전체 데이터베이스 백업의 로그 시퀀스 번호입니다.
+* **database_backup_lsn**: 가장 최근 전체 데이터베이스 백업의 로그 시퀀스 번호입니다.
 
-* ***checkpoint_lsn***: 다시 실행이 시작되어야 하는 로그 레코드의 로그 시퀀스 번호입니다.
+* **checkpoint_lsn**: 다시 실행이 시작되어야 하는 로그 레코드의 로그 시퀀스 번호입니다.
 
-* ***begins_log_chain***: 연속되는 로그 백업 체인에서 첫 번째 체인(`1`)입니다. 로그 체인은 데이터베이스를 만든 후, 또는 단순에서 전체, 대량 로그 복구 모델로 전환될 때 수행되는 첫 번째 로그 백업으로 시작합니다.
+* **begins_log_chain**: 연속되는 로그 백업 체인에서 첫 번째 체인(`1`)입니다. 로그 체인은 데이터베이스를 만든 후, 또는 단순에서 전체, 대량 로그 복구 모델로 전환될 때 수행되는 첫 번째 로그 백업으로 시작합니다.
 
-* ***is_password_protected***
+* **is_password_protected**
 
   - `protected`: 암호로 보호된 백업 세트
 
@@ -75,21 +75,21 @@ SQL Server에서 수행된 데이터베이스 백업 및 복구 작업의 기록
 
 제공하는 컬럼 항목에 대한 자세한 내용은 다음을 참조하세요.
 
-* ***restore_database_name***: 복원 작업의 대상 데이터베이스 이름입니다.
+* **restore_database_name**: 복원 작업의 대상 데이터베이스 이름입니다.
 
-* ***backup_name***: 복구에 사용된 백업 집합의 이름입니다.
+* **backup_name**: 복구에 사용된 백업 집합의 이름입니다.
 
-* ***restore_date***: 복구 작업이 시작된 날짜와 시간입니다.
+* **restore_date**: 복구 작업이 시작된 날짜와 시간입니다.
 
-* ***restore_type***: 복구 작업의 유형입니다.
+* **restore_type**: 복구 작업의 유형입니다.
 
-* ***user_name***: 복구 작업을 수행한 사용자의 이름입니다.
+* **user_name**: 복구 작업을 수행한 사용자의 이름입니다.
 
-* ***backup_server_name***: 백업 작업을 수행한 SQL Server의 이름입니다.
+* **backup_server_name**: 백업 작업을 수행한 SQL Server의 이름입니다.
 
-* ***backup_database_name***: 복구에 사용된 백업 집합이 원래 생성된 데이터베이스의 이름입니다.
+* **backup_database_name**: 복구에 사용된 백업 집합이 원래 생성된 데이터베이스의 이름입니다.
 
-* ***destination_phys_name***: 복원된 파일의 물리적 경로입니다.
+* **destination_phys_name**: 복원된 파일의 물리적 경로입니다.
 
 {/* 필터 조건추가하기*/}
 import Dbsqlfilter from "../common-items/_db-sql-filter.mdx";

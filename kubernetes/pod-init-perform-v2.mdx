@@ -28,7 +28,7 @@ toc_max_heading_level: 2
 
 * 시간 선택자를 통해 시작 시간을 선택할 수 있습니다. 조회를 원하는 시작 시간 선택 시 ![지시선 2](/img/number-02.png) 영역의 Pod 목록에서 데이터를 확인할 수 있습니다. 
 
-* ***30일 이내 생성된 Pod만 표시*** ![아이콘](/img/ic-toggle-off.svg) 토글을 활성화해 ![지시선 2](/img/number-02.png) 영역의 Pod 목록에서 30일 이내의 Pod만을 조회할 수 있습니다.
+* **30일 이내 생성된 Pod만 표시** ![아이콘](/img/ic-toggle-off.svg) 토글을 활성화해 ![지시선 2](/img/number-02.png) 영역의 Pod 목록에서 30일 이내의 Pod만을 조회할 수 있습니다.
 
 * Pod 검색 입력창에 문자를 입력해 원하는 Pod를 검색할 수 있습니다.
 
@@ -44,7 +44,7 @@ toc_max_heading_level: 2
 
 ![지시선 2](/img/number-02.png) 영역에서 Pod 목록을 확인할 수 있습니다. Pod 목록이 펼쳐진 테이블의 헤더 컬럼은 다음의 정보를 포함하고 있습니다.
 
-* ***QoS Class***: Pod의 Quality of Service를 의미합니다. QoS 클래스는 리소스 부족 시 Pod의 우선 순위를 결정합니다. 우선 순위가 높은 Pod가 우선 순위가 낮은 Pod보다 먼저 종료됩니다.
+* **QoS Class**: Pod의 Quality of Service를 의미합니다. QoS 클래스는 리소스 부족 시 Pod의 우선 순위를 결정합니다. 우선 순위가 높은 Pod가 우선 순위가 낮은 Pod보다 먼저 종료됩니다.
 
   * Guaranteed: 노드에서 사용 가능한 리소스를 보장받고 다른 Pod보다 우선적으로 할당합니다. 가장 마지막에 종료됩니다.
 
@@ -62,13 +62,13 @@ toc_max_heading_level: 2
 
     * Pod의 모든 컨테이너가 CPU및 메모리에 대한 request와 limit이 없는 경우입니다.
 
-* ***Restart Count***: Pod 내 컨테이너의 총 재시작 횟수입니다.
+* **Restart Count**: Pod 내 컨테이너의 총 재시작 횟수입니다.
 
-* ***CPU/Memory Limits***: Pod 내 컨테이너에 설정된 CPU/Memory Limits 총합(`resources.limits`)입니다.
+* **CPU/Memory Limits**: Pod 내 컨테이너에 설정된 CPU/Memory Limits 총합(`resources.limits`)입니다.
 
-* ***CPU/Memory Requests***: Pod 내 컨테이너에 설정된 CPU/Memory Requests 총합(`resources.requests`)입니다.
+* **CPU/Memory Requests**: Pod 내 컨테이너에 설정된 CPU/Memory Requests 총합(`resources.requests`)입니다.
 
-* ***Start Time***: Pod 생성 시각(`metadata.startTime`)입니다.
+* **Start Time**: Pod 생성 시각(`metadata.startTime`)입니다.
 
 :::note
 
@@ -80,15 +80,15 @@ toc_max_heading_level: 2
 
 ## 상세 보기 안내
 
-![지시선 2](/img/number-02.png) 영역 Pod 목록에서 분석을 원하는 항목의 가장 왼쪽에 ![자세히 보기 아이콘](/img/ico-detail-view.svg) ***상세 보기*** 버튼을 선택하세요. 선택한 Pod의 컨테이너별 시작 성능을 구간별로 분석한 내용을 다음과 같이 확인할 수 있습니다.
+![지시선 2](/img/number-02.png) 영역 Pod 목록에서 분석을 원하는 항목의 가장 왼쪽에 ![자세히 보기 아이콘](/img/ico-detail-view.svg) **상세 보기** 버튼을 선택하세요. 선택한 Pod의 컨테이너별 시작 성능을 구간별로 분석한 내용을 다음과 같이 확인할 수 있습니다.
 
 <ImgLang img='k8s-pod-startup-analysis-details.png' desc='Pod 시작 분석' />
 
-* ***Pending***: Pod를 생성한 후 ***Running*** 상태로 진입하는 구간입니다.
+* **Pending**: Pod를 생성한 후 **Running** 상태로 진입하는 구간입니다.
 
-* ***Running***: Pod가 ***Pending*** 상태를 지나 안정화되기 전까지의 구간입니다.
+* **Running**: Pod가 **Pending** 상태를 지나 안정화되기 전까지의 구간입니다.
 
-* ***Stable Running***: Pod가 ***Running*** 상태를 지나 안정화된 구간입니다.
+* **Stable Running**: Pod가 **Running** 상태를 지나 안정화된 구간입니다.
 
 :::note
 
@@ -104,7 +104,7 @@ toc_max_heading_level: 2
 
   <ImgLang img='k8s-pod-startup-analysis-details-restart-count.png' desc='컨테이너 재시작 횟수' />
 
-* ***Pending*** 구간이 길어진다면 Pod가 ***Running*** 상태로 진입하기까지 오랜 시간이 걸렸다는 의미입니다. Pod의 ***Pending*** 상태를 유발할 수 있는 요인이 있는지 점검해 보세요. 
+* **Pending** 구간이 길어진다면 Pod가 **Running** 상태로 진입하기까지 오랜 시간이 걸렸다는 의미입니다. Pod의 **Pending** 상태를 유발할 수 있는 요인이 있는지 점검해 보세요. 
 
   :::note
   
@@ -112,6 +112,6 @@ toc_max_heading_level: 2
 
   :::
 
-* ***Running*** 구간이 길다면 Pod 내 컨테이너가 처음 실행될 때 리소스 사용량이 많은 구간이 있다는 의미입니다. 컨테이너 실행 과정에 문제가 없는지 살펴보세요.
+* **Running** 구간이 길다면 Pod 내 컨테이너가 처음 실행될 때 리소스 사용량이 많은 구간이 있다는 의미입니다. 컨테이너 실행 과정에 문제가 없는지 살펴보세요.
 
 * 전반적인 초기 자원 사용량이 많다면 컨테이너 리소스 요청 및 제한을 늘리는 것을 고려해 보세요.

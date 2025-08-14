@@ -14,11 +14,11 @@
 
   액티브 트랜잭션 발생 건수(`active_tx_count`)가 100개를 초과한 상태하면 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-app#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 
 
   :::note
 
@@ -76,11 +76,11 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-server#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 
 
   :::note
 
@@ -423,11 +423,11 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 
 
   :::note
 
@@ -503,11 +503,11 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 
 
   :::note
 
@@ -565,11 +565,11 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 
 
   :::note
 
@@ -627,11 +627,11 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 
 
   :::note
 
@@ -689,11 +689,11 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 
 
   :::note
 
@@ -745,11 +745,11 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 
 
   :::note
 
@@ -801,11 +801,11 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 
 
   :::note
 
@@ -857,11 +857,11 @@
 
   쿼리를 실행 중인 세션 수(`active_sessions`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 
 
   :::note
 
@@ -907,11 +907,11 @@
 
 제공하는 이벤트 템플릿은 다음과 같습니다. <Cmdname sid="ITM07578" className="uitext" /> 항목에 설정된 기본값은 사용자가 원하는 값으로 수정할 수 있습니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
 
   :::note
 
@@ -969,11 +969,11 @@
 
   현재 작업 중인 클라이언트의 연결 수(`active$connections`)가 30개를 초과하면 경고(<span class="slow">Warning</span>) 수준의 알림을, 50개를 초과하면 위험(<span class="vslow">Critical</span>) 수준의 알림을 보냅니다.
 
-* **Agent Alive Check**
+* **Agent Data Timeout**
 
   카테고리: [`agent_status_summary`](metrics-data-list#agent_status_summary)
 
-  에이전트로부터 데이터를 수집하지 못할 때(`isActive` \=\= `false`) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다.
+  에이전트로부터 30초간 데이터를 수집하지 못하면(now-`lastActTime` >= 30000) 경고(<span class="slow">Warning</span>) 수준의 알림을 보냅니다. 
 
   :::note
 

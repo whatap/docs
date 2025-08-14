@@ -30,11 +30,15 @@ import Logroleview from "../common-items/_log-role-view.mdx";
 
 ### 필터
 
-상단 옵션바의 **필터**에서 쿼리 언어 선택 및 검색 조건 입력해 필터를 걸 수 있습니다.
+상단 옵션 바의 **필터**에서 쿼리 언어를 선택하고 검색 조건을 입력하여 필터를 적용합니다. 검색 쿼리 문법은 WhaTap 로그 검색 쿼리와 Lucene 쿼리를 지원합니다.
 
-### 검색 쿼리 문법
+* ![쿼리 검색 아이콘](/img/ic-filter-whatap-query.svg) : WhaTap 로그 검색 쿼리
 
-#### ![쿼리 검색 아이콘](/img/ico-log-search-query.svg) WhaTap log search query
+* ![쿼리 검색 아이콘](/img/ic-filter-lucene.svg) : Lucene 쿼리
+
+#### 검색 쿼리 문법
+
+##### ![쿼리 검색 아이콘](/img/ico-log-search-query.svg) WhaTap log search query {#whaTap-log-search-query}
 
 WhaTap 로그 검색 쿼리는 자동 완성 기능을 제공하며, 간단한 단어 입력만으로도 문제의 로그를 신속하게 검색할 수 있습니다. and, or 등 다양한 문법을 활용해 다양한 검색 조건을 입력할 수 있습니다.
 
@@ -50,7 +54,7 @@ WhaTap 로그 검색 쿼리는 자동 완성 기능을 제공하며, 간단한 
 
     1. 값(선택한 시간, 카테고리, 필드에 맞는 목록 노출)을 선택하세요.
 
-##### 검색 인덱스 필드 타입
+###### 검색 인덱스 필드 타입
 
     지원 필드 타입은 `Number`, `String`, `Boolean` 세 가지 유형만 존재합니다.
 
@@ -66,7 +70,7 @@ WhaTap log search query 문법에 대한 자세한 내용은 [다음 문서](htt
 
 :::
 
-#### ![쿼리 검색 아이콘](/img/ico-log-search-lucene.svg) Lucene
+##### ![쿼리 검색 아이콘](/img/ico-log-search-lucene.svg) Lucene {#lucene}
 
 apache lucene 8.11.1 버전 오픈소스 문법을 그대로 사용하세요. 단, 자동 완성 기능을 제공하지 않습니다.
 

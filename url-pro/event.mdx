@@ -1,0 +1,307 @@
+---
+id: event
+title: 이벤트 설정
+description: URL 모니터링에서 메트릭스 이벤트 및 복합 이벤트 조건 설정 방법을 설명합니다.
+keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이벤트, 알림 조건]
+---
+
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="sms_event_menu" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 
+
+이벤트 설정을 통해 URL 상태 변화나 응답 이상 등 다양한 조건에 따라 경고 또는 알림을 발생시킬 수 있습니다.
+
+사용에 따라 두 가지 설정 방법 중 하나를 선택해 이벤트를 설정할 수 있습니다.
+
+- 메트릭스 이벤트
+- 복합 메트릭스 이벤트
+
+## 메트릭스 이벤트
+
+화면 오른쪽 상단 <Cmdname sid="add_notification" className="uitext" />를 선택하세요. <Cmdname sid="metrics_event" className="uitext" /> 창이 나타납니다.
+
+<ImgLang img='url-pro/set-events-metrics.png' desc='메트릭스 이벤트' />
+
+### 기본 정보 입력{#basic-info}
+
+* <Cmdname sid="event_name" className="uitext" />: 추가하려는 이벤트 이름을 입력하세요.
+
+* <Cmdname sid="enable_events" className="uitext" />: 이벤트를 활성화 여부를 선택하세요.
+
+* <Cmdname sid="template" className="uitext" />: 미리 정의된 템플릿을 선택하여 빠르고 간편하게 이벤트를 설정할 수 있습니다. 템플릿을 사용하지 않으려면 **사용 안 함**을 선택하세요.
+
+    * **제공 템플릿 목록**
+        * 상태 코드 이상
+        * 접속 지연
+        * 타이틀 변경 감지
+        * 페이지 연결 변경
+        * 페이지 접속 불가
+
+
+* <Cmdname sid="category" className="uitext" />: 메트릭 데이터를 구분하는 단위입니다. 메트릭 이벤트 설정 시 필수로 선택해야 합니다.
+
+  * <Cmdname sid="category" className="uitext" />는 최근 3시간 범위 내 프로젝트에서 수집 중인 메트릭스 데이터를 조회해 목록에 표시합니다. 
+  * <Cmdname sid="category" className="uitext" /> 선택 옵션에 수집 간격이 표시되지 않는 경우 <Cmdname sid="enter_category_self" className="uitext" /> 옵션을 선택해 **카테고리 키**를 입력할 수 있습니다.
+  * <Cmdname sid="category" className="uitext" /> 선택 옵션에는 <LinkImage img="number-01.png" className="ico" /> <Cmdname sid="name" className="uitext" />과 <LinkImage img="number-02.png" className="ico" /> 데이터 수집 간격, <LinkImage img="number-03.png" className="ico" /> <Cmdname sid="key" className="uitext" /> 정보를 표시합니다. 이벤트 설정 시 해당 카테고리의 키 값을 사용합니다.
+
+      <ImgLang img='set-event-select-category.png' desc='메트릭스 이벤트 - 카테고리' />
+
+  * **URL 카테고리 목록**
+
+    * `alert_count` 각 URL 또는 시스템 요소에 대해 발생한 알림 횟수를 집계한 데이터
+    * `alert_event` 알림이 발생한 시점의 상세 데이터
+    * `url_check` URL 체크 결과와 세부 상태를 시간 단위 데이터
+    * `url_stat_all` 전체 URL 상태 통계
+    * `url_stat_category` 카테고리별 URL 상태 통계
+    * `url_stat_issue` 이슈별 URL 상태 통계
+    * `url_status` URL 상태 기록 (알림 및 장애 판단 기준)
+
+
+* <Cmdname sid="level" className="uitext" />
+
+  * 이벤트 발생 시 경고 수준을 나타냅니다. <span class='vslow'>Critical</span>, <span class='slow'>Warning</span>, <span style={{color:'#757575'}}>Info</span> 수준으로 나뉘어집니다. <span class='vslow'>Critical</span>, <span class='slow'>Warning</span> 레벨 설정 시 '<Cmdname sid="CNT08320" className="uitext" />' 선택 옵션이 활성화됩니다.
+
+  * <Cmdname sid="CNT08320" className="uitext" /> 
+    * 이벤트 발생 조건이 해제되면 해당 이벤트의 상태가 해소된 것으로 간주합니다.
+    * 이 경우 "RECOVERED@" 이벤트를 추가로 발생시켜 상태 해소를 알립니다.
+  
+* <Cmdname sid="message" className="uitext" />
+
+  * 이벤트 발생 시 알림 메시지로 표현됩니다. <code>&#36;&#123;Tag&#125;</code> 또는 <code>&#36;&#123;Field&#125;</code> 입력으로 메시지에 변수를 적용할 수 있습니다. 변수에 입력할 키는 선택한 메트릭스 데이터 <Cmdname sid="category" className="uitext" />에 포함된 값이여야 합니다.
+  * 우측 ![시간 아이콘](/img/ico-timing.svg) 버튼을 클릭하면 이전에 입력한 메시지 기록을 확인할 수 있습니다.
+  * 수신 테스트는 이벤트 명, 카테고리, 레벨, 메시지 정보를 기준으로 알림을 발생시켜 메시지를 점검하는 기능입니다.
+
+* <Cmdname sid="alert_test" className="uitext" />
+
+  필수 항목인 <Cmdname sid="event_name" className="uitext" />, <Cmdname sid="category" className="uitext" />, <Cmdname sid="level" className="uitext" />, <Cmdname sid="message" className="uitext" /> 정보를 기준으로 알림을 발생시켜 메시지를 점검하는 기능입니다.
+
+---
+
+### 발생 조건 & 대상 설정 {#event-trigger-filtering}
+
+이벤트 발생 조건과 대상 필터링은 **‘선택 입력’** 또는 **‘직접 입력’** 모드 중 하나를 라디오 버튼으로 선택할 수 있습니다.  
+설정 내용을 저장하면 해당 값은 **‘직접 입력’** 모드로 관리됩니다.  
+저장 후 **‘선택 입력’** 모드로 다시 전환하면 기존 설정 값이 초기화될 수 있으므로 주의하세요.
+
+
+* <Cmdname sid="metrics_event_rules" className="uitext" /> <ScrollToLink anchor='eventcondition' />
+
+  <ImgLang img='set-event-condition.png' desc='이벤트 발생 조건' />
+
+  ![지시선 4](/img/number-04.png) 필드, ![지시선 5](/img/number-05.png) 연산자 선택, ![지시선 6](/img/number-06.png) 임계값을 입력해 이벤트 발생 조건을 설정합니다.
+
+* <Cmdname sid="alert_object_filtering" className="uitext" />
+
+  <ImgLang img='set-event-filtering.png' desc='이벤트 대상 필터링' />
+
+  ![지시선 7](/img/number-07.png) 태그, ![지시선 8](/img/number-08.png) 연산자 선택, ![지시선 9](/img/number-09.png) 필터링값을 입력해 대상을 필터링합니다. 입력값이 없을 경우 전체 에이전트를 대상으로 경고 알림을 보냅니다.
+
+---
+
+### 이벤트 수신 설정 {#set-receive-event}
+
+* <Cmdname sid="number_of_event" className="uitext" />: 선택한 시간 동안 <Cmdname sid="metrics_event_rules" className="uitext" />에서 설정한 이벤트가 입력 횟수만큼 발생하면 경고 알림을 보냅니다.
+
+  :::note
+
+  * 선택 시간을 <Cmdname sid="metrics_option_disabled" className="uitext" />으로 설정하면 입력한 횟수만큼 연속 발생할 때 알림을 보냅니다.
+  * <Cmdname sid="CNT08320" className="uitext" /> 옵션을 활성화한 경우 선택 시간은 <Cmdname sid="metrics_option_disabled" className="uitext" />으로 선택할 것을 권장합니다.
+  * <Cmdname sid="category" className="uitext" /> 옵션에서 선택한 항목의 수집 주기는 5초입니다.
+  
+  :::
+
+* <Cmdname sid="event_pause" className="uitext" />: 과도한 경고 알림 발생을 방지할 수 있는 옵션입니다. 첫번째 경고 알림 이후 선택한 시간 동안 경고 알림을 보내지 않습니다. 또한 <Cmdname sid="event_history" className="uitext" /> 메뉴에 기록되지 않습니다.
+
+* <Cmdname sid="TTL09553" className="uitext" />: 이벤트 동작 시간 태그를 설정하면 해당 태그를 가진 알림은 해당 시간대에만 이벤트가 동작합니다.  
+
+* <Cmdname sid="event_tag" className="uitext" />: 이벤트 설정 시, 수신 태그를 선택하면 해당 태그가 지정된 프로젝트 멤버와 3rd-party 플러그인에 알림이 전송됩니다.
+
+  * 알림을 받을 멤버별로 수신 태그를 지정할 수 있으며, 이 설정은 이벤트 수신 설정 메뉴에서 관리합니다.
+
+### 알림 규칙 테스트
+
+<ImgLang img='set-event-test.png' desc='경고 알림 테스트' />
+
+선택한 시간 동안 설정한 이벤트 조건을 실행해 몇 번의 경고 알림이 발생했는지 확인할 수 있습니다. <Cmdname sid="run" className="uitext" /> 버튼을 선택하면 오른쪽 상단에 알림 발생 건수 정보가 표시됩니다.<Cmdname sid="metrics_event_rules" className="uitext" />에서 선택한 필드와 임계치를 차트상에 표시합니다.
+
+* <Cmdname sid="event_simulation_title" className="uitext" /> 기능은 최대 24시간 동안의 데이터를 기준으로 테스트할 수 있습니다.
+
+
+## 복합 메트릭스 이벤트 {#composite-metrics-event}
+
+<Cmdname sid="composite_metrics" className="uitext" /> 이벤트는 메트릭스 데이터에 여러 규칙을 적용해 이벤트를 생성하고 경고 알림을 보낼 수 있습니다. 복합 메트릭스 이벤트를 설정하려면 **이벤트 설정** 권한이 있어야 합니다.
+
+1. <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="composite_metrics" className="uitext" /> 섹션에서 오른쪽에 <Cmdname sid="add_notification" className="uitext" />를 선택하세요. 
+
+1. <Cmdname sid="composite_metrics" className="uitext" /> 창이 나타나면 **+**<Cmdname sid="create_new_composite_mxql_event" className="uitext" />를 선택하세요.
+
+이벤트 설정 창이 표시됩니다.  
+이벤트 설정 페이지는 왼쪽 알림 설정 영역과 오른쪽 이벤트 데이터 조회 영역으로 구성됩니다.
+
+알림을 설정할 이벤트를 확인하기 위해 먼저 오른쪽 이벤트 데이터 조회 영역을 확인합니다.
+
+<ImgLang img='set-event-cmetric.png' desc='복합 메트릭스 이벤트 설정' />
+
+### 이벤트 데이터 조회
+
+이벤트 데이터 조회 기능은 이벤트 발생 조건을 정의하기 전, 현재 이벤트 데이터 추이를 확인하기 위한 기능입니다.
+
+이를 통해 어떤 이벤트에 대해 어느 정도의 수치로 알림을 생성할지 판단할 수 있습니다.
+
+<Cmdname sid="composite_metrics" className="uitext" /> 이벤트는 WhaTap 메트릭 데이터 질의 언어(MXQL)을 기반으로 조건을 생성합니다. 조건 입력 방식은 두 가지가 있습니다.
+
+  * <Cmdname sid="widget" className="uitext" />: 이벤트 발생 조건을 시각적으로 선택할 수 있는 항목을 제공합니다.
+  
+  * <Cmdname sid="text" className="uitext" />: <b>MXQL</b> 쿼리를 직접 작성하거나 편집할 수 있습니다.
+
+<Tabs>
+<TabItem value='widget' label='위젯'>
+
+시계열 차트를 구성하는 옵션을 통해 이벤트 설정 시 사용할 **MXQL**을 자동완성할 수 있습니다.
+
+이벤트 데이터 조회 옵션을 통해 
+
+<ImgLang img='set-event-data-view.png' desc='이벤트 데이터 조회' />
+
+* <Cmdname sid="filter" className="uitext" />: 이벤트 조건 대상을 선택합니다. <LinkImage img="number-01.png" className="ico" /> 연산식, <LinkImage img="number-02.png" className="ico" /> 태그, <LinkImage img="number-03.png" className="ico" /> 필터링값을 입력해 필터링 조건을 생성합니다.
+
+  <ImgLang img='set-event-cmetric-filter.png' desc='필터' />
+
+* <Cmdname sid="groupby" className="uitext" />: 그룹화된 메트릭스 데이터를 선택합니다. 다중 선택할 수 있습니다.
+
+* <Cmdname sid="timeunit" className="uitext" />: 그룹화된 데이터를 나눌 시간 기준을 설정합니다. <Cmdname sid="second" className="uitext" />, <Cmdname sid="minute" className="uitext" />, <Cmdname sid="hour" className="uitext" /> 단위로 선택하고 설정할 수 있습니다.
+
+* <Cmdname sid="field" className="uitext" />: 이벤트 발행 조건에 사용할 필드를 선택합니다. 다중 선택할 수 있습니다.
+
+</TabItem>
+<TabItem value='text' label='텍스트'>
+
+**MXQL**을 평문 그대로 수정할 수 있는 편집창이 나타납니다.
+
+<ImgLang img='set-event-metrics-text.png' desc='메트릭스 이벤트 - 텍스트' />
+
+</TabItem>
+</Tabs>
+
+
+### 알림
+
+경고 알림 설정의 기본 정보를 입력합니다.
+
+* <Cmdname sid="enable_events" className="uitext" />: 토글 버튼을 클릭해 이벤트를 활성활 여부를 선택할 수 있습니다.
+
+* <Cmdname sid="level" className="uitext" />: <span class='vslow'>위험(Critical)</span>, <span class='slow'>경고(Warning)</span>, <span style={{color: '#757575'}}>정보</span> 수준 중 하나의 레벨을 선택하세요.
+  
+  <Cmdname sid="CNT08320" className="uitext" />: 이벤트 항목 중 발생한 <Cmdname sid="CNT08320" className="uitext" /> 송신 여부를 선택할 수 있습니다. 토글 버튼을 선택해 기능을 켜거나 끌 수 있습니다.
+
+* <Cmdname sid="title" className="uitext" />: 경고 알림의 제목을 입력하세요.
+
+* <Cmdname sid="message" className="uitext" />: 이벤트 발생 시 출력하는 알림 메시지를 입력합니다. <code>&#36;&#123;Tag&#125;</code> 또는 <code>&#36;&#123;Field&#125;</code> 입력으로 메시지에 변수를 적용할 수 있습니다. 변수에 입력할 키는 선택한 메트릭스 데이터 <Cmdname sid="category" className="uitext" />에 포함된 값이여야 합니다. <Cmdname sid="tag_count" className="uitext" /> 메뉴에서 입력할 수 있는 태그 또는 필드키를 확인할 수 있습니다.
+
+  <ImgLang img='event-config-message-example.png' desc='Message example' />
+
+### 알림 정책
+
+경고 알림을 보낼 조건을 입력합니다.
+
+* <Cmdname sid="data_time_range" className="uitext" />: 이벤트 조건에 사용할 <b>MXQL</b>의 실시간 데이터 조회 범위를 설정합니다. 이벤트 데이터 조회에 포함된 필드만 사용할 수 있습니다.
+
+  복합 메트릭스 이벤트는 DB에 저장된 메트릭스를 조회해서 활용합니다. 따라서 데이터를 조회할 시간 범위를 먼저 지정해야 합니다. 데이터 조회 시간을 5분으로 선택하면 최근 5분동안 수집된 데이터를 조회해서 이벤트 발생 조건을 확인합니다. 최근 데이터에 대해서 이벤트를 설정할 때에는 짧게, 넓은 시간에 대해서 통계적으로 접근하고 싶을 때에는 길게 설정할 수 있습니다. 
+
+  <Xclude product="altibase,amazon-cloudwatch,amazon-ecs,azure,cubrid,mongodb,mssql,mssql-v1,mysql,ncloud,oracle-cloud,oracle,redis,server,tibero,browser">
+
+  :::note
+
+  실제 사용 예시는 [다음 문서](#template)를 참조하세요.
+
+  :::
+
+  </Xclude>
+
+* <Cmdname sid="condition" className="uitext" />: MXQL에 반영한 필드와 연산 규칙, 임계치를 입력합니다.
+
+### 부가 정보
+
+경고 알림 수신과 관련한 부가적인 옵션을 설정합니다.
+
+* <Cmdname sid="interval" className="uitext" />: 선택한 시간 간격으로 알림 조건을 확인합니다.
+
+* <Cmdname sid="silent" className="uitext" />: 과도한 경고 알림 발생을 방지할 수 있는 옵션입니다. 첫번째 경고 알림 이후 선택한 시간 동안 경고 알림을 보내지 않습니다. 또한 <Cmdname sid="event_history" className="uitext" /> 메뉴에 기록되지 않습니다.
+
+* <Cmdname sid="event_tag" className="uitext" />: 이벤트 수신 태그를 선택하면 해당 태그를 가진 프로젝트 멤버와 3rd-party 플러그인에 알림을 전송할 수 있습니다. 이벤트 수신 태그를 선택하지 않으면 프로젝트 전체 멤버에게 경고 알림을 보냅니다.
+
+  :::note
+
+  <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_receive_configuration" className="uitext" /> 메뉴에서 프로젝트 멤버와 3rd-party 플러그인에 태그를 설정할 수 있습니다.
+  
+  :::
+
+
+### 이벤트 규칙 테스트
+
+<ImgLang img='set-event-cmetric-test.png' desc='이벤트 규칙 테스트' />
+
+선택한 시간 동안 설정한 이벤트 조건을 실행해 몇 번의 경고 알림이 발생했는지 확인할 수 있습니다. 실행 버튼을 선택하면 알림 발생 건수 정보를 알 수 있으며, 이벤트 발생 조건에서 선택한 필드와 임계치를 차트상에 표시합니다.
+
+이벤트 설정에 포함된 대부분의 내용들이 **MXQL**을 사용해서 지정됩니다. **MXQL**이 적절하게 작성되었는지 시뮬레이션할 수 있는 기능을 제공합니다. 시뮬레이션 기능은 과거의 24시간 데이터를 조회해서 이벤트 판정을 한 다음 몇 건의 메트릭스가 조회되었고 그 중 몇 건에서 이벤트 판정이 성공했는지 알려줍니다.
+
+## 템플릿 {#template}
+
+이벤트 설정을 미리 작성해둔 템플릿을 제공합니다.
+
+- 상태 코드 이상
+- 접속 지연
+- 타이틀 변경 감지
+- 페이지 연결 변경
+- 페이지 접속 불가
+
+### 메트릭스 이벤트
+
+<Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="metrics" className="uitext" /> 섹션에서 <Cmdname sid="add_notification" className="uitext" /> 버튼을 선택하세요. <Cmdname sid="template" className="uitext" />에서 원하는 항목을 선택하세요.
+
+* <Cmdname sid="application_alert_template_1" className="uitext" />
+
+  힙 메모리(Heap Memory)의 Old Generation 영역에서 GC가 발생하면 경고 알림을 보냅니다.
+
+* <Cmdname sid="application_alert_template_2" className="uitext" />
+
+  수행 중인 쿼리가 5초 이상으로 너무 느린 쿼리가 발생할 경우 경고 알림을 보냅니다.
+
+* <Cmdname sid="application_alert_template_3" className="uitext" />
+
+  8초 초과 구간의 액티브 트랜잭션 수가 100개를 초과하면 경고 알림을 보냅니다.
+
+* <Cmdname sid="normal_alert_template_1" className="uitext" />
+
+  **APDEX** 수치가 0.7보다 작을 경우 경고 알림을 보냅니다.
+
+### 복합 메트릭스 이벤트{#composite-metrics-template}
+
+* ***Inactive agents has been found.***
+
+  조건: `num_of_current_agents` \< 6
+  
+  프로젝트에 포함된 모든 에이전트 중 정상 상태의 에이전트 수가 6개 미만으로 떨어지는 이벤트가 발생하면 경고 알림을 보냅니다.
+
+* ***Very slow active transactions detected.***
+
+  조건: `very_slow_tx_cnt_m5_avg` \> 10
+
+  프로젝트에 포함된 특정 `okind`에 속한 에이전트에서 8초 이상 소요되는 트랜잭션의 수의 합이 10개 초과 발생하면 경고 알림을 보냅니다.
+
+* ***TPS has changed by more than 30% compared to the previous week.***
+
+  조건: `one_week_diff_abs` \> `current_tps` * 0.3
+
+  프로젝트에 포함된 특정 `okind`에 속한 에이전트들의 TPS합이 7일 전과 비교했을 때 30% 초과 달라지면 경고 알림을 보냅니다.
+
+:::tip
+
+여러 에이전트에서 수신된 데이터에 대해서 종합적 이벤트 판정해야할 때 다음의 복합 메트릭스 템플릿을 설정하세요.
+
+* ***Inactive agents has been found.***
+* ***Very slow active transactions detected.***
+
+과거 데이터와 현재 데이터를 비교해서 이벤트를 판정해야할 때 다음의 복합 메트릭스 템플릿을 설정하세요.
+
+* ***TPS has changed by more than 30% compared to the previous week.***
+
+:::

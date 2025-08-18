@@ -5,7 +5,7 @@ description: URL 모니터링에서 메트릭스 이벤트 및 복합 이벤트 
 keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이벤트, 알림 조건]
 ---
 
-홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="event_setting" className="uitext" /> 
+홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="sms_event_menu" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 
 
 이벤트 설정을 통해 URL 상태 변화나 응답 이상 등 다양한 조건에 따라 경고 또는 알림을 발생시킬 수 있습니다.
 
@@ -16,9 +16,9 @@ keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이�
 
 ## 메트릭스 이벤트
 
-화면 오른쪽 위에 <Cmdname sid="add_notification" className="uitext" />를 선택하세요. <Cmdname sid="metrics_event" className="uitext" /> 창이 나타납니다.
+화면 오른쪽 상단 <Cmdname sid="add_notification" className="uitext" />를 선택하세요. <Cmdname sid="metrics_event" className="uitext" /> 창이 나타납니다.
 
-<ImgLang img='set-events-metrics.png' desc='메트릭스 이벤트' />
+<ImgLang img='url-pro/set-events-metrics.png' desc='메트릭스 이벤트' />
 
 ### 기본 정보 입력{#basic-info}
 
@@ -36,35 +36,53 @@ keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이�
         * 페이지 접속 불가
 
 
-* <Cmdname sid="category" className="uitext" />: 메트릭스 데이터를 구분하는 단위입니다. 메트릭스 이벤트 설정 시 필수 선택 값입니다.
-  
-  <ImgLang img='set-event-select-category.png' desc='메트릭스 이벤트 - 카테고리' />
+* <Cmdname sid="category" className="uitext" />: 메트릭 데이터를 구분하는 단위입니다. 메트릭 이벤트 설정 시 필수로 선택해야 합니다.
 
+  * <Cmdname sid="category" className="uitext" />는 최근 3시간 범위 내 프로젝트에서 수집 중인 메트릭스 데이터를 조회해 목록에 표시합니다. 
+  * <Cmdname sid="category" className="uitext" /> 선택 옵션에 수집 간격이 표시되지 않는 경우 <Cmdname sid="enter_category_self" className="uitext" /> 옵션을 선택해 **카테고리 키**를 입력할 수 있습니다.
   * <Cmdname sid="category" className="uitext" /> 선택 옵션에는 <LinkImage img="number-01.png" className="ico" /> <Cmdname sid="name" className="uitext" />과 <LinkImage img="number-02.png" className="ico" /> 데이터 수집 간격, <LinkImage img="number-03.png" className="ico" /> <Cmdname sid="key" className="uitext" /> 정보를 표시합니다. 이벤트 설정 시 해당 카테고리의 키 값을 사용합니다.
 
-  * <Cmdname sid="category" className="uitext" />는 최근 3시간 범위 내 프로젝트에서 수집 중인 메트릭스 데이터를 조회해 목록에 표시합니다. <Cmdname sid="category" className="uitext" /> 선택 옵션에 수집 간격이 표시되지 않는 경우 <Cmdname sid="enter_category_self" className="uitext" /> 옵션을 선택해 카테고리 키를 입력할 수 있습니다.
+      <ImgLang img='set-event-select-category.png' desc='메트릭스 이벤트 - 카테고리' />
+
+  * **URL 카테고리 목록**
+
+    * `alert_count` 각 URL 또는 시스템 요소에 대해 발생한 알림 횟수를 집계한 데이터
+    * `alert_event` 알림이 발생한 시점의 상세 데이터
+    * `url_check` URL 체크 결과와 세부 상태를 시간 단위 데이터
+    * `url_stat_all` 전체 URL 상태 통계
+    * `url_stat_category` 카테고리별 URL 상태 통계
+    * `url_stat_issue` 이슈별 URL 상태 통계
+    * `url_status` URL 상태 기록 (알림 및 장애 판단 기준)
+
 
 * <Cmdname sid="level" className="uitext" />
 
-  * 이벤트 발생 시 경고 수준을 나타냅니다. <span class='vslow'>Critical</span>, <span class='slow'>Warning</span>, <span style={{color:'#757575'}}>Info</span> 수준으로 나눕니다. <span class='vslow'>Critical</span>, <span class='slow'>Warning</span> 레벨 설정 시 <Cmdname sid="CNT08320" className="uitext" /> 선택 옵션이 활성화됩니다.
+  * 이벤트 발생 시 경고 수준을 나타냅니다. <span class='vslow'>Critical</span>, <span class='slow'>Warning</span>, <span style={{color:'#757575'}}>Info</span> 수준으로 나뉘어집니다. <span class='vslow'>Critical</span>, <span class='slow'>Warning</span> 레벨 설정 시 '<Cmdname sid="CNT08320" className="uitext" />' 선택 옵션이 활성화됩니다.
 
-  * <Cmdname sid="CNT08320" className="uitext" />: 이벤트 항목 중 발생한 <Cmdname sid="CNT08320" className="uitext" /> 송신 여부를 선택할 수 있습니다. 토글 버튼을 선택해 기능을 켜거나 끌 수 있습니다.
-
+  * <Cmdname sid="CNT08320" className="uitext" /> 
+    * 이벤트 발생 조건이 해제되면 해당 이벤트의 상태가 해소된 것으로 간주합니다.
+    * 이 경우 "RECOVERED@" 이벤트를 추가로 발생시켜 상태 해소를 알립니다.
+  
 * <Cmdname sid="message" className="uitext" />
 
-  * 이벤트 발생 시 출력하는 알림 메시지를 입력합니다. <code>&#36;&#123;Tag&#125;</code> 또는 <code>&#36;&#123;Field&#125;</code> 입력으로 메시지에 변수를 적용할 수 있습니다. 변수에 입력할 키는 선택한 메트릭스 데이터 <Cmdname sid="category" className="uitext" />에 포함된 값이여야 합니다. 
-  
-  * ![시간 아이콘](/img/ico-timing.svg) 버튼을 클릭하면 이전에 입력한 메시지 기록을 확인할 수 있습니다.
+  * 이벤트 발생 시 알림 메시지로 표현됩니다. <code>&#36;&#123;Tag&#125;</code> 또는 <code>&#36;&#123;Field&#125;</code> 입력으로 메시지에 변수를 적용할 수 있습니다. 변수에 입력할 키는 선택한 메트릭스 데이터 <Cmdname sid="category" className="uitext" />에 포함된 값이여야 합니다.
+  * 우측 ![시간 아이콘](/img/ico-timing.svg) 버튼을 클릭하면 이전에 입력한 메시지 기록을 확인할 수 있습니다.
+  * 수신 테스트는 이벤트 명, 카테고리, 레벨, 메시지 정보를 기준으로 알림을 발생시켜 메시지를 점검하는 기능입니다.
 
 * <Cmdname sid="alert_test" className="uitext" />
 
   필수 항목인 <Cmdname sid="event_name" className="uitext" />, <Cmdname sid="category" className="uitext" />, <Cmdname sid="level" className="uitext" />, <Cmdname sid="message" className="uitext" /> 정보를 기준으로 알림을 발생시켜 메시지를 점검하는 기능입니다.
 
+---
+
+### 발생 조건 & 대상 설정 {#event-trigger-filtering}
+
+
 * <Cmdname sid="metrics_event_rules" className="uitext" /> <ScrollToLink anchor='eventcondition' />
 
   <ImgLang img='set-event-condition.png' desc='이벤트 발생 조건' />
 
-  ![지시선 4](/img/number-04.png) 필드, ![지시선 5](/img/number-05.png) 연산자 선택, ![지시선 6](/img/number-06.png) 임계값을 입력해 이벤트 발생 조건을 설정하세요.
+  ![지시선 4](/img/number-04.png) 필드, ![지시선 5](/img/number-05.png) 연산자 선택, ![지시선 6](/img/number-06.png) 임계값을 입력해 이벤트 발생 조건을 설정합니다.
 
 * <Cmdname sid="alert_object_filtering" className="uitext" />
 
@@ -72,9 +90,9 @@ keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이�
 
   ![지시선 7](/img/number-07.png) 태그, ![지시선 8](/img/number-08.png) 연산자 선택, ![지시선 9](/img/number-09.png) 필터링값을 입력해 대상을 필터링합니다. 입력값이 없을 경우 전체 에이전트를 대상으로 경고 알림을 보냅니다.
 
-### 이벤트 수신 설정 {#set-receive-event}
+---
 
-<ImgLang img='set-event-receive.png' desc='이벤트 수신 설정' />
+### 이벤트 수신 설정 {#set-receive-event}
 
 * <Cmdname sid="number_of_event" className="uitext" />: 선택한 시간 동안 <Cmdname sid="metrics_event_rules" className="uitext" />에서 설정한 이벤트가 입력 횟수만큼 발생하면 경고 알림을 보냅니다.
 
@@ -88,7 +106,7 @@ keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이�
 
 * <Cmdname sid="event_pause" className="uitext" /><ScrollToLink anchor='scrollTo-event-pause' />: 과도한 경고 알림 발생을 방지할 수 있는 옵션입니다. 첫번째 경고 알림 이후 선택한 시간 동안 경고 알림을 보내지 않습니다. 또한 <Cmdname sid="event_history" className="uitext" /> 메뉴에 기록되지 않습니다.
 
-* <Cmdname sid="related_category" className="uitext" />: 관련 카테고리를 5개까지 설정하고 알림 조회 시 참조합니다.
+* <Cmdname sid="TTL09553" className="uitext" />: 이벤트 동작 시간 태그를 설정하면 해당 태그를 가진 알림은 해당 시간대에만 이벤트가 동작합니다.  
 
 * <Cmdname sid="event_tag" className="uitext" />: 이벤트 수신 태그를 선택하면 해당 태그를 가진 프로젝트 멤버와 3rd-party 플러그인에 알림을 전송할 수 있습니다. 이벤트 수신 태그를 선택하지 않으면 프로젝트 전체 멤버에게 경고 알림을 보냅니다.
 

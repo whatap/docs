@@ -765,40 +765,114 @@
     ]
   },
   {
-    "url": "https://docs.whatap.io/release-notes/java/java-2_1_0",
-    "ver": "v2.1.0",
-    "date": "2021-12-15",
+    "url": "https://docs.whatap.io/release-notes/java/java-2_0_0",
+    "ver": "v2.0.55",
+    "date": "2021-08-20",
     "Lists": [
       {
-        "ver": "v2.1.0",
-        "hash": "v210",
+        "ver": "v2.0.55",
+        "hash": "v2055",
         "product": "Java Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> 에이전트 버전체계  2.1.x로 변경</p>"
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 아웃바운드 호출의 실시간 정보를 구간별 수집 설정 추가</p>",
+        "details": "<p>진행중인 트랜잭션의 아웃바운드 호출(sql, http call)의 실시간 정보를 구간별로 수집하기 위한 기능을 추가하였습니다. 에이전트 설정에 <code>actx_slice_meter_enabled</code>를 추가하여 기능을 사용할 수 있습니다.</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#f8f8f2;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">actx_slice_meter_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span></code></pre></div></div>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_0_0",
+    "ver": "v2.0.53",
+    "date": "2021-08-20",
+    "Lists": [
+      {
+        "ver": "v2.0.53",
+        "hash": "v2053",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 에이전트 설정 오타 수정</p>",
+        "details": "<p>기존 <code>hook_serivce_ignore_methods</code> 에이전트 설정 오타를 <code>hook_service_ignore_methods</code>로 수정하였습니다.</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#f8f8f2;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># before</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">hook_serivce_ignore_methods</span></span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># after</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">hook_service_ignore_methods</span></span></code></pre></div></div>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_0_0",
+    "ver": "v2.0.52",
+    "date": "2021-08-02",
+    "Lists": [
+      {
+        "ver": "v2.0.52",
+        "hash": "v2052",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> URL 정규화 기능 추가</p>",
+        "details": "<p>URL정규화를 위해 스켄된 파일 목록을 저장하고 애플리케이션 재시작 때 다시 사용하도록 기능을 추가하였습니다.</p><div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#f8f8f2;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">keep_normalize_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">keep_normalize_filename</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">$oname</span></span></code></pre></div></div><li><p><code>[oname].urls</code>라는 이름으로 url패턴 텍스트를 저장합니다.</p></li>"
       },
       {
-        "ver": "v2.1.0",
-        "hash": "v210",
+        "ver": "v2.0.52",
+        "hash": "v2052",
         "product": "Java Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> 자바 에이전트 배포 패키지 구성 변경</p>",
-        "details": "<p>whatap.agent-2.1.0 부터 와탭랩스 자바 에이전트 패키지 구성을 변경 하였습니다.</p><ul><li><em>whatap.agent-2.1.0.jar</em> : 에이전트 코어 jar</li><li><em>whatap.agent.proxy-2.1.0.jar</em> : 와탭 서버와 직접연결이 어려워 우회 연결 지원</li><li><em>whatap-logsink-lz4-1.7.0.jar</em> : 로그 모니터링(LogSink)에서 데이터를 압축 하기 위한 플러그 모듈 (기본은 JDK에서 기본으로 제공하는 GZIP 사용)</li></ul>"
-      },
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> URL 정규화 기능 오류 수정</p>",
+        "details": "<p>클래스의 private 함수에 URL 매핑을 설정한 경우에도 URL 정규화가 가능하도록 오류를 수정하였습니다.</p><div class=\"language-java codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#f8f8f2;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">추가된 URL 정규화 유형</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-java codeBlock_bY9V thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#f8f8f2\">@RequestMapping(value = \"/api/calls\")</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">@RestController</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">public class ItemController {</span><br /><br /><span class=\"token-line\" style=\"color:#f8f8f2\">    @GetMapping(value = \"/items\")</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">    private String getItems() {</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">        return \"item\";</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">    }</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">}</span></code></pre></div></div>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_0_0",
+    "ver": "v2.0.50",
+    "date": "2021-07-13",
+    "Lists": [
       {
-        "ver": "v2.1.0",
-        "hash": "v210",
+        "ver": "v2.0.50",
+        "hash": "v2050",
         "product": "Java Agent",
-        "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> JAVA 지원 범위 확대</p>",
-        "details": "<p>Asm 라이브러리 v9.2를 활용하여 지원 범위를 기존 java14에서 java17로 확대하였습니다.</p>"
-      },
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> URL 정규화 기능 오류 수정</p>",
+        "details": "<p>클래스 상속관계를 활용하여 URL 매핑을 설정한 경우에도 URL 정규화가 가능하도록 오류 수정</p><div class=\"language-java codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#f8f8f2;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">추가된 URL 정규화 유형</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-java codeBlock_bY9V thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#f8f8f2\">@RequestMapping(value = \"/api/calls\")</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">@RestController</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">public class ParentController {</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">}</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">...</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">@RestController</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">public class ChildController extends ParentController {</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">    @GetMapping(value = \"/child-first/{id}\")</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">    public ResponseEntity&lt;?&gt; findItemById(@PathVariable(value = \"id\") long id) {</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">        return ResponseEntity.ok().body(\"result\");</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">    }</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">}</span></code></pre></div></div>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_0_0",
+    "ver": "v2.0.39",
+    "date": "2021-06-24",
+    "Lists": [
       {
-        "ver": "v2.1.0",
-        "hash": "v210",
+        "ver": "v2.0.39",
+        "hash": "v2039",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code>  sigar 모듈 디스크 사용량 보정 0.78 =&gt; 78.0</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_0_0",
+    "ver": "v2.0.38",
+    "date": "2021-06-14",
+    "Lists": [
+      {
+        "ver": "v2.0.38",
+        "hash": "v2038",
         "product": "Java Agent",
         "type": "Changed",
-        "desc": "<p><code class=\"Changed\">Changed</code> 멀티 서버 연결추적 기본정책 변경(에이전트간 호출 성능 추적 기본값을 on으로 변경)</p>",
-        "details": "<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#f8f8f2;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">tx_caller_meter_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">sql_dbc_meter_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">httpc_host_meter_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">actx_meter_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">actx_slice_meter_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span><br /><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">tx_caller_meter_pkind_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">actx_meter_pkind_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span></code></pre></div></div>"
+        "desc": "<p><code class=\"Changed\">Changed</code> TX 서비스 별 apdex, 응답시간 표준편차 수집 및 LogSink 데이터 수집</p>",
+        "details": "<p>서비스 URL별 apdex와 표준편차 지표를 수집하도록 변경되었습니다. 단, 화면에서 데이터 조회는 프런트의 추가개발이 완료된 후 가능합니다.</p><p> 또한 로그데이터를 수집하는 LogSink 기능이 추가되었습니다.</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_0_0",
+    "ver": "v2.0.36",
+    "date": "2021-06-10",
+    "Lists": [
+      {
+        "ver": "v2.0.36",
+        "hash": "v2036",
+        "product": "Java Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> custid 매핑 규칙</p>",
+        "details": "<p>custid는 개발자나 다른 프로그램에 의해 생성된 추적키를 의미합니다. 기본적으로 custid는 String type이며, 자동으로 와탭의 mtid로 변환됩니다. 변환 규칙은 다음과 같습니다.</p><div class=\"language-java codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#f8f8f2;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-java codeBlock_bY9V thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#f8f8f2\">if (custid가 숫자)</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">    mtid = parseLong(custid)</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">else</span><br /><span class=\"token-line\" style=\"color:#f8f8f2\">    mtid = hash64(custid)</span></code></pre></div></div>"
       }
     ]
   }

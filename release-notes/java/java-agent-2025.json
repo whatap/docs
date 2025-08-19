@@ -445,7 +445,7 @@
         "product": "Java Agent",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Tomcat 10 기반 spring-boot-3.0 이상 버전에서 <strong>spring-security</strong> 호출 시 발생하는 에러 수정</p>",
-        "details": "<p>에이전트에서 수집하는 상태 코드(status code)가 실제 상태 코드와 일치하도록 수정했습니다.</p>"
+        "details": "<li><p>에이전트에서 수집하는 상태 코드(status code)가 실제 상태 코드와 일치하도록 수정했습니다.</p></li>"
       },
       {
         "ver": "v2.2.48",

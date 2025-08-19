@@ -2,10 +2,8 @@
 id: event
 title: 이벤트 설정
 description: URL 모니터링에서 메트릭스 이벤트 및 복합 이벤트 조건 설정 방법을 설명합니다.
-keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이벤트, 알림 조건]
+keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이벤트, 알림 조건, 이벤트 동작 시간]
 ---
-
-홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="sms_event_menu" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 
 
 이벤트 설정을 통해 URL 상태 변화나 응답 이상 등 다양한 조건에 따라 경고 또는 알림을 발생시킬 수 있습니다.
 
@@ -16,19 +14,21 @@ keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이�
 
 ## 메트릭스 이벤트
 
-화면 오른쪽 상단 <Cmdname sid="add_notification" className="uitext" />를 선택하세요. <Cmdname sid="metrics_event" className="uitext" /> 창이 나타납니다.
+1. <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> &gt; <Cmdname sid="metrics" className="uitext" /> 섹션 오른쪽에 <Cmdname sid="add_notification" className="uitext" /> 버튼을 클릭하세요. 
+
+1. <Cmdname sid="metrics_event" className="uitext" /> 화면에서 정보를 입력해 알림을 설정합니다.
 
 <ImgLang img='url-pro/set-events-metrics.png' desc='메트릭스 이벤트' />
 
 ### 기본 정보 입력{#basic-info}
 
-* <Cmdname sid="event_name" className="uitext" />: 추가하려는 이벤트 이름을 입력하세요.
+* <Cmdname sid="event_name" className="uitext" />(필수): 추가하려는 이벤트 이름을 입력하세요.
 
 * <Cmdname sid="enable_events" className="uitext" />: 이벤트를 활성화 여부를 선택하세요.
 
-* <Cmdname sid="template" className="uitext" />: 미리 정의된 템플릿을 선택하여 빠르고 간편하게 이벤트를 설정할 수 있습니다. 템플릿을 사용하지 않으려면 **사용 안 함**을 선택하세요.
+* <Cmdname sid="template" className="uitext" />: 제공하는 템플릿을 선택하면 카테고리, 레벨, 메시지가 미리 정의된 내용으로 간편하게 설정됩니다. 직접 설정하고 싶다면  **사용 안 함**을 선택하세요.
 
-    * **제공 템플릿 목록**
+    * **URL PRO 제공 템플릿 목록**
       * <Cmdname sid="TTL09339" className="uitext" />: URL 상태 코드가 200 이상인 경우 경고 알림을 보냅니다.
       * <Cmdname sid="TTL09341" className="uitext" />: URL 연결 시간이 5초 이상 소요되면 경고 알림을 보냅니다.
       * <Cmdname sid="TTL09343" className="uitext" />: 웹 페이지의 타이틀이 변경된 경우 경고 알림을 보냅니다.
@@ -36,14 +36,14 @@ keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이�
       * <Cmdname sid="TTL09347" className="uitext" />: 페이지에 접속할 수 없는 경우 경고 알림을 보냅니다.
 
 
-* <Cmdname sid="category" className="uitext" />: 메트릭 데이터를 구분하는 단위입니다. 메트릭 이벤트 설정 시 필수로 선택해야 합니다.
+* <Cmdname sid="category" className="uitext" />(필수): 메트릭 데이터를 구분하는 단위로, 카테고리의 키 값으로 단위를 설정합니다.
 
-  * <Cmdname sid="category" className="uitext" />는 최근 3시간 범위 내 프로젝트에서 수집 중인 메트릭스 데이터를 조회해 목록에 표시합니다. 
-  * <Cmdname sid="category" className="uitext" /> 선택 옵션에 수집 간격이 표시되지 않는 경우 <Cmdname sid="enter_category_self" className="uitext" /> 옵션을 선택해 **카테고리 키**를 입력할 수 있습니다.
-  * <Cmdname sid="category" className="uitext" /> 선택 옵션에는 <LinkImage img="number-01.png" className="ico" /> <Cmdname sid="name" className="uitext" />과 <LinkImage img="number-02.png" className="ico" /> 데이터 수집 간격, <LinkImage img="number-03.png" className="ico" /> <Cmdname sid="key" className="uitext" /> 정보를 표시합니다. 이벤트 설정 시 해당 카테고리의 키 값을 사용합니다.
+  * <Cmdname sid="category" className="uitext" /> 선택 목록에는 <LinkImage img="number-01.png" className="ico" /> <Cmdname sid="name" className="uitext" />, <LinkImage img="number-02.png" className="ico" /> 데이터 수집 간격, <LinkImage img="number-03.png" className="ico" /> <Cmdname sid="key" className="uitext" /> 정보를 표시합니다. 이벤트 설정 시 해당 카테고리의 키 값을 사용합니다.
 
       <ImgLang img='set-event-select-category.png' desc='메트릭스 이벤트 - 카테고리' />
 
+  * <Cmdname sid="category" className="uitext" /> 선택 목록에 수집 간격이 표시되지 않는 경우 <Cmdname sid="enter_category_self" className="uitext" />를 선택한 후, 입력창에 **카테고리 키**를 입력합니다.
+  
   * **URL 카테고리 목록**
 
     * `alert_count` 각 URL 또는 시스템 요소에 대해 발생한 알림 횟수를 집계한 데이터
@@ -54,7 +54,11 @@ keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이�
     * `url_stat_issue` 이슈별 URL 상태 통계
     * `url_status` URL 상태 기록 (알림 및 장애 판단 기준)
 
+:::note
 
+  카테고리 목록은  최근 3시간 범위 내 프로젝트에서 수집 중인 메트릭스 데이터를 조회해 표시합니다. 수집된 메트릭스 데이터가 없다면 목록에 표시하지 않습니다. 
+
+:::
 * <Cmdname sid="level" className="uitext" />
 
   * 이벤트 발생 시 경고 수준을 나타냅니다. <span class='vslow'>Critical</span>, <span class='slow'>Warning</span>, <span style={{color:'#757575'}}>Info</span> 수준으로 나뉘어집니다. <span class='vslow'>Critical</span>, <span class='slow'>Warning</span> 레벨 설정 시 '<Cmdname sid="CNT08320" className="uitext" />' 선택 옵션이 활성화됩니다.
@@ -67,7 +71,6 @@ keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이�
 
   * 이벤트 발생 시 알림 메시지로 표현됩니다. <code>&#36;&#123;Tag&#125;</code> 또는 <code>&#36;&#123;Field&#125;</code> 입력으로 메시지에 변수를 적용할 수 있습니다. 변수에 입력할 키는 선택한 메트릭스 데이터 <Cmdname sid="category" className="uitext" />에 포함된 값이여야 합니다.
   * 우측 ![시간 아이콘](/img/ico-timing.svg) 버튼을 클릭하면 이전에 입력한 메시지 기록을 확인할 수 있습니다.
-  * 수신 테스트는 이벤트 명, 카테고리, 레벨, 메시지 정보를 기준으로 알림을 발생시켜 메시지를 점검하는 기능입니다.
 
 * <Cmdname sid="alert_test" className="uitext" />
 
@@ -92,7 +95,7 @@ keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이�
 
   <ImgLang img='set-event-filtering.png' desc='이벤트 대상 필터링' />
 
-  ![지시선 7](/img/number-07.png) 태그, ![지시선 8](/img/number-08.png) 연산자 선택, ![지시선 9](/img/number-09.png) 필터링값을 입력해 대상을 필터링합니다. 입력값이 없을 경우 전체 에이전트를 대상으로 경고 알림을 보냅니다.
+  ![지시선 7](/img/number-07.png) 이벤트 대상, ![지시선 8](/img/number-08.png) 연산자 선택, ![지시선 9](/img/number-09.png) 필터링값을 입력해 대상을 필터링합니다. 입력값이 없을 경우 전체 에이전트를 대상으로 경고 알림을 보냅니다.
 
 ---
 

@@ -3,16 +3,38 @@ id: index
 title: Java Agent Release Notes
 displayed_sidebar: releaseSidebar
 hide_table_of_contents: true
-toc_min_heading_level: 2
 ---
 
-<head>
-<meta name="robots" content="noindex, nofollow"/>
-</head>
+#### 최신 버전 Java Agent v2.2.63
 
-import ReleaseNotes from "./java-agent.json";
-import ReleaseNotes25 from "./java-agent-2025.json";
+<br />
 
-<ImportJson filePath={ReleaseNotes25} sort="date" category="agent" />
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-<ImportJson filePath={ReleaseNotes} sort="date" category="agent" />
+import ReleaseNotes2025 from "./java-agent-2025.json";
+import ReleaseNotes2024 from "./java-agent-2024.json";
+import ReleaseNotes2023 from "./java-agent-2023.json";
+import ReleaseNotes202x from "./java-agent-202x.json";
+
+<Tabs>
+
+    <TabItem value="2025" label="2025">
+        <ImportJson filePath={ReleaseNotes2025} sort="date" category="agent" />
+    </TabItem>
+
+    <TabItem value="2024" label="2024">
+        <ImportJson filePath={ReleaseNotes2024} sort="date" category="agent" />
+    </TabItem>
+
+    <TabItem value="2023" label="2023">
+        <ImportJson filePath={ReleaseNotes2023} sort="date" category="agent" />
+    </TabItem>
+
+    <TabItem value="2023 이전" label="2023 이전">
+        <ImportJson filePath={ReleaseNotes202x} sort="date" category="agent" />
+    </TabItem>
+
+</Tabs>
+
+

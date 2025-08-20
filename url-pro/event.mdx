@@ -44,7 +44,7 @@ keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이�
 
   * <Cmdname sid="category" className="uitext" /> 선택 목록에 수집 간격이 표시되지 않는 경우 <Cmdname sid="enter_category_self" className="uitext" />를 선택한 후, 입력창에 **카테고리 키**를 입력합니다.
   
-  * **URL 카테고리 목록**
+* **URL 카테고리 목록**: [[하단 카테고리 안내]](#event-url-category)
 
     * `alert_count` 각 URL 또는 시스템 요소에 대해 발생한 알림 횟수를 집계한 데이터
     * `alert_event` 알림이 발생한 시점의 상세 데이터
@@ -163,7 +163,7 @@ keywords: [이벤트 설정, 메트릭스 이벤트, 경고 알림, 복합 이�
 
 위젯 방식을 사용하면 MXQL을 직접 작성하지 않고, 제공되는 옵션을 순서대로 선택하여 조회 조건을 설정할 수 있습니다. 
 
-* <Cmdname sid="category" className="uitext" />: 서비스별 데이터 카테고리를 제공하고 있습니다. URL 모니터링의 데이터 카테고리 항목입니다. 
+* <Cmdname sid="category" className="uitext" />: 서비스별 데이터 카테고리를 제공하고 있습니다. URL 모니터링의 데이터 카테고리 항목입니다. [[하단 카테고리 안내]](#event-url-category)
     
     * `alert_count` 각 URL 또는 시스템 요소에 대해 발생한 알림 횟수를 집계한 데이터
     * `alert_event` 알림이 발생한 시점의 상세 데이터
@@ -256,3 +256,98 @@ import Metricseventmodifydelete from "../common-items/_metrics-event-modify-dele
 import Metricseventconditionselecttargetguide from "../common-items/_metrics-event-condition-select-target-guide.mdx";
 
 <Metricseventconditionselecttargetguide />
+
+---
+
+## 메트릭스 이벤트 카테고리 안내 {#event-url-category}
+
+- `alert_count`  
+  - **설명**: 각 URL 또는 시스템 요소에 대해 발생한 알림 횟수를 집계한 데이터입니다.  
+  - **비고**: 통계용 데이터이며, 실제 알림 전송 대상은 아닙니다.
+
+- `alert_event`  
+  - **설명**: 알림이 발생한 시점의 상세 내용을 기록합니다.  
+  - **비고**: 알림 기록은 참고용이며, 별도로 알림을 전송하지 않습니다.
+
+- `url_check`  
+  - **설명**: URL 체크 결과와 세부 상태를 시간 단위로 기록합니다.  
+  - **필드**
+    | 필드명 | 설명 |
+    | --- | --- |
+    | 2xx | HTTP 200대 응답 여부 (1: 성공, 0: 실패) |
+    | 4xx | HTTP 400대 오류 여부 (1: 있음, 0: 없음) |
+    | 5xx | HTTP 500대 오류 여부 (1: 있음, 0: 없음) |
+    | active | URL 활성화 여부 (1: 활성, 0: 비활성) |
+    | body_size | 응답 바디 크기 (Byte 단위) |
+    | domSize | HTML DOM 요소 개수 |
+    | elapsed | 응답 소요 시간 (ms) |
+    | end_location_changed | 최종 URL 리디렉션 여부 (1: 변경, 0: 동일) |
+    | location | 최종 연결된 URL |
+    | reason | 에러 메시지 또는 "OK" |
+    | server | 응답 서버 정보 |
+    | status | HTTP 응답 코드 |
+    | title | HTML 타이틀 |
+    | title_changed | 타이틀 변경 여부 (1: 변경, 0: 변경되지 않음) |
+    | version | 응답 데이터 버전 정보 |
+  - **태그**
+    | 태그명 | 설명 | 예시 |
+    | --- | --- | --- |
+    | name | 사이트명 | 와탭홈페이지 |
+    | url | 모니터링 대상 URL | https://www.whatap.io |
+    | method | HTTP 메서드 | get |
+
+- `url_stat_all`  
+  - **설명**: 전체 URL 상태 통계를 제공합니다.  
+  - **필드**
+    | 필드명 | 설명 |
+    | --- | --- |
+    | error_url | 에러 URL 수 |
+    | normal_url | 정상 URL 수 |
+    | total_url | 전체 URL 수 |
+  - **태그**
+    | 태그명 | 설명 | 예시 |
+    | --- | --- | --- |
+    | name | 분류 명칭 | all |
+
+- `url_stat_category`  
+  - **설명**: 카테고리별 URL 상태 통계를 제공합니다.  
+  - **필드**
+    | 필드명 | 설명 |
+    | --- | --- |
+    | error_url | 에러 URL 수 |
+    | normal_url | 정상 URL 수 |
+    | total_url | 전체 URL 수 |
+  - **태그**
+    | 태그명 | 설명 |
+    | --- | --- |
+    | category_name | 카테고리 명 |
+
+- `url_stat_issue`  
+  - **설명**: 이슈별 URL 상태 통계를 제공합니다.  
+  - **필드**
+    | 필드명 | 설명 |
+    | --- | --- |
+    | error_url | 에러 URL 수 |
+    | normal_url | 정상 URL 수 |
+    | total_url | 전체 URL 수 |
+  - **태그**
+    | 태그명 | 설명 |
+    | --- | --- |
+    | issue_name | 이슈 명칭 |
+
+- `url_status`  
+  - **설명**: URL 상태 기록으로, 알림 및 장애 판단의 기준 데이터입니다.  
+  - **필드**
+    | 필드명 | 설명 | 예시 |
+    | --- | --- | --- |
+    | active | 활성화 여부 | 1: 활성, 0: 비활성 |
+    | dismissible | 알림 해소 가능 여부 | 1: 가능, 0: 불가 |
+    | event | 알림 발생 여부 | 1: 발생, 0: 미발생 |
+    | msg | 장애 또는 상태 메시지 | OK |
+    | status_level | 상태 레벨 | 1: 정상, 2: 비정상 징후, 3: 장애 상태 |
+  - **태그**
+    | 태그명 | 설명 | 예시 |
+    | --- | --- | --- |
+    | name | 사이트명 | 와탭홈페이지 |
+    | url | 모니터링 대상 URL | https://www.whatap.io |
+    | method | HTTP 메서드 | get |

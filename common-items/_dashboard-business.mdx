@@ -167,6 +167,32 @@ TPS, 응답시간, 에러율 등의 주요 성능 지표를 비즈니스 단위�
 
 - **PHP**: 2.11.0 이상
 
+### 필수 설정
+
+```
+# 기능 전체 활성화 여부
+whatap.app_context_enabled=true
+```
+
+### 선택 설정
+
+```
+# 파서 선택 (default/prefix/match)
+# default: 첫 번째 경로 세그먼트 추출
+# prefix: 접두사 매칭 파서 (가장 유연함)
+# match: 정확한 매칭 파서 (완전 일치만)
+whatap.app_context_parser=default
+
+# 파서의 내부 캐시와 설정을 강제로 재설정하는 카운터
+whatap.app_context_parser_reset=0
+
+# URL에서 추출할 경로 세그먼트의 깊이 지정 (default 파서에서 1 또는 2로 사용)
+whatap.app_context_path_depth=1
+
+# 모니터링할 경로와 해당 이름을 정의하는 매핑 설정 (쉼표로 구분하여 사용)
+whatap.app_context_path_set=name1@url1,name2@url2,url3,name4@url4
+```
+
 </InDoc>
 
 <InDoc product="python">
@@ -180,6 +206,8 @@ TPS, 응답시간, 에러율 등의 주요 성능 지표를 비즈니스 단위�
 - **.NET**: 2.4.3 이상
 
 </InDoc>
+
+<InDoc product="java,python,dotnet">
 
 ### 필수 설정
 
@@ -206,6 +234,7 @@ app_context_path_depth=1
 # 모니터링할 경로와 해당 이름을 정의하는 매핑 설정 (쉼표로 구분하여 사용)
 app_context_path_set=name1@url1,name2@url2,url3,name4@url4
 ```
+</InDoc>
 
 :::tip
 

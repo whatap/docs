@@ -21,12 +21,32 @@ Prometheus 형식으로 노출된 지표를 저장한 후, 간단한 스크립�
 
 **예시**
 
-``` 
-00:00  http_requests_total{url="/hello"}                     값: 100
-00:00  http_requests_total{url="/hello", name="whatap"}      값: 93
-00:01  http_requests_total{url="/hello", name="whatap"}      값: 114
-00:01  http_requests_total{url="/hello"}                     값: 5
-```
+<pre
+  style={{
+    background:'#292d3e',
+    borderRadius:'5px',
+    padding:'16px 20px',
+    overflow:'auto',
+    lineHeight:'1.9',
+    lineHeight:'0.3',
+    fontSize:'10px',
+  }}
+>
+  <code style={{fontFamily:'var(--ifm-font-family-monospace, monospace)'}}>
+    <span style={{color:'#ffffff'}}>
+      00:00&nbsp;&nbsp;<span style={{background:'#d7ecff', color:'#000000'}}> http_requests_total{'{'}url="/hello"{'}'} </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;값:&nbsp;<span style={{color:'#ffffff'}}>100</span>
+    </span>
+    <span style={{color:'#ffffff'}}>
+      00:00&nbsp;&nbsp;<span style={{background:'#fffbd1', color:'#000000'}}> http_requests_total{'{'}url="/hello", name="whatap"{'}'} </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;값:&nbsp;<span style={{color:'#ffffff'}}>93</span>
+    </span>
+    <span style={{color:'#ffffff'}}>
+      00:01&nbsp;&nbsp;<span style={{background:'#fffbd1', color:'#000000'}}> http_requests_total{'{'}url="/hello", name="whatap"{'}'} </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;값:&nbsp;<span style={{color:'#ffffff'}}>114</span>
+    </span>
+    <span style={{color:'#ffffff'}}>
+      00:01&nbsp;&nbsp;<span style={{background:'#d7ecff', color:'#000000'}}> http_requests_total{'{'}url="/hello"{'}'} </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;값:&nbsp;<span style={{color:'#ffffff'}}>5</span>
+    </span>
+  </code>
+</pre>
 
 위 데이터는 총 네 개지만, 레이블 구성을 기준으로 하면 다음과 같이 두 개로 계산됩니다.
 

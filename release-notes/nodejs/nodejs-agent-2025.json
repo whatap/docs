@@ -1,5 +1,28 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_25/",
+    "ver": "v0.5.25",
+    "date": "2025-08-22",
+    "Lists": [
+      {
+        "ver": "v0.5.25",
+        "hash": "v0525",
+        "product": "Node.js Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>perfx_nodejs_gc_enabled</strong> <span class=\"type\">Boolean</span></p>",
+        "details": "<ul><li><p>기본값: <code>false</code></p></li><li><p>가비지 컬렉션(GC) 성능 메트릭 수집을 실행 (Node.js 16.7버전 이상 지원 가능함)</p></li></ul>"
+      },
+      {
+        "ver": "v0.5.25",
+        "hash": "v0525",
+        "product": "Node.js Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 애플리케이션 프로세스가 종료되는 상황을 감지하고, 종료 원인에 대한 메시지를 에이전트 로그에 기록 </p>",
+        "details": "<ul><li><p><strong>SIGTERM</strong>: 시스템 또는 프로세스 매니저에 의한 정상적인 종료 요청</p></li>\n<li><p><strong>SIGINT</strong>: 사용자에 의한 중단 (Ctrl+C 또는 kill 명령)</p></li>\n<li><p><strong>SIGHUP</strong>: 터미널 연결 해제 또는 부모 프로세스 종료</p></li>\n<li><p><strong>SIGUSR1/SIGUSR2</strong>: 사용자 정의 신호</p></li>\n<li><p><strong>uncaughtException</strong>: 처리되지 않은 예외로 인한 비정상 종료</p></li>\n<li><p><strong>unhandledRejection</strong>: 처리되지 않은 Promise 거부로 인한 종료</p></li></ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_23/",
     "ver": "v0.5.23",
     "date": "2025-07-10",

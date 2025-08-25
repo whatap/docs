@@ -1,5 +1,74 @@
 [
   {
+    "ver": "v2.55.04",
+    "date": "2025-08-11",
+    "Lists": [
+      {
+        "ver": "v2.55.04",
+        "hash": "v25504",
+        "product": "DBX",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\" type=\"0\">Change</code> db_mysql_slave 카테고리에 Exec_Master_Log_Pos 필드 추가</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "v2.55.04",
+        "hash": "v25504",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> mysql 8.4 버전 이상에서 master/slave 수집 명령어 변경되어 수정</p>",
+        "category": "MySQL"
+      }
+    ]
+  },
+  {
+    "ver": "v2.55.03",
+    "date": "2025-08-08",
+    "Lists": [
+      {
+        "ver": "v2.55.03",
+        "hash": "v25503",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Agent Paused / Down 기능 추가</p>",
+        "category": "Common"
+      },
+      {
+        "ver": "v2.55.03",
+        "hash": "v25503",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> whatap.conf에서 xos_dbip 옵션 제거</p>",
+        "category": "Common",
+        "details": "<p>관련 문서 수정 필요: <a href='https://docs.whatap.io/mysql/agent-xos-settings#xosconf-파일-설정'>docs 링크</a></p>"
+      },
+      {
+        "ver": "v2.55.03",
+        "hash": "v25503",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> plan 저장 시 동일한 plan_hash_value 이면서 child_number가 다른 경우 수집되지 않던 문제 수정</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.55.03",
+        "hash": "v25503",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> db_oracle_plan_save 카테고리에 child_number 필드 추가</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.55.03",
+        "hash": "v25503",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> object detail 조회 시 object명이 소문자인 경우 조회되지 않던 문제 수정</p>",
+        "category": "Oracle"
+      }
+    ]
+  },
+  {
     "ver": "v2.55.02",
     "date": "2025-07-17",
     "Lists": [

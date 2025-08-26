@@ -68,6 +68,63 @@
 
   :::
 
+#### Trend 탭
+
+상단 차트에서 시간대별 Elapsed Time, I/O, Wait Time 추이를 시각화합니다. 하단 통계 테이블은 실행 누적 통계, Wait Class 비율, 주요 Wait Event를 한눈에 비교할 수 있습니다.
+
+##### Elapsed Time
+
+타임 셀렉터로 선택된 구간 동안의 **CPU 사용 시간, Wait Class 소요 시간, Idle 시간** 등을 합산하여 표시합니다.
+
+> 예.
+> * CPU Time: SQL 실행에 실제 CPU를 사용한 시간
+> * Scheduler: 세션이 CPU를 기다린 시간
+> * Idle: 실행되지 않고 대기하거나 유휴 상태인 시간(어떤 항목이 소요 시간이 가장 길었는지 직관적으로 확인할 수 있음)
+
+##### Elapsed Time Trend
+
+시간대별로 **평균 Elapsed Time**과 실행 횟수(Execution Count)를 5분 단위로 집계해 추세를 보여줍니다. 3시간 미만이라면 1분 단위로 집계해 보여줍니다.  
+
+특정 시점에서 Elapsed Time이 급증했는지, 실행 횟수 대비 응답 시간이 늘었는지 확인할 수 있어 성능 저하 시점을 빠르게 파악하는데 유용합니다. 
+
+##### I/O Trend
+
+쿼리 실행 중 발생한 **Logical Reads**와 **Physical Reads**를 5분 단위로 보여줍니다. 3시간 미만이라면 1분 단위로 보여줍니다.
+
+* Logical Reads: 버퍼 캐시에서 데이터를 읽은 횟수
+
+* Physical Reads: 디스크에서 직접 데이터를 읽은 횟수로 캐시 효율성과 I/O 부하를 비교해 성능 병목 원인을 파악할 수 있음
+
+##### Wait Time Trend
+
+쿼리 실행 동안 발생한 **Wait Event 소요 시간**을 시간대별로 보여줍니다.
+
+특정 시점에서 Wait Time이 치솟는다면, DB 자원 경합이나 I/O 지연이 발생했음을 의미합니다. 어떤 이벤트(락, I/O, 병렬처리 등)가 병목을 유발했는지 추적할 수 있습니다.
+
+##### Total Statistics
+
+선택 구간 동안의 **SQL 실행 누적 통계**를 보여줍니다. 
+
+> 예.
+> * sorts(rows): 정렬된 총 행의 수
+> * session logical reads: 세션 논리적 읽기 횟수
+> * table scan blocks gotten: 테이블 스캔 시 읽은 블록 수
+> * elapsed_time: 총 소요 시간  
+> SQL 실행이 리소스를 어떻게 사용했는지 집계된 데이터를 확인할 수 있습니다.
+
+##### Total Wait Classes
+
+SQL 실행 중 발생한 **대기 시간(Wait Time)** 을 Wait Class 단위로 합산한 값입니다.
+Wait Class별로 소요 시간이 많을수록 해당 영역이 병목 지점일 가능성이 높습니다.
+
+> 예. Idle, Scheduler, User I/O, Concurrency 등
+
+##### Top Wait Events
+
+선택 구간에서 발생한 **세부 Wait Event 상위 목록**을 보여줍니다. Wait Class보다 더 세밀하게 어떤 이벤트가 성능에 가장 큰 영향을 주었는지 확인할 수 있습니다. 
+
+> 예. PX Deq: Execution Msg, resmgr:cpu quantum, direct path read 등
+
 </InDoc>
 
 <InDoc product='mysql'>

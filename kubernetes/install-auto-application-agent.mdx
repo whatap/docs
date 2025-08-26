@@ -44,6 +44,9 @@ spec:
                 app: hello-world               # APM 주입 대상 파드 라벨
             config:
               mode: default                    # 기본 설정 또는 configMap 참조 가능
+            envs:
+              WHATAP_JAVA_AGENT_PATH: /whatap-agent/whatap.agent.java.jar
+              OKIND: hello
 ```
 
 ### 예제. APM 설정 방법 {#example_set_up_apm}
@@ -54,7 +57,7 @@ spec:
 
 * 와탭 APM은 현재 `latest` Java 버전만 지원합니다. (다른 언어는 추후 지원 예정)
 
-* ConfigMapRef로 설정 정보를 전달합니다.
+* ConfigMapRef로 설정 정보를 전달합니다. (configMap은 어플리케이션과 같은 네임스페이스에 존재해야 합니다.)
 
 ```yaml
 apiVersion: monitoring.whatap.com/v2alpha1
@@ -82,8 +85,6 @@ spec:
               mode: configMapRef
               configMapRef:
                 name: shop-api-config
-                namespace: backend
-
 ```
 
 ```yaml title='shop-api-config.yaml'
@@ -129,7 +130,6 @@ spec:
               mode: configMap
               configMapRef:
                 name: request-router-config
-                namespace: system
           - name: shop-api
             enabled: "true"
             language: "java"
@@ -145,8 +145,6 @@ spec:
               mode: configMapRef
               configMapRef:
                 name: shop-api-config
-                namespace: backend
-
 ```
 
 ```yaml title='shop-api-config.yaml'

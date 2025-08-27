@@ -2,9 +2,8 @@
 
   ![로그 레벨 색상](/img/log-agent-option-level.png)
 
-:::note 
 
-**에이전트 옵션 설정**
+### 에이전트 옵션 설정
 
   ```ini
   # whatap.conf
@@ -15,5 +14,3 @@
 * Java 에이전트 2.2.22 버전 이후부터 위빙 설정에 log4j-2.17 또는 logback-1.2.8 설정 시 사용할 수 있습니다. 에이전트 재시작이 필요합니다.
 
 * 로그 레벨은 파싱된 키워드 중 `level`, `type` 기준으로 판별합니다. `level`, `type`으로 파싱된 키가 존재하고 파싱 값이 <span class='vslow'>FATAL</span>, <span class='vslow'>CRITICAL</span>, <span class='vslow'>ERROR</span>, <span class='slow'>WARN</span>, <span class='slow'>WARNING</span>, <span class='mstop'>INFO</span>를 포함할 경우 로그 레벨 색상을 표시합니다. 
-
-:::

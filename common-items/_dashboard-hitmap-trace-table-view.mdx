@@ -2,19 +2,13 @@
 
 <Cmdname sid="TTL06126" className="uitext" /> 탭에서는 트랜잭션의 수행 과정을 시간의 순서대로 확인할 수 있습니다.
 
-<Xclude product='php,nodejs,golang'>
-
-<ImgLang img="analysis-tx-table-view-mode.png" desc="테이블 뷰" />
-
-</Xclude>
-
 <InDoc product='php,nodejs,golang'>
 
 <ImgLang img="analysis-tx-table-view-mode-none-actx.png" desc="테이블 뷰" />
 
 </InDoc>
 
-* 트랜잭션을 수행 구간별로 분류해 다이어그램을 통해 확인할 수 있습니다. 전체 경과 시간 중 각 구간별 소요된 시간, 가장 오래 소요된 구간을 빠르게 파악할 수 있습니다.
+* 트랜잭션을 수행 구간별로 분류해 다이어그램을 통해 확인할 수 있습니다. 전체 경과 시간 중 구간별 소요된 시간, 가장 오래 소요된 구간을 빠르게 파악할 수 있습니다.
 
 <Xclude product='php,nodejs,golang'>
 
@@ -34,7 +28,7 @@
 
 <Xclude product='php,nodejs,golang,kubernetes'>
 
-* 빨간색 원(![액티브 스택 아이콘](/img/ic-c-tx-active-stack.svg))이 위치한 영역은 액티브 스택이 수집된 순간입니다. 빨간색 원을 선택하면 <Cmdname sid="active_stack" className="uitext" /> 버튼이 위치한 테이블 목록으로 이동할 수 있습니다. <Cmdname sid="active_stack" className="uitext" /> 버튼을 선택하면 해당 구간 동안 수행된 스텝 정보를 확인할 수 있습니다.
+* 파란색 원(![액티브 스택 아이콘](/img/ic-c-tx-active-stack.svg))이 위치한 영역은 액티브 스택이 수집된 순간입니다. 파란색 원을 선택하면 <Cmdname sid="active_stack" className="uitext" /> 버튼이 위치한 테이블 목록으로 이동할 수 있습니다. <Cmdname sid="active_stack" className="uitext" /> 버튼을 선택하면 해당 구간 동안 수행된 스텝 정보를 확인할 수 있습니다.
 
   :::note
 

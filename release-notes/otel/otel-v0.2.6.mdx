@@ -1,0 +1,41 @@
+---
+id: otel-v0_2_6
+title: OTEL Agent v0.2.6
+toc_max_heading_level: 2
+---
+
+2025년 09월 01일
+
+* <Status priority='1'>Change</Status> Span 데이터 처리 방식 개선 
+  * 부모·자식 트리 구조로 Span 데이터를 수집  
+  * 중간에 부모 Span 데이터가 없어도 이후 자식 Span 데이터를 처리하도록 변경  
+
+* <Status priority='1'>Change</Status> 속성 키 이름 추가    
+  * HTTP 상태 코드를 수집하는 속성 키 이름 http.response.status_code를 추가  
+    * otel_attr_tx_status_keys  
+      * 기본값: http.status_code, http.response.status_code  
+
+  * 에러 정보를 수집하는 속성 키 이름 error 를 추가  
+    * otel_attr_error_keys  
+      * 기본값: error, error.type  
+
+:::info
+
+**다운로드**
+
+| OS | 파일 형식 | 아키텍처 | 다운로드 |
+| - | :-: | :-: | :-: |
+| Red Hat / CentOS / Amazon linux | RPM | x86 x64 | [다운로드](http://repo.whatap.io/centos/6/x86_64/whatap-otel-0.2-6.x86_64.rpm) |
+| \^ | \^ | aarch64 | [다운로드](http://repo.whatap.io/centos/7/aarch64/whatap-otel-0.2-6.aarch64.rpm) |
+| Ubuntu 12 and above / Debian | DEB | amd64 | [다운로드](http://repo.whatap.io/debian/unstable/whatap-otel_0.2.6_amd64.deb) |
+| \^ | \^ | arm64 | [다운로드](http://repo.whatap.io/debian/unstable/whatap-otel_0.2.6_arm64.deb) |
+| Alpine linux | tar gzip | x86 x64 | [다운로드](http://repo.whatap.io/alpine/x86_64/whatap-otel-0.2.6.tar.gz) |
+| \^ | \^ | aarch64 | [다운로드](http://repo.whatap.io/alpine/aarch64/whatap-otel-0.2.6.tar.gz) |
+
+:::
+
+:::note
+
+**OpenTelemetry**로 수집한 데이터를 와탭 모니터링 서비스에서 확인하는 방법에 대한 자세한 내용은 [다음 문서](../../opentelemetry/introduction)를 참조하세요.
+
+:::

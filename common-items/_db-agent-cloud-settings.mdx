@@ -9,38 +9,6 @@
 
 </InDoc>
 
-## 요금 안내
-
-:::caution
-
-클라우드 모니터링 에이전트는 무료지만, 클라우드 서비스 사용에 따라 별도 요금이 발생할 수 있으니 확인이 필요합니다.
-
-:::
-
-<InDoc product="postgresql,mongodb,mysql,mssql,oracle">
-
-### AWS 요금
-
-클라우드 모니터링 에이전트는 별도의 SaaS 요금 없이 제공되며, 에이전트 설치만으로 모니터링 기능을 사용할 수 있습니다. 단, AWS CloudWatch 등 클라우드 서비스의 API를 통해 메트릭을 수집하기 때문에, **CloudWatch 사용량에 따라 별도 요금이 부과될 수 있습니다**.
-
-본 에이전트는 기본적으로 **1분 주기로 GetMetricData API를 호출**하여 메트릭을 수집하며, 호출 빈도와 수집 대상에 따라 요금이 증가할 수 있으므로 주의가 필요합니다.
-
-자세한 요금 정책은 [AWS 공식 문서의 Amazon CloudWatch 요금](https://aws.amazon.com/cloudwatch/pricing/) 페이지를 참고하시기 바랍니다.
-
-</InDoc>
-
-<InDoc product="postgresql">
-
-### NCP 요금
-
-클라우드 모니터링 에이전트는 별도의 SaaS 요금 없이 제공되며, 에이전트 설치만으로 모니터링 기능을 사용할 수 있습니다. 클라우드 모니터링 에이전트는 5분 주기로 Cloud Insight API를 호출하여 1분 단위의 메트릭 데이터를 수집합니다.  
-
-네이버 클라우드 플랫폼(NCP)의 Cloud Insight 서비스는 현재 무료로 제공되고 있으나, 향후 정책에 따라 유료화될 수 있습니다. Cloud Insight 서비스가 유료화될 경우 **API 호출 횟수에 따라 요금이 부과될 수 있으므로**, 사용량에 유의하시기 바랍니다.
-
-자세한 요금 정책은 [네이버 클라우드 플랫폼의 공식 요금 안내](https://www.ncloud.com/product/management/cloudInsight#pricing) 페이지를 참고하시기 바랍니다.
-
-</InDoc>
-
 ## 에이전트 설정
 
 <InDoc product="mysql,mssql,oracle">

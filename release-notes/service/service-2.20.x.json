@@ -1,0 +1,543 @@
+[
+    {
+      "url": "https://docs.whatap.io/release-notes/service/service-2_20_x",
+      "ver": "Service 2.20.1",
+      "date": "2025-08-27",
+      "Lists": [
+        {
+          "ver": "Service 2.20.1",
+          "hash": "service-2201",
+          "product": "Server",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Flex 보드</span> <span class=\"uitext\">서버 상세</span> 서버 목록 키워드 검색 시 간헐적인 오류 발생 문제 수정</p>"
+        }
+      ]
+    },
+    {
+      "url": "https://docs.whatap.io/release-notes/service/service-2_20_x",
+      "ver": "Service 2.20.0",
+      "date": "2025-08-27",
+      "Lists": [
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "공통",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">계정 관리</span> &gt; <strong>계정 정보</strong> UTC 오프셋 변경 기능 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "공통",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">계정 관리</span> 접근 제어 메뉴 추가 및 계정별 IP 접근 제어 기능 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "공통",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">계정 관리</span> GPU, GPU MIG, Open Metric High, Open Metric Low 등 새로운 사용량 지표가 청구서, 과금, 프로젝트 구독, 미터링 요약 등에 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "공통",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Flex 보드</span> &gt; <strong>필터</strong> 메트릭스 필터, 태그 선택에 직접 입력 옵션 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "공통",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Flex 보드</span> 일간 비교 위젯 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Application",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 액티브 HTTPC, 액티브 DB 위젯 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Application",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계</span> &gt; <span class=\"uitext\">트랜잭션</span> 토폴로지 열기 버튼 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Application",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <strong>비즈니스 대시보드</strong> 상세, 토폴리지 탭 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Application",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">애플리케이션 대시보드</span> 이벤트 위젯 추가</p>",
+          "details": "<ul>\n<li>이벤트를 레벨별로 시각화하고, 에이전트별로 이벤트를 구분해 표시</li>\n</ul>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Application",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">애플리케이션 토폴로지</span> <code class=\"Beta\">Beta</code> UI 개선</p>",
+          "details": "<ul>\n<li>\n<p>엣지 라벨 게이지 표현 추가 및 응답 시간 임계 색상 표현 추가</p>\n</li>\n<li>\n<p>특정 노드(상세)</p>\n<ul>\n<li>\n<p>TX 트레이스 컬럼 설정 추가 및 전체/액티브/멀티 트랜잭션/에러 필터 추가</p>\n</li>\n<li>\n<p>선택한 노드와 관련있는 노드만 나타내는 팝아웃 추가</p>\n</li>\n</ul>\n</li>\n</ul>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Application",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <code>app_context_stat</code> 관련 명칭 통일(컨텍스트, 컨텍스트별 → 업무, 업무별)</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Application",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 액티브 스택 및 멀티 트랜잭션 아이콘 색상 변경</p>",
+          "details": "<ul>\n<li>\n<p>멀티 트랜잭션: <span class=\"normal\">파란색</span> → 회색</p>\n</li>\n<li>\n<p>액티브 스택: <span class=\"vslow\">빨간색</span> → <span class=\"normal\">파란색</span></p>\n</li>\n</ul>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Application",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <strong>비즈니스 대시보드</strong> 별칭 설정, 모든 별칭 삭제 후 저장 시 변경 사항이 적용되지 않는 현상 수정</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Application",
+          "type": "Fixed",
+          "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 설정</span> 로그 모니터링 시작하기 탭의 '1. 에이전트 설정 확인' 항목 일본어 번역 수정</li>",
+          "category": "Java, Node.js, PHP"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Application",
+          "type": "Changed",
+          "desc": "<li><code class=\"Changed\" type=\"1\">Changed</code> 지원 버전 정보와 OS 정보 수정</li>",
+          "category": ".Net, Python"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Application",
+          "type": "Changed",
+          "desc": "<li><code class=\"Changed\" type=\"1\">Changed</code> <strong>에이전트 설치</strong> 페이지 개선</li>",
+          "category": "Java"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>GPU 인벤토리</strong> 키워드 검색 필터 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>GPU 성능요약</strong> 컬럼 설정의 필드별 설명 툴팁 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 상세</span> 서버 목록에 검색 입력 필드 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> 브라우저 크기에 따라 위젯 크기가 자동 조정되는 모드를 기본 적용하고, 스크롤이 생기더라도 위젯을 확대해 정상적으로 볼 수 있도록 위젯 높이 자동 조정 스위치를 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code>  <strong>GPU 성능요약</strong> GPU Status 조회 시간 범위를 기존 5분에서 1분으로 조정</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>GPU 성능요약</strong> <code>Performance_State</code> 필드값이 P0~P15 사이 값으로 표시되도록 변경</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>GPU 성능요약</strong> &gt; <span class=\"uitext\">비교하기</span> 패널</p>",
+          "details": "<ul>\n<li>\n<p>단위가 bytes/s인 차트 값이 자동으로 단위 변환되도록 변경</p>\n</li>\n<li>\n<p><code>Performance_State</code> 차트의 Y축 범위를 P0~P15 고정하도록 변경</p>\n</li>\n</ul>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>서버 목록</strong> 하위의 <strong>GPU 인벤토리</strong>와 <strong>GPU 성능요약</strong> 메뉴를 <strong>GPU</strong> 그룹 하위로 이동</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>Event v2</strong> 매트릭스 이벤트 룰 추가할 경우, 지표 설정 조건에 밸리데이션 추가 및 밸리데이션 문제 시 오류 문구 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>GPU 인벤토리</strong>, <strong>GPU 성능요약</strong> 에이전트 최소 버전을 2.8.9에서 2.9.2로 변경</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code>  <strong>서버 목록</strong> 키워드 필터 검색 시 항목이 oid인 경우 필터 항목 선택되지 않는 문제 수정</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 상세</span> 서버 선택 후 페이지 로드 시, 서버 목록에 마우스 호버해도 즉시 표시되지 않는 문제 수정</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">메트릭스 익스플로러</span> by GPU Process 하위의 지표 선택 시, 차트의 범례 label의 형식을 <code>process_name, pid, (process_type) - index(uuid)</code>로 표시되도록 수정</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 인벤토리</span> 신규 에이전트 수집 필드 추가 시, 테이블 헤더에 필드명 표시되지 않는 현상 수정</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 상세</span> 차트 상세 보기 드로워가 닫힐 때, 선택 서버가 아닌 default 서버 선택으로 초기화되는 문제 수정</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>서버 목록</strong> 전체 리프레시 버튼 클릭 시, 이벤트 발생에 따른 서버 상태가 반영되지 않는 이슈 수정</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Server",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>GPU 성능요약</strong> &gt; <span class=\"uitext\">비교하기</span> 패널</p>",
+          "details": "<ul>\n<li>\n<p>단위가 %인 차트의 y축 최댓값이 100%를 넘지 않도록 수정</p>\n</li>\n<li>\n<p>단위가 없는 차트에서 제목에 빈 괄호가 표시되던 현상 수정</p>\n</li>\n</ul>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Kubernetes",
+          "type": "Feature",
+          "desc": "<li><code class=\"Feature\" type=\"1\">Feature</code> <strong>GPU</strong> &gt; <strong>GPU 트렌드</strong> 메뉴 추가</li>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 데이터베이스 제품의 단일 인스턴스 셀렉터 개선</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Flex 보드</span> Open MX 위젯 추가</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Flex 보드</span> SQL Elapse Map 위젯에 쿼리 텍스트 제한 옵션 추가</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">실험실</span> &gt; <strong>오픈메트릭 탐색기</strong> 추가</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Flex 보드</span> <strong>인스턴스 맵</strong> 위젯 추가 가능</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>인스턴스 맵</strong> 인스턴스 아이콘에 role 아이콘 추가</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>인스턴스 맵</strong> &gt; <strong>인스턴스 개요</strong> master, slave 정보 추가</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 목록</span>, <span class=\"uitext\">인스턴스 모니터링</span>  인스턴스 상태 색상이 진행 중인 이벤트와 동기화되도록 변경</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 목록</span> 다운로드 CSV 파일의 헤더 및 데이터 형식 수정</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">클라우드 설정</span> 메뉴 제거 및 사이트맵에서 '서버리스 에이전트 설정'으로 변경</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">로그 설정</span> 안내 문구 수정 (Tibero, Altibase 제외)</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>DB</strong> <span class=\"uitext\">에이전트 설치</span> 8. 클라우드 에이전트 항목 예시 yaml log 추가</p>",
+          "category": "공통"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<li><code class=\"Feature\" type=\"1\">Feature</code> <strong>인스턴스 맵</strong> 지원</li>",
+          "category": "Altibase, Cubrid, IBM DB2, MongoDB, Redis, SAP ASE, SQL Server"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Fixed",
+          "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>Top SQL</strong> 세로 필터 팝아웃에서 셀렉트 박스 클릭 불가 문제 수정</li>",
+          "category": "MySQL V2, Oracle V2, Oracle Pro, PostgreSQL"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Changed",
+          "desc": "<li><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> Slow Query 위젯 드래그 시 표시되는 드로어의 테이블 뷰 변경</li>",
+          "category": "CUBRID, MySQL, PostgreSQL"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Fixed",
+          "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Wait 분석</span> 재조회 시 파이 차트의 이전 툴팁이 남는 오류 수정</li>",
+          "category": "Oracle V2, Oracle Pro, PostgreSQL"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Changed",
+          "desc": "<li><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">슬로우 쿼리</span> 안내 문구 변경</li>",
+          "category": "MySQL, PostgreSQL"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> APM 연계 DB 상세창에서 락트리 <code>serial#</code> 필드가 표시되지 않는 오류 수정</p>",
+          "category": "Oracle V2, Oracle Pro"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>SQL 상세</strong>창 플랜 튜닝 가이드 팝아웃 디자인 수정</p>",
+          "category": "Oracle V2, Oracle Pro"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">Top SQL 비교</span> 추가</p>",
+          "category": "DB2"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>SQL 상세</strong> 창에서 플랜 조회 기능 추가</p>",
+          "category": "DB2"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">스크립트 매니저</span> 추가</p>",
+          "category": "DB2"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">테이블스페이스 사이즈</span> 테이블 사이즈 조회 및 오브젝트 정보 조회 기능 추가</p>",
+          "category": "DB2"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">액티브 세션</span> 테이블의 row 클릭 시 세션 정보를 확인할 수 있는 세션 상세 팝업창 추가</p>",
+          "category": "DB2"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>SQL 상세</strong>창에서 특정 키워드에 플랜 튜닝 가이드 보여지도록 수정</p>",
+          "category": "Oracle V2"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Wait 분석</span> 멀티 DB인 경우, 액티브 세션이 표시되지 않는 문제 수정</p>",
+          "category": "Oracle V2"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">SQL 상세</span> 창에 전체 추이를 한눈에 볼 수 있는 Trend 탭 추가</p>",
+          "category": "Oracle Pro"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계</span> &gt; <strong>Wait 별 Top SQL</strong>\nSQL List 필터에 SQL 통계의 필터 값 동일하게 사용할 수 있도록 필터링 옵션 추가</p>",
+          "category": "Oracle Pro"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Database",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Wait 분석</span> 차트 범례가 화면 크기에 맞춰 조절되도록 수정 (가로 스크롤 제거)</p>",
+          "category": "Oracle Pro"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Cloud",
+          "type": "Changed",
+          "desc": "<li><code class=\"Changed\" type=\"1\">Changed</code> <strong>메트릭스</strong> &gt; <strong>메트릭스 큐브</strong> 메뉴 제거</li>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Browser",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>브라우저 사용자 액션 히트맵</strong> Performance 탭 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Browser",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>모바일 스크린 히트맵</strong> Performance 탭 추가</p>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Mobile",
+          "type": "New",
+          "desc": "<li><code class=\"New\" type=\"1\">New</code> <strong>모바일 모니터링</strong> 출시</li>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "Log",
+          "type": "Feature",
+          "desc": "<li><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">관리</span> &gt; <strong>로그 필터 설정</strong> 추가</li>"
+        },
+        {
+          "ver": "Service 2.20.0",
+          "hash": "service-2200",
+          "product": "WhaTap AI Chatbot",
+          "type": "Feature",
+          "desc": "<li><code class=\"Feature\" type=\"1\">Feature</code> 프롬프트 추천 기능 추가</li>"
+        }
+      ]
+    }
+    ]

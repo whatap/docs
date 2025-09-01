@@ -1,5 +1,169 @@
 [
-    {
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_19_x",
+    "ver": "Service 2.19.9",
+    "date": "2025-08-21",
+    "Lists": [
+      {
+        "ver": "Service 2.19.9",
+        "hash": "service-2199",
+        "product": "OpenMetric",
+        "type": "Changed",
+        "desc": "<li><code class=\"Changed\" type=\"1\">Changed</code> <strong>오픈메트릭 탐색기</strong> 과금 안내 메시지 추가</li>"
+      },
+      {
+        "ver": "Service 2.19.9",
+        "hash": "service-2199",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>GPU 모니터링</strong> 과금 안내 메시지 추가</p>",
+        "details": "<ul>\n<li><strong>GPU 인벤토리</strong></li>\n<li><strong>GPU 성능요약</strong></li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.19.9",
+        "hash": "service-2199",
+        "product": "Kubernetes",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>GPU 모니터링</strong> 과금 안내 메시지 추가</p>",
+        "details": "<ul>\n<li><strong>GPU 대시보드</strong></li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_19_x",
+    "ver": "Service 2.19.8",
+    "date": "2025-08-11",
+    "Lists": [
+      {
+        "ver": "Service 2.19.8",
+        "hash": "service-2198",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code> 모든 메트릭스를 통해 위젯 추가 시, 색상 변경 옵션 및 설명이 적용되지 않는 현상 수정</li>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_19_x",
+    "ver": "Service 2.19.7",
+    "date": "2025-08-08",
+    "Lists": [
+      {
+        "ver": "Service 2.19.7",
+        "hash": "service-2197",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">히트맵</span> <strong>위젯</strong> 트랜잭션 수가 실제보다 많이 표시되는 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.19.7",
+        "hash": "service-2197",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">히트맵</span> 잘못된 시간으로 진입 시, 화면이 표시되지 않는 현상 수정</p>"
+      },
+      {
+        "ver": "Service 2.19.7",
+        "hash": "service-2197",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">애플리케이션 히트맵</span> 잘못된 시간으로 진입 시, 화면이 표시되지 않는 현상 수정</li>"
+      },
+      {
+        "ver": "Service 2.19.7",
+        "hash": "service-2197",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> 화면 조회되지 않는 오류 수정</li>",
+        "category": "Tibero"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_19_x",
+    "ver": "Service 2.19.6",
+    "date": "2025-08-04",
+    "Lists": [
+      {
+        "ver": "Service 2.19.6",
+        "hash": "service-2196",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 상세</span> 서버 변경 시, 간헐적으로 선택된 서버 명이 변경되지 않은 것처럼 보이는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_19_x",
+    "ver": "Service 2.19.5",
+    "date": "2025-07-30",
+    "Lists": [
+      {
+        "ver": "Service 2.19.5",
+        "hash": "service-2195",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 타이머 갱신 시, 서버 상세 차트의 툴팁이 사라지거나 서버 셀렉트 리스트 스크롤이 초기화되는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_19_x",
+    "ver": "Service 2.19.4",
+    "date": "2025-07-28",
+    "Lists": [
+      {
+        "ver": "Service 2.19.4",
+        "hash": "service-2194",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 이벤트 등록 시 타겟 검색할 경우, 전체 선택 버튼이 동작하지 않는 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_19_x",
+    "ver": "Service 2.19.3",
+    "date": "2025-07-28",
+    "Lists": [
+      {
+        "ver": "Service 2.19.3",
+        "hash": "service-2193",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계</span> &gt; <span class=\"uitext\">상세 보기</span> 트랜잭션 검색 이동 시 에이전트 조회되지 않는 현상 수정</li>"
+      },
+      {
+        "ver": "Service 2.19.3",
+        "hash": "service-2193",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 보고서 생성 옵션 프리셋 저장 기능 추가 및 마운트 디스크 필터를 선택된 에이전트의 마운트 디스크 목록만 선택되도록 수정</p>"
+      },
+      {
+        "ver": "Service 2.19.3",
+        "hash": "service-2193",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 이벤트 등록 시, 타겟 검색할 경우 전체 선택 버튼을 클릭하면 검색된 타겟만 선택되도록 변경</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_19_x",
+    "ver": "Service 2.19.2",
+    "date": "2025-07-25",
+    "Lists": [
+      {
+        "ver": "Service 2.19.2",
+        "hash": "service-2192",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Flex 보드</span> 테이블 위젯 컬럼 고정 기능 오류 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/service/service-2_19_x",
     "ver": "Service 2.19.0",
     "date": "2025-07-23",
@@ -9,21 +173,21 @@
         "hash": "service-2190",
         "product": "공통",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">프로젝트 사용량 미리보기</span> 기능 추가</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">이용내역</span> &gt; <strong>프로젝트 사용량 미리보기</strong> 추가</p>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "공통",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 프로젝트 목록 새로고침 시 카드 뷰 상태 유지</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 프로젝트 목록에서 새로고침 시, '확장 카드 뷰' '축소 카드 뷰' 상태 유지되도록 개선</p>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Application",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">AI 기반 스레드 덤프 분석</span> 기능 추가 <code class=\"Beta\">Beta</code></p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">인스턴스 성능 관리</span> &gt; <span class=\"uitext\">스레드 목록/덤프</span> AI 기반 스레드 덤프 내용 분석 기능 추가(프로젝트별 일일 20건 제한) <code class=\"Beta\">Beta</code></p>"
       },
       {
         "ver": "Service 2.19.0",
@@ -37,147 +201,348 @@
         "hash": "service-2190",
         "product": "Application",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 명 수정 시 정보가 남아있는 문제 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">에이전트 목록</span> 에이전트 명 수정 시 처음 에이전트 정보가 남아있는 문제 수정</p>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Application",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 최소 크기로 줄였다 늘릴 경우 차트 미표시 문제 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">스피드 차트</span> 최소 크기로 줄였다 늘릴 경우, 차트가 다시 그려지지 않는 문제 수정</p>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Application",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 공유된 URL 진입 시 필터키 적용 문제 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">트랜잭션 맵</span> 공유된 URL 진입 시, 특정 필터키가 검색에 적용되지 않는 현상 수정</p>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Application",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 일본어 수정 및 적용</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">에이전트 설정</span> 일본어 수정 및 적용</p>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Application",
         "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> PHP 지원 버전 안내 문구 수정</p>"
+        "desc": "<li><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">프로젝트 추가</span>, <span class=\"uitext\">에이전트 설치</span> 지원 버전 안내 문구 수정</li>",
+        "category": "PHP"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Application",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Node.js 시스템 GC 화면 추가 (v0.5.21+)</p>"
+        "desc": "<li><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">인스턴스 성능 관리</span> &gt; <span class=\"uitext\">시스템 GC</span> 추가 (Node.js 에이전트 0.5.21 버전 이상 사용 가능)</li>",
+        "category": "Node.js"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Server",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 서버 가상자산 필터 및 컬럼 기능 추가</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">서버 인벤토리 맵</span> 서버 가상자산(클라우드) 지표가 추가되어 필터, 그룹화 옵션 셀렉터, 컬럼 설정 등에 표시</p>",
+        "details": "<ul>\n<li>추가된 지표: Cloud Service Provider, Cloud Instance ID, Cloud Instance Name, Cloud Instance type, Cloud Instance Lifecycle, Cloud Region, Cloud Security Group, Cloud Image</li>\n</ul>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Server",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> GPU 인벤토리 CSV 다운로드 기능 추가</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 인벤토리</span> 서버 가상자산 지표 추가되어 테이블 및 필터 조건에 표시</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>GPU 인벤토리</strong> 목록 CSV 데이터로 다운로드 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>GPU 인벤토리</strong> 목록 데이터 중 custom 데이터를 CSV 파일로 일괄 업데이트 가능</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>GPU 성능요약</strong> 모든 필드에 적용할 수 있는 필터 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>GPU 성능요약</strong> GPU를 선택해 성능지표를 차트로 비교 가능</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>GPU 성능요약</strong> 선택한 컬럼과 조회한 시점의 테이블 데이터를 다운로드 받을 수 있는 CSV 다운로드 기능 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>GPU 성능요약</strong> &gt; <strong>기능 활성화 안내</strong> GPU 모니터링 지원 환경 안내 문구 추가</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>컬럼 설정</strong> 그룹별로 컬럼을 선택하고 순서를 조정할 수 있음</p>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Server",
         "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> GPU 성능요약 필터 개선</p>"
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code>  <strong>GPU 성능요약</strong> &gt; <strong>기능소개 모달</strong>, <strong>에이전트 업데이트 필요</strong>, <strong>기능 활성화 가이드</strong> 기능 사용을 위한 Linux 에이전트 최소 버전을 2.8.5에서 2.8.9로 업데이트</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">서버 목록</span> 태그 필터 원복</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">서버 인벤토리</span> 자동 수집되는 지표 정보 영문으로 일괄 변경</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>GPU 인벤토리</strong> 테이블 컬럼 순서 변경하고, 필수 정보 컬럼을 왼쪽에 고정하도록 개선</p>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Server",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 서버 상태 API 오류 시 페이지 화이트아웃 문제 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 설치 시 설치 그룹 항목이 많을 경우, 메트릭스 선택 UI가 사라지던 문제 수정</p>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 목록</span> &gt; <span class=\"uitext\">서버 상세</span> 서버 상태 API 오류 시 전체 페이지 화이트 아웃 문제 수정</p>",
+        "details": "<ul>\n<li>서버 상태 아이콘에 <code>?</code> 표시 및 기타 데이터는 표시되도록 개선</li>\n</ul>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Kubernetes",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 컨테이너 맵 STATUS 라벨 표시 옵션 추가</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">컨테이너 맵</span> STATUS 라벨 표시 옵션 추가</p>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Kubernetes",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> PV, PVC 정보 추가</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">워크로드</span> &gt; <span class=\"uitext\">Pod 목록</span> PV, PVC 정보 추가</p>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Database",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 이퀄라이저 위젯 시리즈 차트 팝업 추가</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 이퀄라이저 위젯 클릭 시, 해당 지표의 추이를 볼 수 있는 시리즈 차트 팝업 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> <code class=\"newfunc\">New</code>, <span class=\"uitext\">멀티 인스턴스 모니터링</span> 시리즈 차트에 y축 조절 기능 추가</p>",
+        "category": "공통"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Database",
         "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> DB 모니터링 y축 조절 및 애니메이션 개선</p>"
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> <code class=\"newfunc\">New</code>, <span class=\"uitext\">멀티 인스턴스 모니터링</span> Info 아이콘 및 y축 조절 버튼 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> <code class=\"oldfunc\">Old</code> 와 <span class=\"uitext\">인스턴스 모니터링</span> <code class=\"newfunc\">New</code> 중 마지막으로 진입한 페이지가 저장되도록 변경</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 실시간 상태에 따라 대시보드의 이퀄라이저 차트 애니메이션 변경</p>",
+        "category": "공통"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Database",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 대시보드 차트 드래그 동작 개선</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span>,  <span class=\"uitext\">슬로우 쿼리</span> 차트 드래그 시 커서가 차트 영역을 벗어나면 드래그되지 않는 현상 수정</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>사용자 그룹별 표시 설정</strong> 디자인 개선</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<li><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">스크립트 매니저</span> 실험실 → 분석으로 메뉴 이동</li>",
+        "category": "Altibase, Cubrid, MySQL, Oracle, Oracle Pro, PostgreSQL, SQL Server, Tibero"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Database",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> MySQL 세션 히스토리 추가</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>인스턴스 맵</strong></p>",
+        "category": "MySQL, Oracle, Oracle Pro, postgresql",
+        "details": "<ul>\n<li>\n<p>락 트리 탭, Top SQL 탭 추가</p>\n</li>\n<li>\n<p>비활성 인스턴스 표시 옵션 추가</p>\n</li>\n<li>\n<p>그룹화 및 라벨 옵션으로 Replication Role 추가</p>\n</li>\n<li>\n<p>진행 중인 이벤트 일괄 해소 기능 추가</p>\n</li>\n<li>\n<p>임계치 설정 시 인스턴스 개요 탭의 지표 카드와 색상이 연동되도록 추가</p>\n</li>\n<li>\n<p>인스턴스 아이콘 색상이 진행 중인 이벤트 상태와 연동되도록 개선 (설정 아이콘으로 연동 여부 설정 가능)</p>\n</li>\n</ul>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Database",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Oracle Pro ASM 디스크 사용량 테이블 추가</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>인스턴스 맵</strong> &gt; <strong>인스턴스 개요</strong> 탭</p>",
+        "category": "MySQL, Oracle, Oracle Pro, postgresql",
+        "details": "<ul>\n<li>\n<p>데이터베이스 파라미터 화면 이동 버튼 추가</p>\n</li>\n<li>\n<p>지표 카드 클릭 시, 해당 지표의 추이를 확인할 수 있는 시리즈 차트가 팝업되도록 추가</p>\n</li>\n<li>\n<p>Disk Usage 지표 카드 클릭 시, 디스크 사용량 상세를 확인할 수 있는 팝업창 추가</p>\n</li>\n</ul>"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>인스턴스 맵</strong> 임계치 표시가 화면 크기에 따라 동적으로 조절되고, 추가 항목은 팝오버로 확인할 수 있도록 변경</p>",
+        "category": "MySQL, Oracle, Oracle Pro, postgresql"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>Top SQL</strong> 실험실 → 분석으로 메뉴 이동</p>",
+        "category": "MySQL, Oracle, Oracle Pro, postgresql"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>인스턴스 맵</strong> 간헐적으로 발생하던 화이트아웃 현상 수정</p>",
+        "category": "MySQL, Oracle, Oracle Pro, postgresql"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Database",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Wait 별 Top SQL 추가</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">세션 히스토리</span> 추가</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계/보고서</span> &gt;  <strong>테이블 사이즈 증감</strong> 인스턴스 셀렉터 개선</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>통계/보고서</strong> &gt; <strong>테이블 사이즈 증감</strong> 엑셀 파일 다운로드 제공 및 CSV 파일 컬럼 다국어 적용</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>통계/보고서</strong> &gt; <strong>테이블 사이즈 증감</strong> 기준 날짜 / 비교 날짜를 스왑해도 데이터가 변경되지 않는 현상 수정</p>",
+        "category": "MySQL"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">테이블스페이스 사이즈</span> ASM 디스크 사용량 테이블 추가</p>",
+        "category": "Oracle Pro"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> wait class 관련 필드 추가</p>",
+        "category": "Oracle Pro"
+      },
+      {
+        "ver": "Service 2.19.0",
+        "hash": "service-2190",
+        "product": "Database",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>Wait 별 Top SQL</strong> 추가</p>",
+        "category": "Oracle Pro"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Network",
         "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> MNU06848 서버 저장 방식으로 변경</p>"
+        "desc": "<li><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">네트워크 토폴로지</span> 수정한 내용을 서버에 저장하도록 변경하여, 프로젝트 간 공유 가능 (기존은 브라우저에만 저장되어 공유 불가)</li>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "Log",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 로그 탐색 드릴다운 쿼리 우선순위 문제 수정</p>"
+        "desc": "<li><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">로그</span> &gt; <strong>로그 탐색</strong> 드릴다운 기능 동작 시 쿼리 연산자 우선 순위 문제 수정</li>"
       },
       {
         "ver": "Service 2.19.0",
         "hash": "service-2190",
         "product": "WhaTap AI Chatbot",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 다국어(일본어, 영어) 지원</p>"
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 다국어(일본어, 영어) 지원 기능 추가 (챗봇 UI 및 메시지 언어 자동 적용)</p>"
       },
       {
         "ver": "Service 2.19.0",
@@ -195,4 +560,4 @@
       }
     ]
   }
-]
+  ]

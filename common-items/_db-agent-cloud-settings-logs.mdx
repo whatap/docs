@@ -1,0 +1,90 @@
+데이터베이스 클라우드 에이전트는 AWS CloudWatch Logs API를 사용하여 RDS 및 Aurora 인스턴스를 포함한 다양한 로그를 주기적으로 수집할 수 있습니다.
+이 문서는 API가 비용에 어떤 영향을 미치는지 이해하고 그에 맞춰 적절한 수집 설정 방법을 안내합니다.
+
+## CloudWatch Logs API 사용과 비용 영향
+
+DBXC Agent는 CloudWatch Logs의 FilterLogEvents API를 이용해 이미 저장된 로그를 조회합니다. 이때 발생하는 비용은 크게 두 가지 요소에 의해 결정됩니다.
+
+첫째, **조회된 데이터의 양**입니다. API를 호출하면 지정한 시간 범위와 제한 값(`regular_fetch_limit`)에 따라 CloudWatch Logs에서 해당 로그를 읽어옵니다. 읽어오는 데이터가 많을수록 AWS 내부 처리와 데이터 전송에 따른 비용이 증가합니다
+
+둘째, **API 호출 횟수**입니다. interval이 짧거나 수집 대상 로그 그룹이 많으면 주기적으로 많은 API 호출이 발생하게 됩니다. 호출 횟수 자체에도 과금이 적용되기 때문에, 짧은 간격으로 자주 호출하면 데이터 양이 적더라도 호출 비용이 누적될 수 있습니다.
+
+결과적으로, FilterLogEvents를 통한 로그 수집에서는 **조회 데이터 양**이 비용에 더 큰 영향을 주지만, **짧은 주기와 많은 대상 그룹**을 함께 사용하면 API 호출 비용도 무시할 수 없게 됩니다. 따라서 효율적인 운영을 위해서 `regular_fetch_limit`로 불필요하게 많은 로그를 한 번에 가져오지 않도록 하고, interval을 환경에 맞게 조정하여 호출 횟수를 관리하는 것이 중요합니다.
+
+:::info
+
+**공식 참고 문서**
+- AWS API Reference: [FilterLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html)
+- AWS Pricing: [CloudWatch Logs 요금](https://aws.amazon.com/cloudwatch/pricing/)
+
+:::
+
+## 로그 수집 동작 방식
+
+DBXC Agent는 FilterLogEvents API를 주기적으로 호출하여 지정된 로그 그룹에서 새로운 로그를 가져옵니다.
+
+각 호출 시점에는 마지막 수집 시각부터 현재 시각까지의 로그만 조회하며, 각 로그 그룹별로 수집 상태를 별도로 관리합니다.
+
+마지막 수집 시각은 로컬 상태 파일에 저장되므로, Agent 재시작 시에도 이전 지점부터 이어서 수집할 수 있습니다.
+
+## 운영 환경별 권장 설정
+
+모든 설정은 logs.groups 항목에 실제 수집할 로그 그룹 목록을 지정해야 하며, 로그 수집을 위해서는 logs:FilterLogEvents와 logs:DescribeLogGroups 권한이 필요합니다.
+
+### 일반 프로덕션 환경(기본값)
+
+```yaml
+logs:
+  groups:
+    - "/aws/rds/instance/prod-mysql/error"
+    - "/aws/rds/instance/prod-mysql/general"
+  interval: 60
+  regular_fetch_limit: 1000
+```
+
+에이전트의 기본(default) 값으로, 설정 파일에 따로 명시하지 않아도 동일하게 적용됩니다. 이 구성은 서비스 시작 시 불필요하게 많은 로그를 한 번에 가져오는 상황을 방지하며, 이후에는 매 주기 최대 1,000개의 로그를 안정적으로 수집합니다. 실시간성, 안정성, 그리고 비용 효율성의 균형이 좋아 대부분의 운영 환경에 적합합니다.
+
+### 실시간성 강화 환경
+
+```yaml
+logs:
+  groups:
+    - "/aws/rds/cluster/prod-aurora/audit"
+    - "/aws/rds/cluster/prod-aurora/error"
+  interval: 30
+  regular_fetch_limit: 200
+```
+
+30초마다 로그를 수집해 지연을 최소화하고, 한 번에 가져오는 양을 줄여 메모리 사용량을 낮춥니다.
+다만 호출 횟수가 늘어나 API 호출 비용이 증가할 수 있으므로, 실시간성이 중요한 서비스에만 적용하는 것이 좋습니다.
+
+### 비용 최적화 환경
+
+```yaml
+logs:
+  groups:
+    - "/aws/rds/instance/mysql/error"
+  interval: 300
+  regular_fetch_limit: 500
+```
+
+5분마다 로그를 수집하여 API 호출 횟수를 크게 줄임으로써 비용을 절감할 수 있습니다.
+다만 최대 5분의 로그 반영 지연이 발생하므로, 실시간 모니터링이 필수적인 환경에는 적합하지 않습니다.
+
+## 설정 튜닝 방법
+
+API 비용이 예상보다 높으면 interval을 늘리거나 `regular_fetch_limit` 값을 줄이고, 로그 누락이 우려되면 interval을 줄입니다.
+메모리 사용량이 높으면 `regular_fetch_limit` 값을 줄이거나 수집 대상 로그 그룹 수를 줄이는 것이 좋습니다.
+
+## IAM 권한 설정
+
+```json
+{
+  "Effect": "Allow",
+  "Action": [
+    "logs:FilterLogEvents",
+    "logs:DescribeLogGroups"
+  ],
+  "Resource": "arn:aws:logs:*:*:log-group:/aws/rds/*"
+}
+```

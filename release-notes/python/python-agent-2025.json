@@ -1,5 +1,27 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_8_11",
+    "ver": "v1.8.11",
+    "date": "2025-09-01",
+    "Lists": [
+      {
+        "ver": "v1.8.11",
+        "hash": "v1811",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>psycopg_pool</code> 모듈 추적 기능 추가</p>"
+      },
+      {
+        "ver": "v1.8.11",
+        "hash": "v1811",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>sqlAlchemy</code> 모듈 수정 </p>",
+        "details": "<ul><li><p><code>asyncmy</code>드라이브의 쿼리 매개변수가 치환되지 않던 현상 수정</p></li></ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_8_10",
     "ver": "v1.8.10",
     "date": "2025-08-22",
@@ -17,7 +39,7 @@
         "product": "Python Agent",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>neo4j</code> 모듈 수정 </p>",
-        "details": "<ul><li>DB 연결 시점이 정상적으로 수집되지 않던 현상 수정</p></li></ul>"
+        "details": "<ul><li><p>DB 연결 시점이 정상적으로 수집되지 않던 현상 수정</p></li></ul>"
       }
     ]
   },

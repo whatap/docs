@@ -1,0 +1,257 @@
+[
+  {
+    "ver": "v0.2.7",
+    "date": "2025-09-02",
+    "Lists": [
+      {
+        "ver": "v0.2.7",
+        "hash": "v027",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Span 데이터 순차 처리 옵션 추가</p>",
+        "details": "<ul>\n<li>Trace 데이터의 scopespan 처리 시 <code>Span.Kind = KIND_SERVER</code>는 와탭 트랜잭션으로 처리</li>\n<li>기존: 하나의 request에 여러 <code>KIND_SERVER</code> span을 모아 마지막에 처리</li>\n<li>옵션 설정 시 Span을 순차적으로 처리</li>\n<ul>\n    <li>otel_tx_process_server_span_in_order_enabled</li>\n    <li>기본값: <code>false</code></li>\n</ul>\n</ul>"      }
+    ]
+  },  
+  {
+    "url": "https://docs.whatap.io/release-notes/otel/otel-v0_2_6",
+    "ver": "v0.2.6",
+    "date": "2025-09-01",
+    "Lists": [
+      {
+        "ver": "v0.2.6",
+        "hash": "v026",
+        "product": "OTEL Agent",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\" type=\"1\">Change</code> Span 데이터 처리 방식 개선</p>",
+        "details": "<ul>\n<li>부모·자식 트리 구조로 Span 데이터를 수집</li>\n<li>중간에 부모 Span 데이터가 없어도 이후 자식 Span 데이터를 처리하도록 변경</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.6",
+        "hash": "v026",
+        "product": "OTEL Agent",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\" type=\"1\">Change</code> 속성 키 이름 추가</p>",
+        "details": "<ul>\n<li>\n<p>HTTP 상태 코드를 수집하는 속성 키 이름 http.response.status_code를 추가</p>\n<ul>\n<li>otel_attr_tx_status_keys<!-- -->\n<ul>\n<li>기본값: http.status_code, http.response.status_code</li>\n</ul>\n</li>\n</ul>\n</li>\n<li>\n<p>에러 정보를 수집하는 속성 키 이름 error 를 추가</p>\n<ul>\n<li>otel_attr_error_keys<!-- -->\n<ul>\n<li>기본값: error, error.type</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/otel/otel-v0_2_5",
+    "ver": "v0.2.5",
+    "date": "2025-07-09",
+    "Lists": [
+      {
+        "ver": "v0.2.5",
+        "hash": "v025",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"2\">Feature</code> Parent 없는 Span을 트랜잭션으로 인식</p>",
+        "details": "<ul>\n<li>Parent가 없는 Span은 kind에 관계없이 트랜잭션으로 처리</li>\n<li>기존에는 <code>SPAN_KIND_SERVER</code>만 트랜잭션으로 처리</li>\n<li>관련 옵션: <code>otel_tx_root_span_enabled</code> (기본값: true)</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.5",
+        "hash": "v025",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"2\">Feature</code> 메트릭스 수집 방식 개선</p>",
+        "details": "<ul>\n<li>기존 로그 기반 수집에서 프로메테우스 호환 방식으로 변경</li>\n<li>Flex 보드(MXQL 데이터 조회)로 확인 가능</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.5",
+        "hash": "v025",
+        "product": "OTEL Agent",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\" type=\"1\">Change</code> <code>query_string_enabled</code> 옵션 동작 방식 변경</p>",
+        "details": "<ul>\n<li><code>query_string_enabled</code>가 true이고 <code>query_string_urls</code>, <code>query_string_keys</code>가 설정되지 않은 경우<br>\n<!-- -->모든 URL의 query string 수집</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.5",
+        "hash": "v025",
+        "product": "OTEL Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> HTTP Status 카운터 수집 오류 수정</p>",
+        "details": "<ul>\n<li>500번대 에러의 합산 값이 수집되지 않던 문제 수정</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/otel/otel-v0_2_4",
+    "ver": "v0.2.4",
+    "date": "2025-04-30",
+    "Lists": [
+      {
+        "ver": "v0.2.4",
+        "hash": "v024",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> HTTP Status 오류 표시</p>",
+        "details": "<ul>\n<li>\n<p>HTTP Status code가 400 이상일 경우 오류로 표기하는 설정</p>\n<ul>\n<li>Key: <strong>transaction_status_error_enable</strong></li>\n<li>Type: <span class=\"type\">bool</span></li>\n<li>Default: <code>false</code></li>\n<li>수집 주기: 10초</li>\n</ul>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.4",
+        "hash": "v024",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> HTTP Status Code 통계 수집</p>",
+        "details": "<ul>\n<li>\n<p>전체 URL의 Status Code별 건수 수집을 위한 설정</p>\n<ul>\n<li>Key: <strong>tx_status_meter_enabled</strong></li>\n<li>Type: <span class=\"type\">bool</span></li>\n<li>Default: <code>true</code></li>\n<li>수집 주기: 10초</li>\n</ul>\n</li>\n<li>\n<p>URL별 Status Code 건수 수집을 위한 설정</p>\n<ul>\n<li>Key: <strong>stat_txstatus_enabled</strong></li>\n<li>Type: <span class=\"type\">bool</span></li>\n<li>Default: <code>true</code></li>\n<li>수집 주기: 5분</li>\n</ul>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.4",
+        "hash": "v024",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 분산 추적용 HTTP call 가상 span 정보를 설정해 분석 추적</p>",
+        "details": "<ul>\n<li>\n<p>HTTP call span 정보가 없을 때 가상 span 활성화</p>\n<ul>\n<li>Key: <strong>otel_virtual_httpc_enabled</strong></li>\n<li>Type: <span class=\"type\">bool</span></li>\n<li>Default: <code>false</code></li>\n</ul>\n</li>\n<li>\n<p>HTTP call span 정보가 없을 때 이름 설정</p>\n<ul>\n<li>Key: <strong>otel_virtual_httpc_name</strong></li>\n<li>Type: <span class=\"type\">string</span></li>\n<li>Default: <code>external http call</code></li>\n</ul>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.4",
+        "hash": "v024",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Gateway 정보 수집</p>",
+        "details": "<ul>\n<li>\n<p>게이트웨이 정보 수집 활성화</p>\n<ul>\n<li>Key: <strong>otel_gateway_enabled</strong></li>\n<li>Type: <span class=\"type\">bool</span></li>\n<li>Default: <code>false</code></li>\n<li>수집 항목 및 주기<!-- -->\n<ul>\n<li>전체 URL 단위 트랜잭션·게이트웨이·API 호출 경과 시간 수집 주기: 10초</li>\n<li>URL·Status별 트랜잭션·게이트웨이·API 호출 경과 시간 수집 주기: 5분</li>\n</ul>\n</li>\n</ul>\n</li>\n<li>\n<p>지정된 속성(attribute)의 값으로 게이트웨이 경과 시간을 설정</p>\n<ul>\n<li>Key: <strong>otel_attr_tx_gw_time_keys</strong></li>\n<li>Type: <span class=\"type\">string</span></li>\n<li>Default: <code>duration.kong</code></li>\n</ul>\n</li>\n<li>\n<p>지정된 속성(attribute)의 값으로 API 호출 경과 시간을 설정</p>\n<ul>\n<li>Key: <strong>otel_attr_tx_api_time_keys</strong></li>\n<li>Type: <span class=\"type\">string</span></li>\n<li>Default: <code>duration.proxy</code></li>\n</ul>\n</li>\n<li>\n<p>지정된 속성(attribute)의 값으로 응답시간을 설정</p>\n<ul>\n<li>Key: <strong>otel_replace_tx_resp_time_enabled</strong></li>\n<li>Type: <span class=\"type\">bool</span></li>\n<li>Default: <code>false</code></li>\n<li>Key: <strong>otel_attr_replace_tx_resp_time_keys</strong></li>\n<li>Type: <span class=\"type\">string</span></li>\n<li>Default: <code>duration.kong</code></li>\n</ul>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.4",
+        "hash": "v024",
+        "product": "OTEL Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> HTTP Method 무시 설정 오류를 수정</p>",
+        "details": "<ul>\n<li><code>PATCH</code>, <code>OPTIONS</code>, <code>HEAD</code>, <code>TRACE</code> 메소드는 트랜잭션으로 수집하지 않음</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/otel/otel-v0_2_3",
+    "ver": "v0.2.3",
+    "date": "2025-02-25",
+    "Lists": [
+      {
+        "ver": "v0.2.3",
+        "hash": "v023",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Span의 <code>name</code> 값을 트랜잭션 이름으로 지정하는 옵션 추가</p>",
+        "details": "<ul>\n<li><strong>otel_tx_path_setby_name_enabled</strong> <span class=\"type\">bool</span> (기본값 <code>false</code>)</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.3",
+        "hash": "v023",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Trace Span의 <code>SpanID</code>를 외부 연결의 <code>ParentSpanID</code>로 인식하는 멀티 트랜잭션 연결 관련 옵션 추가</p>",
+        "details": "<ul>\n<li><strong>otel_mtrace_stepid_setby_trace_spanid_enabled</strong> <span class=\"type\">bool</span> (기본값 <code>false</code>)</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.3",
+        "hash": "v023",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 파일 로그와 동일한 내용을 <code>Stdout</code>으로 출력하는 로그 옵션 추가</p>",
+        "details": "<ul>\n<li><strong>log_stdout_enabled</strong> <span class=\"type\">bool</span> (기본값 <code>false</code>)</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.3",
+        "hash": "v023",
+        "product": "OTEL Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <em>whatap.conf</em> 파일이 없을 경우 파일 없음 오류 로그가 계속 출력되는 현상 수정</p>"
+      },
+      {
+        "ver": "v0.2.3",
+        "hash": "v023",
+        "product": "OTEL Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 트랜잭션 ID가 <code>0</code>으로 표기되는 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/otel/otel-v0_2_2",
+    "ver": "v0.2.2",
+    "date": "2024-12-11",
+    "Lists": [
+      {
+        "ver": "v0.2.2",
+        "hash": "v022",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 트랜잭션 URL과 URI 정보를 분리해서 처리</p>",
+        "details": "<p>기존 URL로 표기되는 부분은 URI로 표기합니다.</p>"
+      },
+      {
+        "ver": "v0.2.2",
+        "hash": "v022",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 외부 HTTP 호출의 URL 표기가 \"Host<!-- -->:Port<!-- -->\"로 수정</p>"
+      },
+      {
+        "ver": "v0.2.2",
+        "hash": "v022",
+        "product": "OTEL Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Kong gateway 관련하여 정보를 추출할 속성의 키 값을 기본 설정에 추가</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/otel/otel-v0_2_1",
+    "ver": "v0.2.1",
+    "date": "2024-11-06",
+    "Lists": [
+      {
+        "ver": "v0.2.1",
+        "hash": "v021",
+        "product": "OTEL Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 내부에서 예기치 못한 panic 발생으로 인해 데이터 처리 goroutine이 중지되는 현상 수정</p>"
+      },
+      {
+        "ver": "v0.2.1",
+        "hash": "v021",
+        "product": "OTEL Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 불필요한 로그 제거 및 정리</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/otel/otel-v0_2_0",
+    "ver": "v0.2.0",
+    "date": "2024-06-19",
+    "Lists": [
+      {
+        "ver": "v0.2.0",
+        "hash": "v020",
+        "product": "OTEL Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> linux aarch64 지원</p>"
+      },
+      {
+        "ver": "v0.2.0",
+        "hash": "v020",
+        "product": "OTEL Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\">New</code> span events에서 에러 정보 추가 수집</p>",
+        "details": "<ul>\n<li>\n<p>에러 내용이 <code>attribute</code>가 아닌 <code>event</code>로 유입되는 경우를 위해 수집합니다.</p>\n</li>\n<li>\n<p><code>event</code>에서 에러를 찾기 위한 에이전트 설정 옵션을 추가하세요.</p>\n<div class=\"language-ini codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockTitle_Ktv7\">whatap.conf</div><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-ini codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">otel_events_exception_keys</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">exception.type</span><span class=\"token plain\"></span><br></span><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token plain\"></span><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">otel_events_error_message_keys</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">exception.message</span><span class=\"token plain\"></span><br></span><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token plain\"></span><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">otel_events_error_stack_keys</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">exception.stacktrace</span><span class=\"token plain\"></span><br></span><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token plain\"></span><span class=\"token key attr-name\" style=\"color:rgb(255, 203, 107)\">otel_events_error_esc_keys</span><span class=\"token punctuation\" style=\"color:rgb(199, 146, 234)\">=</span><span class=\"token value attr-value\">exception.escaped</span><br></span></code></pre><div class=\"buttonGroup__atx\"><button type=\"button\" aria-label=\"클립보드에 코드 복사\" title=\"복사\" class=\"clean-btn\"><span class=\"copyButtonIcons_eSgA\" aria-hidden=\"true\"><svg viewbox=\"0 0 24 24\" class=\"copyButtonIcon_y97N\"><path fill=\"currentColor\" d=\"M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z\"></path></svg><svg viewbox=\"0 0 24 24\" class=\"copyButtonSuccessIcon_LjdS\"><path fill=\"currentColor\" d=\"M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z\"></path></svg></span></button></div></div></div>\n</li>\n</ul>"
+      },
+      {
+        "ver": "v0.2.0",
+        "hash": "v020",
+        "product": "OTEL Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> 기존 <em>paramkey.txt</em> 대신 <em>security.conf</em> 파일 사용</p>",
+        "details": "<p>기존 <em>security.conf</em> 파일의 <code>paramkey</code> 키의 값을 사용합니다. 기본값은 무작위값이 아닌 <code>WHATAP</code>으로 지정도록 변경합니다. <code>WHATAP</code> 지정되면 키 입력없이 복호화할 수 있습니다.</p>"
+      },
+      {
+        "ver": "v0.2.0",
+        "hash": "v020",
+        "product": "OTEL Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\">Changed</code> SQL 문장의 정규화 옵션 설정 변경</p>",
+        "details": "<ul>\n<li>\n<p>SQL 문장에서 파라미터를 분리하여 정규화하는 기능을 항상 활성화하세요. <code>trace_sql_normalize_enabled</code> 옵션을 항상 <code>true</code>로 설정하세요.</p>\n</li>\n<li>\n<p>이미 정규화 옵션을 비활성화(정규화 중지 설정)한 상태라면, 정규화해서 파라미터를 별도 표기하는 설정을 활성화하세요.</p>\n<ul>\n<li><code>profile_sql_param_enabled</code> 옵션을 <code>true</code>로 설정하세요.</li>\n<li>정규화된 파라미터를 별도 암호화하여 수집합니다.</li>\n<li><em>security.conf</em>의 <code>paramkey</code>로 복호화하여 데이터를 확인할 수 있습니다.</li>\n</ul>\n</li>\n</ul>"
+      }
+    ]
+  }
+  ]

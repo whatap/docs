@@ -1,8 +1,45 @@
 
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_64",
+    "ver": "Java Agent v2.2.64" , 
+    "date": "2025-09-03",
+    "Lists": [
+      {
+        "ver": "v2.2.64",
+        "hash": "v2264",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code>apache httpclient로 Opensearch를 호출하는 경우 추적</p>",
+        "details": "<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># requires agent restart</span></span><br><span class=\"token-line\" style=\"color:#bfc7d5\">weavingd=opensearch</span></code></pre><div class=\"buttonGroup__atx\"><button type=\"button\" aria-label=\"클립보드에 코드 복사\" title=\"복사\" class=\"clean-btn\"><span class=\"copyButtonIcons_eSgA\" aria-hidden=\"true\"><svg viewbox=\"0 0 24 24\" class=\"copyButtonIcon_y97N\"><path fill=\"currentColor\" d=\"M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z\"></path></svg><svg viewbox=\"0 0 24 24\" class=\"copyButtonSuccessIcon_LjdS\"><path fill=\"currentColor\" d=\"M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z\"></path></svg></span></button></div></div></div>"
+      },
+      {
+        "ver": "v2.2.64",
+        "hash": "v2264",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 동일한 Linux host에서 여러 개의 docker를 수행하는 경우에 vCPU 중복 집계 방지하도록 수정</p>"
+      },
+      {
+        "ver": "v2.2.64",
+        "hash": "v2264",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> spring-boot-3.2 이상 버전에서 WebClient로 opentelemetry 에이전트를 사용하는 애플리케이션 연계 추적 시 멀티 트랜잭션탭에서 연결되지 않는 현상 수정</p>"
+      },
+      {
+        "ver": "v2.2.64",
+        "hash": "v2264",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Java 1.7 미만인 경우, jmx를 통해 system cpu 지표를 수집하는 현상 방지</p>",
+        "details": "<ul><li>에이전트 로그에 sigar 라이브러리 사용하도록 표시</li>\n<div class=\"language-bash codeBlockContainer_Ckt0 theme-code-block\" style=\"--prism-color:#bfc7d5;--prism-background-color:#292d3e\"><div class=\"codeBlockContent_biex\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock_bY9V thin-scrollbar\" style=\"color:#bfc7d5;background-color:#292d3e\"><code class=\"codeBlockLines_e6Vv\"><span class=\"token-line\" style=\"color:#bfc7d5\"><span class=\"token comment\" style=\"color:rgb(105, 112, 152);font-style:italic\"># default: false</span></span><br><span class=\"token-line\" style=\"color:#bfc7d5\">sigar_enabled=true</span></code></pre><div class=\"buttonGroup__atx\"><button type=\"button\" aria-label=\"클립보드에 코드 복사\" title=\"복사\" class=\"clean-btn\"><span class=\"copyButtonIcons_eSgA\" aria-hidden=\"true\"><svg viewbox=\"0 0 24 24\" class=\"copyButtonIcon_y97N\"><path fill=\"currentColor\" d=\"M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z\"></path></svg><svg viewbox=\"0 0 24 24\" class=\"copyButtonSuccessIcon_LjdS\"><path fill=\"currentColor\" d=\"M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z\"></path></svg></span></button></div></div></div></ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_63",
-    "ver": "v2.2.63",
+    "ver": "Java Agent v2.2.63",
     "date": "2025-08-08",
     "Lists": [
       {
@@ -24,7 +61,7 @@
   },  
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_62",
-    "ver": "v2.2.62",
+    "ver": "Java Agent v2.2.62",
     "date": "2025-07-03",
     "Lists": [
       {
@@ -60,7 +97,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_61",
-    "ver": "v2.2.61",
+    "ver": "Java Agent v2.2.61",
     "date": "2025-06-09",
     "Lists": [
       {
@@ -82,7 +119,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_60",
-    "ver": "v2.2.60",
+    "ver": "Java Agent v2.2.60",
     "date": "2025-05-29",
     "Lists": [
       {
@@ -135,7 +172,7 @@
   },  
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_59",
-    "ver": "v2.2.59",
+    "ver": "Java Agent v2.2.59",
     "date": "2025-05-08",
     "Lists": [
       {
@@ -157,7 +194,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_58/",
-    "ver": "v2.2.58",
+    "ver": "Java Agent v2.2.58",
     "date": "2025-04-25",
     "Lists": [
       {
@@ -178,7 +215,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_57",
-    "ver": "v2.2.57",
+    "ver": "Java Agent v2.2.57",
     "date": "2025-04-16",
     "Lists": [
       {
@@ -207,7 +244,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_56",
-    "ver": "v2.2.56",
+    "ver": "Java Agent v2.2.56",
     "date": "2025-04-09",
     "Lists": [
       {
@@ -222,7 +259,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_55",
-    "ver": "v2.2.55",
+    "ver": "Java Agent v2.2.55",
     "date": "2025-03-27",
     "Lists": [
       {
@@ -272,7 +309,7 @@
   },  
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_54/",
-    "ver": "v2.2.54",
+    "ver": "Java Agent v2.2.54",
     "date": "2025-02-28",
     "Lists": [
       {
@@ -286,7 +323,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_53/",
-    "ver": "v2.2.53",
+    "ver": "Java Agent v2.2.53",
     "date": "2025-02-27",
     "Lists": [
       {
@@ -328,7 +365,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_52",
-    "ver": "v2.2.52",
+    "ver": "Java Agent v2.2.52",
     "date": "2025-02-13",
     "Lists": [
       {
@@ -382,7 +419,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_50/",
-    "ver": "v2.2.50",
+    "ver": "Java Agent v2.2.50",
     "date": "2025-01-22",
     "Lists": [
       {
@@ -421,7 +458,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_49",
-    "ver": "v2.2.49",
+    "ver": "Java Agent v2.2.49",
     "date": "2025-01-10",
     "Lists": [
       {
@@ -436,7 +473,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_48",
-    "ver": "v2.2.48",
+    "ver": "Java Agent v2.2.48",
     "date": "2025-01-07",
     "Lists": [
       {

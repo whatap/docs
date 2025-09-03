@@ -1,5 +1,42 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/java/java-2_2_64",
+    "ver": "v2.2.64",
+    "date": "2025-09-03",
+    "Lists": [
+      {
+        "ver": "v2.2.64",
+        "hash": "v2264",
+        "product": "Java Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code>apache httpclient로 Opensearch를 호출하는 경우 추적</p>",
+        "details": "<div class=\"language-bash codeBlockContainer theme-code-block\" style=\"--prism-background-color:#292d3e;--prism-color:#f8f8f2\"><div class=\"codeBlockContent\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines\"><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># requires agent restart</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">weaving</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">opensearch</span></span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.64",
+        "hash": "v2264",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 동일한 Linux host에서 여러 개의 docker를 수행하는 경우에 vCPU 중복 집계 방지하도록 수정</p>"
+      },
+      {
+        "ver": "v2.2.64",
+        "hash": "v2264",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> spring-boot-3.2 이상 버전에서 WebClient로 opentelemetry 에이전트를 사용하는 애플리케이션 연계 추적 시 멀티 트랜잭션탭에서 연결되지 않는 현상 수정</p>"
+      },
+      {
+        "ver": "v2.2.64",
+        "hash": "v2264",
+        "product": "Java Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code>Java 1.7 미만인 경우 jmx를 통해 system cpu 지표를 수집하는 현상 방지</p>",
+        "details": "<ul><li>에이전트 로그에 sigar 라이브러리 사용하도록 표시</li><div class=\"language-bash codeBlockContainer theme-code-block\" style=\"--prism-background-color:#292d3e;--prism-color:#f8f8f2\"><div class=\"codeBlockContent\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines\"><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># default: false</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">sigar_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span></code></pre></div></div><ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/java/java-2_2_63",
     "ver": "v2.2.63",
     "date": "2025-08-08",
@@ -17,7 +54,7 @@
         "hash": "v2263",
         "product": "Java Agent",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> ironjacamar-core-api 라이브러리 하위 버전 사용 시에도 jboss connection pool 데이터 수집</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> ironjacamar-core-api 라이브러리 하위 버전 사용 시, jboss connection pool 데이터 수집</p>"
       }
     ]
   },

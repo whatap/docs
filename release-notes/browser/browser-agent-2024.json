@@ -1,7 +1,7 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/browser/browser-v1_3_6",
-    "ver": "v1.3.6",
+    "ver": "Browser Agent v1.3.6",
     "date": "2024-05-30",
     "Lists": [
       {
@@ -15,7 +15,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/browser/browser-v1_3_5",
-    "ver": "v1.3.5",
+    "ver": "Browser Agent v1.3.5",
     "date": "2024-03-21",
     "Lists": [
       {
@@ -43,7 +43,7 @@
   },
   {
     "url": "https://docs.whatap.io/release-notes/browser/browser-v1_3_4",
-    "ver": "v1.3.4",
+    "ver": "Browser Agent v1.3.4",
     "date": "2024-02-19",
     "Lists": [
       {
@@ -67,7 +67,8 @@
         "hash": "v134",
         "product": "Browser Agent",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\">Feature</code> Content Security Policy(CSP) 에러 수집 기능 추가</p>"
+        "desc": "<p><code class=\"Feature\">Feature</code> Content Security Policy(CSP) 에러 수집 기능 추가</p>",
+        "details": "<div class=\"theme-admonition theme-admonition-info admonition_xJq3 alert alert--info\"><div class=\"admonitionHeading_Gvgb\"><span class=\"admonitionIcon_Rf37\"><svg viewbox=\"0 0 16 16\"><path fill-rule=\"evenodd\" d=\"M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z\"></path></svg></span>\n\n</div><div class=\"admonitionContent_BuS1\"><p>추가한 지표에 대한 자세한 내용은 다음 링크를 참고하세요.</p><ul><li><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/effectiveType\">유효 연결 유형</a> (effectiveType)</li><li><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/rtt\">RTT</a> (rtt)</li><li><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/downlink\">유효 대역폭</a> (downlink)</li><li><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/deliveryType\">Delivery Type</a> (deliveryType)</li><li><a href=\"https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/responseStatus\">상태 코드</a> (responseStatus)</li></ul></div></div>"
       }
     ]
   }

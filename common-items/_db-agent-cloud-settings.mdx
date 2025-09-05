@@ -151,7 +151,7 @@ output: # 수집한 메트릭 데이터를 받는 WhaTap 정보를 입력합니�
 | `csp`                | 클라우드 서비스 제공자로 Naver Cloud Platform(`ncp`) 사용을 나타냄 |
 | `namespace`          | 모니터링 대상의 구분자 또는 그룹 이름으로 사용됨<br />-  예. `vpc_postgresql`  |
 | `region`             | 클라우드 리전(region) 코드<br />- 지원 값: `KR`, `SGN`, `JPN`, `USWN`, `DEN` |
-| `accessKey`          | Naver Cloud의 API 호출을 위한 액세스 키<br />- 참고. [Access Key / Secret Key 발급 방법](#access-key--secret-key-발급-방법) |
+| `accessKey`          | Naver Cloud의 API 호출을 위한 액세스 키<br />- 참고. [Access Key / Secret Key 발급 방법](/postgresql/agent-cloud-settings#access-key--secret-key-발급-방법) |
 | `secretKey`          | Naver Cloud의 API 호출을 위한 시크릿 키 |
 | `instances`          | 모니터링 대상인 PostgreSQL 인스턴스 목록<br />- 각 인스턴스는 `name`과 `domain` 필드를 포함함 |
 | `instances[].name`   | Cloud DB for PostgreSQL (VPC) 인스턴스 이름<br />- NAVER CLOUD PLATFORM 콘솔의 DB Server > DB Server 이름 항목에서 확인 가능<br />- 예. `whatap-001-70ld`|

@@ -1,5 +1,18 @@
 [
   {
+    "ver": "v1.4.6",
+    "date": "2025-09-05",
+    "Lists": [
+      {
+        "ver": "v1.4.6",
+        "hash": "v146",
+        "product": "Server AIX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code>AIX <code>errpt redirect</code> 옵션 수정 시 동작하지 않는 문제 수정 </p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/server-aix/server-aix-1_4_5",
     "ver": "v1.4.5",
     "date": "2025-05-23",

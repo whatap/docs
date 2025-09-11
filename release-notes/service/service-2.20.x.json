@@ -1,19 +1,75 @@
 [
-    {
-      "url": "https://docs.whatap.io/release-notes/service/service-2_20_x",
-      "ver": "Service 2.20.1",
-      "date": "2025-08-27",
-      "Lists": [
-        {
-          "ver": "Service 2.20.1",
-          "hash": "service-2201",
-          "product": "Server",
-          "type": "Fixed",
-          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Flex 보드</span> <span class=\"uitext\">서버 상세</span> 서버 목록 키워드 검색 시 간헐적인 오류 발생 문제 수정</p>"
-        }
-      ]
-    },
-    {
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_20_x",
+    "ver": "Service 2.20.7",
+    "date": "2025-09-11",
+    "Lists": [
+      {
+        "ver": "Service 2.20.7",
+        "hash": "service-2207",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 특정 프로젝트의 신규 메트릭스 차트에서 대상 목록이 표시되지 않던 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_20_x",
+    "ver": "Service 2.20.6",
+    "date": "2025-09-05",
+    "Lists": [
+      {
+        "ver": "Service 2.20.6",
+        "hash": "service-2206",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 커스텀 IP 필터 삭제 지원</p>"
+      },
+      {
+        "ver": "Service 2.20.6",
+        "hash": "service-2206",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> IP 필터 인덱싱 오류 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_20_x",
+    "ver": "Service 2.20.3",
+    "date": "2025-09-02",
+    "Lists": [
+      {
+        "ver": "Service 2.20.3",
+        "hash": "service-2203",
+        "product": "공통",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code>신규 기능 안내 패널 및 모달 추가</p>"
+      },
+      {
+        "ver": "Service 2.20.3",
+        "hash": "service-2203",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">GPU 인벤토리</span> 데이터 연계 시 오류 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_20_x",
+    "ver": "Service 2.20.1",
+    "date": "2025-08-27",
+    "Lists": [
+      {
+        "ver": "Service 2.20.1",
+        "hash": "service-2201",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">Flex 보드</span> <span class=\"uitext\">서버 상세</span> 서버 목록 키워드 검색 시 간헐적인 오류 발생 문제 수정</p>"
+      }
+    ]
+  },
+  {
       "url": "https://docs.whatap.io/release-notes/service/service-2_20_x",
       "ver": "Service 2.20.0",
       "date": "2025-08-27",
@@ -539,5 +595,5 @@
           "desc": "<li><code class=\"Feature\" type=\"1\">Feature</code> 프롬프트 추천 기능 추가</li>"
         }
       ]
-    }
-    ]
+  }
+]

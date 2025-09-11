@@ -12,14 +12,36 @@ displayed_sidebar: releaseSidebar
 
 <div class='indentTab'>
 
+### `공통`
+
+- <Status priority='1'>Changed</Status> **사이트 관리자** &gt; **리전** 리전 관리 목록에 라우터 항목 추가
+
+
+#### 빌링
+
+- <Status priority='1'>Changed</Status> 프로모션 API 응답 변경에 따른 할인량 표시 로직 변경(+ 상품 코드 표시)
+
+- <Status priority='1'>Changed</Status> Cloud, ECS 제품의 과금 집계량 로직 변경(API 하위호환성 대응) 
+
+    - 청구 및 납부 내역 > 상세 - 과금집계량
+
+    - 청구서 미리보기 - 과금집계량
+
+    - 프로젝트 사용량 미리보기 - 과금집계량
+
+- <Status priority='0'>Fixed</Status> 서버 무료 이용 초과 안내 팝업에 결제 수단 등록된 경우도 결제 수단 등록 안내 표시되는 문제 수정
+
+---
+
 ### `Application`
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_appDashboard" className="uitext" /> 금일 위젯에서 비교일자 데이터가 없는 경우, 기준일자 데이터가 회색으로 표시되던 현상 수정
-
-- <Status priority='1'>Changed</Status><Cmdname sid="side_management" className="uitext" /> 에이전트 목록, 테이블 컬럼 명칭 수정
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> 에이전트 목록, 테이블 컬럼 명칭 수정
 
     - 시작 시간 → 애플리케이션 시작 시각
     - 활성/비활성 → 에이전트 활성/비활성 시각
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_appDashboard" className="uitext" /> 금일 위젯에서 비교일자 데이터가 없는 경우, 기준일자 데이터가 회색으로 표시되던 현상 수정
+
 
 ---
 

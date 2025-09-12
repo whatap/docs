@@ -12,15 +12,15 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>New</Status> LLM 메트릭스 수집 기능 추가
 
-    - **llm_stat_enabled** 
+    - **llm_stat_enabled** <span class='type'>Boolean</span>
         - `false`: 기본값
         - `true`: 해당 옵션과 **trace_llm_log_enabled**, **counter_thread_enabled**이 모두 `true`인 경우 메트릭스 수집 기능 활성화
 
-    - **llm_stat_interval**
+    - **llm_stat_interval** <span class='type'>Number</span>
         - LLM 메트릭스 수집 주기를 초 단위로 설정하는 옵션
         - `5`: 기본값
 
-- <Status priority='1'>Feature</Status> **counter_thread_enabled** 옵션 추가
+- <Status priority='1'>Feature</Status> **counter_thread_enabled** 옵션 추가 <span class='type'>Boolean</span>
 
     - `false`: 기본값
     - `true`: **llm_stat**, **app_filedescriptor** 메트릭스를 수집하는 스레드(`counter_thread`) 활성화

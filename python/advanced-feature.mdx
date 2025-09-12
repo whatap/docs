@@ -55,7 +55,16 @@ open_file_descriptor_enabled=true
 
 #수집 주기 설정으로 생략 시 기본값 60초
 open_file_descriptor_interval=60
+
+#메트릭스 전송 스레드 활성화 설정
+counter_thread_enabled=true
 ```
+
+:::note
+
+`counter_thread_enabled` 옵션은 1.8.12 이상부터 지원합니다. 1.8.12 미만 버전에서 메트릭스 전송 스레드는 자동으로 활성화되어 있습니다.
+
+:::
 
 ### 수집 메트릭스
 

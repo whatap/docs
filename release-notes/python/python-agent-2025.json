@@ -17,14 +17,14 @@
         "product": "Python Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> LLM 메트릭스 수집 기능 추가 </p>",
-        "details": "<ul><li><p><strong>llm_stat_enabled</strong><br />\n\n<ul><li><code>false</code>: 기본값</li>\n\n<li><code>true</code>: 해당 옵션과 <strong>trace_llm_log_enabled</strong>, <strong>counter_thread_enabled</strong>이 모두 <code>true</code>인 경우 메트릭스 수집 기능 활성화</li></p></ul></li>\n\n\n<li><p><strong>llm_stat_interval</strong><br />\n\n<ul><li>LLM 메트릭스 수집 주기를 초 단위로 설정하는 옵션<br /><li><code>5</code>: 기본값</li></p></li></ul></ul>"
+        "details": "<ul><li><p><strong>llm_stat_enabled</strong> <span class='type'>Boolean</span> <br />\n\n<ul><li><code>false</code>: 기본값</li>\n\n<li><code>true</code>: 해당 옵션과 <strong>trace_llm_log_enabled</strong>, <strong>counter_thread_enabled</strong>이 모두 <code>true</code>인 경우 메트릭스 수집 기능 활성화</li></p></ul></li>\n\n\n<li><p><strong>llm_stat_interval</strong> <span class='type'>Number</span> <br />\n\n<ul><li>LLM 메트릭스 수집 주기를 초 단위로 설정하는 옵션<br /><li><code>5</code>: 기본값</li></p></li></ul></ul>"
       },
       {
         "ver": "v1.8.12",
         "hash": "v1812",
         "product": "Python Agent",
         "type": "Feature",
-        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>counter_thread_enabled</strong> 옵션 추가 </p>",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>counter_thread_enabled</strong> 옵션 추가 </p> <span class='type'>Boolean</span>",
         "details": "<ul><li><p><code>false</code></p>: 기본값</li>\n\n<li><p><code>ture</code></p>: <strong>llm_stat</strong>, <strong>app_filedescriptor</strong> 메트릭스를 수집하는 스레드(counter_thread) 활성화</li></ul>"
       },
       {

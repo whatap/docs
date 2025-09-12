@@ -1,5 +1,56 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_8_12",
+    "ver": "v1.8.12",
+    "date": "2025-09-12",
+    "Lists": [
+      {
+        "ver": "v1.8.12",
+        "hash": "v1812",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> LLM 로그 모니터링에 <code>@step_id</code> 필드 추가</p>"
+      },
+      {
+        "ver": "v1.8.12",
+        "hash": "v1812",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> LLM 메트릭스 수집 기능 추가 </p>",
+        "details": "<ul><li><p><strong>llm_stat_enabled</strong><br />\n\n<ul><li><code>false</code>: 기본값</li>\n\n<li><code>true</code>: 해당 옵션과 <strong>trace_llm_log_enabled</strong>, <strong>counter_thread_enabled</strong>이 모두 <code>true</code>인 경우 메트릭스 수집 기능 활성화</li></p></ul></li>\n\n\n<li><p><strong>llm_stat_interval</strong><br />\n\n<ul><li>LLM 메트릭스 수집 주기를 초 단위로 설정하는 옵션<br /><li><code>5</code>: 기본값</li></p></li></ul></ul>"
+      },
+      {
+        "ver": "v1.8.12",
+        "hash": "v1812",
+        "product": "Python Agent",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>counter_thread_enabled</strong> 옵션 추가 </p>",
+        "details": "<ul><li><p><code>false</code></p>: 기본값</li>\n\n<li><p><code>ture</code></p>: <strong>llm_stat</strong>, <strong>app_filedescriptor</strong> 메트릭스를 수집하는 스레드(counter_thread) 활성화</li></ul>"
+      },
+      {
+        "ver": "v1.8.12",
+        "hash": "v1812",
+        "product": "Python Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <code>psycopg_pool</code> 추적 모듈의 안정성 향상</p>"
+      },
+      {
+        "ver": "v1.8.12",
+        "hash": "v1812",
+        "product": "Python Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <code>psycopg</code>, <code>psycopg_pool</code> 두 모듈의 비동기 추적 안정성 향상</p>"
+      },
+      {
+        "ver": "v1.8.12",
+        "hash": "v1812",
+        "product": "Python Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>open_file_descriptor_enabled</strong> 옵션이 더 이상 <code>counter_thread</code> 활성화 유무에 영향을 주지 않음 </p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_8_11",
     "ver": "v1.8.11",
     "date": "2025-09-01",
@@ -32,6 +83,14 @@
         "product": "Python Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>psycopg</code> 모듈 추적 기능 추가</p>"
+      },
+      {
+        "ver": "v1.8.10",
+        "hash": "v1810",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> <code>WHATAP_PYTHON_AGENT_PATH</code> 환경변수를 통해 <em>whatap_python</em> 실행 파일 경로 지정 가능</p>",
+        "details": "<ul><li><p>해당 환경변수를 설정하지 않으면 <code>WHATAP_HOME</code>으로 대체됨</p></li></ul>"
       },
       {
         "ver": "v1.8.10",

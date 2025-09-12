@@ -1,0 +1,38 @@
+---
+id: python-1_8_12
+title: Python Agent v1.8.12
+toc_max_heading_level: 2
+pagination_next: release-notes/python/python-1_8_11
+displayed_sidebar: releaseSidebar
+---
+
+2025년 09월 12일
+
+- <Status priority='1'>New</Status> LLM 로그 모니터링에 `@step_id` 필드 추가
+
+- <Status priority='1'>New</Status> LLM 메트릭스 수집 기능 추가
+
+    - **llm_stat_enabled** 
+        - `false`: 기본값
+        - `true`: 해당 옵션과 **trace_llm_log_enabled**, **counter_thread_enabled**이 모두 `true`인 경우 메트릭스 수집 기능 활성화
+
+    - **llm_stat_interval**
+        - LLM 메트릭스 수집 주기를 초 단위로 설정하는 옵션
+        - `5`: 기본값
+
+- <Status priority='1'>Feature</Status> **counter_thread_enabled** 옵션 추가
+
+    - `false`: 기본값
+    - `true`: **llm_stat**, **app_filedescriptor** 메트릭스를 수집하는 스레드(`counter_thread`) 활성화
+
+- <Status priority='1'>Changed</Status> `psycopg_pool` 추적 모듈의 안정성 향상
+
+- <Status priority='1'>Changed</Status> `psycopg` , `psycopg_pool` 두 모듈의 비동기 추적 안정성 향상
+
+- <Status priority='1'>Changed</Status> **open_file_descriptor_enabled** 옵션이 더 이상 `counter_thread` 활성화 유무에 영향을 주지 않음
+
+:::note
+
+Agent download: [whatap-python v1.8.12](https://pypi.org/project/whatap-python/1.8.12/)
+
+:::

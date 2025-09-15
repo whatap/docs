@@ -1,52 +1,57 @@
-Flex 보드에서 대시보드에 배치할 수 있는 위젯의 종류를 안내합니다. 위젯은 대시보드의 구성 요소로 모니터링 대상의 전체 데이터를 시각화하고 연계할 수 있습니다. <Cmdname sid="side_integratedFlexboard" className="uitext" /> 또는 <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 대시보드를 선택한 다음 <Cmdname sid="edit_mode" className="uitext" />로 이동하세요. <Cmdname sid="widget_template" className="uitext" />에서 대시보드로 배치할 수 있는 위젯 목록을 확인할 수 있습니다.
+Flex 보드에서 대시보드에 배치할 수 있는 위젯의 종류를 안내합니다. 위젯은 대시보드의 구성 요소로 모니터링 대상의 전체 데이터를 시각화하고 연계할 수 있습니다. <Cmdname sid="side_integratedFlexboard" className="uitext" /> 또는 <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서 대시보드를 선택한 후 <Cmdname sid="edit_mode" className="uitext" />로 이동하면, <Cmdname sid="widget_template" className="uitext" />에서 사용할 수 있는 위젯을 확인할 수 있습니다.
+
+* <Cmdname sid="side_integratedFlexboard" className="uitext" />: 사용자가 소속된 모든 프로젝트의 제품 유형에 해당하는 위젯 선택 가능  
+* <Cmdname sid="side_flexboard" className="uitext" />: 해당 프로젝트의 제품 유형에 해당하는 위젯만 선택 가능  
 
 | <Cmdname sid="side_integratedFlexboard" className="uitext" /> | <Cmdname sid="side_flexboard" className="uitext" /> |
 | :--: | :--: |
 | <ImgLang img='flexboad-integrated-widget-template.png' desc='통합 Flexboard' /> | <ImgLang img='flexboad-project-widget-template.png' desc='통합 Flexboard' /> |
 
-<Cmdname sid="side_integratedFlexboard" className="uitext" /> 메뉴에서는 사용자가 소속된 프로젝트의 모든 제품 유형에 해당하는 위젯을 선택할 수 있지만, <Cmdname sid="side_flexboard" className="uitext" /> 메뉴에서는 해당 프로젝트의 제품 유형에 해당하는 위젯만 선택할 수 있습니다.
-
 :::note
 
-* 프로젝트의 제품 유형에 따라 <Cmdname sid="widget_template" className="uitext" />에서 선택할 수 있는 위젯은 다를 수 있습니다.
+프로젝트의 제품 유형에 따라 <Cmdname sid="widget_template" className="uitext" />에서 선택할 수 있는 위젯은 다를 수 있습니다.
 
-* 위젯 오른쪽 상단에서 이용할 수 있는 공통 옵션에 대한 자세한 내용은 [다음 문서](flexboard-widget-manage)를 참조하세요.
+* 위젯 오른쪽 상단에서 공통 옵션에 대한 자세한 내용은 제품별 **Flex 보드 &gt; 위젯 관리하기** 문서를 참조하세요.
 
-* 멤버 권한에 따라 위젯의 기능을 이용하지 못할 수 있습니다. 멤버 권한에 대한 자세한 내용은 [다음 문서](../project/project-structure#project-auth)를 참조하세요.
+* 멤버 권한에 따라 위젯 기능은 제한될 수 있습니다. 자세한 내용은 [프로젝트 구조 및 멤버 권한](../project/project-structure#project-auth)문서를 참고하세요.
 
 :::
 
-## 그래프 {#graph}
+## 그래프형 위젯 {#graph}
 
-대시보드에 배치할 수 있는 데이터 그래프형 위젯입니다.
+시간 경과 또는 지표 간 관계를 시각화해 성능 변화·분포·비교를 한눈에 파악합니다.
 
 ### ![](/img/ico-normal-graph.svg) 시계열 {#timeseries}
 
-시계열 차트 위젯을 사용하여 시간 경과에 따른 지표 변화를 확인할 수 있습니다. 
+시계열 차트 위젯은 시간 경과에 따른 지표 변화를 확인하는 기본 차트 위젯입니다.  
 
 ![시계열 차트](/img/fb-time-series-widget.png)
 
-시계열 차트 위젯은 이전 시간과 비교할 수 있는 기능을 제공합니다. 위젯 오른쪽 위에 ![History 아이콘](/img/ic-history.svg) 버튼을 선택하세요.
+시계열 차트 위젯은 이전 시간과 비교할 수 있습니다.
 
 <ImgLang img="fb-time-series-widget-compare-time.png" desc="이전 시간과 비교" />
 
-원하는 시간 단위를 설정한 다음 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요. 마우스 포인터를 차트 위로 가져가면 툴팁을 통해 비교한 데이터를 확인할 수 있습니다.
+1. 위젯 오른쪽 위에 ![History 아이콘](/img/ic-history.svg) 아이콘을 클릭하세요.
+
+1. 원하는 시간 단위를 설정하고 <Cmdname sid="apply" className="uitext" /> 버튼을 클릭하세요. 마우스 포인터를 차트 위에 올리면 툴팁으로 비교 데이터를 확인할 수 있습니다.
 
 :::note
+<Cmdname sid="compare_with_previous_time" className="uitext" />는 모든 위젯에서 제공되는 기능은 아니며, <Cmdname sid="edit_mode" className="uitext" />에서만 사용할 수 있습니다.
 
-* 데이터 병합 옵션에 대한 자세한 내용은 [다음 문서](flexboard-widget-manage#datamerge-option)를 참조하세요.
-
-* 위젯에 따라 <Cmdname sid="compare_with_previous_time" className="uitext" /> 기능은 제공하지 않을 수 있습니다. 이 기능은 <Cmdname sid="edit_mode" className="uitext" />에서 이용할 수 있습니다.
-
+* 데이터 병합 옵션에 대한 자세한 내용은 제품별 **Flex 보드 &gt; 위젯 관리하기** 문서를 참고하세요.
 :::
 
 ### ![](/img/ico-topn-graph.svg) TopN 시계열 {#topn}
 
-시간에 따른 지표 변화와 함께 모니터링 대상의 지표 순위를 확인할 수 있는 위젯입니다.
+시간에 따른 지표 변화와 모니터링 대상의 지표 순위를 확인할 수 있는 위젯입니다.
 
 ![TopN 시계열 차트](/img/fb-time-series-topn-widget.png)
 
-차트에 표시할 상위 N개의 수를 설정할 수 있습니다. <Cmdname sid="edit_mode" className="uitext" />에서 위젯의 오른쪽 상단에 있는 더보기(![아이콘](/img/ico-more.svg)) 버튼을 선택한 후 <Cmdname sid="top_rank" className="uitext" /><UI>N</UI> 항목을 클릭하세요.
+차트에 표시할 상위 N개의 수를 설정할 수 있습니다. 
+
+1. <Cmdname sid="edit_mode" className="uitext" />에서 위젯의 오른쪽 상단에 있는 더보기(![아이콘](/img/ico-more.svg)) 아이콘을 클릭하세요.
+
+1. <Cmdname sid="top_rank" className="uitext" /><UI>N</UI> 항목을 클릭해 표시할 상위 N개 수를 선택하세요.
 
 <ImgLang img="fb-time-series-topn-widget-setting.png" desc="TopN" />
 
@@ -88,7 +93,7 @@ Flex 보드에서 대시보드에 배치할 수 있는 위젯의 종류를 안�
 
 <Column className="text--left">
 
-원형 차트 위젯입니다. 수집한 데이터의 전체 대비 부문 구성비를 확인하는데 유용합니다. CPU 및 메모리 사용률, 에러 건수 등의 수치를 확인하는데 활용할 수 있습니다.
+원형 차트 위젯입니다. 수집한 데이터의 전체 대비 부문 구성비를 확인하는데 유용합니다. CPU 및 메모리 사용률, 에러 건수 등의 수치를 확인할 수 있습니다.
 
 </Column>
 
@@ -100,7 +105,10 @@ Flex 보드에서 대시보드에 배치할 수 있는 위젯의 종류를 안�
 
 <ImgLang img="fb-hitmap-widget.png" desc="Hitmap" />
 
-<Cmdname sid="AA005" className="uitext" /> 차트는 종료된 트랜잭션 응답시간을 분포도로 표현합니다. 가로축은 트랜잭션 종료 시간입니다. 세로축은 수행 시간입니다. 수행 시간이 긴 트랜잭션은 분포도 상단에 위치합니다. <Cmdname sid="AA005" className="uitext" /> 내의 차트 영역을 드래그하면 세부 트랜잭션 정보를 확인할 수 있는 <Cmdname sid="TTL06209" className="uitext" /> 창이 나타납니다. 
+가로축은 트랜잭션 종료 시간, 세로축은 수행 시간입니다. 수행 시간이 긴 트랜잭션은 분포도 상단에 위치합니다. <Cmdname sid="AA005" className="uitext" /> 내의 차트 영역을 드래그하면 세부 트랜잭션 정보를 확인할 수 있는 <Cmdname sid="TTL06209" className="uitext" /> 창이 나타납니다. 
+
+가로축은 **종료 시간**, 세로축은 **수행 시간**입니다. 차트 영역을 드래그하면 세부 트랜잭션을 보는 <Cmdname sid="TTL06209" className="uitext" /> 창이 열립니다.
+
 
 <InDoc product="java,php,python,nodejs,dotnet,golang,kubernetes">
 
@@ -116,9 +124,9 @@ Flex 보드에서 대시보드에 배치할 수 있는 위젯의 종류를 안�
 
 <Xclude product="java,php,python,nodejs,dotnet,golang,kubernetes">
 
-:::note
+:::not
 
-* <Cmdname sid="AA005" className="uitext" /> 위젯은 애플리케이션 모니터링 제품군에서 이용할 수 있습니다.
+<Cmdname sid="AA005" className="uitext" /> 위젯은 애플리케이션 모니터링 제품군에서 이용할 수 있습니다.
 
 :::
 
@@ -145,7 +153,6 @@ Flex 보드에서 대시보드에 배치할 수 있는 위젯의 종류를 안�
 </Columns>
 
 세로형 막대 차트를 기본 제공하지만 가로형으로 변경할 수 있습니다. <Cmdname sid="edit_mode" className="uitext" />에서 위젯의 오른쪽 상단에 있는 더보기(![아이콘](/img/ico-more.svg)) 버튼을 선택한 후 ![가로형 아이콘](/img/ic-bar-chart-h.svg) 버튼을 클릭하세요.
-
 
 ### ![](/img/ic-ark-chart.svg) 아크 이퀄라이저 {#arc}
 
@@ -188,7 +195,6 @@ Flex 보드에서 대시보드에 배치할 수 있는 위젯의 종류를 안�
 :::
 
 </Xclude>
-
 
 ### ![](/img/ic-grid-chart.svg) 트리맵 {#treemap}
 
@@ -296,7 +302,6 @@ This site or product includes IP2Location LITE data available from [https://lite
 
 :::
 
-
 ## 목록형 {#list}
 
 ### ![](/img/ic-table.svg) 테이블 {#table}
@@ -311,7 +316,7 @@ This site or product includes IP2Location LITE data available from [https://lite
 
 * ![컬럼 아이콘](/img/ic-column.svg) : 원하는 컬럼을 추가 배치하거나 제외하고, 순서를 변경할 수 있습니다.
 
-## ![](/img/ic-templete.svg) 그룹 위젯 {#group}
+# ![](/img/ic-templete.svg) 그룹 위젯 {#group}
 
 여러 개의 위젯을 하나의 그룹으로 묶어 표시할 수 있는 위젯입니다.
 

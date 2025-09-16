@@ -543,7 +543,7 @@ paths:
       summary: 이벤트 설정 조회
       description: 이벤트 설정 New 메뉴의 [JSON 일괄 다운로드]와 같은 데이터를 조회할 수 있습니다.
       tags:
-        - 이벤트 설정 조회
+        - 이벤트 기록
       parameters:
         - $ref: 'parameters.yaml#/WhatapAccoutTokenHeader'
         - $ref: 'parameters.yaml#/WhatapPcodeHeader'
@@ -555,168 +555,119 @@ paths:
               schema:
                 type: object
                 properties:
-                  metricName:
+                  productType:
                     type: string
-                    description: 지표 이름
-                  pcode:
-                    type: integer
-                    description: 프로젝트 코드
-                  onodeName:
+                    description: 프로젝트의 제품 유형
+                  platform:
                     type: string
-                    description: 서버별 에이전트 그룹 이름
-                  displayTag:
-                    type: string
-                    description: 이벤트 상태 태그 표시를 위한 값
-                  metricValue:
-                    type: float
-                    description: 지푯값
-                  oid:
-                    type: integer
-                    description: 에이전트 고유 식별자(ID)
-                  title:
-                    type: string
-                    description: 이벤트 제목
-                  uuid:
-                    type: integer
-                    description: 이벤트 고유 식별자
-                  okind: 
-                    type: integer
-                    description: 종류별 에이전트 그룹 고유 식별자(ID)
-                  ackCount:
-                    type: integer
-                    description: 처리 내역 개수
-                  eventTime: 
-                    type: integer
-                    format: int64
-                    description: 이벤트 발생 시간
-                  disabled:
-                    type: boolean
-                    description: | 
-                      이벤트 종료 여부
-                      - 임계치 미만 값 발생으로 이벤트가 해소된 경우
-                      - 사용자가 의도적으로 이벤트 룰(Rule)을 비활성화한 경우
-                      - 대량 알림 등의 이유로 차단된 이벤트인 경우
-                      - 처리내역이 추가된 이벤트인 경우
-                  id:
-                    type: integer
-                    description: 이벤트 고유 식별자(ID)
-                  acknowledges:
-                    type: array
-                    description: 처리 내역
-                  stateful:
-                    type: boolean
-                    description: 해소된 이벤트 알림 기능 사용 여부
-                  product:
-                    type: string
-                    description: 서버 유형
-                  level:
-                    type: string
-                    description: 경고 레벨
-                  updateTime:
-                    type: integer
-                    format: int64
-                    description: 이벤트 업데이트 시간
-                  message:
-                    type: string
-                    description: 이벤트 메시지
-                  metricThreshold:
-                    type: string
-                    description: 임계치
-                  oname:
-                    type: string
-                    description: 에이전트 이름
-                  escalation:
-                    type: boolean
-                    description: 반복 알림 여부
-                  tagCount:
-                    type: boolean
-                    description: TagCount 카테고리 이벤트 여부
-                  systemEvent:
-                    type: boolean
-                    description: 시스템 이벤트 여부
-                  offTime:
-                    type: integer
-                    description: 해소된 시각
-                  category:
-                    type: string
-                    description: TagCount 카테고리
-                  okindName:
-                    type: sting
-                    description: 종류별 에이전트 그룹 이름
-                  onode:
-                    type: integer
-                    description: 서버별 에이전트 그룹 고유 식별자(ID)
-                  snapshot:
-                    type: string
-                    description: 이벤트 발생 시점의 스냅샷(서버 기본 이벤트만 해당)
-                  status:
-                    type: string
-                    description: 이벤트 상태
+                    description: 프로젝트의 제품 플랫폼
+                  events:
+                    type: Object
+                    description: 이벤트 타입별 설정 리스트
               example:
-                - metricName: "mem"
-                  pcode: "7"
-                  onodeName: ""
-                  displayTag: "inprogress"
-                  metricValue: "99.73802"
-                  oid: -17079562
-                  title: "Server Memory"
-                  uuid: "c5cf01fe9daf43ce99a9028e0a804d35"
-                  okind: 0,
-                  ackCount: 0,
-                  eventTime: 1733288350068,
-                  disabled: false,
-                  id: 44,
-                  acknowledges: []
-                  stateful: true
-                  process: 0
-                  product: "ap"
-                  level: "Critical"
-                  triggerId: 0
-                  updateTime: 1733288350128
-                  message: "Server Memory = 99.738"
-                  metricThreshold: "90"
-                  oname: "front"
-                  escalation: true
-                  tagCount: true
-                  systemEvent: false
-                  offTime: 0
-                  category: "app_host_resource"
-                  okindName: ""
-                  onode: 0
-                  snapshot: null
-                  status: "ON"
-                - metricName: "cpu"
-                  pcode: 7
-                  onodeName: ""
-                  displayTag: "inprogress"
-                  metricValue: "19.947985"
-                  oid: -17079562
-                  title: "Server CPU"
-                  uuid: "5d7a40d11a1144a8b7bad7e2c71cda2e"
-                  okind: 0
-                  ackCount: 0
-                  eventTime: 1733288325022
-                  disabled: false
-                  id: 42
-                  acknowledges: []
-                  stateful: true
-                  process: 0
-                  product: "ap"
-                  level: "Warning"
-                  triggerId: 0
-                  updateTime: 1733288325055
-                  message: "Server CPU = 19.948"
-                  metricThreshold: "0"
-                  oname: "front"
-                  escalation: false
-                  tagCount: true
-                  systemEvent: false
-                  offTime: 0
-                  category: "app_host_resource"
-                  okindName: ""
-                  onode: 0
-                  snapshot: null
-                  status: "ON"
+                - productType: "APM"
+                  platform: "JAVA"
+                  events:
+                      - LOG_REALTIME: []
+                        METRICS: 
+                          - eventMessage: "메트릭스: tx_count: ${tx_count}"
+                            select: "${oname} == 'eureka'"
+                            alertLabel: []
+                            rule: "${tx_count} >= 120"
+                            silentSec: 0
+                            version: 0
+                            enabled: true
+                            eventTitle: "트랜잭션 개수 120 초과"
+                            repeatDuration: 0
+                            eventLevel: 30
+                            id: "z9jqlbn0217eml"
+                            category: "app_counter"
+                            conditions:
+                              - level: 30
+                                rule: "${tx_count} >= 120"
+                                enabled: true
+                            stateful: true
+                            repeatCount: 0
+                        TRANSACTION:
+                          - silentTime: 60000,
+                            appCtx: []
+                            excludeStatus:
+                              - "gg"
+                            errorClass: []
+                            errorMessage: []
+                            excludeErrorMessage: []
+                            enabled: true
+                            url:
+                              - "**/pusan"
+                            excludeUrl:
+                              - "*add*"
+                            excludeErrorClass: []
+                            eventTitle: "트랜잭션 이벤트"
+                            eventLevel: 20
+                            limit: 1
+                            conditionValue: 0
+                            conditionType: "none"
+                            id: "z8c3sdrt04jpcs"
+                            resultType: "per-agent"
+                            excludeAppCtx: []
+                            status: []
+                        COMPOSITE_LOG: []
+                        BASIC: 
+                          - criticalEnabled: false
+                            warningEnabled: true
+                            silentPeriod: 300000
+                            metaId: "java004"
+                            displayName: "Active Transaction"
+                            criticalThreshold: ""
+                            warningThreshold: "active_tx_count > 100"
+                            message: "Active Transaction = ${active_tx_count}"
+                            version: 2
+                            enabled: false
+                            repeatDuration: 0
+                            id: "x3gpgkfnnc3f39"
+                            conditions:
+                              - level: 20
+                                rule: "active_tx_count > 100"
+                                enabled: true
+                            selectCondition: {}
+                            stateful: false
+                            repeatCount: 1
+                          - criticalEnabled: true
+                            warningEnabled: true
+                            silentPeriod: 300000
+                            metaId: "java002"
+                            displayName: "Server Memory"
+                            criticalThreshold: "mem > 90"
+                            warningThreshold: "mem > 70"
+                            message: "Server Memory = ${mem}"
+                            version: 2
+                            enabled: false
+                            repeatDuration: 0
+                            id: "xc1l4q6pdefcf"
+                            conditions:
+                              - level: 30
+                                rule: "mem > 90"
+                                enabled: true
+                              - level: 20
+                                rule: "mem > 70"
+                                enabled: true
+                            selectCondition: {}
+                            stateful: false
+                            repeatCount: 1
+                        COMPOSITE_METRICS:
+                          - interval_sec: 60
+                            query: "CATEGORY app_counter\nTAGLOAD\nSELECT\nGROUP { timeunit:1m, merge:\"tx_count\", pk:\"oid\" }\nCREATE { key: _pk_, value: \"oid\" }"
+                            rule: "tx_count > 5"
+                            event_title: "key oid"
+                            enabled: false
+                            silent_sec: 60
+                            event_level: 20
+                            id: "z8aadoam9thlqp"
+                            time_trim: 5000
+                            event_message: "tx_count : ${tx_count}"
+                            time_period: 60000
+                            stateful: true
+                            desc: "{\"widgetType\":\"EXPERT\",\"supports\":[],\"isExpertEditable\":false,\"flexEventWidget\":{\"widgetType\":\"FLEX_EVENT\",\"id\":\"composite_metrics_widget\",\"requestApi\":\"LAST\",\"option\":{\"stime\":1751591820000,\"etime\":1751595420000,\"isLive\":false,\"liveUpdateIntervalSec\":0,\"globalTime\":false,\"chart\":\"SERIES\",\"pcodes\":[4],\"flex_event\":{\"category\":\"app_counter\",\"tagPksGroup\":{\"pks\":[\"oid\"],\"timeunit\":5000},\"fieldsWithMerges\":[{\"key\":\"httpc_count\",\"timeMerge\":\"AVG\",\"objectMerge\":\"AVG\",\"unit\":\"COUNT\",\"_label\":\"92a1f326-b9b7-45c7-8c9f-6bc4b023ac0f\"}]},\"chartAside\":{\"chart\":\"TABLE\"},\"timeAction\":\"CUSTOM\"},\"metrics\":[{\"mql\":\"INJECT timepast\\nHEADER { \\\"httpc_count$\\\":\\\"COUNT\\\" }\\nOIDSET { oid:$oid, okind:$okind, onode:$onode }\\nCATEGORY \\\"app_counter\\\"\\nTAGLOAD\\nINJECT default\\nUPDATE {key: httpc_count, value: avg}\\nGROUP {pk:[oid], timeunit: 5000}\\nUPDATE {key: httpc_count, value: avg}\\nCREATE {key: _id_, expr:\\\"oid\\\"}\\nCREATE {key: _name_, expr:\\\"oid\\\"} \\nSELECT [_name_, _id_, time, oid, httpc_count]\\n\"}]},\"pcode\":4}"
       x-codeSamples:
         - lang: curl
           source: |
@@ -725,7 +676,7 @@ paths:
             -H "Content-Type: application/json" \
             -H 'x-whatap-token: {{PROJECT_API_TOKEN}}' \
             -H 'x-whatap-pcode: {{projectCode}}' \
-            "https://api.whatap.io/open/api/json/event/history?stime=1733065200000&etime=1733103557000&progress=true&oids=-17079562%2C352247167"
+            "https://api.whatap.io/open/api/json/event/v2/settings"
 
   /open/api/json/event/history:
     get:

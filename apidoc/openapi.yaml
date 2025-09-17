@@ -1158,51 +1158,7 @@ paths:
                 - productType: "APM"
                   platform: "JAVA"
                   events:
-                      - LOG_REALTIME: []
-                        METRICS: 
-                          - eventMessage: "메트릭스: tx_count: ${tx_count}"
-                            select: "${oname} == 'eureka'"
-                            alertLabel: []
-                            rule: "${tx_count} >= 120"
-                            silentSec: 0
-                            version: 0
-                            enabled: true
-                            eventTitle: "트랜잭션 개수 120 초과"
-                            repeatDuration: 0
-                            eventLevel: 30
-                            id: "z9jqlbn0217eml"
-                            category: "app_counter"
-                            conditions:
-                              - level: 30
-                                rule: "${tx_count} >= 120"
-                                enabled: true
-                            stateful: true
-                            repeatCount: 0
-                        TRANSACTION:
-                          - silentTime: 60000,
-                            appCtx: []
-                            excludeStatus:
-                              - "gg"
-                            errorClass: []
-                            errorMessage: []
-                            excludeErrorMessage: []
-                            enabled: true
-                            url:
-                              - "**/pusan"
-                            excludeUrl:
-                              - "*add*"
-                            excludeErrorClass: []
-                            eventTitle: "트랜잭션 이벤트"
-                            eventLevel: 20
-                            limit: 1
-                            conditionValue: 0
-                            conditionType: "none"
-                            id: "z8c3sdrt04jpcs"
-                            resultType: "per-agent"
-                            excludeAppCtx: []
-                            status: []
-                        COMPOSITE_LOG: []
-                        BASIC: 
+                      - BASIC: 
                           - criticalEnabled: false
                             warningEnabled: true
                             silentPeriod: 300000
@@ -1243,7 +1199,26 @@ paths:
                                 enabled: true
                             selectCondition: {}
                             stateful: false
-                            repeatCount: 1
+                            repeatCount: 1                        
+                        METRICS: 
+                          - eventMessage: "메트릭스: tx_count: ${tx_count}"
+                            select: "${oname} == 'eureka'"
+                            alertLabel: []
+                            rule: "${tx_count} >= 120"
+                            silentSec: 0
+                            version: 0
+                            enabled: true
+                            eventTitle: "트랜잭션 개수 120 초과"
+                            repeatDuration: 0
+                            eventLevel: 30
+                            id: "z9jqlbn0217eml"
+                            category: "app_counter"
+                            conditions:
+                              - level: 30
+                                rule: "${tx_count} >= 120"
+                                enabled: true
+                            stateful: true
+                            repeatCount: 0
                         COMPOSITE_METRICS:
                           - interval_sec: 60
                             query: "CATEGORY app_counter\nTAGLOAD\nSELECT\nGROUP { timeunit:1m, merge:\"tx_count\", pk:\"oid\" }\nCREATE { key: _pk_, value: \"oid\" }"
@@ -1257,7 +1232,30 @@ paths:
                             event_message: "tx_count : ${tx_count}"
                             time_period: 60000
                             stateful: true
-                            desc: "{\"widgetType\":\"EXPERT\",\"supports\":[],\"isExpertEditable\":false,\"flexEventWidget\":{\"widgetType\":\"FLEX_EVENT\",\"id\":\"composite_metrics_widget\",\"requestApi\":\"LAST\",\"option\":{\"stime\":1751591820000,\"etime\":1751595420000,\"isLive\":false,\"liveUpdateIntervalSec\":0,\"globalTime\":false,\"chart\":\"SERIES\",\"pcodes\":[4],\"flex_event\":{\"category\":\"app_counter\",\"tagPksGroup\":{\"pks\":[\"oid\"],\"timeunit\":5000},\"fieldsWithMerges\":[{\"key\":\"httpc_count\",\"timeMerge\":\"AVG\",\"objectMerge\":\"AVG\",\"unit\":\"COUNT\",\"_label\":\"92a1f326-b9b7-45c7-8c9f-6bc4b023ac0f\"}]},\"chartAside\":{\"chart\":\"TABLE\"},\"timeAction\":\"CUSTOM\"},\"metrics\":[{\"mql\":\"INJECT timepast\\nHEADER { \\\"httpc_count$\\\":\\\"COUNT\\\" }\\nOIDSET { oid:$oid, okind:$okind, onode:$onode }\\nCATEGORY \\\"app_counter\\\"\\nTAGLOAD\\nINJECT default\\nUPDATE {key: httpc_count, value: avg}\\nGROUP {pk:[oid], timeunit: 5000}\\nUPDATE {key: httpc_count, value: avg}\\nCREATE {key: _id_, expr:\\\"oid\\\"}\\nCREATE {key: _name_, expr:\\\"oid\\\"} \\nSELECT [_name_, _id_, time, oid, httpc_count]\\n\"}]},\"pcode\":4}"
+                            desc: "{\"widgetType\":\"EXPERT\",\"supports\":[],\"isExpertEditable\":false,\"flexEventWidget\":{\"widgetType\":\"FLEX_EVENT\",\"id\":\"composite_metrics_widget\",\"requestApi\":\"LAST\",\"option\":{\"stime\":1751591820000,\"etime\":1751595420000,\"isLive\":false,\"liveUpdateIntervalSec\":0,\"globalTime\":false,\"chart\":\"SERIES\",\"pcodes\":[4],\"flex_event\":{\"category\":\"app_counter\",\"tagPksGroup\":{\"pks\":[\"oid\"],\"timeunit\":5000},\"fieldsWithMerges\":[{\"key\":\"httpc_count\",\"timeMerge\":\"AVG\",\"objectMerge\":\"AVG\",\"unit\":\"COUNT\",\"_label\":\"92a1f326-b9b7-45c7-8c9f-6bc4b023ac0f\"}]},\"chartAside\":{\"chart\":\"TABLE\"},\"timeAction\":\"CUSTOM\"},\"metrics\":[{\"mql\":\"INJECT timepast\\nHEADER { \\\"httpc_count$\\\":\\\"COUNT\\\" }\\nOIDSET { oid:$oid, okind:$okind, onode:$onode }\\nCATEGORY \\\"app_counter\\\"\\nTAGLOAD\\nINJECT default\\nUPDATE {key: httpc_count, value: avg}\\nGROUP {pk:[oid], timeunit: 5000}\\nUPDATE {key: httpc_count, value: avg}\\nCREATE {key: _id_, expr:\\\"oid\\\"}\\nCREATE {key: _name_, expr:\\\"oid\\\"} \\nSELECT [_name_, _id_, time, oid, httpc_count]\\n\"}]},\"pcode\":4}"                        
+                        TRANSACTION:
+                          - silentTime: 60000,
+                            appCtx: []
+                            excludeStatus:
+                              - "gg"
+                            errorClass: []
+                            errorMessage: []
+                            excludeErrorMessage: []
+                            enabled: true
+                            url:
+                              - "**/pusan"
+                            excludeUrl:
+                              - "*add*"
+                            excludeErrorClass: []
+                            eventTitle: "트랜잭션 이벤트"
+                            eventLevel: 20
+                            limit: 1
+                            conditionValue: 0
+                            conditionType: "none"
+                            id: "z8c3sdrt04jpcs"
+                            resultType: "per-agent"
+                            excludeAppCtx: []
+                            status: []
       x-codeSamples:
         - lang: curl
           source: |

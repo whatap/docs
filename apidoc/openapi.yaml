@@ -567,6 +567,8 @@ paths:
                     properties:
                       BASIC:
                         type: array
+                        description: |
+                          이벤트 설정[New] 기본 이벤트
                         items:
                           type: object
                           properties:
@@ -601,8 +603,7 @@ paths:
                               type: boolean
                               description: 이벤트 규칙 활성화 여부
                             repeatDuration:
-                              type: integer
-                              format: int64
+                              type: long
                               description: 반복 횟수 체크 시간
                             id:
                               type: string
@@ -621,6 +622,8 @@ paths:
                               description: 반복 횟수
                       METRICS:
                         type: array
+                        description: |
+                          메트릭스 이벤트
                         items:
                           type: object
                           properties:
@@ -651,8 +654,7 @@ paths:
                               type: string
                               description: 사용자 정의 이벤트 제목
                             repeatDuration:
-                              type: integer
-                              format: int64
+                              type: long
                               description: 반복 횟수 체크 시간
                             eventLevel:
                               type: integer
@@ -674,6 +676,8 @@ paths:
                               description: 반복 횟수
                       COMPOSITE_METRICS:
                         type: array
+                        description: |
+                          복합 메트릭스 이벤트
                         items:
                           type: object
                           properties:
@@ -708,8 +712,7 @@ paths:
                               type: string
                               description: 사용자 정의 이벤트 메시지
                             time_period:
-                              type: integer
-                              format: int64
+                              type: long
                               description: 데이터 조회 범위
                             stateful:
                               type: boolean
@@ -719,12 +722,13 @@ paths:
                               description: 메타성 정보
                       LOG_REALTIME:
                         type: array
+                        description: |
+                          실시간 로그 이벤트
                         items:
                           type: object
                           properties:
                             skiptime:
-                              type: integer
-                              format: int64
+                              type: long
                               description: 무음 시간
                             field:
                               type: string
@@ -755,6 +759,8 @@ paths:
                               description: 이벤트 규칙 활성화 여부
                       COMPOSITE_LOG:
                         type: array
+                        description: |
+                          복합 로그 이벤트
                         items:
                           type: object
                           properties:
@@ -794,8 +800,7 @@ paths:
                                   type: string
                                   description: 시간 그룹핑 범위 (1d 고정)
                             time_period:
-                              type: integer
-                              format: int64
+                              type: long
                               description: 데이터 조회 범위
                             rule:
                               type: string
@@ -823,6 +828,8 @@ paths:
                               description: 메타성 정보
                       SERVER_LOG_FILE:
                         type: array
+                        description: |
+                          서버 로그파일/윈도우 이벤트
                         items:
                           type: object
                           properties:
@@ -907,7 +914,246 @@ paths:
                             enabled:
                               type: boolean
                               description: 이벤트 규칙 활성화 여부
-
+                      Transaction:
+                          type: array
+                          description: |
+                            트랜잭션 이벤트
+                          items:
+                            type: object
+                            properties:
+                              silentTime:
+                                type: long
+                                description: 무음 시간
+                              appCtx:
+                                type: array
+                                description: 업무명 패턴 리스트
+                                items:
+                                  type: string
+                              excludeStatus:
+                                type: array
+                                description: 상태코드 제외 패턴 리스트
+                                items:
+                                  type: string
+                              errorClass:
+                                type: array
+                                description: 에러 클래스 패턴 리스트
+                                items:
+                                  type: string
+                              errorMessage:
+                                type: array
+                                description: 에러 메시지 패턴 리스트
+                                items:
+                                  type: string
+                              excludeErrorMessage:
+                                type: array
+                                description: 에러 메시지 제외 패턴 리스트
+                                items:
+                                  type: string
+                              enabled:
+                                type: boolean
+                                description: 이벤트 규칙 활성화 여부
+                              url:
+                                type: array
+                                description: URL 패턴 리스트
+                                items:
+                                  type: string
+                              excludeUrl:
+                                type: array
+                                description: URL 제외 패턴 리스트
+                                items:
+                                  type: string
+                              excludeErrorClass:
+                                type: array
+                                description: 에러 클래스 제외 패턴 리스트
+                                items:
+                                  type: string
+                              eventTitle:
+                                type: string
+                                description: 사용자 정의 이벤트 제목
+                              eventLevel:
+                                type: string
+                                description: 이벤트 레벨
+                              limit:
+                                type: integer
+                                description: 발생 횟수
+                              conditionValue:
+                                type: string
+                                description: 조건 유형에 따른 기준 값 (`conditionType == elapsed`인 경우에만 사용)
+                              conditionType:
+                                type: string
+                                description: 조건 유형
+                                enum: [elapsed, error, none]
+                              id:
+                                type: string
+                                description: 이벤트 규칙 고유 식별자
+                              resultType:
+                                type: string
+                                description: 집계 기준
+                                enum:
+                                  - per-agent        # 에이전트별
+                                  - per-url          # URL별
+                                  - per-agent-url    # 각 에이전트의 URL별
+                                  - per-error        # 에러 클래스별
+                                  - per-agent-error  # 각 에이전트의 에러 클래스별
+                                  - per-appctx       # 업무별
+                                  - per-agent-appctx # 각 에이전트의 업무별
+                                  - total            # 전체
+                              excludeAppCtx:
+                                type: array
+                                description: 업무명 제외 패턴 리스트
+                                items:
+                                  type: string
+                              status:
+                                type: array
+                                description: 상태 코드 패턴 리스트
+                                items:
+                                  type: string
+                      ANOMALY:
+                          type: array
+                          description: |
+                            이상치 탐지 이벤트
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                description: 이벤트 규칙 고유 식별자
+                              pcode:
+                                type: long
+                                description: 프로젝트 코드
+                              category:
+                                type: string
+                                description: 데이터 수집 카테고리
+                              enabled:
+                                type: boolean
+                                description: 이벤트 규칙 활성화 여부
+                              eventMessage:
+                                type: string
+                                description: 사용자 정의 이벤트 메시지
+                              eventLevelText:
+                                type: string
+                                description: 이벤트 레벨
+                              repeatCount:
+                                type: integer
+                                description: 반복 횟수
+                              silentSec:
+                                type: integer
+                                description: 무음 시간(초)
+                              tags:
+                                type: object
+                                description: 대상 필터링 조건(에이전트 선택)
+                                additionalProperties:
+                                  type: array
+                                  items:
+                                    type: string
+                              fields:
+                                type: array
+                                description: 필드
+                                items:
+                                  type: string
+                              width:
+                                type: number
+                                format: float
+                                description: "*고정값*"
+                              negativeScore:
+                                type: number
+                                format: float
+                                description: 하락 패턴 민감도
+                              positiveScore:
+                                type: number
+                                format: float
+                                description: 상승 패턴 민감도
+                              ignoreNegative:
+                                type: boolean
+                                description: 하락 패턴 무시 여부
+                              ignorePositive:
+                                type: boolean
+                                description: 상승 패턴 무시 여부
+                              objectMerge:
+                                type: string
+                                description: 에이전트별 데이터 병합 방식
+                              filter:
+                                type: object
+                                deprecated: true
+                                description: "*Deprecated*"
+                      HITMAP:
+                          type: array
+                          description: |
+                            히트맵 패턴 이벤트
+                          items:
+                            type: object
+                            properties:
+                              pcode:
+                                type: long
+                                description: 프로젝트 코드
+                              config:
+                                type: object
+                                description: "패턴별 설정값 (`key`: 패턴 키, `value`: 패턴 설정값)"
+                                properties:
+                                  horizontal:
+                                    type: object
+                                    description: 히트맵 가로라인 패턴 설정
+                                    properties:
+                                      enabled:
+                                        type: boolean
+                                        description: 패턴 활성화 여부
+                                      silent:
+                                        type: long
+                                        description: 무음 시간
+                                  flying:
+                                    type: object
+                                    description: 히트맵 플라잉 패턴 설정
+                                    properties:
+                                      enabled:
+                                        type: boolean
+                                        description: 패턴 활성화 여부
+                                      silent:
+                                        type: long
+                                        description: 무음 시간
+                                  vertical:
+                                    type: object
+                                    description: 히트맵 세로라인 패턴 설정
+                                    properties:
+                                      enabled:
+                                        type: boolean
+                                        description: 패턴 활성화 여부
+                                      silent:
+                                        type: long
+                                        description: 무음 시간
+                                  overload:
+                                    type: object
+                                    description: 히트맵 과부하 패턴 설정
+                                    properties:
+                                      enabled:
+                                        type: boolean
+                                        description: 패턴 활성화 여부
+                                      silent:
+                                        type: long
+                                        description: 무음 시간
+                                  flood:
+                                    type: object
+                                    description: 히트맵 폭주 패턴 설정
+                                    properties:
+                                      enabled:
+                                        type: boolean
+                                        description: 패턴 활성화 여부
+                                      silent:
+                                        type: long
+                                        description: 무음 시간
+                              exceptTime:
+                                type: long
+                                description: 탐지 제외 시간
+                      config 공통 구조:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              enabled:
+                                type: boolean
+                                description: 패턴 활성화 여부
+                              silent:
+                                type: long
+                                description: 무음 시간
               example:
                 - productType: "APM"
                   platform: "JAVA"
@@ -1076,8 +1322,7 @@ paths:
                     type: integer
                     description: 처리 내역 개수
                   eventTime: 
-                    type: integer
-                    format: int64
+                    type: long
                     description: 이벤트 발생 시간
                   disabled:
                     type: boolean
@@ -1103,8 +1348,7 @@ paths:
                     type: string
                     description: 경고 레벨
                   updateTime:
-                    type: integer
-                    format: int64
+                    type: long
                     description: 이벤트 업데이트 시간
                   message:
                     type: string
@@ -1239,12 +1483,10 @@ paths:
               type: object
               properties:
                 stime:
-                  type: integer
-                  format: int64
+                  type: long
                   description: 조회 시작 시간(UNIX epoch time, millisecond)
                 etime:
-                  type: integer
-                  format: int64
+                  type: long
                   description: 조회 종료 시간(UNIX epoch time, millisecond)
             example:
               stime: 1690850183000
@@ -1261,16 +1503,13 @@ paths:
                 type: object
                 properties:
                   stime:
-                    type: integer
-                    format: int64
+                    type: long
                     description: 조회 시작 시간(UNIX epoch time, millisecond)
                   etime:
-                    type: integer
-                    format: int64
+                    type: long
                     description: 조회 종료 시간(UNIX epoch time, millisecond)
                   timestamp:
-                    type: integer
-                    format: int64
+                    type: long
                     description: 데이터 생성 시간(UNIX epoch time, millisecond)
                   data:
                     type: array
@@ -2627,8 +2866,7 @@ paths:
                   type: object
                   properties:
                     stime:
-                      type: interger
-                      format: int64
+                      type: long
                       description: 조회 시작 시간(UNIX epoch time, millisecond)
                     filter:
                       type: object

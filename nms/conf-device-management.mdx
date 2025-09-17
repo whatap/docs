@@ -2,46 +2,136 @@
 id: conf-device-management
 title: 디바이스 인벤토리
 description: 디바이스 인벤토리 메뉴를 안내합니다.
+toc_max_heading_level: 4
 keywords: [ NMS, 설정, 디바이스 관리 ]
 ---
 
-{/* 다국어 이미지 미작업 */}
-
-홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_deviceInventory" className="uitext" />
-
-<Cmdname sid="side_deviceInventory" className="uitext" />에서 네트워크 관리 시스템 활성화를 위해 모니터링할 디바이스를 등록하고 관리합니다. 
+<Cmdname sid="side_deviceInventory" className="uitext" />는 네트워크상의 장비를 등록하고 모니터링 설정을 관리합니다. 장비는 매니저에서 제공하는 Auto Discovery 기능을 통해 자동으로 탐지하거나, 필요에 따라 수동으로 추가할 수 있습니다. 등록된 각 장비는 SNMP 기반 모니터링과 Health Check를 설정하여 실시간 상태를 확인할 수 있습니다. 이를 통해 네트워크 관리 시스템에서 모니터링할 디바이스를 통합적으로 관리할 수 있습니다.
 
 ## 기본 화면 안내
 
-<ImgLang img="nms-conf-device-mng.png" desc="Device Management" />
+<Cmdname sid="side_deviceInventory" className="uitext" />에서 등록된 모든 네트워크 장비 목록을 테이블 형태로 확인할 수 있습니다.
 
-### 디바이스 추가 
+상단 메뉴에서는 장비 등록 및 관리와 관련된 주요 기능을 제공합니다.
 
-디바이스를 등록하려면 왼쪽 상단에서 에이전트를 선택 후 <UI>+</UI> <Cmdname sid="BTN09017" className="uitext" /> 버튼을 클릭하세요. <Cmdname sid="BTN09017" className="uitext" /> 창에서 다음 정보를 입력하세요. 
+* **매니저 선택**: 연결된 NMS Manager 인스턴스를 선택합니다.
 
-<ImgLang img="nms-conf-device-mng-add.png" desc="디바이스 추가" />
+* ![추가 아이콘](/img/ico-add.svg) **디바이스 추가**: 새로운 네트워크 장비를 수동으로 추가합니다.
 
-* **Host**: 대상 디바이스의 IP 주소를 입력하세요.
+* **Auto Discovery**: NMS Manager를 통해 네트워크 장비를 자동으로 탐지하여 추가할 수 있습니다.
 
-* **Port**: SNMP 통신에 사용될 포트 번호를 설정하세요. 기본적으로는 161번 포트가 사용됩니다.
+| 디바이스 목록 구성  | 설명                            |
+| :-------------: | ------------------------------ |
+|    **Alias**    | 장비 별칭                        |
+|     **Host**    | IP 주소                         |
+|   **Hostname**  | 장비의 호스트명                    |
+| **Description** | 장비 설명(모델명, 용도 등)           |
+| **Manufacturer**| 제조사(Cisco Systems, America 등) |
+|   **Location**  | 설치 위치(층수, 랙 위치 등)          |
+|   **Contact**   | 담당자 정보                        |
+|  **Host Type**  | 장비 유형(Switch, Router, Server 등) |
+|     **Role**    | 장비 역할                         |
+|  **Serial No.** | 시리얼 번호                        |
+|   **Firmware**  | 펌웨어 버전                        |
+|     **SNMP**    | SNMP 활성화 상태(Enabled/Disabled) |
 
-* **Alias**: 해당 디바이스에 대한 별칭을 설정하세요. 이를 통해 관리자가 각 디바이스를 쉽게 식별할 수 있습니다.
+### ![추가 아이콘](/img/ico-add.svg) 디바이스 추가 
 
-* **Version**: SNMP 프로토콜 버전(v1, v2c, v3)을 선택하세요. 각 버전은 보안 기능과 기능에 차이가 있습니다.
+새로운 네트워크 장비를 수동으로 등록할 수 있습니다. 
 
-* **Community**: SNMP 커뮤니티 문자열을 입력하세요. 이 문자열은 SNMP 데이터에 대한 접근 권한을 정의합니다.
+1. <Cmdname sid="side_deviceInventory" className="uitext" /> 화면의 ![추가 아이콘](/img/ico-add.svg) <Cmdname sid="BTN09017" className="uitext" /> 버튼을 클릭하세요. 
 
-* **OIDs**: SNMP Polling을 통해 수집할 OID 목록을 설정하세요. 기본적으로 IF-MIB::ifTable OID가 들어 있습니다. OID는 네트워크 장비의 다양한 성능 지표를 추적하는 데 사용됩니다.
+1. <Cmdname sid="BTN09017" className="uitext" />에서 **Device Info** 탭에 정보를 입력하세요.
 
-* **Active**: 토글을 통해 SNMP Polling 수집을 활성화하거나 비활성화하세요.
+    * **Host**(`필수`): 장비의 IP 주소
+    * **Host Name**: 장비의 호스트명
+    * **Manufacturer**:  제조사 정보
+    * **Contact**: 담당자 정보
+    * **Role**: 네트워크에서의 역할
+    * **Alias**: 관리용 별칭
+    * **Description**: 장비 상세 설명
+    * **Location**: 물리적 설치 위치
+    * **Host Type**: 장비 유형
+    * **Serial No.** :  시리얼 번호
 
-* **Description**: 해당 디바이스에 대하여 장비 용도와 같은 추가적인 설명을 입력하세요.
+1. **추가** 버튼을 클릭하세요. 
 
-* **SysContact**: 디바이스 관리자 또는 해당 장비의 책임자의 연락처 정보를 입력하세요.
+### 디바이스 상세 관리
 
-* **SysLocation**: 디바이스의 물리적 위치를 입력하세요.
+1. 등록된 장비의 ![수정 아이콘](/img/ic-edit.svg)를 클릭하세요. 
 
-### 디바이스 수정 및 삭제 
+1. 상세 정보창의 **Device Info, SNMP Polling, Health Check** 탭에서 상세 정보를 확인 또는 수정하고 **관리** 버튼을 클릭하세요. 
 
-디바이스 정보를 수정하거나 디바이스를 삭제하려면 디바이스 목록 왼쪽 **Edit** 컬럼에서 수정 또는 삭제 아이콘을 클릭하세요. 
+#### Device Info 탭
 
+장비의 기본 정보를 설정합니다.
+
+#### SNMP Polling 탭
+
+SNMP 프로토콜을 사용하여 주기적으로 장비의 성능 및 상태 정보를 수집하는 설정을 관리합니다. 정보를 수정한 후 **저장** 버튼을 클릭하여 설정합니다.
+
+* **Port**(`필수`): SNMP 포트(기본값: 161)
+
+* **Community**(`필수`): SNMP v1/v2c Community String(기본값: public)
+
+* **Version**(`필수`): SNMP 버전 선택(v1, v2c, v3)
+
+* **User Name**: SNMPv3 사용자명
+
+* **Security Level**: 보안 수준(noAuthNoPriv, authNoPriv, authPriv)
+
+* **Authentication Protocol**: 인증 프로토콜
+
+    * **Authentication Key**: 인증 키
+
+* **Privacy Protocol**: 암호화 프로토콜
+
+    * **Privacy Key**: 암호화 키
+
+##### OID 선택 및 관리
+
+1. **Edit OID** 버튼을 클릭하여 OID 목록에서 수집할 MIB 정보를 선택합니다.
+
+    |  OID List 구성 | 설명 |
+    | :---: | --- |
+    | **OID** | SNMP OID 값 | 
+    | **MIB Information** | MIB 이름 및 정보 |
+    | **Manufacturer** | 제조사 | 
+    | **Category** | 지표 종류 |
+    | **Description** | 상세 설명 |
+
+1. **OK** 버튼을 클릭하세요. 
+
+##### 수집 주기 설정
+
+* **Custom Polling Interval**: 데이터 수집 주기 설정(단위: 초, 기본값: 60)
+
+* **Activate**: SNMP Polling 활성화/비활성화
+
+#### Health Check 탭
+
+네트워크 장비의 가용성을 실시간으로 모니터링합니다.
+
+| Health Check 목록 구성 | 설명 |
+| :--: | --- |
+| **Activate** | 헬스체크 기능 활성화 상태 |
+| **Target Host** | 모니터링 대상 IP 주소 또는 FQDN |
+| **Protocol** | 헬스체크 프로토콜(ICMP 등) |
+| **Memo** | 메모 또는 설명 | 
+| **Actions** | 헬스체크 대상 수정(![수정 아이콘](/img/ico-edit.svg)), 삭제(![삭제 아이콘](/img/ico-trash-red.svg)) |
+
+##### 헬스 체크 대상 추가하기
+
+1. **Health Check** 탭에서 ![추가 아이콘](/img/ic-s-plus.svg) **추가** 버튼을 클릭하세요.
+
+1. **헬스체크 대상 추가** 팝업창에서 정보를 입력하세요.
+
+    * **Target Host**: IP 주소 또는 FQDN 입력
+
+    * **Protocol**: ICMP 선택 (드롭다운)
+    
+    * **Memo**: 선택적 메모 입력
+
+    * **Activate**: 즉시 활성화 여부 선택
+
+1. **확인** 버튼을 클릭해 저장합니다. 

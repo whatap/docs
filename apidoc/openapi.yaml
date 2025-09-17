@@ -94,7 +94,7 @@ x-tagGroups:
       - 프로젝트
       - 그룹
       - 에이전트
-      - 이벤트 기록
+      - 이벤트
   - name: Appication
     tags:
       - APM Spot 정보 조회
@@ -543,9 +543,9 @@ paths:
       summary: 이벤트 설정 조회
       description: 이벤트 설정 New 메뉴의 [JSON 일괄 다운로드]와 같은 데이터를 조회할 수 있습니다.
       tags:
-        - 이벤트 기록
+        - 이벤트
       parameters:
-        - $ref: 'parameters.yaml#/WhatapAccoutTokenHeader'
+        - $ref: 'parameters.yaml#/WhatapTokenHeader' 
         - $ref: 'parameters.yaml#/WhatapPcodeHeader'
       responses:
         '200':
@@ -1271,9 +1271,9 @@ paths:
       summary: 이벤트 기록 조회
       description: 프로젝트에서 발생한 이벤트 기록을 조회할 수 있습니다.
       tags:
-        - 이벤트 기록
+        - 이벤트
       parameters:
-        - $ref: 'parameters.yaml#/WhatapAccoutTokenHeader'
+        - $ref: 'parameters.yaml#/WhatapTokenHeader'
         - $ref: 'parameters.yaml#/WhatapPcodeHeader'
         - $ref: 'parameters.yaml#/StartTimeQuery'
         - $ref: 'parameters.yaml#/EndTimeQuery'

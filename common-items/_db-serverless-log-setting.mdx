@@ -1,0 +1,154 @@
+## AWS RDS Log에 적용하기
+
+### AWS RDS Log 모니터링을 위한 구성
+
+![AWS RDS Log](/img/aws-rds-log-diagram.png)
+
+AWS는 RDS의 모니터링을 위해서 다양한 정보들을 제공하지만 이러한 정보들을 확인하려면 AWS 콘솔에 직접 접속해야 합니다. 하지만 와탭의 **AWS RDS Log**는 데이터베이스 모니터링의 <Cmdname sid="side_log" className="uitext" /> 메뉴에서 RDS의 로그와 이벤트를 제공합니다.
+
+와탭의 **AWS RDS Log**는 **AWS CloudFormation**을 통해 설치할 수 있습니다. **AWS CloudFormation**에 대한 자세한 내용은 [다음 링크](https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/Welcome.html)를 참조하세요.
+
+### 권한 확인하기
+
+**AWS CloudFormation**을 통해 와탭의 **AWS RDS Log**를 설치하려면 우선 필수 IAM 권한을 확인하세요.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:CreateStack",
+        "cloudformation:UpdateStack",
+        "cloudformation:DeleteStack",
+        "cloudformation:DescribeStacks",
+        "cloudformation:DescribeStackEvents",
+        "cloudformation:DescribeStackResource"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:CreateBucket",
+        "s3:PutBucketVersioning",
+        "s3:PutBucketPublicAccessBlock"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "lambda:CreateFunction",
+        "lambda:UpdateFunctionCode",
+        "lambda:UpdateFunctionConfiguration",
+        "lambda:DeleteFunction",
+        "lambda:AddPermission"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateRole",
+        "iam:GetRole",
+        "iam:AttachRolePolicy"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+### 설치 및 설정하기
+
+1. 와탭에서 제공하는 **AWS CloudFormation** 템플릿을 통해 설치할 수 있습니다. 다음 링크로 진입한 후 **파라미터** 섹션에서 아래의 항목을 입력하세요.
+
+    <Link to='https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/quickcreate?stackName=WhaTapRDSLogAndEvent&templateURL=https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/agent/db/WhaTapRDSLogInstall.template' target='_blank' className='ext-link'>AWS CloudFormation Install</Link>
+
+    * **Host**: 와탭 수집 서버 주소, 와탭 프로젝트의 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_agentInstall" className="uitext" /> 메뉴에서 확인할 수 있습니다. 예) 13.124.11.223/13.209.172.35
+
+    * **MemorySize**: WhaTapRDSLog의 메모리 사이즈, 128MB \~ 10,240MB 사이의 값을 입력하세요.
+
+    * **Pcode**: 와탭 프로젝트의 프로젝트 코드, <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_projectManagement" className="uitext" /> 메뉴에서 <Cmdname sid="pcode" className="uitext" /> 항목을 확인하세요.
+
+    * **ProjectAccessKey**: 와탭 프로젝트의 액세스 키, <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="side_projectManagement" className="uitext" /> 메뉴에서 <Cmdname sid="project_access_key" className="uitext" /> 항목을 확인하세요.
+
+    * **TimeOut**: 설치되는 WhaTapRDSLog가 실행 시 최대로 유지되는 시간입니다.
+
+    * **UseReservedConcurrency**: WhaTapRDS의 예약된 동시성 사용 여부입니다.
+
+    * **ReservedConcurrency**: WhaTapRDS가 예약된 동시성을 사용했을 때 동시에 실행될 수 있는 최대 인스턴스 개수입니다.
+
+1. 로그 모니터링 세부 설정을 위해 다음 링크로 진입하세요.
+
+    <Link to='https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/quickcreate?stackName=WhatapRDSLogAndEventSettings&templateURL=https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/agent/db/WhaTapRDSLogSetting.template' target='_blank' className='ext-link'>AWS CloudFormation Setting</Link>
+
+1. **파라미터** 섹션에서 아래의 항목을 차례로 입력하세요.
+
+    * **AwsRdsNames**: 이벤트를 받고자 하는 RDS Cluster, Instance의 이름 목록
+
+      - 예) database-1, seoul-pro-db-01, seoul-pro-db-01-writer …
+
+      - EventRule을 생성하지 않으려면 `none`을 입력하세요.
+
+    * **RdsLogGroupName**(**1\~9**): 로그를 받고자 하는 RDS CloudWatchLogGroup Name
+
+      - 예) /aws/rds/seoul-pro-db-01
+
+      - 구독 필터를 생성하지 않으려면 `none`을 입력하세요.
+
+      :::note
+
+      CloudWatchLogGroup은 한 번에 최대 9개까지 연결할 수 있습니다.
+
+      :::
+
+    * **WhaTapRDSLogArn**: 이전 단계에서 생성된 WhaTapRDSLogArn
+
+      ![AWS CloudFormation output](/img/aws-rds-log-setting-output.png)
+
+
+### 생성 리소스 확인하기
+
+**AWS CloudFormation**을 통해 설치되는 리소스를 확인하세요.
+
+![AWS RDS Log](/img/aws-rds-log-resource.png)
+
+* **S3** 
+
+  * Bucket: 와탭 **AWS RDS Log**의 실행 파일을 저장하는 AWS S3 Bucket (CopyZips)
+
+* **Lambda**
+
+  * Function 
+
+    - CopyZipsFunction: 와탭 AWS S3 Bucket에서 사용자의 환경으로 실행 파일을 옮겨주는 AWS Lambda Function
+
+    - WhaTapRDSLog: AWS RDS의 모니터링을 위한 AWS Lambda Function
+
+  * Permission
+
+    - CWPermission: RDS CloudWatchLogGroup에 Log가 생성될 때 WhaTapRDSLog를 실행할 수 있게 해주는 Permission
+
+    - EventBridgePermission: RDS Event가 발생 시 EventBridge에서 WhaTapRDSLog를 실행할 수 있게 해주는 Permission
+
+  * Role
+
+    - CopyZipsFuntion이 와탭의 S3에서 파일을 가져오고 CopyZips로 넣기 위해 필요한 Role
+
+    - WhaTapRDSLog가 CloudWatchLogGroup에 Log를 남기기 위해 필요한 Role
+
+
+### 필터 및 규칙 확인하기
+
+![AWS CloudFormation](/img/aws-rds-log-check-resources.png)
+
+* **WS CloudWatchLogGroup**
+
+  SubscriptionFilter(1\~9): RDS의 CloudWatch LogGroup에 Log가 들어오면 WhatapRDSLog를 실행시키는 필터
+
+* **AWS EventBridge**
+
+  Rule: AWS 이벤트 중 RDS와 관련된 이벤트가 발생하면 WhatapRDSLog를 실행시키는 규칙

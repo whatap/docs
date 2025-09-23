@@ -94,9 +94,22 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; **인스턴스 맵** Top SQL을 지원하는 데이터베이스 제품만 Top SQL 탭이 노출되도록 수정
 
+#### MySQL, Oracle, Oracle Pro, PostgreSQL, SQL Server
+
+- <Status priority='1'>Feature</Status> **SQL 상세** SQL 튜닝 가이드 추가
+    - **PostgreSQL**·**MySQL**·**SQL Server**는 실행 계획(Plan) 조회 필수
+
+#### MySQL, PostgreSQL, SQL Server
+
+- <Status priority='1'>Feature</Status> **SQL 상세** 통계 추이 차트 추가
+
 #### MySQL, PostgreSQL
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_pgStat" className="uitext" />, <Cmdname sid="side_mysqlStat" className="uitext" /> 인스턴스 셀렉터가 동작하지 않는 현상 수정
+
+- <Status priority='0'>Fixed</Status> **SQL 상세** 플랜 조회 실패 시 에러 메시지가 화면에 표시되도록 수정
+
+- <Status priority='0'>Fixed</Status> **SQL 상세** JSON 플랜이 기본으로 조회되도록 수정
 
 #### DB2
 
@@ -106,7 +119,18 @@ displayed_sidebar: releaseSidebar
 
 #### Oracle
 
+- <Status priority='1'>Feature</Status> **SQL 상세** Trend 탭 추가
+
 - <Status priority='1'>Changed</Status> **SQL 상세**창에서 오브젝트 상세 조회 시 Column/Index, Partition, SubPartition을 순서대로 조회할 수 있도록 변경(dbx 에이전트 2.56.05 버전 이상 지원)
+
+#### Oracle Pro
+
+- <Status priority='0'>Fixed</Status> **Wait 별 Top SQL** 
+
+    - CPU, MEM 값의 Y축 최대값을 100%로 표시하도록 수정
+    - 상단 타임라인 차트의 시간이 합산 초 단위로 표시되도록 수정
+    - Y축에 undefined가 표시되던 오류 수정
+    - 화면 부하 수정
 
 #### PostgreSQL
 

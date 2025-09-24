@@ -1,5 +1,45 @@
 [
   {
+    "ver": "v1.2.0r",
+    "date": "2025-09-22",
+    "Lists": [
+      {
+        "ver": "v1.2.0r",
+        "hash": "v120r",
+        "product": "XOS",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> whatap.conf에 delta 옵션 지정 시 disk_io의 delta 옵션이 적용되지 않던 버그 수정</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v1.2.0p",
+    "date": "2025-08-25",
+    "Lists": [
+      {
+        "ver": "v1.2.0p",
+        "hash": "v120p",
+        "product": "XOS",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> pg slowquery log에서 &lt;unnamed&gt; 대신 커서명이 들어가는 경우 처리</p>"
+      },
+      {
+        "ver": "v1.2.0p",
+        "hash": "v120p",
+        "product": "XOS",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 통신 문제로 DBX와의 통신이 blocking 되면 재접속 하도록 main thread 감시 처리</p>"
+      },
+      {
+        "ver": "v1.2.0p",
+        "hash": "v120p",
+        "product": "XOS",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> log 모니터링(logsink)에서 packet size 문제로 DBX 전송 시 exception 유발로 XOS 수집 중단 문제 수정 (땡겨요 사이트 XOS 수집 중단 문제 해결)</p>"
+      }
+    ]
+  },  
+  {
     "ver": "v1.2.0k",
     "date": "2025-07-18",
     "Lists": [

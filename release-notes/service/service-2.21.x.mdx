@@ -29,21 +29,21 @@ displayed_sidebar: releaseSidebar
 
     - 프로젝트 사용량 미리보기 - 과금집계량
 
-- <Status priority='1'>Changed</Status> **오픈메트릭 탐색기** 조회 가능 기간 변경
-
 - <Status priority='0'>Fixed</Status> 서버 무료 이용 초과 안내 팝업에 결제 수단 등록된 경우도 결제 수단 등록 안내 표시되는 문제 수정
 
 #### OpenMetrics
 
-- <Status priority='1'>Feature</Status> **OpenMetrics 대시보드 목록** 메뉴 추가
+- <Status priority='1'>Feature</Status> **OpenMetrics 대시보드 목록** 추가
 
     - 사전 정의 대시보드 제공: Istio, Nginx
+
+- <Status priority='1'>Changed</Status> **OpenMetrics 탐색기** 조회 가능 기간 변경
 
 ---
 
 ### `Application`
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> 에이전트 목록, 테이블 컬럼 명칭 수정
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_management" className="uitext" /> 에이전트 목록, 테이블 칼럼 명칭 수정
 
     - 시작 시간 → 애플리케이션 시작 시각
     - 활성/비활성 → 에이전트 활성/비활성 시각
@@ -60,17 +60,19 @@ displayed_sidebar: releaseSidebar
     - 변경 이력 조회  
     - 서버 히스토리 일자별 비교
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverInventory" className="uitext" /> 선택된 테이블 컬럼 대상으로 동작하는 데이터 검색 입력창 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverInventory" className="uitext" /> 선택된 테이블 칼럼 대상으로 동작하는 데이터 검색 입력창 추가
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="agent_installation" className="uitext" /> Windows 2008 R2용 ZIP, EXE 파일 다운로드 버튼 추가
 
 - <Status priority='1'>Changed</Status> **GPU 인벤토리**, **GPU 성능요약** 리눅스 에이전트 최소 안내 버전 변경(2.9.2 → 2.9.3)
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverDetail" className="uitext" /> &gt; **프로세스 목록** '디스크 I/O'을 '프로세스 I/O'로 명칭 변경
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_serverDetail" className="uitext" /> &gt; **프로세스 목록** '디스크 I/O'를 '프로세스 I/O'로 명칭 변경
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_serverDetail" className="uitext" /> &gt; **프로세스 상세보기** '디스크 I/O (Bps)'를 '프로세스 I/O (Bps)'로 변경
 
-- <Status priority='1'>Changed</Status> **GPU 인벤토리** &gt; <Cmdname sid="BTN06441" className="uitext" /> 초기화 시 자동 수집 컬럼이 전체 선택되도록 변경하고 기본 컬럼 순서 조정
+- <Status priority='1'>Changed</Status> **GPU 인벤토리** &gt; <Cmdname sid="BTN06441" className="uitext" /> 초기화 시 자동 수집 칼럼이 전체 선택되도록 변경하고 기본 칼럼 순서 조정
+
+- <Status priority='0'>Fixed</Status> **GPU 인벤토리** Physical GPU의 MIG Mode Current 값이 Disabled인 경우, 하위 MIG 인스턴스는 보이지 않도록 처리
 
 ---
 
@@ -92,11 +94,13 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" />,  <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbTrend" className="uitext" /> 멀티 DB 구성 시 나타나는 `dbname` 셀렉터 개선
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="users_group_display_settings" className="uitext" /> &gt; **에이전트 목록** 에이전트 일시 정지 기능 추가(dbx 에이전트 버전 2.55.03 이상 지원)
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_management" className="uitext" />  &gt; **에이전트 목록** 에이전트 일시 정지 기능 추가(dbx 에이전트 버전 2.55.03 이상 지원)
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="integratedFlexboard" className="uitext" /> 인스턴스 목록 위젯 추가
 
 - <Status priority='1'>Feature</Status> dbxc 리눅스 다운로드 Copy 박스 추가
 
-- <Status priority='1'>Changed</Status> <Cmdname sid="side_lab" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" />, <Cmdname sid="tag_count_anomaly_detection" className="uitext" /> 사이트맵으로 이동
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" />, <Cmdname sid="tag_count_anomaly_detection" className="uitext" /> 사이트맵으로 이동
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_instanceList" className="uitext" /> 인스턴스의 Replication 혹은 Cluster 상태가 변경될 때 M/S/C 아이콘이 정상 변경되지 않는 현상 수정
 
@@ -113,7 +117,7 @@ displayed_sidebar: releaseSidebar
 
 #### MySQL, PostgreSQL
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_pgStat" className="uitext" />, <Cmdname sid="side_mysqlStat" className="uitext" /> 인스턴스 셀렉터가 동작하지 않는 현상 수정
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="side_pgStat" className="uitext" />, <Cmdname sid="side_mysqlStat" className="uitext" /> 인스턴스 셀렉터가 의도대로 동작하지 않는 현상 수정
 
 - <Status priority='0'>Fixed</Status> **SQL 상세** 플랜 조회 실패 시 에러 메시지가 화면에 표시되도록 수정
 
@@ -135,7 +139,7 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='0'>Fixed</Status> **Wait 별 Top SQL** 
 
-    - CPU, MEM 값의 Y축 최대값을 100%로 표시하도록 수정
+    - CPU, MEM 값의 Y축 최댓값을 100%로 표시하도록 수정
     - 상단 타임라인 차트의 시간이 합산 초 단위로 표시되도록 수정
     - Y축에 undefined가 표시되던 오류 수정
     - 화면 부하 수정
@@ -156,7 +160,7 @@ displayed_sidebar: releaseSidebar
 
 ### `Log`
 
-- <Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; **로그 탐색** 필터의 필드 추천 목록값에 `not` 옵션 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_log" className="uitext" /> &gt; **로그 탐색** 필터의 필드 추천 목록 값에 `not` 옵션 추가
 
 - <Status priority='1'>Feature</Status> **로그 설정** &gt; **로그 1차 파서**, **로그 2차 파서** 파서 별칭 추가
 

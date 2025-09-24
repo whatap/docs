@@ -1,0 +1,358 @@
+[
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
+    "ver": "Service 2.21.1",
+    "date": "2025-09-24",
+    "Lists": [
+      {
+        "ver": "Service 2.21.1",
+        "hash": "service-2211",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 슬로우 쿼리 위젯이 정상적으로 출력되지 않는 현상 수정</p>",
+        "category": "MySQL"
+      }
+    ]
+  },
+    {
+      "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
+      "ver": "Service 2.21.0",
+      "date": "2025-09-24",
+      "Lists": [
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "공통",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>사이트 관리자</strong> &gt; <strong>리전</strong> 리전 관리 목록에 라우터 항목 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "빌링",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 프로모션 API 응답 변경에 따른 할인량 표시 로직 변경(+ 상품 코드 표시)</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "빌링",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Cloud, ECS 제품의 과금 집계량 로직 변경(API 하위호환성 대응)</p>",
+          "details": "<ul><li>청구 및 납부 내역 &gt; 상세 - 과금집계량</li><li>청구서 미리보기 - 과금집계량</li><li>프로젝트 사용량 미리보기 - 과금집계량</li></ul>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "빌링",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 서버 무료 이용 초과 안내 팝업에 결제 수단 등록된 경우도 결제 수단 등록 안내 표시되는 문제 수정</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "OpenMetrics",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>OpenMetrics 대시보드 목록</strong> 추가</p>",
+          "details": "<ul><li>사전 정의 대시보드 제공: Istio, Nginx</li></ul>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "OpenMetrics",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>OpenMetrics 탐색기</strong> 조회 가능 기간 변경</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Application",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">관리</span> 에이전트 목록, 테이블 칼럼 명칭 수정</p>",
+          "details": "<ul><li>시작 시간 → 애플리케이션 시작 시각</li><li>활성/비활성 → 에이전트 활성/비활성 시각</li></ul>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Application",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">애플리케이션 대시보드</span> 금일 위젯에서 비교일자 데이터가 없는 경우, 기준일자 데이터가 회색으로 표시되던 현상 수정</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Server",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 인벤토리</span> 히스토리 조회 기능 추가</p>",
+          "details": "<ul><li>인벤토리 과거 데이터 조회</li><li>변경 이력 조회</li><li>서버 히스토리 일자별 비교</li></ul>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Server",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 인벤토리</span> 선택된 테이블 칼럼 대상으로 동작하는 데이터 검색 입력창 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Server",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">에이전트 설치</span> Windows 2008 R2용 ZIP, EXE 파일 다운로드 버튼 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Server",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>GPU 인벤토리</strong>, <strong>GPU 성능요약</strong> 리눅스 에이전트 최소 안내 버전 변경(2.9.2 → 2.9.3)</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Server",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">서버 상세</span> &gt;  <strong>프로세스 목록</strong> '디스크 I/O'를 '프로세스 I/O'로 명칭 변경</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Server",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">서버 상세</span> &gt; <strong>프로세스 상세보기</strong> '디스크 I/O (Bps)'를 '프로세스 I/O (Bps)'로 변경</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Server",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>GPU 인벤토리</strong> &gt; <span class=\"uitext\">칼럼 설정</span> 초기화 시 자동 수집 칼럼이 전체 선택되도록 변경하고 기본 칼럼 순서 조정</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Server",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>GPU 인벤토리</strong> Physical GPU의 MIG Mode Current 값이 Disabled인 경우, 하위 MIG 인스턴스는 보이지 않도록 처리</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Kubernetes",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">애플리케이션</span> &gt; <span class=\"uitext\">대시보드</span> &gt; <strong>비즈니스 대시보드</strong> 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Kubernetes",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">관리</span> &gt; <strong>에이전트 설치</strong> 오퍼레이터 설치 방법 추가</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "공통",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">스크립트 매니저</span> CSV 다운로드 기능 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "공통",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span><code class=\"newfunc\">New</code> 일간 비교 위젯 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "공통",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링 분석</span>, <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">카운트 추이</span> 멀티 DB 구성 시 나타나는 `dbname` 셀렉터 개선</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "공통",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">관리</span> &gt; <strong>에이전트 목록</strong> 에이전트 일시 정지 기능 추가(dbx 에이전트 버전 2.55.03 이상 지원)</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "공통",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">통합 Flex 보드</span> 인스턴스 목록 위젯 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "공통",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> dbxc 리눅스 다운로드 Copy 박스 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "공통",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">메트릭스 조회</span>, <span class=\"uitext\">메트릭스 이상 탐지</span> 사이트맵으로 이동</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "공통",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 목록</span> 인스턴스의 Replication 혹은 Cluster 상태가 변경될 때 M/S/C 아이콘이 정상 변경되지 않는 현상 수정</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "공통",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code><span class=\"uitext\">대시보드</span> &gt; <strong>인스턴스 맵</strong> Top SQL을 지원하는 데이터베이스 제품만 Top SQL 탭이 노출되도록 수정</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "MySQL, Oracle, Oracle Pro, PostgreSQL, SQL Server",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>SQL 상세</strong> SQL 튜닝 가이드 추가</p>",
+          "details": "<ul><li><strong>PostgreSQL</strong>·<strong>MySQL</strong>·<strong>SQL Server</strong>는 실행 계획(Plan) 조회 필수</li></ul>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "MySQL, PostgreSQL, SQL Server",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>SQL 상세</strong> 통계 추이 차트 추가</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "MySQL, PostgreSQL",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">PG SQL 통계</span>, <span class=\"uitext\">MYSQL SQL 통계</span> 인스턴스 셀렉터가 의도대로 동작하지 않는 현상 수정</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "MySQL, PostgreSQL",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>SQL 상세</strong> 플랜 조회 실패 시 에러 메시지가 화면에 표시되도록 수정</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "MySQL, PostgreSQL",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>SQL 상세</strong> JSON 플랜이 기본으로 조회되도록 수정</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "DB2",
+          "type": "New",
+          "desc": "<p><code class=\"New\" type=\"1\">New</code> <span class=\"uitext\">대시보드</span> &gt; <strong>버터풀 모니터링</strong> 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "DB2",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span>, <span class=\"uitext\">멀티 인스턴스 모니터링</span> 액티브 세션 테이블에서 확인할 수 있는 세션 상세 정보 팝아웃 화면 개선</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "Oracle",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>SQL 상세</strong> Trend 탭 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "Oracle",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <strong>SQL 상세</strong>창에서 오브젝트 상세 조회 시 Column/Index, Partition, SubPartition을 순서대로 조회할 수 있도록 변경(dbx 에이전트 2.56.05 버전 이상 지원)</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "Oracle Pro",
+          "type": "Fixed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>Wait 별 Top SQL</strong></p>",
+          "details": "<ul><li>CPU, MEM 값의 Y축 최댓값을 100%로 표시하도록 수정</li><li>상단 타임라인 차트의 시간이 합산 초 단위로 표시되도록 수정</li><li>Y축에 undefined가 표시되던 오류 수정</li><li>화면 부하 수정</li></ul>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Database",
+          "category": "PostgreSQL",
+          "type": "Changed",
+          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 복합 메트릭스 설정 템플릿 변경</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Network",
+          "category": "Network Performance Monitoring",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">네트워크 토폴로지</span> 노드 클릭 시 노드 연결 정보창에 Inbound, Outbound 상세 정보 표시 기능 추가</p>"
+        },
+  
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Log",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">로그</span> &gt; <strong>로그 탐색</strong> 필터의 필드 추천 목록 값에 <code>not</code> 옵션 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Log",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <strong>로그 설정</strong> &gt; <strong>로그 1차 파서</strong>, <strong>로그 2차 파서</strong> 파서 별칭 추가</p>"
+        },
+        {
+          "ver": "Service 2.21.0",
+          "hash": "service-2210",
+          "product": "Log",
+          "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 로그 키워드 하이라이팅 개선</p>"
+        }
+      ]
+    }
+  ]  

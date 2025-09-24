@@ -1,5 +1,33 @@
 [
   {
+    "ver": "v0.4.5",
+    "date": "2025-09-12",
+    "Lists": [
+      {
+        "ver": "v0.4.5",
+        "hash": "v045",
+        "product": "Go Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 트랜잭션 수집 오류 수정</p>",
+        "details": "<ul>\n<li>에러 문구를 수집하는 과정에서 오류가 발생해 트랜잭션이 정상적으로 수집되지 않는 문제 수정</li>\n<li>문제가 되는 옵션의 기본값을 false로 변경</li>\n<li>txtext_txname_enabled=false</li>\n<li>txtext_error_enabled=false</li>\n<li>v0.4.4 버전을 사용하는 경우 위 옵션을 중지하면 문제 해결 가능</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "ver": "v0.4.4",
+    "date": "2025-09-08",
+    "Lists": [
+      {
+        "ver": "v0.4.4",
+        "hash": "v044",
+        "product": "Go Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Docker 환경에서 여러 컨테이너의 CPU core 수집(미터링 정보)이 중복 계산되는 문제 수정</p>",
+        "details": "<ul>\n<li>미터링 정보를 전달하는 과정에서 다른 데이터와 혼합되는 문제 수정</li>\n<li>Linux UUID를 기준으로 중복 계산이 되지 않는 오류 수정</li>\n</ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/golang/golang-0_4_0",
     "ver": "v0.4.0",
     "date": "2024-06-19",

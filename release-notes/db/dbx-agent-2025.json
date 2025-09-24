@@ -1,5 +1,179 @@
 [
   {
+    "ver": "v2.56.06",
+    "date": "2025-09-22",
+    "Lists": [
+      {
+        "ver": "v2.56.06",
+        "hash": "v25606",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 1분 sql 통계 옵션 추가 (sqlstat_send_interval=1)</p>",
+        "category": "MS SQL Server"
+      },
+      {
+        "ver": "v2.56.06",
+        "hash": "v25606",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 지표 델타 계산 변경 옵션 추가 (5초 -&gt; 1초)</p>",
+        "category": "Oracle Pro, Oracle, PostgreSQL",
+        "details": "<ul>\n<li>whatap.conf에 delta=1 추가</li>\n</ul>"
+      },
+      {
+        "ver": "v2.56.06",
+        "hash": "v25606",
+        "product": "DBX",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\" type=\"0\">Change</code> 액티브 세션 cpu_time 단위 변경 (ms -&gt; s)</p>",
+        "category": "MS SQL Server"
+      },
+      {
+        "ver": "v2.56.06",
+        "hash": "v25606",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> galera cluster 인식하지 못하는 버그 수정</p>",
+        "category": "MySQL"
+      }
+    ]
+  },
+  {
+    "ver": "v2.56.05",
+    "date": "2025-09-19",
+    "Lists": [
+      {
+        "ver": "v2.56.05",
+        "hash": "v25605",
+        "product": "DBX",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\" type=\"0\">Change</code> 오브젝트 레이아웃 실시간 조회 시 파티션 정보를 통합 호출에서 분리하여 별도 조회하도록 변경</p>",
+        "category": "Oracle"
+      }
+    ]
+  },
+  {
+    "ver": "v2.56.04",
+    "date": "2025-09-05",
+    "Lists": [
+      {
+        "ver": "v2.56.04",
+        "hash": "v25604",
+        "product": "DBX",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\" type=\"0\">Change</code> wait event의 time_waited 단위를 second로 수정 및 정리</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.56.04",
+        "hash": "v25604",
+        "product": "DBX",
+        "type": "Change",
+        "desc": "<p><code class=\"Change\" type=\"0\">Change</code> wait event에서 idle 값 제외</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.56.04",
+        "hash": "v25604",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> DB statistics 계산 로직 수정</p>",
+        "category": "Oracle",
+        "details": "<ul>\n<li>buffer cache hit ratio, soft parse ratio, hard parse ratio, shared_pool_free_mem_ratio</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.56.03",
+    "date": "2025-09-04",
+    "Lists": [
+      {
+        "ver": "v2.56.03",
+        "hash": "v25603",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Innodb Cluster group replication node_state, replication_delay 추가</p>",
+        "category": "MySQL"
+      }
+    ]
+  },
+  {
+    "ver": "v2.56.02",
+    "date": "2025-09-01",
+    "Lists": [
+      {
+        "ver": "v2.56.02",
+        "hash": "v25602",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> SQL 통계 wait time 처리 로직 수정</p>",
+        "category": "Oracle"
+      },
+      {
+        "ver": "v2.56.02",
+        "hash": "v25602",
+        "product": "DBX",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> pg sql 통계 수집 주기 오류 수정 (5분 → 1시간)</p>",
+        "category": "PostgreSQL"
+      }
+    ]
+  },
+  {
+    "ver": "v2.56.01",
+    "date": "2025-08-27",
+    "Lists": [
+      {
+        "ver": "v2.56.01",
+        "hash": "v25601",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> plan, table 정보 추가</p>",
+        "category": "DB2"
+      },
+      {
+        "ver": "v2.56.01",
+        "hash": "v25601",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> object 실시간 조회 기능 추가</p>",
+        "category": "DB2",
+        "details": "<ul>\n<li>table, index, column, table partition, index partition 레이아웃 정보 실시간 조회</li>\n</ul>"
+      },
+      {
+        "ver": "v2.56.01",
+        "hash": "v25601",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 지표 추가 및 변경</p>",
+        "category": "DB2",
+        "details": "<ul>\n<li>mem_db_heap 추가</li>\n<li>max_connections 수정</li>\n<li>bufferpool 지표 수정</li>\n</ul>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.55.05",
+    "date": "2025-08-26",
+    "Lists": [
+      {
+        "ver": "v2.55.05",
+        "hash": "v25505",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> whatap.log 내용 중 skipped time의 count 로그 추가</p>",
+        "category": "공통"
+      },
+      {
+        "ver": "v2.55.05",
+        "hash": "v25505",
+        "product": "DBX",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 로그 파일 뷰어 기본 파일에 nohup.out 추가</p>",
+        "category": "공통"
+      }
+    ]
+  },
+  {
     "ver": "v2.55.04",
     "date": "2025-08-11",
     "Lists": [

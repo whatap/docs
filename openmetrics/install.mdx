@@ -12,7 +12,7 @@ Kubernetes 환경에서 설치하려면 [오픈에이전트 구성](https://docs
 
 :::
 
-## 오픈에이전트 바이너리 실행 파일 설치 가이드
+## 오픈에이전트 바이너리 실행 파일 설치
 
 모든 파일은 하나의 디렉토리에 위치해야 합니다.
 
@@ -361,7 +361,7 @@ some_other_metric{label="value"} 50
     - `apiserver_request_total` 메트릭은 유지됩니다.
     - `some_other_metric` 메트릭은 드롭됩니다.
 
-2. 두 번째 룰(`replace verb` -> `http_verb`) 적용
+2. 두 번째 룰(`replace verb` → `http_verb`) 적용
     - 유지된 `apiserver_request_total` 메트릭에 verb 레이블이 있으므로, 이 레이블의 값(GET)이 `http_verb`라는 새로운 레이블로 복사됩니다.
 
 ```

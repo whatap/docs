@@ -11,17 +11,17 @@ draft: true
 
 <Xclude product='aws-log'>
 
-홈 화면 > 프로젝트 선택 > ***로그*** > ***로그 검색***
+홈 화면 > 프로젝트 선택 > **로그** > **로그 검색**
 
 </Xclude>
 
 <InDoc product='aws-log'>
 
-홈 화면 > 프로젝트 선택 > ***대시보드*** > ***로그 검색***
+홈 화면 > 프로젝트 선택 > **대시보드** > **로그 검색**
 
 </InDoc>
 
-***로그 검색*** 메뉴에서 통합 수집된 대량의 로그를 다양한 조건으로 검색하고 사용자가 원하는 로그를 특정할 수 있습니다. 복수의 검색 조건을 파싱된 키와 밸류로 지정할 수 있어 원하는 조건에 일치하는 로그 데이터만 추출합니다. 
+**로그 검색** 메뉴에서 통합 수집된 대량의 로그를 다양한 조건으로 검색하고 사용자가 원하는 로그를 특정할 수 있습니다. 복수의 검색 조건을 파싱된 키와 밸류로 지정할 수 있어 원하는 조건에 일치하는 로그 데이터만 추출합니다. 
 
 동적 페이지로 검색된 로그 데이터를 정해진 라인 단위로 가져오며, 스크롤 등에 의해 하단에 닿으면 자동으로 다음 데이터를 가져와 표시합니다. {@include: ../common-items/_log-ui-main-term.mdx}
 
@@ -43,23 +43,23 @@ draft: true
 
 * ![number-s](/img/number-03.png) 로그 테이블 상단 왼쪽에서 조회한 총 로그 개수를 확인할 수 있습니다. 
 
-* 로그 데이터를 시간 순과 역순으로 조회할 수 있습니다. ![number-s](/img/number-03.png) 로그 테이블 상단 오른쪽에서 ***Timestamp*** ***과거 순***과 ***최근 순*** 중 원하는 조회 방식을 선택하세요.
+* 로그 데이터를 시간 순과 역순으로 조회할 수 있습니다. ![number-s](/img/number-03.png) 로그 테이블 상단 오른쪽에서 **Timestamp** **과거 순**과 **최근 순** 중 원하는 조회 방식을 선택하세요.
 
-* ![number-s](/img/number-03.png) 로그 테이블 상단 오른쪽 <LinkImage img='ic-fullscreen.svg' desc='전체 화면 아이콘'/> ***전체 화면*** 아이콘을 선택하면 ***로그***와 ***타임스탬프***를 전체 화면에서 확인할 수 있습니다.
+* ![number-s](/img/number-03.png) 로그 테이블 상단 오른쪽 <LinkImage img='ic-fullscreen.svg' desc='전체 화면 아이콘'/> **전체 화면** 아이콘을 선택하면 **로그**와 **타임스탬프**를 전체 화면에서 확인할 수 있습니다.
 
 ## 로그 Content 확인하기
 
 {@include: ../common-items/_log-ui-log-content.mdx}
 
-* ![number-s](/img/number-03.png) 로그 테이블의 행(로그)마다 ![아이콘](/img/ic-caret-right.svg)***더보기*** 버튼이 있습니다. ![아이콘](/img/ic-caret-right.svg)***더보기*** 버튼을 선택하면 ![number-s](/img/number-04.png)처럼 해당 로그의 전체 Content를 확인할 수 있습니다.
+* ![number-s](/img/number-03.png) 로그 테이블의 행(로그)마다 ![아이콘](/img/ic-caret-right.svg)**더보기** 버튼이 있습니다. ![아이콘](/img/ic-caret-right.svg)**더보기** 버튼을 선택하면 ![number-s](/img/number-04.png)처럼 해당 로그의 전체 Content를 확인할 수 있습니다.
 
-* 로그의 태그를 선택하면 ***복사***, ***검색***, ***제외 검색***, ***인접 로그 검색***을 할 수 있는 드롭다운 메뉴가 나타납니다.
+* 로그의 태그를 선택하면 **복사**, **검색**, **제외 검색**, **인접 로그 검색**을 할 수 있는 드롭다운 메뉴가 나타납니다.
 
 ## 필터{#log-search-filter}
 
 ### 필터 적용
 
-![number-s](/img/number-01.png) 왼쪽 ***시간 선택창***에서 시간 범위를 지정할 수 있습니다. 오른쪽에서 {@include: ../common-items/_log-filter-apply.mdx} 
+![number-s](/img/number-01.png) 왼쪽 **시간 선택창**에서 시간 범위를 지정할 수 있습니다. 오른쪽에서 {@include: ../common-items/_log-filter-apply.mdx} 
 
 :::note
 
@@ -71,17 +71,17 @@ draft: true
 
 ### 미파싱 키워드 필터 적용
 
-로그에서 파싱되지 않은 즉 인덱스가 생성되지 않은 키워드를 포함한 로그를 조회할 수 있습니다. 이 경우 지정 범위 내 모든 로그를 Full Scan합니다. 그렇기 때문에 인덱스가 생성된 키와 비교해 검색 속도가 다소 떨어질 수 있습니다. 정형화된 로그 데이터의 경우 ***로그 파서 설정***을 통해 인덱스 키 값을 활용해 검색하는 것을 권장합니다.
+로그에서 파싱되지 않은 즉 인덱스가 생성되지 않은 키워드를 포함한 로그를 조회할 수 있습니다. 이 경우 지정 범위 내 모든 로그를 Full Scan합니다. 그렇기 때문에 인덱스가 생성된 키와 비교해 검색 속도가 다소 떨어질 수 있습니다. 정형화된 로그 데이터의 경우 **로그 파서 설정**을 통해 인덱스 키 값을 활용해 검색하는 것을 권장합니다.
 
 <ImgLang img='log-content-search.png' desc='미파싱 키워드 필터 적용'/>
 
-1. ***카테고리***를 선택하세요. 
+1. **카테고리**를 선택하세요. 
 
-1. ***필터*** 입력창에 `content` 기준 띄어쓰기 후 검색을 원하는 키워드를 입력하세요. 
+1. **필터** 입력창에 `content` 기준 띄어쓰기 후 검색을 원하는 키워드를 입력하세요. 
 
     > 예시, `content *select*`
 
-1. ![아이콘](/img/ic-search.svg) ***검색*** 버튼을 클릭해 로그를 조회하세요.
+1. ![아이콘](/img/ic-search.svg) **검색** 버튼을 클릭해 로그를 조회하세요.
 
 :::note 
 
@@ -89,7 +89,7 @@ draft: true
 
 * 파서 설정에 대한 자세한 내용은 [다음 문서](log-parser.mdx)를 참조하세요.
 
-* ***라이브 테일***의 경우 모든 로그 검색이 가능해 카테고리 지정이 필수적인 것은 아닙니다.
+* **라이브 테일**의 경우 모든 로그 검색이 가능해 카테고리 지정이 필수적인 것은 아닙니다.
 
 :::
 
@@ -103,13 +103,13 @@ draft: true
 
 <InDoc product='log,postgresql,mysql'>
 
-예를 들어 ![number-s](/img/number-02.png) 영역의 <span class='logwr'>AppLog</span>와 <span class='logwr'>AppStdOut</span>은 카테고리, 그 아래 <span class='lowfg'>oid</span>와 같은 태그는 파싱(parsing) 된 검색 키입니다. 검색 키는 ***로그*** > ***로그 설정***의 ***로그 파서 설정***에서 파싱 로직을 등록해 설정할 수 있습니다. 
+예를 들어 ![number-s](/img/number-02.png) 영역의 <span class='logwr'>AppLog</span>와 <span class='logwr'>AppStdOut</span>은 카테고리, 그 아래 <span class='lowfg'>oid</span>와 같은 태그는 파싱(parsing) 된 검색 키입니다. 검색 키는 **로그** > **로그 설정**의 **로그 파서 설정**에서 파싱 로직을 등록해 설정할 수 있습니다. 
 
 </InDoc>
 
 <InDoc product='aws-log'>
 
-예를 들어 ![number-s](/img/number-02.png) 영역의 <span class='logwr'>AppLog</span>와 <span class='logwr'>AppStdOut</span>은 카테고리, 그 아래 <span class='lowfg'>oid</span>와 같은 태그는 파싱(parsing) 된 검색 키입니다. 검색 키는 ***관리*** > ***로그 설정***의 ***로그 파서 설정***에서 파싱 로직을 등록해 설정할 수 있습니다.
+예를 들어 ![number-s](/img/number-02.png) 영역의 <span class='logwr'>AppLog</span>와 <span class='logwr'>AppStdOut</span>은 카테고리, 그 아래 <span class='lowfg'>oid</span>와 같은 태그는 파싱(parsing) 된 검색 키입니다. 검색 키는 **관리** > **로그 설정**의 **로그 파서 설정**에서 파싱 로직을 등록해 설정할 수 있습니다.
 
 </InDoc>
 
@@ -145,17 +145,15 @@ draft: true
 
 로그의 콘텐츠 중 원하는 키워드를 손쉽게 식별하기 위해 하이라이트 기능을 제공합니다.
 
-<ImgLang img='log-search-content-search-highlight.png' desc='콘텐츠 하이라이트'/>
-
-* ![지시선 a](/img/char-a.svg) 키워드 입력창에 하이라이트를 원하는 키워드를 입력 후 ![검색 아이콘](/img/ic-search.svg)***검색*** 아이콘을 클릭하세요.
+* 키워드 입력창에 하이라이트를 원하는 키워드를 입력 후 ![검색 아이콘](/img/ic-search.svg)**검색** 아이콘을 클릭하세요.
 
   > 예시, `select`
 
-* 예시 이미지와 같이 ![지시선 b](/img/char-b.svg) 로그 목록에서 Content 내 키워드가 하이라이팅 됩니다.
+* 예시 이미지와 같이 로그 목록에서 Content 내 키워드가 하이라이팅 됩니다.
 
 * 단일 또는 복수 키워드로 필터를 걸 수 있습니다.
 
-* ![전체화면 아이콘](/img/ic-fullscreen.svg) ***전체 화면*** 아이콘을 선택하면 ***로그***와 ***수집 시간***을 전체 화면에서 확인할 수 있습니다.
+* ![전체화면 아이콘](/img/ic-fullscreen.svg) **전체 화면** 아이콘을 선택하면 **로그**와 **수집 시간**을 전체 화면에서 확인할 수 있습니다.
 
 ### 복수 키워드 조건
 

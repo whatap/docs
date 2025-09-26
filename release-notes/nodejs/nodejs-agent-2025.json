@@ -1,5 +1,20 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-1_0_3/",
+    "ver": "v1.0.3",
+    "date": "2025-09-24",
+    "Lists": [
+      {
+        "ver": "v1.0.3",
+        "hash": "v103",
+        "product": "Node.js Agent",
+        "type": "Changed",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Go 모듈 적용</p>",
+        "details": "<ul><li><p>애플리케이션 이름 설정</p></li>\n\n<li><p>새로운 데이터 수집 아키텍처</p></li>\n\n<li><p>PM2 클러스터 모드 지원 개선</p></li></ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-0_5_25/",
     "ver": "v0.5.25",
     "date": "2025-08-22",

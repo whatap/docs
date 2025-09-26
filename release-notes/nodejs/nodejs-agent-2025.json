@@ -2,14 +2,14 @@
   {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-1_0_3/",
     "ver": "v1.0.3",
-    "date": "2025-09-24",
+    "date": "2025-09-25",
     "Lists": [
       {
         "ver": "v1.0.3",
         "hash": "v103",
         "product": "Node.js Agent",
         "type": "Changed",
-        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Go 모듈 적용</p>",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 독립적인 수집 프로세스 추가 적용</p>",
         "details": "<ul><li><p>애플리케이션 이름 설정</p></li>\n\n<li><p>새로운 데이터 수집 아키텍처</p></li>\n\n<li><p>PM2 클러스터 모드 지원 개선</p></li></ul>"
       }
     ]

@@ -101,9 +101,9 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         WhatapAgent.Builder()
-            .setProjectKey({YOUR_PROJECT_ACCESS_KEY})
-            .setServerUrl({YOUR_SERVER_URL})
-            .setPCode({YOUR_PCODE})
+            .setProjectKey(<YOUR_PROJECT_ACCESS_KEY>)
+            .setServerUrl(<YOUR_SERVER_URL>)
+            .setPCode(<YOUR_PCODE>)
             .build(this)
     }
 }
@@ -120,9 +120,9 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         new WhatapAgent.Builder()
-            .setProjectKey({YOUR_PROJECT_ACCESS_KEY})
-            .setServerUrl({YOUR_SERVER_URL})
-            .setPCode({YOUR_PCODE})
+            .setProjectKey("<YOUR_PROJECT_ACCESS_KEY>")
+            .setServerUrl("<YOUR_SERVER_URL>")
+            .setPCode(<YOUR_PCODE>)
             .build(this);
     }
 }

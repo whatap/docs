@@ -31,7 +31,7 @@ AWS Aurora and RDS와 NCP Cloud DB for PostgreSQL 설정 방법입니다.
 input:
   csp: "aws" # 클라우드 서비스 제공자를 입력합니다.
   namespace: "rds"
-  region: "ap-northeast-1"
+  region: "ap-northeast-2"
   instances: # 명시한 인스턴스는 항상 수집합니다. 클러스터 내의 인스턴스를 이 속성에 명시하면, 오토스케일 여부와 관계없이 항상 수집합니다.
     - name: "mysql-rds"
       slow_query: true # 슬로우 쿼리 페이지를 사용하려면, true로 설정합니다. 해당 기능은 MySQL 및 PostgreSQL 인스턴스에서만 지원됩니다.
@@ -47,6 +47,11 @@ input:
     - "FreeableMemory"
     - "ReadLatency"
     - "WriteLatency"
+    - "ReadIOPS"
+    - "WriteIOPS"
+    - "NetworkReceiveThroughput"
+    - "NetworkTransmitThroughput"
+    - "FreeLocalStorage"
   logs:
     enabled: false # 활성화/비활성화 할 수 있음. true/false 선택하면됨
     groups: # 원하는 aws log group 을 추가하면 됨.
@@ -86,7 +91,7 @@ AWS DocumentDB 에이전트 설정 방법입니다.
 input:
   csp: "aws" # 클라우드 서비스 제공자를 입력합니다.
   namespace: "docdb"
-  region: "ap-northeast-1"
+  region: "ap-northeast-2"
   instances: # 명시한 인스턴스는 항상 수집합니다. 클러스터 내의 인스턴스를 이 속성에 명시하면, 오토스케일 여부와 관계없이 항상 수집합니다.
     - name: "docdb-instance-name"
   clusters:

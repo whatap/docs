@@ -1,6 +1,41 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
+    "ver": "Service 2.21.6",
+    "date": "2025-09-30",
+    "Lists": [
+      {
+        "ver": "Service 2.21.6",
+        "hash": "service-2216",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">이벤트 설정</span> &gt; <span class=\"uitext\">메트릭스 이벤트</span> &gt; <span class=\"uitext\">이벤트 추가</span> 버튼 클릭 시, 드로어에서 직접 입력 → 선택 입력 전환 시 화이트아웃 문제 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
+    "ver": "Service 2.21.3",
+    "date": "2025-09-29",
+    "Lists": [
+      {
+        "ver": "Service 2.21.3",
+        "hash": "service-2213",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>비즈니스 대시보드</strong> 상세 버튼 클릭 시 에러 발생 수정</p>"
+      },
+      {
+        "ver": "Service 2.21.3",
+        "hash": "service-2213",
+        "product": "Moblie",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> 설치 가이드 pcode 안내 누락 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
     "ver": "Service 2.21.2",
     "date": "2025-09-26",
     "Lists": [
@@ -9,7 +44,7 @@
         "hash": "service-2212",
         "product": "Application",
         "type": "Changed",
-          "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Node.js 지원 버전 수정(Node.js 16.4.0 → Node.js 17.0.0) 및 설치 안내 수정</p>",
+        "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> Node.js 지원 버전 수정(Node.js 16.4.0 → Node.js 17.0.0) 및 설치 안내 수정</p>",
         "category": "Node.js"
       }
     ]
@@ -24,7 +59,7 @@
         "hash": "service-2211",
         "product": "Database",
         "type": "Fixed",
-        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code><span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 슬로우 쿼리 위젯이 정상적으로 출력되지 않는 현상 수정</p>",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 슬로우 쿼리 위젯이 정상적으로 출력되지 않는 현상 수정</p>",
         "category": "MySQL"
       }
     ]

@@ -49,7 +49,6 @@ Android에 와탭 모바일 에이전트를 설치하려면 다음 순서로 진
 plugins {
     id("io.whatap.android") version "2.1.0" apply false
 }
-
 ```
 
 ##### App 모듈 build.gradle.kts
@@ -63,7 +62,6 @@ plugins {
 dependencies {
     implementation("io.whatap.android:whatap-android-agent:2.1.0")
 }
-
 ```
 
 #### Groovy
@@ -74,7 +72,6 @@ dependencies {
 plugins {
     id 'io.whatap.android' version '2.1.0' apply false
 }
-
 ```
 
 ##### App 모듈 build.gradle
@@ -88,7 +85,6 @@ plugins {
 dependencies {
     implementation 'io.whatap.android:whatap-agent-bom:2.1.0'
 }
-
 ```
 
 ### 2. SDK 초기화
@@ -105,12 +101,12 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         WhatapAgent.Builder()
-            .setProjectKey("x431422fk0h9a-x45fmbh3gj5v0u-x6bnq98q40qqtd")
-            .setServerUrl("15.165.146.117")
+            .setProjectKey("<YOUR_PROJECT_ACCESS_KEY>")
+            .setServerUrl("<YOUR_SERVER_URL>")
+            .setPCode(<YOUR_PCODE>)
             .build(this)
     }
 }
-
 ```
 
 #### Java
@@ -124,12 +120,12 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         new WhatapAgent.Builder()
-            .setProjectKey("x431422fk0h9a-x45fmbh3gj5v0u-x6bnq98q40qqtd")
-            .setServerUrl("15.165.146.117")
+            .setProjectKey("<YOUR_PROJECT_ACCESS_KEY>")
+            .setServerUrl("<YOUR_SERVER_URL>")
+            .setPCode(<YOUR_PCODE>)
             .build(this);
     }
 }
-
 ```
 
 ### 3. Manifest 설정
@@ -147,7 +143,6 @@ AndroidManifest.xml 파일에 필요한 권한과 Application 클래스를 설�
         ...>
     </application>
 </manifest>
-
 ```
 
 ### 4. ProGuard 설정
@@ -168,7 +163,6 @@ AndroidManifest.xml 파일에 필요한 권한과 Application 클래스를 설�
 -keepclassmembers class * {
     @android.webkit.JavascriptInterface <methods>;
 }
-
 ```
 
 ### 5. ScreenGroup 설정
@@ -201,7 +195,6 @@ class MainActivity : AppCompatActivity() {
         chainView.endGroup("LoginFlow")
     }
 }
-
 ```
 
 #### Java
@@ -232,7 +225,6 @@ public class MainActivity extends AppCompatActivity {
         chainView.endGroup("LoginFlow");
     }
 }
-
 ```
 ## 문제 해결 및 지원
 
@@ -254,7 +246,6 @@ android {
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.2")
 }
-
 ```
 
 #### Plugin not found 오류
@@ -269,7 +260,6 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-
 ```
 
 #### Java 버전 관련 오류
@@ -283,7 +273,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 }
-
 ```
 
 #### Namespace 경고
@@ -307,7 +296,7 @@ android {
 
 ### 지원
 
-기술 지원 요청 시 다음 정보를 함께 제공하면 더 빠른 해결이 가능합니다:
+기술 지원 요청 시 다음 정보를 함께 제공하면 더 빠른 해결이 가능합니다.
 
 - 프로젝트 액세스 키
 - Android SDK 버전
@@ -322,4 +311,4 @@ android {
 * **모니터링 시작하기**
 
 [와탭 서비스](https://service.whatap.io) 페이지로 이동해 <Cmdname sid="TTL10497" className="uitext" />을 시작하세요. 
-앞서 생성한 프로젝트를 선택한 다음 <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="ITM10591" className="uitext" /> 메뉴로 이동하세요. 
+앞서 생성한 프로젝트를 선택한 다음 <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="ITM10591" className="uitext" />로 이동하세요. 

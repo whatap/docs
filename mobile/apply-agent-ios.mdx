@@ -89,9 +89,9 @@ struct MyApp: App {
     init() {
         // 시작 시 SDK 초기화
         let agent = WhatapAgentBuilder()
-            .setProjectKey(<YOUR_PROJECT_ACCESS_KEY>)
+            .setProjectKey("<YOUR_PROJECT_ACCESS_KEY>")
             .setPCode(<YOUR_PCODE>)
-            .setServerUrl(<YOUR_SERVER_URL>)
+            .setServerUrl("<YOUR_SERVER_URL>")
             .build()
         
         agent.initialize()
@@ -119,9 +119,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 가장 빠른 시점에 SDK 초기화 (권장)
         let agent = WhatapAgentBuilder()
-            .setProjectKey(<YOUR_PROJECT_ACCESS_KEY>)
+            .setProjectKey("<YOUR_PROJECT_ACCESS_KEY>")
             .setPCode(<YOUR_PCODE>)
-            .setServerUrl(<YOUR_SERVER_URL>)
+            .setServerUrl("<YOUR_SERVER_URL>")
             .build()
         
         agent.initialize()

@@ -1,0 +1,300 @@
+---
+id: whatap-cr-configuration-options
+title: WhaTap CR 설정 옵션
+description: WhaTap CR 설정 옵션을 안내합니다.
+keywords: [ 와탭 오퍼레이터, WhaTap CR 설정 옵션 ]
+toc_max_heading_level: 4
+---
+
+WhaTap CR 설정 옵션 문서는 이미지, 환경 변수, 리소스, 스케줄링, 인증, 우선순위 등을 세밀하게 지정해 에이전트 동작을 제어하는 방법을 제공합니다.
+
+### 이미지 구성
+
+```yaml
+apiVersion: monitoring.whatap.com/v2alpha1
+kind: WhatapAgent
+metadata:
+  name: whatap
+spec:
+  features:
+    k8sAgent:
+      # 풀 이미지명
+      customImageFullName: public.ecr.aws/whatap/kube_agent:1.8.8
+      masterAgent:
+        enabled: true
+        masterAgentContainer:
+          # 컨테이너별 오버라이드 가능
+          customImageFullName: public.ecr.aws/whatap/kube_agent:1.8.8
+      nodeAgent:
+        enabled: true
+        nodeAgentContainer:
+          # 컨테이너별 오버라이드 가능
+          customImageFullName: public.ecr.aws/whatap/kube_agent:1.8.8
+        nodeHelperContainer:
+          # 컨테이너별 오버라이드 가능
+          customImageFullName: public.ecr.aws/whatap/kube_agent:1.8.8
+    openAgent:
+      enabled: true
+      # 컨테이너별 오버라이드 가능
+      customImageFullName: public.ecr.aws/whatap/open_agent:latest
+```
+
+#### 1. 옵션을 컨테이너 env로 설정
+
+쿠버네티스 에이전트는 컨테이너 env를 통해 옵션을 설정할 수 있습니다.
+
+- 오퍼레이터는 기본 env(WHATAP_LICENSE/HOST/PORT, WHATAP_MEM_LIMIT 등)를 자동으로 추가합니다. `nodeAgent.nodeAgentContainer.envs`에 넣은 값은 기본 env 뒤에 추가로 병합됩니다.
+
+```yaml
+#와탭 노드 에이전트 데몬셋의 whatap-node-agent 컨테이너 옵션 설정 시
+apiVersion: monitoring.whatap.com/v2alpha1
+kind: WhatapAgent
+metadata:
+  name: whatap
+spec:
+  features:
+    k8sAgent:
+      masterAgent:
+        enabled: true
+      nodeAgent:
+        enabled: true
+        nodeAgentContainer:
+          envs:
+            - name: debug
+              value: "true"
+      gpuMonitoring:
+        enabled: false
+```
+
+#### 2. resources 설정 방법
+
+오퍼레이터는 k8s 에이전트 설치 기본값을 포함합니다.
+
+```yaml
+#와탭 노드 에이전트 데몬셋의 whatap-node-agent 컨테이너 옵션 설정 시
+apiVersion: monitoring.whatap.com/v2alpha1
+kind: WhatapAgent
+metadata:
+  name: whatap
+spec:
+  features:
+    k8sAgent:
+      masterAgent:
+        enabled: true
+        # 마스터 에이전트 컨테이너 리소스(컨테이너 단위 오버라이드)
+        masterAgentContainer:
+          resources:
+            requests:
+              cpu: "150m"
+              memory: "256Mi"
+            limits:
+              cpu: "300m"
+              memory: "512Mi"
+      nodeAgent:
+        enabled: true
+        # 노드 에이전트 전체 기본 리소스(컴포넌트 레벨)
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "300Mi"
+          limits:
+            cpu: "200m"
+            memory: "350Mi"
+        # 노드 에이전트 컨테이너 오버라이드
+        nodeAgentContainer:
+          resources:
+            requests:
+              cpu: "150m"
+              memory: "350Mi"
+            limits:
+              cpu: "300m"
+              memory: "512Mi"
+        # 헬퍼 컨테이너 오버라이드
+        nodeHelperContainer:
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "100Mi"
+            limits:
+              cpu: "200m"
+              memory: "350Mi"
+      gpuMonitoring:
+        enabled: false
+```
+
+- 컨테이너별 `resources`에 값이 있으면 해당 컨테이너에 대해 컴포넌트 기본값을 덮어씁니다.
+
+| 컨테이너 | requests | limits |
+| --- | --- | --- |
+| whatap-master-agent | cpu: 100m <br /> memory: 300Mi | cpu:  200m <br /> memory: 350Mi |
+| whatap-node-agent | request: 100m <br /> limit: 300Mi | request: 200Mi <br /> limit: 350Mi |
+| whatap-node-helper | request: 100m <br /> limit: 100m | request:200Mi <br /> limit: 350Mi |
+
+#### 3. tolerations, affinity, nodeSelector
+
+##### tolerations
+
+```yaml
+spec:
+  features:
+    k8sAgent:
+      masterAgent:
+        enabled: true
+        tolerations:
+          - key: "node.kubernetes.io/not-ready"
+            operator: "Exists"
+            effect: "NoExecute"
+            tolerationSeconds: 300
+      nodeAgent:
+        enabled: true
+        tolerations:
+          - key: "dedicated"
+            operator: "Equal"
+            value: "observability"
+            effect: "NoSchedule"
+```
+
+##### affinity
+
+마스터, 노드 에이전트는 다음 기본 tolerations를 내장하며, CR에서 설정한 값은 기본값 뒤에 병합됩니다.
+
+- `node-role.kubernetes.io/master:NoSchedule`
+- `node-role.kubernetes.io/control-plane:NoSchedule`
+
+```yaml
+spec:
+  features:
+    k8sAgent:
+      masterAgent:
+        enabled: true
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+                - matchExpressions:
+                    - key: kubernetes.io/os
+                      operator: In
+                      values: ["linux"]
+      nodeAgent:
+        enabled: true
+        affinity:
+          podAntiAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              - weight: 100
+                podAffinityTerm:
+                  topologyKey: kubernetes.io/hostname
+                  labelSelector:
+                    matchLabels:
+                      name: whatap-node-agent
+```
+
+##### nodeSelector
+
+- 마스터 에이전트에 nodeSelector 적용
+
+```yaml
+spec:
+  features:
+    k8sAgent:
+      masterAgent:
+        enabled: true
+        nodeSelector:
+          nodepool: system            # 예) system 노드풀로 고정
+          kubernetes.io/os: linux     # 리눅스 노드만
+```
+
+- 노드 에이전트(DaemonSet) `nodeSelector` 적용
+    
+    ```yaml
+    spec:
+      features:
+        k8sAgent:
+          nodeAgent:
+            enabled: true
+            nodeSelector:
+              nodepool: worker            # 예) 워커 노드만
+              kubernetes.io/arch: amd64   # AMD64 아키텍처 노드만
+    ```
+    
+    :::note
+
+    노드 에이전트는 모든 노드에 배포되는 DaemonSet입니다. `nodeSelector`를 설정하면 해당 조건의 노드만 파드가 생성됩니다.
+
+    :::
+
+    - GPU 사용 클러스터에서 GPU 노드에만 배포하고 싶다면 다음과 같이 사용할 수 있습니다.
+        
+        ```yaml
+        spec:
+          features:
+            k8sAgent:
+              nodeAgent:
+                enabled: true
+                nodeSelector:
+                  nvidia.com/gpu.present: "true"
+              gpuMonitoring:
+                enabled: true
+        ```
+
+- OpenAgent에 `nodeSelector` 적용
+    
+    ```yaml
+    spec:
+      features:
+        openAgent:
+          enabled: true
+          nodeSelector:
+            nodepool: system              # OpenAgent를 시스템 노드풀로 고정
+            kubernetes.io/os: linux
+          # 선택: 더 정교한 스케줄링은 affinity와 병행
+          affinity:
+            nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
+                      - key: kubernetes.io/hostname
+                        operator: In
+                        values: ["ip-10-0-0-12"]
+    ```
+
+#### 4. imagePullSecret
+
+```yaml
+spec:
+  features:
+    k8sAgent:
+      # 전역 풀시크릿 (마스터/노드 공통 기본값)
+      imagePullSecrets:
+        - name: global-regcred
+      masterAgent:
+        enabled: true
+        # 마스터 전용 오버라이드
+        imagePullSecrets:
+          - name: master-regcred
+      nodeAgent:
+        enabled: true
+        # 노드 전용 오버라이드
+        imagePullSecrets:
+          - name: node-regcred
+    openAgent:
+      enabled: true
+      imagePullSecrets:
+        - name: openagent-regcred
+```
+
+#### 5. PriorityClassName
+
+```yaml
+spec:
+  features:
+    k8sAgent:
+      masterAgent:
+        enabled: true
+        priorityClassName: system-cluster-critical
+      nodeAgent:
+        enabled: true
+        priorityClassName: system-node-critical
+    openAgent:
+      enabled: true
+      priorityClassName: system-cluster-critical
+```

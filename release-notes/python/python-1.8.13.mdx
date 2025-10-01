@@ -1,0 +1,37 @@
+---
+id: python-1_8_13
+title: Python Agent v1.8.13
+toc_max_heading_level: 2
+pagination_next: release-notes/python/python-1_8_12
+displayed_sidebar: releaseSidebar
+---
+
+2025년 10월 1일
+
+- <Status priority='0'>Fixed</Status> `fastapi` 모듈 수정
+
+    - 특정 함수들이 두 번 이상 실행되던 현상 수정
+
+- <Status priority='0'>Fixed</Status> `httpx` 모듈 수정
+
+    - Streaming 방식으로 호출 시 추적 에러가 발생하던 현상 수정
+
+- <Status priority='0'>Fixed</Status> `psycopg` 모듈 수정
+
+    - rowcount 속성 접근 에러 수정
+    - 커넥션 정보 추출 로직의 안정성 향상
+
+- <Status priority='0'>Fixed</Status> 쿠버네티스 컨테이너 환경에서 Container ID가 매핑되지 않는 현상 수정
+
+    :::caution
+
+    **주의**  
+    쿠버네티스 에이전트 v1.8.9 이상 지원
+
+    :::
+
+:::note
+
+Agent download: [whatap-python v1.8.13](https://pypi.org/project/whatap-python/1.8.13/)
+
+:::

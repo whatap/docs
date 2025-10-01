@@ -1,5 +1,44 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_8_13",
+    "ver": "v1.8.13",
+    "date": "2025-10-01",
+    "Lists": [
+      {
+        "ver": "v1.8.13",
+        "hash": "v1813",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>fastapi</code> 모듈 수정 </p>",
+        "details": "<ul><li><p>특정 함수들이 두 번 이상 실행되던 현상 수정</p></li></ul>"
+      },
+      {
+        "ver": "v1.8.13",
+        "hash": "v1813",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>httpx</code> 모듈 수정 </p>",
+        "details": "<ul><li><p>Streaming 방식으로 호출 시 추적 에러가 발생하던 현상 수정</p></li></ul>"
+      },
+      {
+        "ver": "v1.8.13",
+        "hash": "v1813",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>psycopg</code> 모듈 수정 </p>",
+        "details": "<ul><li><p>rowcount 속성 접근 에러 수정</p></li>\n\n<li><p>커넥션 정보 추출 로직의 안정성 향상</p></li></ul>"
+      },
+      {
+        "ver": "v1.8.13",
+        "hash": "v1813",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 쿠버네티스 컨테이너 환경에서 Container ID가 매핑되지 않는 현상 수정 </p>",
+        "details": "<ul><div class=\"theme-admonition theme-admonition-caution alert alert--warning\">\n  <div class=\"admonition-heading\">\n <strong>주의</strong>\n  </div>\n  <div class=\"admonition-content\">\n    <p>쿠버네티스 에이전트 v1.8.9 이상 지원</p>\n  </div>\n</div></ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_8_12",
     "ver": "v1.8.12",
     "date": "2025-09-12",

@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
+    "ver": "Service 2.21.8",
+    "date": "2025-10-02",
+    "Lists": [
+      {
+        "ver": "Service 2.21.8",
+        "hash": "service-2218",
+        "product": "Application",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> 언어가 영어일 때 APM Python 프로젝트의 에이전트 설치 페이지에 진입 시 화이트아웃 발생 현상 수정</p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
     "ver": "Service 2.21.6",
     "date": "2025-09-30",
     "Lists": [

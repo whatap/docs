@@ -82,6 +82,24 @@ import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
 
 ## 활용하기
 
+### WHATAP_HOME 환경 변수 설정하기
+
+애플리케이션 디렉토리 경로를 WHATAP_HOME 환경변수에 설정하세요. 지정하지 않으면 기본적으로 현재 실행 디렉토리(process.cwd())가 사용됩니다.
+
+```bash
+export WHATAP_HOME={app_root_path}
+```
+
+WHATAP_HOME 경로에 *whatap.conf* 파일을 생성 후 아래의 값을 설정해주세요.
+
+```bash
+# whatap.conf
+app_name=MyNodeApp              # 애플리케이션 이름, 기본값: NODE
+app_process_name=node           # 프로세스 명 (예: node)
+```
+
+### 에이전트 설정하기
+
 애플리케이션의 진입점(메인 모듈) 파일의 최상단에 다음 코드를 추가하세요. 예를 들어 Express.js 애플리케이션에서는 *app.js* 또는 *server.js* 파일이 진입점(메인 모듈)입니다. Nest.js와 같은 프레임워크를 사용하는 경우 *main.ts* 파일이 될 수 있습니다.
 
 <Tabs groupId="javascript">
@@ -115,9 +133,8 @@ WhatapAgent.NodeAgent;
 
 애플리케이션의 각 환경에 맞춘 설정을 적용해야 할 때는 *whatap.conf* 파일 대신 애플리케이션의 진입점 파일에서 설정을 수정할 수 있습니다. 아래 코드를 참고하여 환경에 맞는 설정을 적용하세요.
 
-```javascript
-process.env.WHATAP_CONF = 'whatapdev'; // Setting for development environment
-process.env.WHATAP_NAME = 'NodeAgent-{ip2}-{ip3}-{cluster}'; //Dynamically configure agent name with IP and cluster info
+```jsx
+process.env.WHATAP_CONF = 'whatap_dev.conf'; // Setting for development environment
 var WhatapAgent = require('whatap').NodeAgent;
 ```
 
@@ -131,31 +148,19 @@ var WhatapAgent = require('whatap').NodeAgent;
 
 * **PM2의 클러스터 모드에서 애플리케이션을 실행하는 경우**: 
 
-  클러스터 모드에서 여러 개의 애플리케이션 인스턴스를 실행할 때, 개별 인스턴스마다 별도의 에이전트 옵션을 적용할 수 있습니다. 이 경우에도 설정 파일 대신 진입점 파일에서 환경별 설정을 적용하여 유연한 모니터링을 구성할 수 있습니다.
-
-:::note
-
-`WHATAP_NAME` 옵션으로 설정 가능한 인자는 다음과 같습니다.
-
-* **ipN**: ip0, ip1, ip2, ip3
-
-* **cluster**: cluster ID
-
-* **pid**: process ID
-
-* **hostname**: 호스트 이름
-
-:::
+  클러스터 모드에서 여러 개의 애플리케이션 인스턴스를 실행할 때, 하나의 `app_name(WHATAP_HOME)`으로 통합하여 표현됩니다.
 
 ### 에이전트 그룹 단위 기능 활용하기
 
 에이전트 그룹 단위 기능에는 그룹 토폴로지, 통합 토폴로지 등이 있으며, 다음 코드에서 `{그룹 식별자}` 부분을 에이전트 그룹명으로 대체하여 사용하세요.
 
-```javascript
+```jsx
 process.env.WHATAP_OKIND = '{그룹 식별자}';
 var WhatapAgent = require('whatap').NodeAgent;
-```
 
+// 또는 whatap.conf에 아래와 같이 작성
+whatap.okind = {그룹 식별자}
+```
 
 ## PaaS 애플리케이션 환경
 

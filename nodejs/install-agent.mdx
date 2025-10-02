@@ -162,21 +162,6 @@ var WhatapAgent = require('whatap').NodeAgent;
 whatap.okind = {그룹 식별자}
 ```
 
-## PaaS 애플리케이션 환경
-
-### 기본 환경 변수 설정
-
-PaaS 애플리케이션에서 에이전트를 설치하는 경우 모든 설정을 소스(*app.js*) 파일에서 설정해야 합니다. *whatap.conf* 파일을 사용할 수 없습니다.
-
-액세스 키(`WHATAP_LICENSE`)와 수집 서버 IP(`WHATAP_SERVER_HOST`)를 환경 변수로 설정하세요.
-
-```javascript title='app.js'
-process.env.WHATAP_LICENSE={액세스 키};
-process.env.WHATAP_SERVER_HOST={수집 서버 IP};
-var whatap=require('whatap').NodeAgent;
-...
-```
-
 ### 환경 변수로 설정 가능한 옵션
 
 *whatap.conf* 파일을 사용할 수 없기 때문에 소스 파일에 환경 변수로 와탭 에이전트 옵션을 설정해야 합니다.

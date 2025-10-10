@@ -49,7 +49,7 @@ drwxr-xr-x  4 kyw  staff       128  7 18 20:23 configs
 input:
   csp: "aws" # 클라우드 서비스 제공자를 입력합니다.
   namespace: "rds"
-  region: "ap-northeast-1"
+  region: "ap-northeast-2"
   instances: # 명시한 인스턴스는 항상 수집합니다. 클러스터 내의 인스턴스를 이 속성에 명시하면, 오토스케일 여부와 관계없이 항상 수집합니다.
     - name: "mysql-rds"
       slow_query: true # 슬로우 쿼리 페이지를 이용하시려면, true 로 설정해주세요.
@@ -65,6 +65,11 @@ input:
     - "FreeableMemory"
     - "ReadLatency"
     - "WriteLatency"
+    - "ReadIOPS"
+    - "WriteIOPS"
+    - "NetworkReceiveThroughput"
+    - "NetworkTransmitThroughput"
+    - "FreeLocalStorage"
   logs:
     enabled: false # 활성화/비활성화 할 수 있음. true/false 선택하면됨
     groups: # 원하는 aws log group 을 추가하면 됨.
@@ -72,8 +77,8 @@ input:
       - "/aws/lambda/MyLambda"
 
 output: # 수집한 메트릭 데이터를 받는 WhaTap 정보를 입력합니다.
-  license: "x42u920rpstnp-z5sv3qlhn3tcn-z39qoj8fvv8123"
-  host: "15.165.146.117"
+  license: "abcdefg-higjgkgjk-zxcvnbnbmc"
+  host: "127.0.0.1"
 ```
 
 ## 에이전트 실행 및 제어 명령어

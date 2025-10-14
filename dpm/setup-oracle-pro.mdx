@@ -1,0 +1,238 @@
+---
+id: agent-dmx-settings
+title: DMX 에이전트 설정
+description: whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내합니다.
+keywords: [ Oracle Pro, 데이터베이스, DBX 에이전트 ]
+---
+
+import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
+import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
+
+DMX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
+
+### 기본 옵션
+
+<Dbagentdbxbasicoption />
+
+* **rac** <span class='type'>String</span> <code class="my">RAC</code>
+
+    Oracle의 **Real Application Clusters**(**RAC**) 클러스터 그룹으로 묶인 인스턴스들의 그룹 이름을 설정하는 옵션입니다. 이 옵션을 사용하여 복잡한 RAC 클러스터 그룹 이름을 간결하고 식별하기 쉬운 이름으로 설정할 수 있습니다. 이 옵션을 통해 설정된 RAC 클러스터 그룹 이름은 와탭 모니터링 서비스 화면에서 확인할 수 있습니다.
+
+    예를 들어, RAC 클러스터 그룹 이름이 '**my_long_rac_cluster_group_name**'과 같이 길 경우, 사용자는 다음과 같이 간결한 이름으로 설정할 수 있습니다.
+
+    ```ini title="whatap.conf"
+    rac=my_rac_cluster_group
+    ```
+
+    와탭 모니터링 서비스에서 '**my_rac_cluster_group**'로 표시되며, 사용자는 해당 RAC 클러스터 그룹을 빠르게 식별하고 모니터링할 수 있습니다.
+
+### 데이터베이스 데이터 수집 옵션
+
+* **bind_elapse** <span class='type'>Int</span>
+
+    기본값 `3`
+
+    SQL이 설정한 시간(초)보다 오래 수행하면 바인드 값을 수집하도록 설정합니다. 설정값이 `0`이면 이 옵션은 작동하지 않습니다.
+
+    `bind_interval`을 설정하지 않아도 SQL수행시간이 설정값보다 길다면 바인드 값이 수집됩니다. 
+
+* **bind_interval** <span class='type'>Int</span>
+
+    기본값 `0`
+
+    바인드 캡처 간격을 초 단위로 설정합니다. 기본값(`0`)을 설정하면 바인드 캡처하지 않습니다.
+
+    `v$sql_bind_capture`에서 설정한 간격단위로 수집합니다. 
+
+    데이터가 많을 수 있어 마지막 수집한 시간 이후이면서 `bind_max_count`만큼만 수집합니다.
+
+* **bind_max_count** <span class='type'>Int</span>
+
+    기본값 `1000`
+
+    바인드 캡처값을 수집할 때 몇 개까지 수집할지 설정합니다. 마지막 수집한 시간 이후의 바인드 캡처값만 수집할 수 있습니다.
+
+* **codefrom / codeto** <span class='type'>Int</span>
+
+    기본값 `15`
+
+    SQL text에서 한글 깨짐 문제가 있을 경우 문자 인코딩을 바꾸어주는 옵션입니다. 지정하는 값은 iconv -l 의 목록에서 선택가능 합니다.
+
+* **conn_fail_count** <span class='type'>Int</span>
+
+    15번 연속 connection error가 발생할 때 알림을 보냅니다. 원하는 횟수를 입력해 알림 발생 기준을 조정할 수 있습니다.
+
+    예) codefrom=EUC-KR, codeto=UTF-8
+
+* **event** <span class='type'>String</span>
+
+    기본값 `db file scattered read`, `db file sequential read`, `direct path read`, `direct path write`,
+    `enq: TX - row lock contention`, `latch free`, `library cache lock`, `library cache pin`
+
+    RAC환경일 때는 gc cr block receive time, gc current block receive time 의 2개 지표를 기본으로 더 수집합니다. 
+
+    이벤트 관련 지표를 수집하도록 설정합니다. `v$system_event`, `v$event_name` 등의 `EVENT` 컬럼을 참조해 수집하길 원하는 지표 이름을 작성하세요. `event+=`와 같은 방식으로 작성하면 기본 지표들과 함께 추가로 수집할 수 있습니다. 공백 없이 쉼표(,)를 구분자로 이용해 여러 개를 입력할 수 있습니다.
+
+    이벤트 하나당 다음 3가지 값을 수집합니다.
+
+        - time waited : 해당 이벤트에서 기다린 총 시간(단위: 1/100초). 예) db file sequential read time waited
+
+        - timeouts : 타임아웃으로 끝난 대기 횟수. 예) db file sequential read total timeouts
+
+        - total waits : 해당 이벤트가 발생한 총 횟수. 예) db file sequential read total waits
+
+* **interval** <span class='type'>Int</span>
+
+    기본값 `3` 
+
+    데이터 수집 주기를 초 단위로 설정합니다.  
+
+    :::note
+
+    Oracle Pro는 메모리 접근을 통해 액티브 세션 및 SQL 정보를 1/20초 단위로 수집합니다. 이렇게 수집된 데이터를 기반으로 stat을 생성하므로 데이터 유실이 적습니다. `interval` 옵션에 따라 현재 DB 상태를 전송할 때, stat, event, SQL stat, xview, lock, PQ 정보는 메모리에서 직접 읽어 빠르게 처리됩니다. 반면, bind 정보, DB parameter, plan 정보, 테이블, 테이블 스페이스, Wait class 등은 쿼리를 통해 수집합니다.
+
+    :::
+
+* **multi_db_stat** <span class='type'>Boolean</span>
+
+    기본값 `true`
+
+    Multi DB를 사용하는 경우 데이터베이스별로 지표를 수집할지, 전체 인스턴스 단위로 합산(sum)해 수집할지 설정합니다.
+
+* **ora_hidden_param** <span class='type'>Boolean</span>
+
+    기본값 `false`
+
+    히든 파라미터 값 수집 여부를 설정합니다. 히든 파라미터를 수집하려면 옵션값을 `true`로 설정하세요.
+
+* **plan_change** <span class='type'>Int</span>
+
+    기본값 `1`
+
+    플랜의 변경 내역에 대한 수집 여부를 설정합니다.  
+    - `1`: sys 제외  
+    - `2`: sys 포함
+
+* **plan_elapse** <span class='type'>Int</span>
+
+    기본값 `3`
+
+    실행 시간이 5초 이상 소요되는 플랜을 수집합니다.
+
+* **segments** <span class='type'>Boolean</span>
+
+    기본값 `true`
+
+    세그먼트 사이즈 정보를 수집합니다. 통계/보고서 > 테이블스페이스 사이즈 메뉴에서 해당 데이터베이스 또는 테이블스페이스를 선택하면 사이즈 정보를 확인할 수 있습니다.
+
+* **segments_exclude_sys** <span class='type'>Int</span>
+
+    기본값 `1`
+
+    sys에 해당하는 계정을 제외하고 세그먼트 사이즈 정보를 수집합니다.
+
+* **segments_hour** <span class='type'>Int</span>
+
+    기본값 `5`
+
+    세그먼트 사이즈 정보를 수집하는 시각을 설정합니다. 기본값으로 `5`이며 새벽 5시에 수집을 시작합니다.
+
+* **segments_max_count** <span class='type'>Int</span>
+
+    기본값 `50`
+
+    테이블스페이스별로 사이즈가 큰 세그먼트 50개만 수집하여 저장합니다.
+
+* **segments_min_size** <span class='type'>Int</span>
+
+    기본값 `10`
+
+세그먼트 사이즈 정보를 수집하는 최소 단위로 기본값은 10MB입니다. 설정한 값보다 작은 세그먼트는 수집하지 않습니다.
+
+* **segments_sys** <span class='type'>String</span>
+
+    기본값:
+
+    <details>
+
+        <summary>총 18개 계정 보기</summary>
+
+        `APPQOSSYS`, `AUDSYS`, `CTXSYS`, `DBSFWUSER`, `DBSNMP`, `DVSYS`,  
+        `GSMADMIN_INTERNAL`, `LBACSYS`, `MDSYS`, `OJVMSYS`, `OLAPSYS`,    
+        `ORDDATA`, `ORDSYS`, `OUTLN`, `SYS`, `SYSTEM`, `WMSYS`, `XDB`
+
+    </details>
+
+    sys에 해당하는 계정 목록입니다. 위 계정에 추가하고 싶으면 `segments_sys+='xxx'`로 추가할 수 있습니다.
+
+* **sqlstat_send_interval** <span class='type'>Int</span>
+
+    기본값 `1분`
+
+    SQL 통계 데이터를 생성하여 전송하는 주기를 분 단위로 설정합니다.
+    1 이상의 정수 값을 지정할 수 있으며, 보다 정밀한 통계 분석이 필요한 경우 1로 설정하면 됩니다.
+    이 설정을 통해 Top SQL 화면에서 1분 단위의 상세한 분석이 가능합니다.
+    
+* **stat** <span class='type'>String</span>
+
+    기본값:
+
+    <details>
+
+        <summary>총 20개 지표 보기</summary>
+
+        `CPU used by this session`, `data blocks consistent reads - undo records applied`, `db block changes`,  
+        `db time`, `enqueue waits`, `execute count`, `logons current`, `opened cursors current`,  
+        `parse count (hard)`, `parse count (total)`, `physical reads`, `physical writes`, `redo entries`,  
+        `rollback changes - undo records applied`, `session logical reads`, `sorts (disk)`, `sorts (memory)`,  
+        `transaction tables consistent reads - undo records applied`, `user commits`, `user rollbacks`
+
+    </details>
+
+    통계 관련 지표를 수집하도록 설정합니다. `v$sysstat`, `v$statname` 등의 `NAME` 컬럼을 참조해 수집하길 원하는 지표 이름을 작성하세요. `stat+=`와 같은 방식으로 작성하면 기본 지표들과 함께 추가로 수집할 수 있습니다. 공백 없이 쉼표(,)를 구분자로 이용해 여러 개를 입력할 수 있습니다.
+
+* **topevent** <span class='type'>Int</span>
+
+    기본값 `50`
+
+    이벤트 관련 주요 지표의 변화를 높은 수치 순으로 설정된 값만큼 수집합니다. `stat_top`, `event_top` 카테고리의 데이터를 사용합니다. 
+
+    :::note
+
+    이 옵션은 값을 설정하지 않으면 `topstat`의 설정값에 따라 작동합니다.
+
+    :::
+
+* **topstat** <span class='type'>Int</span>
+
+    기본값 `50`
+
+    통계 관련 주요 지표의 변화를 높은 수치 순으로 설정된 값만큼 수집합니다. `stat_top`, `event_top` 카테고리의 데이터를 사용합니다.
+
+* **xos** <span class='type'>Boolean</span>
+
+    기본값 `true`
+
+    데이터베이스 서버의 자원을 추가로 모니터링하기 위한 XOS 에이전트(*xos.conf*) 활성화 옵션입니다.
+
+* **xview_min** <span class='type'>Int</span>
+
+    기본값 `100` (1초)
+
+    단위는 센티초(centisecond, 1/100초)입니다. 이 옵션은 설정한 값보다 긴 경과 시간(elapsed time)을 가진 작업만 처리합니다.  
+    - `-1`: 이 옵션을 비활성화합니다.  
+    - `0`: 모든 작업을 수집합니다.
+
+### AES 256 암호화 적용
+
+와탭 DMX 에이전트는 수집된 데이터를 암호화하여 서버로 전송합니다. 데이터의 중요도나 설정에 따라 이를 변경할 수 있습니다. 기본적으로 XOR 연산과 AES 알고리즘을 통한 암호화를 사용하며 평문을 128비트 단위로 나누어 암호화, 복호화를 수행합니다. 사용자 설정에 따라 256비트까지 확장할 수 있습니다.
+
+와탭 DMX 에이전트를 설치한 경로에서 *whatap.conf* 파일에 다음과 같이 옵션을 추가하세요.
+
+```ini title='whatap.conf' {3} showLineNumbers
+cypher_level=256
+```
+
+설정을 추가한 다음 에이전트를 다시 시작하세요.
+
+<Dbsettingagentnamedetails level={3} agentType="DMX" />

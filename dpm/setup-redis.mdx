@@ -1,0 +1,44 @@
+---
+id: agent-dbx-settings
+title: DBX 에이전트 설정
+description: Redis 데이터베이스에서 whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내합니다.
+keywords: [ Redis, 데이터베이스, DBX 에이전트 ]
+---
+
+import AWSRDSdesc from '../common-items/_import_aws-rds-desc.mdx';
+import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
+import ClusterSet from "../common-items/_db-agent-setting-cluster.mdx";
+import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data-collection.mdx";
+import Dbagentaws from "../common-items/_db-agent-aws.mdx";
+import Dbaes256encrypt from "../common-items/_db-aes-256-encrypt.mdx";
+import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
+
+
+DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
+
+## 기본 옵션
+
+
+<Dbagentdbxbasicoption />
+
+
+<ClusterSet />
+
+## 데이터 수집
+
+
+<Dbagentsettingdatacollection /> 
+
+
+## AWS RDS CloudWatch 적용 {#using-aws-rds}
+
+<AWSRDSdesc name='db_redis_counter' />
+
+
+<Dbagentaws />
+
+
+<Dbaes256encrypt /> 
+
+
+<Dbsettingagentnamedetails level={2} agentType="DBX" />

@@ -1,75 +1,51 @@
 ## 에이전트 구성
 
-다음은 와탭 에이전트의 구성도입니다. 
+다음은 와탭 에이전트의 구성도입니다. 데이터베이스 종류에 따라 구성 방식이 다릅니다.
 
-<Xclude product='cubrid,oracle-pro,mssql'><ImgLang img='agent-xos-architecture.png' desc='에이전트 구성도' /></Xclude>
+### 공통 (XOS 포함)
+<ImgLang img='agent-xos-architecture.png' desc='에이전트 구성도' />
 
-<InDoc product='cubrid'><ImgLang img='dbx-install-agent-on-agent-server-cubrid.png' desc='에이전트 구성도' /></InDoc>
+### CUBRID
+<ImgLang img='dbx-install-agent-on-agent-server-cubrid.png' desc='에이전트 구성도 (CUBRID)' />
 
-<InDoc product="oracle-pro"><ImgLang img='dbx-install-agent-on-db-server-dma.png' desc='에이전트 구성도' /></InDoc>
+### Oracle-Pro
+<ImgLang img='dbx-install-agent-on-db-server-dma.png' desc='에이전트 구성도 (Oracle-Pro)' />
 
-<InDoc product="mssql,mssql-v1"><ImgLang img="agent-architecture.png" desc="Agent" /></InDoc>
+### MSSQL / MSSQL-v1
+<ImgLang img='agent-architecture.png' desc='에이전트 구성도 (MSSQL)' />
 
-<Xclude product="oracle-pro">
-
-* **수집 서버**
-
-  에이전트가 수집한 데이터베이스 성능 데이터를 수집 및 저장, 통계 정보 추출하고 이를 사용자에 효율적인 방법으로 제공합니다. 수집 서버는 지역(Region) 별로 설정이 가능합니다. 지역(Region)별로 수집 서버의 주소가 다르게 할당합니다. 사용자가 선택한 지역(Region)에 따라 수집 서버 주소는 다를 수 있습니다. 프로젝트를 생성할 때 지역(Region)도 함께 설정합니다.
-
-* **DBX 에이전트**(**기본 에이전트**)
-  
-  Query 기반으로 성능 데이터를 수집하여 서버로 전송합니다. 모니터링 대상 데이터베이스 서버에 에이전트를 직접 설치하지 않아도 별도의 에이전트 서버를 통해서 모니터링이 가능합니다.
-
-</Xclude>
-
-<Xclude product='cubrid,oracle-pro,mssql-v1'>
-
-* **XOS 에이전트**(**부가 에이전트**)
-  
-  부가 에이전트는 데이터베이스 서버의 프로세스 사용량을 모니터링할 수 있는 부가 옵션 에이전트입니다. 데이터베이스 서버의 프로세스 사용량을 모니터링하고 싶다면 데이터베이스 서버에 별도의 에이전트를 띄워 데이터를 수집할 수 있습니다.
-
-  :::note
-
-  XOS 에이전트는 x86 아키텍처 기반에서 동작하는 OS 환경에만 적용할 수 있습니다.
-
-  :::
-
-</Xclude>
-
-<InDoc product='cubrid'>
-
-* **XOS 에이전트 / XCUB 에이전트** (**부가 에이전트**)
-  
-  부가 에이전트는 데이터베이스 서버의 프로세스 사용량을 모니터링할 수 있는 부가 옵션 에이전트입니다. 데이터베이스 서버의 프로세스 사용량을 모니터링하고 싶다면 데이터베이스 서버에 별도의 에이전트를 띄워 데이터를 수집할 수 있습니다.
-
-  :::note
-
-  XOS 에이전트는 x86 아키텍처 기반에서 동작하는 OS 환경에만 적용할 수 있습니다.
-
-  :::
-
-</InDoc>
-
-<InDoc product="oracle-pro">
 
 * **수집 서버**
 
-  에이전트가 수집한 데이터베이스 성능 데이터를 수집 및 저장, 통계 정보 추출하고 이를 사용자에 효율적인 방법으로 제공합니다. 수집 서버는 지역(Region) 별로 설정이 가능합니다. 지역(Region)별로 수집 서버의 주소가 다르게 할당합니다. 사용자가 선택한 지역(Region)에 따라 수집 서버 주소는 다를 수 있습니다. 프로젝트를 생성할 때 지역(Region)도 함께 설정합니다.
+에이전트가 수집한 데이터베이스 성능 데이터를 저장하고 통계 정보를 생성해 제공합니다.
+수집 서버는 지역(Region)별로 설정할 수 있으며, 지역마다 다른 수집 서버 주소가 할당됩니다.
+프로젝트 생성 시 지역(Region)을 함께 지정해야 합니다.
 
-* **DMX 에이전트**
-  
-  Query 기반으로 성능 데이터를 수집하여 서버로 전송합니다. 모니터링 대상 데이터베이스 서버에 에이전트를 직접 설치하지 않아도 별도의 에이전트 서버를 통해서 모니터링이 가능합니다.
+* **에이전트**
 
-* **네트워크**: 와탭 모니터링 에이전트는 수집한 모니터링 정보를 와탭 수집 서버에 전송하기 위해 외부 통신(TCP) 6600 포트를 사용합니다.
+  * **DBX 에이전트**(**기본 에이전트**)
+    
+    Query 기반으로 성능 데이터를 수집해 수집 서버로 전송합니다. 모니터링 대상 데이터베이스 서버에 직접 설치하지 않아도, 별도의 에이전트 서버를 통해 모니터링할 수 있습니다.
 
-</InDoc>
+  * **DMX 에이전트** (**오라클 프로 전용 에이전트**)
+    
+    DMA(Direct Memory Access) 방식으로 성능 데이터를 수집해 수집 서버로 전송합니다. 모니터링 대상 데이터베이스 서버에 직접 설치합니다.
 
-<Xclude product="oracle-pro">
+  * **XOS 에이전트**(**부가 에이전트**)
+    
+    데이터베이스 서버의 프로세스 사용량을 모니터링하는 부가 옵션 에이전트입니다.
+    데이터베이스 서버의 프로세스 사용량을 수집하려면 해당 서버에 XOS 에이전트를 별도로 설치하세요.
+    XOS 에이전트는 cubrid, oracle-pro, mssql-v1에는 별도 설치가 필요하지 않습니다.
+
+    :::note
+
+    XOS 에이전트는 x86 아키텍처 기반의 OS 환경에서만 동작합니다.
+
+    :::
+
 
 * **네트워크**
 
-  * 기본 에이전트: 와탭 모니터링 에이전트는 수집한 모니터링 정보를 와탭 수집 서버에 전송하기 위해 외부 통신(TCP) 6600 포트를 사용합니다.
+  * 기본 에이전트: DBX, DMX 에이전트는 수집한 모니터링 정보를 와탭 수집 서버에 전송하기 위해 외부 통신(TCP) 6600 포트를 사용합니다.
   
   * 부가 에이전트: 에이전트를 설치한 서버와 데이터베이스 서버 사이에 외부 통신(UDP) 3002 포트를 사용합니다. 내부 포트가 충돌이 나는 경우 `dbx_port` 옵션을 통해 포트를 변경할 수 있습니다.
-
-</Xclude>

@@ -1,3 +1,5 @@
+### 로그 위치
+
 와탭 에이전트 로그(`whatap_infrad.log`, `whatap_infra.log`, `whatap_infrad.fork.stdout.log`)의 경로를 변경합니다. 지정 경로가 없는 경우 와탭 에이전트가 생성을 시도합니다. 에이전트 버전 2.0.6 이상 지원됩니다.
 
 <Tabs groupId='server-user-script'>
@@ -22,3 +24,37 @@ Add-Content -Path "C:\Program Files\WhatapInfra\whatap.conf" -Value "agent.log.p
 윈도우의 경우 경로 구분자를 `\\`로 입력할 수 있습니다.
 
 :::
+
+### 로그 출력 조정 옵션
+
+서버 모니터링 에이전트의 로그는 기본적으로 /var/log 경로 하위에 저장됩니다.
+아래 옵션을 통해 로그 파일 크기 제한과 백업 파일 개수를 조정할 수 있습니다.
+
+<Tabs groupId='server-log-option'>
+    <TabItem value="linux-windows" label="Linux / Windows">
+
+        - Linux / Windows
+            - agent.log.size
+                - 기본값 10, 단위 MB
+            - agent.log.backupfile
+                - 기본값 2, 단위 개수
+
+    </TabItem>
+
+    <TabItem value="unix" label="Unix (AIX, HPUX, Solaris)">
+
+        - Unix(AIX, HPUX, Solaris)
+            - log.size
+                - 기본값 4, 단위 MB
+            - log.backup
+                - 기본값, 3, 단위 개수
+
+        - AIX 추가 로그 옵션 (errpt 수집 로그)
+            - aix.errpt.log.size=4
+                - 기본값 4, 단위 MB
+            - aix.errpt.log.backup=3
+                - 기본값 3, 단위 개수
+
+    </TabItem>
+
+</Tabs>

@@ -1,5 +1,5 @@
 ---
-id: openmetrics-explorer
+id: about-openmetrics-explorer
 title: OpenMetrics 탐색기
 description:  OpenMetrics 탐색기 가이드입니다.
 toc_max_heading_level: 3
@@ -13,7 +13,7 @@ keywords: [ OpenMetrics 탐색기 ]
 
 - PromQL 쿼리를 통한 메트릭 조회
 - Graph/Table 뷰로 데이터 시각화
-- 시간 범위 선택 및 자동 새로고침
+- 시간 범위 선택 시 자동으로 promql에 시간 입력
 - 실시간 메트릭 모니터링
 
 #### 화면 구성
@@ -50,7 +50,7 @@ PromQL을 사용하면 다음과 같은 분석이 가능합니다.
 
 | 쿼리 | 설명 |
 | --- | --- |
-| **Instant Query (즉시 쿼리)** | 특정 시점의 데이터를 조회합니다. Table 탭에서 사용됨 |
+| **Instant Query (즉시 쿼리)** | 특정 시점의 데이터를 조회함. Table 탭에서 사용됨 |
 | **Range Query (범위 쿼리)** | 시작 시간과 종료 시간 사이의 데이터를 일정한 간격으로 조회함 |
 
 ### 데이터 타입
@@ -135,25 +135,6 @@ rate(nginx_http_response_count_total[5m] offset 1w)
 rate(nginx_http_response_count_total[5m] offset -1w)
 ```
 
-#### 5. 특정 시점 조회(@ Modifier)
-
-Unix 타임스탬프로 특정 시점을 지정합니다.
-
-```
-# 특정 시점의 값
-nginx_http_response_count_total @ 1609746000
-
-# 특정 시점의 5분간 비율
-rate(nginx_http_response_count_total[5m] @ 1609746000)
-
-# offset과 함께 사용
-nginx_http_response_count_total @ 1609746000 offset 5m
-
-# 쿼리 범위의 시작/종료 시점
-nginx_http_response_count_total @ start()
-nginx_http_response_count_total @ end()
-```
-
 ### 실용 예제
 
 **예제 1: 상태 코드별 요청 수 조회**
@@ -183,7 +164,6 @@ nginx_http_response_count_total{method="GET", status="200"}
 
 # POST, PUT, DELETE 요청 중 404 응답
 nginx_http_response_count_total{method=~"POST|PUT|DELETE", status="404"}
-
 ```
 
 **예제 4. 메트릭 이름으로 검색**
@@ -194,7 +174,6 @@ nginx_http_response_count_total{method=~"POST|PUT|DELETE", status="404"}
 
 # nginx로 시작하는 모든 메트릭
 {__name__=~"nginx.*"}
-
 ```
 
 **예제 5. 최근 시간 범위 데이터**
@@ -609,10 +588,10 @@ round(sum(rate(nginx_http_response_count_total[5m])), 10)
 값이 지정한 **최대값이나 최소값을 넘지 않도록 제한**합니다.
 
 ```
-#최대값 1000으로 제한
+# 최대값 1000으로 제한
 clamp_max(nginx_http_response_count_total, 1000)
 
-#최소값 0으로 제한
+# 최소값 0으로 제한
 clamp_min(nginx_http_response_count_total, 0)
 ```
 
@@ -623,7 +602,7 @@ clamp_min(nginx_http_response_count_total, 0)
 빈 레이블 값을 매칭하면 해당 레이블이 설정되지 않은 모든 시계열도 선택됩니다.
 
 ```
-#environment 레이블이 없거나 빈 값인 모든 시계열
+# environment 레이블이 없거나 빈 값인 모든 시계열
 nginx_http_response_count_total{environment=""}
 ```
 
@@ -633,10 +612,10 @@ nginx_http_response_count_total{environment=""}
 
 
 ```
-#❌ 잘못된 예
+# ❌ 잘못된 예
 {job=~".*"}
 
-#✅ 올바른 예
+# ✅ 올바른 예
 {job=~".+"}
 {job=~".*", method="get"}
 ```
@@ -648,8 +627,6 @@ nginx_http_response_count_total{environment=""}
 메트릭 이름만 사용하면 수천 개의 시계열이 선택될 수 있습니다.
     - 항상 적절한 레이블 필터를 사용하여 결과를 제한하세요.
     - 처음에는 Table 뷰에서 결과를 확인하고, 적절한 수준으로 필터링한 후 차트 뷰로 전환하세요.
-    - Table 뷰는 **실험실** → **MXQL 데이터 조회**에서 `>>`로 시작하여 PromQL을 조회할 수 있습니다.  
-    예. `>> nginx_http_response_count_total{status="200"}`
     - 수백 개 이하의 시계열이 이상적입니다.
 
 #### Staleness (오래된 데이터)

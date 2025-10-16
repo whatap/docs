@@ -1,8 +1,22 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
+    "ver": "Service 2.21.15",
+    "date": "2025-10-16",
+    "Lists": [
+      {
+        "ver": "Service 2.21.15",
+        "hash": "service-22115",
+        "product": "Database",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">에이전트 목록</span> 인스턴스 비활성화 상태일 때 페이지 화이트아웃 발생하는 오류 수정 </p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
     "ver": "Service 2.21.14",
-    "date": "2025-10-17",
+    "date": "2025-10-16",
     "Lists": [
       {
         "ver": "Service 2.21.14",

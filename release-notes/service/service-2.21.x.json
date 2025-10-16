@@ -7,6 +7,13 @@
       {
         "ver": "Service 2.21.12",
         "hash": "service-22112",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> 좌측 인트로 아이콘 선택 시 조직이 풀리는 현상 수정 </p>"
+      },
+      {
+        "ver": "Service 2.21.12",
+        "hash": "service-22112",
         "product": "Server",
         "type": "Fixed",
         "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">사용자 그룹 별 표시 설정</span> 대메뉴 하위 메뉴가 전부 보이지 않는 사용자의 경우 대메뉴도 보이지 않도록 수정 </p>"

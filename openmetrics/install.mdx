@@ -201,9 +201,6 @@ metricRelabelConfigs:
   - source_labels: [__name__]
     regex: ".*"
     action: keep
-  - source_labels: [__name__]
-    regex: "node.*"
-    action: drop
 ```
 
 ### 예제 2. 특정 메트릭만 유지

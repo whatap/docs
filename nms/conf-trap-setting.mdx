@@ -9,9 +9,16 @@ keywords: [ NMS, 설정, Trap 설정 ]
 
 홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_setting" className="uitext" /> &gt; <Cmdname sid="side_trapSetting" className="uitext" />
 
-SNMP Trap은 네트워크 장비에서 발생한 이벤트를 NMS로 실시간으로 전송하는 기능입니다. <Cmdname sid="side_trapSetting" className="uitext" /> 메뉴에서 Trap 메시지를 수집 시 필요한 설정을 할 수 있습니다. 디바이스별로 설정한 Trap 포트와 커뮤니티 문자열 정보를 통하여 트랩 메시지를 NMS로 전송합니다.
+<Cmdname sid="side_trapSetting" className="uitext" />은 네트워크 장비에서 발생하는 SNMP Trap 알람을 실시간으로 수신·분류·관리하는 설정 메뉴입니다. SNMP Trap은 네트워크 장비에서 중요한 이벤트가 발생하면 관리 시스템으로 자동 전송되는 알림 메시지입니다.
 
-<ImgLang img="nms-conf-trap-st.png" desc="Trap Setting" />
+:::note
+
+**지원 버전**
+
+SNMP v1/v2c와 v3 버전을 모두 지원하며, 보안 수준에 따라 Community 기반 인증과 사용자 기반 인증(USM)을 설정할 수 있습니다.
+
+:::
+
 
 * **Port**: SNMP Trap 메시지는 기본적으로 UDP 162번 포트를 통해 전송됩니다. 필요에 따라 다른 포트를 설정할 수 있습니다.
 
@@ -19,3 +26,21 @@ SNMP Trap은 네트워크 장비에서 발생한 이벤트를 NMS로 실시간�
 
 * **Activate**: ![토글 아이콘](/img/ic-toggle-on.svg) 활성화 토글 버튼을 통해 해당 설정 활성화 또는 비활성화 여부를 선택하세요. 
 
+
+## 화면 구성 및 주요 기능
+
+<Cmdname sid="side_trapSetting" className="uitext" />은 세 개의 탭으로 구성되어 SNMP 버전별 설정을 관리합니다.
+
+1. 관리할 NMS Manager 인스턴스를 드롭다운 메뉴에서 선택하세요. 
+
+2. 선택된 Manager에 대한 Trap 설정을 구성하고 저장할 수 있습니다.
+
+### Trap Reciver 탭
+
+Trap 수신을 설정합니다. 설정이 완료된 후, [Save] 버튼을 클릭해 저장하세요.
+
+| 설정 항목 | 설명 |
+| :--: | --- |
+| **Port** (필수) | - Trap 수신 포트 번호(기본값: 162) <br /> - SNMP Trap의 표준 포트 |
+| **SNMP v1/v2c Trap Enable** | - 토글 스위치로 SNMP v1/v2c Trap 수신 활성화/비활성화 <br /> - 활성화 시 Community 기반 Trap 메시지 수신 |
+| **SNMP v3 Trap Enable** | - 토글 스위치로 SNMP v3 Trap 수신 활성화/비활성화 <br /> - 활성화 시 USM 기반 보안 Trap 메시지 수신 |

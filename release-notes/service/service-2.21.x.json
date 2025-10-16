@@ -1,6 +1,27 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
+    "ver": "Service 2.21.14",
+    "date": "2025-10-17",
+    "Lists": [
+      {
+        "ver": "Service 2.21.14",
+        "hash": "service-22114",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> 같은 서버의 ipAddress가 다르게 나오는 현상 수정 </p>"
+      },
+      {
+        "ver": "Service 2.21.14",
+        "hash": "service-22114",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">메트릭스 익스플로러</span> by GPU Process 카테고리 지표 선택 시 차트 범례에 folded_id가 표시되는 현상 수정 </p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
     "ver": "Service 2.21.13",
     "date": "2025-10-16",
     "Lists": [

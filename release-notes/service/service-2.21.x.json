@@ -1,6 +1,41 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
+    "ver": "Service 2.21.13",
+    "date": "2025-10-16",
+    "Lists": [
+      {
+        "ver": "Service 2.21.13",
+        "hash": "service-22113",
+        "product": "Server",
+        "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU 인벤토리</span> 테이블에 Connection, External IP, OS Version 컬럼 추가 </p>"
+      },
+      {
+        "ver": "Service 2.21.13",
+        "hash": "service-22113",
+        "product": "Server",
+        "type": "Feature",
+          "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU 성능요약</span> 성능지표 비교 차트 영역에 조회 구간 셀렉터 추가 </p>"
+      },
+      {
+        "ver": "Service 2.21.13",
+        "hash": "service-22113",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">메트릭스 익스플로러</span> infiniband 카테고리 지표 선택 시, 차트 범례에 folded_id가 아닌 interfaceName이 표시되도록 수정 </p>"
+      },
+      {
+        "ver": "Service 2.21.13",
+        "hash": "service-22113",
+        "product": "Kubernetes",
+        "type": "Deprecated",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Deprecated</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">쿠버네티스 에이전트 설치</span> 오퍼레이터 방식으로 에이전트 설치 시, 추가 기능으로 kube-apiserver를 제공하지 않음 </p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
     "ver": "Service 2.21.12",
     "date": "2025-10-15",
     "Lists": [

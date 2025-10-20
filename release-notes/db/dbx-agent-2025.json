@@ -1,5 +1,109 @@
 [
   {
+    "ver": "v2.57.04",
+    "date": "2025-10-15",
+    "Lists": [
+      {
+        "ver": "v2.57.04",
+        "hash": "v25704",
+        "product": "DBX",
+        "category": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> disk mount의 lsize가 0으로 전달될 경우 skip 처리</p>"
+      },
+      {
+        "ver": "v2.57.04",
+        "hash": "v25704",
+        "product": "DBX",
+        "category": "Oracle",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 오브젝트 레이아웃 조회 수정: <code>tableinfo</code>, <code>indexinfo</code>에 서브파티션키 추가, <code>subpartitionstat</code>에 서브파티션 카운트 추가</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.57.03",
+    "date": "2025-10-01",
+    "Lists": [
+      {
+        "ver": "v2.57.03",
+        "hash": "v25703",
+        "product": "DBX",
+        "category": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 에이전트 빠른설치 기능에서 <code>whatap.server.host</code>에 ‘/’ 구분으로 IP 두 개 입력 시 발생하는 버그 수정</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.57.02",
+    "date": "2025-09-29",
+    "Lists": [
+      {
+        "ver": "v2.57.02",
+        "hash": "v25702",
+        "product": "DBX",
+        "category": "DB2",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> counter 지표 타입 에러 수정</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.57.01",
+    "date": "2025-09-25",
+    "Lists": [
+      {
+        "ver": "v2.57.01",
+        "hash": "v25701",
+        "product": "DBX",
+        "category": "DB2",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> active session 수집 시 bufferpool 관련 지표 추가</p>"
+      },
+      {
+        "ver": "v2.57.01",
+        "hash": "v25701",
+        "product": "DBX",
+        "category": "DB2",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> db_db2_counter 지표 추가 (maxguage, spacemon 대응)</p>"
+      },
+      {
+        "ver": "v2.57.01",
+        "hash": "v25701",
+        "product": "DBX",
+        "category": "DB2",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> bufferpool 카테고리 추가</p>"
+      },
+      {
+        "ver": "v2.57.01",
+        "hash": "v25701",
+        "product": "DBX",
+        "category": "DB2",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> tablespace, bufferpool 수집 시 DB2 9.7, 10.1 버전 처리 추가</p>"
+      },
+      {
+        "ver": "v2.57.01",
+        "hash": "v25701",
+        "product": "DBX",
+        "category": "DB2",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 인스턴스 레벨 파라미터 수집 추가: ‘dbm.파라미터명’으로 추가</p>"
+      },
+      {
+        "ver": "v2.57.01",
+        "hash": "v25701",
+        "product": "DBX",
+        "category": "DB2",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> tablespace 오버플로우 버그 수정</p>"
+      }
+    ]
+  },
+  {
     "ver": "v2.56.06",
     "date": "2025-09-22",
     "Lists": [

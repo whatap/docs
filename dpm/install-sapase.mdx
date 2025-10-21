@@ -1,0 +1,79 @@
+---
+id: install-sapase
+title: SAP ASE 에이전트
+description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+keywords: [ SAP ASE, 데이터베이스 모니터링, 에이전트 ]
+---
+
+와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+
+import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+
+<Agentsignupguide />
+
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
+
+<Createprojectv2 />
+
+<Steps>
+
+{/* ## 구성도 확인 */}
+import CheckType from "../common-items/_db-install-agent-check-type.mdx";
+
+<CheckType />
+
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+
+<Dbcreatemonitoringaccount />
+
+{/* 액세스 키 확인 */}
+import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
+
+<Accesskeyv2 />
+
+{/* DBX 에이전트 다운로드 */}
+import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
+
+<DownloadDBXagent />
+
+{/* ## DBX 에이전트 설정 */}
+import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
+
+<SettingsDBXagent />
+
+{/* ### whatap.conf 설정 */}
+import Whatapconf from "../common-items/_db-whatap-conf.mdx";
+
+<Whatapconf />
+
+### JDBC 다운로드
+
+DB 서버의 *jConnect-6_0/classes*경로에서 *jconn3.jar* 파일을 복사해서 */`agent_installation_path`/jdbc* 폴더에 넣으세요.
+
+```txt
+/압축을 해제한 폴더/jdbc
+```
+
+{/* ### DB 유저 파일 생성 */}
+import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+
+<DBuserDesc level={3} />
+
+<Dbcreatedbuserfilebody /> 
+
+{/*모니터링 시작하기*/}
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+
+<Dbrunagent />
+
+{/*XOS 에이전트 설치*/}
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+
+<Dbinstallxosagent />
+
+</Steps>
+
+import NextStep from "../common-items/_db-next-step.mdx";
+
+<NextStep />

@@ -1,0 +1,83 @@
+---
+id: install-redis
+title: Redis 에이전트
+description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+keywords: [ Redis, 데이터베이스 모니터링, 에이전트 ]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TR from '@site/src/components/TR';
+import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+
+와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+
+import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+
+<Agentsignupguide />   
+
+<Youtube ko='e_UpCgapfQY' en='JiQsIh6RbSA' ja='JiQsIh6RbSA' />
+
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
+
+<Createprojectv2 />
+
+import Accesskey from "../getting-started/_accesskey.mdx";
+
+<Accesskey />
+
+## 와탭 데이터베이스 에이전트 다운로드
+
+import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
+
+<Dbinstallagentsteps /> 
+
+3. 압축을 해제한 폴더로 진입해서 *whatap.conf* 파일을 확인하세요. *whatap.conf* 파일에 프로젝트 액세스 키(`license`) 정보 및 와탭 서버 정보(`whatap.server.host`), DB 접속 정보(`dbms`, `db_ip`, `db_port`)를 입력하세요.
+
+    ```ini title='whatap.conf'
+    license={Access_Key}
+    whatap.server.host=13.124.11.223/13.209.172.35 # WhaTap server information
+
+    dbms=redis
+    db_ip={DB_server_IP_address}
+    db_port={DB_server_port}
+    ```
+
+import Dbinstallagentcommonnotes from "../common-items/_db-install-agent-common-notes.mdx";
+
+<Dbinstallagentcommonnotes /> 
+
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+
+<Dbcreatemonitoringaccount />
+
+{/* Redis */}
+```sql
+ACL SETUSER {whatap} on >{DB_Password} +client +config +info +cluster
+```
+
+:::note
+
+Redis 환경의 계정 생성에 대한 자세한 내용은 [다음 링크](https://redis.io/docs/latest/commands/acl-setuser/)를 참조하세요.
+
+:::
+
+{/* ## DB 유저 파일 생성 {#create-db-user} */}
+
+<DBuserDesc level={2} />
+
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+
+<Dbcreatedbuserfilebody /> 
+
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+
+<Dbrunagent /> 
+
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+
+<Dbinstallxosagent /> 
+
+import NextStep from "../common-items/_db-next-step.mdx";
+
+<NextStep />

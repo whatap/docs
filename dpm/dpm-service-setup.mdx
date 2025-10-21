@@ -1,15 +1,14 @@
 ---
-id: install-agent
-title: 에이전트 설치
-description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
-keywords: [ 데이터베이스, 에이전트 ]
+id: dpm-service-setup
+title: 모니터링 서비스 구성
+description: 와탭 데이터베이스 모니터링 서비스를 사용하기 위한 프로젝트 생성 및 액세스 키 확인 과정을 안내합니다.
+keywords: [데이터베이스, 프로젝트, 액세스 키, 서비스 구성]
 ---
 
-와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+와탭 데이터베이스 모니터링 서비스를 사용하려면 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 **액세스 키**를 발급받아야 합니다.  
+이 과정은 모니터링 에이전트를 설치하기 위한 준비 단계입니다.  
 
-와탭 모니터링 서비스를 사용하려면 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고, 모니터링 대상 서버에 에이전트를 설치해야 합니다. 회원 가입에 관한 자세한 내용은 [다음 문서](../account/account-manage)를 참고하세요. 
-
-{/* 제품별 설치 영상이 있고 없고 함. 일단 다 없는 상태로 정리 25.09.23 */}
+회원 가입에 대한 자세한 내용은 [다음 문서](../account/account-manage)를 참고하세요.
 
 import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
@@ -17,28 +16,28 @@ import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 
 <Steps>
 
-{/* ## 구성도 확인, 큐브리드만 구성 이미지 다름. 필요하다면 큐브리드 설치 페이지 분리 */}
-import CheckType from "../common-items/_db-install-agent-check-type.mdx";
-
-<CheckType />
-
-{/* 모니터링용 계정 생성, 제품별로 많이 다름. */}
-import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
-
 <Dbcreatemonitoringaccount />
 
 ## 액세스 키 확인 {#check-accesskey}
 
-**액세스 키**는 와탭 서비스 활성화를 위한 고유 ID입니다.  
-
-설치 안내 섹션에서 <Cmdname sid="issue_project_access_key" className="uitext" /> 버튼을 선택하세요. **액세스 키**를 자동으로 발급받은 후 다음 단계를 진행합니다.
-
+**액세스 키**는 와탭 서비스 활성화를 위한 고유 식별자입니다.  
+<Cmdname sid="issue_project_access_key" className="uitext" /> 버튼을 클릭하면 **액세스 키**가 자동 발급되며,  
+해당 키를 이용해 다음 단계의 에이전트 설치를 진행합니다.
 
 :::note
-
-프로젝트를 생성한 후, 자동으로 <Cmdname sid="agent_installation" className="uitext" /> 페이지로 이동합니다. <Cmdname sid="agent_installation" className="uitext" /> 페이지로 이동하지 않는다면 화면 왼쪽 메뉴에서 <Cmdname sid="management" className="uitext" /> > <Cmdname sid="agent_installation" className="uitext" />를 선택하세요.
-
+프로젝트를 생성하면 자동으로 <Cmdname sid="agent_installation" className="uitext" /> 페이지로 이동합니다.  
+만약 자동으로 이동하지 않는 경우, 왼쪽 메뉴에서  
+<Cmdname sid="management" className="uitext" /> > <Cmdname sid="agent_installation" className="uitext" />를 선택하세요.
 :::
+
+{/* 공통 구성도 확인 (큐브리드만 예외 처리) */}
+import CheckType from "../common-items/_db-install-agent-check-type.mdx";
+
+<CheckType />
+
+{/* 모니터링용 계정 생성 (DB별 내용 상이) */}
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+
 
 ## DBX 에이전트 다운로드
 

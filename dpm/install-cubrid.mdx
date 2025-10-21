@@ -1,0 +1,151 @@
+---
+id: install-cubrid
+title: CUBRID 에이전트
+description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+keywords: [ CUBRID, 데이터베이스 모니터링, 에이전트 ]
+---
+
+
+와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+
+import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+
+<Agentsignupguide />   
+
+<Youtube ko='e_UpCgapfQY' en='JiQsIh6RbSA' ja='JiQsIh6RbSA' />
+
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
+
+<Createprojectv2 />
+
+<Steps>
+
+import CheckType from "../common-items/_db-install-agent-check-type.mdx";
+
+<CheckType />
+
+## 모니터링을 위한 계정 생성하기
+
+CUBRID를 모니터링하기 위해서는 DB 계정과 CUBRID Manager 계정이 모두 필요합니다. DB 계정은 `dba`를 사용하세요. CUBRID Manager 계정은 다음 명령어를 이용하세요.
+
+```sql title="CUBRID Manager account"
+cm_admin adduser whatap whatap
+```
+
+:::note
+
+에이전트마다 서로 다른 이름의 계정을 사용해야 합니다.
+
+:::
+
+import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
+
+<Accesskeyv2 />
+
+import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
+
+<DownloadDBXagent />
+
+import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
+
+<SettingsDBXagent />
+
+import Whatapconf from "../common-items/_db-whatap-conf.mdx";
+
+<Whatapconf />
+
+import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
+
+<JDBCDownload />
+
+import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+
+<DBuserDesc level={3} />
+
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+
+<Dbcreatedbuserfilebody /> 
+
+## XCUB 에이전트 설정 {#setxcubagent}
+
+XCUB 에이전트는 데이터베이스 서버에 별도의 프로세스를 실행해 sql text와 지표를 수집합니다. XOS 에이전트와 함께 설치하기를 권장합니다.
+
+<ImgLang img="xcub-install-agent.svg" multi="true" className="noneborder" />
+
+### whatap.conf 파일 설정
+
+*whatap.conf* 파일에 다음과 같이 에이전트 옵션을 설정하세요.
+
+```ini title="whatap.conf"
+xcub=1
+xcub_port=3002
+```
+
+DBX 에이전트 설치 경로 안에 *xcub* 폴더(`/압축 해제 폴더/xcub/`)를 데이터베이스 서버로 복사하세요.
+
+:::note
+
+XOS 에이전트를 함께 설치한다면, XOS 포트를 공유하기 때문에 `xcub_port` 옵션은 설정할 필요 없습니다.
+
+:::
+
+### xcub.conf 파일 설정
+
+데이터베이스 서버의 xcub 폴더 경로에 있는 *xcub.conf* 파일에 DBX 에이전트 서버 정보를 입력하고, 추가 옵션을 설정하세요.
+
+```ini titile="xcub.conf"
+db=demodb@127.0.0.1
+dba_pwd={dba_password}
+dbx_ip={DB_Agent_IP}
+dbx_port=3002
+```
+
+* `db`: **dbname@db서버IP** 형식으로 입력하세요.
+
+* `dba_pwd`: 비밀번호를 설정하면 최초 실행 시 *xcub.pwd* 파일을 생성합니다. 이후 *xcub.conf* 파일에서는 `dba_pwd` 항목을 삭제하세요.
+
+* `dbx_ip`: DBX 에이전트를 설치한 서버의 IP 주소를 입력하세요.
+
+* `dbx_port`: DBX 에이전트와 통신할 포트를 설정하세요. DBX 에이전트와는 UDP로 통신합니다. 해당 포트에 방화벽을 설정했다면 UDP 통신을 위해 방화벽을 해제하세요.
+
+:::note
+
+XCUB 에이전트 설정에 대한 자세한 내용은 [다음 문서](agent-xcub-settings)를 참조하세요.
+
+:::
+
+### XCUB 에이전트 실행 권한 부여
+
+XCUB 에이전트에 실행 권한을 부여하세요.
+
+```bash
+chmod +x ./whatap.agent.xcub*
+```
+
+### XCUB 에이전트 실행
+
+데이터베이스 서버에서 XCUB 에이전트 프로세스를 실행하세요.
+
+```bash
+./start.sh
+```
+
+:::note
+
+XCUB 에이전트를 백그라운드로 실행하려면 *./startd.sh* 파일을 실행하세요.
+
+:::
+
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+
+<Dbrunagent />
+
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+
+<Dbinstallxosagent /> 
+
+</Steps>
+
+import NextStep from "../common-items/_db-next-step.mdx";
+
+<NextStep />

@@ -1,0 +1,236 @@
+---
+id: amazon-cloudwatch
+title: Amazon CloudWatch
+description: Amazon CloudWatch 설치를 안내합니다.
+keywords: [ 설치하기, Amazon CloudWatch, 클라우드 ]
+---
+
+import TR from '@site/src/components/TR';
+import ProdImg from '@site/src/components/ChangeImgName.js';
+
+**Whatap Amazon CloudWatch 모니터링**은 API 연동을 통해 메트릭 데이터를 자동 수집합니다. 사용자는 CloudWatch 네임스페이스에서 원하는 스탯(통계 항목)을 선택해 수집할 수 있으며, 모든 리전(지역)의 자원을 탐색해 모니터링 할 수 있습니다. Role 기반 인증 방식으로 안전하고 편리하게 사용할 수 있습니다.
+
+## 사전 점검 사항
+
+모니터링 설정 전, 필요한 권한과 권장 정책을 확인하세요.
+
+* **권장 Policy**  arn:aws:iam::aws:policy/ReadOnlyAccess
+
+| Resouce          | 권한 |
+| ---------------- | ---- |
+| CloudWatch       | Read |
+| EC2              | Read |
+| ElasticCache     | Read |
+| CloudFront       | Read |
+| Dynammodb        | Read |
+| ElasticBeansTalk | Read |
+| AutoScaling      | Read |
+| EFS              | Read |
+| RDS              | Read |
+
+## 모니터링 에이전트 설치
+
+Amazon CloudWatch 모니터링을 설치하려면 아래 단계를 순서대로 진행합니다.
+
+Step 1. Amazon [인증 정보를 입력](#authentication)하세요.  
+Step 2. CloudWatch [네임스페이스 및 수집 주기](#namespace-and-collectingperiod)를 선택하세요.  
+Step 3. [리전, 메트릭스, 스탯을 선택](#region-metric-stats)하세요.
+
+:::caution
+
+설치 후 사용량에 따라 와탭 요금과는 별개로 클라우드에서 추가 비용이 발생할 수 있습니다. 설치 전 사용 중인 클라우드 서비스의 가격 정책을 [다음 문서](https://aws.amazon.com/ko/cloudwatch/pricing/)에서 확인하세요.
+
+:::
+
+### 인증 정보 입력 {#authentication}
+
+Role ARN을 사용한 설치를 지원합니다. 
+
+와탭 AWS 계정(**911937781722**)이 직접 사용자 Role을 Assume하여 Cloudwatch 데이터를 수집합니다. Role 기반 인증은 액세스 키없이도 사용할 수 있어 안전하고 편리합니다.
+
+:::note
+
+Role을 이용한 설정을 권장합니다. Access Key 활용은 기존 Access Key 사용자만 가능합니다.
+
+:::
+
+#### 역할(Role) 생성 {#create-role}
+
+{/* <ImgLang img='cloudwatch-auth-role.png' desc='Amazon Cloudwatch - role' /> */}
+
+1. AWS Management Console에 로그인 후 [IAM 콘솔](https://console.aws.amazon.com/iam/)으로 이동합니다.
+
+1. 콘솔의 대시보드에서 역할을 선택한 후 **역할 생성**을 클릭합니다.
+
+1. 신뢰할 수 있는 엔터티 유형(Select type of trusted entity)에서 AWS 계정을 선택합니다.
+
+1. 다른 AWS 계정을 선택하고, 계정 ID에 와탭 AWS 계정(**911937781722**)을 입력하고 다음을 클릭합니다.
+
+1. 필터링 기준 유형에서 AWS 관리형 - 직무를 선택하고, 리스트에서 ReadOnlyAccess에 체크한 뒤, 다음을 클릭합니다.
+
+1. 역할 이름과 설명을 입력하고 **역할 생성(Create Role)** 버튼을 클릭하여 역할을 생성합니다.
+
+1. 역할 목록에서 생성한 역할을 클릭하고, 요약의 **편집** 버튼을 클릭합니다.
+
+1. 최대 세션 지속 시간(Maximum session duration)을 1에서 12사이의 숫자로 변경하고 저장합니다.  
+
+    :::note
+
+    권장 8시간, 세션 지속 시간이 짧을수록 보안상 유리하다고 볼 수 있지만, 세션 생성을 위한 API 호출 회수가 증가할 수 있습니다.
+
+    :::
+
+1. 역할 요약의 Role ARN을 복사합니다.
+
+1. [와탭 모니터링 서비스](https://service.whatap.io)로 돌아와 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" />의 Role를 선택한 후, ARN 입력창에 붙여넣기합니다. 
+
+1. 8.에서 설정한 최대 세션 지속 시간을 동일하게 <Cmdname sid="aws_role_max_duration_hour" className="uitext" />에 입력하고 확인 버튼을 클릭합니다.
+
+### 네임스페이스 및 수집 주기 선택 {#namespace-and-collectingperiod}
+
+import Namespacecollect from "../../common-items/_namespace-collect.mdx";
+
+<Namespacecollect />
+
+#### 와탭 수집 주기 {#collecting-period}
+
+import Collectingperiod from "../../common-items/_collecting-period.mdx";
+
+<Collectingperiod />
+
+#### 네임스페이스 {#namespace}
+
+<Columns>
+
+<Column className="text--left width--50">
+
+* AWS ACMPrivateCA
+* AWS AmazonMQ
+* AWS ApplicationELB Monitoring
+* AWS AppSync
+* AWS Athena
+* AWS AutoScaling
+* AWS Elastic Beanstalk Health
+* AWS Billing
+* AWS Cassandra
+* AWS Chatbot
+* AWS Cloud Front
+* AWS CloudHSM
+* AWS CloudSearch
+* AWS CodeBuild
+* AWS CodeGuruProfiler
+* AWS Cognito
+* AWS Connect
+* AWS ContainerInsights Monitoring
+* AWS DataSync
+* AWS DAX
+* AWS DDoSProtection
+* AWS DMS
+* AWS DocDB
+* AWS DX
+* AWS Dynamo DB
+* AWS Ebs Usage
+* AWS EC2 Monitoring
+* AWS EC2 Alert Config
+* AWS EC2Spot
+* AWS ECS
+* AWS ECS ContainerInsights Monitoring
+* AWS EFS
+* AWS ElastiCache Usage
+* AWS ElasticGPUs
+* AWS ElasticInference
+* AWS ElasticMapReduce
+* AWS ElasticTranscoder
+* AWS Classic ELB Monitoring
+* AWS ES
+* AWS Events
+* AWS Firehose
+* AWS FSx
+* AWS GameLift
+* AWS GatewayELB
+* AWS Glue
+* AWS GroundStation
+* AWS Health
+* AWS Inspector
+* AWS IoT
+* AWS IoTAnalytics
+* AWS IoTSiteWise
+* AWS IVS
+
+</Column>
+
+<Column className="text--left">
+
+* AWS Kafka
+* AWS Kinesis
+* AWS KinesisAnalytics
+* AWS KinesisVideo
+* AWS KMS
+* AWS Lambda
+* AWS Lex
+* AWS Location
+* AWS Logs
+* AWS LookoutMetrics
+* AWS MediaConnect
+* AWS MediaConvert
+* AWS MediaPackage
+* AWS MediaStore
+* AWS MediaTailor
+* AWS ML
+* AWS NATGateway
+* AWS Neptune
+* AWS NetworkELB
+* AWS NetworkFirewall
+* AWS OpsWorks
+* AWS Polly
+* AWS QLDB
+* AWS RDS Monitoring
+* AWS Redshift
+* AWS Robomaker
+* AWS Route53
+* AWS S3
+* AWS SageMaker
+* AWS SDKMetrics
+* AWS ServiceCatalog
+* AWS SES
+* AWS SNS
+* AWS SQS
+* AWS SQS Message
+* AWS SSM-RunCommand
+* AWS States
+* AWS StorageGateway
+* AWS SWF
+* AWS Textract
+* AWS ThingsGraph
+* AWS Timestream
+* AWS Transfer
+* AWS TransitGateway
+* AWS Translate
+* AWS TrustedAdvisor
+* AWS Api Usage
+* AWS VPN Monitoring
+* AWS WAF
+* AWS WorkMail
+* AWS WorkSpaces
+
+</Column>
+
+</Columns>
+
+### 리전, 메트릭스, 스탯 선택 {#region-metric-stats}
+
+import Regionmetricstats from "../../common-items/_region-metric-stats.mdx";
+
+<Regionmetricstats />
+
+<ImgLang img='amazon_cloudwatch_setup_dialog_2nd.png' desc='Amazon Cloudwatch - Region,Metric,Stats' />
+
+## 데이터 수집 비활성화 및 서비스 초기화 {#data-deactivation}
+
+<ImgLang img='amazon-cloudwatch-deact.png' desc='비활성화 및 서비스 초기화 sc' />
+
+* 수집 토글을 ![아이콘](/img/ic-toggle-off.svg) 비활성화하면 데이터 수집이 중지됩니다.
+
+* **역할(Role) 변경** 버튼을 클릭한 후, **에이전트 설치** 화면에서 **서비스 초기화** 선택 시 메트릭을 수집 중인 모든 서비스가 비활성화됩니다.
+
+* 비용 발생을 방지하려면 **AWS IAM** 콘솔에서 **역할**(Role)을 제거해야 합니다.

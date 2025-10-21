@@ -21,25 +21,21 @@ import NextStep from "../common-items/_db-next-step.mdx";
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
-<Collection docs={
-  [
-    {Topic: Agentsignupguide, props: {desc: "개요"}},
-    {Topic: Createprojectv2, props: {level: "프로젝트 생성하기"}},
-  ]}
-/>
+<Agentsignupguide />   
 
 <Steps>
 
-<Collection docs={
-  [
-    {Topic: CheckType, props: {desc: "구성도 확인하기"}},
-    {Topic: Dbcreatemonitoringaccount, props: {desc: "계정 생성"}},
-    {Topic: Accesskeyv2, props: {desc: "액세스 키 확인"}},
-    {Topic: DownloadDBXagent, props: {desc: "DBX 에이전트 다운로드"}},
-    {Topic: SettingsDBXagent, props: {desc: "DBX 에이전트 설정"}},
-    {Topic: Whatapconf, props: {desc: "whatap.conf 설정"}},
-  ]}
-/>
+<CheckType />
+
+<Dbcreatemonitoringaccount />
+
+<Accesskeyv2 />
+
+<DownloadDBXagent />
+
+<SettingsDBXagent />
+
+<Whatapconf />
 
 ### JDBC 다운로드
 
@@ -55,14 +51,13 @@ IBM DB2의 JDBC 드라이버 구성에 대한 자세한 내용은 [다음 링크
 
 :::
 
-<Collection docs={
-  [
-    {Topic: DBuserDesc, props: {level: 3, desc: "DB 유저 파일 생성"}},
-    {Topic: Dbcreatedbuserfilebody, props: {desc: "DB 유저 파일 생성 Note"}},
-    {Topic: Dbrunagent, props: {desc: "DB 모니터링 시작하기"}},
-    {Topic: Dbinstallxosagent, props: {desc: "XOS 에이전트 설치"}},
-  ]}
-/>
+<DBuserDesc level={3} />
+
+<Dbcreatedbuserfilebody /> 
+
+<Dbrunagent />
+
+<Dbinstallxosagent /> 
 
 </Steps>
 

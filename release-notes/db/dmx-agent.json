@@ -1,5 +1,59 @@
 [
   {
+    "ver": "v1.0.6",
+    "date": "2025-10-20",
+    "Lists": [
+      {
+        "ver": "v1.0.6",
+        "hash": "v106",
+        "product": "DMX",
+        "category": "Oracle Pro",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> SqlStat 에서 sql text 누락 오류 수정</p>"
+      },
+      {
+        "ver": "v1.0.6",
+        "hash": "v106",
+        "product": "DMX",
+        "category": "Oracle Pro",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>db_oracle_dma_wait_class</code> 의 <code>time_waited</code> 단위를 초로 변경</p>"
+      },
+      {
+        "ver": "v1.0.6",
+        "hash": "v106",
+        "product": "DMX",
+        "category": "Oracle Pro",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>db_oracle_dma_wait_class</code> 에서 Idle 이벤트 제외</p>"
+      },
+      {
+        "ver": "v1.0.6",
+        "hash": "v106",
+        "product": "DMX",
+        "category": "Oracle Pro",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <code>db_oracle_dma_wait_class</code> 카테고리에 대해 5분, 1시간 통계 생성</p>"
+      },
+      {
+        "ver": "v1.0.6",
+        "hash": "v106",
+        "product": "DMX",
+        "category": "Oracle Pro",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> event top의 <code>time_waited</code> 단위를 초로 변경</p>"
+      },
+      {
+        "ver": "v1.0.6",
+        "hash": "v106",
+        "product": "DMX",
+        "category": "Oracle Pro",
+        "type": "Feature",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 오브젝트 레이아웃 조회 시 partition 정보 조회 가능</p>"
+      }
+    ]
+  },  
+  {
     "ver": "v1.0.5m",
     "date": "2025-08-18",
     "Lists": [

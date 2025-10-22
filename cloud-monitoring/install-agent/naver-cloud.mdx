@@ -5,3 +5,85 @@ description: Naver Cloud Monitoring 설치를 안내합니다.
 toc_max_heading_level: 4
 keywords: [ 설치하기, Naver Cloud Monitoring ]
 ---
+
+import TR from '@site/src/components/TR';
+import ProdImg from '@site/src/components/ChangeImgName.js';
+
+WhaTap Naver Cloud Monitoring은 API 연동을 통해 메트릭을 주기적으로 수집합니다. 수집을 원하는 서비스에 해당하는 Naver Cloud Monitoring 서비스를 5분 기간으로 원하는 스탯을 취사선택해 수집합니다. 모니터링 시작 시 모든 리전의 사용자 자원을 검색하여 원클릭으로 모니터링을 시작할 수 있습니다. 
+
+
+## 사전 준비 {#prerequisites}
+
+WhaTap Naver Cloud Mornitoring 설치를 위해 **클라우드 리소스 수정 권한**이 필요합니다.
+
+
+## 모니터링 에이전트 설치 {#monitoring-agent-install}
+
+WhaTap Naver Cloud Monitoring을 설치하려면 아래 단계를 순서대로 진행합니다.
+
+[Step 1. Naver Cloud 인증 정보를 입력하세요.](#authentication)  
+[Step 2. Naver Cloud Monitoring 서비스 및 수집 주기를 선택하세요.](#namespace-and-collecting-period)  
+[Step 3. 리전, 메트릭스, 스탯을 선택하세요.](#region-metric-stats)
+
+:::caution
+
+설치 후 사용량에 따라 와탭 요금과 별개로 클라우드에서 추가 비용이 발생할 수 있습니다. 설치 전 사용 중인 클라우드 서비스의 가격 정책을 [다음 문서](https://www.ncloud.com/charge/price)에서 확인하세요.
+
+:::
+
+### 인증 정보 입력 {#authentication}
+
+1. 와탭 모니터링 서비스에 생성한 프로젝트의 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" />로 이동합니다.
+
+1. **설치 안내** 탭에서 **엑세스 키**와 **시크릿 키**를 입력한 후, **확인** 버튼을 클릭하세요. 
+
+    <ImgLang img='whatap_ncloud_auth_dialog.png' desc='NCloud Monitoring - Authentification' />
+
+### 서비스 및 수집 주기 선택 {#namespace-and-collecting-period}
+
+import Namespacecollect from "../../common-items/_namespace-collect.mdx";
+
+<Namespacecollect /> 
+
+#### 와탭 수집 주기 {#collecting-period}
+
+import Collectingperiod from "../../common-items/_collecting-period.mdx";
+
+<Collectingperiod />
+
+#### Naver Cloud 서비스 {#namespace}
+
+* Ncloud VAutoScalingGroup Monitoring
+* Ncloud VCloudMongoDB Monitoring
+* Ncloud VCloudDBMSSQL Monitoring
+* Ncloud VCloudDBMySQL Monitoring
+* Ncloud VCloudDBRedis Monitoring
+* Ncloud VCloudHadoop Monitoring
+* Ncloud VCloudKubernetesMonitoring
+* Ncloud VLBTargetGroup Monitoring
+* Ncloud VLoadbalancer Monitoring
+* Ncloud VServer Monitoring
+
+### 리전, 메트릭스, 스탯 선택 {#region-metric-stats}
+
+import Regionmetricstats from "../../common-items/_region-metric-stats.mdx";
+
+<Regionmetricstats />
+
+{/* <ImgLang img='ncloud_region_dialog.png' desc='Ncloud Monitoring - ResourceGroup, Metric, Stats' /> */}
+
+## 데이터 수집 비활성화 {#disable-collection}
+
+{/* <ImgLang img='cloud-deact.png' desc='비활성화 및 서비스 초기화 sc' /> */}
+
+1. 와탭 모니터링 서비스에 생성한 프로젝트의 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" />로 이동합니다.
+
+1. 수집 토글 ![아이콘](/img/ic-toggle-off.svg) 비활성화 시 데이터 수집이 중지됩니다.
+
+## 서비스 초기화 {#service-reset}
+
+1. 와탭 모니터링 서비스에 생성한 프로젝트의 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" />로 이동합니다.
+
+1.  **역할(Role) 변경** 버튼을 클릭해 **에이전트 설치** 화면으로 이동한 후, **서비스 초기화** 선택 시 메트릭을 수집 중인 모든 서비스가 비활성화됩니다.
+
+    * 완전한 비용 발생 방지를 위해서는 **Naver Cloud 계정 관리** &gt; **인증키 관리**로 이동 후 **API 인증키 관리** 항목 사용을 중지하세요.

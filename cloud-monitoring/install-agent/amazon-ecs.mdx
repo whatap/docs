@@ -10,6 +10,9 @@ import TR from '@site/src/components/TR';
 
 **WhaTap Amazon ECS 모니터링**은 META API 및 Cgroup 디렉터리를 이용해 도커 컨테이너별 자원 사용량을 실시간으로 수집합니다. 또한 Amazon ECS API와 연동된 와탭 Task를 통해 Amazon ECS Service, Deployment, Container Instance의 상태를 조회하고 수집합니다.
 
+
+## 사전 준비 {#prerequisites}
+
 와탭 에이전트를 설치하기 위해 AWS 리소스 접근 권한이 필요합니다. 아래 권한을 확인해 주시기 바랍니다.
 
 :::caution
@@ -26,8 +29,6 @@ import TR from '@site/src/components/TR';
         * ecs:Describe*, ecs:List*
 
 :::
-
-## 사전 점검 사항
 
 * **AWS CLI**
 
@@ -50,17 +51,33 @@ import TR from '@site/src/components/TR';
 
 :::
 
-## 모니터링 대상
+## 모니터링 대상 {#monitoring-type}
 
 Amazon ECS의 Launch Type에 따라 아이템이 구분됩니다. 모니터링 절차도 **EC2 Launch Type**와 **Fargate Launch Type** 모니터링을 위한 절차로 구분되어 진행됩니다. 모니터링 대상은 Task, Service, Deployment, Container Instance입니다.
 
-* **EC2 Launch Type**: Task, Service, Deployment, Container Instance
+<Columns>
+
+<Column className="text--left width--50">
+
+* **EC2 Launch Type**  
+  : Task, Service, Deployment, Container Instance
 
   ![EC2 DAEMON](/img/ecs_ec2_whatap_monitoring.png)
 
-* **Fargate Launch Type**: Task, Service, Deployment
+</Column>
+
+<Column className="text--left">
+
+* **Fargate Launch Type**  
+
+  : Task, Service, Deployment
 
   ![ECS Fargate Sidecar](/img/ecs_fargate_whatap_monitoring.png)
+
+</Column>
+
+</Columns>
+
 
 :::note
 
@@ -68,17 +85,17 @@ Amazon ECS launch types에 대한 자세한 설명은 [다음 문서](https://do
 
 :::
 
-## 모니터링 에이전트 설치
+## 모니터링 에이전트 설치 {#monitoring-agent-install}
 
 설치 안내에 따라 Amazon ECS 모니터링을 설치합니다.
 
-* 설치 안내의 **2. Task 생성하기** 안내를 참조해 와탭 Amazon ECS 에이전트를 전용 Task 혹은 Sidecar로 배포하세요.
+* **2. Task 생성하기** 안내를 참조해 와탭 Amazon ECS 에이전트를 전용 Task 혹은 Sidecar로 배포하세요.
 
-* 설치 안내의 **3. 모니터링 시작하기** 안내를 참조해 모니터링 서비스를 활성화해 모니터링 서비스를 시작하세요.
+* **3. 모니터링 시작하기** 안내를 참조해 모니터링 서비스를 활성화해 모니터링 서비스를 시작하세요.
 
 <ImgLang img='amazon-ecs-install.png' desc='ecs install' />
 
-### Task 생성하기
+### Task 생성하기 {#create-task}
 
 Amazon ECS 환경에 와탭 모니터링 에이전트를 배포하려면 Launch type을 선택합니다. 사용 중인 ECS 실행 방식에 따라 **EC2 launch type**와 **Fargate launch type** 중 하나를 선택해 Task를 생성합니다. 각 실행 유형에 맞는 설정 방법은 항목을 펼쳐 확인할 수 있습니다.
 
@@ -302,7 +319,7 @@ Amazon ECS 환경에 와탭 모니터링 에이전트를 배포하려면 Launch 
         - WHATAP_HOST=
     ```
 
-### 모니터링 시작하기
+### 모니터링 시작하기 {#start-monitoring}
 
 **3. 모니터링 시작하기**에서 **모니터링 서비스 활성화** 버튼을 클릭해 모니터링 서비스를 시작합니다.
 
@@ -314,7 +331,7 @@ Amazon ECS 환경에 와탭 모니터링 에이전트를 배포하려면 Launch 
 
     <ImgLang img='amazon-ecs-monitoring-off.png' desc='모니터링 활성화 불가' />
 
-## 제거 시 주의 사항
+## 제거 시 주의 사항 {#remove-warning}
 
 완전한 비용 발생 방지를 위해서 다음 항목을 삭제하세요.
 

@@ -1,0 +1,99 @@
+---
+id: dashboard
+title: 대시보드
+description: 와탭 모니터링 대시보드는 프로젝트의 전체 현황을 한 눈에 파악하기 위한 기능을 제공합니다.
+toc_max_heading_level: 2
+keywords: [ 클라우드, Amazon CloudWatch, Amazon ECS, 대시보드 ]
+---
+
+WhaTap은 클라우드 통합 모니터링 중 Amazon CloudWatch와 Amazon ECS 대시보드만 제공합니다.
+대시보드를 통해 AWS 인프라 리소스부터 컨테이너 환경까지 한 곳에서 통합 모니터링할 수 있습니다.
+
+## Amazon CloudWatch
+
+와탭 모니터링 서비스 화면에서 프로젝트를 선택한 후, **Amazon CloudWatch** 메뉴로 이동하면 AWS 리소스별 대시보드를 통해 주요 지표를 한눈에 볼 수 있습니다.
+
+| 대시보드 메뉴 | 설명 |
+| --- | --- |
+| **EC2** | 인스턴스 수, 상태, CPU 사용률, 네트워크 트래픽, 디스크 I/O 등 서버의 전반적인 성능의 그래프와 차트 |
+| **EBS** | 볼륨의 읽기·쓰기 속도, 지연 시간, 사용 용량 등을 실시간 모니터링 |
+| **ELB** | 요청 수, 응답 시간, 상태 코드(2xx, 4xx, 5xx) 비율 등을 통해 트래픽 분산 상태 |
+| **AutoScaling** | 자동 확장 그룹의 인스턴스 수 변화와 스케일링 이벤트 추적 |
+| **ElasticBeanstalk** | 애플리케이션 환경의 상태, 요청 수, 오류율 등을 확인해 서비스의 안정성 평가 |
+| **ElastiCache** | 캐시 서버의 메모리 사용량, 연결 수, 캐시 적중률 등 성능 상태 |
+
+{/* <ImgLang img='aws-cloudwatch-ec2.png' desc='cloudwatch ec2' />  */}
+
+* 네임스페이스는 와탭 메트릭스 **카테고리**로 수집됩니다. 표기 형식은 Amazon CloudWatch 네임스페이스를 **소문자**로 변경 후 `/`를 `_`로 변경합니다.
+
+  > 예, AWS/EC2 → **aws_ec2**
+
+* 지표는 와탭 **메트릭스**로 수집됩니다. 표기 형식은 'CloudWatchMetric.Stat' 입니다.
+
+  > 예, **CPUUtilization.Average**
+
+:::note
+와탭이 제공하는 템플릿 대시보드 외에 사용자 정의형 통합 대시보드인 [Flex 보드](flexboard)를 생성해 활용할 수 있습니다.
+* 수집되는 Amazon CloudWatch 지표는 [다음 문서](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)를 참조하세요.
+
+:::
+
+## Amazon ECS
+
+와탭 모니터링 서비스 초기 화면에서 프로젝트를 선택한 후, **Amazon ECS** 메뉴에서 아이템별 대시보드를 통해 주요 지표를 한눈에 볼 수 있습니다.
+
+|대시보드 메뉴|Launch Type|설명|
+|---|---|---|
+|**TASK**|Fargate, EC2|**Task**에 속한 컨테이너별 성능 **CPU**, **Memory**, **Traffic**, **BLKIO** 조회|
+|**Service**|Fargate, EC2|**Service**별 **running**, **pending**, **desired task** 및 연관 메트릭|
+|**ContainerInstance**|EC2|**ContainerInstance**별 **running**, **pending**, **desired task** 및 연관 메트릭|
+
+### Task
+
+ECS **Task** 별 주요 지수를 시각화합니다.
+
+* **표시 차트**
+    * **Total Task CPU Usage** (프로젝트 총 CPU 사용량)
+    * **Total Task Memory**(**WorkingSet**) **Usage** (프로젝트 총 메모리 사용량)
+    * **Task CPU Usage**(**millicore**) (Task 별 CPU 사용량)
+    * **Task Memory**(**WorkingSet**) **Usage**(**byte**) (Task 별 메모리 사용량)
+    * **Task Block I/O Read Byte** (Task 별 Block I/O 읽기 사용량)
+    * **Task Block I/O Write Byte** (Task 별 Block I/O 쓰기 사용량)
+    * **Task CPU Usage** (%) (Task 별 제한 대비 CPU 사용량)
+    * **Task Memory Usage** (%) (Task 별 제한 대비 메모리 사용량)
+    * **Task CPU Limit 설정** (**millis**) (Task 별 CPU 제한 사용량)
+    * **Task Memory Limit 설정** (**byte**) (Task 별 메모리 제한 사용량)
+    * **Task Network Read Byte** (Task 별 네트워크 수신 사용량)
+    * **Task Network Transmit Byte** (Task 별 네트워크 송신 사용량)
+
+### Service
+
+ECS **Service** 별 주요 지수를 시각화합니다.
+![ECS Service](https://img.whatap.io/media/images/aws_ecs_whatap_monitoring_service.png)
+* **표시 차트**
+    * **DesiredCount** (희망수)
+    * **RunningCount** (현재수)
+    * **PendingCount** (미결수)
+    * **Cpu** (Service Task의 CPU 사용량 합산)
+    * **WorkingSet** (Service Task의 메모리 사용량 합산) 
+
+### ContainerInstance
+
+ECS **ContainerInstance**, **Service** 주요 지수를 시각화합니다.
+
+* **표시 차트**
+    * **RunningCount Per Service** (서비스별 태스크 현재 Task)
+    * **PendingCount Per Service** (서비스별 미결수)
+    * **RunningTasksCount Per Node** (노드별 현재수)
+    * **PendingTasksCount Per Node** (노드별 미결수)
+    * **TrafficIn** (노드별 네트워크 수신 bps)
+    * **TrafficOut** (노드별 네트워크 송신 bps)
+    * **PacketIn** (노드별 네트워크 수신 패킷)
+    * **PacketOut** (노드별 네트워크 송신 패킷)
+    * **ReadBps** (노드 디스크별 읽기 BPS)
+    * **WriteBps** (노드 디스크별 쓰기 BPS)
+    * **ReadIops** (노드 디스크별 읽기 횟수)
+    * **WriteIops** (노드 디스크별 쓰기 횟수)
+    * **TotalSpace** (노드 디스크별 크기)
+    * **UsedSpace** (노드 디스크별 사용량 byte)
+    * **UsedPercent** (노드 디스크별 사용량 %)

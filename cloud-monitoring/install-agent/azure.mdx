@@ -5,3 +5,250 @@ description: Azure Monitor 설치를 안내합니다.
 toc_max_heading_level: 4
 keywords: [ 설치하기, Azure Monitor ]
 ---
+
+import TR from '@site/src/components/TR';
+import ProdImg from '@site/src/components/ChangeImgName.js';
+
+**WhaTap Azure Monitor**는 API 연동을 통해 주기적으로 메트릭을 수집합니다. 사용자는 모니터링할 서비스의 Azure Monitor 서비스를 선택하고, 5분 단위로 원하는 통계(Stat) 항목을 지정해 데이터를 가져올 수 있습니다.
+모니터링 시작하면 모든 리전의 자원을 자동으로 검색하여, 한 번의 클릭으로 모니터링을 시작할 수 있습니다.
+또한, WhaTap은 안전하고 편리한 연동을 위해 Azure Registered App 방식을 지원합니다.
+
+## 모니터링 에이전트 설치 {#monitoring-agent-install}
+
+WhaTap Azure Monitor 설치하려면 아래 단계를 순서대로 진행합니다.
+
+[Step 1. Azure Registered App을 추가하세요.](#add-azure-registered-app)  
+[Step 2. Azure 인증 정보를 입력하세요.](#authentication)  
+[Step 3. Azure Monitor 서비스 및 수집 주기를 선택하세요.](#namespace-and-collecting-period)  
+[Step 4. 리소스 그룹, 메트릭스, 스탯을 선택하세요.](#region-metric-stats)
+
+:::caution
+
+설치 후 사용량에 따라 와탭 요금과 별개로 클라우드에서 추가 비용이 발생할 수 있습니다. 설치 전 사용 중인 클라우드 서비스의 가격 정책을 [다음 문서](https://azure.microsoft.com/ko-kr/pricing/details/monitor/)에서 확인하세요.
+
+:::
+
+### Azure Registered App 추가 {#add-azure-registered-app}
+
+WhaTap 모니터링을 위해 Monitor Reader, Reader, API Management Service Reader 권한이 필요합니다. Azure Portal에서 **Subscription** &gt; **액세스 제어**(IAM)에서 **추가** 버튼을 클릭해 권한을 추가할 수 있습니다.
+
+1. WhaTap 모니터링용 [Registered App](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)을 생성하세요.
+
+    * Registered App은 Azure AD(Entra ID)에 등록된 애플리케이션으로, WhaTap이 Azure API에 접근할 수 있도록 인증 정보를 제공합니다.
+
+    ![Azure Active Directory](/img/registeredapps.png)
+
+1. Secret을 생성하고 애플리케이션 ID(Application Id), 테넌트 ID(Tenant Id)와 시크릿(Azure secret key)을 WhaTap에 입력하세요. Secret은 비밀번호처럼 취급되므로 외부에 노출되지 않도록 주의하세요.
+
+### 인증 정보 입력 {#authentication}
+
+1. 와탭 모니터링 서비스에 생성한 프로젝트의 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" />로 이동합니다.
+
+1. Azure 인증 정보인 **애플리케이션 ID**(Application ID), **테넌트 ID**(Tenant ID)와 **Azure 시크릿 키**(Azure secret key)를  입력하세요.
+
+    <ImgLang img='whatap_azure_auth_dialog.png' desc='Azure Monitor - Authentification' />
+
+### 서비스 및 수집 주기 선택 {#namespace-and-collecting-period}
+
+import Namespacecollect from "../../common-items/_namespace-collect.mdx";
+
+<Namespacecollect />  
+
+#### 와탭 수집 주기 {#collecting-period}
+
+import Collectingperiod from "../../common-items/_collecting-period.mdx";
+
+<Collectingperiod />
+
+#### Azure 서비스 {#namespace}
+
+<Columns>
+
+<Column className="text--left width--50">
+
+* Microsoft.aadiam azureADMetrics
+* Microsoft.AnalysisServices servers
+* Microsoft.ApiManagement service
+* Microsoft.AppConfiguration configurationStores
+* Microsoft.AppPlatform Spring
+* Microsoft.Automation automationAccounts
+* Microsoft.AVS privateClouds
+* Microsoft.Batch batchAccounts
+* Microsoft.BatchAI workspaces
+* Microsoft.Blockchain blockchainMembers
+* Microsoft.botservice botservices
+* Microsoft.Cache redis
+* Microsoft.Cache redisEnterprise
+* Microsoft.Cdn cdnwebapplicationfirewallpolicies
+* Microsoft.Cdn profiles
+* Microsoft.ClassicCompute domainNames slots roles
+* Microsoft.ClassicCompute virtualMachines
+* Microsoft.ClassicStorage storageAccounts
+* Microsoft.ClassicStorage storageAccounts blobServices
+* Microsoft.ClassicStorage storageAccounts fileServices
+* Microsoft.ClassicStorage storageAccounts queueServices
+* Microsoft.ClassicStorage storageAccounts tableServices
+* Microsoft.CognitiveServices accounts
+* Microsoft.Communication CommunicationServices
+* Microsoft.Compute cloudServices
+* Microsoft.Compute cloudServices roles
+* Microsoft.compute disks
+* Microsoft.Compute virtualMachines
+* Microsoft.Compute virtualMachineScaleSets
+* Microsoft.Compute virtualMachineScaleSets virtualMachines
+* Microsoft.ContainerInstance containerGroups
+* Microsoft.ContainerRegistry registries
+* Microsoft.ContainerService managedClusters
+* Microsoft.CustomProviders resourceproviders
+* Microsoft.DataBoxEdge dataBoxEdgeDevices
+* Microsoft.DataCollaboration workspaces
+* Microsoft.DataFactory datafactories
+* Microsoft.DataFactory factories
+* Microsoft.DataLakeAnalytics accounts
+* Microsoft.DataLakeStore accounts
+* Microsoft.DataShare accounts
+* Microsoft.DBforMariaDB servers
+* Microsoft.DBforMySQL flexibleServers
+* Microsoft.DBforMySQL servers
+* Microsoft.DBforPostgreSQL flexibleServers
+* Microsoft.DBforPostgreSQL servers
+* Microsoft.DBforPostgreSQL serversv2
+* Microsoft.Devices ElasticPools
+* Microsoft.Devices ElasticPools IotHubTenants
+* Microsoft.Devices IotHubs
+* Microsoft.Devices provisioningServices
+* Microsoft.DigitalTwins digitalTwinsInstances
+* Microsoft.DocumentDB databaseAccounts
+* Microsoft.EventGrid domains
+* Microsoft.EventGrid eventSubscriptions
+* Microsoft.EventGrid extensionTopics
+* Microsoft.EventGrid partnerNamespaces
+* Microsoft.EventGrid partnerTopics
+* Microsoft.EventGrid systemTopics
+* Microsoft.EventGrid topics
+* Microsoft.EventHub clusters
+* Microsoft.EventHub namespaces
+* Microsoft.HDInsight clusters
+* Microsoft.HealthcareApis services
+* Microsoft.hybridnetwork networkfunctions
+* Microsoft.hybridnetwork virtualnetworkfunctions
+* Microsoft.insights autoscalesettings
+* Microsoft.Insights Components
+* Microsoft.IoTCentral IoTApps
+* Microsoft.IoTSpaces Graph
+* Microsoft.keyvault managedhsms
+* Microsoft.KeyVault vaults
+* Microsoft.kubernetes connectedClusters
+* Microsoft.Kusto Clusters
+* Microsoft.Logic integrationServiceEnvironments
+* Microsoft.Logic workflows
+
+</Column>
+
+<Column className="text--left">
+
+* Microsoft.MachineLearningServices workspaces
+* Microsoft.Maps accounts
+* Microsoft.Media mediaservices
+* Microsoft.Media mediaservices liveEvents
+* Microsoft.Media mediaservices streamingEndpoints
+* Microsoft.MixedReality remoteRenderingAccounts
+* Microsoft.MixedReality spatialAnchorsAccounts
+* Microsoft.NetApp netAppAccounts capacityPools
+* Microsoft.NetApp netAppAccounts capacityPools volumes
+* Microsoft.Network applicationGateways
+* Microsoft.Network azurefirewalls
+* Microsoft.Network connections
+* Microsoft.Network dnszones
+* Microsoft.Network expressRouteCircuits
+* Microsoft.Network expressRouteCircuits peerings
+* Microsoft.Network expressRouteGateways
+* Microsoft.Network expressRoutePorts
+* Microsoft.Network frontdoors
+* Microsoft.Network loadBalancers
+* Microsoft.Network natGateways
+* Microsoft.Network networkInterfaces
+* Microsoft.Network networkWatchers connectionMonitors
+* Microsoft.Network p2sVpnGateways
+* Microsoft.Network privateDnsZones
+* Microsoft.Network privateEndpoints
+* Microsoft.Network privateLinkServices
+* Microsoft.Network publicIPAddresses
+* Microsoft.Network trafficManagerProfiles
+* Microsoft.Network virtualNetworkGateways
+* Microsoft.Network virtualNetworks
+* Microsoft.Network virtualRouters
+* Microsoft.Network vpnGateways
+* Microsoft.NotificationHubs Namespaces NotificationHubs
+* Microsoft.OperationalInsights workspaces
+* Microsoft.Peering peerings
+* Microsoft.Peering peeringServices
+* Microsoft.PowerBIDedicated capacities
+* Microsoft.ProjectBabylon accounts
+* Microsoft.purview accounts
+* Microsoft.Relay namespaces
+* Microsoft.resources subscriptions
+* Microsoft.Search searchServices
+* Microsoft.ServiceBus namespaces
+* Microsoft.ServiceFabricMesh applications
+* Microsoft.SignalRService SignalR
+* Microsoft.Sql managedInstances
+* Microsoft.Sql servers databases
+* Microsoft.Sql servers elasticPools
+* Microsoft.Storage storageAccounts
+* Microsoft.Storage storageAccounts blobServices
+* Microsoft.Storage storageAccounts fileServices
+* Microsoft.Storage storageAccounts queueServices
+* Microsoft.Storage storageAccounts tableServices
+* Microsoft.StorageCache caches
+* Microsoft.storagesync storageSyncServices
+* Microsoft.storagesync storageSyncServices registeredServers
+* Microsoft.storagesync storageSyncServices syncGroups
+* Microsoft.storagesync storageSyncServices syncGroups serverEndpoints
+* Microsoft.StreamAnalytics streamingjobs
+* Microsoft.Synapse workspaces
+* Microsoft.Synapse workspaces bigDataPools
+* Microsoft.Synapse workspaces sqlPools
+* Microsoft.TimeSeriesInsights environments
+* Microsoft.TimeSeriesInsights environments eventsources
+* Microsoft.VMwareCloudSimple virtualMachines
+* Microsoft.Web hostingEnvironments multiRolePools
+* Microsoft.Web hostingEnvironments workerPools
+* Microsoft.Web serverfarms
+* Microsoft.Web sites
+* Microsoft.Web sites slots
+* Microsoft.Web staticSites
+
+</Column>
+
+</Columns>
+
+### 리소스 그룹, 메트릭스, 스탯 선택 {#region-metric-stats}
+
+1. 와탭 모니터링 서비스에 생성한 프로젝트의 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" />로 이동합니다.
+
+1. 활성화된 서비스의 오른쪽 ![수정 아이콘](/img/ico-edit.svg)**수정** 버튼을 클릭하면 수집할 **리소스 그룹**, **메트릭스**, **스탯**을 선택할 수 있습니다. 
+
+1. **저장** 버튼을 클릭합니다.
+
+{/* <ImgLang img='whatap_azure_resourcegroup_dialog.png' desc='Azure Monitor - ResourceGroup, Metric, Stats' /> */}
+
+## 데이터 수집 비활성화 {#disable-collection}
+
+1. 와탭 모니터링 서비스에 생성한 프로젝트의 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" />로 이동합니다.
+
+1. 수집 토글 ![아이콘](/img/ic-toggle-off.svg) 비활성화 시 데이터 수집이 중지됩니다.
+
+## 서비스 초기화 {#service-reset}
+
+{/* <ImgLang img='cloud-deact.png' desc='비활성화 및 서비스 초기화 sc' /> */}
+
+1. 와탭 모니터링 서비스에 생성한 프로젝트의 <Cmdname sid="side_management" className="uitext" /> &gt; <Cmdname sid="agentInstall" className="uitext" />로 이동합니다.
+
+1.  **역할(Role) 변경** 버튼을 클릭해 **에이전트 설치** 화면으로 이동한 후, **서비스 초기화** 선택 시 메트릭을 수집 중인 모든 서비스가 비활성화됩니다.
+
+    * 완전한 비용 발생 방지를 위해서는 다음을 제거해야 합니다.  
+
+        * Azure Portal Subscript에서 모니터링 리더 Role을 제거하세요. 
+
+        * Azure Registered App을 제거하세요. 

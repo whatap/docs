@@ -2,10 +2,9 @@
 id: setup-sapase
 title: SAP ASE
 description: whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내합니다.
-keywords: [ SAP ASE, 데이터베이스 모니터링, DBX 에이전트 ]
+keywords: [ SAP ASE, 데이터베이스 모니터링, DBX 에이전트, SAP ASE 에이전트 설정 ]
 ---
 
-import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
 import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data-collection.mdx";
 import Dbaes256encrypt from "../common-items/_db-aes-256-encrypt.mdx";
 import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
@@ -14,7 +13,38 @@ DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다.
 
 ## 기본 옵션
 
-<Dbagentdbxbasicoption />
+* **license** <span class='type'>String</span>
+
+  에이전트를 설치할 때 서버로부터 부여받은 프로젝트 액세스 키를 설정합니다. 프로젝트 액세스 키는 에이전트가 속한 프로젝트와 보안 통신을 위한 암호 키를 포함하고 있습니다.
+
+* **whatap.server.host** <span class='type'>String</span>
+
+  기본값 `127.0.0.1,127.0.0.1`
+
+  에이전트가 수집한 데이터를 전송할 와탭 수집 서버의 IP 주소를 설정하세요. 수집 서버 이중화로 2개 이상의 IP를 가진 경우 쉼표(,)를 구분자로 사용하세요. 설정한 IP 주소에는 수집 서버 proxy 데몬이 리스닝 상태로 서비스돼야 합니다.
+
+* **dbms** <span class='type'>String</span>
+  
+  `sap_ase`
+
+  :::caution
+
+  다른 옵션 값을 입력할 경우 모니티링을 위한 데이터 수집이 정상 작동하지 않을 수 있습니다.
+
+  :::
+
+* **db** <span class='type'>String</span>
+
+  접속할 데이터베이스 이름입니다.
+
+
+* **db_ip** <span class='type'>String</span>
+
+  모니터링할 데이터베이스 서버의 IP 주소를 설정합니다.
+
+* **db_port** <span class='type'>String</span>
+
+  데이터베이스가 통신에 사용하는 포트를 설정합니다.
 
 ## 데이터 수집
 

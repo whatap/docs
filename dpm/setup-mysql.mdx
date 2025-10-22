@@ -2,7 +2,7 @@
 id: setup-mysql
 title: MySQL
 description: whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내합니다.
-keywords: [ MySQL, 데이터베이스 모니터링, DBX 에이전트 ]
+keywords: [ MySQL, 데이터베이스 모니터링, DBX 에이전트, MySQL 에이전트 설정 ]
 ---
 
 import AWSRDSdesc from '../common-items/_import_aws-rds-desc.mdx';
@@ -13,18 +13,31 @@ import Dbagentaws from "../common-items/_db-agent-aws.mdx";
 import Dbaes256encrypt from "../common-items/_db-aes-256-encrypt.mdx";
 import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
 
-
-
 DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
 
 ## 기본 옵션
 
-
 <Dbagentdbxbasicoption />
 
+* **dbms** <span class='type'>String</span>
+  
+  `mysql`
+
+  :::caution
+
+  다른 옵션 값을 입력할 경우 모니티링을 위한 데이터 수집이 정상 작동하지 않을 수 있습니다.
+
+  :::
+
+* **db_ip** <span class='type'>String</span>
+
+  모니터링할 데이터베이스 서버의 IP 주소를 설정합니다.
+
+* **db_port** <span class='type'>String</span>
+
+  데이터베이스가 통신에 사용하는 포트를 설정합니다.
 
 ## 데이터 수집
-
 
 <Dbagentsettingdatacollection /> 
 

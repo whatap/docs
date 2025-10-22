@@ -5,22 +5,28 @@ description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 �
 keywords: [ MySQL, 데이터베이스 모니터링, 에이전트 ]
 ---
 
+import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+import CheckType from "../common-items/_db-install-agent-check-type.mdx";
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
+import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
+import Whatapconf from "../common-items/_db-whatap-conf.mdx";
+import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
 import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+import NextStep from "../common-items/_db-next-step.mdx";
+
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
-
-import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
 
 <Agentsignupguide />
 
 <Youtube ko='e_UpCgapfQY' en='JiQsIh6RbSA' ja='JiQsIh6RbSA' />
 
 {/* ## 구성도 확인 */}
-import CheckType from "../common-items/_db-install-agent-check-type.mdx";
-
 <CheckType />
-
-import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
 
 <Dbcreatemonitoringaccount />
 
@@ -175,24 +181,19 @@ grant show databases on *.* to DB_User;
 
 </details>
 
-{/* 액세스 키 확인 */}
-import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
-
-<Accesskeyv2 />
-
 {/* DBX 에이전트 다운로드 */}
-import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
-
 <DownloadDBXagent />
 
 {/* ## DBX 에이전트 설정 */}
-import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
-
 <SettingsDBXagent />
 
-{/* ### whatap.conf 설정 */}
-import Whatapconf from "../common-items/_db-whatap-conf.mdx";
+:::tip
 
+DBX 에이전트의 구성 파일 중 *setup.sh* 파일을 실행해 에이전트 설정을 빠르고 쉽게 진행할 수 있습니다. 자세한 내용은 <Link to="install-agent-quick-setup" target="_blank">다음 문서</Link>를 참조하세요.
+
+:::
+
+{/* ### whatap.conf 설정 */}
 <Whatapconf />
 
 #### 기본 설정
@@ -222,28 +223,17 @@ connect_option=?serverTimezone=SERVER_TIMEZONE
 ```
 
 {/* ### JDBC 다운로드 */}
-import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
-
 <JDBCDownload />
 
 {/* ### DB 유저 파일 생성 {#create-db-user} */}
-
 <DBuserDesc level={3} />
-
-import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
 
 <Dbcreatedbuserfilebody /> 
 
 {/*모니터링 시작하기*/}
-import Dbrunagent from "../common-items/_db-run-agent.mdx";
-
 <Dbrunagent />
 
 {/*XOS 에이전트 설치*/}
-import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
-
 <Dbinstallxosagent />
-
-import NextStep from "../common-items/_db-next-step.mdx";
 
 <NextStep />

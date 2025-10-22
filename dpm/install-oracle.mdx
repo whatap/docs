@@ -5,48 +5,39 @@ description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 �
 keywords: [ Oracle, 데이터베이스, 에이전트 ]
 ---
 
-import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
-
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
 import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+import CheckType from "../common-items/_db-install-agent-check-type.mdx";
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
+import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
+import Whatapconf from "../common-items/_db-whatap-conf.mdx";
+import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
+import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+import NextStep from "../common-items/_db-next-step.mdx";
 
 <Agentsignupguide />   
 
 <Steps>
 
-{/* ## 구성도 확인 */}
-import CheckType from "../common-items/_db-install-agent-check-type.mdx";
-
 <CheckType />
-
-{/* 모니터링용 계정 생성 */}
-import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
 
 <Dbcreatemonitoringaccount />
 
-import Accesskey from "../getting-started/_accesskey-v2.mdx";
-
-<Accesskey />
-
 {/* DBX 에이전트 다운로드 */}
-import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
-
 <DownloadDBXagent />
 
 {/* ## DBX 에이전트 설정 */}
-import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
-
 <SettingsDBXagent />
 
 {/* ### whatap.conf 설정 */}
-import Whatapconf from "../common-items/_db-whatap-conf.mdx";
-
 <Whatapconf />
 
 {/* ### JDBC 다운로드 */}
-import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
-
 <JDBCDownload />
 
 <DBuserDesc level={3} />
@@ -55,21 +46,13 @@ import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
 
 {/* 데이터베이스에 접속하고 암호화된 UID를 생성하기 위해, 데이터베이스의 사용자 이름과 비밀번호를 입력한 후, 쉘 스크립트 또는 배치 파일을 실행합니다. 최초 1회 설정 후에는 암호화된 UID를 통해 모니터링 대상 데이터베이스 서버에서 데이터를 수집할 수 있습니다. DB 유저 파일을 생성하려면, 액세스 키가 whatap.conf 파일에 저장되어 있어야 합니다. */}
 
-import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
-
 <Dbcreatedbuserfilebody /> 
 
 {/*모니터링 시작하기*/}
-import Dbrunagent from "../common-items/_db-run-agent.mdx";
-
 <Dbrunagent />
-
-import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
 
 <Dbinstallxosagent /> 
 
 </Steps>
-
-import NextStep from "../common-items/_db-next-step.mdx";
 
 <NextStep />

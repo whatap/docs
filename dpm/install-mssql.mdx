@@ -5,12 +5,20 @@ description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 �
 keywords: [ SQL Server, 데이터베이스, 에이전트 ]
 ---
 
-
+import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+import CheckType from "../common-items/_db-install-agent-check-type.mdx";
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
+import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
+import Whatapconf from "../common-items/_db-whatap-conf.mdx";
+import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
 import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+import NextStep from "../common-items/_db-next-step.mdx";
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
-
-import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
 
 <Agentsignupguide />
 
@@ -19,59 +27,33 @@ import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
 <Steps>
 
 {/* ## 구성도 확인 */}
-import CheckType from "../common-items/_db-install-agent-check-type.mdx";
-
 <CheckType />
-
-import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
 
 <Dbcreatemonitoringaccount />
 
-{/* 액세스 키 확인 */}
-import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
-
-<Accesskeyv2 />
-
 {/* DBX 에이전트 다운로드 */}
-import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
-
 <DownloadDBXagent />
 
 {/* ## DBX 에이전트 설정 */}
-import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
-
 <SettingsDBXagent />
 
 {/* ### whatap.conf 설정 */}
-import Whatapconf from "../common-items/_db-whatap-conf.mdx";
-
 <Whatapconf />
 
 {/* ### JDBC 다운로드 */}
-import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
-
 <JDBCDownload />
 
 {/* ## DB 유저 파일 생성{#create-db-user} */}
-
 <DBuserDesc level={2} />
-
-import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
 
 <Dbcreatedbuserfilebody /> 
 
 {/*모니터링 시작하기*/}
-import Dbrunagent from "../common-items/_db-run-agent.mdx";
-
 <Dbrunagent />
 
 {/*XOS 에이전트 설치*/}
-import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
-
 <Dbinstallxosagent /> 
 
 </Steps>
-
-import NextStep from "../common-items/_db-next-step.mdx";
 
 <NextStep />

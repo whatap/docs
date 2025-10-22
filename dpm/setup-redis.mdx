@@ -2,7 +2,7 @@
 id: setup-redis
 title: Redis
 description: Redis 데이터베이스에서 whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내합니다.
-keywords: [ Redis, 데이터베이스, DBX 에이전트 ]
+keywords: [ Redis, 데이터베이스, DBX 에이전트, Redis 에이전트 설정 ]
 ---
 
 import AWSRDSdesc from '../common-items/_import_aws-rds-desc.mdx';
@@ -18,9 +18,25 @@ DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다.
 
 ## 기본 옵션
 
-
 <Dbagentdbxbasicoption />
 
+* **dbms** <span class='type'>String</span>
+  
+  `redis`
+
+  :::caution
+
+  다른 옵션 값을 입력할 경우 모니티링을 위한 데이터 수집이 정상 작동하지 않을 수 있습니다.
+
+  :::
+
+* **db_ip** <span class='type'>String</span>
+
+  모니터링할 데이터베이스 서버의 IP 주소를 설정합니다.
+
+* **db_port** <span class='type'>String</span>
+
+  데이터베이스가 통신에 사용하는 포트를 설정합니다.
 
 <ClusterSet />
 

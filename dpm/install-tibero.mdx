@@ -8,18 +8,16 @@ keywords: [ Tibero, 데이터베이스, 에이전트 ]
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
 import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+import Dbcreatedbuserfile from "../common-items/_db-create-db-user-file.mdx";
+import CheckDefaultPlan from '../common-items/_import_db-check-default-plan.mdx';
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
 
 <Agentsignupguide /> 
 
 <Youtube ko='e_UpCgapfQY' en='JiQsIh6RbSA' ja='JiQsIh6RbSA' />
-
-import Accesskey from "../getting-started/_accesskey.mdx";
-
-<Accesskey />
-
-## 와탭 데이터베이스 에이전트 다운로드
-
-import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
 
 <Dbinstallagentsteps /> 
 
@@ -47,8 +45,6 @@ import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
 
 :::
 
-import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
-
 <Dbcreatemonitoringaccount />
 
 ```bash showLineNumbers
@@ -61,20 +57,11 @@ grant alter system to whatap;
 ```
 
 {/* ## DB 유저 파일 생성{#create-db-user} */}
-import Dbcreatedbuserfile from "../common-items/_db-create-db-user-file.mdx";
-
 <Dbcreatedbuserfile level={2} /> 
 
 {/* 디폴트 플랜 조회하기 */}
-
-import CheckDefaultPlan from '../common-items/_import_db-check-default-plan.mdx';
-
 <CheckDefaultPlan level={3} />
 
-import Dbrunagent from "../common-items/_db-run-agent.mdx";
-
 <Dbrunagent /> 
-
-import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
 
 <Dbinstallxosagent /> 

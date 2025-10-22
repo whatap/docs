@@ -2,17 +2,34 @@
 id: setup-oracle-pro
 title: Oracle-pro 
 description: whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내합니다.
-keywords: [ Oracle Pro, 데이터베이스, DBX 에이전트 ]
+keywords: [ Oracle Pro, 데이터베이스, DBX 에이전트, Oracle Pro 에이전트 설정 ]
 ---
 
-import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
 import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
 
 DMX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
 
 ### 기본 옵션
 
-<Dbagentdbxbasicoption />
+* **license** <span class='type'>String</span>
+
+  에이전트를 설치할 때 서버로부터 부여받은 프로젝트 액세스 키를 설정합니다. 프로젝트 액세스 키는 에이전트가 속한 프로젝트와 보안 통신을 위한 암호 키를 포함하고 있습니다.
+
+* **whatap.server.host** <span class='type'>String</span>
+
+  기본값 `127.0.0.1,127.0.0.1`
+
+  에이전트가 수집한 데이터를 전송할 와탭 수집 서버의 IP 주소를 설정하세요. 수집 서버 이중화로 2개 이상의 IP를 가진 경우 쉼표(,)를 구분자로 사용하세요. 설정한 IP 주소에는 수집 서버 proxy 데몬이 리스닝 상태로 서비스돼야 합니다.
+
+* **ipckey** <span class='type'>String</span>
+
+  `ipcs -m` 명령어를 통해 얻을 수 있습니다. 모니터링할 오라클의 Key 값(16진수)입니다.
+
+  :::note
+
+  `ipcs` 명령은 프로세스 간 통신(IPC)에 대한 정보를 제공합니다. `-m` 옵션은 공유 메모리 자원을 조회합니다.
+
+  :::
 
 * **rac** <span class='type'>String</span> <code class="my">RAC</code>
 

@@ -8,23 +8,23 @@ keywords: [ Redis, 데이터베이스 모니터링, 에이전트 ]
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TR from '@site/src/components/TR';
-import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
-
-와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
 import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
+import Dbinstallagentcommonnotes from "../common-items/_db-install-agent-common-notes.mdx";
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
+import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+import NextStep from "../common-items/_db-next-step.mdx";
+
+
+와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
 <Agentsignupguide />   
 
 <Youtube ko='e_UpCgapfQY' en='JiQsIh6RbSA' ja='JiQsIh6RbSA' />
-
-import Accesskey from "../getting-started/_accesskey.mdx";
-
-<Accesskey />
-
-## 와탭 데이터베이스 에이전트 다운로드
-
-import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
 
 <Dbinstallagentsteps /> 
 
@@ -39,11 +39,7 @@ import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
     db_port={DB_server_port}
     ```
 
-import Dbinstallagentcommonnotes from "../common-items/_db-install-agent-common-notes.mdx";
-
 <Dbinstallagentcommonnotes /> 
-
-import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
 
 <Dbcreatemonitoringaccount />
 
@@ -62,18 +58,10 @@ Redis 환경의 계정 생성에 대한 자세한 내용은 [다음 링크](http
 
 <DBuserDesc level={2} />
 
-import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
-
 <Dbcreatedbuserfilebody /> 
-
-import Dbrunagent from "../common-items/_db-run-agent.mdx";
 
 <Dbrunagent /> 
 
-import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
-
 <Dbinstallxosagent /> 
-
-import NextStep from "../common-items/_db-next-step.mdx";
 
 <NextStep />

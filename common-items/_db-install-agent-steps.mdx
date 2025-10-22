@@ -1,64 +1,22 @@
-1. 에이전트 파일을 다운로드하세요. 다음 두 가지 방법을 이용하세요.
+## 에이전트 다운로드
+
+1. 에이전트 파일을 다운로드하세요. 다음 두 가지 방법을 이용할 수 있습니다.
 
     * 와탭 모니터링 서비스 화면에서 **Download** 버튼을 선택해 다운로드할 수 있습니다.
+    
+    * 리눅스 wget 방식으로 다운로드할 수 있습니다.  
+      `type` 파라미터에 데이터베이스 이름을 입력하세요. 아래 예시를 참고하세요.
 
-    * 리눅스 wget 방식으로 다운로드를 할 수 있습니다. 다음 명령어를 이용하세요.
+    ```bash title="BASH"
+    # MongoDB
+    wget -O whatap.agent.database.tar.gz "https://service.whatap.io/download/dbx_agent?type=mongodb&format=tar.gz"
 
-      <InDoc product="altibase-v1">
-      
-      ```bash
-      wget -O whatap.agent.database.tar.gz "https://service.whatap.io/download/dbx_agent?type=altibase&format=tar.gz"
-      ```
+    # Redis
+    wget -O whatap.agent.database.tar.gz "https://service.whatap.io/download/dbx_agent?type=redis&format=tar.gz"
 
-      </InDoc>
-
-      <InDoc product="cubrid">
-      
-      ```bash
-      wget -O whatap.agent.database.tar.gz "https://service.whatap.io/download/dbx_agent?type=cubrid&format=tar.gz"
-      ```
-
-      </InDoc>
-
-      <InDoc product="mongodb">
-      
-      ```bash
-      wget -O whatap.agent.database.tar.gz "https://service.whatap.io/download/dbx_agent?type=mongodb&format=tar.gz"
-      ```
-
-      </InDoc>
-
-      <InDoc product="mssql,mssql-v1">
-      
-      ```bash
-      wget -O whatap.agent.database.tar.gz "https://service.whatap.io/download/dbx_agent?type=mssql&format=tar.gz"
-      ```
-
-      </InDoc>
-
-      <InDoc product="oracle,oracle-v1">
-      
-      ```bash
-      wget -O whatap.agent.database.tar.gz "https://service.whatap.io/download/dbx_agent?type=oracle&format=tar.gz"
-      ```
-
-      </InDoc>
-
-      <InDoc product="redis">
-      
-      ```bash
-      wget -O whatap.agent.database.tar.gz "https://service.whatap.io/download/dbx_agent?type=redis&format=tar.gz"
-      ```
-
-      </InDoc>
-
-      <InDoc product="tibero">
-      
-      ```bash
-      wget -O whatap.agent.database.tar.gz "https://service.whatap.io/download/dbx_agent?type=tibero&format=tar.gz"
-      ```
-
-      </InDoc>
+    # Tibero
+    wget -O whatap.agent.database.tar.gz "https://service.whatap.io/download/dbx_agent?type=tibero&format=tar.gz"
+    ```
 
     :::note
 

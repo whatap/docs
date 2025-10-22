@@ -9,8 +9,6 @@ keywords: [ CUBRID, 데이터베이스 모니터링, 에이전트 ]
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
 import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
-import CheckType from "../common-items/_db-install-agent-check-type.mdx";
-import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
 import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
 import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
 import Whatapconf from "../common-items/_db-whatap-conf.mdx";
@@ -29,7 +27,17 @@ import NextStep from "../common-items/_db-next-step.mdx";
 
 <Steps>
 
-<CheckType />
+## 구성도 확인
+
+DBX 에이전트는 별도 서버에 설치하거나 DB 서버에 설치할 수 있습니다. 설치할 방식을 선택하고 구성과 방화벽을 확인하세요.
+
+<div class='db-agent'>
+
+| 별도 서버에 설치 | DB 서버에 같이 설치 |
+| :--: | :--: |
+| <ImgLang img='dbx-install-agent-on-agent-server-cubrid.png' /> | <ImgLang img='dbx-install-agent-on-db-server-cubrid.png' /> |
+
+</div>
 
 ## 모니터링을 위한 계정 생성하기
 
@@ -44,8 +52,6 @@ cm_admin adduser whatap whatap
 에이전트마다 서로 다른 이름의 계정을 사용해야 합니다.
 
 :::
-
-<Accesskeyv2 />
 
 <DownloadDBXagent />
 

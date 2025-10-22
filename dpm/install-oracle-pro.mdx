@@ -5,11 +5,14 @@ description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 �
 keywords: [ Oracle Pro, 데이터베이스, 에이전트 ]
 ---
 
-import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
 
 import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+import NextStep from "../common-items/_db-next-step.mdx";
 
 <Agentsignupguide />   
 
@@ -22,15 +25,6 @@ Oracle Pro 모니터링을 위해 데이터베이스 서버에 에이전트를 �
 <ImgLang img='dbx-install-agent-on-db-server-dma.png' desc='' />
 
 방화벽 설정은 필수이며, 모든 데이터는 암호화되어 전송됩니다. 와탭 수집 서버와의 통신을 위해 6600 포트를 사용합니다.
-
-{/* 모니터링용 계정 생성 */}
-import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
-
-<Dbcreatemonitoringaccount />
-
-import Accesskey from "../getting-started/_accesskey-v2.mdx";
-
-<Accesskey />
 
 ## 에이전트 다운로드
 
@@ -108,21 +102,12 @@ ipckey={ipckey}
 
 :::
 
-{/* ### DB 유저 파일 생성 {#create-db-user} */}
-
 <DBuserDesc level={3} />
 
-import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
-
 <Dbcreatedbuserfilebody /> 
-
-{/*## 모니터링 시작하기*/}
-import Dbrunagent from "../common-items/_db-run-agent.mdx";
 
 <Dbrunagent /> 
 
 </Steps>
-
-import NextStep from "../common-items/_db-next-step.mdx";
 
 <NextStep />

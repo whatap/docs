@@ -5,27 +5,13 @@ description: 데이터베이스 프로세스 모니터링 설정에 대해 알�
 keywords: [ Oracle, 데이터베이스, 데이터베이스 모니터링, 에이전트, XOS ]
 ---
 
-{/*import Dbagentxossettingsdesc from "../common-items/_db-agent-xos-settings-desc.mdx";
+import Dbagentxossettingsdesc from "../common-items/_db-agent-xos-settings-desc.mdx";
+import Dbxoswhatapconf from "../common-items/_db-xos-whatap-conf.mdx";
+import Dbxosconf from "../common-items/_db-xos-conf.mdx";
 
 <Dbagentxossettingsdesc />
 
-*/}
-
-:::note
-
-- XOS 에이전트는 **x86 아키텍처 기반 OS 환경**에서만 동작합니다.  
-
-- **CUBRID** 환경에서는 [이 문서](install-agent#apply-cubrid-xos-agent)를,  
-  그 외 데이터베이스 환경에서는 [이 문서](install-agent#apply-xos-agent)를 참조하세요.
-
-:::
-
-
-import Dbxoswhatapconf from "../common-items/_db-xos-whatap-conf.mdx";
-
 <Dbxoswhatapconf />
-
-import Dbxosconf from "../common-items/_db-xos-conf.mdx";
 
 <Dbxosconf />
 
@@ -83,6 +69,8 @@ import Dbxosconf from "../common-items/_db-xos-conf.mdx";
 
     데이터베이스 서버의 IP 목록을 수집할 수 있습니다. 초 단위(최소 3초)로 시간 간격(interval)을 설정해야 수집할 수 있습니다.
 
+---
+
 - **file** <span class='type'>String</span>
 
     <Cmdname sid="side_log" className="uitext" /> 메뉴(<Cmdname sid="side_logTail" className="uitext" />, <Cmdname sid="side_logExplorer" className="uitext" />, <Cmdname sid="side_logSearch" className="uitext" />, <Cmdname sid="side_logSetting" className="uitext" />)를 이용하려면 `file` 옵션에 모니터링하려는 로그 파일명의 절대 경로로 입력하세요.
@@ -91,10 +79,9 @@ import Dbxosconf from "../common-items/_db-xos-conf.mdx";
     file=/opt/oracle/log
     ```
 
-
 import FileOptNote from '../common-items/_import_v2-file-option-note.mdx';
 
-<FileOptNote ver='1.9.0'/>
+<FileOptNote ver='1.9.0'/> 
 
 import Dbrunxos from "../common-items/_db-run-xos.mdx";
 

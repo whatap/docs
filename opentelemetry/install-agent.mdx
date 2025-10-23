@@ -1,8 +1,12 @@
 ---
 id: install-agent
 title: 에이전트 설치
-description: OpenTelemetry 에이전트 설치 방법을 안내합니다.
+description: OpenTelemetry 에이전트의 설치, 설정, Docker 및 Kubernetes 배포 방법을 단계별로 안내합니다. 와탭 모니터링 서비스와 연동해 OpenTelemetry 기반 모니터링을 시작하세요.
+keywords: [
+  OpenTelemetry, OpenTelemetry 설치, OpenTelemetry 에이전트, OpenTelemetry Collector, OpenTelemetry 다운로드, OpenTelemetry 설정, OpenTelemetry Agent 설치, OpenTelemetry Agent 다운로드, OpenTelemetry Kubernetes, OpenTelemetry Docker, 와탭 OpenTelemetry, Whatap OpenTelemetry, OpenTelemetry 모니터링, OpenTelemetry 구성, 오픈텔레메트리 설치, 오픈텔레메트리 설정
+]
 ---
+
 
 {/*  
 <head>
@@ -14,7 +18,10 @@ import BetaNoti from "./_otl-beta-notice.mdx"
 
 <BetaNoti />
 
-OpenTelemetry 에이전트 설치 방법을 안내합니다. 
+OpenTelemetry 에이전트 설치 가이드는 OpenTelemetry Collector와 연동하여
+애플리케이션, 컨테이너, 클라우드 환경의 모니터링 데이터를 수집하고 전송하는 방법을 설명합니다.  
+이 문서에서는 **OpenTelemetry 에이전트 최신 버전 다운로드**, **리눅스 환경 설치**, **Docker 및 Kubernetes 배포 설정**,
+그리고 **와탭 모니터링 서비스 연동 절차**를 단계별로 안내합니다.
 
 ## 에이전트 다운로드
 

@@ -1,6 +1,27 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
+    "ver": "Service 2.21.20",
+    "date": "2025-10-27",
+    "Lists": [
+      {
+        "ver": "Service 2.21.20",
+        "hash": "service-22120",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">GPU 인벤토리</span> 커스텀 컬럼 데이터 수정 시 간헐적으로 데이터가 전체 삭제되는 이슈 수정 </p>"
+      },
+      {
+        "ver": "Service 2.21.20",
+        "hash": "service-22120",
+        "product": "Server",
+        "type": "Fixed",
+        "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">GPU 인벤토리</span> 필터 적용 시 조회 결과 건수가 갱신되지 않던 이슈 수정 </p>"
+      }
+    ]
+  },
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_21_x",
     "ver": "Service 2.21.18",
     "date": "2025-10-22",
     "Lists": [

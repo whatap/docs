@@ -1,0 +1,147 @@
+---
+id: service-2_22_x
+title: Service 2.22.X
+toc_max_heading_level: 2
+pagination_next: release-notes/service/service-2_21_x
+displayed_sidebar: releaseSidebar
+---
+
+## Service 2.22.0
+
+2025년 10월 29일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status priority='1'>Changed</Status> 라이센스 키가 없는 경우 표시 문구 수정
+
+- <Status priority='1'>New</Status> **OpenMetrics** 추가
+
+---
+
+### `Application` 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="management" className="uitext" /> 에이전트 목록, CSV 다운로드 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="integratedFlexboard" className="uitext" /> 액티브 트랜잭션 TopN 위젯에 여러 프로젝트를 선택할 수 있도록 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="analysis" className="uitext" / > 성능 추이, 3일 초과 조회 시 동시접속 사용자 대신 방문자 지표 조회
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="analysis" className="uitext" / > 성능 추이, 조회 버튼 누르기 전 조회하지 않도록 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_statistics" className="uitext" /> SQL, 트랜잭션 컬럼 안내 아이콘/툴팁 복구
+
+---
+
+### `Server`
+
+- <Status priority='1'>Feature</Status> **GPU 인벤토리** 테이블의 custom 컬럼 헤더에 custom 태그 표시하여 구분하기 쉽게 개선
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="event_setting" className="uitext" /> &gt; **파일 키워드 감시** / **윈도우 이벤트 감시** / **파일 감시** 탭 &gt; 파일 감시 이벤트 설정 기능 추가
+
+- <Status priority='1'>Changed</Status>  <Cmdname sid="event_setting" className="uitext" /> &gt; **기존 로그 파일**, **윈도우 이벤트** → **파일 키워드 감시**, **윈도우 이벤트 감시**로 변경
+
+- <Status priority='0'>Fixed</Status> **GPU 성능요약** BAR1_Total_Memory 필드값에 comma 포매팅 적용되지 않던 이슈 수정
+
+---
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> **GPU 트렌드** 기능 추가
+
+    - 범례에 단위(%) 표시
+
+    - 차트 셀에 값 표시
+
+    - 정렬 기능 추가
+
+    - 필터 기능 추가
+
+    - 프리셋 기능 추가(정렬, 필터 값 저장)
+
+- <Status priority='1'>Feature</Status> Pod 목록에 와탭 커스텀 GPU 지표 추가
+
+- <Status priority='1'>Feature</Status> **GPU 대시보드** 맵 차트 클릭 시 열리는 드로워의 메트릭스 탭에서 원하는 시간을 지정하여 메트릭스를 조회하는 기능 추가
+
+- <Status priority='1'>Changed</Status> **GPU 대시보드** 맵 차트에서 도형이 아주 작아지는 경우도 M/P 라벨을 표시하도록 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="workload" className="uitext" /> Ingress 목록에서 일부 Service 정보가 연결되지 않는 문제 수정
+
+---
+
+### `Database`
+
+#### 공통
+
+- <Status priority='1'>Feature</Status> **메트릭스 추이 분석** 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="trends_compare" className="uitext" /> 위젯을 이동하거나 크기를 변경할 수 있도록 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> 위젯 개선
+
+    - [XOS] CPU, [XOS] MEM 위젯에 범례 표시 옵션 추가
+
+    - 사용자 정의 위젯의 이퀄라이저 차트가 퍼센트 지표를 표시할 때 y축을 100으로 고정하도록 변경
+
+    - 사용자 정의 위젯에서 기본으로 병합 없음이 선택되도록 변경
+
+    - 사용자 정의 위젯의 대상 병합을 에이전트 병합으로 명칭 변경
+
+    - 사용자 정의 위젯에 범례 표시 및 표시 여부 옵션 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="db_parameter" className="uitext" /> 파라미터 변경 내역을 조회할 수 있는 기능 추가
+
+- <Status priority='1'>Changed</Status> 인스턴스 셀렉터 동작 개선 
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dbScriptManager" className="uitext" /> 보안 요건에 따라 노출 조건을 수정하여, 개발기 및 설치형 환경만 표시되도록 변경
+
+- <Status priority='0'>Fixed</Status> 페이지 진입 시 간헐적으로 인스턴스가 선택되어 있지 않은 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> <code class="newfunc">New</code> 
+
+    - 1일 이상 조회 후 시리즈 차트 드래그 시 차트 데이터가 5분 통계 데이터로 유지되는 현상 수정
+
+    - 화면의 일간 비교 위젯의 소숫점이 너무 길게 나타나는 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 액티브 세션 테이블 필터 선택 시 스케일이 변동되는 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> 지표 선택기에서 이벤트 버튼을 클릭해도 이벤트 설정 페이지로 이동하지 않는 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="side_dbScriptManager" className="uitext" /> 스크립트 목록에 스크롤이 생성되지 않는 현상 수정
+
+#### MySQL, PostgreSQL, SQL Server
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="agent_installation" className="uitext" /> 패키지 매니저 설치 및 도커 설치 방법 안내 추가
+
+#### MySQL, PostgreSQL
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> <code class="newfunc">New</code> XOS, RDS Default 프리셋 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_reportStat" className="uitext" /> &gt; <Cmdname sid="pg_stat" className="uitext" />, <Cmdname sid="side_mysqlStat" className="uitext" /> 화면 진입 시 자동 조회되지 않도록 변경
+
+#### Oracle, Oracle Pro
+
+- <Status priority='1'>Changed</Status> 메뉴명 변경
+
+    - <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlAnalysis" className="uitext" /> →  **SQL Plan 분석**
+
+    - <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="trends_compare" className="uitext" /> → <Cmdname sid="TTL08868" className="uitext" />
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="side_dbWaitAnalysis" className="uitext" /> 차트에 단위 표시 방식 변경
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> <code class="newfunc">New</code> 우클릭 시 나타나는 위젯 리스트 개선 및 설명 추가
+
+- <Status priority='1'>Changed</Status> Wait Event → Wait Class 위젯 이름 변경
+
+- <Status priority='1'>Changed</Status> 단일 인스턴스가 선택되어 있으면 Wait Class 위젯의 이퀄라이저 차트의 x축이 class 명으로 나타나도록 변경
+
+#### Oracle Pro
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="TTL06224" className="uitext" />창 오브젝트 상세 조회 시 Column/Index, Partition, SubPartition을 순서대로 조회할 수 있도록 변경(DMX 에이전트 1.0.6 버전 이상 지원)
+
+#### PostgreSQL
+
+- <Status priority='0'>Fixed</Status> 로그 모니터링 설정 방법 내용 보강
+
+</div> 

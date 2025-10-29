@@ -1,5 +1,8 @@
 ## xos.conf 파일 설정
 
+import FileOptNote from './_import_v2-file-option-note.mdx';
+
+
 *xos* 디렉터리를 데이터베이스 서버로 복사한 다음, *xos.conf* 파일에 에이전트 서버 정보를 입력하고 추가 옵션을 설정하세요.
 
 - **dbx_ip** <span class='type'>String</span>
@@ -198,3 +201,28 @@
   :::
 
 </InDoc>
+
+<FileOptNote ver='1.6.7'/>
+
+### 사용자 지표 수집 (SHMON)
+
+SHMON으로 사용자 정의 Shell Script 결과를 주기적으로 수집해 메트릭스로 저장합니다. 
+
+* **shmon** <span class='type'>Int</span>
+
+  기본값 `1`
+
+  지원 버전: dbx 2.55.01 이상 & xos 1.2.0f 이상
+
+#### 설정
+
+1. 에이전트 설치 경로에 `shmon` 디렉터리를 생성합니다.  
+2. 수집할 쿼리를 `.sh` 파일로 저장합니다.  
+3. `xos.conf`에 SQLMON을 활성화합니다.  
+4. 에이전트를 재기동합니다.  
+5. 메트릭스 조회에서 `shmon` 카테고리를 확인합니다.
+
+```properties
+# xos.conf
+shmon=1
+``` 

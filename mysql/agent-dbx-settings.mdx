@@ -5,20 +5,22 @@ description: whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내�
 keywords: [ MySQL, 데이터베이스 모니터링, DBX 에이전트 ]
 ---
 
-import AWSRDSdesc from '../common-items/_import_aws-rds-desc.mdx';
+import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
+import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data-collection.mdx";
+import SQLMON from "../common-items/_db-agent-setting-sqlmon.mdx";
+import Dbagentslowquery from "../common-items/_db-agent-slow-query.mdx";
+import Dbaes256encrypt from "../common-items/_db-aes-256-encrypt.mdx";
+import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
 
 DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
 
 ## 기본 옵션
 
-import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
 
 <Dbagentdbxbasicoption />
 
 
 ## 데이터 수집
-
-import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data-collection.mdx";
 
 <Dbagentsettingdatacollection /> 
 
@@ -48,6 +50,8 @@ import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data
   collect_variables_metric=true
   variables_metric=uptime,version
   ```
+
+<SQLMON /> 
 
 ## 락 수집 관련 설정
 
@@ -133,14 +137,8 @@ DBX 에이전트는 MySQL의 액티브 세션 목록을 수집하지만 특정 �
 
 ## 슬로우 쿼리 수집 설정 {#slow_query}
 
-import Dbagentslowquery from "../common-items/_db-agent-slow-query.mdx";
-
 <Dbagentslowquery />
 
-import Dbaes256encrypt from "../common-items/_db-aes-256-encrypt.mdx";
-
 <Dbaes256encrypt />  
-
-import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
 
 <Dbsettingagentnamedetails level={2} agentType="DBX" />

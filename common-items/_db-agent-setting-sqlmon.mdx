@@ -1,0 +1,35 @@
+### 사용자 지표 수집 (SQLMON)
+
+SQLMON으로 사용자 정의 SQL 결과를 주기적으로 수집해 메트릭스로 저장합니다. 결과가 숫자이고 실행 부하가 낮은 쿼리에 적합합니다.
+
+* **sqlmon** <span class='type'>Int</span>
+
+  기본값 `1`
+
+  - `1` dbx와 sqlmon 동시 실행
+  - `2` sqlmon만 실행
+
+<Xclude product="oracle-pro">
+
+  지원 버전: dbx 2.3.5 이상
+
+</Xclude>
+
+<InDoc product="oracle-pro">
+
+  지원 버전: dmx 1.0.4y 이상
+
+</InDoc>
+
+#### 설정
+
+1. 에이전트 설치 경로에 `sqlmon` 디렉터리를 생성합니다.  
+2. 수집할 쿼리를 `.sql` 파일로 저장합니다.  
+3. `whatap.conf`에 SQLMON을 활성화합니다.  
+4. 에이전트를 재기동합니다.  
+5. ![아이콘](/img/ic-sitemap.svg) <Cmdname sid="sitemap" className="uitext" /> &gt; <Cmdname sid="side_metricsSearch" className="uitext" />에서 `sqlmon` 카테고리를 확인합니다.
+
+```properties
+# whatap.conf
+sqlmon=1
+```

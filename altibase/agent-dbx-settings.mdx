@@ -5,27 +5,24 @@ description: whatap.conf 파일에 설정할 수 있는 옵션에 대해 안내�
 keywords: [ Altibase, 데이터베이스 모니터링, DBX 에이전트 ]
 ---
 
-import AWSRDSdesc from '../common-items/_import_aws-rds-desc.mdx';
+import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
+import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data-collection.mdx";
+import SQLMON from "../common-items/_db-agent-setting-sqlmon.mdx";
+import Dbaes256encrypt from "../common-items/_db-aes-256-encrypt.mdx";
+import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
 
 DBX 에이전트에 필요한 설정은 *whatap.conf* 파일에 작성합니다. 설정할 수 있는 옵션은 다음을 참조하세요.
 
 ## 기본 옵션
 
-import Dbagentdbxbasicoption from "../common-items/_db-agent-dbx-basic-option.mdx";
-
 <Dbagentdbxbasicoption />
-
 
 ## 데이터 수집 {#collect-data}
 
-import Dbagentsettingdatacollection from "../common-items/_db-agent-setting-data-collection.mdx";
-
 <Dbagentsettingdatacollection /> 
 
-import Dbaes256encrypt from "../common-items/_db-aes-256-encrypt.mdx";
+<SQLMON />  
 
 <Dbaes256encrypt />  
-
-import Dbsettingagentnamedetails from "../common-items/_db-setting-agent-name-details.mdx";
 
 <Dbsettingagentnamedetails level={2} agentType="DBX" />

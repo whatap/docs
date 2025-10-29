@@ -1,4 +1,4 @@
-<Title hashid="query-details" level={props.level}>쿼리 자세히 보기</Title>
+<Title hashid="query-details" level={props.level}>SQL 상세 정보 확인하기</Title>
 
 <InDoc pages="instance-monitoring,multi-instance-monitoring">
 
@@ -113,5 +113,37 @@ SQL 목록에서 **query** 컬럼 항목을 선택하면 <Cmdname sid="TTL06224"
 이 기능은 DBX 에이전트 1.6.15 버전 이상에서 지원합니다. 데이터베이스 권한과 관련한 설정은 [다음 문서](install-agent#uid)를 참조하세요.
 
 :::
+
+</InDoc>
+
+<InDoc product='postgresql,mysql,oracle,oracle-pro,mssql'>
+
+#### AI 튜닝 가이드 {#ai-tuning-Guide-db}
+
+AI 튜닝 가이드는 SQL 쿼리, Plan, 통계 정보를 분석하여 성능 문제를 진단하고, 최적화 방안을 제시하는 기능입니다. 개발자와 DBA가 병목 원인을 빠르게 파악하고, 효율적인 SQL로 성능을 개선할 수 있도록 지원합니다.
+
+:::caution
+
+**사용 조건 및 유의 사항**
+
+**PostgreSQL, MySQL, SQL Server**는 Plan 조회가 필수입니다.  
+Plan을 조회하지 않으면 AI 튜닝 가이드 아이콘이 ![비활성 AI 튜닝 가이드 아이콘](/img/ico-ai-tuning-icon-disabled.svg)(비활성화) 상태로 표시되며, 기능을 사용할 수 없습니다.
+
+* AI가 생성하는 결과는 자동 분석에 기반하며, 정확도가 100%는 아님을 유의하시기 바랍니다.
+
+:::
+
+1. 분석 및 진단할 SQL을 클릭해 <Cmdname sid="TTL06224" className="uitext" /> 화면으로 이동합니다.
+
+1. <Cmdname sid="TTL06224" className="uitext" /> 화면의 오른쪽 아래 AI 튜닝 가이드 아이콘 ![AI 튜닝 가이드 아이콘](/img/ico-ai-tuning-icon.svg)을 클릭해 AI 분석을 시작합니다.
+
+1. AI 분석 결과를 확인합니다. 
+
+    | 결과 항목 | 설명 |
+    | :---: | --- |
+    | 쿼리 플랜 및 요약 | 쿼리의 목적과 실행 요약 <br /> - 실행 횟수, 누적 실행 시간, 데이터베이스 전체 부하 비중을 분석해 해당 SQL이 시스템 성능에 미치는 영향 평가 |
+    | 성능 분석 | 분석 결과를 종합해 성능 점수와 진단 결과 제공 <br /> - CPU 사용률, 디스크 사용률, 캐시 적중률, 대기 시간 등 쿼리 수행 과정의 세부 리소스 사용량을 분석해 병목이 발생한 구간을 시각적으로 보여줌 |
+    | 발견된 주요 이슈 | 주요 이슈 요약 제공 |
+    | 최적화 권장 사항 | 이슈에 따른 최적화된 쿼리 제안 |
 
 </InDoc>

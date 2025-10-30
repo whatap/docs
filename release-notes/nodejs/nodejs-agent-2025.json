@@ -40,7 +40,7 @@
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> PM2 클러스터 모드로 여러 인스턴스를 실행할 때 whatap_nodejs 모듈 프로세스를 효율적으로 관리하도록 개선</p>",
         "details": "<ul><li><p>첫 번째 인스턴스만 whatap_nodejs 에이전트 시작</p></li>\n<li><p>나머지 인스턴스는 이미 실행 중인 에이전트에 자동 연결</p></li></ul>"
-      },
+      }
     ]
   },
   {

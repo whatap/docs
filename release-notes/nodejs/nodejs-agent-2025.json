@@ -1,12 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-1_0_5/",
+    "ver": "v1.0.5",
+    "date": "2025-10-30",
+    "Lists": [
+      {
+        "ver": "v1.0.5",
+        "hash": "v105",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> gRPC モニタリングのトレースを改善しました。</p>"
+      },
+      {
+        "ver": "v1.0.5",
+        "hash": "v105",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> ブラウザウィンドウの閉鎖など、ユーザーによる強制終了イベント発生時に close イベントを検知し、トランザクションが即時に終了するよう改善しました。</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-1_0_4/",
     "ver": "v1.0.4",
     "date": "2025-10-16",
     "Lists": [
       {
-        "ver": "v1.0.3",
-        "hash": "v103",
+        "ver": "v1.0.4",
+        "hash": "v104",
         "product": "Node.js Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>hook_method_patterns</strong></p>",
@@ -19,7 +40,7 @@
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> PM2 클러스터 모드로 여러 인스턴스를 실행할 때 whatap_nodejs 모듈 프로세스를 효율적으로 관리하도록 개선</p>",
         "details": "<ul><li><p>첫 번째 인스턴스만 whatap_nodejs 에이전트 시작</p></li>\n<li><p>나머지 인스턴스는 이미 실행 중인 에이전트에 자동 연결</p></li></ul>"
-      }
+      },
     ]
   },
   {

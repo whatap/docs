@@ -1,5 +1,39 @@
 [
   {
+    "ver": "v2.9.5",
+    "date": "2025-10-30",
+    "Lists": [
+      {
+        "ver": "v2.9.5",
+        "hash": "v295",
+        "product": "Server Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> 스크립트 매니저 기능 추가</p>"
+      },
+      {
+        "ver": "v2.9.5",
+        "hash": "v295",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> GPU Nvidia Driver R470 미만 버전에서 MIG 사용시 정보 수집 불가 케이스 수정</p>"
+      },
+      {
+        "ver": "v2.9.5",
+        "hash": "v295",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> GPU Driver Load 되지 않은 환경에서 GPU 옵션 사용시 에이전트 다운 케이스 수정</p>"
+      },
+      {
+        "ver": "v2.9.5",
+        "hash": "v295",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 파일 감시(User, Group 변경 옵션) 사용시 일부 환경에서 에이전트 다운 케이스 수정</p>"
+      }
+    ]
+  },  
+  {
     "ver": "v2.9.4",
     "date": "2025-10-14",
     "Lists": [

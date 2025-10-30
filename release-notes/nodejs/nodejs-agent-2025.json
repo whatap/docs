@@ -1,12 +1,33 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-1_0_5/",
+    "ver": "v1.0.5",
+    "date": "2025-10-30",
+    "Lists": [
+      {
+        "ver": "v1.0.5",
+        "hash": "v105",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> gRPC 모니터링 추적 개선</p>"
+      },
+      {
+        "ver": "v1.0.5",
+        "hash": "v105",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 브라우저 창 닫기 등 사용자 강제 종료 이벤트 발생 시 close 이벤트를 감지하여 트랜잭션이 즉시 종료되도록 개선</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/nodejs/nodejs-1_0_4/",
     "ver": "v1.0.4",
     "date": "2025-10-16",
     "Lists": [
       {
-        "ver": "v1.0.3",
-        "hash": "v103",
+        "ver": "v1.0.4",
+        "hash": "v104",
         "product": "Node.js Agent",
         "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>hook_method_patterns</strong></p>",

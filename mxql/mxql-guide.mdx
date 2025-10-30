@@ -264,16 +264,23 @@ SKIP {$option:10}
 
 :::
 
-### 데이터 로딩방식
+### 데이터 로딩 방식
 
-MXQL에서 조회할 수 있는 데이터는 [메트릭스](../metrics/common-metrics-intro)의 형식에 따라서 크게 두 가지로 나눌 수 있습니다.
+MXQL에서 조회하는 데이터는 [메트릭스](../metrics/common-metrics-intro)의 구조에 따라 서로 다른 로딩 명령어를 사용합니다.
 
-* 메트릭스의 데이터가 태그와 필드에 나누어서 저장된 데이터 ([TAGLOAD](mxql-loading#tagload)를 사용해서 로드할 수 있는 데이터)
-* 메트릭스에 모든 데이터가 필드에 저장된 데이터 ([FLEXLOAD](mxql-loading#flexload)를 사용해서 로드할 수 있는 데이터)
+- **태그 기반 메트릭스**  
+  태그와 필드로 구분된 데이터는 [`TAGLOAD`](mxql-loading#tagload) 명령어를 사용해 로드합니다.
 
-대부분의 카테고리는 `TAGLOAD`를 사용합니다. [다음 문서](mxql-loading#flexload-items)에 포함된 카테고리의 데이터를 사용할 경우에만 `FLEXLOAD`를 사용합니다.
+- **플랫 구조 메트릭스**  
+  모든 데이터가 필드에 저장된 메트릭스는 [`FLEXLOAD`](mxql-loading#flexload) 명령어를 사용해 로드합니다.
 
-## SaaS 서비스에서 제공하는 사전 정의된 MXQL 쿼리 목록{#custom-query-saas}
+- **로그 원본 데이터**  
+  로그 원본을 조회할 때는 [`LogSink`](mxql-loading#logsink) 명령어를 사용합니다.
+
+- **로그 카운트 집계 데이터**  
+  시간 단위로 로그 건수를 집계할 때는 [`LogSinkCount`](mxql-loading#logsinkcount) 명령어를 사용합니다.
+
+## 사전 정의된 MXQL 쿼리 목록{#custom-query-saas}
 
 MXQL 쿼리를 직접 작성하지 않고 경로(path)로 설정할 수 있는 기능의 주된 목적은 복잡한 쿼리를 간편하게 호출하기 위함이 아니라, 관리자가 직접 본인의 의도대로 쿼리를 작성하고 이를 사용하는데 있습니다. 따라서 이미 Yard에 어떤 쿼리들이 포함되어 있는지 확인하고 사용하기보다 직접 쿼리를 등록하는 방향으로 활용해야 합니다. `JOIN` 명령어를 사용해야하는 경우는 MXQL 쿼리를 사용하는 경우 중에서도 특별한 경우이기 때문에 관리자가 직접 쿼리를 등록하고 해당 파일의 경로(path)를 사용하도록 되어 있습니다.
 
@@ -333,3 +340,5 @@ MXQL 쿼리를 직접 작성하지 않고 경로(path)로 설정할 수 있는 �
 
   INJECT default
   ```
+
+### 에이전트 별 상세정보 & 에이전트별 액티브TX 건수, 건수, 최근15초 

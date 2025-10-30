@@ -8,11 +8,12 @@ keywords: [ MXQL, 메트릭스 로딩 ]
 
 MXQL 문법을 이용해 메트릭스를 불러오는 명령어에 대해서 알아봅니다.
 
-| 명령어       | 기능                                                                                |
-| ------------ | ----------------------------------------------------------------------------------- |
-| [TAGLOAD](#tagload)  | 수집한 데이터를 `tag-field` 형식으로 저장하는 카테고리의 정보를 조회할 때 사용합니다. |
-| [FLEXLOAD](#flexload) | 수집한 데이터를 `field` 형식으로 저장하는 카테고리의 정보를 조회할 때 사용합니다.     |
-
+| 명령어                       | 기능                                                                                  |
+| ---------------------------- | ------------------------------------------------------------------------------------- |
+| [TAGLOAD](#tagload)          | 수집한 데이터를 `tag-field` 형식으로 저장하는 카테고리의 정보를 조회할 때 사용합니다. |
+| [FLEXLOAD](#flexload)        | 수집한 데이터를 `field` 형식으로 저장하는 카테고리의 정보를 조회할 때 사용합니다.     |
+| [LogSink](#logsink)          | 로그 원본 데이터를 조회할 때 사용합니다.                                              |
+| [LogSinkCount](#logsinkount) | 시간 단위로 로그 건수를 집계할 때 사용합니다.                                         |
 
 ## TAGLOAD{#tagload}
 
@@ -86,6 +87,8 @@ MXQL 문법을 이용해 메트릭스를 불러오는 명령어에 대해서 알
 
 :::
 
+---
+
 ## FLEXLOAD{#flexload}
 
 수집된 데이터를 `field` 형식으로 저장하는 카테고리의 정보를 조회할 때 사용합니다.
@@ -107,7 +110,7 @@ FLEXLOAD {backward : true}
 
 :::
 
-## FLEXLOAD를 사용해야하는 카테고리 목록{#flexload-items}
+### FLEXLOAD를 사용해야하는 카테고리 목록{#flexload-items}
 
 * `agent_list` 카테고리
 
@@ -140,3 +143,132 @@ FLEXLOAD {backward : true}
   FLEXLOAD
   SELECT
   ```
+
+---
+
+## LogSink {#logsink}
+
+로그 원본 데이터를 조회할 때 사용합니다.
+
+```sql
+CATEGORY AppLog
+LogSink
+```
+
+### 로그 필터링
+
+특정 조건으로 로그를 필터링할 때 **LogTag**를 사용합니다.
+
+```sql
+CATEGORY AppLog
+LogTag {key:city, value:"junju"}
+LogTag {key:status, value:"200", exclude:true}
+LogSink
+```
+
+#### LogTag 파라미터
+
+* **key**: 검색할 인덱스 키
+* **value**: 검색할 값 (와일드카드 사용 가능)
+* **exclude**: 검색 제외 여부 (true/false)
+
+#### 중요사항
+
+* LogTag는 LogSink나 LogSinkCount 앞에 기술되어야 합니다
+* LogTag는 동일 키 혹은 다른 키에 대해서 다양하게 기술할 수 있습니다
+* 검색 키워드 단위로 LogTag가 늘어나야 합니다
+
+### 예제
+
+특정 키워드가 포함된 로그의 건수를 조회하는 예제입니다.
+
+```sql
+CATEGORY AppLog
+LogTag {key:content, value:"*DebugUtil*", exclude:false}
+LogTag {key:content, value:"*HttpServletRequest*", exclude:true}
+LogSink
+SELECT
+GROUP {timeunit:1d, pk:pcode, merge:[rows]}
+RENAME {src:_rows_, dst:rows}
+CREATE {key:_pk_, value:pcode}
+UPDATE {key:rows, value:sum}
+```
+
+#### 쿼리 설명
+
+* 첫 번째 LogTag: content 필드에 "DebugUtil"이 포함된 로그 검색
+* 두 번째 LogTag: content 필드에 "HttpServletRequest"가 포함된 로그 제외
+* GROUP의 timeunit:1d로 일별 집계
+* merge:[rows]로 로그 건수를 MetricValue 타입으로 변환
+* UPDATE의 sum으로 일별 총 건수 계산
+
+---
+
+## LogSinkCount {#logsinkcount}
+
+시간 단위로 로그 건수를 집계할 때 사용합니다.
+
+### 기본 사용법
+
+```sql
+CATEGORY AppLog
+LogSinkCount
+```
+
+시간대별로 로그 건수가 집계됩니다 (예: 1949, 1625, 1674... 건).
+
+### 그룹별 집계
+
+특정 필드를 기준으로 그룹화하여 로그를 집계할 수 있습니다.
+
+#### 단일 필드 그룹화
+
+```sql
+CATEGORY AppLog
+LogSinkCount {group:oname}
+```
+
+#### 여러 필드 그룹화
+
+```sql
+CATEGORY AppLog
+LogSinkCount {group:"oname,oid"}
+```
+
+쉼표로 구분된 여러 개의 필드를 지정할 수 있습니다.
+
+### 시간당 그룹별 집계
+
+숫자 필드에 대한 집계 연산을 수행할 수 있습니다.
+
+```sql
+CATEGORY AppLog
+LogSinkCount {group:oname, aggr:price.n}
+```
+
+:::note
+
+Aggr에 저장할 수 있는 필드는 숫자(n) 필드에 한정됩니다.
+
+:::
+
+#### 여러 필드 집계
+
+```sql
+CATEGORY AppLog
+LogSinkCount {group:oname, aggr:"price.n,age.n"}
+```
+
+aggr에는 쉼표로 구분된 여러 개의 필드를 입력할 수 있으나 계산은 각각 이루어집니다.
+
+### LogTag와 함께 사용
+
+LogTag를 사용하여 특정 조건의 로그만 집계할 수 있습니다.
+
+```sql
+CATEGORY AppLog
+LogTag {key:level, value:"ERROR"}
+LogSinkCount {group:oname}
+```
+
+위 예제는 ERROR 레벨의 로그만 필터링하여 oname별로 건수를 집계합니다.

@@ -1,6 +1,21 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
+        "ver": "Service 2.22.2",
+        "date": "2025-10-31",
+        "Lists": [
+            {
+            "ver": "Service 2.22.2",
+            "hash": "service-2222",
+            "product": "Database",
+            "category": "Tibero",
+            "type": "Fixed",
+            "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">테이블스페이스 사이즈</span> 데이터가 나오지 않던 현상 수정</p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
         "ver": "Service 2.22.1",
         "date": "2025-10-30",
         "Lists": [

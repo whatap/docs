@@ -1,6 +1,34 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
+        "ver": "Service 2.22.6",
+        "date": "2025-11-10",
+        "Lists": [
+            {
+            "ver": "Service 2.22.6",
+            "hash": "service-2226",
+            "product": "공통",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 필터 키 검색 시 대소문자 구분하지 않도록 수정 </p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
+        "ver": "Service 2.22.6",
+        "date": "2025-11-10",
+        "Lists": [
+            {
+            "ver": "Service 2.22.6",
+            "hash": "service-2226",
+            "product": "Kubernetes",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Pod 목록</span> 컬럼 선택 시 그룹화 기능 추가 </p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
         "ver": "Service 2.22.5",
         "date": "2025-11-6",
         "Lists": [

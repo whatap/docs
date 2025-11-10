@@ -1,6 +1,55 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
+        "ver": "Service 2.22.5",
+        "date": "2025-11-6",
+        "Lists": [
+            {
+            "ver": "Service 2.22.5",
+            "hash": "service-2225",
+            "product": "Server",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU 인벤토리</span> 테이블 데이터 조회시간 개선 </p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
+        "ver": "Service 2.22.5",
+        "date": "2025-11-6",
+        "Lists": [
+            {
+            "ver": "Service 2.22.5",
+            "hash": "service-2225",
+            "product": "Kubernetes",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">컨테이너</span> &gt; <span class=\"uitext\">Out of Memory Killed 컨테이너</span> OOM 발생 컨테이너 데이터 정확도 개선 (쿠버네티스 에이전트 버전 1.8.6 이상) </p>"
+            },
+            {
+                "ver": "Service 2.22.5",
+                "hash": "service-2225",
+                "product": "Kubernetes",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">워크로드</span> &gt; <span class=\"uitext\">Pod 목록 상세</span> GPU 메트릭스 탭 추가 </p>"
+            },
+            {
+                "ver": "Service 2.22.5",
+                "hash": "service-2225",
+                "product": "Kubernetes",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU</span> &gt; <span class=\"uitext\">GPU 대시보드</span> GPU 활용 현황의 각 단계에 대한 설명 툴팁 추가 </p>"
+            },
+            {
+                "ver": "Service 2.22.5",
+                "hash": "service-2225",
+                "product": "Kubernetes",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU</span> &gt; <span class=\"uitext\">GPU 대시보드</span> SM Active, GPU Utilization 지표에 대한 설명 추가 </p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
         "ver": "Service 2.22.3",
         "date": "2025-10-31",
         "Lists": [

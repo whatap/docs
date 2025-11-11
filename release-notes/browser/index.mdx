@@ -9,51 +9,24 @@ toc_min_heading_level: 3
 <meta name="robots" content="noindex, nofollow"/>
 </head>
 
+#### 최신 버전: 1.3.6
+
+<br />
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 import ReleaseNotes2024 from "./browser-agent-2024.json";
 import ReleaseNotes2023 from "./browser-agent-2023.json";
 
-### Release history for 2024
+<Tabs>
 
-<br />
+    <TabItem value="2024" label="2024">
+        <ImportJson filePath={ReleaseNotes2024} sort="date" category="agent" />
+    </TabItem>
+    
+    <TabItem value="2023" label="2023">
+        <ImportJson filePath={ReleaseNotes2023} sort="date" category="agent" />
+    </TabItem>
 
-<ImportJson filePath={ReleaseNotes2024} sort="date" category="agent" />
-
-### Release history for 2023
-
-<br />
-
-<ImportJson filePath={ReleaseNotes2023} sort="date" category="agent" />
-
-### v1.3.6 <span style={{fontSize: "0.9rem", fontWeight: "bold", marginLeft: "10px"}}>2024-05-30</span>
-
-- <code className="Feature">Feature</code> 브라우저 에이전트의 번들 사이즈 개선
-
-
-### v1.3.5 <span style={{fontSize: "0.9rem", fontWeight: "bold", marginLeft: "10px"}}>2024-03-21</span>
-
-- <code className="Feature">Feature</code> 사용자 정의 이벤트 수집 인터페이스 추가
-- <code className="Feature">Feature</code> 클릭 이벤트 수집 옵션 추가
-- <code className="Fixed">Fixed</code> Angular 프레임워크 **zone.js** 관련 대응
-
-
-### v1.3.4 <span style={{fontSize: "0.9rem", fontWeight: "bold", marginLeft: "10px"}}>2024-02-19</span>
-
-- <code className="Feature">Feature</code> 페이지 로드, AJAX 이벤트 발생 시 **Network Information API** 의 다음 지표를 추가 수집  
-  - downlink  
-  - effectiveType  
-  - rtt
-
-- <code className="Feature">Feature</code> 리소스 이벤트 발생 시 다음 지표를 추가 수집  
-  - deliveryType  
-  - responseStatus
-
-- <code className="Feature">Feature</code> Content Security Policy(CSP) 에러 수집 기능 추가  
-
-  :::info
-  추가한 지표에 대한 자세한 내용은 다음 링크를 참고하세요.
-  - [유효 연결 유형 (effectiveType)](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/effectiveType)  
-  - [RTT (rtt)](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/rtt)  
-  - [유효 대역폭 (downlink)](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/downlink)  
-  - [Delivery Type (deliveryType)](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/deliveryType)  
-  - [상태 코드 (responseStatus)](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/responseStatus)  
-  :::
+</Tabs>

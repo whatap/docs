@@ -1,5 +1,36 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_8_14",
+    "ver": "v1.8.14",
+    "date": "2025-11-11",
+    "Lists": [
+      {
+        "ver": "v1.8.14",
+        "hash": "v1814",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>psycopg_pool</code> 모듈 수정 </p>",
+        "details": "<ul><li><p><code>pool_connection</code> 수동 호출 시 연결이 pool에 반환되지 않던 현상 수정</p></li></ul>"
+      },
+      {
+        "ver": "v1.8.13",
+        "hash": "v1813",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>psycopg</code> 모듈 수정 </p>",
+        "details": "<ul><li><p>특정 로직이 psycopg2와 충돌이 발생하던 현상 수정</p></li></ul>"
+      },
+      {
+        "ver": "v1.8.14",
+        "hash": "v1814",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>ACTIVE_STATUS</strong> 모니터링 기능 수정 </p>",
+        "details": "<ul><li><p>불필요한 상황에서 <strong>ACTIVE_STATUS</strong> 데이터가 보내지던 현상 수정</p></li></ul>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_8_13",
     "ver": "v1.8.13",
     "date": "2025-10-01",
@@ -34,7 +65,7 @@
         "product": "Python Agent",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 쿠버네티스 컨테이너 환경에서 Container ID가 매핑되지 않는 현상 수정 </p>",
-        "details": "<ul><div class=\"theme-admonition theme-admonition-caution alert alert--warning\">\n  <div class=\"admonition-heading\">\n <strong>주의</strong>\n  </div>\n  <div class=\"admonition-content\">\n    <p>쿠버네티스 에이전트 v1.8.9 이상 지원</p>\n  </div>\n</div></ul>"
+        "details": "<ul><div class=\"theme-admonition theme-admonition-caution alert alert--warning\">\n  <div class=\"admonition-heading\">\n <strong>주의</strong>\n  </div>\n  <div class=\"admonition-content\">\n    <p>쿠버네티스 에이전트 v1.8.8 이상 지원</p>\n  </div>\n</div></ul>"
       }
     ]
   },

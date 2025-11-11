@@ -1,0 +1,27 @@
+---
+id: python-1_8_14
+title: Python Agent v1.8.14
+toc_max_heading_level: 2
+pagination_next: release-notes/python/python-1_8_13
+displayed_sidebar: releaseSidebar
+---
+
+2025년 11월 11일
+
+- <Status priority='0'>Fixed</Status> `psycopg_pool` 모듈 수정
+
+    - `pool_connection` 수동 호출 시 연결이 pool에 반환되지 않던 현상 수정
+
+- <Status priority='0'>Fixed</Status> `psycopg` 모듈 수정
+
+    - 특정 로직이 psycopg2와 충돌이 발생하던 현상 수정
+
+- <Status priority='0'>Fixed</Status> **ACTIVE_STATUS** 모니터링 기능 수정
+
+    - 불필요한 상황에서 **ACTIVE_STATUS** 데이터가 보내지던 현상 수정
+
+:::note
+
+Agent download: [whatap-python v1.8.14](https://pypi.org/project/whatap-python/1.8.14/)
+
+:::

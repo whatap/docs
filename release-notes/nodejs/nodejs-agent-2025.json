@@ -1,5 +1,32 @@
 [
   {
+    "ver": "v1.0.9",
+    "date": "2025-11-11",
+    "Lists": [
+      {
+        "ver": "v1.0.9",
+        "hash": "v109",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> whatap_nodejs 프로세스 종료될 경우 재실행되도록 개선</p>"
+      },
+      {
+        "ver": "v1.0.9",
+        "hash": "v109",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 와탭 로그 파일 이름 변경(<code>whatap-yyyymmdd.log</code> → <code>whatap-hook-yyyymmdd.log</code>)</p>"
+      },
+      {
+        "ver": "v1.0.9",
+        "hash": "v109",
+        "product": "Node.js Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> Container ID 수집 로직 개선</p>"
+      }
+    ]
+  },
+  {
     "ver": "v1.0.8",
     "date": "2025-11-06",
     "Lists": [

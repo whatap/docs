@@ -1,6 +1,28 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
+        "ver": "Service 2.22.7",
+        "date": "2025-11-11",
+        "Lists": [
+            {
+            "ver": "Service 2.22.7",
+            "hash": "service-2227",
+            "product": "Server",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 인벤토리 맵</span> 그룹 요약 패널 및 상세보기 드로워에서 인벤토리 테이블 성능 개선 </p>"
+            },
+            {
+            "ver": "Service 2.22.7",
+            "hash": "service-2227",
+            "product": "Server",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 인벤토리</span> 테이블 데이터 정렬방식 변경 및 테이블 성능 개선 </p>",
+            "details":"<ul>\n<li><p>기존: 상단 정렬 셀렉터를 통한 1~3차 정렬</p></li>\n<li><p>변경: 테이블 헤더 shift + 클릭으로 다중 정렬</p></li></ul>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
         "ver": "Service 2.22.6",
         "date": "2025-11-10",
         "Lists": [

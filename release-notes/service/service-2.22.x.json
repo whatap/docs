@@ -1,6 +1,20 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
+        "ver": "Service 2.22.8",
+        "date": "2025-11-12",
+        "Lists": [
+            {
+            "ver": "Service 2.22.8",
+            "hash": "service-2228",
+            "product": "Application",
+            "type": "Fixed",
+            "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 인벤토리 맵</span> 그룹 요약 패널 및 상세보기 드로워에서 인벤토리 테이블 성능 개선 </p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_22_x",
         "ver": "Service 2.22.7",
         "date": "2025-11-11",
         "Lists": [

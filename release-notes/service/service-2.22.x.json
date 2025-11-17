@@ -10,6 +10,13 @@
             "product": "Server",
             "type": "Feature",
             "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU 성능요약</span> GPU Utilization 신규 지표 추가 </p>"
+            },
+            {
+                "ver": "Service 2.22.9",
+                "hash": "service-2229",
+                "product": "Kubernetes",
+                "type": "Fixed",
+                "desc": "<p><p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">GPU 대시보드</span> 리소스 관계도에서 GPU 타입 관계없이 MIG 노드가 표시되는 오류 수정 </p>"
             }
         ]
     },

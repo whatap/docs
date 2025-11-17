@@ -9,7 +9,8 @@
             "hash": "service-2229",
             "product": "Server",
             "type": "Feature",
-            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU 성능요약</span> GPU Utilization 신규 지표 추가 </p>"
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU 성능요약</span> </p>",
+            "details":"<ul>\n<li><p> GPU Utilization 신규 지표 추가</p></li>\n<li><p>GPU 정보 검색용 Input 추가</p></li>\n<li><p>조회 건수 표시라벨 추가</p></li></ul>"
             },
             {
             "ver": "Service 2.22.9",

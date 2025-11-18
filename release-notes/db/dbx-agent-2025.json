@@ -1,5 +1,86 @@
 [
   {
+    "ver": "v2.58.04",
+    "date": "2025-11-10",
+    "Lists": [
+      {
+        "ver": "v2.58.04",
+        "hash": "v25804",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "Common",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 패키지 매니저로 에이전트 설치 시 로그 파일 뷰어에서 <code>whatap.log</code> 가 표시되지 않는 오류 수정</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.58.03",
+    "date": "2025-11-07",
+    "Lists": [
+      {
+        "ver": "v2.58.03",
+        "hash": "v25803",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "Tibero",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>tablespace</code> 데이터가 누적되는 버그 수정</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.58.02",
+    "date": "2025-11-05",
+    "Lists": [
+      {
+        "ver": "v2.58.02",
+        "hash": "v25802",
+        "product": "DBX",
+        "type": "Feature",
+        "category": "PostgreSQL",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 테이블 레이아웃 조회 시 인덱스 정보에 <code>include</code> 컬럼 추가</p>"
+      },
+      {
+        "ver": "v2.58.02",
+        "hash": "v25802",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "DB2",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>db2 counter</code> 지표명 수정</p>"
+      },
+      {
+        "ver": "v2.58.02",
+        "hash": "v25802",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "Tibero",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>sqltext clear</code> 에러 수정</p>"
+      },
+      {
+        "ver": "v2.58.02",
+        "hash": "v25802",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "Tibero",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>active session</code> 정보 수정 (<code>client_pid</code>, <code>ipaddr</code>, <code>module</code>, <code>action</code>)</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.58.01",
+    "date": "2025-10-30",
+    "Lists": [
+      {
+        "ver": "v2.58.01",
+        "hash": "v25801",
+        "product": "DBX",
+        "type": "Feature",
+        "category": "Tibero",
+        "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> Tibero V2용 에이전트 출시</p>",
+        "details": "<ul>\n<li>수집 데이터를 태그카운트 팩으로 전송</li>\n<li><code>bind capture</code>, <code>plan change</code>, <code>plan save</code> 데이터 추가 (기본값: <code>false</code>)<br>※ 화면 미지원</li>\n<li><code>segment size</code> 정보 추가</li>\n<li><code>sorts (disk)</code> 지표 추가</li>\n<li>SQL 통계 버그 수정: 세션 정보가 하나라도 있으면 SQL text가 없는 세션도 통계에서 수집되던 문제 수정</li>\n</ul>"
+      }
+    ]
+  },
+  {
     "ver": "v2.57.05",
     "date": "2025-10-17",
     "Lists": [
@@ -10,6 +91,14 @@
         "category": "Oracle",
         "type": "Fixed",
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 오브젝트 레이아웃 조회 쿼리 수정</p>"
+      },
+      {
+        "ver": "v2.57.05",
+        "hash": "v25705",
+        "product": "DBX",
+        "category": "Redis",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 액티브 세션에서 idle 세션도 수집 되는 오류 수정</p>"
       }
     ]
   },  

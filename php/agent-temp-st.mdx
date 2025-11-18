@@ -11,7 +11,11 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-PHP 모니터링 서비스를 일시 중지하려면 PHP 확장 모듈을 중지하고 whatap-php 서비스를 중지해야 합니다. 다음 항목을 참고하세요.
+PHP 모니터링 서비스를 일시 중지하려면 PHP 확장 모듈을 중지하고, whatap-php 서비스를 중지해야 합니다. 
+
+## PHP 확장 모듈 비활성화
+
+### Linux/Unix
 
 1. PHP 확장 모듈(PHP Extension module)을 중지하세요. 
 
@@ -26,7 +30,7 @@ PHP 모니터링 서비스를 일시 중지하려면 PHP 확장 모듈을 중지
     ;extension=whatap.so
     ```
 
-    수동 설정으로 *php.ini* 파일에 직접 설정한 경우도 동일하게 `extension=` 구문을 주석 처리하세요. 
+1. 수동 설정으로 *php.ini* 파일에 직접 설정한 경우도 동일하게 `extension=` 구문을 주석 처리하세요. 
     
     :::note
     
@@ -34,7 +38,41 @@ PHP 모니터링 서비스를 일시 중지하려면 PHP 확장 모듈을 중지
 
     :::
 
-2. whatap-php 서비스(Service)를 중지하세요.
+### Windows
+
+whatap.ini 파일에서 extension 지시문을 주석 처리합니다.
+
+**Scan INI Directory 사용 시**
+```cmd
+REM whatap.ini 파일 편집
+notepad "C:\PHP\conf.d\whatap.ini"
+
+REM extension 줄을 주석 처리
+;extension=php_whatap.dll
+```
+
+**php.ini에 직접 추가한 경우**
+```cmd
+notepad "C:\PHP\php.ini"
+
+REM [whatap] 섹션의 extension 줄을 주석 처리
+[whatap]
+;extension=php_whatap.dll
+```
+
+**웹 서버 재시작**
+```cmd
+REM Apache
+net stop Apache2.4
+net start Apache2.4
+
+REM IIS
+iisreset /restart
+```
+
+## WhaTap PHP 서비스 중지
+
+whatap-php 서비스(Service)를 중지하세요.
 
 <Tabs>
 <TabItem value="rdct" label="Red Hat/CentOS" default>
@@ -58,5 +96,33 @@ PHP 모니터링 서비스를 일시 중지하려면 PHP 확장 모듈을 중지
     ```
     
 </TabItem>
+<TabItem value="windows" label="Windows">
+
+    ```cmd
+    REM 서비스 중지
+    net stop "WhaTap PHP"
+
+    REM 또는
+    sc stop "WhaTap PHP"
+    ```
+</TabItem>
 </Tabs>  
 
+## 서비스 재개
+
+<Tabs>
+<TabItem value="windows" label="Windows">
+
+    ```cmd
+    REM extension 주석 제거
+    extension=php_whatap.dll
+
+    REM 웹 서버 재시작
+    net stop Apache2.4 && net start Apache2.4
+
+    REM WhaTap 서비스 시작
+    net start "WhaTap PHP"
+    ```
+
+</TabItem>
+</Tabs>  

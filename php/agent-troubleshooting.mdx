@@ -2,13 +2,226 @@
 id: agent-troubleshooting
 title: 설치 문제 해결
 description: PHP 에이전트 설치 시 발생할 수 있는 문제를 확인할 수 있습니다.
-toc_max_heading_level: 2
+toc_max_heading_level: 3
 keywords: [ PHP, PHP 모니터링, 애플리케이션, 애플리케이션 모니터링, Troubleshooting, 문제 해결 ]
 ---
+
+WhaTap PHP 설치 및 설정 오류를 진단하고 해결하는 방법을 안내합니다.
+
+## 설치 및 설정 오류 해결
 
 import Phpextensionmoduleservice from "../common-items/_php-extension-module-service.mdx";
 
 <Phpextensionmoduleservice /> 
+
+### Windows 수동 설정
+
+#### PHP 환경 정보 확인
+
+PHP 환경 정보를 확인합니다.
+
+```cmd
+REM PHP API 버전 확인
+php -i | findstr "PHP API"
+
+REM Thread Safety 확인
+php -i | findstr "Thread Safety"
+
+REM Extension 디렉토리 확인
+php -i | findstr extension_dir
+
+REM PHP 설정 파일 위치 확인
+php --ini
+```
+
+* **예시**
+```
+PHP API => 20230831
+Thread Safety => disabled
+extension_dir => C:\PHP\ext
+
+Configuration File (php.ini) Path: C:\Windows
+Loaded Configuration File:         C:\PHP\php.ini
+Scan for additional .ini files in: C:\PHP\conf.d
+Additional .ini files parsed:      (none)
+```
+
+#### php_whatap.dll 복사
+
+확인한 extension_dir 경로에 적절한 DLL을 복사합니다.
+
+```cmd
+REM 위에서 확인한 extension_dir 사용
+REM 예: extension_dir => C:\PHP\ext
+
+REM Non-ZTS 버전
+copy "C:\Program Files\WhaTap\PHP\modules\x64\php_whatap_[API_VERSION].dll" "C:\PHP\ext\php_whatap.dll"
+
+REM ZTS 버전
+copy "C:\Program Files\WhaTap\PHP\modules\x64\php_whatap_zts_[API_VERSION].dll" "C:\PHP\ext\php_whatap.dll"
+```
+
+* **예시**
+```cmd
+REM PHP 8.3 (API 20230831) NTS, extension_dir = C:\PHP\ext
+copy "C:\Program Files\WhaTap\PHP\modules\x64\php_whatap_20230831.dll" "C:\PHP\ext\php_whatap.dll"
+
+REM PHP 8.3 (API 20230831) ZTS, extension_dir = C:\Program Files\PHP\v8.3\ext
+copy "C:\Program Files\WhaTap\PHP\modules\x64\php_whatap_zts_20230831.dll" "C:\Program Files\PHP\v8.3\ext\php_whatap.dll"
+```
+
+#### whatap.ini 생성 또는 php.ini 수정
+
+##### Scan Directory가 있는 경우
+
+`php --ini`에서 확인한 Scan Directory에 whatap.ini 파일을 생성합니다.
+
+```cmd
+REM 예: Scan for additional .ini files in: C:\PHP\conf.d
+notepad "C:\PHP\conf.d\whatap.ini"
+```
+
+* **whatap.ini**
+```ini
+extension=php_whatap.dll
+```
+
+##### Scan Directory가 없는 경우
+
+`php --ini`에서 확인한 php.ini 파일에 직접 추가합니다.
+
+```cmd
+REM 예: Loaded Configuration File: C:\PHP\php.ini
+notepad "C:\PHP\php.ini"
+```
+
+* **php.ini에 추가할 내용**
+```ini
+[whatap]
+extension=php_whatap.dll
+```
+
+#### whatap.ini 설정
+
+*C:\Program Files\WhaTap\PHP\whatap.ini* 파일을 편집합니다. 
+
+```ini
+whatap.license=your_access_key
+whatap.server.host=13.124.11.223
+whatap.app_name=APHP
+whatap.app_process_name=httpd.exe
+```
+
+#### 환경 변수 설정
+
+WhaTap PHP 에이전트가 사용하는 환경 변수를 설정합니다.
+
+```cmd
+REM 필수: WhaTap PHP 설치 디렉토리
+setx WHATAP_PHP_HOME "C:\Program Files\WhaTap\PHP"
+
+REM 필수: whatap.ini 파일 이름 또는 경로
+setx WHATAP_PHP_CONFIG "whatap.ini"
+
+REM 선택: 라이센스 키 (whatap.ini 대신 환경 변수로 지정 가능)
+REM setx WHATAP_LICENSE "your_access_key"
+
+REM 선택: 수집 서버 주소 (whatap.ini 대신 환경 변수로 지정 가능)
+REM setx WHATAP_SERVER_HOST "13.124.11.223"
+```
+
+* **설치 프로그램이 자동으로 설정하는 환경 변수**
+
+| 환경 변수 | 설명 | 설정 시점 | 기본값 |
+|----------|------|----------|--------|
+| `WHATAP_PHP_HOME` | WhaTap PHP 설치 디렉토리 | 항상 | `C:\Program Files\WhaTap\PHP` |
+| `WHATAP_PHP_CONFIG_HOME` | whatap.ini 파일이 위치한 디렉토리 | 항상 | `C:\Program Files\WhaTap\PHP` |
+| `WHATAP_PHP_CONFIG` | whatap.ini 파일 이름 | 항상 | `whatap.ini` |
+| `WHATAP_DATETIME_MODE` | 시간 모드 (Windows 전용) | 항상 | `WINDOWS` |
+| `WHATAP_PHP_BIN` | php.exe 전체 경로 | PHP 감지 시 | (감지된 경로) |
+| `WHATAP_PHP_DIR` | PHP 설치 디렉토리 | PHP 감지 시 | (감지된 경로) |
+| `WHATAP_PHP_API_VERSION` | PHP API 버전 (예: 20230831) | PHP 감지 시 | (감지된 버전) |
+| `WHATAP_PHP_EXTENSION_DIR` | PHP extension 디렉토리 | PHP 감지 시 | (감지된 경로) |
+| `WHATAP_PHP_INI_FILE` | php.ini 파일 전체 경로 | PHP 감지 시 | (감지된 경로) |
+| `WHATAP_PHP_THREAD_SAFETY` | Thread Safety (enabled/disabled) | PHP 감지 시 | (감지된 값) |
+
+* **사용자가 선택적으로 설정 가능한 환경 변수(whatap.ini 대신 사용)**
+
+| 환경 변수 | 설명 | 우선순위 | 기본값 |
+|----------|------|----------|--------|
+| `WHATAP_LICENSE` | 라이센스 키 | 환경변수 > whatap.ini | - |
+| `WHATAP_SERVER_HOST` | 수집 서버 주소 | 환경변수 > whatap.ini | - |
+
+:::note
+
+**참고**
+
+- `setx` 명령은 영구적으로 환경 변수를 설정합니다. (재부팅 후에도 유지)
+
+- 설정 후 새로운 명령 프롬프트나 서비스 재시작 필요
+
+- 시스템 전체 환경 변수로 설정하려면 관리자 권한으로 실행 후 `/M` 옵션 사용
+    ```cmd
+    setx WHATAP_PHP_HOME "C:\Program Files\WhaTap\PHP" /M
+    ```
+
+:::
+
+#### 서비스 등록 및 시작
+
+```cmd
+REM 서비스 등록
+sc create "WhaTap PHP" binPath="C:\Program Files\WhaTap\PHP\whatap_php.exe" start=auto
+
+REM 서비스 시작
+net start "WhaTap PHP"
+
+REM 웹 서버 재시작
+net stop Apache2.4 && net start Apache2.4
+REM 또는
+iisreset
+```
+
+## 운영 환경 점검
+
+### PHP 환경 정보 수집
+
+* **Windows**
+```cmd
+# Windows
+php -v > php_version.txt
+php -i > phpinfo.txt
+php -m > modules.txt
+php --ini > ini.txt
+```
+
+### 네트워크 연결 테스트
+
+* **Windows**
+
+```powershell
+# Windows PowerShell
+Test-NetConnection -ComputerName 13.124.11.223 -Port 6600
+```
+
+```cmd
+# Windows CMD
+telnet 13.124.11.223 6600
+tracert 13.124.11.223
+```
+
+### 프로세스 상태 확인
+
+* **Windows**
+
+```cmd
+# Windows
+tasklist | findstr whatap
+tasklist | findstr php
+netstat -ano | findstr 6600
+```
+
+## 추가 문제 해결
 
 import Phpinipatherror from "../common-items/_php-ini-path-error.mdx";
 

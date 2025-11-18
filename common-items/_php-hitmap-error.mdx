@@ -1,11 +1,13 @@
-## 응답 시간 분포도에 트랜잭션이 표시되지 않는 경우
+### 응답 시간 분포도에 트랜잭션이 표시되지 않음
 
 CPU와 Memory 그래프를 볼 수 있지만 응답 시간 분포도 즉 히트맵을 볼 수 없는 현상은 다음과 같은 경우에 발생합니다. 
 
 * 에이전트가 수집 서버와 정상적으로 연결되었으나 트레이서가 정상적으로 PHP 확장 모듈에 적용되지 않은 경우
 * 설정 후 Apache 및 PHP-FPM 서비스를 재시작하지 않은 경우
 
-1.  PHP 확장 모듈이 적용되었는지 확인하세요.
+1. PHP 모듈 로드를 확인하세요.
+
+    * **Linux**
 
     ```bash
     $ sudo php -m
@@ -23,8 +25,74 @@ CPU와 Memory 그래프를 볼 수 있지만 응답 시간 분포도 즉 히트�
     [Zend Modules]
     ```
 
-1. Apache 및 PHP-FPM 서비스를 재시작하세요.
+    * **Windows**
+    ```cmd
+    php -m | findstr whatap
+    ```
 
-1. PHP 확장 모듈이 적용되지 않은 경우는 정상 설치되지 않은 것입니다. *whatap.so* 또는 *whatap.ini* 파일 경로가 PHP 환경과 일치하는지 확인하세요.
+    * **예시. 정상 출력**
+    ```
+    whatap
+    ```
 
-    다음 설명서를 참조하여 [PHP 명령어(CLI) 경로](#check-php-cli-path), [PHP 확장 모듈 경로](#check-php-extension-module), [PHP 추가 ini 설정 경로](#php-ini-path) 항목들을 확인하세요.
+2. 웹 서비스를 재시작하세요.
+
+    * **Windows**
+    ```cmd
+    REM Apache
+    net stop Apache2.4 && net start Apache2.4
+
+    REM IIS
+    iisreset
+    ```
+
+3. 확장 파일 위치를 확인하세요. 
+
+    * **Windows**
+    ```cmd
+    REM PHP 확장 디렉토리 확인
+    php -i | findstr extension_dir
+    REM 출력 예: extension_dir => C:\PHP\ext
+    
+    REM php_whatap.dll 파일 존재 확인 (위에서 확인한 경로 사용)
+    dir "C:\PHP\ext\php_whatap.dll"
+    ```
+
+    파일이 없으면 수동으로 복사합니다. (확인한 extension_dir 경로 사용)
+
+    ```cmd
+    REM PHP API 버전 확인
+    php -i | findstr "PHP API"
+    REM 출력 예: PHP API => 20230831
+
+    REM Thread Safety 확인
+    php -i | findstr "Thread Safety"
+    REM 출력 예: Thread Safety => disabled
+
+    REM 적절한 DLL 복사 (확인한 extension_dir 경로 사용)
+    copy "C:\Program Files\WhaTap\PHP\modules\x64\php_whatap_20230831.dll" "C:\PHP\ext\php_whatap.dll"
+    ```
+
+4. PHP 설정 파일을 확인하세요. *whatap.so* 또는 *whatap.ini* 파일 경로가 PHP 환경과 일치하는지 확인하세요.
+
+    * **Windows**
+    ```cmd
+    php --ini
+    ```
+
+5. 로그를 확인하세요.
+
+    * **Windows**
+    ```cmd
+    REM 설치 로그 확인
+    type "C:\Program Files\WhaTap\PHP\logs\whatap-install.log"
+
+    REM 부팅 로그 확인 (최신 파일)
+    dir "C:\Program Files\WhaTap\PHP\logs\whatap-boot-*.log" /O-D
+    ```
+
+:::note
+
+[PHP 명령어(CLI) 경로](#check-php-cli-path), [PHP 확장 모듈 경로](#check-php-extension-module), [PHP 추가 ini 설정 경로](#php-ini-path) 항목들을 확인하세요.
+
+:::

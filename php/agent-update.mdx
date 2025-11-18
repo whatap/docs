@@ -2,6 +2,7 @@
 id: agent-update
 title: 에이전트 업데이트
 description: PHP 에이전트 업데이트 방법을 제공합니다.
+toc_max_heading_level: 2
 keywords:
     - PHP
     - 업데이트
@@ -102,3 +103,87 @@ keywords:
     * Apache 또는 PHP-FPM 서비스(Service)를 시작합니다.
     
     :::
+
+## Windows
+
+Windows 환경에서는 설치 프로그램(`whatap_php_setup.exe`)을 실행하면 기존 설정을 유지한 상태로 자동 업데이트가 진행됩니다.  
+
+:::warning
+
+Windows에서 업데이트 시 웹 서버를 중지해야 합니다.
+
+:::
+
+### GUI 업데이트
+
+1. 웹 서버(Apache 또는 IIS)를 중지하세요.
+
+    ```cmd
+    net stop Apache2.4
+    REM 또는
+    iisreset /stop
+    ```
+
+2. 설치 프로그램을 실행하여 에이전트를 업데이트하세요.
+
+    ```cmd
+    whatap_php_setup.exe
+    ```
+
+3. 웹 서버를 시작하세요.
+
+    ```cmd
+    net start Apache2.4
+    REM 또는
+    iisreset /start
+    ```
+
+### CLI 자동 업데이트
+
+기존 설치가 있으면 설치 프로그램이 자동으로 업데이트 모드로 실행됩니다.
+
+1. 웹 서버(Apache 또는 IIS)를 중지하세요.
+
+    ```cmd
+    # 웹 서버 중지(권장)
+    net stop Apache2.4
+    ```
+
+2. 설치 프로그램을 실행하여 에이전트를 업데이트하세요.
+
+    ```cmd
+    # 업데이트 실행(파라미터 없이 실행)
+    whatap_php_setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
+
+    # 설치 프로그램이 WHATAP_PHP_HOME을 확인하여 자동 업데이트
+    ```
+
+3. 웹 서버를 시작하세요.
+
+    ```cmd
+    # 웹 서버 시작
+    net start Apache2.4
+    ```
+
+**예시. 배치 스크립트**
+```batch
+@echo off
+echo Stopping web server...
+net stop Apache2.4
+
+echo Updating WhaTap PHP Agent...
+whatap_php_setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
+
+if %errorlevel% equ 0 (
+    echo Update completed successfully!
+) else (
+    echo Update failed with error code: %errorlevel%
+    exit /b %errorlevel%
+)
+
+timeout /t 3
+
+echo Starting web server...
+net start Apache2.4
+echo Update completed!
+```

@@ -11,63 +11,74 @@ keywords: [ Java, 애플리케이션, 지원 환경, 지원 정보 ]
 
 Web Application Server (WAS), 데몬, 배치 애플리케이션 등 JVM 기반 모든 애플리케이션에 적용할 수 있습니다. Java 1.6 미만은 support@whatap.io로 문의하거나 [다음 문서](add-jvm-opt/java-under-ver)를 참고하세요.
 
-* **지원 버전**
+### 지원 버전
 
-  | 지원범위          | 환경   | OS                 | JVM 버전                 |
-  | --------------- | ---- | ------------------- | ----------------------- |
-  | Fully support   | Java | JVM으로 구동하는 모든 OS | Java 6 이상, Java 21 이하 |
-  | Limited support | Java | JVM으로 구동하는 모든 OS | Java 1.5 이하            |
+  <table>
+  <thead>
+  <tr>
+  <th>구분 / JDK 버전</th>
+  <th>JDK 1.5 이하</th>
+  <th>Java 6 ~ 21</th>
+  <th>Java 22</th>
+  <th>Java 23</th>
+  <th>Java 24</th>
+  <th>Java 25</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>지원 여부</td>
+  <td align="center">✅</td>
+  <td align="center">✅</td>
+  <td align="center">✅</td>
+  <td align="center">✅</td>
+  <td align="center">✅</td>
+  <td align="center">✅</td>
+  </tr>
+  <tr>
+  <td>지원 범위</td>
+  <td align="center">Limited Support</td>
+  <td align="center" colspan="5">Fully support</td>
+  </tr>
+  </tbody>
+  </table>
 
+### 운영체제
 
-* **운영체제**
-
-  * HP-UX 11.x 32bit, 64bit
-  
-  * Itanium 64bit
-  
-  * Oracle Solaris 2.8, 2.9, 10, 11 32bit, 64bit
-  
-  * x86 Intel Linux 32bit
-
-  * Red Hat Itanium 64bit
-  
-  * Microsoft Windows Server 2000이상, Windows XP이상
+  | OS 계열     | 지원 버전                       | 아키텍처      |
+  | ----------- | ------------------------------- | ------------- |
+  | **Unix**    | HP-UX 11.x                      | 32bit, 64bit  |
+  | ^          | Oracle Solaris 2.8, 2.9, 10, 11 | 32bit, 64bit  |
+  | **Linux**   | Red Hat                         | Itanium 64bit |
+  | ^            | x86 Intel Linux                 | 32bit         |
+  | **Windows** | Windows Server                  | 2000 이상     |
+  | ^            | Windows                         | XP 이상       |
+  | **기타**    | Itanium                         | 64bit         |
 
   :::note
 
   JDK 6를 설치할 수 있는 모든 운영체제를 지원합니다.
-
+  
   :::
 
-* **애플리케이션 서버**
+### 애플리케이션 서버
 
-  * Apache Software Foundation **Jakarta Tomcat** 6.x–10.x  
-
-  * Red Hat **JBoss Application Server** 6.x, 7.x  
-
-  * TmaxSoft **JEUS** 6.x, 7.x  
-
-  * Oracle (BEA Systems) **WebLogic Server** 9.x–12.x  
-
-  * IBM **WebSphere**, **WebSphere Liberty**  
-
-  * Caucho Technology **Resin** 3.x, 4.x  
-
-  * Eclipse Foundation **Jetty**  
-
-  * IBM **BlueMix**  
-
-  * Amazon Web Services (AWS) **Elastic Beanstalk**  
-
-  * Docker Inc. **Docker Container Environment**  
-
-  * Oracle **SUN Application Server** 8.x, 9.x  
-
-  * Fujitsu **Interstage** 5.x–7.x  
-
-  * Hitachi **Cosminexus** 7.x–9.x  
-  
-  * Oracle **GlassFish** 3.x–5.x  
+  | 벤더     | 제품                         | 지원 버전  |
+  | -------- | ---------------------------- | ---------- |
+  | Apache   | Jakarta Tomcat               | 6.x ~ 10.x |
+  | Red Hat  | JBoss Application Server     | 6.x, 7.x   |
+  | TmaxSoft | JEUS                         | 6.x, 7.x   |
+  | Oracle   | WebLogic Server              | 9.x ~ 12.x |
+  | ^        | GlassFish                    | 3.x ~ 5.x  |
+  | ^        | SUN Application Server       | 8.x, 9.x   |
+  | IBM      | WebSphere, WebSphere Liberty | -          |
+  | ^        | BlueMix                      | -          |
+  | Caucho   | Resin                        | 3.x, 4.x   |
+  | Eclipse  | Jetty                        | -          |
+  | Fujitsu  | Interstage                   | 5.x ~ 7.x  |
+  | Hitachi  | Cosminexus                   | 7.x ~ 9.x  |
+  | AWS      | Elastic Beanstalk            | -          |
+  | Docker   | Container Environment        | -          |
 
   :::note
 
@@ -75,12 +86,18 @@ Web Application Server (WAS), 데몬, 배치 애플리케이션 등 JVM 기반 �
 
   :::
 
-* **프레임워크** / **라이브러리**
+### 프레임워크 / 라이브러리
 
-  * Pivotal / VMware **Spring Boot  1.5.x - 3.x**  
-  * **Netty**, Lightbend **Akka HTTP**, **Play Framework** 등 비동기 프레임워크  
-  * Red Hat **Quarkus**, **Quarkus Reactive 1.x - 2.x** 
-  * MuleSoft **Mule Framework** 3.9.5, 4.5   
+  | 카테고리 | 프레임워크 | 지원 버전 |
+  | --- | --- | --- |
+  | 웹 프레임워크 | Spring Boot | 1.5.x ~ 3.x |
+  | 비동기 프레임워크 | Netty | - |
+  | ^ | Akka HTTP | - |
+  | ^ | Play Framework | - |
+  | 마이크로서비스 | Quarkus | - |
+  | ^ | Quarkus Reactive | 1.x ~ 2.x |
+  | 통합 프레임워크 | Mule Framework | 3.9.5, 4.5 |
+
 
   :::note
 
@@ -88,22 +105,24 @@ Web Application Server (WAS), 데몬, 배치 애플리케이션 등 JVM 기반 �
 
   :::
 
-* **데이터베이스 드라이버**
+### 데이터베이스 드라이버
 
-  * Generic JDBC (any JDBC compliant driver)
-  * DB2 JDBC
-  * Derby JDBC
-  * H2 JDBC
-  * jTDS JDBC
-  * MariaDB JDBC (1.x - 3.x)
-  * Microsoft SQL Server JDBC
-  * MySQL JDBC (5.x - 8.x)
-  * AWS-MySQL JDBC (1.x)
-  * Oracle ojdbc5, ojdbc6, ojdbc7, ojdbc8, ojdbc14
-  * Postgres JDBC
-  * Tibero
-  * Jedis Redis driver
-  * Lettuce Redis driver (5.x - 6.x)
+  | 카테고리 | 데이터베이스 | 드라이버 | 지원 버전 |
+  | --- | --- | --- | --- |
+  | **RDBMS** | Generic | JDBC | any compliant driver |
+  | ^ | MySQL | JDBC | 5.x ~ 8.x |
+  | ^ | AWS MySQL | JDBC | 1.x |
+  | ^ | MariaDB | JDBC | 1.x ~ 3.x |
+  | ^ | PostgreSQL | JDBC | - |
+  | ^ | Oracle | ojdbc | 5, 6, 7, 8, 14 |
+  | ^ | Microsoft SQL Server | JDBC | - |
+  | ^ | DB2 | JDBC | - |
+  | ^ | Derby | JDBC | - |
+  | ^ | H2 | JDBC | - |
+  | ^ | jTDS | JDBC | - |
+  | ^ | Tibero | - | - |
+  | **NoSQL** | Redis | Jedis | - |
+  | ^ | Redis | Lettuce | 5.x ~ 6.x |
 
 ## 애플리케이션 서버별 호환성 및 데이터 소스
 

@@ -14,6 +14,10 @@ displayed_sidebar: releaseSidebar
 
 ### `Application`
 
+- <Status priority='1'>Feature</Status> **신규 애플리케이션 토폴로지** 사이드 메뉴에 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="flexboard" className="uitext" /> &gt; 테이블 위젯에 CSV 다운로드 버튼 추가
+
 - <Status priority='0'>Fixed</Status> <Cmdname sid="trace" className="uitext" /> &gt; **HTTPC 스텝 상세** HTTPC URL 추가
 
 #### PHP
@@ -30,7 +34,11 @@ displayed_sidebar: releaseSidebar
 
     - GPU 정보 검색 Input 추가
 
-    - 조회된 테이블 데이터 건수 표시되도록 개선
+    - 조회된 테이블 데이터 건수 표시되도록 개선 
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="serverDetail" className="uitext" /> 프로세스 테이블 CPU 차트 툴팁에 소수점 값이 표시되도록 수정, 프로세스 I/O 차트 툴팁에 단위변환 및 단위가 표시되도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL10331" className="uitext" /> 복합 메트릭스 “CPU User % is too high” 템플릿으로 이벤트를 추가할 때 이벤트가 발생하지 않는 현상
 
 ---
 
@@ -42,8 +50,20 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> <code class="newfunc">New</code> 위젯 리스트 개선
 
+#### Oracle Pro
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_list" className="uitext" /> 에이전트 일시정지 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="lock_tree" className="uitext" /> 데이터 조회 개선
+
 #### PostgreSQL
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="dbObjectInfo" className="uitext" /> Scan의 Table 테이블에 `scan_count`, `scan_ratio` 컬럼 추가
+
+---
+
+### `Log`
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_logExplorer2" className="uitext" /> 쿼리 즐겨찾기가 동작하지 않는 문제
 
 </div>

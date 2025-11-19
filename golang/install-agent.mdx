@@ -5,19 +5,46 @@ description: Go 환경의 애플리케이션 서버에 에이전트를 설치하
 keywords: [ Go, 에이전트 설치 ]
 ---
 
-모니터링 대상 애플리케이션 서버에서 TCP 통신으로 데이터를 전달하고, 와탭 수집 서버로 데이터를 전송하려면 같은 서버에 에이전트를 설치해야 합니다. 설치 방식은 패키지 설치로 가능합니다.
+Go 애플리케이션의 모니터링 데이터를 수집 서버로 전송하려면, 애플리케이션과 동일한 서버에 에이전트를 설치해야 합니다. 설치는 패키지 방식으로 진행합니다.
 
 :::note
 
-에이전트는 기본 **127.0.0.1:6600** TCP 서버로 작동합니다. Go 애플리케이션에서 데이터를 수신해서 와탭 수집 서버로 Outbound 6600 포트로 전달합니다.
+에이전트는 기본적으로 **127.0.0.1:6600**에서 TCP 서버로 작동합니다. Go 애플리케이션에서 데이터를 수신해서 와탭 수집 서버로 Outbound 6600 포트로 전달합니다.
 
 :::
 
-1. 와탭 저장소(Repository)를 설치하세요.
+1. **Go 애플리케이션에 Whatap Go 라이브러리 적용**
+  
+    * `github.com/whatap/go-api` 라이브러리를 import하여 애플리케이션에 모니터링 코드를 포함합니다.
 
-1. whatap-agent 리눅스 패키지(yum, apt-get)를 설치하세요.
+    * 해당 라이브러리는 Go 앱 내부에서 성능 지표와 트레이스 데이터를 수집하고 전송 준비를 합니다.
 
-1. whatap-agent 서비스를 실행하세요.
+2. **설정 파일**(*whatap.conf*) **구성**
+
+    * 설정 파일 *whatap.conf*를 애플리케이션 실행 경로 또는 `WHATAP_HOME` 디렉터리에 위치시킵니다.
+
+    * 애플리케이션은 실행 시 설정을 읽고, 자체 정보를 등록하며 데이터 전송을 준비합니다.
+
+      | 주요 설정          | 설명                  |
+      | ------------------ | --------------------- |
+      | license            | 프로젝트 액세스 키    |
+      | whatap.server.host | WhaTap 수집 서버 주소 |
+      | app_name           | 애플리케이션 이름     |
+
+3. **에이전트 실행**
+
+    * 서버에 설치된 whatap_agent(`/usr/whatap/agent/whatap_agent`)을 실행합니다. 이 에이전트는 Go 애플리케이션이 보내는 모니터링 데이터를 받아서 WhaTap 수집 서버로 전달하는 중계(Proxy) 역할을 수행합니다.
+
+4. **통신 구조**
+
+    | 에이전트 |동작 방식|
+    | :--: | --- |
+    | **Inbound(에이전트 수신)**| 127.0.0.1:6600 TCP 서버로 실행  <br /> Go 애플리케이션은 localhost:6600으로 모니터링 데이터 전송 <br /> 애플리케이션 → (TCP 6600) → Agent|
+    | **Outbound(에이전트 전달)** | 수신된 데이터를 WhaTap 수집 서버로 Outbound 연결을 통해 전송 <br /> Agent → WhaTap 서버 (Outbound 6600)|
+
+    :::note
+    Go 애플리케이션은 로컬 에이전트와만 통신하며, 외부 전송은 에이전트가 담당합니다.
+    :::
 
 <ImgLang img="golang_system.png" desc="Go Monitoring" />
 
@@ -31,101 +58,9 @@ import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
 
 <Accesskeyv2 /> 
 
-## 에이전트 다운로드
+import Godockersettinglibrary from "../common-items/_go-docker-setting-library.mdx";
 
-**액세스 키**를 발급 받으면 다음 명령어를 이용해 에이전트를 다운로드하세요.
-
-<Tabs groupId="golang">
-<TabItem value="rc" label="Red Hat/CentOS">
-
-```bash title='SH'
-## 패키지 리포지토리 등록
-$ sudo rpm -Uvh https://repo.whatap.io/centos/5/noarch/whatap-repo-1.0-1.noarch.rpm
-
-## 패키지 설치
-$ sudo yum install whatap-agent
-```
-
-</TabItem>
-<TabItem value="du" label="Debian/Ubuntu">
-
-```bash title='SH'
-## 패키지 저장소 등록
-$ wget https://repo.whatap.io/debian/release.gpg -O -|sudo apt-key add -
-$ wget https://repo.whatap.io/debian/whatap-repo_1.0_all.deb
-$ sudo dpkg -i whatap-repo_1.0_all.deb
-$ sudo apt-get update
-
-## 패키지 설치
-$ sudo apt-get install whatap-agent
-```
-
-</TabItem>
-<TabItem value="al" label="Amazon Linux">
-
-```bash title='SH'
-## 패키지 저장소 등록
-$ sudo rpm --import https://repo.whatap.io/centos/release.gpg
-$ echo "[whatap]" | sudo tee /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "name=whatap packages for enterprise linux" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "baseurl=https://repo.whatap.io/centos/latest/\$basearch" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "enabled=1" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-
-## 패키지 설치
-$ sudo yum install whatap-agent
-```
-
-</TabItem>
-<TabItem value="apl" label="Alpine Linux">
-
-[whatap-agent.tar.gz](https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz) 파일을 다운받고 '/' 디렉터리 기준으로 압축을 해제하세요. */usr/whatap/agent* 경로에 모니터링 파일을 생성합니다.
-
-<Tabs>
-
-<TabItem value="x64" label="x64" default>
-
-```docker title='x64'
-wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz
-tar -xvzf whatap-agent.tar.gz -C /
-```
-
-</TabItem>
-
-<TabItem value="aarch64" label="AArch64" default>
-
-```docker title='AArch64'
-wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/aarch64/whatap-agent.tar.gz
-tar -xvzf whatap-agent.tar.gz -C /
-```
-
-</TabItem>
-
-</Tabs>
-
-</TabItem>
-
-</Tabs>
-
-에이전트는 모니터링 정보를 수집하기 위한 트레이서, 수집한 정보를 서버에 전송하기 위한 에이전트, 트레이서와 에이전트를 서버에 동적으로 적용하기 위한 설치 스크립트 파일로 구성합니다. 에이전트 파일에 대한 자세한 설명은 다음을 참조하세요.
-
-<Filetree name="whatap">
-
-  <FiletreeItem name="whatap-agent" type="file">에이전트, 트레이서에서 UDP로 전달한 정보를 수집 서버로 전송하는 프로그램입니다.</FiletreeItem>
-
-  <FiletreeItem name="whatap_agent" type="file">서비스 실행 파일입니다.</FiletreeItem>
-  
-  <FiletreeItem name="whatap.conf" type="file">설정 정보 및 수집 서버 IP, 액세스 키를 입력하는 파일입니다.</FiletreeItem>
-
-  <FiletreeItem name="whatap-boot-yyyymmdd.log" type="file">에이전트 로그 파일입니다. (경로: */usr/whata/agent/log*)</FiletreeItem>
-
-  <FiletreeItem name="/etc/init.d" type="folder">
-  
-    <FiletreeItem name="whatap-agent" type="file">서비스 스크립트 파일입니다.</FiletreeItem>
-  
-  </FiletreeItem>
-
-</Filetree>
+<Godockersettinglibrary />
 
 ## 에이전트 설정 {#set-agent}
 
@@ -210,10 +145,91 @@ WHATAP_HOME=./whatap_home1 ./app
 
 ```
 
-import Godockersettinglibrary from "../common-items/_go-docker-setting-library.mdx";
+## 에이전트 다운로드
 
-<Godockersettinglibrary />
+**액세스 키**를 발급 받으면 다음 명령어를 이용해 에이전트를 다운로드하세요.
 
+<Tabs groupId="golang">
+<TabItem value="rc" label="Red Hat/CentOS">
+
+```bash title='SH'
+## 패키지 리포지토리 등록
+$ sudo rpm -Uvh https://repo.whatap.io/centos/5/noarch/whatap-repo-1.0-1.noarch.rpm
+
+## 패키지 설치
+$ sudo yum install whatap-agent
+```
+
+</TabItem>
+<TabItem value="du" label="Debian/Ubuntu">
+
+```bash title='SH'
+## 패키지 저장소 등록
+$ wget https://repo.whatap.io/debian/release.gpg -O -|sudo apt-key add -
+$ wget https://repo.whatap.io/debian/whatap-repo_1.0_all.deb
+$ sudo dpkg -i whatap-repo_1.0_all.deb
+$ sudo apt-get update
+
+## 패키지 설치
+$ sudo apt-get install whatap-agent
+```
+
+</TabItem>
+<TabItem value="al" label="Amazon Linux">
+
+```bash title='SH'
+## 패키지 저장소 등록
+$ sudo rpm --import https://repo.whatap.io/centos/release.gpg
+$ echo "[whatap]" | sudo tee /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "name=whatap packages for enterprise linux" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "baseurl=https://repo.whatap.io/centos/latest/\$basearch" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "enabled=1" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+$ echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
+
+## 패키지 설치
+$ sudo yum install whatap-agent
+```
+
+</TabItem>
+<TabItem value="apl" label="Alpine Linux">
+
+[whatap-agent.tar.gz](https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz) 파일을 다운받고 '/' 디렉터리 기준으로 압축을 해제하세요. */usr/whatap/agent* 경로에 모니터링 파일을 생성합니다.
+
+<Tabs>
+
+<TabItem value="x64" label="x64" default>
+
+```docker title='x64'
+wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz
+tar -xvzf whatap-agent.tar.gz -C /
+```
+
+</TabItem>
+
+<TabItem value="aarch64" label="AArch64" default>
+
+```docker title='AArch64'
+wget https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/aarch64/whatap-agent.tar.gz
+tar -xvzf whatap-agent.tar.gz -C /
+```
+
+</TabItem>
+
+</Tabs>
+
+</TabItem>
+
+</Tabs>
+
+에이전트는 사용자 애플리케이션의 모니터링 정보를 내부 IPC(TCP)를 통해 전달받고, 해당 데이터를 와탭 수집 서버로 전송하는 데이터 중계 프로세스입니다.
+
+<Filetree name="whatap">
+
+  <FiletreeItem name="whatap-agent" type="file">실행 파일입니다.</FiletreeItem>
+
+  <FiletreeItem name="whatap_agent 스크립트" type="file">whatap_agent 를 실행하는 스크립트 파일입니다.</FiletreeItem>
+
+</Filetree>
 
 ## 모니터링 시작하기
 

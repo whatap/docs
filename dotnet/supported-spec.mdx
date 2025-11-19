@@ -5,32 +5,56 @@ description: 와탭 모니터링 서비스가 동작하는 .NET 애플리케이�
 keywords: [ .NET ]
 ---
 
-## .NET 에이전트 지원 환경
+mdx## .NET 에이전트 지원 환경
 
 에이전트를 설치하기 전에 .NET에 대한 지원 환경을 확인하세요.
 
-* **지원 버전**
+:::info
+최종 업데이트: 2025-11-18
+:::
 
-  * .NET Framework 4.61 ~ 4.8
-  * .NET 6, 7, 8
+### 지원 버전
 
-* **운영체제**: Windows Server 2008 R2 이상
+| 플랫폼 | 지원 버전 |
+| --- | --- |
+| .NET Framework | 4.61 ~ 4.8 |
+| .NET | 6, 7, 8 |
 
-* **애플리케이션 서버**: IIS 8.0 이상
+### 운영체제
 
-* **라이브러리**
+| OS | 최소 버전 |
+| --- | --- |
+| Windows Server | 2008 R2 이상 |
 
-  * WebClient/WebRequest
+### 애플리케이션 서버
 
-  * HttpClient/HttpClientHandler
+| 서버 | 최소 버전 |
+| --- | --- |
+| IIS | 8.0 이상 |
 
-  * ASP.NET MVC 5 (IIS)
+### 라이브러리
 
-  * ASP.NET Web API 2 (IIS)
+| 라이브러리 | 지원 여부 |
+| --- | :---: |
+| WebClient / WebRequest | ✅ |
+| HttpClient / HttpClientHandler | ✅ |
+| ASP.NET MVC 5 (IIS) | ✅ |
+| ASP.NET Web API 2 (IIS) | ✅ |
+| ADO.NET (Database) | ✅ |
 
-  * ADO.NET (Database)
+### 데이터베이스
 
-* **데이터베이스**: MS SQL, Oracle, MySQL 등 ADO.NET을 지원하는 모든 데이터 베이스 및 Radis
+| 데이터베이스 | 지원 여부 |
+| --- | :---: |
+| MS SQL | ✅ |
+| Oracle | ✅ |
+| MySQL | ✅ |
+| Redis | ✅ |
+| 기타 | ADO.NET 지원하는 모든 데이터베이스 |
+
+:::tip
+ADO.NET을 지원하는 모든 데이터베이스에서 사용 가능합니다.
+:::
 
 ## 서버 지원 환경 분석 방법
 

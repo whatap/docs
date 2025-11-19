@@ -7,21 +7,35 @@ keywords: [ Go ]
 
 ## Go 에이전트 지원 환경
 
-* **지원 버전**: 1.17 버전 이상
+와탭 Go 모니터링 에이전트를 설치하기 전에 지원 환경을 확인하세요.
 
-* **운영체제**
+:::info
+최종 업데이트: 2025-11-18
+:::
 
-  * CentOS/Red Hat 6.x 버전(64bit) 이상 
-  * Debian/Ubuntu 12.04 버전(64bit) 이상
-  * Amazon linux (64bit)
-  * Alpine linux (64bit)
-  * Linux-aarch64 (ARM64)
+### 지원 버전
 
-* **라이브러리**
+| 언어 | 지원 버전 |
+| --- | --- |
+| Go | 1.17 이상 |
 
-  - net/http, gin, chi, fiber, gorilla, echo, fasthttp
-  - database/sql, gorm, redigo
-  - grpc, sarama, k8s.io/client-go
+### 운영체제
+
+| OS | 최소 버전 | 아키텍처 |
+| --- | --- | :---: |
+| CentOS / Red Hat | 6.x | 64bit |
+| Debian / Ubuntu | 12.04 | 64bit |
+| Amazon Linux | - | 64bit |
+| Alpine Linux | - | 64bit |
+| Linux | - | ARM64 (aarch64) |
+
+### 라이브러리
+
+| 카테고리 | 라이브러리 |
+| --- | --- |
+| **웹 프레임워크** | net/http, gin, chi, fiber, gorilla, echo, fasthttp |
+| **데이터베이스** | database/sql, gorm, redigo |
+| **기타** | grpc, sarama, k8s.io/client-go |
 
 :::note
 

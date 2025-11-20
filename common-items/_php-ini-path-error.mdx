@@ -1,14 +1,26 @@
-## PHP 추가 ini 설정 경로 확인 불가
+### PHP 추가 ini 설정 경로 확인 불가
 
-PHP 컴파일(Compile) 설치 옵션 `--with-config-file-scan-dir=PATH`이 설정 안된 경우에 발생합니다.
+PHP 컴파일(Compile) 설치 옵션 `--with-config-file-scan-dir=PATH`이 설정되지 않은 경우, 누락되면 추가 ini 경로를 인식하지 못하는 문제가 발생합니다. 
 
+#### 확인하기
+
+* **Linux/FreeBSD**
 ```bash
 $ sudo php -i | grep '.ini files'
 
 Scan this dir for additional .ini files => (none)
 ```
 
+* **Windows**
+```cmd
+php --ini
+```
+
+#### 해결하기
+
 *whatap.ini* 파일 내용을 *php.ini* 마지막에 추가하세요.
+
+##### Linux
 
 ```bash
 $ php -i | grep 'php.ini'
@@ -29,7 +41,25 @@ whatap.trace_user_using_ip=false
 
 이외 옵션은 */usr/whatap/php/whatap.ini* 를 사용하세요.
 
-### whatap-php 서비스(Service) 환경 변수 설정
+##### Windows
+
+```cmd
+REM whatap.ini 내용을 php.ini에 추가
+type "C:\Program Files\WhaTap\PHP\template.ini" >> C:\PHP\php.ini
+
+REM 또는 직접 편집
+notepad C:\PHP\php.ini
+```
+
+* **php.ini에 추가할 내용(Windows 기준)**
+```ini
+[whatap]
+extension=php_whatap.dll
+
+# whatap.ini 설정은 C:\Program Files\WhaTap\PHP\whatap.ini 참조
+```
+
+#### whatap-php 서비스(Service) 환경 변수 설정
 
 `$WHATAP_CONFIG_HOME` 환경변수에 *whatap.ini* 경로를 설정하세요.
 
@@ -41,18 +71,35 @@ $ sudo vi /etc/init.d/whatap-php
 export WHATAP_CONFIG_HOME=      # whatap.ini 경로(/etc/php.d)
 ```
 
-### 서비스 재시작
-* Apache 및 PHP-FPM 서비스를 재시작하세요. 
-* whatap-php 서비스를 재시작하세요.
+#### 서비스 재시작
 
-### Error: Not found PHP API
+* Apache 및 PHP-FPM 서비스 재시작
+
+* whatap-php 서비스 재시작
+
+#### Error: Not found PHP API
 
 PHP 명령어(CLI)를 찾지 못하는 경우 발생합니다. 
 
 [PHP 명령어(CLI)의 위치](#check-php-cli-path)를 정확히 확인하고 [PHP 확장 모듈 및 whatap-php 서비스 선택 설치](#extension-modul-manual-setting) 항목을 진행하세요.
 
+##### Linux
+
 ```bash title='Check PHP API version'
 $ sudo php -i | grep 'PHP API'
 
 PHP API => 20100412
+```
+
+##### Windows
+
+```cmd
+REM PHP 경로 확인
+where php
+
+REM 환경 변수 PATH에 PHP 경로 추가
+setx PATH "%PATH%;C:\PHP"
+
+REM 또는 시스템 환경 변수에서 직접 추가
+sysdm.cpl → 고급 → 환경 변수 → PATH 편집
 ```

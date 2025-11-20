@@ -38,7 +38,7 @@
         "hash": "v2120",
         "product": "PHP Agent",
         "type": "Change",
-        "desc": "<p><code class=\"Change\" type=\"0\">Change</code> PHP 내부 함수 hooking 방식을 변경</p>",
+        "desc": "<p><code class=\"Change\" type=\"0\">Change</code> PHP 내부 함수 hooking 방식 변경</p>",
         "details": "<ul>\n<li>기존 <code>zend_execute_internal</code> 함수를 통한 트랜잭션 데이터 수집 방식은 모든 함수를 확인해 내부 함수 호출이 많을 경우 CPU 부하가 발생할 수 있음</li>\n<li>필요한 PHP 내부 함수의 핸들러를 교체하는 방식으로 특정 함수만 선별해 트랜잭션 정보를 수집하도록 변경</li>\n<li>관련 옵션 추가</li>\n<ul>\n<li><code>whatap.ext.hook_overwrite_internal_function_enabled</code><br>기본값: <code>true</code><br>필요한 PHP 내부 함수의 핸들러를 교체하는 방식으로 특정 함수만 선별해서 트랜잭션 정보를 수집<br><code>whatap.ext.hook_zend_execute_internal_enabled</code>과 중복 설정되지 않도록 주의<br>서비스 재시작 필요 (Apache 또는 php-fpm 재시작)</li>\n<li><code>whatap.ext.hook_zend_execute_internal_enabled</code><br>기본값: <code>false</code><br>기존 방식으로, <code>zend_execute_internal</code> 함수를 통한 트랜잭션 데이터를 수집<br>서비스 재시작 필요 (Apache 또는 php-fpm 재시작)</li>\n<li><code>whatap.ext.hook_zend_execute_ex_enabled</code><br>기본값: <code>true</code><br>PHP 사용자 함수를 <code>zend_execute_ex</code> 함수를 통해 데이터를 수집<br>서비스 재시작 필요 (Apache 또는 php-fpm 재시작)</li>\n</ul>\n</ul>"
       }
     ]

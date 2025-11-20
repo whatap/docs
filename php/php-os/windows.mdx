@@ -1,0 +1,173 @@
+---
+id: windows
+title: Windows
+description: Windows
+toc_max_heading_level: 3
+keywords: [ Windows, PHP ]
+---
+
+> **PHP 에이전트 Windows 설치 가이드**
+
+WhaTap PHP 모니터링 에이전트를 Windows 시스템에 설치하는 방법을 설명합니다. InnoSetup 기반 설치 프로그램을 통해 GUI 또는 CLI 방식으로 간편하게 설치할 수 있습니다.
+
+:::note
+**Windows 지원은 v2.13.0부터 제공되며, PHP 7.0 이상만 지원합니다.**
+* **대상 OS**: Windows Server 2016+, Windows 10+
+:::
+
+### 설치 프로그램 다운로드
+
+WhaTap PHP Windows 설치 프로그램을 다운로드합니다.
+
+```
+https://repo.whatap.io/windows/whatap_php_setup.exe
+```
+
+또는 WhaTap 콘솔에서 프로젝트 선택한 후, **관리** &gt; **에이전트 설치** &gt; **Windows 다운로드**에서 설치 프로그램을 받을 수 있습니다.
+
+### GUI 설치
+
+#### 기본 설치 (자동 감지)
+
+```cmd
+whatap_php_setup.exe
+```
+
+1. Windows 언어 기준으로 언어는 자동 선택됩니다.
+
+2. 설치 모드는 **기본 설치**(Basic Installation)를 선택합니다.
+
+3. 라이센스 키를 입력합니다.
+
+4. 서버 호스트를 입력합니다.
+   - 기본값: `13.124.11.223` (또는 `13.209.172.35`)
+
+5. *php.exe* 파일을 선택합니다.
+
+6. 자동 감지를 확인합니다.
+   - PHP 버전(예: 8.2.12)
+   - Thread Safety(NTS/ZTS)
+   - 아키텍처(x64)
+   - Extension Directory
+
+#### 세부 설치 (수동 설정)
+
+1. 설치 모드를 **세부 설치**(Advanced Installation)로 선택합니다. 
+
+2. 라이센스 키를 입력합니다.
+
+3. 서버 호스트를 입력합니다.
+
+4. PHP 버전을 선택합니다. 
+
+   - 버전: `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `8.0`, `8.1`, `8.2`, `8.3`, `8.4`
+
+5. Thread Safety 옵션을 선택합니다.
+
+   - **disabled (NTS)**: Non-Thread Safe(대부분의 환경에 적합)
+
+   - **enabled (ZTS)**: Zend Thread Safe(Apache Worker/Event MPM)
+
+6. Scan INI Directory 또는 php.ini 경로를 입력합니다.
+
+7. Extension Directory를 입력합니다.
+
+### CLI 설치
+
+**기본 설치 모드(php.exe 경로 제공)**
+
+```cmd
+whatap_php_setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART ^
+  /TYPE="basic" ^
+  /ACCESSKEY="x4g2e21g8a9m-z2glc38mmd1fa-x2vunh5jms4u1" ^
+  /SERVERHOST="13.124.11.223" ^
+  /PHPPATH="C:\PHP\php.exe"
+```
+
+**세부 설치 모드(Scan Directory 있는 경우)**
+
+```cmd
+whatap_php_setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART ^
+  /TYPE="advanced" ^
+  /ACCESSKEY="x4g2e21g8a9m-z2glc38mmd1fa-x2vunh5jms4u1" ^
+  /SERVERHOST="13.124.11.223" ^
+  /PHPVERSION="8.3" ^
+  /THREADSAFETY="disabled" ^
+  /SCANDIR="C:\PHP\conf.d" ^
+  /EXTENSIONDIR="C:\PHP\ext"
+```
+
+**세부 설치 모드(Scan Directory 없는 경우, php.ini 직접 지정)**
+
+```cmd
+whatap_php_setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART ^
+  /TYPE="advanced" ^
+  /ACCESSKEY="x4g2e21g8a9m-z2glc38mmd1fa-x2vunh5jms4u1" ^
+  /SERVERHOST="13.124.11.223" ^
+  /PHPVERSION="8.3" ^
+  /THREADSAFETY="disabled" ^
+  /PHPINIPATH="C:\PHP\php.ini" ^
+  /EXTENSIONDIR="C:\PHP\ext"
+```
+
+### 설치 결과 확인
+
+**PHP 모듈 로드 확인**
+```cmd
+php -m | findstr whatap
+```
+
+**서비스 상태 확인**
+```cmd
+sc query "WhaTap PHP"
+```
+
+**정상 출력**
+```
+SERVICE_NAME: WhaTap PHP
+STATE : 4 RUNNING
+```
+
+### 설치 파일 구조
+
+```
+C:\Program Files\WhaTap\PHP\
+├── whatap_php.exe              # WhaTap 서비스 실행파일 (Go Agent)
+├── whatap.ini                  # 설정 파일 (라이센스, 서버 주소)
+├── perfcounter.json            # Windows Performance Counter 설정
+├── ChangeLog                   # 버전 변경 이력
+├── unins000.exe                # 제거 프로그램
+└── modules\x64\                # PHP 확장 DLL (PHP API Version 기반)
+    ├── php_whatap_20151012.dll         # PHP 7.0 NTS
+    ├── php_whatap_zts_20151012.dll     # PHP 7.0 ZTS
+    ├── php_whatap_20160303.dll         # PHP 7.1 NTS
+    ├── php_whatap_zts_20160303.dll     # PHP 7.1 ZTS
+    ├── ...
+    ├── php_whatap_20240924.dll         # PHP 8.4 NTS
+    └── php_whatap_zts_20240924.dll     # PHP 8.4 ZTS
+```
+
+**PHP 통합 (자동 설정):**
+```
+C:\PHP\ext\php_whatap.dll       # 실제 로드되는 파일
+C:\PHP\conf.d\whatap.ini        # 설정 파일 (Scan Directory가 있는 경우)
+또는
+C:\PHP\php.ini                  # Scan Directory가 없는 경우
+```
+
+### 시스템 요구사항
+
+**운영체제:**
+- Windows Server 2016 이상
+- Windows 10 이상
+
+**PHP:**
+- PHP 7.0 ~ 8.4 (x64)
+- NTS 및 ZTS 지원
+
+**웹 서버:**
+- Apache 2.4 이상
+- Microsoft IIS 8.5 이상 (Server 2016+)
+
+**네트워크:**
+- TCP 6600 포트로 WhaTap 서버 접근 가능

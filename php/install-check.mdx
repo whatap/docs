@@ -4,12 +4,11 @@ title: 설치 점검 사항
 description: PHP 에이전트 설치 점검에 대한 설명입니다.
 keywords: [ PHP, PHP 모니터링, 애플리케이션, 애플리케이션 모니터링, 설치 점검 사항 ]
 ---
-{/* 구성 수정 */}
+
 ## 다시 실행하기
 
-설치가 완료된 후 Apache 또는 PHP-FPM 서비스(Service)를 다시 시작하면 설정된 PHP 확장 모듈(PHP Extension module) *whatap.so* 파일이 로딩됩니다.
-
-만약 whatap-php 서비스(Service)가 실행 중이지 않거나 오류가 발생하면 다시 시작하세요.
+설치 후 Apache 또는 PHP-FPM 서비스(Service)를 다시 시작하면 설정된 PHP 확장 모듈(PHP Extension module) *whatap.so* 파일이 로딩됩니다.
+whatap-php 서비스(Service)가 실행 중이지 않거나 오류가 발생하면 다시 시작하세요.
 
 ### Red Hat/CentOS
 
@@ -29,28 +28,43 @@ $ sudo service whatap-php restart
 $ service whatap_php restart
 ```
 
+### Windows
+
+```bash title=SH
+net restart "WhaTap PHP"
+```
+
 ## PHP 확장 모듈 설치 상태 확인하기
 
 설치가 완료된 후 Apache 또는 PHP-FPM 서비스를 다시 시작하면 설정된 PHP 확장 모듈 *whatap.so* 파일이 로딩됩니다. PHP 확장 모듈이 잘 설치됐는지 다음의 방법으로 확인할 수 있습니다.
 
-{/* 설치가 완료된 후 Apache 또는 PHP-FPM 서비스(Service)를 다시 시작하면 설정된 PHP 확장 모듈(PHP Extension module) *whatap.so* 파일이 로딩됩니다.
-
-PHP 확장 모듈이 잘 설치됐는지 다음의 방법으로 확인할 수 있습니다. */}
-
 1. PHP 추가 INI 경로에 *whatap.ini* 파일이 생성되었는지 확인하세요.
 
+    * **Linux/FreeBSD**
     ```bash title=SH
     $ find / | grep whatap.ini
     ```
 
+    * **Windows**
+    ```cmd
+    dir /s C:\ | findstr whatap.ini
+    ```
+
 1. PHP 확장 모듈 경로에 *whatap.so* 파일이 생성되었는지 확인하세요.
 
+    * **Linux/FreeBSD**
     ```bash title=SH
     $ find / | grep whatap.so
     ```
 
+    * **Windows**
+    ```cmd
+    dir /s C:\ | findstr php_whatap.dll
+    ```
+
 1. PHP 확장 모듈이 실행되고 있는지 확인하세요.
 
+    * **Linux/FreeBSD**
     ```bash title=SH
     $ sudo php -m
 
@@ -67,12 +81,62 @@ PHP 확장 모듈이 잘 설치됐는지 다음의 방법으로 확인할 수 �
     [Zend Modules]
     ```
 
+    * **Windows**
+    ```cmd
+    php -m | findstr whatap
+    ```
+
+    **정상 출력**
+    ```
+    whatap
+    ```
+
 1. whatap-php 서비스 상태를 확인하세요.
 
+    * **Linux/FreeBSD**
     ```bash title=SH
     $ service whatap-php status
     ```
 
-1. **관리** > **에이전트 설정** 메뉴에서 설정된 서버가 추가되었는지 확인하세요. 
+    * **Windows**
+    ```cmd
+    sc query "WhaTap PHP"
+    ```
+
+    또는 `services.msc`를 실행하여 WhaTap PHP 서비스 상태를 확인할 수 있습니다.
+
+    **정상 출력**
+    ```
+    SERVICE_NAME: WhaTap PHP
+    STATE : 4 RUNNING
+    ```
+
+1. 로그를 확인하세요.
+
+    **로그 파일 위치**
+    ```
+    C:\Program Files\WhaTap\PHP\logs\
+    ├── whatap-boot-YYYYMMDD.log    # 부팅/시작 로그 (날짜별)
+    └── whatap-install.log          # 설치 로그
+    ```
+
+    **로그 확인**
+    ```cmd
+    REM 설치 로그 확인
+    type "C:\Program Files\WhaTap\PHP\logs\whatap-install.log"
+
+    REM 부팅 로그 확인 (최신 파일)
+    dir "C:\Program Files\WhaTap\PHP\logs\whatap-boot-*.log" /O-D
+    type "C:\Program Files\WhaTap\PHP\logs\whatap-boot-20251117.log"
+    ```
+
+    **PowerShell 실시간 로그**
+    ```powershell
+    # 최신 부팅 로그 실시간 모니터링
+    $latestLog = Get-ChildItem "C:\Program Files\WhaTap\PHP\logs\whatap-boot-*.log" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    Get-Content $latestLog.FullName -Wait
+    ```
+
+1. **관리** &gt; **에이전트 설정**에서 설정된 서버가 추가되었는지 확인하세요. 
 
     <ImgLang img='php-agent-list.png' />

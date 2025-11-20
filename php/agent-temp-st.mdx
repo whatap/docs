@@ -107,22 +107,3 @@ whatap-php 서비스(Service)를 중지하세요.
     ```
 </TabItem>
 </Tabs>  
-
-## 서비스 재개
-
-<Tabs>
-<TabItem value="windows" label="Windows">
-
-    ```cmd
-    REM extension 주석 제거
-    extension=php_whatap.dll
-
-    REM 웹 서버 재시작
-    net stop Apache2.4 && net start Apache2.4
-
-    REM WhaTap 서비스 시작
-    net start "WhaTap PHP"
-    ```
-
-</TabItem>
-</Tabs>  

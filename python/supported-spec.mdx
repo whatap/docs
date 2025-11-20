@@ -11,69 +11,61 @@ keywords:
 
 와탭 Python 모니터링 에이전트를 설치하기 전에 지원 환경을 확인하세요.
 
-* **지원 버전**
+:::info
+최종 업데이트: 2025-11-18
+:::
 
-  * WSGI Application (Python 3.6 버전 이상, 3.13 버전 이하)
+### 지원 버전
 
-  * ASGI Application (Python 3.7 버전 이상, 3.13 버전 이하)
+| 애플리케이션 타입 | Python 버전 |
+| --- | --- |
+| WSGI Application | 3.6 ~ 3.13 |
+| ASGI Application | 3.7 ~ 3.13 |
 
-* **운영체제**
+### 운영체제
 
-  * Debian/Ubuntu 12.04 (64bit) 이상
+| OS | 최소 버전 | 아키텍처 |
+| --- | --- | :---: |
+| Debian / Ubuntu | 12.04 | 64bit |
+| Red Hat / CentOS | 6.x | 64bit |
+| macOS | 10.15 Catalina | - |
 
-  * OSX 10.15 Catalina
+### 애플리케이션 서버
 
-  * Red Hat/CentOS 6.x (64bit) 이상
+| 프레임워크 | 지원 버전 |
+| --- | --- |
+| Bottle | - |
+| Celery | - |
+| CherryPy | - |
+| Django | - |
+| FastAPI | 0.84.0 이상 |
+| Flask | - |
+| Frappe | - |
+| Nameko | - |
+| Odoo | v16, v17 |
+| Tornado | - |
 
-* **애플리케이션 서버**
+### 라이브러리
 
-  * Bottle
+| 카테고리 | 라이브러리 |
+| --- | --- |
+| **외부 호출** | HttpLib, Requests, Urllib, HTTPX |
+| **데이터 처리** | SQL Alchemy, GraphQL |
+| **로깅** | smtplib, logging, loguru |
+| **메시징** | Kombu, Pika |
+| **LLM** | OpenAI |
 
-  * Celery
+### 데이터베이스
 
-  * CherryPy
-
-  * Django
-
-  * FastAPI (0.84.0 이상)
-
-  * Flask
-
-  * Frappe
-
-  * Nameko
-
-  * Odoo (v16, v17)
-
-  * Tornado
-
-* **라이브러리**
-
-  * 외부 호출: HttpLib, Requests, Urllib, HTTPX
-
-  * SQL Alchemy, GraphQL
-
-  * smtplib, logging , loguru
-
-  * Kombu, Pika
-
-  * LLM: OpenAI
-
-* **데이터베이스**
-
-  * MongoDB(pymongo)
-
-  * MySQL(MySQLdb, pymysql)
-
-  * Neo4j(neo4j)
-
-  * Oracle(cxOracle)
-
-  * PostgreSQL(psycopg2, psycopg, psycopg_pool)
-
-  * Redis(redis)
-
-  * SQLite(sqlite3)
+| 데이터베이스 | 드라이버 |
+| --- | --- |
+| MongoDB | pymongo |
+| MySQL | MySQLdb, pymysql |
+| Neo4j | neo4j |
+| Oracle | cxOracle |
+| PostgreSQL | psycopg2, psycopg, psycopg_pool |
+| Redis | redis |
+| SQLite | sqlite3 |
 
 ## 공통 지원 환경
 

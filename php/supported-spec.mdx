@@ -11,48 +11,61 @@ import TabItem from '@theme/TabItem';
 
 와탭 PHP 모니터링 에이전트를 설치하기 전에 지원 환경을 확인하세요.
 
-* **지원 버전**
+:::info
+최종 업데이트: 2025-11-18
+:::
 
-  * PHP extension module로 동작
-  * PHP PHP 5 >= 5.2.0, PHP 7, PHP 8
-  * NTS / ZTS (Zend Thread Safe)
+### 지원 버전
 
+| 구분 | 지원 범위 |
+| --- | --- |
+| **동작 방식** | PHP extension module |
+| **PHP 버전** | PHP 5.2.0 이상, PHP 7, PHP 8 |
+| **Thread Safe** | NTS / ZTS (Zend Thread Safe) |
 
-* **운영체제**
+### 운영체제
 
-  * CentOS/Red Hat 6.x (64bit) 이상
-  * Debian/Ubuntu 12.04 (64bit) 이상
-  * Alpine Linux (64bit)
-  * FreeBSD 10.x (64bit) 이상
-  * Linux-aarch64 (ARM64)
+| OS | 최소 버전 | 아키텍처 |
+| --- | --- | :---: |
+| CentOS / Red Hat | 6.x | 64bit |
+| Debian / Ubuntu | 12.04 | 64bit |
+| Alpine Linux | - | 64bit |
+| FreeBSD | 10.x | 64bit |
+| Linux | - | ARM64 (aarch64) |
 
-* **애플리케이션 서버**
+### 애플리케이션 서버
 
-  * Apache
-  * PHP-FPM (Nginx)
+| 서버 | 지원 여부 |
+| --- | :---: |
+| Apache | ✅ |
+| PHP-FPM (Nginx) | ✅ |
 
-* **라이브러리**
+### 라이브러리
 
-    * PDO
-    * MySQLi
-    * cURL
-    * oci8
-    * mssql
-    * sqlsrv
-    * psql
-    * phpredis
-    * CUBRID
-    * odbc
+| 라이브러리 | 지원 여부 |
+| --- | :---: |
+| PDO | ✅ |
+| MySQLi | ✅ |
+| cURL | ✅ |
+| oci8 | ✅ |
+| mssql | ✅ |
+| sqlsrv | ✅ |
+| psql | ✅ |
+| phpredis | ✅ |
+| CUBRID | ✅ |
+| odbc | ✅ |
 
-* **데이터베이스**
+### 데이터베이스
 
-    * Oracle (OCI8)
-    * MySQL
-    * SQL Server (mssql, sqlsrv)
-    * PostgreSQL (psql)
-    * Redis (phpredis)
-    * CUBRID
-    * Tibero (odbc)
+| 데이터베이스 | 드라이버 |
+| --- | --- |
+| Oracle | OCI8 |
+| MySQL | - |
+| SQL Server | mssql, sqlsrv |
+| PostgreSQL | psql |
+| Redis | phpredis |
+| CUBRID | - |
+| Tibero | odbc |
 
 ## 공통 지원 환경
 

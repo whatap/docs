@@ -48,33 +48,60 @@ Java 에이전트는 세 개의 HTTP 헤더 키값(`x-wtap-po`, `x-wtap-mst`, `x
 
 1. <Cmdname sid="TTL06527" className="uitext" /> 창에서 확인한 <b>MTID</b> 값을 <Cmdname sid="search_mtid_or_custid" className="uitext" /> 항목에 입력하세요.
 
-    <ImgLang img='trace-mtx-mtid.png' desc='MTID' />
-
 1. 조회할 날짜와 프로젝트를 선택하세요.
 
-1. 화면 아래에 <Cmdname sid="apply" className="uitext" /> 버튼을 선택하세요.
+1. 화면 아래에 <Cmdname sid="apply" className="uitext" /> 버튼을 클릭하세요.
 
-오른쪽 <Cmdname sid="BTN07120" className="uitext" /> 탭에 각 트랜잭션의 호출 관계를 파악할 수 있는 다이어그램이 표시됩니다.
+    * 다음 조건에서 화면 하단의 <Cmdname sid="apply" className="uitext" /> 버튼이 비활성화됩니다.
 
-<ImgLang img='trace-mtx-mtid-chart.png' desc='멀티 트랜잭션 추적' />
+        * 이전 검색과 동일한 필터값(MTID/CUSTID, 날짜, 선택 프로젝트)을 설정한 경우
 
-:::note
+        * 필터값(MTID/CUSTID, 날짜, 선택 프로젝트)을 하나도 입력하지 않은 경우
 
-화면 하단의 <Cmdname sid="apply" className="uitext" /> 버튼은 다음 상황에서 비활성화됩니다.
+1. 오른쪽 <Cmdname sid="BTN07120" className="uitext" /> 탭에 각 트랜잭션의 호출 관계를 파악할 수 있는 다이어그램과 테이블이 표시됩니다.
 
-* 이전 검색과 동일한 필터값(MTID/CUSTID, 날짜, 선택 프로젝트)을 설정한 경우
+   {/* <ImgLang img='trace-mtx-mtid-chart.png' desc='멀티 트랜잭션 추적' /> */}
 
-* 필터값(MTID/CUSTID, 날짜, 선택 프로젝트)을 하나도 입력하지 않은 경우
+    :::tip
 
-:::
+    다이어그램과 테이블 영역은 상하로 구분되어 그 비율을 직접 조절할 수 있습니다.
+
+    - 위쪽 화살표를 클릭하면 테이블이 전체 영역을 차지합니다. 단, 다이어그램 영역이 전체 영역을 차지하고 있었다면 다이어그램과 테이블이 각각 절반의 영역으로 나뉩니다.
+    - 아래쪽 화살표를 클릭하면 차트 영역이 전체 영역을 차지합니다. 단, 테이블 영역이 전체 영역을 차지하고 있었다면 다이어그램과 테이블이 각각 절반의 영역으로 나뉩니다. 
+
+    :::
 
 ### <Cmdname sid="BTN07120" />
 
-<Cmdname sid="BTN07120" className="uitext" />는 각 트랜잭션의 호출 관계를 빠르고 명확하게 사용자에게 제공합니다. 동일한 <Cmdname sid="TTL06107" className="uitext" />를 갖는 트랜잭션 서비스들의 개별 수행 시간을 확인할 수 있습니다. 트랜잭션 노드의 배경색으로 표현되어 있는 소요 시간(<LinkImage img="number-01.png" desc="number 1"/> <Cmdname sid="time_bar" className="uitext" />)를 통해 트랜잭션 간 호출 관계를 확인할 수 있습니다. <Cmdname sid="BTN07120" className="uitext" />에서는 마우스를 이용해 원하는 위치로 이동하거나 스크롤을 통해서 확대, 축소할 수 있습니다.
+<Cmdname sid="BTN07120" className="uitext" />는 각 트랜잭션의 호출 관계를 빠르고 명확하게 사용자에게 제공합니다. 동일한 <Cmdname sid="TTL06107" className="uitext" />를 갖는 트랜잭션 서비스들의 개별 수행 시간을 확인할 수 있습니다. 트랜잭션 노드의 상단에 표현되어 있는 소요시간(<LinkImage img="number-01.png" desc="number 1"/> <Cmdname sid="time_bar" className="uitext" />)를 통해 트랜잭션 간 호출 관계를 확인할 수 있습니다.
 
 ![Chart](/img/trace-mtx-chart-timebar.png)
 
-트랜잭션 노드를 선택하면 <Cmdname sid="TTL06527" className="uitext" /> 창이 추가로 나타납니다. 트랜잭션 트레이스를 통해 해당 트랜잭션의 상세 내역을 확인할 수 있습니다. <Cmdname sid="TTL06527" className="uitext" /> 창을 활용한 트랜잭션 트레이스 상세 분석에 관한 자세한 내용은 [다음 문서](trs-profile#transaction-info)를 참조하세요
+:::tip
+
+차트는 마우스로 자유롭게 이동하거나 확대, 축소할 수 있습니다.
+
+- 차트 영역을 드래그하면 원하는 위치로 이동할 수 있습니다.
+
+- 차트 영역을 스크롤하면 원하는 위치로 이동할 수 있습니다.
+    - 상하 스크롤: 상하 이동
+    - 좌우 스크롤: 좌우 이동
+
+- `Ctrl`+ 스크롤로 차트를 확대하거나 축소할 수 있습니다.
+    - 터치패드의 확대, 축소 동작으로도 가능합니다.
+
+:::
+
+트랜잭션을 선택하면 연결된 노드만 활성화되고, 연결 관계없는 모든 노드는 흐리게 표시됩니다. 선택된 트랜잭션의 하단의 <LinkImage img="number-02.png" desc="number 2"/> **상세보기** 버튼이 활성화되며, 클릭 시 <Cmdname sid="TTL06527" className="uitext" /> 창이 열립니다. 해당 트랜잭션의 상세 내역을 확인할 수 있습니다. <Cmdname sid="TTL06527" className="uitext" /> 창을 활용한 트랜잭션 트레이스 상세 분석에 관한 자세한 내용은 [다음 문서](trs-profile#transaction-info)를 참고하세요.
+
+* 확대, 축소 동작 버튼: 현재 확대 배율과 확대 축소 동작을 할 수 있습니다.
+* 화면에 맞춤 버튼: 모든 노드를 화면에 맞게 표시합니다.
+* 확대 축소 초기화 버튼: 차트의 표시 위치와 확대 정도를 최초 상태로 초기화 합니다.
+* 차트 뷰 설정: 차트에 표시할 요소를 표시하거나 숨길 수 있습니다.
+    * <Cmdname sid="TTL06344" className="uitext" />: 애플리케이션 명, 프로젝트 정보, IP 정보, 상태 코드를 표시하거나 숨길 수 있습니다.
+    * <Cmdname sid="database" className="uitext" /> / <Cmdname sid="apply_external_remote" className="uitext" />: 해당 트랜잭션에서 발생한 다른 데이터베이스 커넥션 요청이나 HTTP Call의 정보 또한 차트의 노드로 확인할 수 있습니다.
+
+--- 
 
 * **A**<Cmdname sid="small" className="uitext" /> / **A**<Cmdname sid="big" className="uitext" />: 노드에 표시된 폰트 크기를 조절할 수 있습니다.
 

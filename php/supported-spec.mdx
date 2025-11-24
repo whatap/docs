@@ -22,6 +22,11 @@ import TabItem from '@theme/TabItem';
 | **동작 방식** | PHP extension module |
 | **PHP 버전** | PHP 5.2.0 이상, PHP 7, PHP 8 |
 | **Thread Safe** | NTS / ZTS (Zend Thread Safe) |
+| **Windows 환경** | PHP 7.0 ~ 7.4 <br/> PHP 8.0 ~ 8.4 |
+
+  :::warning
+  Windows는 PHP 5.x를 지원하지 않습니다.
+  :::
 
 ### 운영체제
 
@@ -32,6 +37,15 @@ import TabItem from '@theme/TabItem';
 | Alpine Linux | - | 64bit |
 | FreeBSD | 10.x | 64bit |
 | Linux | - | ARM64 (aarch64) |
+| Windows Server | - | 2016 이상 |
+| Windows | - | 10 이상 |
+
+  :::note
+
+  모든 운영체제는 64비트만 지원합니다.  
+  Windows 환경 지원은 v2.13.0부터 제공되며, PHP 7.0 이상만 지원합니다.
+
+  ::: 
 
 ### 애플리케이션 서버
 

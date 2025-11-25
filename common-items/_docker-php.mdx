@@ -69,6 +69,10 @@ env:
   valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
 - name: POD_NAME
   valueFrom: {fieldRef: {fieldPath: metadata.name}}
+- name: WHATAP_PHP_AGENT_PATH
+  value: /usr/whatap/php/whatap_php_static
+- name: WHATAP_CONTAINER_CONF_PATH
+  value: /usr/whatap/php
 
 ```
 
@@ -90,6 +94,10 @@ spec:
       valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
     - name: POD_NAME
       valueFrom: {fieldRef: {fieldPath: metadata.name}}
+    - name: WHATAP_PHP_AGENT_PATH
+      value: /usr/whatap/php/whatap_php_static
+    - name: WHATAP_CONTAINER_CONF_PATH
+      value: /usr/whatap/php
 ```
 
 :::note 
@@ -101,6 +109,10 @@ spec:
 * `NODE_NAME`: 현재 Pod가 실행 중인 노드의 이름을 수집합니다.
 
 * `POD_NAME`: 현재 Pod의 이름을 수집합니다.
+
+* `WHATAP_PHP_AGENT_PATH`: PHP 에이전트 실행 파일 경로를 지정합니다.
+
+* `WHATAP_CONTAINER_CONF_PATH`: 컨테이너 ID가 저장될 경로를 지정합니다.
 
 :::
 

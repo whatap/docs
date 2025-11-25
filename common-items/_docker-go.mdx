@@ -121,6 +121,10 @@ env:
   valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
 - name: POD_NAME
   valueFrom: {fieldRef: {fieldPath: metadata.name}}
+- name: WHATAP_GO_AGENT_PATH
+  value: /usr/whatap/agent/whatap_agent_static
+- name: WHATAP_CONTAINER_CONF_PATH
+  value: /usr/whatap/agent
 ```
 
 다음 예시를 참조하세요. 
@@ -141,6 +145,10 @@ spec:
       valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
     - name: POD_NAME
       valueFrom: {fieldRef: {fieldPath: metadata.name}}
+    - name: WHATAP_GO_AGENT_PATH
+      value: /usr/whatap/agent/whatap_agent_static
+    - name: WHATAP_CONTAINER_CONF_PATH
+      value: /usr/whatap/agent
 ```
 
 :::note 
@@ -152,6 +160,10 @@ spec:
 - `NODE_NAME`: 현재 파드가 실행 중인 노드의 이름을 수집합니다.
 
 - `POD_NAME`: 현재 파드의 이름을 수집합니다.
+
+* `WHATAP_GO_AGENT_PATH`: Go 에이전트 실행 파일 경로를 지정합니다.
+
+* `WHATAP_CONTAINER_CONF_PATH`: 컨테이너 ID가 저장될 경로를 지정합니다.
 
 :::
 

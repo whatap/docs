@@ -18,57 +18,81 @@ Java 에이전트는 세 개의 HTTP 헤더 키값(`x-wtap-po`, `x-wtap-mst`, `x
 
 :::
 
-## 멀티 트랜잭션 추적 {#trace-multi-tx}
+## 멀티 트랜잭션 추적 기능 이용하기
 
-홈 화면 &gt; 프로젝트 선택 &gt; <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_hitmap" className="uitext" /> 메뉴에서 차트 영역을 드래그하세요. 드래그한 차트 영역의 트랜잭션 정보가 다음과 같이 하단 <Cmdname sid="trace_list" className="uitext" /> 목록에 나타납니다. 목록에서 멀티 트랜잭션을 포함한 트랜잭션은 ![아이콘](/img/ic-s-mult-transation.svg) 아이콘이 표시됩니다.
+1. <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="multi_server_transaction_trace" className="uitext" />로 이동하세요.
 
-<ImgLang img='tx-trace-table.png' desc='mtrace_M' />
+1. <Cmdname sid="TTL06527" className="uitext" /> 창에서 확인한 <b>MTID</b> 값을 <Cmdname sid="search_mtid_or_custid" className="uitext" /> 항목에 입력하세요.
 
-해당 트레이스를 선택하면 <Cmdname sid="TTL06527" className="uitext" /> 창이 나타납니다. 멀티 트랜잭션이 추적되는 경우 <Cmdname sid="TTL06125" className="uitext" /> 탭에서 <Cmdname sid="TTL06107" className="uitext" /> 값을 확인할 수 있습니다. 트랜잭션에서 외부 호출을 하는 경우에도 동일한 <Cmdname sid="TTL06107" className="uitext" />가 생성됩니다. 서비스별로 프로젝트가 분리되어 있더라도 처음 발급한 <Cmdname sid="TTL06107" className="uitext" />를 통해 애플리케이션 간의 모든 트랜잭션을 확인할 수 있습니다. <Cmdname sid="TTL06527" className="uitext" /> 창에서 트랜잭션 트레이스 상세 분석에 대한 자세한 내용은 [다음 문서](trs-profile#details)를 참조하세요.
+1. 조회할 날짜와 프로젝트를 선택하세요.
 
-<ImgLang img='tx-trace-dt-up.png' desc='레코드 요약' />
+1. 화면 아래에 <Cmdname sid="apply" className="uitext" /> 버튼을 클릭하세요.
 
-<Cmdname sid="TTL06107" className="uitext" />를 선택하면 <Cmdname sid="TTL06377" className="uitext" /> 탭으로 이동합니다. 시스템 내 또는 시스템 간에 발생하는 다양한 호출 관계를 한 눈에 파악하고 어느 부분에서 문제가 발생했는지 식별하여 개선할 수 있도록 트랜잭션과 트레이스 정보를 제공합니다.
+    * 다음 조건에서 화면 하단의 <Cmdname sid="apply" className="uitext" /> 버튼이 비활성화됩니다.
 
-### 차트 {#trace-multi-tx-chart}
+        * 이전 검색과 동일한 필터값(MTID/CUSTID, 날짜, 선택 프로젝트)을 설정한 경우
 
-<ImgLang img='multi-tx-cht.png' desc='차트' />
+        * 필터값(MTID/CUSTID, 날짜, 선택 프로젝트)을 하나도 입력하지 않은 경우
 
-<Cmdname sid="TTL06377" className="uitext" /> 탭의 기본 화면은 <Cmdname sid="BTN07120" className="uitext" />입니다. <Cmdname sid="BTN07120" className="uitext" />는 각 트랜잭션의 호출 관계를 빠르고 명확하게 사용자에게 제공합니다. 동일한 <Cmdname sid="TTL06107" className="uitext" />를 갖는 트랜잭션 서비스들의 개별 수행 시간을 확인할 수 있습니다. 트랜잭션 노드의 배경색으로 표현되어 있는 소요 시간(![숫자 1](/img/number-01.png) <Cmdname sid="time_bar" className="uitext" />)를 통해 트랜잭션 간 호출 관계를 확인할 수 있습니다. <Cmdname sid="BTN07120" className="uitext" />에서는 마우스를 이용해 원하는 위치로 이동하거나 스크롤을 통해서 확대, 축소할 수 있습니다.
+1. 오른쪽 <Cmdname sid="BTN07120" className="uitext" /> 탭에 각 트랜잭션의 호출 관계를 파악할 수 있는 다이어그램과 테이블이 표시됩니다.
 
-* ![필터 아이콘](/img/ico-filter.svg) <Cmdname sid="TLT06410" className="uitext" />: 차트에 표시될 프로젝트를 선택하거나 해제할 수 있습니다.
+   {/* <ImgLang img='trace-mtx-mtid-chart.png' desc='멀티 트랜잭션 추적' /> */}
 
-* ![설정 아이콘](/img/ico-setting.svg) <Cmdname sid="TLT06411" className="uitext" />: 차트에 표시할 요소를 표시하거나 숨길 수 있습니다.
+    :::tip
 
-  * <Cmdname sid="time_bar" className="uitext" />: 각 노드에 소요 시간(<Cmdname sid="time_bar" className="uitext" />)를 표시하거나 숨길 수 있습니다.
+    다이어그램과 테이블 영역은 상하로 구분되어 그 비율을 직접 조절할 수 있습니다.
 
-  * <Cmdname sid="application_name" className="uitext" />: 각 노드에 에이전트 이름(oname)을 표시하거나 숨길 수 있습니다.
+    - 위쪽 화살표를 클릭하면 테이블이 전체 영역을 차지합니다. 단, 다이어그램 영역이 전체 영역을 차지하고 있었다면 다이어그램과 테이블이 각각 절반의 영역으로 나뉩니다.
+    - 아래쪽 화살표를 클릭하면 차트 영역이 전체 영역을 차지합니다. 단, 테이블 영역이 전체 영역을 차지하고 있었다면 다이어그램과 테이블이 각각 절반의 영역으로 나뉩니다. 
 
-  * <Cmdname sid="project" className="uitext" />: 각 노드에 프로젝트 이름을 표시하거나 숨길 수 있습니다.
+    :::
 
-  * <Cmdname sid="database" className="uitext" /> / <Cmdname sid="apply_external_remote" className="uitext" /> / <Cmdname sid="apply_internal_remote" className="uitext" />: 해당 트랜잭션에서 발생한 다른 데이터베이스 커넥션 요청이나 HTTP Call의 정보 또한 차트의 노드로 확인할 수 있습니다.
+### <Cmdname sid="BTN07120" />
 
-트랜잭션 노드를 선택하면 다음과 같이 <Cmdname sid="TTL06527" className="uitext" /> 창이 추가로 나타납니다. 트랜잭션 트레이스를 통해 해당 트랜잭션의 상세 내역을 확인할 수 있습니다. <Cmdname sid="TTL06527" className="uitext" /> 창을 활용한 트랜잭션 트레이스 상세 분석에 관한 자세한 내용은 [다음 문서](trs-profile#transaction-info)를 참조하세요
+<Cmdname sid="BTN07120" className="uitext" />는 각 트랜잭션의 호출 관계를 빠르고 명확하게 사용자에게 제공합니다. 동일한 <Cmdname sid="TTL06107" className="uitext" />를 갖는 트랜잭션 서비스들의 개별 수행 시간을 확인할 수 있습니다. 트랜잭션 노드의 상단에 표현되어 있는 소요시간(<LinkImage img="number-01.png" desc="number 1"/> <Cmdname sid="time_bar" className="uitext" />)를 통해 트랜잭션 간 호출 관계를 확인할 수 있습니다.
 
-<ImgLang img='multi-tx-additional-info.png' desc='멀티 트랜잭션 상세 보기' />
+![Chart](/img/trace-mtx-chart-timebar.png)
 
-### 테이블 {#trace-multi-tx-table}
+:::tip
 
-<Cmdname sid="BTN07121" className="uitext" /> 버튼을 선택하면 테이블 형식으로 멀티 트랜잭션 내에 포함된 각 트랜잭션 별 정보를 확인할 수 있습니다.
+차트는 마우스로 자유롭게 이동하거나 확대, 축소할 수 있습니다.
 
-<ImgLang img='multi-tx-table-mode.png' desc='멀티 트랜잭션 테이블 모드' />
+- 차트 영역을 드래그하면 원하는 위치로 이동할 수 있습니다.
 
-* ![필터 아이콘](/img/ico-filter.svg) <Cmdname sid="TLT06410" className="uitext" />: 차트에 표시될 프로젝트를 선택하거나 해제할 수 있습니다.
+- 차트 영역을 스크롤하면 원하는 위치로 이동할 수 있습니다.
+    - 상하 스크롤: 상하 이동
+    - 좌우 스크롤: 좌우 이동
 
-* ![컬럼 아이콘](/img/ic-column.svg) <Cmdname sid="BTN06441" className="uitext" />: 테이블 내 컬럼을 편집할 수 있습니다. 
+- `Ctrl`+ 상하 스크롤로 차트를 확대하거나 축소할 수 있습니다.
+    - 터치패드의 확대, 축소 동작으로도 가능합니다.
 
-각 트랜잭션 항목을 선택하면 <Cmdname sid="BTN07120" className="uitext" /> 탭에서 노드를 선택하는 것과 마찬가지로, 선택한 트랜잭션에 대한 <Cmdname sid="TTL06527" className="uitext" /> 창이 나타납니다. 트랜잭션 트레이스를 통해 해당 트랜잭션의 상세 내역을 확인할 수 있습니다. <Cmdname sid="TTL06527" className="uitext" /> 창을 활용한 트랜잭션 트레이스 상세 분석에 관한 자세한 내용은 [다음 문서](trs-profile#transaction-info)를 참조하세요.
+:::
+
+트랜잭션을 선택하면 연결된 노드만 활성화되고, 연결 관계없는 모든 노드는 흐리게 표시됩니다. 선택된 트랜잭션의 하단의 <LinkImage img="number-02.png" desc="number 2"/> **상세보기** 버튼이 활성화되며, 클릭 시 <Cmdname sid="TTL06527" className="uitext" /> 창이 열립니다. 해당 트랜잭션의 상세 내역을 확인할 수 있습니다. <Cmdname sid="TTL06527" className="uitext" /> 창을 활용한 트랜잭션 트레이스 상세 분석에 관한 자세한 내용은 [다음 문서](trs-profile#transaction-info)를 참고하세요.
+
+* ![확대 아이콘](/img/ic-button-zoom-in.svg) **확대**, ![축소 아이콘](/img/ic-button-zoom-out.svg) **축소**: 현재 확대 배율과 확대 축소 동작이 가능함
+
+* ![화면 맞춤 아이콘](/img/ic-button-fit-to-screen.svg) **화면에 맞춤**: 모든 노드를 화면에 맞게 표시
+
+* ![화면 초기화 아이콘](/img/ic-button-reset-zooming.svg) **확대/축소 초기화**: 차트의 표시 위치와 확대 정도를 최초 상태로 초기화
+
+* ![설정 아이콘](/img/ic-button-setting.svg) **차트 뷰 설정**: 차트에 표시할 요소를 표시하거나 숨김 
+
+    * <Cmdname sid="TTL06344" className="uitext" />: 애플리케이션 명, 프로젝트 정보, IP 정보, 상태 코드를 표시하거나 숨김
+
+    * <Cmdname sid="database" className="uitext" /> / <Cmdname sid="apply_external_remote" className="uitext" />: 해당 트랜잭션에서 발생한 다른 데이터베이스 커넥션 요청이나 HTTP Call의 정보 또한 차트의 노드로 확인 가능함
+
+### <Cmdname sid="BTN07121" />
+
+<Cmdname sid="BTN07121" className="uitext" /> 탭에서 멀티 트랜잭션 내에 포함된 각 트랜잭션 별 정보를 테이블 형식으로 확인할 수 있습니다.
+
+각 트랜잭션 항목을 선택하면, 해당 트랜잭션 <Cmdname sid="BTN07120" className="uitext" />의 **노드**가 활성화되고, 연결된 노드가 하이라이트 됩니다. 트랜잭션 컬럼의 상세보기 버튼을 클릭하면, <Cmdname sid="TTL06527" className="uitext" /> 창이 나타납니다. 트랜잭션 트레이스에서 트랜잭션의 상세 내역을 확인할 수 있습니다. <Cmdname sid="TTL06527" className="uitext" /> 창을 활용한 트랜잭션 트레이스 상세 분석에 관한 자세한 내용은 [다음 문서](trs-profile#transaction-info)를 참조하세요.
+
+* ![컬럼 아이콘](/img/ic-column.svg) <Cmdname sid="BTN06441" className="uitext" />: 테이블 내 컬럼 편집
 
 ### 트리 {#trace-multi-tx-tree}
 
 <Cmdname sid="BTN06296" className="uitext" /> 버튼을 선택하면 각 트랜잭션과 그에 속해 있는 트레이스의 세부 정보를 확인할 수 있습니다. 전체 트랜잭션 소요 시간 내의 각 하위 트랜잭션이나 트레이스의 시작 및 소요 시간을 시각화해 트랜잭션 호출 관계를 트리 형식으로 제공합니다. 
-
-<ImgLang img='multi-tx-tree-mode.png' desc='멀티 트랜잭션 트리 모드' />
 
 * ![필터 아이콘](/img/ico-filter.svg) <Cmdname sid="TLT06410" className="uitext" />: 차트에 표시될 프로젝트를 선택하거나 해제할 수 있습니다.
 

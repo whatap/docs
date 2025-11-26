@@ -115,6 +115,20 @@
             "ver": "Service 2.23.0",
             "hash": "service-2230",
             "product": "Kubernetes",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU</span> &gt; <span class=\"uitext\">GPU 트랜드 </span> 기간 직접 설정 옵션 추가 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Kubernetes",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">GPU</span> &gt; <span class=\"uitext\">GPU 트랜드</span> 필터 검색 시 와일드카드(*)를 패턴으로 사용할 수 있도록 변경 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Kubernetes",
             "type": "Fixed",
             "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">애플리케이션</span> &gt; <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">멀티 서비스 히트맵</span> 드래그한 OKIND에 포함되지 않은 에이전트가 목록에 보이는 현상 수정 </p>"
             },
@@ -124,6 +138,13 @@
             "product": "Kubernetes",
             "type": "Fixed",
             "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서비스 네트워킹</span> &gt; <span class=\"uitext\">Ingress 목록</span> 상세에서 일부 Pod 정보가 조회되지 않는 문제 수정 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Kubernetes",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">워크로드</span> &gt; <span class=\"uitext\">Pod 목록</span> Device 컬럼의 정렬 기능이 동작하지 않는 문제 수정 </p>"
             },
             {
             "ver": "Service 2.23.0",
@@ -168,7 +189,7 @@
             "product": "Database",
             "category": "Oracle, Oracle Pro",
             "type": "Changed",
-            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> Wait Class 위젯 자세히 보기에서 최대 21까지 조회되도록 변경 및 조회 기간에 따라 통계 데이터를 사용하도록 변경 </p>"
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> Wait Class 위젯 자세히 보기에서 최대 21일까지 조회되도록 변경 및 조회 기간에 따라 통계 데이터를 사용하도록 변경 </p>"
             },
             {
             "ver": "Service 2.23.0",

@@ -1,0 +1,206 @@
+[
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_23_x",
+        "ver": "Service 2.23.0",
+        "date": "2025-11-26",
+        "Lists": [
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "공통",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">Flex 보드</span> 테이블 위젯에 CSV 다운로드 버튼 추가</p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "공통",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">경고 알림</span> 메뉴명 변경</p>",
+            "details": "<ul>\n<li><span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> → <span class=\"uitext\">이벤트 설정</span> <code>Classic</code></li>\n\n<li><span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> <code class=\"newfunc\">New</code> → <span class=\"uitext\">이벤트 설정</span></li>\n</ul>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "공통",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 기본과 메트릭스 탭 통합</p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "공통",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 사용자 표시 그룹 설정 권한이 없는 경우, ‘권한 없음’ 안내 페이지를 거쳐 접근 가능한 페이지로 이동할 수 있도록 개선</p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "공통",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">정비 계획</span> ICMP Feature 제품도 표시</p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "공통",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">이용 내역</span> &gt; <span class=\"uitext\">결제 정보</span> 청구서 수신 정보의 이메일 수정이 안되는 현상 수정</p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Application",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">신규 애플리케이션 토폴로지</span> 사이드 메뉴 추가</p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Application",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">에이전트 목록</span> 스크롤 나타나지 않는 현상 수정</p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Application",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">트레이스</span> &gt; <span class=\"uitext\">HTTPC 스텝 상세</span> HTTPC URL 추가</p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Server",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 목록</span> 필터에서 상태 칼럼값을 필터링 할 수 있도록 옵션 목록에 추가</p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Server",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU 성능요약</span></p>",
+            "details": "<ul>\n<li>GPU 정보 검색 Input</li>\n\n<li>조회된 테이블 데이터 건수 표시되도록 개선</li>\n</ul>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Server",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 모니터링</span> &gt; <span class=\"uitext\">클라우드 모니터링</span> Azure 에이전트 설정 시 디멘전 선택할 수 있는 기능 추가</p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Server",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 상세</span> 프로세스 테이블 CPU 차트 툴팁에 소수점 값이 표시되도록 수정, 프로세스 I/O 차트 툴팁에 단위변환 및 단위가 표시되도록 수정 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Server",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">이벤트 설정</span> 복합 메트릭스 “CPU User % is too high” 템플릿으로 이벤트를 추가할 때 이벤트가 발생하지 않는 현상 수정 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Kubernetes",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 보고서 선택 목록에 보고서 제품 유형을 프리픽스로 추가 및 정렬 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Kubernetes",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">애플리케이션</span> &gt; <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">멀티 서비스 히트맵</span> 드래그한 OKIND에 포함되지 않은 에이전트가 목록에 보이는 현상 수정 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Kubernetes",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서비스 네트워킹</span> &gt; <span class=\"uitext\">Ingress 목록</span> 상세에서 일부 Pod 정보가 조회되지 않는 문제 수정 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Database",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 맵</span> 임계치 설정 모드 UI 개선 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Database",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">SQL 통계</span>, <span class=\"uitext\">Top SQL</span> 가로 스크롤 시 SQL 문 고정되도록 수정 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Database",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">데이터베이스 파라미터</span> 다국어 적용 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Database",
+            "category": "MySQL, PostgreSQL",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt;  <span class=\"uitext\">인스턴스 모니터링</span> <code class=\"newfunc\">New</code> 위젯 리스트 개선 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Database",
+            "category": "Oracle, Oracle Pro",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt;  <span class=\"uitext\">인스턴스 모니터링</span> <code class=\"newfunc\">New</code> 세션 테이블에 병렬 쿼리 트리를 확인할 수 있는 탭 추가 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Database",
+            "category": "Oracle, Oracle Pro",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> Wait Class 위젯 자세히 보기에서 최대 21까지 조회되도록 변경 및 조회 기간에 따라 통계 데이터를 사용하도록 변경 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Database",
+            "category": "Oracle Pro",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">관리</span> &gt;  <span class=\"uitext\">에이전트 목록</span> 에이전트 일시정지 기능 추가 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Database",
+            "category": "Oracle Pro",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">락 트리</span> 데이터 조회 개선 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Database",
+            "category": "PostgreSQL",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">Top 오브젝트</span> Scan의 Table 테이블에 scan_count, scan_ratio 컬럼 추가 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Log",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">로그 탐색</span> 쿼리 즐겨찾기가 동작하지 않는 문제 </p>"
+            }
+        ]
+    }
+]

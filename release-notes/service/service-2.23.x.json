@@ -109,6 +109,13 @@
             "hash": "service-2230",
             "product": "Kubernetes",
             "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">목록</span> 검색 기능 추가 </p>"
+            },
+            {
+            "ver": "Service 2.23.0",
+            "hash": "service-2230",
+            "product": "Kubernetes",
+            "type": "Feature",
             "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> 보고서 선택 목록에 보고서 제품 유형을 프리픽스로 추가 및 정렬 </p>"
             },
             {

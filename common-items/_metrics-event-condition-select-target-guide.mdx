@@ -149,3 +149,277 @@ isEmpty(Key)
 ```java
 isNotEmpty(Key)
 ```
+
+## 레벨 동작 가이드 {#level-action-guide}
+
+1. **우선순위 기반 이벤트 발생**
+    
+    여러 레벨의 조건을 동시에 충족할 경우, 가장 높은 우선순위의 이벤트만 발생합니다.
+    
+    ```json title="예시"
+    설정:
+    - Warning: CPU > 70%
+    - Critical: CPU > 90%
+    
+    현재 상태: CPU 95%
+    → 결과: Critical 이벤트만 발생 (Warning은 억제됨)
+    ```
+    
+
+1. **레벨 상승**
+    
+    진행중인 이벤트에서 낮은 레벨 이벤트가 진행 중일 때 높은 레벨 조건을 충족하면, 두 레벨 모두 진행 중 상태가 됩니다.
+    
+    ```json title="예시"
+    설정:
+    - Warning: CPU > 70%
+    - Critical: CPU > 90%
+    
+    시나리오:
+    1) CPU 80% → Warning 발생 (진행 중)
+    2) CPU 95% → Warning (진행 중), Critical (진행 중)
+    ```
+    
+
+1. 레벨 하강
+    
+    진행중인 이벤트에서 높은 레벨에서 낮은 레벨로 전환되면 높은 레벨은 해소되고 낮은 레벨이 유지됩니다.
+    
+    ```json title="예시"
+    설정:
+    - Warning: CPU > 70%
+    - Critical: CPU > 90%
+    
+    시나리오:
+    1) CPU 97% → Critical 발생
+    2) CPU 85% → Critical 해소, Warning 유지
+    3) CPU 65% → Warning 해소
+    ```
+    
+
+1. **동작 흐름도**
+    
+    ```json
+    - Warning: CPU > 70%
+    - Critical: CPU > 90%
+    
+    메트릭 값: 60%  →   75%   →   92%   →   85%   →   60%
+    상태:     정상    Warning   Critical  Warning     정상
+                     (발생)     (발생)     (유지)     (해소)
+                              Warning
+                               (유지)
+    ```
+    
+:::note
+
+진행 중 상태를 갖는 이벤트는 조건이 충족되는 동안 계속 활성화 상태를 유지하며, 조건이 해제될 때까지 지속됩니다.
+
+:::
+
+## 조건 설정 가이드 {#condition-setting-guide}
+
+:::caution
+
+지표명이 숫자로 시작하거나 특수문자가 포함된 경우 `${지표명}` 형태로 작성해야 합니다.
+
+- 괄호 `()`, `[]`
+- 연산자 `+`, `-`, `*`, `/`, `%`
+- 구분자 `:`, `@`, `#`, `,`,`(공백)`
+- 기타 특수문자 `!`, `^`, `&`, `|`, `~`, ```, `=`
+
+**`${}` 사용 예시**:
+
+```dart
+${cpu(xos)} > 50
+${mem[0]} >= 100
+${cpu-usage} > 80
+${namespace:cpu} > 70
+${metric name} > 60
+${4xx_error} > 10
+```
+
+**`${}` 없이 사용 가능:** 영문자, 언더스코어(`_`), 점(`.`)만 포함된 경우
+
+```dart
+cpu > 80
+cpu_usage > 50
+CPUUtilization.Average > 0.8
+```
+
+:::
+
+1. **비교 연산자**
+    
+    ```dart title="숫자 비교"
+    크다:           cpu > 80
+    크거나 같다:     cpu >= 80
+    작다:           memory < 1000
+    작거나 같다:     memory <= 1000
+    같다:           status == 200
+    같지 않다:       error != 0
+    ```
+    
+    ```dart title="문자열 비교"
+    status == 'OK'
+    region == "us-east-1"
+    ```
+    
+
+1. **산술 연산자**
+
+    * 기본 산술 연산
+    
+    ```dart title="기본 산술 연산"
+    덧셈:    cpu + 10 >= 90
+    뺄셈:    memory - 100 >= 500
+    곱셈:    cpu * 2 >= 100
+    나눗셈:  disk / 1024 >= 100
+    나머지:  value % 10 == 0
+    ```
+
+    * 괄호를 이용한 우선순위 제어
+
+    ```dart title="괄호를 이용한 우선순위 제어"
+    (cpu + memory) * 2 >= 200
+    (disk - used) / total >= 0.2
+    ((cpu + memory) / 2) >= 50
+    ```
+
+    * 음수 표현
+    
+    ```dart  title="음수 표현"
+    cpu > -100
+    ```
+
+1. **논리 연산자**
+    
+    * AND 연산 (&&)
+    
+    ```dart
+    cpu > 80 && memory > 1000
+    ${cpu(xos)} > 50 && ${mem(xos)} > 60
+    ```
+    
+    * OR 연산 (||)
+    
+    ```dart
+    cpu > 90 || memory > 90
+    disk < 10 || network > 1000
+    ```
+    
+    * 복합 논리 연산
+    
+    ```dart
+    (cpu > 50 && memory > 50) || disk < 20
+    cpu > 80 && (memory > 1000 || disk > 500)
+    ``` 
+
+1. **패턴 매칭 연산자**
+    
+    * LIKE 연산자
+    
+    ```dart
+    oname like 'prod-*'
+    url like '*error*'
+    message like 'WARN%'
+    ```
+    
+    * NOT LIKE 연산자
+    
+    ```dart
+    oname not like 'test-*'
+    url not like '*debug*'
+    ```
+    
+2. **내장 함수**
+    
+    * Null 체크 함수
+    
+    ```dart
+    isNull(value)             # null인지 확인
+    isNotNull(value)          # null이 아닌지 확인
+    nvl(value, 0)             # null이면 기본값 반환
+    isEmpty(str)              # 빈 문자열인지 확인
+    isNotEmpty(str)           # 빈 문자열이 아닌지 확인
+    ```
+    
+    * 집계 함수
+    
+    ```dart
+    sum(cpu, memory, disk)              # 합계
+    avg(cpu, memory)                    # 평균
+    max(cpu, memory, disk)              # 최대값
+    min(cpu, memory, disk)              # 최소값
+    count(value1, value2, value3)       # 개수
+    ```
+    
+    * 수학 함수
+    
+    ```dart
+    round(cpu, 2)             # 반올림 (소수점 2자리)
+    ```
+    
+    * 문자열 함수
+    
+    ```dart
+    length(str)                # 문자열 길이
+    startsWith(str, 'prefix')  # 접두사 확인
+    endsWith(str, 'suffix')    # 접미사 확인
+    indexOf(str, 'search')     # 문자열 위치
+    substring(str, 0, 10)      # 부분 문자열
+    trim(str)                  # 공백 제거
+    replace(str, 'old', 'new') # 문자열 치환
+    hasStr(str, 'search')      # 문자열 포함 여부
+    ```
+    
+    * 조건 함수
+    
+        **if**: 조건식이 참(`true`)이면 `true값`을 반환하고, 거짓(`false`)이면 `false값`을 반환하는 조건 함수
+        
+          ```dart title="형식"
+          if(조건, true값, false값)
+          ```
+        
+          ```dart title="예시"
+          if(value >= 90, 'High', 'Medium') == 'High'
+          ```
+        
+    
+        **decode**: 값과 조건을 비교하여 일치하는 조건의 결과를 반환, 없으면 기본값 반환
+        
+        ```dart title="형식"
+        decode(값, 조건1, 결과1, 조건2, 결과2, ..., 조건N, 결과N, 기본값)
+        ```
+
+        ```dart title="예시"
+        decode(value, 1, 'Low', 2, 'Medium', 3, 'High', 'Unknown') == 'Unknown'
+        ```
+        
+    
+        **in**: 값이 지정한 후보값 중 하나와 일치하면 `true`, 아니면 `false`
+
+        ```dart title="형식"
+        in(값, 후보값1, 후보값2, ..., 후보값N)
+        ```
+        
+        ```dart  title="예시"
+        in(status, 200, 201, 204) == false
+        ```
+
+:::caution
+
+**작성 시 주의사항**
+    
+    * 권장사항
+    
+        - 간단한 변수명은 ${} 없이 사용 (예: cpu, memory)
+        - 특수문자 포함 시 반드시 ${} 사용
+        - 복잡한 연산은 괄호로 명확하게 구분
+        - 함수명은 정확히 입력 (대소문자 구분)
+    
+    * 피해야 할 사항
+    
+        - 불완전한 표현식 작성 (예: cpu >, memory &&)
+        - 괄호 미스매칭 (예: (cpu > 80, cpu > 80))
+        - 연속된 연산자 사용 (예: cpu >> 80, cpu >< 80)
+:::

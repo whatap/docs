@@ -1,0 +1,103 @@
+---
+id: service-2_23_x
+title: Service 2.23.X
+toc_max_heading_level: 2
+pagination_next: release-notes/service/service-2_22_x
+displayed_sidebar: releaseSidebar
+---
+
+## Service 2.23.0
+
+2025년 11월 26일
+
+<div class='indentTab'>
+
+### `공통`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="flexboard" className="uitext" /> 테이블 위젯에 CSV 다운로드 버튼 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="event_statistic" className="uitext" /> 메뉴명 변경
+
+    - <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> →  <Cmdname sid="event_setting" className="uitext" /> `Classis`
+
+    - <Cmdname sid="event_statistic" className="uitext" /> &gt;  <Cmdname sid="event_setting" className="uitext" /> <code class="newfunc">New</code> → <Cmdname sid="event_setting" className="uitext" /> 
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="event_statistic" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 기본과 메트릭스 탭 통합
+
+- <Status priority='1'>Changed</Status> 사용자 표시 그룹 설정 권한이 없는 경우, ‘권한 없음’ 안내 페이지를 거쳐 접근 가능한 페이지로 이동할 수 있도록 개선
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="sms_maintenance" className="uitext" /> ICMP Feature 제품도 표시 
+
+- <Status priority='0'>Fixed</Status> Agent 목록 정렬 순서 통일화(alias &gt; oname &gt; oid 순으로 정렬)
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_myUsage" className="uitext" /> &gt; <Cmdname sid="payment_information" className="uitext" /> 청구서 수신 정보의 이메일 수정이 안되는 현상 수정
+
+### `Application`
+
+- <Status priority='1'>Feature</Status> **신규 애플리케이션 토폴로지** 사이드 메뉴 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="sms_management" className="uitext" /> &gt; <Cmdname sid="agent_list" className="uitext" /> 스크롤 나타나지 않는 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="trace" className="uitext" /> &gt; **HTTPC 스텝 상세** HTTPC URL 추가
+
+### `Server`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="server_list" className="uitext" /> 필터에서 상태 칼럼값을 필터링 할 수 있도록 옵션 목록에 추가
+
+- <Status priority='1'>Feature</Status> **GPU 성능요약** 
+
+    - GPU 정보 검색 Input 추가
+
+    - 조회된 테이블 데이터 건수 표시되도록 개선 
+
+- <Status priority='1'>Feature</Status>  <Cmdname sid="product_sms" className="uitext" /> &gt; <Cmdname sid="cloud_monitoring" className="uitext" /> Azure 에이전트 설정 시 디멘전 선택할 수 있는 기능 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="serverDetail" className="uitext" /> 프로세스 테이블 CPU 차트 툴팁에 소수점 값이 표시되도록 수정, 프로세스 I/O 차트 툴팁에 단위변환 및 단위가 표시되도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="event_setting" className="uitext" /> 복합 메트릭스 “CPU User % is too high” 템플릿으로 이벤트를 추가할 때 이벤트가 발생하지 않는 현상 수정
+
+### `Cloud`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="cloud_monitoring" className="uitext" /> &gt; <Cmdname sid="sms_agent_setup" className="uitext" />  Azure 에이전트 설정 시 디멘전 선택할 수 있는 기능 추가
+
+### `Kubernetes`
+
+- <Status priority='1'>Feature</Status> 보고서 선택 목록에 보고서 제품 유형을 프리픽스로 추가 및 정렬
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="app" className="uitext" /> &gt; <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="multi_hitmap" className="uitext" /> 드래그한 OKIND에 포함되지 않은 에이전트가 목록에 보이는 현상 수정
+
+- <Status priority='0'>Fixed</Status> **서비스 네트워킹** &gt; <Cmdname sid="side_ingressList" className="uitext" /> 상세에서 일부 Pod 정보가 조회되지 않는 문제 수정
+
+### `Database`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="TTL10499" className="uitext" /> 임계치 설정 모드 UI 개선
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="statistics_sql" className="uitext" />, <Cmdname sid="side_dbTopSql" className="uitext" /> 가로 스크롤 시 SQL 문 고정되도록 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="db_parameter" className="uitext" /> 다국어 적용
+
+#### MySQL, PostgreSQL 
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> <code class="newfunc">New</code> 위젯 리스트 개선
+
+#### Oracle, Oracle Pro
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> <code class="newfunc">New</code> 세션 테이블에 병렬 쿼리 트리를 확인할 수 있는 탭 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> Wait Class 위젯 자세히 보기에서 최대 21까지 조회되도록 변경 및 조회 기간에 따라 통계 데이터를 사용하도록 변경
+
+#### Oracle Pro
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_list" className="uitext" /> 에이전트 일시정지 기능 추가
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="lock_tree" className="uitext" /> 데이터 조회 개선
+
+#### PostgreSQL
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="dbObjectInfo" className="uitext" /> Scan의 Table 테이블에 `scan_count`, `scan_ratio` 컬럼 추가
+
+### `Log`
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_logExplorer2" className="uitext" /> 쿼리 즐겨찾기가 동작하지 않는 문제
+
+</div>

@@ -122,17 +122,31 @@
 
 #### <Cmdname sid="TTL07365" className="uitext" /> {#TTL07365}
 
-알림 레벨 수준을 선택하고 알림을 발생시킬 이벤트의 임계치를 설정할 수 있습니다.
+알림 레벨을 선택하고, 알림을 발생시킬 이벤트의 임계치를 설정할 수 있습니다. **하나의 규칙에서 여러 레벨(Critical, Warning, Info)를 설정할 수 있습니다.** 효과적인 모니터링을 위해 동일한 지표에 대해 단계별 임계치를 설정하는 것을 권장합니다.
 
 <ImgLang img="metric-warning-notice-new-set-metrics.png" desc="Indicator settings" />
 
-* 알림 레벨 수준은 위험(<span className="vslow">Critical</span>)과 경고(<span className="slow">Warning</span>), 정상(<span className="info">Info</span>) 수준으로 구분합니다.
+* 알림 레벨 수준은 위험(<span className="vslow">Critical</span>)과 경고(<span className="slow">Warning</span>), 정상(<span className="info">Info</span>) 수준으로 구분합니다. 설정된 레벨은 우선순위에 따라 동작합니다. 
 
-* <Cmdname sid="metrics_rule_select" className="uitext" />: 필드 이름과 연산자를 선택하고 값을 입력해 임계치를 설정합니다. 필드 항목을 클릭하면 메트릭스 카테고리에 포함된 필드 목록을 확인할 수 있습니다.
+    :::tip
+
+    레벨 동작 방식에 대한 자세한 내용은 [레벨 동작 가이드](#level-action-guide)를 참고하세요.
+
+    :::
+
+* 선택한 카테고리에 포함된 지표를 선택한 뒤, 조건을 입력해 모니터링 기준을 설정하세요. 산술 연산, 비교 연산, 논리 연산 등을 조합해 원하는 조건식을 구성할 수 있습니다.
+
+    :::tip
+    
+    조건식 작성 방식 및 사용 가능한 연산자는 [조건 설정 가이드](#condition-setting-guide)를 참고하세요.
+
+    :::
+
+{/* * <Cmdname sid="metrics_rule_select" className="uitext" />: 필드 이름과 연산자를 선택하고 값을 입력해 임계치를 설정합니다. 필드 항목을 클릭하면 메트릭스 카테고리에 포함된 필드 목록을 확인할 수 있습니다.
 
   <Cmdname sid="add" className="uitext" />: 지표 설정을 추가할 수 있습니다. `&&`(and) 또는 `||`(or) 조건을 선택할 수 있습니다.
 
-* <Cmdname sid="metrics_rule_direct" className="uitext" />: 필드 이름과 연산자, 값을 직접 입력해 이벤트 발생 조건을 설정합니다. 이 옵션을 선택하면 입력란 아래에 입력할 수 있는 필드 정보(<Cmdname sid="metrics_event_field_button" className="uitext" />)를 제공합니다.
+* <Cmdname sid="metrics_rule_direct" className="uitext" />: 필드 이름과 연산자, 값을 직접 입력해 이벤트 발생 조건을 설정합니다. 이 옵션을 선택하면 입력란 아래에 입력할 수 있는 필드 정보(<Cmdname sid="metrics_event_field_button" className="uitext" />)를 제공합니다. 
 
 :::tip
 
@@ -142,7 +156,7 @@
 (write_time > 3000 || read_time > 3000) && io_time < 10000
 ```
 
-:::
+::: 
 
 :::note
 
@@ -158,7 +172,7 @@
 
 * <Cmdname sid="metrics_rule_select" className="uitext" />과 <Cmdname sid="metrics_rule_direct" className="uitext" /> 옵션 간 입력 방식을 변경하면 작성한 내용이 사라집니다.
 
-:::
+::: */}
 
 #### <Cmdname sid="number_of_event" className="uitext" /> {#number_of_event}
 

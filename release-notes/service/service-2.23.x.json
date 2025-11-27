@@ -1,6 +1,34 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_23_x",
+        "ver": "Service 2.23.1",
+        "date": "2025-11-27",
+        "Lists": [
+            {
+            "ver": "Service 2.23.1",
+            "hash": "service-2231",
+            "product": "Browser",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 중복 메뉴 제거</p>"
+            },
+            {
+                "ver": "Service 2.23.1",
+                "hash": "service-2231",
+                "product": "Server",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 인벤토리 맵</span> 간헐적 에러 발생 문제 수정</p>"
+            },
+            {
+                "ver": "Service 2.23.1",
+                "hash": "service-2231",
+                "product": "URL",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">이벤트 기록</span> 이벤트 설정 버튼으로 메뉴 이동 시 화이트아웃 오류 수정</p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_23_x",
         "ver": "Service 2.23.0",
         "date": "2025-11-26",
         "Lists": [

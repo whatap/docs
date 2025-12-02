@@ -1,0 +1,45 @@
+---
+id: service-2_24_x
+title: Service 2.24.X
+toc_max_heading_level: 2
+pagination_next: release-notes/service/service-2_23_x
+displayed_sidebar: releaseSidebar
+---
+
+## Service 2.24.0
+
+2025년 12월 23일
+
+<div class='indentTab'>
+
+### `Application`
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> &gt; <Cmdname sid="appDashboard" className="uitext" /> 프리셋에 저장된 에이전트 선택이 간헐적으로 적용되지 않는 현상 개선
+
+#### Python
+
+- <Status priority='1'>Feature</Status> 에이전트 설치, Windows OS 안내 추가
+
+### `Server`
+
+- <Status priority='0'>Fixed</Status> **GPU 인벤토리**, **GPU 성능요약** 테이블 헤더 너비 조절 시 정렬 아이콘이 숨겨지지 않도록 개선
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="serverDetail" className="uitext" /> `메뉴 진입 시 프로젝트에 설치된 서버가 없습니다.` 메시지가 잠깐 표시되었다 데이터가 표시되는 현상 개선
+
+### `Database`
+
+#### SQL Server
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06224" className="uitext" /> `#문자열`, `##문자열`이 임시 테이블을 칭하는 예약어이므로 바인드 값 입력받는 UI로 바뀌지 않도록 수정
+
+### `Browser`
+
+- <Status priority='1'>Feature</Status><Cmdname sid="TTL09569" className="uitext" /> &gt; <Cmdname sid="multi_transaction" className="uitext" /> 추가
+
+### `URL`
+
+- <Status priority='0'>Fixed</Status> 이벤트 수정 시 목록에 해당 내용이 업데이트되지 않는 오류 수정
+
+- <Status priority='0'>Fixed</Status> 등록된 URL 없는 경우, 데이터 없음을 표시하도록 수정
+
+</div>

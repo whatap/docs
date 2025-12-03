@@ -1,35 +1,17 @@
----
-id: install-agent
-title: 직접 설치
-description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
-keywords: [ PostgreSQL, 데이터베이스 모니터링, 에이전트 ]
----
+## 계정 생성{#uid}
 
-import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+데이터베이스 모니터링을 하기 위해 필요한 권한을 가진 계정을 생성하세요. root(admin) 계정으로 로그인해 계정을 생성하세요.
 
-와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
+:::note
 
-import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+* 권한을 가진 계정이 있다면 이 단계를 생략하고 [다음 단계](#check-accesskey)로 넘어가세요.
 
-<Agentsignupguide />
+* 예시 코드에서 `DB_User`는 DB 사용자 계정 이름입니다. 사용자가 이용하는 사용자 계정 이름으로 변경하세요.
 
-<Youtube ko='e_UpCgapfQY' en='JiQsIh6RbSA' ja='JiQsIh6RbSA' />
+* 예시 코드의 `DB_Password`에는 사용자 비밀번호를 입력하세요.
 
-import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
+:::
 
-<Createprojectv2 />
-
-{/* ## 구성도 확인 */}
-import CheckType from "../common-items/_db-install-agent-check-type.mdx";
-
-<CheckType />
-
-
-import Dbcreatemonitoringaccount from "../common-items/_db-create-postgre-account.mdx";
-
-<Dbcreatemonitoringaccount />
-
-<<<<<<< HEAD
 기능 및 사용 환경에 따라 추가 권한을 부여하세요.
 
 * **PostgreSQL 10 버전 이상**
@@ -91,61 +73,3 @@ import Dbcreatemonitoringaccount from "../common-items/_db-create-postgre-accoun
 </div>
 
 </details>
-
-=======
-{/* 액세스 키 확인 */}
->>>>>>> db@SERVICE-2965
-import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
-
-<Accesskeyv2 />
-
-{/* DBX 에이전트 다운로드 */}
-import DownloadDBXagent from "../common-items/_db-download-dbx-agent.mdx";
-
-<DownloadDBXagent />
-
-{/* ## DBX 에이전트 설정 */}
-import SettingsDBXagent from "../common-items/_db-settings-dbx-agent.mdx";
-
-<SettingsDBXagent />
-
-{/* ### whatap.conf 설정 */}
-import Whatapconf from "../common-items/_db-whatap-conf.mdx";
-
-<Whatapconf />
-
-```ini title='whatap.conf'
-license={AccessKey}
-whatap.server.host=13.124.11.223/13.209.172.35 # WhaTap server information
-dbms=postgresql
-db=postgres
-db_ip={DB_Server_IP}
-db_port={DB_Server_Port} 
-```
-
-{/* ### JDBC 다운로드 */}
-import JDBCDownload from "../common-items/_db-download-jdbc-driver.mdx";
-
-<JDBCDownload />
-
-{/* ### DB 유저 파일 생성 {#create-db-user} */}
-
-<DBuserDesc level={3} />
-
-import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
-
-<Dbcreatedbuserfilebody /> 
-
-{/*모니터링 시작하기*/}
-import Dbrunagent from "../common-items/_db-run-agent.mdx";
-
-<Dbrunagent />
-
-{/*XOS 에이전트 설치*/}
-import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
-
-<Dbinstallxosagent /> 
-
-import NextStep from "../common-items/_db-next-step.mdx";
-
-<NextStep />

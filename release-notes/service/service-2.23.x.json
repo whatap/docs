@@ -12,6 +12,13 @@
         "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">SQL 상세</span> 창에서 임시 테이블 예약어(<code>#문자열</code>, <code>##문자열</code>)가 바인드 값 입력받는 UI로 바뀌지 않도록 수정</p>"
         },
         {
+          "ver": "Service 2.23.3",
+          "hash": "service-2233",
+          "product": "Kubernetes",
+          "type": "Changed",
+          "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">GPU</span> &gt; <span class=\"uitext\">GPU 트렌드</span> 필터 값에 <code>*</code> 문자가 포함되는 경우 프리셋에 값이 올바르게 저장되지 않는 문제 수정</p>"
+        },
+        {
           "ver": "Service 2.23.4",
           "hash": "service-2234",
           "product": "Network",

@@ -11,6 +11,7 @@ import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
 import CheckType from "../common-items/_db-install-agent-check-type.mdx";
 import Dbcreatemonitoringaccount from "../common-items/_db-create-postgre-account.mdx";
 import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
+import RunDocker from "../common-items/_db-install-docker.mdx";
 
 
 Docker 컨테이너를 이용한 와탭 데이터베이스 모니터링 에이전트 설치 방법을 안내합니다.
@@ -43,50 +44,4 @@ MySQL, PostgreSQL, SQL Server
 
 <Accesskeyv2 />
 
-## 에이전트 실행
-
-다음 명령어를 실행하여 Docker 컨테이너로 와탭 데이터베이스 모니터링 에이전트를 실행합니다.
-```bash
-docker run -d --name whatap-db-agent \
--e WHATAP_CONF="
-license=x6051ro88nrc9-x4hmr76jvvlfnq-z52cnv1dfa8n5c 
-whatap.server.host=13.124.11.223/13.209.172.35
-dbms=mysql
-db_ip=10.0.0.1
-db_port=3306 
-connect_option=?useSSL=true&verifyServerCertificate=false&serverTimezone=SERVER_TIMEZONE" \
--e DB_USERNAME=mydbuser \
--e DB_PASSWORD=mypassword \
-whatap/db-agent:latest
-```
-
-### 설정 항목
-
-#### 필수 설정
-
-* `license`: 프로젝트 액세스 키
-* `whatap.server.host`: 와탭 수집 서버 IP (13.124.11.223/13.209.172.35)
-* `dbms`: 데이터베이스 유형 (mysql, postgresql, mssql)
-* `db_ip`: 데이터베이스 서버 IP 주소
-* `db_port`: 데이터베이스 서버 포트 번호
-* `DB_USERNAME`: 데이터베이스 계정 ID
-* `DB_PASSWORD`: 데이터베이스 계정 비밀번호
-
-#### 선택 설정
-
-* `connect_option`: 데이터베이스 연결 옵션
-  * `useSSL=true&verifyServerCertificate=false`: SSL을 사용하여 데이터베이스에 연결하는 경우
-  * `serverTimezone=SERVER_TIMEZONE`: JDBC 드라이버 접속 시 서버 타임존 설정이 필요한 경우
-
-:::note
-
-위 명령어의 설정 값을 실제 환경에 맞게 수정하세요.
-
-:::
-
-## 에이전트 동작 확인
-
-다음 명령어로 에이전트가 정상적으로 동작하는지 확인합니다.
-```bash
-docker logs -f whatap-db-agent
-```
+<RunDocker />

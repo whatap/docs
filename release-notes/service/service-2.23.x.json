@@ -1,12 +1,61 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_23_x",
-        "ver": "Service 2.23.2",
-        "date": "2025-12-2",
+        "ver": "Service 2.23.3",
+        "date": "2025-12-04",
         "Lists": [
-            {
+          {
             "ver": "Service 2.23.3",
             "hash": "service-2233",
+            "product": "Kubernetes",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">워크로드</span> &gt; <span class=\"uitext\">Pod 목록</span> Job, CronJob 컬럼 추가</p>"
+          },
+          {
+            "ver": "Service 2.23.3",
+            "hash": "service-2233",
+            "product": "Kubernetes",
+            "type": "Feature",
+            "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU</span> &gt; <span class=\"uitext\">GPU 트렌드</span> 최소, 평균, 최대 선택 옵션 추가</p>"
+          },
+          {
+            "ver": "Service 2.23.3",
+            "hash": "service-2233",
+            "product": "Kubernetes",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">GPU</span> &gt; <span class=\"uitext\">GPU 트렌드</span> 라벨이 항상 표시되도록 수정</p>"
+          },
+          {
+            "ver": "Service 2.23.3",
+            "hash": "service-2233",
+            "product": "Kubernetes",
+            "type": "Changed",
+            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">컨테이너</span> Out Of Memory Container 상세의 Pod Memory Working Set By Limit 차트 유형을 스택에서 멀티라인으로 변경</p>"
+          },
+          {
+            "ver": "Service 2.23.3",
+            "hash": "service-2233",
+            "product": "Kubernetes",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">컨테이너 맵</span> 상세의 리소스 관계 스크롤이 특정 브라우저에서 깜빡이는 문제 수정</p>"
+          },
+          {
+            "ver": "Service 2.23.3",
+            "hash": "service-2233",
+            "product": "OpenMetrics",
+            "type": "Fixed",
+            "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 액세스 키 미발급 상태에서 <span class=\"uitext\">Istio 템플릿</span> 진입 시 발생하던 알 수 없는 오류 수정</p>"
+          }
+        ]
+      },      
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_23_x",
+        "ver": "Service 2.23.2",
+        "date": "2025-12-02",
+        "Lists": [
+            {
+            "ver": "Service 2.23.2",
+            "hash": "service-2232",
             "product": "Kubernetes",
             "type": "Fixed",
             "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">이벤트 설정</span> &gt; <span class=\"uitext\">트랜잭션 </span> 추가/수정 페이지 접근 불가 수정</p>"

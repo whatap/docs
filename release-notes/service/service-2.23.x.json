@@ -4,6 +4,13 @@
     "ver": "Service 2.23.5",
     "date": "2025-12-05",
     "Lists": [
+      {
+        "ver": "Service 2.23.5",
+        "hash": "service-2235",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">로그 검색</span> 초 단위 검색 시 검색 후 초가 사라지는 현상 수정</p>"
+        },
         {
         "ver": "Service 2.23.5",
         "hash": "service-2235",

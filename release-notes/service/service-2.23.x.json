@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_23_x",
+    "ver": "Service 2.23.8",
+    "date": "2025-12-09",
+    "Lists": [
+      {
+        "ver": "Service 2.23.8",
+        "hash": "service-2238",
+        "product": "Kubernetes",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">워크로드</span> &gt; <span class=\"uitext\">Pod 목록</span> MIG 인스턴스 GPU 성능 지표 조회되지 않는 문제 수정</p>"
+        }
+    ]
+},
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_23_x",
     "ver": "Service 2.23.7",
     "date": "2025-12-08",
     "Lists": [

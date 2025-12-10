@@ -1,0 +1,123 @@
+---
+id: index
+title: 이벤트 설정
+description: 애플리케이션의 자원 사용량 및, 진행 중 트랜잭션, 에러 상황의 이벤트 조건을 통해 경고 알림을 보냅니다.
+keywords: [ 경고 알림, 이벤트 설정 ]
+---
+
+> 홈 화면 &gt; 프로젝트 선택 &gt; ![알림 아이콘](/img/ic-alert.svg) <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> 
+
+<Cmdname sid="event_configuration" className="uitext" />에서 모니터링 대상 시스템 또는 애플리케이션에서 발생할 수 있는 이상 징후를 기준으로 이벤트를 설정하고 관리하는 기능을 제공합니다. 설정된 조건이 충족되면 이메일, SMS, 메신저, 앱 푸시 등 원하는 채널로 알림을 받을 수 있습니다. 모니터링 목적에 따라 이벤트를 구성할 수 있습니다. 
+
+## 이벤트 유형 {#event-types}
+
+<DocCardList/>
+
+:::note
+
+**참고**
+
+- 이벤트 조건은 과도하게 민감하지 않도록 조정하여, 불필요한 알림 발생을 방지하세요.
+
+- 알림 설정 시 해소 알림(문제 해결 시 알림) 여부도 함께 고려하면 운영 대응에 도움됩니다.
+
+:::
+
+## 공통 기능 {#common-features}
+
+모든 이벤트 설정을 **JSON 또는 Excel 형식으로 다운로드**할 수 있습니다. 같은 유형의 제품 설정을 공유하면 반복되는 이벤트 설정 작업을 줄일 수 있습니다.
+
+- **JSON 일괄 수정**: 모든 이벤트 조건을 JSON 형식으로 일괄 수정할 수 있습니다.
+
+- **JSON 일괄 다운로드**: 현재 등록된 이벤트 조건을 JSON 파일로 저장할 수 있습니다.
+
+- **Excel 일괄 다운로드**: 이벤트 목록을 Excel 파일로 내려받아 외부 보고나 백업에 활용할 수 있습니다.
+
+### JSON 일괄 수정 {#json-batch-edit}
+
+1. 화면 상단의 [ JSON 일괄 수정 ] 버튼을 클릭하세요.
+
+1. **JSON 일괄 다운로드** 기능을 통해 다운로드 받은 JSON 파일을 가져오거나 직접 수정하세요.
+
+1. [ 덮어쓰기 ] 버튼을 클릭해 저장합니다. 
+
+1. 확인 메시지가 나타나면 [ 덮어쓰기 ] 버튼을 클릭하세요.
+
+:::caution
+
+**덮어쓰기 후 이전의 이벤트 설정으로 복구할 수 없습니다.**
+
+- `productType` 또는 `platform` 속성의 값을 임의로 수정하면 다른 프로젝트에서 이벤트가 정상 동작하지 않을 수 있습니다.
+
+- JSON 편집창은 JSON 검증(Validation) 기능이 내장되어 있습니다. 형식이나 값이 올바르지 않은 경우, 편집창 아래에 오류 메시지가 표시되며 [ 덮어쓰기 ] 버튼은 비활성화됩니다.
+
+    <ImgLang img='event-config-v2-all-events-json-validate.png' />
+
+:::
+
+<details>
+
+<summary>**JSON 데이터 구조**</summary>
+
+```integrated-event
+{
+  "productType": "{productType}",
+  "platform": "{platform}",
+  "events": {
+    "HITMAP": {
+      ...
+    },
+    "LOG_REALTIME": [
+      {...}
+    ],
+    "METRICS": [
+      {...}
+    ],
+    "COMPOSITE_LOG": [
+      {...}
+    ],
+    "BASIC": [
+      {...}
+    ],
+    "COMPOSITE_METRICS": [
+      {...}
+    ],
+    "ANOMALY": [
+      {...}
+    ]
+  }
+}
+```
+
+| JSON 필드 | 설명 |
+| --- | --- |
+| productType | 제품 타입(예: APM, Infra 등) |
+| platform | 플랫폼 정보(예: java, node 등) |
+| events | 이벤트 데이터 |
+| ㄴ HITMAP | 히트맵 패턴 |
+| ㄴ LOG_REALTIME | 실시간 로그 이벤트 |
+| ㄴ METRICS | 메트릭스 |
+| ㄴ COMPOSITE_LOG | 복합 로그 이벤트 |
+| ㄴ BASIC | 기본 이벤트 |
+| ㄴ COMPOSITE_METRICS | 복합 메트릭스 |
+| ㄴ ANOMALY | 이상치 탐지 |
+
+</details>
+
+### JSON 일괄 다운로드 {#json-batch-download}
+
+화면 상단의 [ JSON 일괄 다운로드 ] 버튼을 클릭하세요.
+
+- JSON 파일 이름은 *integrated-event-`YYYYMMDD`.json* 형식입니다.
+
+- JSON 데이터의 구조와 `events` 속성의 하위 속성은 제품(`platform`) 또는 제품 유형(`productType`)에 따라 다를 수 있습니다.
+
+:::caution
+
+JSON 데이터의 속성 중 `productType` 또는 `platform` 속성의 값을 임의로 수정하면 다른 프로젝트에서 이벤트가 동작하지 않을 수 있습니다.
+
+:::
+
+### Excel 일괄 다운로드 {#excel-bulk-download}
+
+화면 상단의 [ Excel 일괄 다운로드 ] 버튼을 클릭하세요.

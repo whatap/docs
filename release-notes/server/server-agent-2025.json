@@ -1,5 +1,46 @@
 [
   {
+    "ver": "v2.9.6",
+    "date": "2025-11-26",
+    "Lists": [
+      {
+        "ver": "v2.9.6",
+        "hash": "v296",
+        "product": "Server Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> GPU Utilization 지표 추가</p>"
+      },
+      {
+        "ver": "v2.9.6",
+        "hash": "v296",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> GPU dxgm-exporter hang 걸리는 경우 호출 빈도 조정되도록 수정</p>"
+      },
+      {
+        "ver": "v2.9.6",
+        "hash": "v296",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> GPU Driver R440인경우 지표 수집 안되는 케이스 수정</p>"
+      },
+      {
+        "ver": "v2.9.6",
+        "hash": "v296",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> GPU MIG 환경에서 Inventory 정보 수집 timeout 걸리는 케이스 개선</p>"
+      },
+      {
+        "ver": "v2.9.6",
+        "hash": "v296",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> GPU MIG 환경에서 dcgm-exporter 사용시 Physical GPU 지표 수집 안되는 케이스 수정</p>"
+      }
+    ]
+  },
+  {
     "ver": "v2.9.5",
     "date": "2025-10-30",
     "Lists": [

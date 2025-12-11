@@ -1,0 +1,124 @@
+메트릭스 이벤트 설정을 JSON 파일로 저장해 다른 사용자와 설정을 공유하거나 다른 사용자의 설정을 가져올 수 있습니다.
+
+- JSON 파일명: *event-rules-`YYYYMMDD`.json*  
+
+<br />
+
+**내보내기**
+
+1. 화면 오른쪽 위에 [ **JSON** ![내보내기 아이콘](/img/ico-export.svg) ] 버튼을 클릭하세요. 
+2. JSON 편집 창이 나타나면 [ ![내보내기 아이콘](/img/ico-export.svg) 내보내기 ] 버튼을 클릭하세요.
+    - 이벤트를 검색 후 내보내기 기능을 이용하면 검색한 목록만 JSON 파일로 다운받을 수 있습니다.
+3. JSON 파일이 다운로드되면 공유할 다른 사용자에게 전달하세요.
+
+**가져오기**
+
+1. 화면 오른쪽 위에 [ ![가져오기 아이콘](/img/ico-import.svg) ] 버튼을 선택하세요.
+2. **내보내기** 기능을 통해 다운로드한 JSON 파일을 선택하세요.
+3. JSON 편집 창이 나타나면 [ 목록에 추가하기 ] 또는 [ 덮어쓰기 ] 버튼을 선택하세요.
+
+:::caution
+
+같은 종류의 제품 간에 이용할 것을 권장합니다. 다른 제품의 프로젝트로부터 이벤트 설정을 가져올 수는 있지만 정상 작동하지 않습니다.
+
+:::
+
+:::note
+
+**이벤트에 id가 존재합니다. id를 제거한 뒤 다시 시도하세요.**
+
+- 해당 메시지가 나타나면 **JSON 가져오기** 창에서 `id`를 삭제한 후, [ + 목록에 추가하기 ] 버튼을 선택하세요.
+
+- 기존의 이벤트 항목에 덮어쓰기를 하려면 `id`를 삭제한 후, [ 덮어쓰기 ]버튼을 선택하세요.
+
+:::
+
+#### Json 형식으로 수정하기 {#json-format-edit}
+
+1. 화면 오른쪽 위에 [ **JSON** ![내보내기 아이콘](/img/ico-export.svg) ] 버튼을 클릭하세요.
+
+1. 편집 창이 나타나면 JSON 형식에 맞춰 내용을 수정하세요.
+
+1. 수정을 완료하면 화면 아래 [ 저장 ] 버튼을 선택하세요.
+
+:::note
+
+수정한 내용이 JSON 형식에 맞지 않으면 화면 아래에 에러 메시지가 표시되며, 저장할 수 없습니다. 표시되는 에러 메시지는 형식에 따라 다를 수 있습니다.
+
+<ImgLang img='event-config-v2-json-error.png' desc='JSON error' />
+
+:::
+
+```json title="JSON 데이터 구조"
+{
+    "version": 2,
+    "eventId": "zcef7s7f27rum1",
+    "enabled": true,
+    "stateful": false,
+    "title": "Active Transaction",
+    "message": "Active Transaction = ${active_tx_count}",
+    "category": "app_counter",
+    "alertLabel": [
+      "oid"
+    ],
+    "repeatCount": 1,
+    "repeatDuration": 0,
+    "silent": 300000,
+    "receiver": [],
+    "timeTag": [],
+    "selectString": "",
+    "conditions": [
+      {
+        "level": 20,
+        "enabled": true,
+        "rule": "active_tx_count > 100"
+      }
+    ],
+    "createTime": 1763632674345,
+    "lastModifiedTime": 1763632674347,
+    "lastModifiedUser": "support@whatap.io",
+    "basic": true,
+    "metaId": "java004",
+    "selectCondition": {
+	    "oid": [
+	       "-1010758404",
+	       "-250906941"
+	    ]
+    }
+  }
+```
+
+<div class="table-title">표 | JSON 데이터 구조</div>
+
+| JSON 필드 | 타입 | 설명 | 비고 |
+| --- | --- | --- | --- |
+| version | Integer | 이벤트 규칙의 버전 | 변경 제한 |
+| eventId | String | 이벤트 규칙의 고유 식별자 |  |
+| enabled | boolean | 이벤트 활성화 여부 |  |
+| stateful | boolean | 상태 기반 이벤트 여부 |  |
+| title | String | 사용자가 설정한 이벤트 규칙 이름 |  |
+| message | String | 사용자가 설정한 이벤트 규칙 메시지 |  |
+| category | String | 데이터 카테고리 |  |
+| alertLabel | `List<String>` | 이벤트의 상태 관리를 위해 카테고리마다 지정되는 기본 식별자(primary key) 값 | 변경 제한 |
+| repeatCount | Integer | 반복 횟수 |  |
+| repeatDuration | Long | 반복 기간 |  |
+| silent | Integer | 일시 중지 시간 |  |
+| receiver | `List<String>` | 수신자 태그의 키값 목록 |  |
+| timeTag | `List<String>` | 동작시간 태그의 키값 목록 |  |
+| selectString | String | 대상 선택 |  |
+| conditions | `List<Object>` | 레벨별 발생 조건 목록 |  |
+|    ㄴ level | byte | 레벨 값 | `Critical`: 30 `Warning`: 20 `Info`: 10 |
+|    ㄴ enabled | boolean | 레벨 활성화 여부 |  |
+|    ㄴ rule | String | 레벨 발생 조건 |  |
+| createTime | Long | 이벤트 규칙 최초 생성 시간 |  |
+| lastModifiedTime | Long | 이벤트 규칙 마지막 수정 시간 |  |
+| lastModifiedUser | String | 이벤트 규칙 마지막 수정 계정 |  |
+| basic | boolean | 빠른 설정으로 생성한 이벤트 여부 | 변경 제한 |
+| metaId | String | 빠른 설정 템플릿 고유 식별자 | 변경 제한: 이 값은 빠른 설정으로 생성한 이벤트에만 존재합니다. (basic=true) |
+| selectCondition | Object | 빠른 설정 대상 선택값 | 이 값은 빠른 설정으로 생성한 이벤트에만 존재합니다. (basic=true) |
+
+:::caution
+
+‘변경 제한’으로 표시된 필드는 이벤트 동작에 영향을 줄 수 있으므로 값을 변경하지 않는 것을 권장합니다.
+
+:::

@@ -1,6 +1,7 @@
 <section>
 
-<Xclude product="oracle-pro,cubrid,mssql,sapase">
+
+<Xclude product="oracle-pro,cubrid,mssql,sapase,mongodb">
 
 <Tabs groupId='os'>
 
@@ -75,7 +76,6 @@ uid.bat "DB_USER" "DB_PASSWORD"
 </InDoc>
 
 <InDoc product="cubrid">
-
 CUBRID 환경에서 유저 파일은 사용자 DB(`dba`)와 CUBRID Manager(`admin`)를 대상으로 모두 실행해야 합니다.
 
 <Tabs groupId='os'>
@@ -172,6 +172,72 @@ uid.bat "DB_USER" "DB_PASSWORD"
 
 </InDoc>
 
+<InDoc product="mongodb">
+
+<Tabs>
+<TabItem value="linux" label="Linux">
+```bash
+./uid.sh {DB_USER} {DB_PASSWORD}
+```
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+```batch
+uid.bat {DB_USER} {DB_PASSWORD}
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+
+* 최초 한번만 설정하면 그 이후부터는 암호화된 UID를 통해 모니터링 대상 데이터베이스 서버로부터 데이터 수집을 진행합니다.
+* DB 유저 파일을 생성하기 위해서는 프로젝트 액세스 키가 *whatap.conf* 파일에 입력되어 있어야 합니다. [액세스 키 확인](#)
+
+:::
+
+### 특수문자 포함 시 처리 방법
+
+MongoDB 환경에서 `DB_USER` 또는 `DB_PASSWORD`에 특수문자가 포함된 경우, 다음 순서로 처리해야 합니다.
+
+#### 1단계: 퍼센트 인코딩 적용 (필수)
+
+MongoDB는 특수문자가 포함된 경우 <b>퍼센트 인코딩(Percent Encoding)</b>을 먼저 적용해야 합니다.
+
+**예시**
+
+* 원본 비밀번호: `whatap@#`
+* 퍼센트 인코딩 적용 후: `whatap%40%23`
+
+:::tip
+
+퍼센트 인코딩 규칙에 대한 자세한 내용은 [MongoDB Connection String URI Format](https://www.mongodb.com/docs/manual/reference/connection-string/) 공식 문서를 참고하세요.
+
+:::
+
+#### 2단계: Escape 문자 적용 (필요 시)
+
+퍼센트 인코딩 적용 후에도 Shell에서 해석되는 특수문자(`!`, `\`, `$` 등)가 포함된 경우, Escape 문자(`\`)를 추가로 적용해야 합니다.
+
+**예시**
+```bash
+# 기본 사용
+./uid.sh whatap whatap%40%23
+
+# Shell 해석 문제 발생 시
+./uid.sh whatap whatap\%40\%23
+```
+
+:::warning 중요
+
+* MongoDB는 특수문자 포함 시 **퍼센트 인코딩이 우선**입니다.
+* 적용 순서: **퍼센트 인코딩** → **필요 시 Escape 문자**
+* 퍼센트 인코딩을 적용하지 않으면 UID 생성은 되어도 실제 DB 접속이 실패할 수 있습니다.
+
+:::
+
+</InDoc>
+
 <InDoc product="oracle,oracle-v1,tibero,cubrid,cubrid-v1,mssql,mssql-v1,mysql,altibase,altibase-v1,postgresql">
 
 {/* 디폴트 플랜 조회하기 */}
@@ -183,7 +249,7 @@ import CheckDefaultPlan from '../common-items/_import_db-check-default-plan.mdx'
 </InDoc>
 
 <InDoc product="sapase">
-
+InDoc product="sapase
 <Tabs groupId='os'>
 
 <TabItem value="linux" label="Linux" default>
@@ -231,5 +297,6 @@ uid.bat "LOGIN" "PASSWORD"
 </Tabs>
 
 </InDoc>
+
 
 </section>

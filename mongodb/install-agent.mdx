@@ -5,27 +5,30 @@ description: 와탭 데이터베이스 모니터링 서비스 이용을 위한 �
 keywords: [ MongoDB, 데이터베이스 모니터링, 에이전트 ]
 ---
 
+import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
+import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
+import Accesskey from "../getting-started/_accesskey.mdx";
+import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
+import Dbinstallagentcommonnotes from "../common-items/_db-install-agent-common-notes.mdx";
+import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
 import DBuserDesc from '../common-items/_import_db-create-db-user-desc.mdx';
+import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
+import Dbrunagent from "../common-items/_db-run-agent.mdx";
+import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
+import NextStep from "../common-items/_db-next-step.mdx";
+
 
 와탭 데이터베이스 모니터링 서비스 이용을 위한 기본 설치 방법을 안내합니다.
-
-import Agentsignupguide from "../common-items/_agent-signup-guide.mdx";
 
 <Agentsignupguide />   
 
 <Youtube ko='e_UpCgapfQY' en='JiQsIh6RbSA' ja='JiQsIh6RbSA' />
 
-import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
-
 <Createprojectv2 />
-
-import Accesskey from "../getting-started/_accesskey.mdx";
 
 <Accesskey />
 
 ## 와탭 데이터베이스 에이전트 다운로드
-
-import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
 
 <Dbinstallagentsteps /> 
 
@@ -47,14 +50,10 @@ import Dbinstallagentsteps from "../common-items/_db-install-agent-steps.mdx";
 
     **MongoDB JDBC Drivers**: https://github.com/mongodb/mongo-jdbc-driver
 
-import Dbinstallagentcommonnotes from "../common-items/_db-install-agent-common-notes.mdx";
 
 <Dbinstallagentcommonnotes />
 
-import Dbcreatemonitoringaccount from "../common-items/_db-create-monitoring-account.mdx";
-
 <Dbcreatemonitoringaccount />
-
 
 ```javascript
 db.createUser(
@@ -68,28 +67,12 @@ db.createUser(
 )
 ```
 
-:::note
-
-* `user`와 `pwd` 값에 특수 문자를 포함하면 퍼센트 인코딩(percent encoding)을 적용해 변환해야 합니다. 예를 들어, 패스워드가 `whatap@#`이면 `whatap%40%23`으로 변환해 입력해야 합니다. 자세한 내용은 [다음 링크](https://www.mongodb.com/docs/manual/reference/connection-string/#connection-string-components-1)를 참조하세요.
-
-* MongoDB 환경의 계정 생성에 대한 자세한 내용은 [다음 링크](https://www.mongodb.com/docs/manual/reference/method/db.createUser/)를 참조하세요.
-
-:::
-
 <DBuserDesc level={2} />
-
-import Dbcreatedbuserfilebody from "../common-items/_db-create-db-user-file-body.mdx";
 
 <Dbcreatedbuserfilebody /> 
 
-import Dbrunagent from "../common-items/_db-run-agent.mdx";
-
 <Dbrunagent /> 
 
-import Dbinstallxosagent from "../common-items/_db-install-xos-agent.mdx";
-
 <Dbinstallxosagent /> 
-
-import NextStep from "../common-items/_db-next-step.mdx";
 
 <NextStep />

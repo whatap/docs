@@ -29,14 +29,14 @@ toc_max_heading_level: 4
 | 항목 | 설명 |
 | --- | --- |
 | No. | 이벤트의 순번 |
-| ![토글 비활성화 아이콘](/img/ic-toggle-off.svg) | 이벤트의 활성화 여부 <br /> – 활성화: 조건을 충족하면 이벤트 알림 전송 켜기 <br /> – 비활성화: 이벤트 알림 전송 끄기 |
+| ![토글 비활성화 아이콘](/img/ic-toggle-off.svg) | 이벤트의 활성화 여부 <br /> – 활성화: 조건을 충족하면 이벤트 발생 <br /> – 비활성화: 이벤트가 동작하지 않으며, 조건을 검사하지 않음 |
 | ![수정 아이콘](/img/ic-edit.svg) | 이벤트 설정 편집 및 삭제 |
 | 이벤트 이름 | 사용자가 지정한 이벤트명 |
 | 규칙 | 이벤트 발생 조건 |
 | 대상 | 이벤트가 적용되는 모니터링 대상 |
 | 발생 횟수 | 알림 발생 기준이 되는 기간과 횟수 <br /> – 선택한 시간 동안 설정한 이벤트가 입력 횟수만큼 발생하면 알림 |
 | 일시 중지 | 이벤트 알림 발생 후, 같은 이벤트 알림을 일정 시간 동안 멈춤 <br /> – 선택 가능 시간: 사용 안 함, 5분, 10분, 15분, 20분, 30분, 1시간, 2시간, 3시간, 6시간, 12시간, 1일 <br /> – 해소된 알림이 활성화된 경우, 정상(RECOVERED) 상태 알림을 받은 후 선택한 시간 동안 같은 이벤트가 발생해도 알림이 발생하지 않음 |
-| 해소된 알림 | <span className="vslow">Critical</span>과 <span className="slow">Warning</span> 레벨의 이벤트가 해소되면 정상(RECOVERED) 상태의 알림 수신 여부 <br /> – 활성화: 진행 중 → 정상 상태로 전환되면 RECOVERED 알림을 보내고, 이벤트 기록에서 진행 중/해소 상태를 구분해 볼 수 있음 <br />– 비활성화: 해소 알림 미전송 |
+| 해소된 알림 | <span className="vslow">Critical</span>과 <span className="slow">Warning</span> 레벨의 이벤트가 해소되면 정상(RECOVERED) 상태의 알림 수신 여부 <br /> – 활성화: 진행 중 → 정상 상태로 전환되면 RECOVERED 알림을 보내고, 이벤트 기록에서 진행 중/해소 상태를 구분해 볼 수 있음 <br />– 비활성화: 임계값을 초과할 때 마다 단발성 알림 발생 |
 | 이벤트 수신 | 해당 이벤트 알림을 받을 사용자 또는 그룹(수신 태그) |
 
 ## 이벤트 설정 {#event-configuration}
@@ -82,16 +82,16 @@ toc_max_heading_level: 4
     - 카테고리 목록은 카테고리 이름, 데이터 수집 주기, 키를 확인할 수 있습니다. 최근 3시간 동안 프로젝트에서 수집된 메트릭스 데이터가 표시됩니다.
     
 1. 목록에 없는 지표를 사용하려면 **직접 입력하기**를 선택하여 카테고리를 직접 입력하세요. 
-
-    - 검색 결과에서 필요한 메트릭스의 [ 선택 ] 버튼을 클릭하면, 선택한 값이 이벤트 설정 화면에 자동 반영됩니다.
     
     :::note
     
     **카테고리와 지표를 모르는 경우 메트릭스 검색기를 활용하세요.**
     
-    - 처음 지표를 설정하는 경우 메트릭스 검색기를 활용하면 더 빠르게 지표를 찾을 수 있습니다.
-
+    처음 지표를 설정하는 경우 메트릭스 검색기를 활용하면 더 빠르게 지표를 찾을 수 있습니다. 
+    
     - 메트릭스 검색기에서 원하는 지표를 검색하면 관련 카테고리와 상세 정보를 확인할 수 있습니다.
+
+    - 검색 결과에서 필요한 메트릭스의 [ 선택 ] 버튼을 클릭하면, 선택한 값이 이벤트 설정 화면에 자동 반영됩니다.
     
         <ImgLang img='metrics-finder.png' />
     
@@ -114,8 +114,8 @@ toc_max_heading_level: 4
 1. 선택한 이벤트 레벨의 필드, 연산자, 값을 입력하세요.
 
     a. **+ 추가**를 클릭해 조건을 추가할 수 있습니다. 
-        - `&&` 또는 `and`: **모든 조건을 동시에 만족**해야 이벤트 발생
-        - `||` 또는 `or`: **하나 이상의 조건만 만족**하면 이벤트 발생
+        - `&&`: **모든 조건을 동시에 만족**해야 이벤트 발생
+        - `||`: **하나 이상의 조건만 만족**하면 이벤트 발생
 
     b. **—** 를 클릭하면 해당 조건이 삭제됩니다. 
     
@@ -168,7 +168,7 @@ toc_max_heading_level: 4
 
     - ![토글 활성화 아이콘](/img/ic-toggle-on.svg) **활성화**: 이벤트는 상태 기반으로 동작하며, 임계치 초과 시 진행중, 임계치 이하로 복구 시 해소 상태로 전환됨
 
-    - ![토글 비활성화 아이콘](/img/ic-toggle-off.svg) **비활성화**: 임계치 초과할 때 마다 단발성 알림 발생
+    - ![토글 비활성화 아이콘](/img/ic-toggle-off.svg) **비활성화**: 임계값을 초과할 때 마다 단발성 알림 발생
 
 ##### 이벤트 동작 시간 {#event-operation-time}
 
@@ -331,7 +331,7 @@ toc_max_heading_level: 4
     <Tabs groupId="event-reception">
     <TabItem value="Selector" label="전체 수신">
 
-    프로젝트의 전체 멤버에게 알림을 전송합니다.
+    프로젝트에서 이벤트 수신 설정이 활성화된 모든 대상(멤버, 채널)에게 알림을 전송합니다.
 
     </TabItem>
     <TabItem value="Typing" label="태그 선택 수신">
@@ -371,6 +371,80 @@ toc_max_heading_level: 4
 import Alerteventsharing from "../../common-items/_alert-event-sharing.mdx";
 
 <Alerteventsharing />
+
+```json title="JSON 데이터 구조"
+{
+    "version": 2,
+    "eventId": "zcef7s7f27rum1",
+    "enabled": true,
+    "stateful": false,
+    "title": "Active Transaction",
+    "message": "Active Transaction = ${active_tx_count}",
+    "category": "app_counter",
+    "alertLabel": [
+      "oid"
+    ],
+    "repeatCount": 1,
+    "repeatDuration": 0,
+    "silent": 300000,
+    "receiver": [],
+    "timeTag": [],
+    "selectString": "",
+    "conditions": [
+      {
+        "level": 20,
+        "enabled": true,
+        "rule": "active_tx_count > 100"
+      }
+    ],
+    "createTime": 1763632674345,
+    "lastModifiedTime": 1763632674347,
+    "lastModifiedUser": "support@whatap.io",
+    "basic": true,
+    "metaId": "java004",
+    "selectCondition": {
+	    "oid": [
+	       "-1010758404",
+	       "-250906941"
+	    ]
+    }
+  }
+```
+
+<div class="table-title">표 | JSON 데이터 구조</div>
+
+| JSON 필드 | 타입 | 설명 | 비고 |
+| --- | --- | --- | --- |
+| version | Integer | 이벤트 규칙의 버전 | 변경 제한 |
+| eventId | String | 이벤트 규칙의 고유 식별자 |  |
+| enabled | boolean | 이벤트 활성화 여부 |  |
+| stateful | boolean | 상태 기반 이벤트 여부 |  |
+| title | String | 사용자가 설정한 이벤트 규칙 이름 |  |
+| message | String | 사용자가 설정한 이벤트 규칙 메시지 |  |
+| category | String | 데이터 카테고리 |  |
+| alertLabel | `List<String>` | 이벤트의 상태 관리를 위해 카테고리마다 지정되는 기본 식별자(primary key) 값 | 변경 제한 |
+| repeatCount | Integer | 반복 횟수 |  |
+| repeatDuration | Long | 반복 기간 |  |
+| silent | Integer | 일시 중지 시간 |  |
+| receiver | `List<String>` | 수신자 태그의 키값 목록 |  |
+| timeTag | `List<String>` | 동작시간 태그의 키값 목록 |  |
+| selectString | String | 대상 선택 |  |
+| conditions | `List<Object>` | 레벨별 발생 조건 목록 |  |
+|    ㄴ level | byte | 레벨 값 | `Critical`: 30 `Warning`: 20 `Info`: 10 |
+|    ㄴ enabled | boolean | 레벨 활성화 여부 |  |
+|    ㄴ rule | String | 레벨 발생 조건 |  |
+| createTime | Long | 이벤트 규칙 최초 생성 시간 |  |
+| lastModifiedTime | Long | 이벤트 규칙 마지막 수정 시간 |  |
+| lastModifiedUser | String | 이벤트 규칙 마지막 수정 계정 |  |
+| basic | boolean | 빠른 설정으로 생성한 이벤트 여부 | 변경 제한 |
+| metaId | String | 빠른 설정 템플릿 고유 식별자 | 변경 제한: 이 값은 빠른 설정으로 생성한 이벤트에만 존재합니다. (basic=true) |
+| selectCondition | Object | 빠른 설정 대상 선택값 | 이 값은 빠른 설정으로 생성한 이벤트에만 존재합니다. (basic=true) |
+
+:::caution
+
+‘변경 제한’으로 표시된 필드는 이벤트 동작에 영향을 줄 수 있으므로 값을 변경하지 않는 것을 권장합니다.
+
+:::
 
 ---
 

@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_23_x",
+    "ver": "Service 2.23.13",
+    "date": "2025-12-12",
+    "Lists": [
+      {
+        "ver": "Service 2.23.13",
+        "hash": "service-22313",
+        "product": "Log",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">로그</span> &gt; <span class=\"uitext\">라이브 테일</span> 비밀번호 설정 시 비밀번호 입력창이 표시되지 않는 오류 수정</p>"
+        }
+    ]
+},
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_23_x",
     "ver": "Service 2.23.12",
     "date": "2025-12-11",
     "Lists": [
@@ -38,7 +52,7 @@
         "hash": "service-22310",
         "product": "Database",
         "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code>  <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 인스턴스 필터가 RDS 위젯에 적용되지 않는 현상 수정</p>"
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> 인스턴스 필터가 RDS 위젯에 적용되지 않는 현상 수정</p>"
         }
     ]
 },

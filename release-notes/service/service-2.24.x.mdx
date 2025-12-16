@@ -26,6 +26,8 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='0'>Fixed</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dailyAppStat" className="uitext" /> 선택된 에이전트가 데이터 조회에 반영되지 않는 현상 수정
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_eventSetting" className="uitext" />  트랜잭션, 이벤트 이름 255bytes 길이 제한 적용
+
 #### Python
 
 - <Status priority='1'>Feature</Status> 에이전트 설치, Windows OS 안내 추가
@@ -58,13 +60,31 @@ displayed_sidebar: releaseSidebar
 
 ### `Database`
 
+- <Status priority='1'>Feature</Status> <Cmdname sid="management" className="uitext" /> &gt; <Cmdname sid="agent_list" className="uitext" /> 화면 테이블의 활성/비활성 컬럼을 분리해서 보여주도록 개선
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="TTL06224" className="uitext" /> 팝업창의 기본 포맷팅이 비활성화되도록 변경
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="dashboard" className="uitext" /> 트리 형태의 테이블 깜빡임 현상 개선
+
+#### MySQL, PostgreSQL 
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_slowQueryLog" className="uitext" /> 테이블에 정렬 기능 추가
+
+#### IBM DB2
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> Direct I/O 위젯 지표를 변경
+
+    - direct_read → direct_reads
+
+    - direct_write → direct_writes
+
 #### Tibero
 
 - <Status priority='1'>Changed</Status> 락트리 컬럼 변경
 
 ### `Browser`
 
-- <Status priority='1'>Feature</Status><Cmdname sid="TTL09569" className="uitext" /> &gt; <Cmdname sid="multi_transaction" className="uitext" /> 추가
+- <Status priority='1'>Feature</Status> <Cmdname sid="TTL09569" className="uitext" /> &gt; <Cmdname sid="multi_transaction" className="uitext" /> 추가
 
 ### `URL`
 

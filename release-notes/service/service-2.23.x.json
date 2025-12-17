@@ -1,6 +1,20 @@
 [
   {
     "url": "https://docs.whatap.io/release-notes/service/service-2_23_x",
+    "ver": "Service 2.23.14",
+    "date": "2025-12-16",
+    "Lists": [
+      {
+        "ver": "Service 2.23.14",
+        "hash": "service-22314",
+        "product": "공통",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">메트릭스 이벤트</span> JSON 편집기에서 저장 및 내보내기를 할 경우 현재 보고 있는 페이지 외의 데이터가 모두 삭제되는 현상 </p>"
+        }
+    ]
+},
+  {
+    "url": "https://docs.whatap.io/release-notes/service/service-2_23_x",
     "ver": "Service 2.23.13",
     "date": "2025-12-12",
     "Lists": [

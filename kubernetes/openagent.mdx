@@ -9,7 +9,358 @@ toc_max_heading_level: 3
 OpenAgent는 프로메테우스 엔드포인트에서 메트릭을 스크래핑하고, 이를 처리하여 와탭 서버로 전송하는 역할을 합니다.
 프로메테우스 엔드포인트에서 메트릭을 수집하고 와탭 서버로 전송하는 Go 기반 에이전트입니다.
 
+## 사전확인
+
+whatap-monitoring 네임스페이스에  whatap-credentials 시크릿이 있는지 확인합니다.
+설치 방식에 따라  whatap-credentials 시크릿이 없을 수도 있으며, 아래 명령어로 시크릿을 생성할 수 있습니다.
+
+```bash
+export WHATAP_HOST=<수집서버 IP>
+export WHATAP_LICENSE=<와탭 라이센스>
+export WHATAP_PORT=<와탭 포트>
+kubectl create secret generic whatap-credentials --namespace whatap-monitoring --from-literal WHATAP_LICENSE=$WHATAP_LICENSE --from-literal WHATAP_HOST=$WHATAP_HOST --from-literal WHATAP_PORT=$WHATAP_PORT
+```
+
 ## 설정
+
+<details>
+
+<summary>단독 yaml로 설치하는 경우</summary>
+
+기본적으로 오픈 에이전트는 whatap-monitoring 네임스페이스에 생성됩니다. 필요에 따라 조정할 수 있습니다.
+
+```yaml
+# Whatap Open Agent standalone manifests
+# 네임스페이스는 필요에 따라 조정하세요. 예시로 whatap-monitoring을 사용합니다.
+---
+#apiVersion: v1
+#kind: Namespace
+#metadata:
+#  name: whatap-monitoring
+---
+# Whatap 접속 정보 (라이센스/호스트/포트)
+# 이미 동일한 이름의 Secret을 별도로 만들어 두었다면 이 Secret 블록을 삭제하고,
+# 아래 Deployment의 secretKeyRef.name을 기존 Secret 이름과 맞추면 됩니다.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: whatap-credentials
+  namespace: whatap-monitoring
+type: Opaque
+stringData:
+  WHATAP_LICENSE: "<YOUR_LICENSE>"
+  WHATAP_HOST: "<WHATAP_HOST>"
+  WHATAP_PORT: "6600"
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: whatap-open-agent-sa
+  namespace: whatap-monitoring
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: whatap-open-agent-role
+rules:
+  - apiGroups: ["*"]
+    resources: ["pods", "services", "endpoints", "endpointslices", "namespaces", "secrets"]
+    verbs: ["get", "list", "watch"]
+  - nonResourceURLs: ["/metrics"]
+    verbs: ["*"]
+  - apiGroups: [""]
+    resources: ["pods/exec"]
+    verbs: ["create"]
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["*"]
+  - nonResourceURLs: ["/metrics"]
+    verbs: ["*"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: whatap-open-agent-role-binding
+subjects:
+  - kind: ServiceAccount
+    name: whatap-open-agent-sa
+    namespace: whatap-monitoring
+roleRef:
+  kind: ClusterRole
+  name: whatap-open-agent-role
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: whatap-open-agent-config
+  namespace: whatap-monitoring
+data:
+  scrape_config.yaml: |
+    features:
+      openAgent:
+        enabled: true
+        globalInterval: "60s"
+        globalPath: "/metrics"
+        targets:
+          - targetName: kube-apiserver
+            type: ServiceMonitor
+            namespaceSelector:
+              matchNames:
+                - "default"  # API 서버 서비스가 있는 네임스페이스로 변경
+            selector:
+              matchLabels:
+                component: apiserver
+                provider: kubernetes
+            endpoints:
+              - port: "https"
+                path: "/metrics"
+                interval: "30s"
+                scheme: "https"
+                timeout: "30s"
+                tlsConfig:
+                  insecureSkipVerify: true
+                metricRelabelConfigs:
+                  - source_labels: [__name__]
+                    regex: "apiserver_request_total"
+                    action: keep
+                  - source_labels: [verb]
+                    target_label: http_verb
+                    replacement: "${1}"
+                    action: replace
+                  - target_label: metric_src
+                    replacement: "whatap-open-agent"
+                    action: replace
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whatap-open-agent
+  namespace: whatap-monitoring
+  labels:
+    name: whatap-open-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: whatap-open-agent
+  template:
+    metadata:
+      labels:
+        name: whatap-open-agent
+    spec:
+      serviceAccountName: whatap-open-agent-sa
+      volumes:
+        - name: config-volume
+          configMap:
+            name: whatap-open-agent-config
+        - name: logs-volume
+          emptyDir: {}
+      containers:
+        - name: whatap-open-agent
+          image: public.ecr.aws/whatap/open_agent:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "300Mi"
+              cpu: "100m"
+            limits:
+              memory: "1000Mi"
+              cpu: "1000m"
+          env:
+            - name: WHATAP_LICENSE
+              valueFrom:
+                secretKeyRef:
+                  name: whatap-credentials
+                  key: WHATAP_LICENSE
+            - name: WHATAP_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: whatap-credentials
+                  key: WHATAP_HOST
+            - name: WHATAP_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: whatap-credentials
+                  key: WHATAP_PORT
+            - name: debug
+              value: "false"
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/scrape_config.yaml
+              subPath: scrape_config.yaml
+            - name: logs-volume
+              mountPath: /app/logs
+          # 필요 시 컨테이너/노드 톨러레이션, affinity 등을 추가하십시오.
+```
+
+</details>
+
+<details>
+
+<summary>helm 설치</summary>
+
+1. 다음 명령어를 실행해 와탭 Helm 리포지토리를 추가하세요.
+
+    ```yaml
+    helm repo add whatap https://whatap.github.io/helm/
+    helm repo update
+    ```
+
+1. 에이전트를 처음 설치하는 사용자는 다음 명령어를 실행해 에이전트 애플리케이션을 설치하세요. *values.yaml*은 아래 예시를 참고합니다.  
+
+    <Tabs groupId="event-reception">
+    <TabItem value="frist install" label="처음 설치">
+
+    ```yaml
+    #에이전트를 처음 설치하는 사용자는 다음 명령어를 실행해 에이전트 애플리케이션을 설치하세요.
+    kubectl create ns whatap-monitoring
+    helm install whatap-kube-agent --namespace whatap-monitoring whatap/kube -f values.yaml
+    ```
+
+    </TabItem>
+    <TabItem value="user" label="기존 사용자">
+
+    ```yaml
+    #기존 와탭 쿠버네티스 에이전트 사용자는 다음 명령어를 실행해 에이전트를 설치하세요.
+    #*기존 yaml 파일 방식으로 와탭 쿠버네티스 에이전트를 설치한 경우 Clean Install이 필요합니다. 기존 쿠버네티스 에이전트 삭제 후 Helm 차트를 통한 설치가 가능합니다.
+    kubectl delete ns whatap-monitoring
+    kubectl delete clusterrole whatap
+    kubectl delete clusterrolebinding whatap
+    kubectl create ns whatap-monitoring
+    helm install whatap-kube-agent --namespace whatap-monitoring whatap/kube -f values.yaml
+    ```
+
+    </TabItem>
+    </Tabs>
+
+  > **values.yaml**
+
+    ```yaml
+    whatap:
+      license: #라이센스 키 입력
+      host: #수집서버 IP 입력
+      port: #수집서버 Port 입력
+      createSecret: true #default : true, if credentials already exist, set false
+      existingSecretName: "whatap-credentials" #default : whatap-credentials
+    collect_custom_resources: true
+    containerRuntime: "containerd"
+    deployment:
+      containers:
+        controlPlaneHelper:
+          enabled: false
+          image: "whatap/kube_mon:1.8.8"
+          name: "whatap-control-plane-helper"
+          port: 9496
+          resources:
+            limits:
+              cpu: "200m"
+              memory: "350Mi"
+            requests:
+              cpu: "100m"
+              memory: "300Mi"
+        masterAgent:
+          image: "whatap/kube_mon:1.8.8"
+          name: "whatap-master-agent"
+          port: 6600
+          resources:
+            limits:
+              cpu: "200m"
+              memory: "350Mi"
+            requests:
+              cpu: "100m"
+              memory: "300Mi"
+      label: "whatap-master-agent"
+      name: "whatap-master-agent"
+      replicas: 1
+
+    daemonSet:
+      containers:
+        nodeAgent:
+          image: "whatap/kube_mon:1.8.8"
+          limits:
+            cpu: "200m"
+            memory: "350Mi"
+          name: "whatap-node-agent"
+          requests:
+            cpu: "100m"
+            memory: "300Mi"
+        nodeHelper:
+          image: "whatap/kube_mon:1.8.8"
+          limits:
+            cpu: "200m"
+            memory: "350Mi"
+          name: "whatap-node-helper"
+          requests:
+            cpu: "100m"
+            memory: "100Mi"
+      initContainers:
+        nodeDebugger:
+          enabled: false
+          image: "whatap/kube_mon:1.8.8"
+          name: "whatap-node-debug"
+      label: "whatap-node-agent"
+      name: "whatap-node-agent"
+
+    clusterrole:
+      extraResources:
+      - "*"
+
+    deploymentOpen:
+      enabled: true
+      containers:
+        openAgent:
+          image: "public.ecr.aws/whatap/open_agent:latest"
+      config:
+        features:
+          openAgent:
+            enabled: true
+            #globalInterval: "60s"
+            #globalPath: "/metrics"
+            targets:
+              - targetName: "kube-apiserver"
+                type: "ServiceMonitor"
+                enabled: true
+                namespaceSelector:
+                  matchNames:
+                    - "default"   # 클러스터 기본 레이블에 맞게 조정
+                selector:
+                  matchLabels:
+                    component: "apiserver"
+                    provider: "kubernetes"
+                endpoints:
+                  - port: "https"
+                    path: "/metrics"
+                    interval: "30s"
+                    scheme: "https"
+                    timeout: "30s"
+                    tlsConfig:
+                      insecureSkipVerify: true   # 자체서명 인증서일 때 편의용, 보안 필요시 false + CA 지정
+                    metricRelabelConfigs:
+                      - source_labels: [__name__]
+                        regex: "apiserver_request_total"
+                        action: keep
+                      - source_labels: [verb]
+                        target_label: http_verb
+                        replacement: "${1}"
+                        action: replace
+                      - target_label: metric_src
+                        replacement: "whatap-open-agent"
+                        action: replace
+    ```
+
+</details>
+
+:::note
+
+WhatapOperator로 설치한 경우 아래와 같이 설정할 수 있습니다. [와탭 오퍼레이터](../kubernetes/whatap-operator) 문서를 참고하세요. 
+
+:::
 
 WhatapOperator 설치 후, 사용자는 `WhatapAgent` CR(Custom Resource)을 통해 <Cmdname sid="openmetrics" className="uitext" /> 대상을 설정합니다.
 

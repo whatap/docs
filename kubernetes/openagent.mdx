@@ -328,7 +328,7 @@ spec:
                     scheme: "https"
                     timeout: "30s"
                     tlsConfig:
-                      insecureSkipVerify: true   # 자체서명 인증서일 때 편의용, 보안 필요시 false + CA 지정
+                      insecureSkipVerify: true   # 자체서명 인증서일 때 편의용, 보안 필요 시 false + CA 지정
                     metricRelabelConfigs:
                       - source_labels: [__name__]
                         regex: "apiserver_request_total"

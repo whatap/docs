@@ -192,6 +192,59 @@
                 "type": "Fixed",
                 "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> 트리 형태의 테이블 깜빡임 현상 개선 </p>"
             },
+            {
+                "ver": "Service 2.24.0",
+                "hash": "service-2240",
+                "product": "Database",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 변경된 시간이 인스턴스 선택기에 반영되지 않는 현상 수정 </p>"
+            },
+            {
+                "ver": "Service 2.24.0",
+                "hash": "service-2240",
+                "product": "Database",
+                "category": "MySQL, PostgreSQL",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">슬로우 쿼리</span> 테이블에 정렬 기능 추가</p>"
+            },
+            {
+                "ver": "Service 2.24.0",
+                "hash": "service-2240",
+                "product": "Database",
+                "category": "IBM DB2",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> Direct I/O 위젯 지표 변경</p>",
+                "details": "<ul>\n<li>direct_read → direct_reads</li>\n\n<li>direct_write → direct_writes</li>\n</ul>"
+            },
+            {
+                "ver": "Service 2.24.0",
+                "hash": "service-2240",
+                "product": "Database",
+                "category": "Tibero",
+                "type": "Changed",
+                "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">락트리</span> 컬럼 변경</p>"
+            },
+            {
+                "ver": "Service 2.24.0",
+                "hash": "service-2240",
+                "product": "Brower",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">AJAX 분석</span> &gt; <span class=\"uitext\">멀티 트랜잭션</span> 추가 </p>"
+            },
+            {
+                "ver": "Service 2.24.0",
+                "hash": "service-2240",
+                "product": "URL",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 이벤트 수정 시 목록에 해당 내용이 업데이트되지 않는 오류 수정 </p>"
+            },
+            {
+                "ver": "Service 2.24.0",
+                "hash": "service-2240",
+                "product": "URL",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 등록된 URL 없는 경우, 데이터 없음을 표시하도록 수정 </p>"
+            }
         ]
     }
 ]

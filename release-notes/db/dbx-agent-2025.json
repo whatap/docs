@@ -1,5 +1,153 @@
 [
   {
+    "ver": "v2.58.10",
+    "date": "2025-12-19",
+    "Lists": [
+      {
+        "ver": "v2.58.10",
+        "hash": "v25810",
+        "product": "DBX",
+        "type": "Feature",
+        "category": "Redis",
+        "desc": "<p><code class=\"Feature\">Feature</code> Autoscale 에이전트 connected 여부 처리에 flag 추가</p>"
+      },
+      {
+        "ver": "v2.58.10",
+        "hash": "v25810",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "PostgreSQL",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> pg tables 쿼리 수정</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.58.09",
+    "date": "2025-12-17",
+    "Lists": [
+      {
+        "ver": "v2.58.09",
+        "hash": "v25809",
+        "product": "DBX",
+        "type": "Feature",
+        "category": "Redis",
+        "desc": "<p><code class=\"Feature\">Feature</code> Autoscale agentinfo에 <code>sub_type</code> 추가</p>"
+      },
+      {
+        "ver": "v2.58.09",
+        "hash": "v25809",
+        "product": "DBX",
+        "type": "Deprecated",
+        "category": "Tibero",
+        "desc": "<p><code class=\"Deprecated\">Deprecated</code> <code>db_tibero_tables</code> / <code>DbTablesPack</code> 제거</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.58.08",
+    "date": "2025-12-10",
+    "Lists": [
+      {
+        "ver": "v2.58.08",
+        "hash": "v25808",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "DB2",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> DB2 memory 지표 관련 버그 수정</p>"
+      },
+      {
+        "ver": "v2.58.08",
+        "hash": "v25808",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "DB2",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> <code>direct_reads</code>, <code>direct_writes</code> 값 누적 버그 수정</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.58.07",
+    "date": "2025-12-09",
+    "Lists": [
+      {
+        "ver": "v2.58.07",
+        "hash": "v25807",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "MongoDB",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 버전 수집 처리 시 에러 수정</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.58.06",
+    "date": "2025-12-04",
+    "Lists": [
+      {
+        "ver": "v2.58.06",
+        "hash": "v25806",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "DB2",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 수집 쿼리에 <code>WITH UR</code> 추가</p>"
+      },
+      {
+        "ver": "v2.58.06",
+        "hash": "v25806",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "Tibero",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 액티브 세션의 sesstat 값이 0으로 나오는 버그 수정 (sid 추가)</p>"
+      },
+      {
+        "ver": "v2.58.06",
+        "hash": "v25806",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "Tibero",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> wait class 버그 수정</p>"
+      },
+      {
+        "ver": "v2.58.06",
+        "hash": "v25806",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "Tibero",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 액티브 세션 수정: xos 중복 값 제거, <code>cpu_usage</code> (DB에서 수집한 CPU 사용률), <code>plan_hash_value</code>, <code>sql_child_number</code> 추가, <code>status</code>, <code>state</code> 수정 및 변경</p>"
+      },
+      {
+        "ver": "v2.58.06",
+        "hash": "v25806",
+        "product": "DBX",
+        "type": "Fixed",
+        "category": "Tibero",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> xview 버그 수정 (이전 세션 정보가 남아있는 버그)</p>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.58.05",
+    "date": "2025-11-27",
+    "Lists": [
+      {
+        "ver": "v2.58.05",
+        "hash": "v25805",
+        "product": "DBX",
+        "type": "Feature",
+        "category": "Common",
+        "desc": "<p><code class=\"Feature\">Feature</code> xos 지표 추가: <code>pgpgin(xos)</code>, <code>pgpgout(xos)</code>, <code>pswpin(xos)</code>, <code>pswpout(xos)</code>, <code>procs_blocked(xos)</code></p>"
+      },
+      {
+        "ver": "v2.58.05",
+        "hash": "v25805",
+        "product": "DBX",
+        "type": "Changed",
+        "category": "MS SQL Server",
+        "desc": "<p><code class=\"Changed\">Changed</code> 임시 테이블 플랜 조회 시 에러 메시지 추가</p>"
+      }
+    ]
+  },
+  {
     "ver": "v2.58.04",
     "date": "2025-11-10",
     "Lists": [

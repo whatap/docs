@@ -306,13 +306,6 @@
             "hash": "service-2230",
             "product": "공통",
             "type": "Changed",
-            "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 사용자 표시 그룹 설정 권한이 없는 경우, ‘권한 없음’ 안내 페이지를 거쳐 접근 가능한 페이지로 이동할 수 있도록 개선</p>"
-            },
-            {
-            "ver": "Service 2.23.0",
-            "hash": "service-2230",
-            "product": "공통",
-            "type": "Changed",
             "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">정비 계획</span> ICMP Feature 제품도 표시</p>"
             },
             {

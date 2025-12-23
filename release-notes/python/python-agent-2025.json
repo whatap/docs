@@ -1,5 +1,43 @@
 [
   {
+    "url": "https://docs.whatap.io/release-notes/python/python-1_9_0",
+    "ver": "v1.9.0",
+    "date": "2025-12-23",
+    "Lists": [
+      {
+        "ver": "v1.9.0",
+        "hash": "v190",
+        "product": "Python Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Windows OS 지원</p>",
+        "details": "<ul><li>Windows Server 2008 R2, Windows 7 이상</li></ul>"
+      },
+      {
+        "ver": "v1.9.0",
+        "hash": "v190",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>ACTIVE_STATUS</strong> 모니터링 버그 수정 </p>",
+        "details": "<ul><li>멀티트랜잭션 발생 시 데이터가 정상적으로 정리되지 않는 현상 수정</li></ul>"
+      },
+      {
+        "ver": "v1.9.0",
+        "hash": "v190",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>HTTPC</strong>추적 버그 수정 </p>",
+        "details": "<ul><li>원본 함수의 리턴값이 정상적으로 전달되지 않는 현상 수정</li></ul>"
+      },
+      {
+        "ver": "v1.9.0",
+        "hash": "v190",
+        "product": "Python Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 쿠버네티스 컨테이너 환경에서 Container ID가 비정상 값으로 수집되던 현상 수정</p>"
+      }
+    ]
+  },
+  {
     "url": "https://docs.whatap.io/release-notes/python/python-1_8_14",
     "ver": "v1.8.14",
     "date": "2025-11-11",

@@ -95,7 +95,7 @@ x-tagGroups:
       - 그룹
       - 에이전트
       - 이벤트
-  - name: Appication
+  - name: Application
     tags:
       - APM Spot 정보 조회
       - APM 통계 데이터 조회
@@ -362,7 +362,7 @@ paths:
                     name: '홍길동'
                     desc: ''
                     sms: '010XXXXXXX'
-                totla: 8
+                total: 8
       x-codeSamples:
         - lang: 'curl'
           source: |
@@ -463,7 +463,7 @@ paths:
                       name: '홍길동'
                       desc: ''
                       sms: '010XXXXXXX'
-                  totla: 8
+                  total: 8
       x-codeSamples:
         - lang: 'curl'
           source: |
@@ -1362,7 +1362,7 @@ paths:
                     type: string
                     description: TagCount 카테고리
                   okindName:
-                    type: sting
+                    type: string
                     description: 종류별 에이전트 그룹 이름
                   onode:
                     type: integer

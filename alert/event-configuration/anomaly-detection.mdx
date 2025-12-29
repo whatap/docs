@@ -8,7 +8,7 @@ toc_max_heading_level: 3
 
 > 홈 &gt; 프로젝트 선택 &gt; ![알림 아이콘](/img/ic-alert.svg) <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventSetting" className="uitext" /> &gt; <Cmdname sid="anomaly_detection" className="uitext" /> 탭
 
-<Cmdname sid="anomaly_detection" className="uitext" />는 메트릭스 데이터에서 비정상적인 상승 또는 하락 패턴을 식별해, 평소와 다른 움직임이 감지되면 경고 알림을 발생시키는 기능입니다.
+<Cmdname sid="anomaly_detection" className="uitext" />는 메트릭스 데이터에서 비정상적인 상승 또는 하락 패턴을 식별해, 평소와 다른 움직임이 감지되면 이벤트를 발생시키는 기능입니다.
 
 ## 기본 옵션 {#default-options}
 
@@ -51,13 +51,14 @@ toc_max_heading_level: 3
     - 메시지에 변수를 사용하여 이벤트 발생 시점의 실제 값을 포함할 수 있습니다.
     
     :::note
-    
-    **변수 사용 규칙**
-    
-    - 변수 형식: `${지표명}`  
-    - 설정한 **카테고리와 동일한 카테고리** 내 지표만 변수로 사용할 수 있습니다.  
-    - 여러 변수를 조합해 상세한 메시지를 구성할 수 있습니다.  
-    - 사용 가능한 변수 목록은 **메트릭스 조회**에서 확인할 수 있습니다.  
+
+    **사용 가능 변수**
+
+    - `$pcode`: 프로젝트 코드
+    - `$category`: 카테고리
+    - `$field`: 필드
+    - `$value`: 발생값
+    - `$oname`: 이벤트 대상
 
     :::
 
@@ -85,7 +86,7 @@ toc_max_heading_level: 3
 
 **이벤트 동작 시간**
     
-이벤트가 특정 시간대(근무/비근무/점검 시간 등)에 이벤트가 동작하도록 태그를 설정하세요. 태그를 설정하지 않으면 이벤트가 활성화된 상태에서 24시간 상시 동작합니다.
+이벤트가 특정 시간대(근무/비근무/점검 시간 등)에 동작하도록 태그를 설정하세요. 태그를 설정하지 않으면 이벤트가 활성화된 상태에서 24시간 상시 동작합니다.
     
 1. **+ 추가**를 클릭하세요.
 
@@ -99,7 +100,7 @@ toc_max_heading_level: 3
 
 :::caution
 
-태그 삭제 시 해당 태그가 적용된 모든 알림에서 삭제됩니다. 단, 이벤트 설정에서 사용 중인 태그는 삭제할 수 없습니다.
+태그 삭제 시 해당 태그가 적용된 모든 사용자의 태그가 삭제됩니다. 단, 이벤트 규칙에서 사용 중인 태그는 삭제할 수 없습니다.
 
 :::
 
@@ -139,10 +140,3 @@ toc_max_heading_level: 3
 
 3. 삭제 확인 창에서 [ 삭제 ] 버튼을 클릭하세요.
 
----
-
-## 참고 {#reference} 
-
-import Alertconditionguide from "../../common-items/_alert-condition-guide.mdx";
-
-<Alertconditionguide />

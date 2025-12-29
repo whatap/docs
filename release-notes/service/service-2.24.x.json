@@ -1,6 +1,20 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
+        "ver": "Service 2.24.2",
+        "date": "2025-12-29",
+        "Lists": [
+            {
+                "ver": "Service 2.24.2",
+                "hash": "service-2242",
+                "product": "Brower",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계</span> 일부 MXQL 쿼리 구문 오류로 기준 변경이 작동하지 않는 현상 수정 </p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
         "ver": "Service 2.24.1",
         "date": "2025-12-29",
         "Lists": [

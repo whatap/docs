@@ -1,6 +1,28 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
+        "ver": "Service 2.24.1",
+        "date": "2025-12-29",
+        "Lists": [
+            {
+                "ver": "Service 2.24.1",
+                "hash": "service-2241",
+                "product": "공통",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> </p>",
+                "details": "<ul>\n<li>실시간 로그 이벤트에서 일시 중지 안내 문구 오류 수정</li>\n\n<li>메트릭스 이벤트에서 최근 수집되지 않는 대상 정보 표시 안되는 문제 수정</li>\n\n<li>메트릭스 이벤트에서 시뮬레이션 후 이벤트 총 개수 표시를 레벨별로 표시하도록 수정</li>\n</ul>"
+            },
+            {
+                "ver": "Service 2.24.1",
+                "hash": "service-2241",
+                "product": "공통",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 일본어 메뉴명 표기 오류 수정(로그 탐색, SSO연동)</p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
         "ver": "Service 2.24.0",
         "date": "2025-12-23",
         "Lists": [

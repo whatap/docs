@@ -61,9 +61,9 @@ ApplicationName을 설정하지 않은 경우 이벤트 제목에서 생략합�
 ```log title='Event message example'
 Project Name : 애플리케이션 프로젝트
 Project Code : 3
-Application Name : TC-0-1-8081
-Event Message : RECOVERED: Memory is too high. less than 10%
-Event ON Time : 2022-04-12 18:53:24 +0900
+Agent Name : TC-0-1-8081
+Message : RECOVERED: Memory is too high. less than 10%
+Event Time : 2022-04-12 18:53:24 +0900
 Event OFF Time : 2022-04-12 18:53:24 +0900
 Alert Type : APPLICATION_MEMORY
 Metric Name : memory
@@ -78,17 +78,17 @@ Stateful : true
 | -- | -- | -- | -- |
 | Project Name | 프로젝트 이름 | 전체 | - |
 | Project Code | 프로젝트 Code | 전체 | - |
-| Application Name | 에이전트 이름 | 전체(optional) | oname |
-| Event Message | 이벤트 메시지 | 전체 | - |
+| Agent Name | 에이전트 이름 | 전체(optional) | oname |
+| Message | 이벤트 메시지 | 전체 | - |
 | Alert Type | 이벤트 종류 | 전체 | 아래의 AlertType 종류 표 참고 |
-| Event ON Time | 이벤트 발생 시간 | 전체 | 2022-04-13 10:40:49 +0900에서 +0900는 GMT를 의미합니다. |
-| Event OFF Time | 이벤트 해제 시간 | 전체(optional) | 2022-04-13 10:40:49 +0900에서 +0900는 GMT를 의미합니다. |
+| Event Time | 이벤트 발생 시간 | 전체 | 2022-04-13 10:40:49 +0900에서 +0900는 GMT를 의미합니다. |
+| Event Off Time | 이벤트 해제 시간 | 전체(optional) | 2022-04-13 10:40:49 +0900에서 +0900는 GMT를 의미합니다. |
 | Metric Name | 메트릭스 이름 | 전체(optional) | 이벤트 조건 판단에서 사용하는 메트릭스의 이름 |
 | Metric Value | 메트릭스 값 | 전체(optional) | 메트릭스 값이 메트릭스 임계치를 넘으면 이벤트 발생 조건이 만족한 경우입니다. |
 | Metric Threshold | 메트릭스 임계치 | 전체(optional) | 메트릭스 값이 메트릭스 임계치를 넘으면 이벤트 발생 조건이 만족한 경우입니다. |
 | Stateful | 해소된 이벤트 알림 | 전체(optional) | 해소된 이벤트 알림 기능 사용 중이면 true, 아니면 false |
 | Event Rule | 이벤트 발생 조건 | 메트릭스 알림 | - |
-| Event Target Filter | 이벤트 대상 선택 | 메트릭스 알림 | 특정 대상에서 수집된 메트릭스에 대해서만 이벤트 조건을 확인합니다. |
+| Target Filter | 이벤트 대상 선택 | 메트릭스 알림 | 특정 대상에서 수집된 메트릭스에 대해서만 이벤트 조건을 확인합니다. |
 | Repeat Count | 이벤트 반복 횟수 | 메트릭스 알림 | 이벤트 조건이 이벤트 반복 시간동안 이벤트 반복 횟수만큼 만족해야 이벤트가 발생됩니다. |
 | Repeat Duration | 이벤트 반복 시간 | 메트릭스 알림 | 이벤트 조건이 이벤트 반복 시간동안 이벤트 반복 횟수만큼 만족해야 이벤트가 발생됩니다. |
 | Receiver | 수신자 | 메트릭스 알림 | - |
@@ -167,12 +167,12 @@ Stateful : true
 
 | Event Type | Event Level | Event Title | Event Message | Event Off Message |
 | ---------- | ----------- | ----------- | ------------- | ----------------- |
-|애플리케이션 CPU|Warning|HIGH_CPU|CPU is high. `${value}% (>= ${threshold}%)`|RECOVERED: CPU is high. less than `${threshold}%`|
-|애플리케이션 CPU|Critical|CRITICAL_HIGH_CPU|CPU is too high. `${value}% (>= ${threshold}%)`|RECOVERED: CPU is too high. less than `${threshold}%`|
-|애플리케이션 메모리|Warning|HIGH_MEMORY|Memory is high. `${value}% (>= ${threshold}%)`|RECOVERED: Memory is high. less than `${threshold}%`|
-|애플리케이션 메모리|Critical|CRITICAL_HIGH_MEMORY|Memory is too high `${value}% (>= ${threshold}%)`|RECOVERED: Memory is too high. less than `${threshold}%`|
-|애플리케이션 디스크|Warning|HIGH_DISK|Disk is high `${value}% (>= ${threshold}%)`|RECOVERED: Disk id high. less than `${threshold}%`|
-|애플리케이션 디스크|Critical|CRITICAL_HIGH_DISK|Disk is too high `${value}% (>= ${threshold}%)`|RECOVERED: Disk is too highf. less than `${threshold}%`|
+|서버 CPU|Warning|HIGH_CPU|CPU is high. `${value}% (>= ${threshold}%)`|RECOVERED: CPU is high. less than `${threshold}%`|
+|서버 CPU|Critical|CRITICAL_HIGH_CPU|CPU is too high. `${value}% (>= ${threshold}%)`|RECOVERED: CPU is too high. less than `${threshold}%`|
+|서버 메모리|Warning|HIGH_MEMORY|Memory is high. `${value}% (>= ${threshold}%)`|RECOVERED: Memory is high. less than `${threshold}%`|
+|서버 메모리|Critical|CRITICAL_HIGH_MEMORY|Memory is too high `${value}% (>= ${threshold}%)`|RECOVERED: Memory is too high. less than `${threshold}%`|
+|서버 디스크|Warning|HIGH_DISK|Disk is high `${value}% (>= ${threshold}%)`|RECOVERED: Disk id high. less than `${threshold}%`|
+|서버 디스크|Critical|CRITICAL_HIGH_DISK|Disk is too high `${value}% (>= ${threshold}%)`|RECOVERED: Disk is too highf. less than `${threshold}%`|
 |정상 트랜잭션|Warning|HIGH_ACTIVE_TRANSACTION|Active Transaction Count is over `${value} (>= ${threshold})`|RECOVERED: Active Transaction Count is less than `${threshold}`|
 |에러 트랜잭션|Warning|HIGH_ERROR_TRANSACTION|Error Transaction Count is over `${threshold} (${value})`|RECOVERED: Error Transaction Count is less than `${threshold}`|
 |느린 트랜잭션|Warning|TOO_MANY_SLOW_TX|Too many delayed transactions `(${value}, above ${time} ms)`|RECOVERED: Too many delayed transactions. less than `${threshold}`|

@@ -1,6 +1,20 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
+        "ver": "Service 2.24.3",
+        "date": "2025-12-30",
+        "Lists": [
+            {
+                "ver": "Service 2.24.3",
+                "hash": "service-2243",
+                "product": "Server",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">서버 인벤토리</span> 수정 모드에서 기본그룹 컬럼값 반영되지 않는 현상 수정 </p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
         "ver": "Service 2.24.2",
         "date": "2025-12-29",
         "Lists": [

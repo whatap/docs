@@ -93,10 +93,10 @@ toc_max_heading_level: 3
 
 3. 오른쪽 토클 버튼을 클릭해 활성화합니다.  
 
-    - ![토글 활성화 아이콘](/img/ic-toggle-on.svg) **활성화**: 설정한 시간 동안 에이전트로부터 데이터를 수신하지 못하면 **INACTIVE MONITORING AGENT** 경고 알림이 발생합니다.
+    - ![토글 활성화 아이콘](/img/ic-toggle-on.svg) **활성화**: 설정한 시간 동안 에이전트로부터 데이터를 수신하지 못하면 **INACTIVE MONITORING AGENT** 이벤트가 발생합니다.
 
 ## 기본 알림: Connection FAILED
 
-경고 알림을 별도로 설정하지 않아도 에이전트에서 DB 접속에 15회 이상 실패한 경우 알림을 보냅니다. DB 셧다운(shutdown) 및 네트워크 장애, 계정 또는 권한 문제로 연결이 안될 수 있습니다.
+이벤트 규칙을 별도로 설정하지 않아도 에이전트에서 DB 접속에 15회 이상 실패한 경우 알림을 보냅니다. DB 셧다운(shutdown) 및 네트워크 장애, 계정 또는 권한 문제로 연결이 안될 수 있습니다.
 
 <ImgLang img='db-default-alert-connection-failed.svg' desc='Connection Failed'/>

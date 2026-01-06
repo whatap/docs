@@ -437,6 +437,8 @@ features:
     * `matchLabels`: 레이블로 파드 또는 서비스 선택
     * `matchExpressions`: 표현식으로 파드 또는 서비스 선택
 
+* **relabelConfigs**: 타겟 발견(Discovery) 단계에서 메타데이터(meta 라벨 등)를 기반으로 라벨을 추가하거나 변경합니다.(프로메테우스의 `relabel_configs`와 유사)
+
 * **endpoints**: 스크래핑할 엔드포인트 정의
     * `port`: 스크래핑할 포트 이름 또는 번호
     * `path`: 메트릭 경로(기본값은 globalPath, 필요시 재정의)
@@ -476,7 +478,7 @@ features:
 
 * **동작**: `true`로 설정하면 모든 메트릭에 `node` 라벨이 추가되며, 오브젝트가 실행 중인 노드의 이름이 값으로 추가됨
 
-```yaml title='사용예제'
+```yaml title='사용 예제'
 # 타겟 레벨에서 addNodeLabel 설정
 - targetName: node-exporter
   type: PodMonitor
@@ -515,6 +517,36 @@ features:
       - source_labels: [node]
         target_label: gpu_node
         action: replace
+```
+
+### Basic Auth 설정
+
+OpenAgent는 인증이 필요한 엔드포인트를 스크래핑하기 위해 HTTP Basic Authentication을 지원합니다. 사용자 이름(username)과 비밀번호(password)는 Kubernetes Secret을 통해 안전하게 관리됩니다.
+
+- 설정 위치: endpoints 하위의 basicAuth 항목에서 설정
+
+- **username**: 사용자 이름을 담고 있는 Secret 정보
+    - `name`: Secret의 이름
+    - `key`: Secret 내의 Key
+    - `namespace`: Secret이 위치한 네임스페이스 (생략 시 에이전트와 동일한 네임스페이스)
+
+- **password**: 비밀번호를 담고 있는 Secret 정보
+    - `name`: Secret의 이름
+    - `key`: Secret 내의 Key
+    - `namespace`: Secret이 위치한 네임스페이스
+
+```yaml title='설정 예제'
+endpoints:
+  - port: "metrics"
+    path: "/metrics"
+    basicAuth:
+      username:
+        name: my-auth-secret
+        key: username
+      password:
+        name: my-auth-secret
+        key: password
+        namespace: monitoring # Secret이 다른 네임스페이스에 있는 경우 명시
 ```
 
 ## TLS 설정
@@ -593,6 +625,63 @@ endpoints:
           target_label: http_verb
           replacement: "${1}"
           action: replace
+```
+
+## 타겟 재라벨링 설정 {#relabelConfigs}
+
+relabelConfigs는 스크래핑을 수행하기 전, 타겟(Target) 자체의 메타데이터를 기반으로 필터링하거나 라벨을 조작하는 기능입니다. (Prometheus의 `relabel_config`s와 유사)
+
+1. **타겟 필터링 (Target Filtering)**
+    - 특정 메타데이터 조건을 만족하지 않는 타겟을 수집 대상에서 제외합니다.
+    - 주요 Action: `keep`, `drop`
+
+2. **메타 라벨 승격 (Meta Label Promotion)**
+    - `__meta_`로 시작하는 메타데이터는 스크래핑 후 사라집니다.
+    - 영구적인 라벨로 저장하려면 이 단계에서 `replace` action을 사용하여 새로운 이름으로 변경해야 합니다.
+
+### Meta Labels 목록
+
+OpenAgent에서 제공하는 주요 메타 라벨 목록입니다.
+
+#### Common (공통)
+
+- `__meta_kubernetes_namespace`: 오브젝트의 네임스페이스
+- `__address__`: 타겟 주소 (IP:Port)
+
+#### PodMonitor
+
+- `__meta_kubernetes_pod_name`: Pod 이름
+- `__meta_kubernetes_pod_ip`: Pod IP
+- `__meta_kubernetes_pod_ready`: Pod 준비 상태 (`true`/`false`)
+- `__meta_kubernetes_pod_phase`: Pod 상태 (`Running`, `Pending` 등)
+- `__meta_kubernetes_pod_node_name`: Pod가 실행 중인 노드 이름
+- `__meta_kubernetes_pod_label_<labelname>`: Pod의 라벨
+- `__meta_kubernetes_pod_annotation_<annotationname>`: Pod의 어노테이션
+
+#### ServiceMonitor
+
+- `__meta_kubernetes_service_name`: Service 이름
+- `__meta_kubernetes_service_cluster_ip`: Cluster IP
+- `__meta_kubernetes_service_label_<labelname>`: Service의 라벨
+
+```yaml
+targets:
+  - targetName: my-pod-monitor
+    type: PodMonitor
+    selector:
+      matchLabels:
+        app: my-app
+    # 타겟 발견 단계의 라벨링
+    relabelConfigs:
+      # 1. Pod 이름을 pod_name 라벨로 저장 (메트릭에 pod_name 라벨이 붙음)
+      - source_labels: ["__meta_kubernetes_pod_name"]
+        target_label: "pod_name"
+        action: "replace"
+      
+      # 2. 특정 라벨(scrape_enabled=true)이 없는 Pod는 수집 제외
+      - source_labels: ["__meta_kubernetes_pod_label_scrape_enabled"]
+        regex: "true"
+        action: "keep"
 ```
 
 ## 메트릭 재라벨링 설정 {#metricRelabelConfigs}

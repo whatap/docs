@@ -1,5 +1,43 @@
 [
   {
+    "ver": "v2.9.7",
+    "date": "2026-01-07",
+    "Lists": [
+      {
+        "ver": "v2.9.7",
+        "hash": "v297",
+        "product": "Server",
+        "type": "New",
+        "category": "Agent",
+        "desc": "<p><code class=\"New\">New</code> Agent Patch 기능 추가 (Operation Manager)</p>"
+      },
+      {
+        "ver": "v2.9.7",
+        "hash": "v297",
+        "product": "Server",
+        "type": "New",
+        "category": "Agent",
+        "desc": "<p><code class=\"New\">New</code> GPU 모델 간소화 정보 추가</p>"
+      },
+      {
+        "ver": "v2.9.7",
+        "hash": "v297",
+        "product": "Server",
+        "type": "Fixed",
+        "category": "Agent",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 에이전트 구동 과정에서 rpmdb 깨지는 현상 수정</p>"
+      },
+      {
+        "ver": "v2.9.7",
+        "hash": "v297",
+        "product": "Server",
+        "type": "Fixed",
+        "category": "Agent",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 인벤토리 정보 잘못 나오는 케이스 수정</p>"
+      }
+    ]
+  },
+  {
     "ver": "v2.9.6",
     "date": "2025-11-26",
     "Lists": [

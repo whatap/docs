@@ -1,5 +1,19 @@
 [
   {
+    "ver": "v2.13.1",
+    "date": "2026-01-07",
+    "Lists": [
+      {
+        "ver": "v2.13.1",
+        "hash": "v2131",
+        "product": "PHP",
+        "type": "Fixed",
+        "category": "Agent",
+        "desc": "<p><code class=\"Fixed\">Fixed</code> 디버그 메시지가 응답 내용에 출력되는 오류를 수정합니다. 멀티 트랜잭션(mtrace) 기능 사용 시 <code>mtid</code>, <code>mcaller_txid</code> 디버그 로그가 웹 페이지에 노출되는 문제를 수정합니다.</p>"
+      }
+    ]
+  },
+  {
     "ver": "v2.13.0",
     "date": "2025-11-19",
     "Lists": [

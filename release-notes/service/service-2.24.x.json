@@ -1,6 +1,62 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
+        "ver": "Service 2.24.5",
+        "date": "2026-01-09",
+        "Lists": [
+            {
+                "ver": "Service 2.24.5",
+                "hash": "service-2245",
+                "product": "Application",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">에이전트 설치</span> 구버전 .Net 에이전트 다운로드 버튼 제거 </p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
+        "ver": "Service 2.24.5",
+        "date": "2026-01-09",
+        "Lists": [
+            {
+                "ver": "Service 2.24.5",
+                "hash": "service-2245",
+                "product": "Database",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">추이 비교</span> 지표 선택기에서 클라우드 지표가 선택되지 않는 현상 수정 </p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
+        "ver": "Service 2.24.4",
+        "date": "2026-01-08",
+        "Lists": [
+            {
+                "ver": "Service 2.24.4",
+                "hash": "service-2244",
+                "product": "OpenMetrics",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">템플릿 목록</span> 설명 및 일부 텍스트 다크 모드에서 보이지 않는 현상 수정 </p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
+        "ver": "Service 2.24.4",
+        "date": "2026-01-08",
+        "Lists": [
+            {
+                "ver": "Service 2.24.4",
+                "hash": "service-2244",
+                "product": "Kubernetes",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">컨테이너 맵</span> 그룹화 지표에서 GPU 항목 제거</p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
         "ver": "Service 2.24.3",
         "date": "2025-12-30",
         "Lists": [

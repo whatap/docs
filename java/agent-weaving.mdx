@@ -19,166 +19,244 @@ Java 에이전트를 통해 추적하고 있는 프레임워크 또는 오픈소
 ### Apache Camel
 
 #### CXF
-**설정**: `weaving=camel-cxf-3.15`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.27 | camel-cxf 3.15 이상 |
+| camel-cxf Version | 설정 값                |
+| ----------------- | ---------------------- |
+| 3.15 이상         | weaving=camel-cxf-3.15 |
+
+| Java 에이전트 버전 | 지원 범위           |
+| ------------- | ------------------- |
+| v2.2.27       | camel-cxf 3.15 이상 |
 
 #### Netty
-**설정**: `weaving=camel-netty4-2.25`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.42 | camel-netty4 2.25 이상 |
+| camel-netty4 Version | 설정 값                   |
+| -------------------- | ------------------------- |
+| 2.25 이상            | weaving=camel-netty4-2.25 |
+
+| Java 에이전트 버전 | 지원 범위               |
+| ------------- | ----------------------- |
+| v2.2.42       | camel-netty4 2.25 이상 |
 
 #### SEDA
-**설정**: `weaving=camel-seda-2.22`, `weaving=camel-seda-3.2`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.20 | camel-seda 2.22 이상, 3.2 이상 |
+| camel-seda Version | 설정 값                 |
+| ------------------ | ----------------------- |
+| 2.22 이상          | weaving=camel-seda-2.22 |
+| 3.2 이상           | weaving=camel-seda-3.2  |
+
+| Java 에이전트 버전 | 지원 범위                      |
+| ------------- | ------------------------------ |
+| v2.2.20       | camel-seda 2.22 이상, 3.2 이상 |
 
 ### DB2
-**설정**: `weaving=db2-11.5`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.18 | db2 11.5 이상 |
+| DB2 Version | 설정 값          |
+| ----------- | ---------------- |
+| 11.5 이상   | weaving=db2-11.5 |
+
+| Java 에이전트 버전 | 지원 범위     |
+| ------------- | ------------- |
+| v2.2.18       | db2 11.5 이상 |
 
 ### DynamoDB
-**설정**: `weaving=dynamodb-1.11`, `weaving=dynamodb-2.25`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.39 | dynamodb 1.11, 2.25 |
+| DynamoDB Version | 설정 값               |
+| ---------------- | --------------------- |
+| 1.11             | weaving=dynamodb-1.11 |
+| 2.25             | weaving=dynamodb-2.25 |
+
+| Java 에이전트 버전 | 지원 범위           |
+| ------------- | ------------------- |
+| v2.2.39       | dynamodb 1.11, 2.25 |
 
 ### Feign Client
-**설정**: `weaving=feign-11`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.6 | feign 11 이상 |
+| Feign Version | 설정 값          |
+| ------------- | ---------------- |
+| 11 이상       | weaving=feign-11 |
+
+| Java 에이전트 버전 | 지원 범위     |
+| ------------- | ------------- |
+| v2.2.6        | feign 11 이상 |
 
 ### Hystrix
-**설정**: `weaving=hystrix-1.5`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.0_21 | hystrix 1.5 이상 |
+| Hystrix Version | 설정 값             |
+| --------------- | ------------------- |
+| 1.5 이상        | weaving=hystrix-1.5 |
+
+| Java 에이전트 버전 | 지원 범위        |
+| ------------- | ---------------- |
+| v2.0_21       | hystrix 1.5 이상 |
 
 ### Kafka
-**설정**: `weaving=kafka-clients-2.4.0`, `weaving=reactor-kafka-1.3`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.15 | kafka-clients 2.4.0 이상 |
-| v2.2.5 | reactor-kafka 1.3 이상 |
+| Kafka Version            | 설정 값                     |
+| ------------------------ | --------------------------- |
+| kafka-clients 2.4.0 이상 | weaving=kafka-clients-2.4.0 |
+| reactor-kafka 1.3 이상   | weaving=reactor-kafka-1.3   |
+
+| Java 에이전트 버전 | 지원 범위                |
+| ------------- | ------------------------ |
+| v2.2.15       | kafka-clients 2.4.0 이상 |
+| v2.2.5        | reactor-kafka 1.3 이상   |
 
 ### Logging
 
 #### Log4j2
-**설정**: `weaving=log4j-2.17`
 
-**비고**: [특정 appender 제외하는 에이전트 옵션 제공](agent-log#excludeappender)
+| Log4j2 Version | 설정 값            |
+| -------------- | ------------------ |
+| 2.17 이상      | weaving=log4j-2.17 |
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.28 | log4j 2.17 이상 |
+:::note
+
+[특정 appender 제외하는 에이전트 옵션 제공](agent-log#excludeappender)
+
+:::
+
+| Java 에이전트 버전 | 지원 범위       |
+| ------------- | --------------- |
+| v2.2.28       | log4j 2.17 이상 |
 
 #### Logback
-**설정**: `weaving=logback-1.2.8`
 
-**비고**: [특정 appender 제외하는 에이전트 옵션 제공](agent-log#excludeappender)
+| Logback Version | 설정 값               |
+| --------------- | --------------------- |
+| 1.2.8 이상      | weaving=logback-1.2.8 |
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.28 | logback 1.2.8 이상 |
+:::note
+
+[특정 appender 제외하는 에이전트 옵션 제공](agent-log#excludeappender)
+
+:::
+
+| Java 에이전트 버전 | 지원 범위         |
+| ------------- | ----------------- |
+| v2.2.28       | logback 1.2.8 이상 |
 
 ### MongoDB
-**설정**: `weaving=mongodb-{version}`
 
-**예시**: `weaving=mongodb-5.0`
+| MongoDB Version | 설정 값             |
+| --------------- | ------------------- |
+| 3.8.2 ~ 4.8     | weaving=mongodb-3.8 |
+| 3.8.2 ~ 5.0     | weaving=mongodb-5.0 |
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.45 | 3.8.2 ~ 5.0 |
-| v2.2.11 | 3.8.2 ~ 4.8 |
+| Java 에이전트 버전 | 지원 범위   |
+| ------------- | ----------- |
+| v2.2.45       | 3.8.2 ~ 5.0 |
+| v2.2.11       | 3.8.2 ~ 4.8 |
 
 ### Mule Framework
-**설정**: `weaving=mule-3.9.5`, `weaving=mule-4.5`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.23 | mule 3.9.5 이상, 4.5 이상 |
+| Mule Version | 설정 값            |
+| ------------ | ------------------ |
+| 3.9.5 이상   | weaving=mule-3.9.5 |
+| 4.5 이상     | weaving=mule-4.5   |
+
+| Java 에이전트 버전 | 지원 범위                    |
+| ------------- | ---------------------------- |
+| v2.2.23       | mule 3.9.5 이상, 4.5 이상 |
 
 ### OkHttp
-**설정**: `weaving=okhttp-2.7`, `weaving=okhttp3`, `weaving=okhttp3-4.4`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.9 | okhttp 2.7 이상, okhttp3, okhttp3-4.4 |
-| v2.0_15 | okhttp 2.7 이상, okhttp3 (4.4 제외) |
+| OkHttp Version | 설정 값             |
+| -------------- | ------------------- |
+| 2.7 이상       | weaving=okhttp-2.7  |
+| 3.x            | weaving=okhttp3     |
+| 3.x (4.4 이상) | weaving=okhttp3-4.4 |
+
+| Java 에이전트 버전 | 지원 범위                                   |
+| ------------- | ------------------------------------------- |
+| v2.2.9        | okhttp 2.7 이상, okhttp3, okhttp3-4.4       |
+| v2.0_15       | okhttp 2.7 이상, okhttp3 (4.4 제외) |
 
 ### Quarkus Reactive
-**설정**: `weaving=quarkus-reactive-1.13`, `weaving=quarkus-reactive-2.10`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.2.19 | quarkus-reactive 1.13 이상, 2.10 이상 |
+| Quarkus Reactive Version | 설정 값                       |
+| ------------------------ | ----------------------------- |
+| 1.13 이상                | weaving=quarkus-reactive-1.13 |
+| 2.10 이상                | weaving=quarkus-reactive-2.10 |
+
+| Java 에이전트 버전 | 지원 범위                                 |
+| ------------- | ----------------------------------------- |
+| v2.2.19       | quarkus-reactive 1.13 이상, 2.10 이상 |
 
 ### RabbitMQ
-**설정**: `weaving=reactor-rabbitmq-1.2`
 
-| 에이전트 버전 | 지원 범위 |
-| --- | --- |
-| v2.0_06 | reactor-rabbitmq 1.2 이상 |
+| reactor-rabbitmq Version | 설정 값                      |
+| ------------------------ | ---------------------------- |
+| 1.2 이상                 | weaving=reactor-rabbitmq-1.2 |
+
+| Java 에이전트 버전 | 지원 범위                |
+| ------------- | ------------------------ |
+| v2.0_06       | reactor-rabbitmq 1.2 이상 |
 
 ### Redis
 
 #### Jedis
-**설정**: `weaving=jedis-{version}`
 
-**예시**: `weaving=jedis-3.2`
+| Jedis Version | 설정 값           |
+| ------------- | ----------------- |
+| 2.9.0 ~ 2.9.3 | weaving=jedis-2.9 |
+| 3.2           | weaving=jedis-3.2 |
 
-| 에이전트 버전 | 지원 범위         |
+| Java 에이전트 버전 | 지원 범위         |
 | ------------- | ----------------- |
 | v2.2.43       | jedis 2.9.0 ~ 3.2 |
 | v2.0_33       | jedis 2.9.3 ~ 3.2 |
 | v2.0_09       | jedis 3.2         |
 
 #### Lettuce
-**설정**: `weaving=lettuce-{version}`
 
-**예시**: `weaving=lettuce-5.1`
+| Lettuce Version | 설정 값             |
+| --------------- | ------------------- |
+| 5.1             | weaving=lettuce-5.1 |
+| 5.1 ~ 6.2       | weaving=lettuce-6.2 |
 
-| 에이전트 버전 | 지원 범위         |
+| Java 에이전트 버전 | 지원 범위         |
 | ------------- | ----------------- |
 | v2.2.16       | lettuce 5.1 ~ 6.2 |
 | v2.2.7        | lettuce 5.1       |
 
 ### Retrofit
-**설정**: `weaving=retrofit-2.5`
 
-**비고**: okhttp 설정과 동시 사용 불가
+| Retrofit Version | 설정 값              |
+| ---------------- | -------------------- |
+| 2.5 이상         | weaving=retrofit-2.5 |
 
-| 에이전트 버전 | 지원 범위         |
+:::note
+
+okhttp 설정과 동시 사용 불가
+
+:::
+
+| Java 에이전트 버전 | 지원 범위         |
 | ------------- | ----------------- |
 | v2.2.39       | retrofit 2.5 이상 |
 
 ### Ribbon
-**설정**: `weaving=ribbon`
 
-| 에이전트 버전 | 지원 범위 |
+| Ribbon Version | 설정 값         |
+| -------------- | --------------- |
+| 전체 버전      | weaving=ribbon  |
+
+| Java 에이전트 버전 | 지원 범위 |
 | ------------- | --------- |
 | v2.2.10       | ribbon    |
 
 ### Spring Boot
-**설정**: `weaving=spring-boot-{version}`
 
-**예시**: `weaving=spring-boot-2.1`
+| Spring Boot Version     | 설정 값                 |
+| ----------------------- | ----------------------- |
+| spring-boot 2.1 ~ 2.4.x | weaving=spring-boot-2.1 |
+| spring-boot 2.5 ~ 2.6.x | weaving=spring-boot-2.5 |
+| spring-boot 2.7 ~ 2.9.x | weaving=spring-boot-2.7 |
+| spring-boot 3.0 ~ 3.1.x | weaving=spring-boot-3.0 |
+| spring-boot 3.2 ~ 3.3.x | weaving=spring-boot-3.0 |
 
-| 에이전트 버전 | 지원 범위             |
+| Java 에이전트 버전 | 지원 범위             |
 | ------------- | --------------------- |
 | v2.2.38       | spring-boot 2.1 ~ 3.2 |
 | v2.2.23       | spring-boot 2.1       |
@@ -196,28 +274,35 @@ Java 에이전트를 통해 추적하고 있는 프레임워크 또는 오픈소
 </details>
 
 ### Tomcat
-**설정**: `weaving=tomcat9`, `weaving=tomcat10`
 
-| 에이전트 버전 | 지원 범위         |
+| Tomcat Version | 설정 값          |
+| -------------- | ---------------- |
+| 9.x            | weaving=tomcat9  |
+| 10.x           | weaving=tomcat10 |
+
+| Java 에이전트 버전 | 지원 범위         |
 | ------------- | ----------------- |
 | v2.2.5        | tomcat9, tomcat10 |
 
 ### Undertow
-**설정**: `weaving=undertow-{version}`
 
-**예시**: `weaving=undertow-2.3`
+| Undertow Version | 설정 값              |
+| ---------------- | -------------------- |
+| 2.2 ~ 2.3        | weaving=undertow-2.2 |
+| 2.3              | weaving=undertow-2.3 |
 
-| 에이전트 버전 | 지원 범위          |
+| Java 에이전트 버전 | 지원 범위          |
 | ------------- | ------------------ |
 | v2.2.39       | undertow 2.2 ~ 2.3 |
 | v2.2.14       | undertow 2.3       |
 
 ### Vert.x
-**설정**: `weaving=vertx-{version}`
 
-**예시**: `weaving=vertx-4.5`
+| Vert.x Version | 설정 값           |
+| -------------- | ----------------- |
+| 4.5            | weaving=vertx-4.5 |
 
-| 에이전트 버전 | 지원 범위         |
+| Java 에이전트 버전 | 지원 범위         |
 | ------------- | ----------------- |
 | v2.2.44       | vertx 3.5.3 ~ 4.5 |
 | v2.2.42       | vertx 3.5.3       |

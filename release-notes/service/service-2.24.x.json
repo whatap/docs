@@ -1,6 +1,36 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
+        "ver": "Service 2.24.6",
+        "date": "2026-01-12",
+        "Lists": [
+            {
+                "ver": "Service 2.24.6",
+                "hash": "service-2246",
+                "product": "공통",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">이용내역</span> </p>",
+                "details": "<ul>\n<li>기본정보 수정 시, 전화번호 입력필드 기존 입력값 빈칸으로 보이는 문제</li>\n\n<li>청구 및 납부 내역 화이트 아웃</li>\n</ul>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
+        "ver": "Service 2.24.6",
+        "date": "2026-01-12",
+        "Lists": [
+            {
+                "ver": "Service 2.24.6",
+                "hash": "service-2246",
+                "product": "공통",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">실시간 로그 이벤트</span> </p>",
+                "details": "<ul>\n<li>이벤트 대상 필터링 검색값 추천 오류</li>\n\n<li>이벤트 대상 필터링 직접 입력 시 스페이스가 동작하지 않는 현상</li>\n</ul>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
         "ver": "Service 2.24.5",
         "date": "2026-01-09",
         "Lists": [

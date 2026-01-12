@@ -1,16 +1,46 @@
 [
-    {
-      "ver": "v2.2.68",
-      "date": "2026-1-2",
-      "Lists": [
-        {
-          "ver": "v2.2.68",
-          "hash": "v2268",
-          "product": "Java Agent",
-          "type": "New",
-          "desc": "<p><code class=\"New\" type=\"1\">New</code> WebMethods-10.15 지원</p>",
-          "details": "<ul>\n<li>Http 트랜잭션 추적</li>\n<li>WebMethods의 자체 http client인 NetURLConnection 추적</li>\n<li>자바에이전트 설정</li>\n</ul>\n\n<div class=\"language-bash codeBlockContainer theme-code-block\" style=\"--prism-background-color:#292d3e;--prism-color:#f8f8f2\"><div class=\"codeBlockContent\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines\"><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Requires agent restart</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">weaving</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">webmethods-10</span></span><br /><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># HTTP Request Tracing</span></span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># default: true</span></span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Enable WebMethods HTTP request tracing</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">trace_webmethods_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span><br /><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># default: wm.server</span></span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Service prefixes to exclude from HTTP tracing</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">trace_webmethods_url_ignore_prefixes</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">wm.server.packageList,wm.server.monitoring</span></span><br /><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Service Step Tracing</span></span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># default: true</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">trace_webmethods_service_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span><br /><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># default: wm.server,wm.monitor</span></span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Service prefixes to exclude from step tracing</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">trace_webmethods_service_ignore_prefixes</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">wm.server</span></span></code></pre></div></div>"
-        }
-      ]
-    }
+  {
+    "ver": "v2.2.69",
+    "date": "2026-1-9",
+    "Lists": [
+      {
+        "ver": "v2.2.69",
+        "hash": "v2269-1",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> Spring Boot 4.0 지원</p>",
+        "details": "<ul>\n<li>RestTemplate 추적</li>\n<li>RestClient 추적</li>\n<li>WebClient 추적</li>\n<li>R2DBC 추적</li>\n<li>자바에이전트 설정</li>\n</ul>\n\n<div class=\"language-bash codeBlockContainer theme-code-block\" style=\"--prism-background-color:#292d3e;--prism-color:#f8f8f2\"><div class=\"codeBlockContent\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines\"><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Requires agent restart</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">weaving</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">spring-boot-4.0</span></span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.69",
+        "hash": "v2269-2",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> OkHttp3 4.4 비동기 호출 지원</p>",
+        "details": "<ul>\n<li>자바에이전트 설정</li>\n</ul>\n\n<div class=\"language-bash codeBlockContainer theme-code-block\" style=\"--prism-background-color:#292d3e;--prism-color:#f8f8f2\"><div class=\"codeBlockContent\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines\"><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Requires agent restart</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">weaving</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">okhttp3-4.4</span></span></code></pre></div></div>"
+      },
+      {
+        "ver": "v2.2.69",
+        "hash": "v2269-3",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> OkHttp3 비동기 호출 지원</p>",
+        "details": "<ul>\n<li>자바에이전트 설정</li>\n</ul>\n\n<div class=\"language-bash codeBlockContainer theme-code-block\" style=\"--prism-background-color:#292d3e;--prism-color:#f8f8f2\"><div class=\"codeBlockContent\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines\"><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Requires agent restart</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">weaving</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">okhttp3</span></span></code></pre></div></div>"
+      }
+    ]
+  },
+  {
+    "ver": "v2.2.68",
+    "date": "2026-1-2",
+    "Lists": [
+      {
+        "ver": "v2.2.68",
+        "hash": "v2268",
+        "product": "Java Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> WebMethods-10.15 지원</p>",
+        "details": "<ul>\n<li>Http 트랜잭션 추적</li>\n<li>WebMethods의 자체 http client인 NetURLConnection 추적</li>\n<li>자바에이전트 설정</li>\n</ul>\n\n<div class=\"language-bash codeBlockContainer theme-code-block\" style=\"--prism-background-color:#292d3e;--prism-color:#f8f8f2\"><div class=\"codeBlockContent\"><pre tabindex=\"0\" class=\"prism-code language-bash codeBlock thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines\"><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Requires agent restart</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">weaving</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">webmethods-10</span></span><br /><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># HTTP Request Tracing</span></span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># default: true</span></span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Enable WebMethods HTTP request tracing</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">trace_webmethods_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span><br /><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># default: wm.server</span></span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Service prefixes to exclude from HTTP tracing</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">trace_webmethods_url_ignore_prefixes</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">wm.server.packageList,wm.server.monitoring</span></span><br /><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Service Step Tracing</span></span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># default: true</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">trace_webmethods_service_enabled</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">true</span></span><br /><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># default: wm.server,wm.monitor</span></span><br /><span class=\"token-line\"><span class=\"token comment\" style=\"color:rgb(105,112,152);font-style:italic\"># Service prefixes to exclude from step tracing</span></span><br /><span class=\"token-line\"><span class=\"token assign-left variable\" style=\"color:rgb(255,203,107)\">trace_webmethods_service_ignore_prefixes</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">=</span><span class=\"token plain\" style=\"color:#bfc7d5\">wm.server</span></span></code></pre></div></div>"
+      }
+    ]
+  }
 ]

@@ -7,7 +7,7 @@
         "ver": "v1.0.10",
         "hash": "v1010",
         "product": "Node.js Agent",
-         "type": "New",
+        "type": "New",
         "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>trace_cron_enabled</strong></p>",
         "details": "<ul><li>기본값: <code>true</code></li>\n<li>node-cron, cron, node-schedule 패키지의 CronJob 모니터링 여부 설정</li></ul>"
       },

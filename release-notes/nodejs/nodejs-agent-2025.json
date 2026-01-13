@@ -1,50 +1,5 @@
 [
   {
-    "ver": "v1.0.11",
-    "date": "2025-12-12",
-    "Lists": [
-      {
-        "ver": "v1.0.11",
-        "hash": "v1011",
-        "product": "Node.js Agent",
-        "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>trace_kafka_enabled</strong></p>",
-        "details": "<ul><li>기본값: <code>false</code></li>\n<li>kafkajs 패키지의 producer.send/sendBatch 함수를 모니터링함</li></ul>"
-      },
-      {
-        "ver": "v1.0.11",
-        "hash": "v1011",
-        "product": "Node.js Agent",
-        "type": "New",
-        "desc": "<p><code class=\"New\" type=\"1\">New</code> <strong>trace_kafka_consumer_enabled</strong></p>",
-        "details": "<ul><li>기본값: <code>false</code></li>\n<li>kafkajs 패키지의 consumer.run 함수를 모니터링함</li></ul>"
-      },
-      {
-        "ver": "v1.0.11",
-        "hash": "v1011",
-        "product": "Node.js Agent",
-        "type": "Change",
-        "desc": "<p><code class=\"Change\" type=\"0\">Change</code> <strong>trace_cron_enabled</strong></p>",
-        "details": "<ul><li>기본값: <code>true</code> → <code>false</code></li></ul>"
-      },
-      {
-        "ver": "v1.0.11",
-        "hash": "v1011",
-        "product": "Node.js Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> NodeJS 23+ 버전에서 힙메모리가 추적되지 않는 현상 수정</p>"
-      },
-      {
-        "ver": "v1.0.11",
-        "hash": "v1011",
-        "product": "Node.js Agent",
-        "type": "Fixed",
-        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 외부 HTTP 호출 시 <code>http.request()</code>의 모든 시그니처를 지원하도록 인자 정규화 로직 개선</p>",
-        "details": "<ul><li>http.request(options, callback) - 기존 방식</li>\n\n<li>http.request(URL, callback) - URL 문자열/객체 방식</li>\n\n<li>http.request(URL, options, callback) - URL + options 혼합 방식</li></ul>"
-      }
-    ]
-  },
-  {
     "ver": "v1.0.10",
     "date": "2025-12-12",
     "Lists": [

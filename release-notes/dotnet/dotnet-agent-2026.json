@@ -38,7 +38,7 @@
                 "hash": "v250",
                 "product": ".NET Agent",
                 "type": "Changed",
-                "desc": "<p><code class=\"Feature\" type=\"1\">Changed</code>안정성 및 확장성 확보를 위한 에이전트 내부 아키텍처 리팩토링</p>"
+                "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 안정성 및 확장성 확보를 위한 에이전트 내부 아키텍처 리팩토링</p>"
             },
             {
                 "ver": "v2.5.0",

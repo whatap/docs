@@ -9,9 +9,25 @@ toc_min_heading_level: 2
 <meta name="robots" content="noindex, nofollow"/>
 </head>
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 import ReleaseNotes from "./dotnet-agent.json";
 import ReleaseNotes25 from "./dotnet-agent-2025.json";
+import ReleaseNotes26 from "./dotnet-agent-2026.json";
 
-<ImportJson filePath={ReleaseNotes25} sort="date" category="agent" />
+<Tabs>
 
-<ImportJson filePath={ReleaseNotes} sort="date" category="agent" />
+    <TabItem value="2026" label="2026">
+        <ImportJson filePath={ReleaseNotes26} sort="date" category="agent" />
+    </TabItem>
+
+    <TabItem value="2025" label="2025">
+        <ImportJson filePath={ReleaseNotes25} sort="date" category="agent" />
+    </TabItem>
+    
+    <TabItem value="2024" label="2024">
+        <ImportJson filePath={ReleaseNotes} sort="date" category="agent" />
+    </TabItem>
+
+</Tabs>

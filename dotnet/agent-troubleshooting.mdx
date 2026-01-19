@@ -5,7 +5,7 @@ description: .NET 에이전트 설치 시 발생할 수 있는 문제를 확인�
 keywords: [ .NET, 문제 해결, Troubleshooting ]
 ---
 
-.NET 에이전트 설치 후 예기치 않은 문제가 발생한다면 다음 사항을 확인하고 신속하게 문제를 해결하세요. 계속해서 같은 문제가 발생한다면 [support@whatap.io](mailto:support@whatap.io)로 문의하세요. 또는 서비스 화면의 오른쪽 위에 ![고객지원 아이콘](/img/ico-help.svg) 버튼을 선택하면 나타나는 채팅창을 통해서 추가 지원을 받을 수도 있습니다.
+.NET 에이전트를 설치한 후 데이터가 수집되지 않거나 모니터링이 정상 작동하지 않는 경우, 본 문서를 통해 대표적인 문제 상황과 확인 방법을 빠르게 파악할 수 있습니다. 계속해서 같은 문제가 발생한다면 [support@whatap.io](mailto:support@whatap.io)로 문의하세요. 또는 서비스 화면의 오른쪽 위에 ![고객지원 아이콘](/img/ico-help.svg) 버튼을 선택하면 나타나는 채팅창을 통해서 추가 지원을 받을 수도 있습니다.
 
 :::note
 
@@ -18,8 +18,6 @@ keywords: [ .NET, 문제 해결, Troubleshooting ]
 
 ## 모든 데이터가 수집되지 않는 경우
 
-<ImgLang img='dotnet-apm-troubleshooting-connection-fail.png' desc='' />
-
 모든 위젯에 데이터가 수집되지 않을 경우 다음 사항을 확인해 보세요.
 
 - 에이전트 설정을 위한 *whatap.conf* 파일에 프로젝트 **액세스 키**와 **수집 서버 정보**가 제대로 입력되었는지 확인하세요.
@@ -28,11 +26,9 @@ keywords: [ .NET, 문제 해결, Troubleshooting ]
 
 ## 히트맵 정보가 수집되지 않는 경우
 
-<ImgLang img='dotnet-apm-troubleshooting-none-hitmap.png' desc='' />
-
 사용자의 애플리케이션이 지원 환경을 확인하세요. .NET 애플리케이션 모니터링을 위한 지원 환경은 [다음 문서](supported-spec)를 참조하세요. 서버의 닷넷 버전이 지원 환경에 해당하더라도 애플리케이션의 버전이 .NET Framework 4.5 이상이 아니면, 모니터링을 위한 데이터 수집이 원활하지 않을 수 있습니다.
 
-## 지원 범위를 확인하기 어렵거나 지원 대상으로 판별된 경우
+## 지원 여부가 불확실한 경우
 
 대상 애플리케이션의 *web.config* 파일을 [support@whatap.io](mailto:support@whatap.io)로 전달해 문의하세요. 가능하다면 대상 애플리케이션의 프로젝트 파일(*.csproj*)을 전달해줄 것을 권장합니다.
 
@@ -44,27 +40,38 @@ keywords: [ .NET, 문제 해결, Troubleshooting ]
 
 시스템 환경 변수는 에이전트 설치 시 자동 등록합니다. 다음과 같은 내용이 등록됐는지 확인하세요.
 
-* **COR_ENABLE_PROFILING = 1**
+- **WHATAP_APP_TYPE = 7**
+    
+    와탭 서버와 통신하는 에이전트 종류로 고정값입니다.
+    
+- **WHATAP_DOTNET_HOME = C:\Program Files\WhaTap .NET**
+    
+    와탭 프로그램의 홈 경로입니다.
+    
+- **WHATAP_DOTNET_TRACE = 1**
+    
+    모니터링 데이터 수집 기능을 활성화합니다.
 
-  CLR 프로파일러를 활성화합니다.
 
-* **COR_PROFILER = \{D76F1D76-A9E0-4C87-874F-C0AD93D4229B\}**
+## GAC 확인
 
-  와탭 CLR 프로파일러를 API에 등록할 때 사용하는 GUID입니다. 고정값입니다.
+에이전트 설치 시 DLL 파일이 GAC에 자동 등록됩니다. `C:\Windows\Microsoft.NET\assembly\GAC_MSIL` 경로에서 등록된 파일을 확인해 주세요.
 
-* **COR_PROFILER_PATH = C:\Program Files\WhaTap .NET\WhaTap.ClrProfiler.dll**
+<table>
+  <tr><td>📄 Sigil</td></tr>
+  <tr><td>📄 Microsoft.Diagnostics.NETCore.Client</td></tr>
+  <tr><td>📄 Microsoft.Diagnostics.Runtime</td></tr>
+  <tr><td>📄 System.Diagnostics.DiagnosticSource</td></tr>
+  <tr><td>📄 System.Memory</td></tr>
+  <tr><td>📄 Whatap.Startup</td></tr>
+  <tr><td>📄 Whatap.Loader</td></tr>
+  <tr><td>📄 Whatap.Tracer</td></tr>
+</table>
 
-  와탭 CLR 프로파일러 DLL의 경로입니다.
+:::note
 
-* **WHATAP_APP_TYPE = 7**
+**GAC 수동 삭제**
 
-  와탭 서버와 통신하는 에이전트 종류로 고정값입니다.
+에이전트를 삭제해도 GAC에 등록된 데이터는 자동으로 제거되지 않습니다. 필요한 경우 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL` 경로에서 직접 삭제해 주세요.
 
-* **WHATAP_DOTNET_HOME = C:\Program Files\WhaTap .NET**
-
-  와탭 프로그램의 홈 경로입니다.
-
-* **WHATAP_DOTNET_TRACE = 1**
-
-  모니터링 데이터 수집 기능을 활성화합니다.
-
+:::

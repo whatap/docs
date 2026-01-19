@@ -7,21 +7,40 @@ keywords: [ .NET, 업데이트, 삭제 ]
 
 ## 에이전트 삭제 {#uninstallagent}
 
-**시작 메뉴에서 제거**
+### 시작 메뉴에서 제거
 
 1. 윈도우에서 **시작** ![Windows Start](/img/btn-windows.svg) > **모든 앱**을 선택하고 표시된 목록에서 **WhaTap .NET** 앱을 검색합니다.
 
-1. 앱을 길게 누르거나 마우스 오른쪽 버튼을 클릭한 다음 **제거**를 선택하세요.
+1. 앱을 길게 누르거나 마우스 오른쪽 버튼을 클릭한 후, **제거**를 클릭하세요.
 
-**제어판에서 제거**
+### 제어판에서 제거
 
 1. 윈도우에서 작업 표시줄을 검색할 때 **제어판**이라고 입력하고 결과에서 선택하세요.
 
-1. **프로그램** > **프로그램 및 기능**을 선택하세요.
+1. **프로그램** > **프로그램 및 기능**으로 이동하세요.
 
-1. **WhaTap .NET** 프로그램을 선택한 다음 마우스 오른쪽 버튼을 클릭하고 **제거** 또는 **제거/변경**을 선택하세요.
+1. **WhaTap .NET** 프로그램을 선택한 후, 마우스 오른쪽 버튼을 클릭하고 **제거** 또는 **제거/변경**을 선택하세요.
 
-화면의 안내에 따라 에이전트를 삭제하세요.
+1. 화면의 안내에 따라 에이전트를 삭제하세요.
+
+1. `C:\Windows\Microsoft.NET\assembly\GAC_MSIL` 경로에서 와탭 에이전트 설치간에 등록된 dll들을 제거하세요.
+
+    <table>
+    <tr><td>📄 Sigil</td></tr>
+    <tr><td>📄 Microsoft.Diagnostics.NETCore.Client</td></tr>
+    <tr><td>📄 Microsoft.Diagnostics.Runtime</td></tr>
+    <tr><td>📄 System.Diagnostics.DiagnosticSource</td></tr>
+    <tr><td>📄 System.Memory</td></tr>
+    <tr><td>📄 Whatap.Startup</td></tr>
+    <tr><td>📄 Whatap.Loader</td></tr>
+    <tr><td>📄 Whatap.Tracer</td></tr>
+    </table>
+
+    :::note
+
+    에이전트를 삭제해도 GAC에 등록된 데이터는 자동으로 제거되지 않습니다. 필요한 경우 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL` 경로에서 직접 삭제해 주세요.
+
+    :::
 
 ## 에이전트 업데이트 {#updateagent}
 

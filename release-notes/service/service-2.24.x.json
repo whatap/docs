@@ -1,6 +1,20 @@
 [
     {
         "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
+        "ver": "Service 2.24.7",
+        "date": "2026-01-23",
+        "Lists": [
+            {
+                "ver": "Service 2.24.7",
+                "hash": "service-2247",
+                "product": "Database",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계</span> &gt; <span class=\"uitext\">SQL 통계</span> 데이터를 정상적으로 조회할 수 없는 현상 수정 </p>"
+            }
+        ]
+    },
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_24_x",
         "ver": "Service 2.24.6",
         "date": "2026-01-12",
         "Lists": [

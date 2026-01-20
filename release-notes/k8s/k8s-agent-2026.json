@@ -1,0 +1,18 @@
+[
+    {
+        "url": "https://docs.whatap.io/release-notes/k8s/k8s-1_9_0",
+        "ver": "v1.9.0",
+        "date": "2026-01-14",
+        "JavaVersion": "Java Agent v2.2.68 포함",
+        "Lists": [
+            {
+            "ver": "v1.9.0",
+            "hash": "v190",
+            "product": "Kubernetes Agent",
+            "type": "New",
+            "desc": "<p><code class=\"New\">New</code> <strong>Kubernetes 라벨 수집 정책 개선</strong></p>",
+            "details": "<ul><li><strong>라벨 식별성 강화(Prefix 지원)</strong>\n<ul><li>Kubernetes 라벨과 에이전트 내부 태그(System Tag)를 명확히 구분</li><li>사용자 정의 Kubernetes 라벨에 접두사(Prefix)를 붙여 저장할 수 있는 옵션 추가</li></ul>\n</li>\n\n<li><strong>수집 필터링 도입(Label Filtering)</strong><ul><li>무분별한 라벨 수집을 방지하기 위해 허용 목록(Allowlist) 또는 제외 목록(Blocklist) 기반의 필터링 도입</li></ul></li>\n</ul>"
+            }
+        ]
+    }
+]

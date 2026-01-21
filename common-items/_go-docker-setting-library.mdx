@@ -1,34 +1,32 @@
 ## Go 라이브러리 설정하기
 
-Go 애플리케이션 소스 코드에 [github.com/whatap/go-api](https://github.com/whatap/go-api) 패키지를 추가하세요.
+**라이브러리 설정 방식을 선택하세요.**
+
+| 방식 | 방법                    | 설명                                   | 권장                |
+| :--: | ----------------------- | -------------------------------------- | ------------------- |
+| 자동 | **whatap-go-inst 사용** | `whatap-go-inst` 도구로 코드 자동 삽입 | **권장**            |
+| 수동 | **go-api 사용**    | API를 직접 코드에 추가                 | 세밀한 제어 필요 시 |
+
+### [자동] whatap-go-inst 사용 (권장)
+
+`whatap-go-inst` 도구를 사용하면 소스코드에 모니터링 코드를 자동으로 삽입합니다.
 
 ```bash
-go get github.com/whatap/go-api
-```
+# 1. 도구 설치
+go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
 
-`trace.Init()`, `trace.Shutdown()` 함수로 초기화 및 종료를 설정하세요. `trace.Start()`, `trace.End()` 함수로 트랜잭션의 시작 종료를 설정하세요.
+# 2. 프로젝트 초기화 (go.mod 디렉토리에서)
+whatap-go-inst init
 
-```go title='Go'
-import "github.com/whatap/go-api/trace"
-
-func main(){
-    trace.Init(nil)
-    //It must be executed before closing the app.    
-    defer trace.Shutdown()    
-
-    ctx, _ := trace.Start(context.Bacground(), "Start Tx")
-
-    ...
-
-    trace.End(ctx, err)
-}
+# 3. 빌드 (모니터링 코드 자동 삽입)
+whatap-go-inst go build ./...
 ```
 
 <InDoc product='golang'>
 
 :::note
 
-라이브러리 설정에 대한 자세한 내용은 [다음 문서](api-guide)를 참조하세요.
+자세한 사용법은 [whatap-go-inst 가이드](auto-instrument-guide.md)를 참고하세요.
 
 :::
 
@@ -38,7 +36,46 @@ func main(){
 
 :::note
 
-라이브러리 설정에 대한 자세한 내용은 [다음 문서](../golang/api-guide)를 참조하세요.
+자세한 사용법은 [whatap-go-inst 가이드](../golang/auto-instrument-guide.md)를 참고하세요.
+
+:::
+
+</InDoc>
+
+### [수동] go-api 사용
+
+```bash
+go get github.com/whatap/go-api
+```
+
+```go
+import "github.com/whatap/go-api/trace"
+
+func main(){
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    ctx, _ := trace.Start(context.Background(), "Start Tx")
+    ...
+    trace.End(ctx, err)
+}
+```
+
+<InDoc product='golang'>
+
+:::note
+
+자세한 API 사용법은 [Go API 가이드](api-guide.md)를 참고하세요.
+
+:::
+
+</InDoc>
+
+<InDoc product='kubernetes'>
+
+:::note
+
+자세한 API 사용법은 [Go API 가이드](../golang/api-guide)를 참조하세요.
 
 :::
 

@@ -1,5 +1,51 @@
 [
   {
+    "ver": "v2.9.8",
+    "date": "2026-1-20",
+    "Lists": [
+      {
+        "ver": "v2.9.8",
+        "hash": "v298-1",
+        "product": "Server Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> CronJob TagCount Fold 옵션 지원</p>",
+        "details": ""
+      },
+      {
+        "ver": "v2.9.8",
+        "hash": "v298-2",
+        "product": "Server Agent",
+        "type": "New",
+        "desc": "<p><code class=\"New\" type=\"1\">New</code> infra_mem scan, free, steal 관련 지표 추가</p>",
+        "details": ""
+      },
+      {
+        "ver": "v2.9.8",
+        "hash": "v298-3",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> GPU 인벤토리 NVML Library 기반으로 개선</p>",
+        "details": "<ul>\n<li>하위 호환성을 위해 기본으로 활성화 False 이며 추후 안정화 이후 기본 값 True 적용 예정</li>\n</ul>"
+      },
+      {
+        "ver": "v2.9.8",
+        "hash": "v298-4",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> GPU 인벤토리 데이터 수집 주기 개선</p>",
+        "details": "<ul>\n<li>기존 1일 → 개선 10분 (옵션)</li>\n</ul>"
+      },
+      {
+        "ver": "v2.9.8",
+        "hash": "v298-5",
+        "product": "Server Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> CentOS6 인벤토리 정보에 OS 표시 불가 현상 수정</p>",
+        "details": ""
+      }
+    ]
+  },
+  {
     "ver": "v2.9.7",
     "date": "2026-01-07",
     "Lists": [

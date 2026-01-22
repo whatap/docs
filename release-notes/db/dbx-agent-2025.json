@@ -1,5 +1,56 @@
 [
   {
+    "ver": "v2.59.01",
+    "date": "2026-1-21",
+    "Lists": [
+      {
+        "ver": "v2.59.01",
+        "hash": "v25901-1",
+        "product": "DBX",
+        "type": "Changed",
+        "category": "MySQL",
+        "desc": "<p><code class=\"Changed\" type=\"2\">Changed</code> MySQL 통계(db_mysql_statements) 수집 개선</p>",
+        "details": "<ul>\n<li>기존 수집 기준에서 overflow가 나는 문제 개선</li>\n</ul>\n\n<p><strong>기존</strong></p>\n\n<div class=\"language-sql codeBlockContainer theme-code-block\" style=\"--prism-background-color:#292d3e;--prism-color:#f8f8f2\"><div class=\"codeBlockContent\"><pre tabindex=\"0\" class=\"prism-code language-sql codeBlock thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines\"><span class=\"token-line\"><span class=\"token plain\" style=\"color:#bfc7d5\">sum_rows_affected</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">+</span><span class=\"token plain\" style=\"color:#bfc7d5\"> sum_rows_sent</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">+</span><span class=\"token plain\" style=\"color:#bfc7d5\"> sum_rows_examined</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">></span><span class=\"token number\" style=\"color:rgb(247,140,108)\">10000</span></span></code></pre></div></div>\n\n<p><strong>변경</strong></p>\n\n<div class=\"language-sql codeBlockContainer theme-code-block\" style=\"--prism-background-color:#292d3e;--prism-color:#f8f8f2\"><div class=\"codeBlockContent\"><pre tabindex=\"0\" class=\"prism-code language-sql codeBlock thin-scrollbar\" style=\"color:#f8f8f2;background-color:#292d3e\"><code class=\"codeBlockLines\"><span class=\"token-line\"><span class=\"token plain\" style=\"color:#bfc7d5\">sum_rows_affected</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">>=</span><span class=\"token number\" style=\"color:rgb(247,140,108)\">10000</span></span><br /><span class=\"token-line\"><span class=\"token keyword\" style=\"color:rgb(199,146,234)\">OR</span><span class=\"token plain\" style=\"color:#bfc7d5\"> sum_rows_sent</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">>=</span><span class=\"token number\" style=\"color:rgb(247,140,108)\">10000</span></span><br /><span class=\"token-line\"><span class=\"token keyword\" style=\"color:rgb(199,146,234)\">OR</span><span class=\"token plain\" style=\"color:#bfc7d5\"> sum_rows_examined</span><span class=\"token operator\" style=\"color:rgb(199,146,234)\">>=</span><span class=\"token number\" style=\"color:rgb(247,140,108)\">10000</span></span></code></pre></div></div>\n\n<ul>\n<li>수집 건수를 제어할 수 있도록 limit 옵션 추가\n<ul>\n<li>statements_row_limit = 5000</li>\n</ul>\n</li>\n<li>에이전트 기동 직후 최초 SQL 통계 수집 단계에서, 불필요한 <code>sql_text</code> 조회를 제거하여 초기 수집 부하를 개선</li>\n</ul>"
+      },
+      {
+        "ver": "v2.59.01",
+        "hash": "v25901-2",
+        "product": "DBX",
+        "type": "Changed",
+        "category": "MySQL",
+        "desc": "<p><code class=\"Changed\" type=\"2\">Changed</code> Table Size 수집 시 <code>limit</code> 조건을 <code>></code>에서 <code>>=</code>로 수정하여 경계값 누락 문제 개선</p>",
+        "details": ""
+      },
+      {
+        "ver": "v2.59.01",
+        "hash": "v25901-3",
+        "product": "DBX",
+        "type": "Changed",
+        "category": "PostgreSQL",
+        "desc": "<p><code class=\"Changed\" type=\"2\">Changed</code> PostgreSQL 통계(db_postgresql_statements) 수집 개선</p>",
+        "details": "<ul>\n<li>에이전트 기동 직후 최초 SQL 통계 수집 단계에서, 불필요한 <code>sql_text</code> 조회를 제거하여 초기 수집 부하를 개선</li>\n</ul>"
+      },
+      {
+        "ver": "v2.59.01",
+        "hash": "v25901-4",
+        "product": "DBX",
+        "type": "Changed",
+        "category": "PostgreSQL",
+        "desc": "<p><code class=\"Changed\" type=\"2\">Changed</code> frozenxid, seq_scan, idx_scan 수집을 기존 인스턴스 단위 수집에서 DB별 수집 방식으로 개선</p>",
+        "details": ""
+      },
+      {
+        "ver": "v2.59.01",
+        "hash": "v25901-5",
+        "product": "DBX",
+        "type": "Changed",
+        "category": "Oracle",
+        "desc": "<p><code class=\"Changed\" type=\"2\">Changed</code> db_oracle_tablespace의 써머리 데이터 생성을 위해 <code>_no_5m_hour</code> 필드 제거</p>",
+        "details": ""
+      }
+    ]
+  },
+  {
     "ver": "v2.58.10",
     "date": "2025-12-19",
     "Lists": [

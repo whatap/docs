@@ -1,5 +1,18 @@
 [
   {
+    "ver": "v1.4.6",
+    "date": "2026-01-15",
+    "Lists": [
+      {
+        "ver": "v1.4.5",
+        "hash": "v145",
+        "product": "Server HP-UX Agent",
+        "type": "Fixed",
+        "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> disk 정보 수집 오류 수정</p>"
+      }
+    ]
+  },  
+  {
     "ver": "v1.4.5",
     "date": "2025-07-25",
     "Lists": [

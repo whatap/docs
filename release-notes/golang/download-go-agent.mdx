@@ -5,13 +5,40 @@ toc_max_heading_level: 2
 displayed_sidebar: releaseSidebar
 ---
 
-#### 최신 버전: 0.4.6
+#### 최신 버전: 0.5.0
+
+## 자동 계측 도구 (whatap-go-inst)
+
+소스코드를 직접 수정하지 않고 빌드 시점에 모니터링 코드를 자동 삽입하는 CLI 도구입니다.
+
+### Go install
+```bash
+go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
+```
+
+### 바이너리 다운로드
+
+| OS | 아키텍처 | 다운로드 |
+| - | :-: | :-: |
+| Linux | x86_x64 | [다운로드](https://github.com/whatap/go-api-inst/releases/latest/download/whatap-go-inst_linux_amd64.tar.gz) |
+| \^ | arm64 | [다운로드](https://github.com/whatap/go-api-inst/releases/latest/download/whatap-go-inst_linux_arm64.tar.gz) |
+
+## go-api (import library)
+
+Go 애플리케이션에 import하여 사용하는 모니터링 라이브러리입니다.
+```bash
+go get github.com/whatap/go-api@latest
+```
+
+## 데이터 중계 에이전트
+
+애플리케이션에서 수집한 모니터링 데이터를 WhaTap 수집 서버로 전송하는 에이전트입니다.
 
 | OS | 파일 형식 | 아키텍처 | 다운로드 |
 | - | :-: | :-: | :-: |
-| Red Hat / CentOS / Amazon linux | RPM | x86 x64 |[다운로드](https://repo.whatap.io/centos/6/x86_64/whatap-agent-0.4-6.x86_64.rpm) |
-| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/centos/7/aarch64/whatap-agent-0.4-6.aarch64.rpm) |
-| Ubuntu 12 and above / Debian | DEB | amd64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-agent_0.4.6_amd64.deb) |
-| \^ | \^ | arm64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-agent_0.4.6_arm64.deb) |
-| Alpine linux | tar gzip | x86 x64 | [다운로드](https://repo.whatap.io/alpine/x86_64/whatap-agent-0.4.6.tar.gz) |
-| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/alpine/aarch64/whatap-agent-0.4.6.tar.gz) |
+| Red Hat / CentOS / Amazon linux | RPM | x86 x64 | [다운로드](https://repo.whatap.io/centos/6/x86_64/whatap-agent-0.5-0.x86_64.rpm) |
+| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/centos/7/aarch64/whatap-agent-0.5-0.aarch64.rpm) |
+| Ubuntu 12 and above / Debian | DEB | amd64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-agent_0.5.0_amd64.deb) |
+| \^ | \^ | arm64 | [다운로드](https://repo.whatap.io/debian/unstable/whatap-agent_0.5.0_arm64.deb) |
+| Alpine linux | tar gzip | x86 x64 | [다운로드](https://repo.whatap.io/alpine/x86_64/whatap-agent-0.5.0.tar.gz) |
+| \^ | \^ | aarch64 | [다운로드](https://repo.whatap.io/alpine/aarch64/whatap-agent-0.5.0.tar.gz) |

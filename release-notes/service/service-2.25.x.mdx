@@ -16,11 +16,21 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; **비즈니스 대시보드** 액티브 트랜잭션 임계 표기 제거
 
+#### Go
+
+- <Status priority='1'>Changed</Status> 일부 기능 오픈 및 에이전트 설치 변경
+
+    - <Cmdname sid="stack" className="uitext" /> 메뉴 오픈
+
+    - <Cmdname sid="trace" className="uitext" /> **상세** &gt; <Cmdname sid="log" className="uitext" /> 탭 오픈
+
 ### `Database`
 
 #### 공통
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="side_dbParameter" className="uitext" /> 서로 다른 인스턴스를 비교할 수 있도록 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="stat_report_upper" className="uitext" /> &gt; <Cmdname sid="statistics_sql" className="uitext" /> SQL Plan Hash로 필터가 되지 않는 현상 수정
 
 #### MySQL, Oracle, Oracle Pro, PostgreSQL, SQL Server, Tibero
 
@@ -32,8 +42,9 @@ displayed_sidebar: releaseSidebar
 
 #### Oracle, Oracle Pro
 
-- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06224" className="uitext" /> 조회된 플랜이 사라지는 현상 수정
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlPlanAnalysis" className="uitext" /> Plan Change Summary 탭 추가
 
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06224" className="uitext" /> 조회된 플랜이 사라지는 현상 수정
 
 ### `Network`
 
@@ -41,6 +52,10 @@ displayed_sidebar: releaseSidebar
 
 - <Status priority='1'>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; **매니저 정보** System Log 및 SNMP Polling Failures 정보 표시 추가
 
-- <Status priority='0'>Fixed</Status> [공통] **TimeSelector** 최근 퀵옵션이 현재 시간을 반영하지 못하는 현상 수정
+- <Status priority='0'>Fixed</Status> **TimeSelector** 최근 퀵옵션이 현재 시간을 반영하지 못하는 현상 수정
+
+### `URL`
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="url_list" className="uitext" /> 전달된 시간 파라미터가 시간 선택자에 반영되지 않는 현상 수정
 
 </div> 

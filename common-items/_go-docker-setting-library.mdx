@@ -11,12 +11,48 @@
 
 `whatap-go-inst` 도구를 사용하면 소스코드에 모니터링 코드를 자동으로 삽입합니다.
 
+## **도구 설치**
+
+### **Go 1.21+ (권장)**
+
+```
+go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
+```
+
+Go 1.21 이상에서는 toolchain이 Go 1.24를 자동으로 다운로드하여 빌드합니다.
+
+### **Go 1.18~1.20**
+
+`go install`은 Go 1.21 이상이 필요합니다. Go 1.18~1.20 환경에서는 미리 빌드된 바이너리를 다운로드하세요.
+
+Linux x86_64:
+
+```
+wget https://github.com/whatap/go-api-inst/releases/latest/download/whatap-go-inst_linux_amd64.tar.gz
+tar -xvzf whatap-go-inst_linux_amd64.tar.gz
+sudo mv whatap-go-inst /usr/local/bin/
+```
+
+Linux ARM64:
+
+```yaml
+wget https://github.com/whatap/go-api-inst/releases/latest/download/whatap-go-inst_linux_arm64.tar.gz
+tar -xvzf whatap-go-inst_linux_arm64.tar.gz
+sudo mv whatap-go-inst /usr/local/bin/
+```
+
+### **프로젝트 초기화 및 빌드**
+
 ```bash
 # 1. 도구 설치
 go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
 
 # 2. 프로젝트 초기화 (go.mod 디렉토리에서)
 whatap-go-inst init
+
+# 3. go-api 패키지 다운로드 및 설치 
+go get github.com/whatap/go-api@latest
+go mod tidy
 
 # 3. 빌드 (모니터링 코드 자동 삽입)
 whatap-go-inst go build ./...
@@ -26,7 +62,7 @@ whatap-go-inst go build ./...
 
 :::note
 
-자세한 사용법은 [whatap-go-inst 가이드](auto-instrument-guide.md)를 참고하세요.
+자세한 사용법은 [whatap-go-inst 가이드](auto-instrument)를 참고하세요.
 
 :::
 
@@ -36,7 +72,7 @@ whatap-go-inst go build ./...
 
 :::note
 
-자세한 사용법은 [whatap-go-inst 가이드](../golang/auto-instrument-guide.md)를 참고하세요.
+자세한 사용법은 [whatap-go-inst 가이드](../golang/auto-instrument)를 참고하세요.
 
 :::
 
@@ -65,7 +101,7 @@ func main(){
 
 :::note
 
-자세한 API 사용법은 [Go API 가이드](api-guide.md)를 참고하세요.
+자세한 API 사용법은 [Go API 가이드](manual-instrument)를 참고하세요.
 
 :::
 
@@ -75,7 +111,7 @@ func main(){
 
 :::note
 
-자세한 API 사용법은 [Go API 가이드](../golang/api-guide)를 참조하세요.
+자세한 API 사용법은 [Go API 가이드](../golang/manual-instrument)를 참조하세요.
 
 :::
 

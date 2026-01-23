@@ -1,0 +1,571 @@
+---
+id: auto-instrument
+title: 기본 사용법
+description: Go 라이브러리를 이용해 와탭 에이전트에 모니터링할 데이터를 전송할 수 있습니다.
+keywords: [ Go, API 가이드, 라이브러리 ]
+---
+
+`whatap-go-inst`는 Go 소스코드에 WhaTap 모니터링 코드를 자동으로 삽입하는 CLI 도구입니다. AST(Abstract Syntax Tree) 분석을 통해 웹 프레임워크, 데이터베이스, Redis 등의 라이브러리 사용을 감지하고 적절한 계측 코드를 삽입합니다.
+
+**라이브러리 설정 방식:**
+- **whatap-go-inst 사용 (권장)**: 이 문서에서 설명하는 `whatap-go-inst` 도구로 코드 자동 삽입
+- **go-api 직접 사용**: [API 가이드](api-guide.md)를 참조하여 직접 코드 추가
+
+## 시스템 요구사항
+
+| 항목 | 요구사항 | 비고 |
+|------|----------|------|
+| **Go 버전** | **1.18 이상** | go-api 라이브러리 요구사항 |
+| **OS** | **Linux** | 현재 Linux만 지원 |
+| **아키텍처** | amd64, arm64 | x86_64, ARM64 |
+
+> **참고**: whatap-go-inst 바이너리 자체는 Go 설치 없이도 실행 가능합니다. 단, 계측된 코드를 빌드하려면 Go 1.18 이상이 필요합니다.
+
+## 설치
+
+### 방법 1: go install (Go 1.21+, 권장)
+
+Go 1.21 이상이면 toolchain 자동 다운로드로 설치됩니다.
+
+```bash
+# 공식 바이너리
+go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
+
+# 단축 바이너리 (goinst)
+go install github.com/whatap/go-api-inst/cmd/goinst@latest
+```
+
+### 방법 2: 바이너리 직접 다운로드
+
+Go 1.18~1.20 사용자 또는 Go 설치 없이 사용하려면 바이너리를 직접 다운로드합니다.
+
+```bash
+# Linux (amd64)
+curl -sSL https://github.com/whatap/go-api-inst/releases/latest/download/whatap-go-inst_linux_amd64.tar.gz | tar xz
+sudo mv whatap-go-inst /usr/local/bin/
+
+# Linux (arm64)
+curl -sSL https://github.com/whatap/go-api-inst/releases/latest/download/whatap-go-inst_linux_arm64.tar.gz | tar xz
+sudo mv whatap-go-inst /usr/local/bin/
+```
+
+### 방법 3: 소스에서 빌드
+
+```bash
+git clone https://github.com/whatap/go-api-inst.git
+cd go-api-inst
+go build -o whatap-go-inst .
+```
+
+### 설치 확인
+
+```bash
+whatap-go-inst version
+
+# 또는 단축 명령어
+goinst version
+```
+
+## 빠른 시작
+
+### 방법 1: 빌드 래퍼 (권장)
+
+가장 간단한 방법입니다. `go` 명령어 앞에 `whatap-go-inst`를 붙여서 실행합니다.
+
+```bash
+# 1. 초기화 (최초 1회, go.mod 디렉토리에서)
+whatap-go-inst init
+
+# 2. 빌드 (모니터링 코드 자동 삽입)
+whatap-go-inst go build ./...
+
+# 3. 실행
+./myapp
+```
+
+**장점:**
+- 원본 소스코드 변경 없음 (tool.go만 추가)
+- 의존성 자동 관리
+- 기존 go 명령어와 동일한 사용법
+
+### 방법 2: wrap 모드 (원본 100% 유지)
+
+원본 소스코드를 전혀 변경하지 않습니다.
+
+```bash
+# init 없이 바로 빌드
+whatap-go-inst go --wrap build ./...
+```
+
+**장점:**
+- 원본 go.mod 변경 없음
+- 첫 테스트나 원본 유지가 필요할 때 유용
+
+## 전역 옵션
+
+모든 명령어에서 사용할 수 있는 공통 옵션입니다.
+
+| 옵션 | 단축 | 기본값 | 설명 |
+|------|------|--------|------|
+| `--config` | | `.whatap/config.yaml` | 설정 파일 경로 |
+| `--verbose` | `-v` | `false` | 상세 출력 (파일별 변환 내용 표시) |
+| `--quiet` | `-q` | `false` | 요약만 출력 |
+| `--report` | | | JSON 보고서 파일 경로 |
+
+### 출력 수준
+
+```bash
+# 기본 출력
+whatap-go-inst inject -s ./src -o ./output
+
+# 상세 출력 (파일별 변환 내용)
+whatap-go-inst inject -s ./src -o ./output -v
+
+# 요약만 출력
+whatap-go-inst inject -s ./src -o ./output -q
+```
+
+### JSON 보고서
+
+분석 또는 CI/CD 연동을 위해 JSON 형식 보고서를 저장할 수 있습니다.
+
+```bash
+whatap-go-inst inject -s ./src -o ./output --report=report.json
+```
+
+보고서 구조:
+```json
+{
+  "timestamp": "2026-01-22T10:00:00+09:00",
+  "command": "inject",
+  "summary": {
+    "total": 10,
+    "instrumented": 3,
+    "skipped": 2,
+    "copied": 5,
+    "errors": 0
+  },
+  "files": [
+    {
+      "path": "main.go",
+      "status": "instrumented",
+      "transformers": ["gin"],
+      "changes": ["added import: whatapgin", "added: trace.Init"]
+    }
+  ]
+}
+```
+
+| 필드 | 설명 |
+|------|------|
+| `timestamp` | 보고서 생성 시간 |
+| `command` | 실행된 명령어 |
+| `summary.total` | 전체 파일 수 |
+| `summary.instrumented` | 계측된 파일 수 |
+| `summary.skipped` | 스킵된 파일 수 |
+| `summary.copied` | 복사된 파일 수 (변경 없음) |
+| `summary.errors` | 오류 발생 파일 수 |
+| `files[].path` | 파일 경로 |
+| `files[].status` | 상태 (instrumented/skipped/copied/error) |
+| `files[].transformers` | 적용된 변환기 목록 |
+| `files[].changes` | 변경 내용 목록 |
+
+## 명령어 레퍼런스
+
+### whatap-go-inst go
+
+go 명령어를 래핑하여 빌드 시 자동으로 모니터링 코드를 삽입합니다.
+
+```bash
+whatap-go-inst go [options] <command> [arguments]
+```
+
+| 명령어 | 설명 | 예시 |
+|--------|------|------|
+| `build` | 빌드 | `whatap-go-inst go build ./...` |
+| `run` | 실행 | `whatap-go-inst go run .` |
+| `test` | 테스트 | `whatap-go-inst go test ./...` |
+| `install` | 설치 | `whatap-go-inst go install ./...` |
+
+**옵션:**
+
+| 옵션 | 설명 |
+|------|------|
+| `--wrap` | wrap 모드 (go.mod에 whatap/go-api 없어도 됨) |
+| `--output`, `-O` | 계측된 소스 저장 경로 |
+| `--error-tracking` | 에러 추적 코드 삽입 (`if err != nil` 패턴에 `trace.Error` 추가) |
+
+**예시:**
+
+```bash
+# 전체 프로젝트 빌드
+whatap-go-inst go build ./...
+
+# 출력 파일 지정
+whatap-go-inst go build -o myapp .
+
+# 바로 실행
+whatap-go-inst go run .
+
+# 에러 추적 코드도 삽입
+whatap-go-inst go --error-tracking build ./...
+
+# wrap 모드
+whatap-go-inst go --wrap build ./...
+```
+
+### whatap-go-inst init
+
+프로젝트를 분석하여 whatap 의존성을 추가합니다.
+
+```bash
+whatap-go-inst init [directory]
+```
+
+**수행 작업:**
+1. 프로젝트 소스 분석 → 사용 중인 프레임워크 감지
+2. `whatap_inst.tool.go` 파일 생성
+3. `go get github.com/whatap/go-api@latest` 실행
+4. `go mod tidy` 실행
+
+### whatap-go-inst uninit
+
+init 명령어로 추가된 파일을 제거합니다.
+
+```bash
+whatap-go-inst uninit [directory]
+```
+
+### whatap-go-inst inject
+
+소스코드에 모니터링 코드를 삽입하여 별도 디렉토리에 출력합니다.
+
+```bash
+whatap-go-inst inject -s ./src -o ./output
+```
+
+| 플래그 | 단축 | 설명 |
+|--------|------|------|
+| `--src` | `-s` | 소스코드 경로 |
+| `--output` | `-o` | 출력 디렉토리 |
+| `--error-tracking` | | 에러 추적 코드 삽입 |
+
+### whatap-go-inst remove
+
+삽입된 모니터링 코드를 제거합니다.
+
+```bash
+whatap-go-inst remove -s ./instrumented -o ./clean
+```
+
+| 플래그 | 단축 | 설명 |
+|--------|------|------|
+| `--src` | `-s` | 소스코드 경로 |
+| `--output` | `-o` | 출력 디렉토리 |
+| `--all` | | 수동 삽입 패턴도 제거 |
+
+**--all 옵션:**
+
+`--all` 옵션은 `inject` 명령어가 생성한 패턴 외에, 사용자가 수동으로 삽입한 go-api 코드도 제거합니다.
+
+```bash
+# inject 패턴만 제거 (기본)
+whatap-go-inst remove -s ./instrumented -o ./clean
+
+# 수동 삽입 패턴도 제거
+whatap-go-inst remove --all -s ./src -o ./clean
+```
+
+> **주의**: 변수 할당(`ctx := trace.Start(...)`)이나 클로저 패턴(`whatapsql.Wrap(...)`)은 자동 제거되지 않으며 경고 메시지가 출력됩니다. 이런 패턴은 수동으로 제거해야 합니다.
+
+## 지원 프레임워크
+
+### 웹 프레임워크
+
+| 프레임워크 | Import 경로 | 삽입 코드 |
+|------------|-------------|-----------|
+| **Gin** | `github.com/gin-gonic/gin` | `r.Use(whatapgin.Middleware())` |
+| **Echo v4** | `github.com/labstack/echo/v4` | `e.Use(whatapecho.Middleware())` |
+| **Fiber v2** | `github.com/gofiber/fiber/v2` | `app.Use(whatapfiber.Middleware())` |
+| **Chi v5** | `github.com/go-chi/chi/v5` | `r.Use(whatapchi.Middleware)` |
+| **Gorilla Mux** | `github.com/gorilla/mux` | `r.Use(whatapmux.Middleware)` |
+| **net/http** | `net/http` | `whataphttp.Func()`, `whataphttp.Handler()` |
+| **FastHTTP** | `github.com/valyala/fasthttp` | `whatapfasthttp.Middleware()` |
+
+### 데이터베이스
+
+| 라이브러리 | Import 경로 | 변환 |
+|------------|-------------|------|
+| **database/sql** | `database/sql` | `sql.Open()` → `whatapsql.Open()` |
+| **sqlx** | `github.com/jmoiron/sqlx` | `sqlx.Open()` → `whatapsqlx.Open()` |
+| **GORM v2** | `gorm.io/gorm` | `gorm.Open()` → `whatapgorm.Open()` |
+| **GORM v1** | `github.com/jinzhu/gorm` | `gorm.Open()` → `whatapgorm.Open()` |
+
+### Redis
+
+| 라이브러리 | Import 경로 | 변환 |
+|------------|-------------|------|
+| **go-redis v9** | `github.com/redis/go-redis/v9` | `redis.NewClient()` → `whatapgoredis.NewClient()` |
+| **go-redis v8** | `github.com/go-redis/redis/v8` | `redis.NewClient()` → `whatapgoredis.NewClient()` |
+| **Redigo** | `github.com/gomodule/redigo` | `redis.Dial()` → `whatapredigo.Dial()` |
+
+### NoSQL
+
+| 라이브러리 | Import 경로 | 변환 |
+|------------|-------------|------|
+| **MongoDB** | `go.mongodb.org/mongo-driver/mongo` | `mongo.Connect()` → `whatapmongo.Connect()` |
+
+### 외부 서비스
+
+| 라이브러리 | Import 경로 | 설명 |
+|------------|-------------|------|
+| **Sarama (IBM)** | `github.com/IBM/sarama` | Kafka 클라이언트 |
+| **Sarama (Shopify)** | `github.com/Shopify/sarama` | Kafka 클라이언트 |
+| **gRPC** | `google.golang.org/grpc` | Server/Client Interceptor 자동 삽입 |
+| **Kubernetes** | `k8s.io/client-go` | `config.Wrap()` 자동 삽입 |
+
+### 로그 라이브러리
+
+| 라이브러리 | Import 경로 | 설명 |
+|------------|-------------|------|
+| **log** | `log` | 트랜잭션 ID 자동 추가 |
+| **logrus** | `github.com/sirupsen/logrus` | 트랜잭션 ID 자동 추가 |
+| **zap** | `go.uber.org/zap` | 트랜잭션 ID 자동 추가 |
+
+## 삽입되는 코드
+
+### main() 함수 초기화
+
+자동으로 삽입되는 초기화 코드:
+
+```go
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+    // 원래 코드...
+}
+```
+
+### 웹 프레임워크 미들웨어
+
+**Gin 예시:**
+```go
+// 변환 전
+r := gin.Default()
+r.GET("/", handler)
+
+// 변환 후
+r := gin.Default()
+r.Use(whatapgin.Middleware())  // 자동 삽입
+r.GET("/", handler)
+```
+
+**net/http 예시:**
+```go
+// 변환 전
+http.HandleFunc("/api", handler)
+
+// 변환 후
+http.HandleFunc("/api", whataphttp.Func(handler))
+```
+
+### 데이터베이스
+
+```go
+// 변환 전
+db, _ := sql.Open("mysql", dsn)
+
+// 변환 후
+db, _ := whatapsql.Open("mysql", dsn)
+```
+
+## 실행 모드 비교
+
+| 모드 | 명령어 | 소스 변경 | 의존성 자동 | 권장 |
+|------|--------|----------|------------|------|
+| 빌드 래퍼 | `whatap-go-inst go build` | tool.go만 | O | **권장** |
+| wrap 모드 | `whatap-go-inst go --wrap build` | X | O | 테스트용 |
+| toolexec | `go build -toolexec=...` | X | X | 고급 |
+| inject | `whatap-go-inst inject` | O | X | 검토용 |
+
+## 설정 파일
+
+`.whatap/config.yaml` 파일로 계측 설정을 관리할 수 있습니다.
+
+```yaml
+instrumentation:
+  preset: "full"           # full/minimal/web/database/external/log/custom
+  error_tracking: false    # 에러 추적 코드 삽입
+  disabled_packages:       # 비활성화할 패키지
+    - "k8s"
+    - "grpc"
+```
+
+### Preset 옵션
+
+| Preset | 설명 |
+|--------|------|
+| `full` | 모든 패키지 활성화 **(기본값)** |
+| `minimal` | trace.Init/Shutdown만 추가 |
+| `web` | 웹 프레임워크만 |
+| `database` | 데이터베이스만 |
+| `external` | 외부 서비스만 (Redis, MongoDB, Kafka 등) |
+| `log` | 로그 라이브러리만 |
+
+## 제한사항
+
+### 지원되지 않는 코드 패턴
+
+다음 패턴은 whatap-go-inst 코드 삽입이 적용되지 않습니다:
+
+**1. dot import 사용 시**
+```go
+// X 미들웨어 자동 추가 안 됨
+import . "github.com/gin-gonic/gin"
+
+func main() {
+    r := Default()  // gin.Default()가 아니므로 감지 불가
+}
+```
+
+**해결 방법:** 일반 import 사용
+```go
+// O 정상 동작
+import "github.com/gin-gonic/gin"
+
+func main() {
+    r := gin.Default()  // 감지됨
+}
+```
+
+**2. 전역 변수에서 라우터 초기화**
+```go
+// X 미들웨어 자동 추가 안 됨
+var Router = gin.Default()  // 전역 레벨 초기화
+```
+
+**해결 방법:** main() 또는 init() 함수 내에서 초기화
+```go
+// O 정상 동작
+var Router *gin.Engine
+
+func main() {
+    Router = gin.Default()  // 함수 내 초기화
+}
+```
+
+## 트러블슈팅
+
+### 계측이 적용되지 않는 경우
+
+```bash
+# 빌드 캐시 삭제
+go clean -cache
+whatap-go-inst go build ./...
+
+# 디버그 모드로 확인
+GO_API_AST_DEBUG=1 whatap-go-inst go build ./...
+```
+
+### 컴파일 에러: whatap 패키지를 찾을 수 없음
+
+```bash
+# 빌드 래퍼 사용 시 자동 해결됨
+whatap-go-inst go build ./...
+
+# 수동 해결
+go get github.com/whatap/go-api@latest
+go mod tidy
+```
+
+## Docker 환경에서 사용
+
+### Dockerfile 예시
+
+```dockerfile
+FROM golang:1.21 AS builder
+
+WORKDIR /app
+
+# whatap-go-inst 설치
+RUN go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
+
+# 소스 복사
+COPY . .
+
+# 초기화 및 빌드
+RUN whatap-go-inst init
+RUN whatap-go-inst go build -o /app/myapp .
+
+FROM alpine:latest
+COPY --from=builder /app/myapp /app/myapp
+CMD ["/app/myapp"]
+```
+
+## 환경 변수
+
+| 변수 | 설명 |
+|------|------|
+| `GO_API_AST_DEBUG` | 디버그 출력 활성화 (`1`로 설정) |
+| `GO_API_AST_OUTPUT_DIR` | 계측된 소스 출력 디렉토리 |
+| `WHATAP_INST_CONFIG` | 설정 파일 경로 |
+
+## 멀티 모듈 프로젝트
+
+여러 Go 모듈로 분리된 프로젝트를 계측하는 경우:
+
+| 패키지 유형 | 계측 여부 |
+|------------|----------|
+| 내 프로젝트 코드 | ✅ 계측 |
+| 외부 모듈 (go get) | ❌ 스킵 |
+| replace 로컬 모듈 | ✅ 기본 모드만 |
+
+```bash
+# go.mod에 replace 추가
+replace mycompany/shared-lib => ../shared-lib
+
+# 초기화 (1회)
+whatap-go-inst init
+
+# 모든 모듈에 whatap 의존성 추가
+go get github.com/whatap/go-api@latest
+
+# 빌드 (replace 모듈도 계측됨)
+whatap-go-inst go build ./...
+```
+
+## go-api 직접 사용에서 whatap-go-inst로 전환
+
+기존에 go-api 코드를 직접 삽입한 프로젝트를 whatap-go-inst로 전환하는 방법:
+
+```bash
+# 1. 기존 whatap 코드 제거
+whatap-go-inst remove --all -s . -o ./cleaned
+
+# 2. diff 확인 (커스텀 코드 누락 없는지)
+diff -r . ./cleaned
+
+# 3. 문제 없으면 교체
+cp -r ./cleaned/* ./
+
+# 4. 이후 자동 삽입으로 빌드
+whatap-go-inst go build ./...
+```
+
+**주의사항:**
+- 표준 패턴 (미들웨어, sql.Open 등)은 자동 제거됨
+- 커스텀 코드 (`trace.Start` 등 직접 삽입)는 수동 확인 필요
+
+## 관련 문서
+
+### 자동 계측 가이드
+- [설정 가이드](auto-instrument-config.md) - Preset, 패키지 목록, 환경변수, 로그 수집 설정
+- [사용자 정의 계측](auto-instrument-custom.md) - add, inject, replace, hook, transform
+- [멀티 모듈 프로젝트](auto-instrument-multi-module.md) - 멀티 모듈 가이드, CI/CD 예제
+
+### 기타
+- [API 가이드](api-guide.md) - go-api 직접 사용 방법 (수동 계측)
+- [설치 가이드](install-agent.md) - WhaTap Go 에이전트 설치
+- [Docker 설치 가이드](install-agent-docker.md) - Docker 환경 설치
+- [go-api GitHub](https://github.com/whatap/go-api) - WhaTap Go 모니터링 라이브러리
+- [go-api-inst GitHub](https://github.com/whatap/go-api-inst) - whatap-go-inst 도구

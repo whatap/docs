@@ -1,0 +1,401 @@
+---
+id: auto-instrument-config
+title: 설정 가이드
+description: whatap-go-inst 설정 방법을 안내합니다.
+keywords: [ Go, whatap-go-inst, 설정 ]
+---
+
+whatap-go-inst의 설정 파일과 환경 변수 사용 방법을 안내합니다.
+
+:::info 기본 사용법
+
+기본 사용 방법은 [기본 사용법 가이드](auto-instrument.mdx)를 먼저 참고하세요.
+
+:::
+
+## 기본 설정
+
+### 설정 파일
+
+#### 위치
+
+설정 파일은 다음 순서로 검색됩니다.
+
+| 우선순위 | 위치 | 설명 |
+|---------|------|------|
+| 1 | `--config` 플래그 | CLI에서 명시적으로 지정 |
+| 2 | `WHATAP_INST_CONFIG` 환경변수 | 환경변수로 지정 |
+| 3 | `.whatap/config.yaml` | **권장 위치** |
+| 4 | `.whatap/whatap.yaml` | 대체 파일명 |
+
+:::tip 권장
+
+`.whatap/config.yaml` 경로에 설정 파일을 생성하세요.
+
+:::
+
+#### 기본 구조
+
+```yaml
+# .whatap/config.yaml
+
+instrumentation:
+  # Preset 선택
+  preset: "full"           # full/minimal/web/database/external/log/custom
+  
+  # 에러 추적
+  error_tracking: false    # if err != nil 패턴에 trace.Error 삽입
+  
+  # 패키지 선택
+  enabled_packages: []     # 추가로 활성화할 패키지
+  disabled_packages: []    # 비활성화할 패키지
+```
+
+### Preset 옵션
+
+계측할 패키지 그룹을 선택합니다.
+
+| Preset | 설명 | 포함 항목 |
+|--------|------|-----------|
+| `full` | 모든 패키지 활성화 **(기본값)** | 웹 + 데이터베이스 + 외부 서비스 + 로그 |
+| `minimal` | 최소 설정 | trace.Init/Shutdown만 (프레임워크 미들웨어 제외) |
+| `web` | 웹 프레임워크만 | Gin, Echo, Fiber, Chi, Gorilla Mux, net/http, FastHTTP |
+| `database` | 데이터베이스만 | database/sql, sqlx, GORM v1/v2 |
+| `external` | 외부 서비스만 | Redis, MongoDB, Kafka, gRPC, Kubernetes |
+| `log` | 로그 라이브러리만 | log, logrus, zap |
+| `custom` | 사용자 정의 | enabled_packages로 직접 지정 |
+
+#### Preset 조합 방식
+```
+최종 활성화 패키지 = Preset 패키지 + enabled_packages - disabled_packages
+```
+
+**조합 예시:**
+- `preset: full` + `disabled_packages: ["grpc"]` → gRPC 제외한 전체
+- `preset: web` + `enabled_packages: ["sql"]` → 웹 프레임워크 + SQL
+- `preset: custom` + `enabled_packages: ["gin", "sql"]` → Gin과 SQL만
+
+<details>
+<summary>지원 패키지 전체 목록 보기</summary>
+
+#### 웹 프레임워크
+
+| 패키지명 | 라이브러리 | 삽입 코드 |
+|----------|-----------|-----------|
+| `gin` | github.com/gin-gonic/gin | `whatapgin.Middleware()` |
+| `echo` | github.com/labstack/echo/v4 | `whatapecho.Middleware()` |
+| `fiber` | github.com/gofiber/fiber/v2 | `whatapfiber.Middleware()` |
+| `chi` | github.com/go-chi/chi/v5 | `whatapchi.Middleware` |
+| `gorilla` | github.com/gorilla/mux | `whatapmux.Middleware` |
+| `nethttp` | net/http | `whataphttp.Func()`, `whataphttp.Handler()` |
+| `fasthttp` | github.com/valyala/fasthttp | `whatapfasthttp.Middleware()` |
+
+#### 데이터베이스
+
+| 패키지명 | 라이브러리 | 삽입 코드 |
+|----------|-----------|-----------|
+| `sql` | database/sql | `whatapsql.Open()` |
+| `sqlx` | github.com/jmoiron/sqlx | `whatapsqlx.Open()` |
+| `gorm` | gorm.io/gorm | `whatapgorm.Open()` |
+| `jinzhugorm` | github.com/jinzhu/gorm | `whatapgorm.Open()` |
+
+#### 외부 서비스
+
+| 패키지명 | 라이브러리 | 삽입 코드 |
+|----------|-----------|-----------|
+| `redigo` | github.com/gomodule/redigo | `whatapredigo.Dial()` |
+| `goredis` | github.com/redis/go-redis/v9 | `whatapgoredis.NewClient()` |
+| `mongo` | go.mongodb.org/mongo-driver | `whatapmongo.Connect()` |
+| `sarama` | github.com/IBM/sarama | Kafka Interceptor |
+| `grpc` | google.golang.org/grpc | Server/Client Interceptor |
+| `k8s` | k8s.io/client-go | `config.Wrap()` |
+
+#### 로그 라이브러리
+
+| 패키지명 | 라이브러리 | 삽입 코드 |
+|----------|-----------|-----------|
+| `log` | log | `log.SetOutput(logsink.GetTraceLogWriter())` |
+| `logrus` | github.com/sirupsen/logrus | `logrus.SetOutput(logsink.GetTraceLogWriter())` |
+| `zap` | go.uber.org/zap | `logsink.HookStderr()` |
+
+</details>
+
+### 기본 설정 예시
+
+#### 전체 활성화
+```yaml
+# .whatap/config.yaml
+instrumentation:
+  preset: "full"
+```
+
+모든 지원 패키지가 활성화됩니다.
+
+#### 웹과 데이터베이스만
+```yaml
+# .whatap/config.yaml
+instrumentation:
+  preset: "custom"
+  enabled_packages:
+    - "gin"
+    - "echo"
+    - "sql"
+    - "gorm"
+```
+
+**결과:** Gin, Echo, database/sql, GORM만 계측됩니다.
+
+#### 특정 패키지 제외
+```yaml
+# .whatap/config.yaml
+instrumentation:
+  preset: "full"
+  disabled_packages:
+    - "k8s"
+    - "grpc"
+```
+
+**결과:** Kubernetes와 gRPC를 제외한 모든 패키지가 계측됩니다.
+
+#### 에러 추적 활성화
+```yaml
+# .whatap/config.yaml
+instrumentation:
+  preset: "full"
+  error_tracking: true
+```
+
+**결과:** `if err != nil` 패턴에 `trace.Error(ctx, err)` 코드가 자동으로 삽입됩니다.
+```go
+// 변경 전
+if err != nil {
+    return err
+}
+
+// 변경 후
+if err != nil {
+    trace.Error(ctx, err)  // 자동 추가
+    return err
+}
+```
+
+#### 웹 프레임워크 + 에러 추적
+```yaml
+# .whatap/config.yaml
+instrumentation:
+  preset: "web"
+  error_tracking: true
+```
+
+**결과:** 웹 프레임워크만 계측하고 에러 추적도 활성화됩니다.
+
+### 환경 변수
+
+설정 파일 대신 환경 변수로도 설정할 수 있습니다.
+
+| 환경 변수 | 설명 | 예시 |
+|----------|------|------|
+| `GO_API_AST_DEBUG` | 디버그 출력 활성화 | `GO_API_AST_DEBUG=1` |
+| `GO_API_AST_OUTPUT_DIR` | 계측된 소스 출력 디렉토리 | `GO_API_AST_OUTPUT_DIR=./instrumented` |
+| `WHATAP_INST_CONFIG` | 설정 파일 경로 | `WHATAP_INST_CONFIG=./config.yaml` |
+
+#### 사용 예시
+```bash
+# 디버그 모드로 빌드
+GO_API_AST_DEBUG=1 whatap-go-inst go build ./...
+
+# 계측된 코드를 특정 디렉토리에 저장
+GO_API_AST_OUTPUT_DIR=./instrumented whatap-go-inst go build ./...
+
+# 설정 파일 지정
+WHATAP_INST_CONFIG=./prod-config.yaml whatap-go-inst go build ./...
+```
+
+:::tip 우선순위
+
+환경 변수는 설정 파일보다 우선합니다: `CLI 옵션 > 환경 변수 > 설정 파일 > 기본값`
+
+:::
+
+---
+
+## 고급 설정
+
+### 파일 제외 패턴
+
+계측에서 제외할 파일 패턴을 지정합니다.
+
+#### 기본 제외 패턴
+
+설정 파일에 `exclude` 패턴을 지정하지 않으면 다음 패턴이 **자동으로 적용**됩니다:
+```
+**/*.pb.go           # protobuf 생성 파일
+**/*.pb.gw.go        # grpc-gateway 생성 파일
+**/*_grpc.pb.go      # grpc 생성 파일
+**/*.connect.go      # connect-go 생성 파일
+**/*_generated.go    # 자동 생성 파일
+**/*_gen.go          # 코드 생성기 출력
+**/*_test.go         # 테스트 파일
+vendor/**            # vendor 디렉토리
+.git/**              # git 디렉토리
+node_modules/**      # node_modules 디렉토리
+whatap-instrumented/**  # 계측된 출력 디렉토리
+```
+
+**제외 이유:**
+- **생성된 코드** (protobuf, grpc 등) - 컴파일 오류 발생 가능
+- **테스트 파일** - 프로덕션 모니터링에 불필요
+- **의존성 디렉토리** - 서드파티 코드
+
+#### 사용자 정의 제외 패턴
+
+`exclude` 패턴을 지정하면 기본값을 **대체**합니다:
+```yaml
+# .whatap/config.yaml
+exclude:
+  - "*_test.go"
+  - "vendor/**"
+  - "internal/legacy/**"    # 커스텀: 레거시 코드 제외
+```
+
+#### Glob 패턴 문법
+
+| 패턴 | 설명 | 매칭 예시 |
+|------|------|-----------|
+| `*` | 파일명의 모든 문자 | `*.go` → `main.go` |
+| `**` | 재귀적으로 모든 디렉토리 | `**/test/**` → `a/b/test/c/d.go` |
+| `?` | 단일 문자 | `test?.go` → `test1.go` |
+| `[abc]` | 문자 클래스 | `test[12].go` → `test1.go` |
+
+
+### 설정 우선순위
+
+설정값은 다음 순서로 적용됩니다:
+```
+CLI 옵션 > 환경 변수 > 설정 파일 > 기본값
+```
+
+| 출처 | 예시 | 우선순위 |
+|------|------|----------|
+| CLI 옵션 | `--error-tracking` | 1 (최고) |
+| 환경 변수 | `GO_API_AST_DEBUG=1` | 2 |
+| 설정 파일 | `error_tracking: true` | 3 |
+| 기본값 | `false` | 4 (최하) |
+
+**예시:**
+
+설정 파일에서 `error_tracking: true`로 설정해도 CLI에서 `--error-tracking=false`를 지정하면 CLI 값이 우선 적용됩니다.
+
+
+### 고급 설정 예시
+
+#### 디버그 모드
+```yaml
+# .whatap/config.yaml
+instrumentation:
+  debug: true
+  preset: "full"
+```
+
+**결과:** 빌드 시 상세한 디버그 정보가 출력됩니다.
+```
+[whatap-go-inst] Config file: .whatap/config.yaml
+[whatap-go-inst] Preset: full
+[whatap-go-inst] Processing: main.go
+[whatap-go-inst]   Added: trace.Init
+...
+```
+
+
+#### 계측 코드 출력
+
+```yaml
+# .whatap/config.yaml
+instrumentation:
+  output_dir: "./instrumented"
+  preset: "full"
+```
+
+**결과:** 계측된 소스코드가 `./instrumented` 디렉토리에 저장됩니다.
+
+**사용 사례:**
+- 계측 결과 검토
+- CI/CD에서 계측 코드 분석
+
+
+#### 제외 패턴 + Preset 조합
+
+```yaml
+# .whatap/config.yaml
+instrumentation:
+  preset: "full"
+
+exclude:
+  - "**/*.pb.go"
+  - "**/*_test.go"
+  - "internal/legacy/**"
+  - "migrations/**"
+```
+
+**결과:**
+- 모든 패키지 계측 (full)
+- protobuf, 테스트, 레거시, 마이그레이션 파일 제외
+
+
+#### 환경별 설정 파일
+
+```bash
+# 개발 환경
+WHATAP_INST_CONFIG=.whatap/dev-config.yaml whatap-go-inst go build ./...
+
+# 프로덕션 환경
+WHATAP_INST_CONFIG=.whatap/prod-config.yaml whatap-go-inst go build ./...
+```
+```yaml
+# .whatap/dev-config.yaml
+instrumentation:
+  preset: "full"
+  debug: true
+  error_tracking: true
+```
+```yaml
+# .whatap/prod-config.yaml
+instrumentation:
+  preset: "full"
+  error_tracking: true
+  debug: false
+```
+
+
+## 로그 수집
+
+로그 수집을 활성화하려면:
+
+```yaml
+# .whatap/config.yaml
+instrumentation:
+  preset: "full"  # 로그 패키지 포함
+```
+```ini
+# whatap.conf
+logsink_enabled=true
+```
+
+:::note
+
+- **TraceLogWriter 방식**을 권장합니다 (트랜잭션 연계 가능)
+- whatap-go-inst로 계측하면 자동으로 TraceLogWriter가 삽입됩니다
+- 로그에 트랜잭션 ID(@txid), 멀티 트랜잭션 ID(@mtid) 등이 자동으로 포함됩니다
+
+:::
+
+자세한 내용은 로그 수집 가이드(추후 작성)를 참고하세요.
+
+
+
+## 관련 문서
+
+- [기본 사용법](auto-instrument.mdx) - whatap-go-inst 시작하기
+- [사용자 정의 가이드](auto-instrument-custom.mdx) - 제한사항 및 고급 사용법
+- [멀티 모듈 가이드](auto-instrument-multi-module.mdx) - 멀티 모듈 프로젝트
+- [수동 설정 가이드](manual-instrument.mdx) - API 직접 사용

@@ -1,0 +1,626 @@
+
+> 홈 &gt; 프로젝트 선택 &gt; ![알림 아이콘](/img/ic-alert.svg) <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" />
+
+## 사용자별 이벤트 수신 설정 {#event-notification-settings-per-user}
+
+:::caution
+
+<Cmdname sid="alert_receive_settings_by_member" className="uitext" /> 의 다른 멤버의 정보는 **멤버 관리** 권한을 가진 멤버만 확인할 수 있습니다. 그 외 멤버에게는 필수 정보가 마스킹 처리됩니다. 
+
+* 이벤트 알림의 일괄 수신설정 및 접근 설정을 위한 모바일 기기 관리는 **계정 정보**에서 할 수 있습니다.
+
+* 멤버 권한에 대한 자세한 설명은 [다음 문서](/project/project-structure#project-auth)를 참고하세요.
+
+:::
+
+### 수신 수단 설정 {#notification-methods}
+
+[**이메일**](#email-alert), [**SMS**](#sms-alert), [**WhatsApp**](#whatsapp-alert), [**모바일**](#mobile-alert) 알림을 제공합니다. 
+
+<Cmdname sid="alert_receive_settings_by_member" className="uitext" /> 섹션에서 원하는 알림 수신 수단의 체크 박스를 선택하면 경고 알림을 받을 수 있습니다. 알림 수신 수단의 체크 박스를 해제하면 경고 알림을 보내지 않습니다.
+
+:::note
+
+프로젝트 최고 관리자를 제외한 모든 사용자는 자신의 수신 설정만 변경할 수 있습니다.
+
+:::
+
+#### 이메일 알림 {#email-alert}
+
+이메일 알림은 회원 가입 시 입력한 이메일 주소로 알림을 보냅니다.
+
+#### SMS 알림 {#sms-alert}
+
+SMS로 알림을 수신할 수 있습니다.
+
+:::note
+
+SMS 알림 기능은 유료 프로젝트에 한정됩니다.
+
+::: 
+
+1. 화면 오른쪽 위의 **자신의 프로필 아이콘** &gt; <Cmdname sid="MNU07360" className="uitext" />로 이동하세요. 
+
+1. **계정 정보**의 **사용자 전화번호** 섹션에서 [ 일반 휴대전화 ] 버튼을 클릭하세요.
+
+1. **전화번호**에 인증번호를 수신을 전화번호를 입력하세요.
+
+    - SMS를 알림으로 수신할 수 있는 전화번호는 **한국의 휴대전화 번호만 등록**할 수 있습니다.
+
+1. [ 저장 ] 버튼을 클릭하세요.
+
+:::tip
+
+**등록한 전화번호 변경 및 삭제**
+
+- 전화번호를 변경할 경우, [ 변경 ] 버튼을 클릭하세요. SMS 인증이 필요합니다.
+- 전화번호를 삭제할 경우, [ 삭제 ] 버튼을 클릭하세요. 전화번호 삭제 시 SMS로 수신받는 알림은 수신할 수 없습니다.
+
+:::
+
+#### WhatsApp 알림 {#whatsapp-alert}
+
+WhatsApp을 통해 알림을 수신할 수 있습니다.
+
+:::note
+
+WhatsApp 알림 기능은 유료 프로젝트에 한정됩니다.
+
+:::
+
+1. 화면 오른쪽 위의 **자신의 프로필 아이콘** &gt; <Cmdname sid="MNU07360" className="uitext" />로 이동하세요. 
+
+2. **계정 정보**의 **사용자 전화번호** 섹션에서 [ WhatsApp ] 버튼을 클릭하세요.
+
+3. 인증번호를 받을 **전화번호**를 입력하세요.
+
+4. [ 인증번호 전송 ] 버튼을 클릭하세요.
+
+5. WhatsApp 애플리케이션으로 전송된 인증번호 6자리를 입력하세요.
+
+    - 10분 내로 인증번호를 받지 못했다면, [ 인증번호 재전송 ] 버튼을 클릭하세요.
+
+6. [ 인증하기 ] 버튼을 클릭하세요.
+
+#### 모바일 알림 {#mobile-alert}
+
+모바일 알림 수신이 필요한 사용자는 모바일 기기에 와탭 애플리케이션을 설치한 후 로그인해야 합니다.
+
+* 와탭 애플리케이션 다운로드 - [**안드로이드**](https://play.google.com/store/apps/details?id=io.whatap.lion)
+
+* 와탭 애플리케이션 다운로드 - [**iOS**](https://apps.apple.com/us/app/whatap/id6450067434)
+
+### 반복 알림(에스컬레이션) 설정 {#escalation}
+
+경고 알림 발생 시간으로부터 알림 발생 상황이 해소되지 않을 경우 최초 알림 발생 시각으로부터의 알림 반복 간격을 설정할 수 있습니다. 위험(<span className="vslow">Critical</span>) 레벨의 알림만 적용됩니다.
+
+예를 들어, 경고 알림 발생 시간으로부터 0분(즉시), 1시간 후, 1일 후에 경고 알림을 반복하려면 `0,1H,1D`를 **반복 알림 (에스컬레이션)** 컬럼 항목에 입력하세요.
+
+1. <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" />의 <Cmdname sid="alert_receive_settings_by_member" className="uitext" /> 섹션으로 이동하세요.
+
+2. **반복 알림(에스컬레이션)** 항목에서 설정하세요. 
+
+    - **M**: 분, **H**: 시간, **D**: 일, 단위를 생략하면 분 단위로 시간을 설정합니다.
+
+    - 숫자 또는 숫자+단위(**M**, **H**, **D**)로 입력하세요. 입력이 올바르지 않으면 메시지가 표시됩니다.
+
+3. [ 저장 ] 버튼을 클릭하세요. 저장하지 않으면 설정되지 않습니다.
+
+### 이벤트 수신 태그 {#event-reception-tag}
+
+이벤트 설정 시 이벤트 수신 태그를 선택하여 해당 태그를 가진 프로젝트 멤버와 3rd-party 플러그인에 알림을 전송할 수 있습니다. 이벤트 수신 태그를 설정하지 않으면 전체 멤버에게 경고 알림이 전송됩니다. 
+
+#### 이벤트 수신 태그 추가/수정/삭제하기 {#add-tag}
+
+:::caution
+
+이벤트에 적용 중인 **이벤트 수신 태그** 항목은 삭제할 수 없습니다.
+
+:::
+
+1. <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" />으로 이동하세요. 
+
+2. <Cmdname sid="alert_receive_settings_by_member" className="uitext" /> 섹션의 사용자 목록에서 **+ 태그 추가** 또는 <strong>+</strong> 를 클릭하세요. 
+
+3. <Cmdname sid="event_tag" className="uitext" /> 창에서 **+ 새 태그 생성**을 클릭하세요.
+
+4. **태그 생성** 창에서 태그 이름을 입력하고, 색상을 선택한 후, [ 태그 생성 ] 버튼을 클릭해 태그를 생성하세요. 
+
+5. 생성된 태그는 태그 목록의 ![수정 아이콘](/img/ic-edit.svg) 아이콘을 클릭해 수정 또는 삭제하세요. 
+
+6. <Cmdname sid="event_tag" className="uitext" /> 창의 **태그 목록**에서 원하는 태그를 선택하면 적용됩니다. 
+
+#### 이벤트 수신 태그 해제하기 {#remove-tag}
+
+1. <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" />의 <Cmdname sid="alert_receive_settings_by_member" className="uitext" /> 섹션으로 이동하세요. 
+
+2. 이벤트 수신 태그를 해제할 사용자의 <Cmdname sid="event_tag" className="uitext" /> 항목의 <strong>+</strong> 를 클릭하세요.
+
+3. <Cmdname sid="event_tag" className="uitext" /> 창에서 해제할 태그의 X 를 클릭하면 해당 태그가 해제됩니다. 
+
+#### 수신 태그 미설정 알림 받기 {#notify-for-untagged}
+
+이벤트 설정 시 이벤트 수신 태그를 선택하여 해당 태그를 가진 프로젝트 멤버와 3rd-party 플러그인에 알림을 전송할 수 있습니다.
+
+* 이벤트 수신 태그가 설정되지 않은 경고 알림을 받으려면 **수신 태그 미설정 알림 받기** 옵션을 선택하세요.  
+* 이벤트 수신 태그가 설정된 경고 알림만 받고 싶다면 선택을 해제하세요.
+
+:::note
+
+모든 경고 알림을 받지 않으려면 해당 옵션을 해제하고 선택한 <Cmdname sid="event_tag" className="uitext" />가 없어야 합니다.
+
+:::
+
+### 알림 수신 언어 선택 {#select-notification-language}
+
+사용자의 알림 수신 언어를 선택할 수 있습니다.
+
+1. <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" />으로 이동하세요. 
+
+2. <Cmdname sid="alert_receive_settings_by_member" className="uitext" /> 섹션의 사용자 목록에서 언어를 설정할 사용자의 가장 왼쪽에 ▶️ 버튼을 클릭하세요.
+
+3. **알림 수신 언어**를 선택하세요. 
+
+### 요일 및 시간별 알림 설정 {#day-and-time}
+
+사용자의 요일별, 시간별 알림 수신 여부를 선택할 수 있습니다.
+
+1. <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" />으로 이동하세요. 
+
+2. <Cmdname sid="alert_receive_settings_by_member" className="uitext" /> 섹션의 사용자 목록에서 요일 및 시간별 알림을 설정할 사용자의 가장 왼쪽에 ▶️ 버튼을 클릭하세요. 
+
+3. 경고 알림 수신을 원하는 요일을 선택하거나 시간을 입력하세요. 
+
+    - 알림 수신 수단별로 설정할 수 있습니다.
+
+## 3rd 파티 플러그인 {#third-party}
+
+외부 애플리케이션을 통해 경고 알림을 받을 수 있습니다.
+
+- 지원 애플리케이션: Slack, Telegram, Teams, Teams Workflows, Jandi, AlertNow, Webhook, Webhook JSON, Opsgenie, PagerDuty, LINE, ilert
+
+:::note
+
+와탭랩스의 지원 범위에 포함하지 않는 사내 메신저는 표준 Webhook, Webhook json을 통해 연동할 수 있습니다.
+
+:::
+
+<div class="table-title"> 표 | 3rd 파티 플러그인 목록 구성</div>
+
+| 항목 | 설명 |
+| :---: | --- |
+| 플러그인 이름 | 플러그인의 이름 |
+| 인증 키 | 인증 키 |
+| 인증 값 | 인증값 |
+| 수신 레벨 | 경고, 전체, 위험으로 구분 |
+| 반복 알림(에스컬레이션) | 알림 발생 시간으로부터 알림 발생 상황이 해소되지 않았을 경우, 최초 알림 발생 시각으로부터의 알림 재발행 주기 <br /> -  위험(<span className="vslow">Critical</span>) 단계의 알림에만 적용되는 기능 |
+| Smart 메시지(AI) | Telegram 3rd 파티 플러그인 추가 시 AI 알림 기능 제공 <br /> - 지원 언어: 한국어, 영어, 일본어 |
+| 이벤트 수신 태그 | 프로젝트의 멤버 중 특정 멤버 또는 팀을 대상으로 알림 수신 여부 |
+| 삭제 | 3rd 파티 플러그인 삭제 |
+
+### 3rd 파티 플러그인 추가 {#add-third-party}
+
+1. <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" />으로 이동하세요. 
+
+2. **3rd 파티 플러그인** 섹션의 [ 추가하기 ] 버튼을 클릭하세요.
+
+3. **서드 파티 플러그인 추가** 창에서 원하는 서비스 탭으로 선택하세요.
+
+4. 선택한 서비스의 안내([3rd 파티 플러그인 알림 추가 방법](#how-to-add-plugin))에 따라 설정을 진행하세요.
+
+5. [ 수신 테스트 ] 버튼을 클릭해 설정이 잘 되었는지 확인하세요. 
+
+6. 모든 과정을 완료하면 [ 추가하기 ] 또는 [ 등록 ] 버튼을 클릭하세요.
+
+#### 3rd 파티 플러그인 알림 추가 방법 {#how-to-add-plugin}
+
+<details>
+
+<summary>Slack</summary>
+
+**서드 파티 플러그인 추가**의 **Slack** 탭 화면의 [ <Cmdname sid="add_to_slack" className="uitext" /> ] 버튼을 클릭하면 Slack의 팀 및 채널에 **WhaTapNotiBot**을 등록할 수 있습니다.
+
+</details>
+
+<details>
+
+<summary>Telegram</summary>
+
+1. **Telegram**에서 **@WhaTapApmNotiBot**을 검색하세요.
+
+    <ImgLang img='3rdparty/set-event-3rd-party-plugin-add-telegram.png' desc='Telegram' />
+
+1. Bot을 선택하고 [ 시작 ] 버튼을 클릭하세요.
+
+1. 채팅창에 `/license` 명령어와 알림을 받을 프로젝트의 액세스 키를 채팅창에 입력하세요.
+
+    <ImgLang img='3rdparty/set-event-3rd-party-plugin-add-telegram-license.png' desc='Telegram' />
+
+:::note
+
+**사용할 수 있는 명령어 목록**
+
+* `/help`: 명령어 목록 보기
+
+* `/license`: 알림 받을 프로젝트의 액세스 키 입력
+
+* `/remove`: 알림을 받지 않을 프로젝트 코드 입력
+
+* `/list`: 현재 알림을 받고 있는 프로젝트 코드 보기
+
+:::
+
+</details>
+
+<details>
+
+<summary>Teams</summary>
+
+1. 알림을 받을 채널의 **커넥터**로 이동하세요.
+
+    <ImgLang img="3rdparty/management_event_new_teams_step_01.png" className="width-200" desc="Teams" />
+
+1. **Webhook**을 추가하고 [ 구성 ] 버튼을 클릭하세요.
+
+    <ImgLang img="3rdparty/management_event_new_teams_step_02.png" className="width-600" desc="Teams" />
+
+1. Webhook 이름을 입력하고 [ 만들기 ] 버튼을 클릭하세요.
+
+    <ImgLang img="3rdparty/management_event_new_teams_step_03.png" className="width-600" desc="Teams" />
+
+1. 생성된 Webhhok URL을 복사하세요.
+
+    <ImgLang img="3rdparty/management_event_new_teams_step_04.png" className="width-600" desc="Teams" />
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 창으로 돌아와 **Teams** 탭 하단의 <UI>Channel Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+1. [ <Cmdname sid="BTN06673" className="uitext" /> ]버튼을 클릭하세요.
+
+</details>
+
+<details>
+
+<summary>Teams Workflows</summary>
+
+워크플로를 사용하려면 **Microsoft Teams**에 액세스할 수 있는 계정과 비즈니스 플랜 구독이 필요합니다.
+
+1. **팀** 메뉴의 더보기(...) &gt; **채널 추가**를 클릭하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_01.png" desc="Teams Workflows" />
+
+1. **채널 만들기** 창에서 **채널 이름**과 **설명**을 입력하고, **채널 유형 선택** 항목은 **표준**으로 선택한 후, [ 만들기 ] 버튼을 클릭하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_02.png" desc="Teams Workflows" />
+
+    :::caution
+
+    채널 유형을 **공유**로 선택하면 워크플로를 사용할 수 없으며, **비공개**를 선택하면 워크플로를 추가할 수 있지만 알림을 수신할 수 없습니다.
+
+    :::
+
+1. 생성한 채널의 더보기(...) &gt; **워크플로**를 클릭하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_03.png" desc="Teams Workflows" />
+
+1. **워크플로** 대화상자의 **워크플로**의 목록에서 **웹후크 요청이 수신되면 채널에 게시**를 선택 후, [ 추가 워크플로 ] 버튼을 클릭하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_04.png" desc="Teams Workflows" />
+
+1. **이름**과 **연결** 상태를 확인한 후, [ 다음 ] 버튼을 클릭하세요.
+
+1. **세부 정보**를 확인한 후, [ 워크플로 추가 ] 버튼을 클릭하세요.
+
+1. 워크플로가 추가되었습니다. 생성된 주소를 복사하세요.
+
+    <ImgLang img="3rdparty/teams_workflows_step_07.png" desc="Teams Workflows" />
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 창으로 돌아와 **Teams Workflows** 탭 안내 하단의 <UI>Channel Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+1. [ <Cmdname sid="BTN06673" className="uitext" /> ] 버튼을 선택하세요.
+
+</details>
+
+<details>
+
+<summary>잔디(Jandi)</summary>
+
+1. 알림을 받을 토픽 또는 채팅에서 잔디 커넥트 설정으로 이동하세요.
+
+1. **커넥트 목록**에서 <b>Webhook 수신 (Incoming Webhook)</b> 항목에서 [ 연동하기 ] 버튼을 클릭하세요.
+
+    <ImgLang img="3rdparty/management_event_jandi_step_01.png" desc="Jandi" />
+
+1. [ Webhook 수신 추가 ] 버튼을 클릭하세요.
+
+1. **Webhook URL 등록** 항목에 Webhook URL을 복사하세요.
+
+    <ImgLang img="3rdparty/management_event_jandi_step_02.png" desc="Jandi" />
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 창으로 돌아와 **Jandi** 탭 안내 하단의 <UI>Channel Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+1. [ <Cmdname sid="BTN06673" className="uitext" /> ] 버튼을 클릭하세요.
+
+</details>
+
+<details>
+
+<summary>AlertNow</summary>
+
+1. **AlerNow** 서비스를 접속한 후, **환경 설정** &gt; **Integration** 메뉴로 이동하세요.
+
+    <ImgLang img="3rdparty/management_event_alertnow_step_01.png" desc="AlertNow" className="width-200" />
+
+1. **인티그레이션** 화면에서 [ 인티그레이션 생성 ] 버튼을 클릭하세요.
+
+1. Integration 유형 중 **WhaTap**을 선택하세요.
+
+1. **인티그레이션 생성** 화면에서 이름 및 이름 지정 규칙을 설정하세요.
+
+    <ImgLang img="3rdparty/management_event_alertnow_step_04.png" desc="AlertNow" className="width-600" />
+
+1. [ 확인 ] 버튼을 클릭하면 Integration이 생성됩니다.
+
+1. 생성된 인티그레이션 목록을 확인하고 생성된 Integration 항목을 선택하세요.
+
+    <ImgLang img="3rdparty/management_event_alertnow_step_05.png" desc="AlertNow" className="width-600" />
+
+1. 상세 화면에서 URL 오른쪽의 복사 아이콘을 클릭해 URL을 복사하세요.
+
+    <ImgLang img="3rdparty/management_event_alertnow_step_06.png" desc="AlertNow" className="width-600" />
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 창으로 돌아와 **AlertNow** 탭 안내 하단의 <UI>Channel Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+1. [ <Cmdname sid="BTN06673" className="uitext" /> ] 버튼을 클릭하세요.
+
+</details>
+
+<details>
+
+<summary>Webhook</summary>
+
+1. 알림을 받을 Webhook을 등록하세요. 등록한 URL에 POST Method로 알림의 `title`, `text`가 전송됩니다.
+
+```json
+    {
+	    "title":"Alert Title", 
+	    "text": "Sample warning message"
+    }
+```
+
+1. <UI>Webhook Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+1. [ <Cmdname sid="BTN06673" className="uitext" /> ] 버튼을 클릭하세요.
+
+</details>
+
+<Xclude product="server">
+
+<details>
+
+<summary>Webhook JSON</summary>
+
+1. 알림을 받을 Webhook을 등록하세요. 등록한 URL에 POST Method로 알림 데이터가 JSON 형태로 전송됩니다. JSON 내에 포함 시킬 수 있는 대체 변수에 대해선 **사용 가능 변수** 부분을 참고하세요.
+
+    * `${something}`은 와탭에서 제공하는 대체될 값입니다. 지원하는 전체 목록과 의미는 사용 가능 변수를 참고하세요.
+
+    * 이벤트 상태(`status`)는 이벤트 발생(`on`), 이벤트 해소(`off`)로 구분할 수 있습니다.
+
+    * `level`은 `None`, `Info`, `Warning`, `Critical`로 구분합니다.
+
+    ```json
+    {
+        "pcode": "${pcode}",
+        "projectName": "${projectName}",
+        "time": "${time}",
+        "oid": "${oid}",
+        "oname": "${oname}",
+        "title": "${title}",
+        "message": "${message}",
+        "level": "${level}",
+        "status": "${status}",
+        "metricName": "${metricName}",
+        "metricValue": "${metricValue}",
+        "metricThreshold": "${metricThreshold}",
+        "uuid": "${uuid}",
+        "okind": "${okind}",
+        "onode": "${onode}"
+    }
+    ```
+
+1. <UI>Webhook Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+1. Header 값을 추가하려면 <Cmdname sid="TTL06674" className="uitext" />의 **+ 추가**를 클릭해 key, value을 추가하세요.
+
+1. [ <Cmdname sid="BTN06673" className="uitext" /> ] 버튼을 클릭하세요.
+
+</details>
+
+</Xclude>
+
+<InDoc product="server">
+
+<details>
+
+<summary>Webhook JSON</summary>
+
+1. 알림을 받을 Webhook을 등록하세요. 등록한 URL에 POST Method로 알림 데이터가 JSON 형태로 전송됩니다.
+
+    ```json
+    {
+        "pcode": 1234,
+        "projectName": "Sample project",
+        "time": 1577840400000,
+        "oid": 1234567890,
+        "oname": "WAS-01", // Optional
+        "title": "Alert Title",
+        "message": "Sample warning message",
+        "level": "Warning",
+        "status": "on",
+        "metricName": "cpu", // Optional
+        "metricValue": "99.99", // Optional
+        "metricThreshold": "90", // Optional
+        "uuid": "ba5db108b788475c95195***********",
+        "okind": "WAS-okind-01", // Optional
+        "onode": "WAS-onode-01", // Optional
+        "serverAlertPolicyName": "Memory Alert" // Optional
+    }
+    ```
+
+1. <UI>Webhook Name</UI>과 <UI>Webhook URL</UI> 항목을 입력하세요.
+
+    <ImgLang img="3rdparty/set-event-3rd-party-plugin-add-webhook-json-options.png" className="width-600" desc="등록" />
+
+1. <Cmdname sid="BTN06673" className="uitext" /> 버튼을 선택하세요.
+
+:::note
+
+* 이벤트 상태(`status`)는 이벤트 발생(`on`), 이벤트 해소(`off`)로 구분할 수 있습니다.
+
+* `level`은 `None`, `Info`, `Warning`, `Critical`로 구분합니다.
+
+* Header 값을 추가하려면 <Cmdname sid="TTL06674" className="uitext" />를 선택하세요.
+
+:::
+
+</details>
+
+</InDoc>
+
+<details>
+
+<summary>Opsgenie</summary>
+
+1. **Teams** 메뉴에서 알림을 수신할 팀을 선택하세요.
+
+1. **Integration** 메뉴로 이동해 [ Add Integration ] 버튼을 클릭하세요.
+
+    ![Opsgenie](/img/3rdparty/management_event_opsgenie_step_02.png)
+
+1. Integration 목록에서 'API' 검색 후 선택하세요.
+
+    ![Opsgenie](/img/3rdparty/management_event_opsgenie_step_03.png)
+
+1. API 명과 Team을 할당하고 각 권한을 설정한 후, [ Save Integration ] 버튼을 클릭하세요.
+
+    ![Opsgenie](/img/3rdparty/management_event_opsgenie_step_04.png)
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 창으로 돌아와, **Opsgenie** 탭 안내 하단의 <UI>Name</UI>과 <UI>API Key</UI> 항목을 입력하세요.
+
+1. [ <Cmdname sid="BTN06673" className="uitext" /> ] 버튼을 선택하세요.
+
+</details>
+
+<details>
+
+<summary>PagerDuty</summary>
+
+1. [PagerDuty](https://www.pagerduty.com/) 계정에 등록하고 로그인하세요.
+
+1. PagerDuty에서 **Services** &gt; **Service Directory** 메뉴에서 [ + New Service ] 버튼을 클릭하세요.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_01.jpg)
+
+1. Service 정보(**Name**)를 입력한 후 [ Next ] 버튼을 클릭하세요.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_02.jpg)
+
+1. Escalation Policy를 설정 후 [ Next ] 버튼을 클릭하세요.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_03.jpg)
+
+1. **Alert Grouping**과 **Transient Alerts** 항목을 설정한 후 [ Next ] 버튼을 클릭하세요.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_04.jpg)
+
+1. **Integrations**에서 **Event API V2**를 선택한 후 [ Create Service ] 버튼을 클릭하세요.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_05.jpg)
+
+1. 생성한 Service 화면에서 **Integration Name**과 **Integration Key** 값을 복사하세요.
+
+    ![PagerDuty](https://preview.whatap.io/assets/assets/image/management_event_pagerduty_step_06.jpg)
+
+1. 와탭 모니터링 서비스의 <Cmdname sid="TTL06656" className="uitext" /> 화면으로 돌아와 <UI>Integration Name</UI>과 <UI>Integration Key</UI> 항목을 입력하세요.
+
+1. [ 등록 ] 버튼을 클릭하세요.
+
+:::note
+
+메시지를 수신하지 못했거나 플러그인이 등록되지 않았다면 **Integration Name** 또는 **Integration Key**값이 올바른지 확인하세요.
+
+:::
+
+</details>
+
+<details>
+
+<summary>LINE</summary>
+
+1. LINE 앱을 설치합니다.
+
+1. 아래 QR 코드를 스캔하여 **WhaTapLabs** 공식 채널을 친구로 추가합니다.
+
+    <ImgLang img='alert-3rd-line.png' desc='LINE 3rd 파티 플러그인 추가' />
+
+1. 다음 명령어를 사용하여 프로젝트를 라인과 연동하고 알림을 설정하세요.
+    
+    **명령어**
+
+    ```
+    /help # 사용 가능한 명령어 안내
+    /list # 연동된 프로젝트 목록 조회
+    /license [액세스키] # 새 프로젝트 연동 추가
+    /remove [프로젝트코드] # 프로젝트 연동 해제
+    /language [ko|ja|en] # 알림 언어 설정 (한국어/일본어/영어)
+    ```
+    
+    - 프로젝트 액세스 키는 **관리 > 프로젝트 관리**에서 확인하실 수 있습니다.
+    - 라인 내에서 `/language` 명령어를 사용하는 것은 라인 내 채팅방에만 적용됩니다. 다른 3rd 플러그인이나 프로젝트의 알림 수신 언어가 변경되는 것은 아닙니다.
+    
+    **사용 예시**
+
+    ```
+    /license XXXXXXXXXX # 프로젝트 연동
+    /language ko # 한국어로 언어 설정
+    /list # 연동된 프로젝트 확인
+    ```
+
+:::caution
+
+- 프로젝트 액세스 키: WhaTap 프로젝트 내 **관리 > 프로젝트 관리**에서 확인할 수 있음
+
+- 언어 설정: `/language` 명령어는 LINE 채팅방 내에서만 적용되며, 다른 알림 채널의 언어는 변경되지 않음
+
+:::
+
+</details>
+
+<details>
+
+<summary>ilert</summary>
+
+
+
+</details>
+
+## 대량 알림 발생 방지
+
+알림이 대량으로 발생하면 지정한 시간 동안 알림이 일시적으로 중지됩니다. 예를 들어, 5분 동안 20회의 이벤트가 발생하면 5분 동안 경고 알림을 중지합니다. 설정한 **정지 시간** 시간이 지나면 대량 알림 발생 방지 기능은 해제됩니다.
+
+1. <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="side_eventNoti" className="uitext" />의 <Cmdname sid="aboids_large_number_alerts" className="uitext" /> 섹션으로 이동하세요. 
+
+2. 토글 버튼을 클릭해 **활성화** 또는 **비활성화** 할 수 있습니다. 
+
+    - ![토글 활성화 아이콘](/img/ic-toggle-on.svg) **활성화**: 대량 알림 일시적 중지
+
+    - ![토글 비활성화 아이콘](/img/ic-toggle-off.svg) **비활성화**: 대량 알림 재개
+
+3. **탐지 시간, 탐지 횟수, 정지 시간**을 설정하세요. 
+
+    - **탐지 시간** 동안 **탐지 횟수** 이상의 이벤트가 발생하면 **정지 시간** 동안 경고 알림을 중지합니다.
+
+:::note
+
+대량 알림으로 차단되는 경우 차단 안내 박스가 표시됩니다. 대량 알림 차단 기능을 해제하려면 박스의 [ 대량 알림 발생 중지 ] 버튼을 클릭하세요.
+
+:::

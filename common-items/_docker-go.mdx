@@ -28,7 +28,7 @@ EKS Fargate는 지원 예정입니다.
 
 3개 파일만으로 WhaTap 모니터링이 적용된 Docker 이미지를 빌드할 수 있습니다.
 
-### 1단계: 필수 파일 준비
+### 1단계. 필수 파일 준비
 
 프로젝트 루트에 다음 3개 파일을 생성하세요.
 
@@ -119,12 +119,12 @@ func main() {
 </TabItem>
 </Tabs>
 
-### 2단계: 이미지 빌드
+### 2단계. 이미지 빌드
 ```bash
 docker build -t my-go-app .
 ```
 
-### 3단계: 컨테이너 실행
+### 3단계. 컨테이너 실행
 
 환경변수로 WhaTap 설정을 전달합니다:
 ```bash
@@ -136,7 +136,7 @@ docker run -d \
   my-go-app
 ```
 
-### 4단계: 모니터링 확인
+### 4단계. 모니터링 확인
 
 1. 애플리케이션에 트래픽 발생: `curl http://localhost:8080`
 2. [WhaTap 모니터링 서비스](https://service.whatap.io)에서 데이터 확인

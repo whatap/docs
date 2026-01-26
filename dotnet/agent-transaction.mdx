@@ -156,6 +156,12 @@ HTTP 요청 및 응답에 관련된 다양한 정보를 추적하고 기록하�
 
   트레이스 내역에 http 파라미터 정보를 기록할 대상 URL의 prefix를 정의할 때 사용합니다.
 
+* **profile_http_host_enabled** <span class='type'>Boolean</span>
+
+  기본값 `false`
+
+  트랜잭션의 Host 정보를 출력합니다. 값이 `false`인 경우 트랜잭션의 URL에 URI만 표기하고, `true`인 경우 `/xxx.aaa.com/URL` 형식으로 출력됩니다.
+
 * **profile_http_body_url_prefix** <span class='type'>String</span>
 
   트레이스 내역에 http body 정보를 기록할 대상 URL의 prefix를 정의할 때 사용합니다.

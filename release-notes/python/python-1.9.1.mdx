@@ -1,0 +1,27 @@
+---
+id: python-1_9_1
+title: Python Agent v1.9.1
+toc_max_heading_level: 2
+pagination_next: release-notes/python/python-1_9_0
+displayed_sidebar: releaseSidebar
+---
+
+2026년 1월 26일
+
+- <Status priority='0'>Fixed</Status> `logging`, `loguru` 추적 모듈 수정
+
+    - 옵션 값이`False` 일 때 후킹하지 않도록 수정
+
+- <Status priority='0'>Fixed</Status> `trace_user_enabled` 옵션 로직 수정
+
+    - `ValueError`에러가 발생하던 현상 수정
+
+- <Status priority='0'>Fixed</Status> `greenlet` 환경 추적 로직 수정
+
+    - 해당 환경에서 에러 발생 시 현재 프레임을 찾지 못해 예외 객체를 잡지 못하는 현상 수정
+    
+:::note
+
+Agent download: [whatap-python v1.9.1](https://pypi.org/project/whatap-python/1.9.1/)
+
+:::

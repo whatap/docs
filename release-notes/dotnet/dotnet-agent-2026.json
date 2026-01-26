@@ -1,5 +1,19 @@
 [
     {
+        "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_5_1/",
+        "ver": "v2.5.1",
+        "date": "2026-01-26",
+        "Lists": [
+            {
+                "ver": "v2.5.1",
+                "hash": "v251",
+                "product": ".NET Agent",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> 도메인 데이터 수집 간에 비표준 포트도 함께 수집되도록 수정</p>"
+            }
+        ]
+    },
+    {
         "url": "https://docs.whatap.io/release-notes/dotnet/dotnet-2_5_0/",
         "ver": "v2.5.0",
         "date": "2026-01-13",

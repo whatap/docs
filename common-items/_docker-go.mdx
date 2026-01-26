@@ -1,7 +1,5 @@
 
-Docker 컨테이너 기반의 Go 애플리케이션에 WhaTap 모니터링 에이전트를 설치하는 방법을 안내합니다.
-
-## 이 문서에서 다루는 내용
+Docker 컨테이너 기반의 Go 애플리케이션에 WhaTap 모니터링 에이전트를 설치하는 방법을 안내하면, 아래 2가지 방법을 제공합니다.
 
 - **빠른 설치 방법**: Dockerfile 작성부터 컨테이너 실행, 모니터링 데이터 확인까지 전체 설치 과정
 
@@ -17,9 +15,9 @@ EKS Fargate는 지원 예정입니다.
 
 </InDoc>
 
-:::tip 시작하기 전에
+:::tip
 
-다음 정보를 준비하세요.
+설치를 시작하기 전에 다음 정보를 준비하세요.
 
 - WhaTap 프로젝트 **액세스 키** ([프로젝트 메뉴] > [관리] > [에이전트 설치]에서 확인)
 - WhaTap **수집 서버 IP 주소**
@@ -414,51 +412,6 @@ GO_API_AST_DEBUG=1 whatap-go-inst go build ./...
 
 ## 참고 문서
 
-- [whatap-go-inst 가이드](auto-instrument-guide.md) - whatap-go-inst 상세 사용법
-- [API 가이드](api-guide.md) - go-api 직접 사용이 필요한 경우
-- [설치 가이드](install-agent.md) - 일반 Linux 환경 설치
-
-
-{/* 필요한지 확인하고 넣기 */}
-{/* ## whatap-go-inst 작동 원리
-
-`whatap-go-inst` 도구는 빌드 시 자동으로 모니터링 코드를 삽입합니다.
-
-### 자동 삽입되는 코드
-
-#### 1. main() 함수 초기화
-```go
-func main() {
-    trace.Init(nil)
-    defer trace.Shutdown()
-    // 원래 코드...
-}
-```
-
-#### 2. 웹 프레임워크 미들웨어
-```go
-r := gin.Default()
-r.Use(whatapgin.Middleware())  // 자동 삽입
-```
-
-#### 3. 데이터베이스 래핑
-```go
-db, _ := whatapsql.Open("mysql", dsn)  // sql.Open → whatapsql.Open
-```
-
-### 지원 프레임워크
-
-| 분류 | 지원 라이브러리 |
-|------|----------------|
-| **웹** | Gin, Echo, Fiber, Chi, Gorilla Mux, FastHTTP, net/http |
-| **DB** | database/sql, sqlx, GORM v1/v2 |
-| **Redis** | go-redis v8/v9, Redigo |
-| **NoSQL** | MongoDB |
-| **메시지큐** | Kafka (Sarama) |
-| **RPC** | gRPC |
-
-:::note
-
-자세한 사용법은 [whatap-go-inst 가이드](auto-instrument-guide.md)를 참고하세요.
-
-::: */}
+- [whatap-go-inst 가이드](auto-instrument) - whatap-go-inst를 사용한 모니터링 코드를 자동 추가하는 법
+- [API 가이드](manual-instrument) - go-api를 사용해 모니터링 코드 직접 추가가 필요한 경우
+- [일반 설치 가이드](install-agent.md) - 일반 Linux 환경 설치

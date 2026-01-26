@@ -2,117 +2,96 @@
 id: install-agent
 title: 일반 설치
 description: Go 환경의 애플리케이션 서버에 에이전트를 설치하는 방법을 제공합니다.
-toc_max_heading_level: 2
+toc_max_heading_level: 3
 keywords: [ Go, 에이전트 설치 ]
 ---
 
-WhaTap Go 모니터링의 동작 방식은 4단계로 구성됩니다.
-
-1. **Go 애플리케이션에 Whatap Go 라이브러리 적용**
-  
-    * `github.com/whatap/go-api` 라이브러리를 import하여 애플리케이션에 모니터링 코드 포함
-
-    * 애플리케이션 내부에서 성능 지표와 트레이스 데이터 수집 및 전송 준비
-
-2. **설정 파일**(*whatap.conf*) **구성**
-
-    * *whatap.conf* 파일을 애플리케이션 실행 경로 또는 `WHATAP_HOME` 디렉터리에 위치
-
-      | 주요 설정          | 설명                  |
-      | ------------------ | --------------------- |
-      | license            | 프로젝트 액세스 키    |
-      | whatap.server.host | WhaTap 수집 서버 주소 |
-      | app_name           | 애플리케이션 이름     |
-
-3. **에이전트 실행**
-
-    * 서버에 설치된 whatap_agent(`/usr/whatap/agent/whatap_agent`)를 실행합니다. 이 에이전트는 Go 애플리케이션의 모니터링 데이터를 WhaTap 수집 서버로 전달합니다.
-
-4. **통신 구조**
-
-    |   에이전트   | 동작 방식                                                                   |
-    | :----------: | --------------------------------------------------------------------------- |
-    | **Inbound**  | 127.0.0.1:6600 TCP 서버로 실행 / 애플리케이션 → Agent (TCP 6600)            |
-    | **Outbound** | 수신 데이터를 WhaTap 수집 서버로 전송 / Agent → WhaTap 서버 (Outbound 6600) |
-
-    :::note
-    Go 애플리케이션은 로컬 에이전트와만 통신하며, 외부 전송은 에이전트가 담당합니다.
-    :::
-
-<ImgLang img="golang_system.png" desc="Go Monitoring" />
-
-와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다.
-
 import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
-
-<Createprojectv2 />
-
 import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
-
-<Accesskeyv2 /> 
-
 import Godockersettinglibrary from "../common-items/_go-docker-setting-library.mdx";
+
+리눅스 환경의 Go 애플리케이션에 WhaTap 모니터링 에이전트를 설치하는 방법을 안내하며, 아래 3단계를 순차적으로 진행합니다.
+
+- **[Step 1. Go 라이브러리 적용하기](#import-golib)**  
+- **[Step 2. 모니터링 환경 변수 설정하기](#set-whatap-conf)**  
+- **[Step 3. 데이터 중계용 에이전트 설치하기](#download_agent)**   
+
+:::tip 
+
+설치를 시작하기 전에 다음 정보를 준비하세요.
+
+- WhaTap 프로젝트 **액세스 키** ([프로젝트 메뉴] > [관리] > [에이전트 설치]에서 확인)
+- WhaTap **수집 서버 IP 주소**
+
+:::
+
+{/* <Createprojectv2 /> */}
+
+{/* <Accesskeyv2 />  */}
 
 <Godockersettinglibrary />
 
-## 모니터링 설정 {#set-agent}
+## 모니터링 환경 변수 설정하기 {#set-whatap-conf}
 
-### 기본 설정하기
+### 기본 정보
 
-다음 명령어를 차례로 실행해 *whatap.conf* 파일에 설정 정보를 추가합니다. 
+*whatap.conf* 파일을 애플리케이션 실행 경로 또는 `WHATAP_HOME` 디렉터리에 위치
 
-```bash
-$ echo "license={액세스 키}" >> ./whatap.conf
-$ echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap.conf
-$ echo "app_name={애플리케이션 이름}" >> ./whatap.conf
-./app
-```
-
-* `license`: **액세스 키**를 입력하세요.
-
-* `whatap.server.host`: **수집 서버 IP 주소**를 입력하세요.
-
-* `app_name`: 애플리케이션 이름을 입력하세요. 문자열을 이용해 사용자 설정할 수 있습니다.
-
-  :::note
-
-  `app_name`은 에이전트 이름을 결정하기 위한 구성 요소입니다. 자세한 내용은 [다음 문서](agent-name)를 참조하세요.
-
-  :::
+    | 주요 설정          | 설명                  |
+    | ------------------ | --------------------- |
+    | license            | 프로젝트 액세스 키    |
+    | whatap.server.host | WhaTap 수집 서버 주소 |
+    | app_name           | 애플리케이션 이름     |
 
 
-### `WHATAP_HOME` 환경 변수 설정하기
+    다음 명령어를 차례로 실행해 *whatap.conf* 파일에 설정 정보를 추가합니다. 
 
-```bash
-mkdir ./whatap_home
-echo "license={액세스 키}" >> ./whatap_home/whatap.conf
-echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home/whatap.conf
-echo "app_name={애플리케이션 이름}" >> ./whatap_home/whatap.conf
-WHATAP_HOME=./whatap_home ./app
-```
+    ```bash
+    $ echo "license={액세스 키}" >> ./whatap.conf
+    $ echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap.conf
+    $ echo "app_name={애플리케이션 이름}" >> ./whatap.conf
+    ./app
+    ```
 
-### 프로세스 별 에이전트 이름 설정{#duplicate_appname}
+
+    :::note
+
+    `app_name`은 에이전트 이름을 결정하기 위한 구성 요소입니다. 자세한 내용은 [다음 문서](agent-name)를 참조하세요.
+
+    :::
+
+
+### `WHATAP_HOME` 환경 변수
+
+    ```bash
+    mkdir ./whatap_home
+    echo "license={액세스 키}" >> ./whatap_home/whatap.conf
+    echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home/whatap.conf
+    echo "app_name={애플리케이션 이름}" >> ./whatap_home/whatap.conf
+    WHATAP_HOME=./whatap_home ./app
+    ```
+
+### 프로세스 별 에이전트 이름{#duplicate_appname}
 
 2개 이상의 프로세스로 실행되는 애플리케이션은 프로세스별로 각각의 *whatap.conf* 파일 설정 권장합니다.
 
-```bash
-# 애플리케이션 1
-mkdir ./whatap_home
-echo "license={액세스 키}" >> ./whatap_home/whatap.conf
-echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home/whatap.conf
-echo "app_name={애플리케이션 이름-1}" >> ./whatap_home/whatap.conf
-WHATAP_HOME=./whatap_home ./app 
+    ```bash
+    # 애플리케이션 1
+    mkdir ./whatap_home
+    echo "license={액세스 키}" >> ./whatap_home/whatap.conf
+    echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home/whatap.conf
+    echo "app_name={애플리케이션 이름-1}" >> ./whatap_home/whatap.conf
+    WHATAP_HOME=./whatap_home ./app 
 
-# 애플리케이션 2
-mkdir ./whatap_home1
-echo "license={액세스 키}" >> ./whatap_home1/whatap.conf
-echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home1/whatap.conf
-echo "app_name={애플리케이션 이름-2}" >> ./whatap_home1/whatap.conf
-WHATAP_HOME=./whatap_home1 ./app
+    # 애플리케이션 2
+    mkdir ./whatap_home1
+    echo "license={액세스 키}" >> ./whatap_home1/whatap.conf
+    echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home1/whatap.conf
+    echo "app_name={애플리케이션 이름-2}" >> ./whatap_home1/whatap.conf
+    WHATAP_HOME=./whatap_home1 ./app
+    ```
 
-```
-
-## 데이터 중계용 에이전트 다운로드
+## 데이터 중계용 에이전트 설치하기 {#download_agent}
 
 **액세스 키**를 발급 받으면 다음 명령어를 이용해 에이전트를 다운로드하세요.
 
@@ -187,3 +166,9 @@ tar -xvzf whatap-agent.tar.gz -C /
 ## 모니터링 시작하기
 
 애플리케이션 서버를 다시 시작하면 에이전트가 정보 수집을 시작합니다.
+
+## 참고 문서
+
+- [whatap-go-inst 가이드](auto-instrument) - whatap-go-inst를 사용한 모니터링 코드를 자동 추가하는 법
+- [API 가이드](manual-instrument) - go-api를 사용해 모니터링 코드 직접 추가가 필요한 경우
+- [Docker 설치 가이드](install-agent-docker) - Docker 환경 설치

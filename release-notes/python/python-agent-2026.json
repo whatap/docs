@@ -1,0 +1,33 @@
+[
+    {
+        "url": "https://docs.whatap.io/release-notes/python/python-1_9_1",
+        "ver": "v1.9.1",
+        "date": "2026-01-26",
+        "Lists": [
+            {
+                "ver": "v1.9.1",
+                "hash": "v191",
+                "product": "Python Agent",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>logging</code>, <code>loguru</code> 추적 모듈 수정</p>",
+                "details": "<ul><li>옵션 값이 <code>False</code>일 때 후킹하지 않도록 수정</li></ul>"
+            },
+            {
+                "ver": "v1.9.1",
+                "hash": "v191",
+                "product": "Python Agent",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>trace_user_enabled</code> 옵션 로직 수정</p>",
+                "details": "<ul><li><code>ValueError</code>에러가 발생하던 현상 수정</li></ul>"
+            },
+            {
+                "ver": "v1.9.1",
+                "hash": "v191",
+                "product": "Python Agent",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>greenlet</code> 환경 추적 로직 수정</p>",
+                "details": "<ul><li>해당 환경에서 에러 발생 시 현재 프레임을 찾지 못해 예외 객체를 잡지 못하는 현상 수정</li></ul>"
+            }
+        ]
+    }
+]

@@ -1,4 +1,3 @@
-
 Docker 컨테이너 기반의 Go 애플리케이션에 WhaTap 모니터링 에이전트를 설치하는 방법을 안내합니다. 다음 2가지 방법 중 선택하세요.
 
 - **빠른 설치 방법**: Dockerfile 작성부터 컨테이너 실행, 모니터링 데이터 확인까지 전체 설치 과정
@@ -34,6 +33,7 @@ EKS Fargate는 지원 예정입니다.
 
 <Tabs>
 <TabItem value="dockerfile" label="1. Dockerfile" default>
+
 ```dockerfile
 # ============================================
 # Build stage - whatap-go-inst 빌드
@@ -83,6 +83,7 @@ ENTRYPOINT ["/app/entrypoint.sh"]
 </TabItem>
 
 <TabItem value="entrypoint" label="2. entrypoint.sh">
+
 ```bash
 #!/bin/sh
 
@@ -123,13 +124,15 @@ func main() {
 </Tabs>
 
 ### 2단계. 이미지 빌드
+
 ```bash
 docker build -t my-go-app .
 ```
 
 ### 3단계. 컨테이너 실행
 
-환경변수로 WhaTap 설정을 전달합니다:
+환경변수로 WhaTap 설정을 전달합니다.
+
 ```bash
 docker run -d \
   -e WHATAP_LICENSE={액세스 키} \
@@ -168,6 +171,7 @@ docker run -d \
 #### ARM64 Dockerfile 수정 예제
 
 Dockerfile의 에이전트 설치 부분만 변경:
+
 ```dockerfile
 # Runtime stage에서 변경
 RUN apk add --no-cache wget && \
@@ -177,6 +181,7 @@ RUN apk add --no-cache wget && \
 
 <details>
 <summary>ARM64 전체 Dockerfile 보기</summary>
+
 ```dockerfile
 FROM golang:1.21-alpine AS builder
 
@@ -217,6 +222,7 @@ ENTRYPOINT ["/app/entrypoint.sh"]
 Docker 이미지를 빌드한 후 Kubernetes 클러스터에 배포할 수 있습니다.
 
 #### 1단계: Docker 이미지 레지스트리 푸시
+
 ```bash
 # 이미지 태그 지정
 docker tag my-go-app:latest your-registry/my-go-app:v1.0
@@ -226,6 +232,7 @@ docker push your-registry/my-go-app:v1.0
 ```
 
 #### 2단계: WhaTap 설정 Secret 생성
+
 ```bash
 kubectl create secret generic whatap-secret \
   --from-literal=license={액세스 키}
@@ -235,6 +242,7 @@ kubectl create secret generic whatap-secret \
 
 <Tabs>
 <TabItem value="deployment" label="deployment.yaml" default>
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -283,6 +291,7 @@ spec:
 </TabItem>
 
 <TabItem value="service" label="service.yaml">
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -299,6 +308,7 @@ spec:
 
 </TabItem>
 </Tabs>
+
 ```bash
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
@@ -325,6 +335,7 @@ kubectl apply -f service.yaml
 | `POD_NAME` | 파드의 이름 |
 
 ### Docker Compose
+
 ```yaml title="docker-compose.yml"
 version: '3.8'
 
@@ -352,6 +363,7 @@ docker-compose up -d
 #### 1단계: 환경변수 확인
 
 컨테이너 내부에서 환경변수가 올바르게 설정되었는지 확인:
+
 ```bash
 docker exec -it <container_id> sh
 echo $WHATAP_LICENSE
@@ -360,6 +372,7 @@ cat /app/whatap_home/whatap.conf
 ```
 
 #### 2단계: 에이전트 실행 확인
+
 ```bash
 # 에이전트 프로세스 확인
 docker exec -it <container_id> ps -ef | grep whatap
@@ -369,6 +382,7 @@ docker exec -it <container_id> cat /app/whatap_home/logs/whatap-*.log
 ```
 
 **정상 출력 예시:**
+
 ```
 root  12  1  0 Jan21 ?  00:00:03 /usr/whatap/agent/whatap-agent
 ```
@@ -376,6 +390,7 @@ root  12  1  0 Jan21 ?  00:00:03 /usr/whatap/agent/whatap-agent
 #### 3단계: 네트워크 확인
 
 WhaTap 수집 서버(6600 포트)로 아웃바운드 연결이 가능한지 확인:
+
 ```bash
 docker exec -it <container_id> nc -zv {수집 서버 IP} 6600
 ```
@@ -385,12 +400,14 @@ docker exec -it <container_id> nc -zv {수집 서버 IP} 6600
 #### whatap-go-inst 초기화 확인
 
 빌드 로그에서 `whatap-go-inst init` 실행 여부 확인:
+
 ```bash
 # 디버그 모드로 재빌드
 docker build --progress=plain -t my-go-app .
 ```
 
 #### 계측 상세 로그 확인
+
 ```bash
 # 빌드 시 디버그 출력
 GO_API_AST_DEBUG=1 whatap-go-inst go build ./...
@@ -410,14 +427,9 @@ GO_API_AST_DEBUG=1 whatap-go-inst go build ./...
 위 방법으로 해결되지 않는 경우:
 
 1. [WhaTap 지원 센터](https://www.whatap.io/ko/support/) 문의
+
 2. 다음 정보 제공:
+
    - Dockerfile 전체 내용
    - 에이전트 로그 (`/app/whatap_home/logs/`)
    - `docker logs <container_id>` 출력
-
----
-
-## 참고 문서
-
-- [자동 적용 가이드](auto-instrument) - whatap-go-inst를 사용한 모니터링 코드를 자동 추가하는 방법
-- [수동 적용 가이드](manual-instrument) - go-api를 사용해 모니터링 코드 직접 추가하는 방법

@@ -39,6 +39,7 @@ whatap-go-inst 설치 방법은 다음 3가지입니다. 환경에 맞는 방법
 #### Go install 설치 (권장)
 
 Go 1.21 이상에서 권장하는 설치 방법입니다.
+
 ```bash
 go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
 ```
@@ -46,6 +47,7 @@ go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
 #### 바이너리 직접 설치
 
 Go 설치 없이 직접 설치하는 방법입니다. Go 1.18-1.20 사용자는 이 방법을 사용하세요.
+
 ```bash
 # Linux (amd64)
 curl -sSL https://github.com/whatap/go-api-inst/releases/latest/download/whatap-go-inst_linux_amd64.tar.gz | tar xz
@@ -78,6 +80,7 @@ whatap-go-inst init
 - `go.mod`에 whatap 의존성 추가
 
 ### 3단계: 빌드 및 실행
+
 ```bash
 # 모니터링 코드가 자동으로 삽입되어 빌드됩니다
 whatap-go-inst go build ./...
@@ -118,6 +121,7 @@ whatap-go-inst go --wrap build ./...
 `whatap-go-inst`는 빌드 시 소스코드를 분석하여 모니터링 코드를 자동으로 삽입합니다.
 
 #### 1. main() 함수 초기화
+
 ```go
 // 변경 전
 func main() {
@@ -134,6 +138,7 @@ func main() {
 ```
 
 #### 2. 웹 프레임워크 미들웨어
+
 ```go
 // 변경 전
 r := gin.Default()
@@ -146,6 +151,7 @@ r.GET("/api", handler)
 ```
 
 #### 3. 데이터베이스 호출
+
 ```go
 // 변경 전
 db, _ := sql.Open("mysql", dsn)
@@ -213,6 +219,7 @@ whatap-go-inst go build -o myapp -ldflags="-s -w" .
 | `--error-tracking` | 에러 추적 코드 삽입 (`if err != nil` 패턴에 `trace.Error` 추가) |
 
 **사용 예시:**
+
 ```bash
 # wrap 모드
 whatap-go-inst go --wrap build ./...
@@ -275,6 +282,7 @@ whatap-go-inst --config ./my-config.yaml go build ./...
 ### 기존 go 명령어와 무엇이 다른가요?
 
 `whatap-go-inst go build`는 일반 `go build`와 동일하게 작동하지만, 빌드 전에 모니터링 코드를 자동으로 삽입합니다. 모든 옵션과 플래그는 그대로 사용할 수 있습니다.
+
 ```bash
 # 일반 빌드 명령어와 동일하게 사용
 whatap-go-inst go build -o myapp -ldflags="-s -w" .
@@ -287,6 +295,7 @@ whatap-go-inst go build -o myapp -ldflags="-s -w" .
 ### 계측이 적용되지 않는 것 같은데요?
 
 다음을 확인해보세요:
+
 ```bash
 # 빌드 캐시 삭제 후 재빌드
 go clean -cache
@@ -301,6 +310,7 @@ GO_API_AST_DEBUG=1 whatap-go-inst go build ./...
 ### Docker 환경에서도 사용할 수 있나요?
 
 네, Dockerfile에서 동일하게 사용할 수 있습니다:
+
 ```dockerfile
 FROM golang:1.21 AS builder
 

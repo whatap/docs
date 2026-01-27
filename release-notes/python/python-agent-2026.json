@@ -17,7 +17,7 @@
                 "hash": "v191",
                 "product": "Python Agent",
                 "type": "Fixed",
-                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <code>trace_user_enabled</code> 옵션 로직 수정</p>",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <strong>trace_user_enabled</strong> 옵션 로직 수정</p>",
                 "details": "<ul><li><code>ValueError</code>에러가 발생하던 현상 수정</li></ul>"
             },
             {

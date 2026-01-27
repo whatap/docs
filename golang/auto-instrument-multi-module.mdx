@@ -1,0 +1,467 @@
+---
+id: auto-instrument-multi-module
+title: 멀티 모듈 프로젝트
+description: Go 라이브러리를 이용해 와탭 에이전트에 모니터링할 데이터를 전송할 수 있습니다.
+keywords: [ Go, API 가이드, 라이브러리 ]
+---
+
+여러 Go 모듈로 구성된 프로젝트에서 whatap-go-inst를 사용하는 방법을 설명합니다.
+
+## 용어 정리
+
+| 용어 | 설명 | 예시 |
+|------|------|------|
+| **모듈** | go.mod가 있는 단위 | `module mycompany/user-api` |
+| **패키지** | 디렉토리 레벨 코드 그룹 | `mycompany/user-api/pkg/auth` |
+| **외부 모듈** | go get으로 받은 의존성 | `github.com/gin-gonic/gin` |
+| **로컬 모듈** | 같은 프로젝트 내 별도 모듈 | `replace ../shared-lib` |
+
+--- 
+
+## 패키지 유형별 처리
+
+whatap-go-inst는 패키지 위치에 따라 다르게 처리합니다.
+
+### toolexec 스킵 규칙
+
+```go
+// 1. Go 표준 라이브러리 → 스킵
+if strings.HasPrefix(path, os.Getenv("GOROOT")) {
+    return true  // 변환 안 함
+}
+
+// 2. 외부 패키지 (go get) → 스킵
+if strings.HasPrefix(path, os.Getenv("GOMODCACHE")) {
+    return true  // 변환 안 함
+}
+
+// 3. 그 외 (내 코드) → 변환
+return false
+```
+
+### 요약
+
+| 패키지 유형 | 경로 | 계측 여부 |
+|------------|------|----------|
+| Go 표준 라이브러리 | `$GOROOT/src/...` | 스킵 |
+| 외부 모듈 (go get) | `$GOMODCACHE/...` | 스킵 |
+| 내 프로젝트 코드 | 로컬 경로 | **계측** |
+| replace 로컬 모듈 | 로컬 경로 (../) | **계측** (fast 모드만) |
+
+---
+
+## 멀티 모듈 시나리오
+
+### 시나리오: 3개의 분리된 모듈
+
+```
+C:/projects/
+├── db-lib/              # 모듈 A: DB 로직 라이브러리
+│   ├── go.mod           # module mycompany/db-lib
+│   ├── connection.go    # sql.Open() 사용
+│   └── query.go
+│
+├── web-lib/             # 모듈 B: 웹 서버 라이브러리
+│   ├── go.mod           # module mycompany/web-lib
+│   ├── server.go        # gin.Default() 사용
+│   └── handler.go
+│
+└── main-app/            # 모듈 C: 메인 앱
+    ├── go.mod           # module mycompany/main-app
+    └── main.go          # A, B를 import
+```
+
+### 모듈 C의 go.mod
+
+```go
+module mycompany/main-app
+
+go 1.21
+
+require (
+    mycompany/db-lib v1.0.0
+    mycompany/web-lib v1.0.0
+)
+```
+
+---
+
+## 권장 접근 방식
+
+### 방식 1: go.mod replace + Fast 모드 (개발용)
+
+로컬 개발에 가장 간단한 방법입니다.
+
+**Step 1: go.mod에 replace 추가**
+
+```go
+// main-app/go.mod
+module mycompany/main-app
+
+require (
+    mycompany/db-lib v1.0.0
+    mycompany/web-lib v1.0.0
+)
+
+// 로컬 경로로 replace
+replace mycompany/db-lib => ../db-lib
+replace mycompany/web-lib => ../web-lib
+```
+
+**Step 2: 초기화 및 whatap 의존성 추가 (모든 모듈)**
+
+```bash
+# main-app에서 초기화
+cd main-app && whatap-go-inst init
+
+# 각 모듈에 의존성 추가
+cd db-lib && go get github.com/whatap/go-api@latest
+cd web-lib && go get github.com/whatap/go-api@latest
+cd main-app && go get github.com/whatap/go-api@latest
+```
+
+**Step 3: 빌드**
+
+```bash
+cd main-app
+whatap-go-inst go build ./...
+```
+
+**결과:**
+- main-app 계측됨
+- db-lib 계측됨 (replace로 로컬 참조)
+- web-lib 계측됨 (replace로 로컬 참조)
+
+### 방식 2: 모듈별 별도 inject (배포용)
+
+운영 배포에 권장하는 방법입니다.
+
+**Step 1: 각 모듈 inject**
+
+```bash
+# db-lib 계측
+cd db-lib
+whatap-go-inst inject -s . -o ../db-lib-instrumented
+
+# web-lib 계측
+cd web-lib
+whatap-go-inst inject -s . -o ../web-lib-instrumented
+
+# main-app 계측
+cd main-app
+whatap-go-inst inject -s . -o ../main-app-instrumented
+```
+
+**Step 2: 계측된 버전으로 교체**
+
+```go
+// main-app-instrumented/go.mod
+replace mycompany/db-lib => ../db-lib-instrumented
+replace mycompany/web-lib => ../web-lib-instrumented
+```
+
+**Step 3: 빌드**
+
+```bash
+cd main-app-instrumented
+go build ./...
+```
+
+### 방식 3: Monorepo 구조 (신규 프로젝트)
+
+신규 프로젝트라면 단일 모듈 구조가 가장 간단합니다.
+
+```
+myproject/
+├── go.mod              # 단일 모듈 mycompany/myproject
+├── cmd/
+│   └── main/
+│       └── main.go     # main 패키지
+├── internal/
+│   ├── db/
+│   │   └── connection.go
+│   └── web/
+│       └── server.go
+└── pkg/
+    └── shared/
+        └── utils.go
+```
+
+```bash
+# 초기화 (1회)
+whatap-go-inst init
+
+# 빌드
+whatap-go-inst go build ./cmd/main
+```
+
+---
+
+## 모드별 동작 비교
+
+### --wrap 모드 vs Fast 모드
+
+| 항목 | --wrap 모드 | Fast 모드 |
+|------|-------------|-----------|
+| **main 모듈** | 계측됨 | 계측됨 |
+| **replace 모듈** | 계측 안 됨 | **계측됨** |
+| **외부 모듈 (GOMODCACHE)** | 스킵 | 스킵 |
+| **사전 조건** | 없음 | init 필요 + go.mod에 whatap/go-api |
+
+### --wrap 모드 replace 처리
+
+```go
+// --wrap 모드는 replace 경로만 조정
+replace mycompany/db-lib => ../db-lib
+
+// 임시 디렉토리 복사 후:
+replace mycompany/db-lib => /original/path/to/db-lib  // 원본 참조!
+```
+
+**결과:** replace 대상 모듈은 복사되지 않고 원본(비계측) 코드를 참조
+
+### Fast 모드 replace 처리
+
+```
+Go 컴파일러 → db-lib/connection.go 컴파일 요청
+           ↓
+toolexec → 경로 확인: ../db-lib/connection.go
+         → GOROOT? 아니오
+         → GOMODCACHE? 아니오
+         → 로컬 경로 → 계측!
+```
+
+**결과:** replace 대상 모듈이 컴파일 시점에 계측됨
+
+---
+
+## 주의사항
+
+### 1. Fast 모드 요구사항
+
+replace 모듈 계측을 위해 **모든 모듈**에 whatap 의존성이 필요합니다.
+
+```bash
+# main 모듈에서 init 실행
+whatap-go-inst init
+
+# 각 모듈에 의존성 추가
+go get github.com/whatap/go-api@latest
+```
+
+### 2. --output 플래그 제한사항
+
+fast 모드에서 `--output` 플래그 사용 시 replace 모듈이 제대로 저장되지 않습니다.
+
+| 모듈 | 저장 경로 | 문제 |
+|------|-----------|------|
+| main 모듈 | `output/pkg/service.go` | 경로 구조 유지 |
+| replace 모듈 | `output/connection.go` | 플랫 (경로 손실) |
+
+```
+# 예상 출력
+output/
+├── main.go              # main 모듈 (OK)
+├── pkg/
+│   └── handler.go       # main 모듈 (OK)
+├── connection.go        # db-lib (경로 손실!)
+└── server.go            # web-lib (경로 손실!)
+```
+
+**권장:** 계측된 소스를 확인하려면 방식 2 (별도 inject)를 사용하세요.
+
+### 3. main이 없는 라이브러리 inject
+
+main 함수가 없는 라이브러리도 inject할 수 있습니다.
+
+| 항목 | 처리 |
+|------|------|
+| `trace.Init()` | 추가 안 됨 (정상) |
+| `sql.Open()` → `whatapsql.Open()` | 변환됨 |
+| `gin.Default()` + 미들웨어 | 추가됨 |
+
+```bash
+# 라이브러리 모듈 inject
+cd db-lib
+whatap-go-inst inject -s . -o ./instrumented
+
+# 결과: whatapsql.Open()으로 변환됨
+# trace.Init() 추가 안 됨 (main에서만 호출해야 함)
+```
+
+### 4. 의존성 전파
+
+계측된 라이브러리를 사용하는 모듈도 whatap 의존성이 필요합니다.
+
+```go
+// db-lib-instrumented/connection.go
+import "github.com/whatap/go-api/instrumentation/.../whatapsql"
+
+// main-app에서 빌드하려면 이 의존성이 필요
+```
+
+```bash
+cd main-app
+go get github.com/whatap/go-api@latest
+```
+
+---
+
+## FAQ
+
+### Q1: --wrap 모드에서 replace 모듈을 계측하고 싶습니다
+
+**A:** --wrap 모드는 replace 모듈을 계측하지 않습니다. 두 가지 옵션이 있습니다:
+
+1. **fast 모드 사용** (권장)
+   ```bash
+   whatap-go-inst init
+   whatap-go-inst go build ./...
+   ```
+
+2. **각 모듈 별도 inject**
+   ```bash
+   whatap-go-inst inject -s ../db-lib -o ../db-lib-inst
+   whatap-go-inst inject -s ../web-lib -o ../web-lib-inst
+   ```
+
+### Q2: 외부 라이브러리(gin, gorm 등)를 계측할 수 있나요?
+
+**A:** 아니요. 외부 라이브러리는 `$GOMODCACHE`에 있어서 스킵됩니다. 이는 의도된 동작입니다.
+
+- 외부 라이브러리 수정 시 다른 프로젝트에 영향
+- Go 모듈 시스템의 불변성 원칙
+
+대신, **사용자 코드에서 외부 라이브러리 호출**이 변환됩니다:
+- `sql.Open()` → `whatapsql.Open()`
+- `gin.Default()` → 미들웨어 자동 추가
+
+### Q3: Monorepo vs 멀티 모듈, 어떤 게 좋은가요?
+
+| 구조 | 장점 | 단점 |
+|------|------|------|
+| **Monorepo** | 계측 간단, 의존성 관리 쉬움 | 모듈 재사용 어려움 |
+| **멀티 모듈** | 독립 모듈 배포 가능 | 계측 설정 복잡 |
+
+**권장:**
+- 신규 프로젝트 → Monorepo
+- 기존 멀티 모듈 → replace + fast 모드
+
+### Q4: CI/CD에서 멀티 모듈을 어떻게 빌드하나요?
+
+아래 [CI/CD 예제](#cicd-예제) 섹션을 참조하세요.
+
+---
+
+## CI/CD 예제
+
+### GitHub Actions
+
+```yaml
+# .github/workflows/build.yml
+name: Build with WhaTap Instrumentation
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 모든 모듈 체크아웃
+      - uses: actions/checkout@v3
+        with:
+          path: main-app
+      - uses: actions/checkout@v3
+        with:
+          repository: mycompany/db-lib
+          path: db-lib
+      - uses: actions/checkout@v3
+        with:
+          repository: mycompany/web-lib
+          path: web-lib
+
+      # 2. Go 설치
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      # 3. whatap-go-inst 설치
+      - run: go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
+
+      # 4. 초기화 및 whatap 의존성 추가
+      - run: |
+          cd main-app && whatap-go-inst init
+          cd ../db-lib && go get github.com/whatap/go-api@latest
+          cd ../web-lib && go get github.com/whatap/go-api@latest
+          cd ../main-app && go get github.com/whatap/go-api@latest
+
+      # 5. 빌드
+      - run: |
+          cd main-app
+          whatap-go-inst go build -o myapp ./...
+
+      # 6. 아티팩트 업로드
+      - uses: actions/upload-artifact@v3
+        with:
+          name: myapp
+          path: main-app/myapp
+```
+
+### GitLab CI
+
+```yaml
+# .gitlab-ci.yml
+stages:
+  - build
+
+build:
+  stage: build
+  image: golang:1.21
+  before_script:
+    # whatap-go-inst 설치
+    - go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
+    # 다른 모듈 클론
+    - git clone https://gitlab.com/mycompany/db-lib.git ../db-lib
+    - git clone https://gitlab.com/mycompany/web-lib.git ../web-lib
+  script:
+    # 초기화 및 의존성 추가
+    - whatap-go-inst init
+    - cd ../db-lib && go get github.com/whatap/go-api@latest
+    - cd ../web-lib && go get github.com/whatap/go-api@latest
+    - cd $CI_PROJECT_DIR && go get github.com/whatap/go-api@latest
+    # 빌드
+    - whatap-go-inst go build -o myapp ./...
+  artifacts:
+    paths:
+      - myapp
+```
+
+### Docker 멀티 스테이지 빌드
+
+```dockerfile
+# Dockerfile
+FROM golang:1.21 AS builder
+
+WORKDIR /workspace
+
+# whatap-go-inst 설치
+RUN go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
+
+# 소스 복사 (모든 모듈)
+COPY db-lib/ ./db-lib/
+COPY web-lib/ ./web-lib/
+COPY main-app/ ./main-app/
+
+# 초기화 및 의존성 추가
+WORKDIR /workspace/main-app
+RUN whatap-go-inst init
+RUN cd ../db-lib && go get github.com/whatap/go-api@latest
+RUN cd ../web-lib && go get github.com/whatap/go-api@latest
+RUN go get github.com/whatap/go-api@latest
+
+# 빌드
+RUN whatap-go-inst go build -o /app/myapp ./...
+
+# 런타임 이미지
+FROM alpine:latest
+COPY --from=builder /app/myapp /app/myapp
+CMD ["/app/myapp"]
+```

@@ -1,146 +1,89 @@
 ---
 id: install-agent
-title: GO 모니터링
+title: 일반 설치
 description: Go 환경의 애플리케이션 서버에 에이전트를 설치하는 방법을 제공합니다.
-toc_max_heading_level: 2
+toc_max_heading_level: 3
 keywords: [ Go, 에이전트 설치 ]
 ---
 
-WhaTap Go 모니터링 동작 방식은 다음과 같습니다.
-
-1. **Go 애플리케이션에 Whatap Go 라이브러리 적용**
-  
-    * `github.com/whatap/go-api` 라이브러리를 import하여 애플리케이션에 모니터링 코드를 포함합니다.
-
-    * 해당 라이브러리는 Go 앱 내부에서 성능 지표와 트레이스 데이터를 수집하고 전송 준비를 합니다.
-
-2. **설정 파일**(*whatap.conf*) **구성**
-
-    * 설정 파일 *whatap.conf*를 애플리케이션 실행 경로 또는 `WHATAP_HOME` 디렉터리에 위치시킵니다.
-
-    * 애플리케이션은 실행 시 설정을 읽고, 자체 정보를 등록하며 데이터 전송을 준비합니다.
-
-      | 주요 설정          | 설명                  |
-      | ------------------ | --------------------- |
-      | license            | 프로젝트 액세스 키    |
-      | whatap.server.host | WhaTap 수집 서버 주소 |
-      | app_name           | 애플리케이션 이름     |
-
-3. **에이전트 실행**
-
-    * 서버에 설치된 whatap_agent(`/usr/whatap/agent/whatap_agent`)을 실행합니다. 이 에이전트는 Go 애플리케이션이 보내는 모니터링 데이터를 받아서 WhaTap 수집 서버로 전달하는 중계(Proxy) 역할을 수행합니다.
-
-4. **통신 구조**
-
-    | 에이전트 |동작 방식|
-    | :--: | --- |
-    | **Inbound(에이전트 수신)**| 127.0.0.1:6600 TCP 서버로 실행  <br /> Go 애플리케이션은 localhost:6600으로 모니터링 데이터 전송 <br /> 애플리케이션 → (TCP 6600) → Agent|
-    | **Outbound(에이전트 전달)** | 수신된 데이터를 WhaTap 수집 서버로 Outbound 연결을 통해 전송 <br /> Agent → WhaTap 서버 (Outbound 6600)|
-
-    :::note
-    Go 애플리케이션은 로컬 에이전트와만 통신하며, 외부 전송은 에이전트가 담당합니다.
-    :::
-
-<ImgLang img="golang_system.png" desc="Go Monitoring" />
-
-와탭 모니터링 서비스를 사용하기 위해서는 [회원 가입](https://www.whatap.io/ko/signup/) 후 프로젝트를 생성하고 대상 서버에 에이전트를 설치해야 합니다.
-
-import Createprojectv2 from "../getting-started/_create-project-v2.mdx";
-
-<Createprojectv2 />
-
-import Accesskeyv2 from "../getting-started/_accesskey-v2.mdx";
-
-<Accesskeyv2 /> 
-
 import Godockersettinglibrary from "../common-items/_go-docker-setting-library.mdx";
 
-<Godockersettinglibrary />
+리눅스 환경의 Go 애플리케이션에 WhaTap 모니터링 에이전트를 설치하려면 다음 단계를 진행하세요.
 
-## 모니터링 설정 {#set-agent}
+- **[1단계. Go 라이브러리 적용하기](#import-golib)**  
+- **[2단계. 모니터링 환경 변수 설정하기](#set-whatap-conf)**  
+- **[3단계. 데이터 중계용 에이전트 설치하기](#download_agent)**   
 
-### 기본 설정하기
+:::tip 
 
-다음 명령어를 차례로 실행해 *whatap.conf* 파일에 **액세스 키**와 **수집 서버 IP 주소** 등을 설정하세요.
+설치를 시작하기 전에 다음 정보를 준비하세요.
 
-* 애플리케이션의 시작 스크립트 경로에 *whatap.conf* 파일을 생성하세요. 
-
-* `WHATAP_HOME` 환경 변수를 설정하지 않으면 애플리케이션 시작 스크립트의 경로를 *whatap.conf* 파일 경로로 인식합니다.
-
-```bash title='SH'
-# 스크립트 실행 경로에 whatap.conf 파일 생성
-$ echo "license={액세스 키}" >> ./whatap.conf
-$ echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap.conf
-$ echo "app_name={애플리케이션 이름}" >> ./whatap.conf
-
-# 애플리케이션 실행
-./app
-```
-
-* `license`: **액세스 키**를 입력하세요.
-
-* `whatap.server.host`: **수집 서버 IP 주소**를 입력하세요.
-
-* `app_name`: 애플리케이션 이름을 입력하세요. 문자열을 이용해 사용자 설정할 수 있습니다.
-
-  :::note
-
-  `app_name`은 에이전트 이름을 결정하기 위한 구성 요소입니다. 자세한 내용은 [다음 문서](agent-name)를 참조하세요.
-
-  :::
-
-
-### `WHATAP_HOME` 환경 변수 설정하기
-
-*whatap.conf* 파일 경로를 `WHATAP_HOME` 환경 변수로 설정할 수 있습니다. `WHATAP_HOME` 경로를 우선 생성하세요.
-
-```bash
-# WHATAP_HOME 경로 우선 생성 후 whatap.conf 파일 경로 설정
-mkdir ./whatap_home
-echo "license={액세스 키}" >> ./whatap_home/whatap.conf
-echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home/whatap.conf
-echo "app_name={애플리케이션 이름}" >> ./whatap_home/whatap.conf
-
-# 애플리케이션 실행
-WHATAP_HOME=./whatap_home ./app
-```
-
-:::tip
-
-에이전트 설정의 우선순위는 *whatap.conf* 파일이 먼저 적용되고, 그다음으로 환경 변수가 적용됩니다. 환경 변수를 우선적으로 적용하려면 `use_env_first` 옵션을 `true`로 설정하세요. 또는 `WHATAP_USE_ENV_FIRST=true` 형식으로 환경 변수를 설정할 수도 있습니다.
+- WhaTap 프로젝트 **액세스 키** ([프로젝트 메뉴] > [관리] > [에이전트 설치]에서 확인)
+- WhaTap **수집 서버 IP 주소**
 
 :::
 
-### 프로세스 별 에이전트 이름 설정{#duplicate_appname}
+<Godockersettinglibrary />
 
-2개 이상의 프로세스로 실행되는 애플리케이션에서 1개의 *whatap.conf* 파일을 공유하면 사용자가 설정한 변경 사항이 정상 반영되지 않을 수 있습니다. 프로세스 별로 각각의 *whatap.conf* 파일을 설정할 것을 권장합니다.
+## 모니터링 환경 변수 설정하기 {#set-whatap-conf}
 
-에이전트 이름이 중복되지 않도록 사용자는 문자열을 에이전트 이름에 추가해 구분할 수 있습니다. `app_name` 옵션으로 설정한 값이 에이전트 이름의 가장 앞 부분에 추가됩니다.
+### 기본 정보
 
-동일 인스턴스, 동일 명령어로 실행되는 에이전트의 이름이 중복되는 현상을 피할 수 있습니다. 
+*whatap.conf* 파일을 애플리케이션 실행 경로 또는 `WHATAP_HOME` 디렉터리에 위치
 
-```bash
-# WHATAP_HOME 경로 우선 생성 후 whatap.conf 파일 경로 설정
-mkdir ./whatap_home
-echo "license={액세스 키}" >> ./whatap_home/whatap.conf
-echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home/whatap.conf
-echo "app_name={애플리케이션 이름-1}" >> ./whatap_home/whatap.conf
+    | 주요 설정          | 설명                  |
+    | ------------------ | --------------------- |
+    | license            | 프로젝트 액세스 키    |
+    | whatap.server.host | WhaTap 수집 서버 주소 |
+    | app_name           | 애플리케이션 이름     |
 
-# 애플리케이션 실행
-WHATAP_HOME=./whatap_home ./app 
 
-# WHATAP_HOME 경로 우선 생성 후 whatap.conf 파일 경로 설정
-mkdir ./whatap_home1
-echo "license={액세스 키}" >> ./whatap_home1/whatap.conf
-echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home1/whatap.conf
-echo "app_name={애플리케이션 이름-2}" >> ./whatap_home1/whatap.conf
+    다음 명령어를 차례로 실행해 *whatap.conf* 파일에 설정 정보를 추가합니다. 
 
-# 애플리케이션 실행
-WHATAP_HOME=./whatap_home1 ./app
+    ```bash
+    $ echo "license={액세스 키}" >> ./whatap.conf
+    $ echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap.conf
+    $ echo "app_name={애플리케이션 이름}" >> ./whatap.conf
+    ./app
+    ```
 
-```
+    :::note
 
-## 데이터 중계용 에이전트 다운로드
+    `app_name`은 에이전트 이름을 결정하기 위한 구성 요소입니다. 자세한 내용은 [다음 문서](agent-name)를 참조하세요.
+
+    :::
+
+### `WHATAP_HOME` 환경 변수
+
+    ```bash
+    mkdir ./whatap_home
+    echo "license={액세스 키}" >> ./whatap_home/whatap.conf
+    echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home/whatap.conf
+    echo "app_name={애플리케이션 이름}" >> ./whatap_home/whatap.conf
+    WHATAP_HOME=./whatap_home ./app
+    ```
+
+### 프로세스 별 에이전트 이름{#duplicate_appname}
+
+2개 이상의 프로세스로 실행되는 애플리케이션은 프로세스별로 각각의 *whatap.conf* 파일 설정 권장합니다.
+
+    ```bash
+    # 애플리케이션 1
+    mkdir ./whatap_home
+    echo "license={액세스 키}" >> ./whatap_home/whatap.conf
+    echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home/whatap.conf
+    echo "app_name={애플리케이션 이름-1}" >> ./whatap_home/whatap.conf
+    WHATAP_HOME=./whatap_home ./app 
+
+    # 애플리케이션 2
+    mkdir ./whatap_home1
+    echo "license={액세스 키}" >> ./whatap_home1/whatap.conf
+    echo "whatap.server.host={수집 서버 IP 주소}" >> ./whatap_home1/whatap.conf
+    echo "app_name={애플리케이션 이름-2}" >> ./whatap_home1/whatap.conf
+    WHATAP_HOME=./whatap_home1 ./app
+    ```
+
+## 데이터 중계용 에이전트 설치하기 {#download_agent}
 
 **액세스 키**를 발급 받으면 다음 명령어를 이용해 에이전트를 다운로드하세요.
 
@@ -172,23 +115,19 @@ $ sudo apt-get install whatap-agent
 </TabItem>
 <TabItem value="al" label="Amazon Linux">
 
-```bash title='SH'
-## 패키지 저장소 등록
-$ sudo rpm --import https://repo.whatap.io/centos/release.gpg
-$ echo "[whatap]" | sudo tee /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "name=whatap packages for enterprise linux" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "baseurl=https://repo.whatap.io/centos/latest/\$basearch" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "enabled=1" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-$ echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/whatap.repo > /dev/null
-
-## 패키지 설치
-$ sudo yum install whatap-agent
+```bash
+sudo rpm --import https://repo.whatap.io/centos/release.gpg
+echo "[whatap]" | sudo tee /etc/yum.repos.d/whatap.repo
+echo "name=whatap packages for enterprise linux" | sudo tee -a /etc/yum.repos.d/whatap.repo
+echo "baseurl=https://repo.whatap.io/centos/latest/\$basearch" | sudo tee -a /etc/yum.repos.d/whatap.repo
+echo "enabled=1" | sudo tee -a /etc/yum.repos.d/whatap.repo
+echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/whatap.repo
+sudo yum install whatap-agent
 ```
 
 </TabItem>
-<TabItem value="apl" label="Alpine Linux">
 
-[whatap-agent.tar.gz](https://s3.ap-northeast-2.amazonaws.com/repo.whatap.io/alpine/x86_64/whatap-agent.tar.gz) 파일을 다운받고 '/' 디렉터리 기준으로 압축을 해제하세요. */usr/whatap/agent* 경로에 모니터링 파일을 생성합니다.
+<TabItem value="apl" label="Alpine Linux">
 
 <Tabs>
 
@@ -216,45 +155,6 @@ tar -xvzf whatap-agent.tar.gz -C /
 
 </Tabs>
 
-에이전트는 사용자 애플리케이션의 모니터링 정보를 내부 IPC(TCP)를 통해 전달받고, 해당 데이터를 와탭 수집 서버로 전송하는 데이터 중계 프로세스입니다.
-
-<Filetree name="whatap">
-
-  <FiletreeItem name="whatap-agent" type="file">실행 파일입니다.</FiletreeItem>
-
-  <FiletreeItem name="whatap_agent 스크립트" type="file">whatap_agent 를 실행하는 스크립트 파일입니다.</FiletreeItem>
-
-</Filetree>
-
 ## 모니터링 시작하기
 
 애플리케이션 서버를 다시 시작하면 에이전트가 정보 수집을 시작합니다.
-
-
-{/*  <Tabs groupId="golang">
-<TabItem value="rc" label="Red Hat/CentOS">
-
-애플리케이션 서버를 다시 시작하면 에이전트가 정보 수집을 시작합니다.
-
-</TabItem>
-<TabItem value="du" label="Debian/Ubuntu">
-
-애플리케이션 서버를 다시 시작하면 에이전트가 정보 수집을 시작합니다.
-
-</TabItem>
-<TabItem value="al" label="Amazon Linux">
-
-1. 다음 명령어를 실행해 와탭 에이전트 데몬을 실행하세요.
-
-    ```bash
-    /usr/whatap/php/whatap-agent start
-    ```
-
-1. 다음 명령어를 실행해 와탭 서비스가 정상 실행됐는지 확인하세요.
-
-    ```bash
-    ps -elf | grep whatap_agent_static
-    ```
-
-</TabItem>
-</Tabs> */}

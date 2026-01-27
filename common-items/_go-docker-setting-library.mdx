@@ -1,34 +1,70 @@
-## Go 라이브러리 설정하기
+## Go 라이브러리 적용하기 {#import-golib}
 
-Go 애플리케이션 소스 코드에 [github.com/whatap/go-api](https://github.com/whatap/go-api) 패키지를 추가하세요.
+모니터링 대상 애플리케이션에 WhaTap Go Library를 추가하는 방법은 다음과 같습니다. **자동 적용 방식을 권장합니다.**
+
+**라이브러리 설정 방식**
+
+| 구분 | 설정 방식 | 설명 | 비고 |
+| :---: | --- | --- | --- |
+| 자동 적용 | **whatap-go-inst 사용** | `whatap-go-inst` 도구로 코드 자동 삽입 | **권장** |
+| 수동 적용 | **go-api 직접 사용** | API를 직접 코드에 추가 | 세밀한 제어 필요 시 |
+
+### 자동 적용 (권장)
+
+`whatap-go-inst` 도구를 사용하여 소스코드에 모니터링 코드를 자동으로 삽입합니다.
+
+#### 1. `whatap-go-inst` 설치하기
+
+| Go Version | 설치 방법 |
+| --- | --- |
+| **Go 1.21+ (권장)** | go install 이용 |
+| **Go 1.18~1.20** | 바이너리 다운로드 |
+
+- **Go 1.21+ (권장)**
+
+    ```
+    go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
+    ```
+
+- **Go 1.18~1.20**
+
+    미리 빌드된 바이너리를 다운로드하세요.
+
+    Linux x86_64:
+
+    ```
+    wget https://github.com/whatap/go-api-inst/releases/latest/download/whatap-go-inst_linux_amd64.tar.gz
+    tar -xvzf whatap-go-inst_linux_amd64.tar.gz
+    sudo mv whatap-go-inst /usr/local/bin/
+    ```
+
+    Linux ARM64:
+
+    ```yaml
+    wget https://github.com/whatap/go-api-inst/releases/latest/download/whatap-go-inst_linux_arm64.tar.gz
+    tar -xvzf whatap-go-inst_linux_arm64.tar.gz
+    sudo mv whatap-go-inst /usr/local/bin/
+    ```
+
+#### 2. 프로젝트 초기화 및 빌드
 
 ```bash
-go get github.com/whatap/go-api
-```
+# 프로젝트 초기화 (go.mod 디렉토리에서 실행하세요)
+whatap-go-inst init
 
-`trace.Init()`, `trace.Shutdown()` 함수로 초기화 및 종료를 설정하세요. `trace.Start()`, `trace.End()` 함수로 트랜잭션의 시작 종료를 설정하세요.
+# go-api 패키지 다운로드 및 설치 
+go get github.com/whatap/go-api@latest
+go mod tidy
 
-```go title='Go'
-import "github.com/whatap/go-api/trace"
-
-func main(){
-    trace.Init(nil)
-    //It must be executed before closing the app.    
-    defer trace.Shutdown()    
-
-    ctx, _ := trace.Start(context.Bacground(), "Start Tx")
-
-    ...
-
-    trace.End(ctx, err)
-}
+# 빌드 (모니터링 코드 자동 삽입)
+whatap-go-inst go build ./...
 ```
 
 <InDoc product='golang'>
 
 :::note
 
-라이브러리 설정에 대한 자세한 내용은 [다음 문서](api-guide)를 참조하세요.
+자세한 사용법은 [자동 적용 가이드](auto-instrument)를 참고하세요.
 
 :::
 
@@ -38,7 +74,52 @@ func main(){
 
 :::note
 
-라이브러리 설정에 대한 자세한 내용은 [다음 문서](../golang/api-guide)를 참조하세요.
+자세한 사용법은 [자동 적용 가이드](../golang/auto-instrument)를 참고하세요.
+
+:::
+
+</InDoc>
+
+### 수동 적용
+
+`go-api`를 직접 다운로드한 후 소스코드에 모니터링 코드를 수동으로 삽입합니다.
+
+#### 1. `go-api` 다운로드
+
+```bash
+go get github.com/whatap/go-api
+```
+
+#### 2. 모니터링 코드 추가
+
+```go
+import "github.com/whatap/go-api/trace"
+
+func main(){
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    ctx, _ := trace.Start(context.Background(), "Start Tx")
+    ...
+    trace.End(ctx, err)
+}
+```
+
+<InDoc product='golang'>
+
+:::note
+
+자세한 API 사용법은 [수동 적용 가이드](manual-instrument)를 참고하세요.
+
+:::
+
+</InDoc>
+
+<InDoc product='kubernetes'>
+
+:::note
+
+자세한 API 사용법은 [수동 적용 가이드](../golang/manual-instrument)를 참조하세요.
 
 :::
 

@@ -1,0 +1,1020 @@
+---
+id: manual-instrument
+title: 수동 적용 가이드
+description: Go 라이브러리를 이용해 와탭 에이전트에 모니터링할 데이터를 전송할 수 있습니다.
+toc_max_heading_level: 2
+keywords: [ Go, API 가이드, 라이브러리 ]
+---
+
+Go 라이브러리를 이용해 와탭 에이전트에 모니터링할 데이터를 수동으로 전송할 수 있습니다. 예제 코드는 [github.com/whatap/go-api-example](https://github.com/whatap/go-api-example)에서 확인할 수 있습니다.
+
+:::note
+
+**자동 적용 vs 수동 적용**
+
+* **자동 적용 (권장)**: [자동 적용 가이드](auto-instrument)를 참조하여 코드 자동 삽입
+* **수동 적용**: 이 문서에서 설명하는 API를 직접 코드에 추가
+
+:::
+
+## 시작하기
+
+다음 명령어로 Go API를 설치하세요.
+
+```go
+go get github.com/whatap/go-api@latest
+```
+
+### Init, Shutdown
+
+모니터링 모듈을 초기화하고 종료하는 기본 구조:
+
+```go
+import "github.com/whatap/go-api/trace"
+
+func main(){
+    trace.Init(nil)
+    defer trace.Shutdown()
+    ...
+}
+```
+
+**Init 함수의 설정 옵션:**
+- `map[string]string` 형식으로 초기 설정 가능
+- `whatap.conf` 파일에서도 설정 가능
+- 기본 TCP 연결: 127.0.0.1:6600
+
+```go
+m := make(map[string]string)
+m["net_ipc_host"] = "127.0.0.1"
+m["net_ipc_port"] = "6601"
+trace.Init(m)
+```
+
+**whatap.conf 설정:**
+
+```ini
+accesskey={액세스 키}
+whatap.server.host={수집 서버 IP 주소}
+net_ipc_host=127.0.0.1
+net_ipc_port=6600
+```
+
+### Context 관리
+
+에이전트는 `whatap context(trace.TraceCtx)`를 기준으로 트랜잭션을 구분합니다. 트랜잭션 외의 성능 정보는 무시되거나 통계만 수집됩니다.
+
+#### 트랜잭션 생성
+
+```go
+var traceCtx *TraceCtx
+traceCtx.Txid = keygen.Next()
+ctx = context.WithValue(ctx, "whatap", traceCtx)
+```
+
+---
+
+## 트랜잭션 추적
+
+### 웹 트랜잭션 추적
+
+```go
+http.HandleFunc("/index", func(w http.ResponseWriter, r *http.Request) {
+    ctx, _ := trace.StartWithRequest(r)
+    defer trace.End(ctx, nil)
+})
+```
+
+**래핑 함수:**
+- `trace.Func()`: RequestURI를 트랜잭션 이름으로 설정
+- `trace.HandlerFunc()`: 동일 기능 제공
+
+### 일반 트랜잭션 추적
+
+```go
+func main() {
+    ctx := context.Background()
+    ctx, _ := trace.Start(ctx, "Custom Transaction")
+    ...
+    trace.End(ctx, nil)
+}
+```
+
+### 트랜잭션 API
+
+```go
+func Start(ctx context.Context, name string) (context.Context, error)
+func End(ctx context.Context, err error) error
+func StartWithRequest(r *http.Request) (context.Context, error)
+func Step(ctx context.Context, title, message string, elapsed, value int) error
+func HandlerFunc(handler func(http.ResponseWriter, *http.Request)) http.HandlerFunc
+func Func(handler func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request)
+```
+
+---
+
+## DB 연결 및 SQL 추적
+
+제한사항:
+- SQL 구문: 최대 32KB
+- Prepared 파라미터: 최대 20개, 각 256byte
+
+### DB Connection 추적
+
+```go
+import whatapsql "github.com/whatap/go-api/sql"
+
+ctx, _ := trace.Start(context.Background(), "Trace Open DB")
+defer trace.End(ctx, nil)
+
+sqlCtx, _ := whatapsql.StartOpen(ctx, "id@tcp(x.x.x.x:3306)/test")
+db, err := sql.Open("mysql", "id:pwd@tcp(x.x.x.x:3306)/test")
+whatapsql.End(sqlCtx, err)
+defer db.Close()
+```
+
+### SQL Query 추적
+
+```go
+query = "select id, subject from tbl_faq limit 10"
+sqlCtx, _ = whatapsql.Start(ctx, "id:pwd@tcp(x.x.x.x:3306)/test", query)
+rows, err := db.QueryContext(ctx, query)
+whatapsql.End(sqlCtx, err)
+```
+
+### Prepared Statement 추적
+
+```go
+query = "select id, subject from tbl_faq where id = ? limit ?"
+stmt, err := db.Prepare(query)
+defer stmt.Close()
+
+params := make([]interface{}, 0)
+params = append(params, 8)
+params = append(params, 1)
+
+sqlCtx, _ := whatapsql.StartWithParamArray(ctx, "id:pwd@tcp(x.x.x.x:3306)/test", query, params)
+rows, err := stmt.QueryContext(ctx, params...)
+whatapsql.End(sqlCtx, err)
+```
+
+### database/sql 패키지 활용
+
+```go
+import (
+    _ "github.com/go-sql-driver/mysql"
+    "github.com/whatap/go-api/instrumentation/database/sql/whatapsql"
+)
+
+db, err := whatapsql.OpenContext(ctx, "mysql", dataSource)
+defer db.Close()
+
+if rows, err := db.QueryContext(ctx, query); err == nil {
+    ...
+}
+```
+
+### SQL API
+
+```go
+func Start(ctx context.Context, dbhost, sql string) (*SqlCtx, error)
+func StartOpen(ctx context.Context, dbhost string) (*SqlCtx, error)
+func End(sqlCtx *SqlCtx, err error) error
+func StartWithParam(ctx context.Context, dbhost, sql, param ...interface{}) (*SqlCtx, error)
+func StartWithParamArray(ctx context.Context, dbhost, sql string, param []interface{}) (*SqlCtx, error)
+func Trace(ctx context.Context, dbhost, sql, param string, elapsed int, err error) error
+```
+
+---
+
+## HTTP 요청 추적
+
+```go
+import "github.com/whatap/go-api/httc"
+
+ctx, _ := trace.Start(context.Background(), "Trace Http Call")
+defer trace.End(ctx, nil)
+
+httpcCtx, _ := httpc.Start(ctx, callUrl)
+resp, err := http.Get(callUrl)
+if err == nil {
+    httpc.End(httpcCtx, resp.StatusCode, "", nil)
+} else {
+    httpc.End(httpcCtx, 0, "", err)
+}
+```
+
+### HTTP Transport RoundTrip
+
+```go
+import "github.com/whatap/go-api/instrumentation/net/http/whataphttp"
+
+ctx, _ := trace.Start(context.Background(), "Http call")
+defer trace.End(ctx, nil)
+
+client := http.DefaultClient
+client.Transport = whataphttp.NewRoundTrip(ctx, http.DefaultTransport)
+resp, err := client.Get(callUrl)
+defer resp.Body.Close()
+```
+
+### HTTP API
+
+```go
+func Start(ctx context.Context, url string) (*HttpcCtx, error)
+func End(httpcCtx *HttpcCtx, status int, reason string, err error) error
+func Trace(ctx context.Context, host string, port int, url string, elapsed int, status int, reason string, err error) error
+```
+
+---
+
+## 멀티 트랜잭션 추적 (분산 추적)
+
+다른 에이전트나 프로젝트와 연관된 트랜잭션을 추적합니다.
+
+**헤더 키값:**
+- `x-wtap-po`
+- `x-wtap-mst`
+- `x-wtap-sp1`
+
+또한 OpenTrace의 `traceparent` 헤더도 지원합니다.
+
+### 에이전트 설정
+
+```ini
+mtrace_enabled=true
+mtrace_rate=100
+```
+
+### Request Header 처리
+
+```go
+func UpdateMtrace(traceCtx *trace.TraceCtx, header http.Header)
+```
+
+`trace.StartWithRequest`는 내부적으로 이 함수를 호출합니다.
+
+```go
+ctx, traceCtx := trace.GetTraceContext(ctx)
+if traceCtx != nil {
+    trace.UpdateMtrace(traceCtx, header)
+}
+```
+
+### Header 정보 조회 및 추가
+
+```go
+func GetMTrace(ctx context.Context) http.Header
+```
+
+이 함수는 분산 추적에 필요한 Header를 반환합니다:
+
+```go
+headers := trace.GetMTrace(wCtx)
+for key, _ := range headers {
+    req.Header.Set(key, headers.Get(key))
+}
+```
+
+### 자동 Header 추가
+
+WhaTap transport에 이미 포함되어 있습니다:
+
+```go
+client := http.Client{Timeout: timeout}
+client.Transport = whataphttp.NewRoundTrip(ctx, http.DefaultTransport)
+resp, err := client.Get(callUrl)
+```
+
+**다중 Transport 사용:**
+
+```go
+client.Transport = NewAccessLogRoundTrip(whataphttp.NewRoundTrip(ctx, http.DefaultTransport))
+```
+
+---
+
+## 함수 추적
+
+사용자 함수 또는 특정 구간의 실행 시간 측정:
+
+```go
+import "github.com/whatap/go-api/method"
+
+ctx, _ := trace.Start(context.Background(), "Trace Method")
+defer trace.End(ctx, nil)
+
+getUser(ctx)
+
+func getUser(ctx context.Context) {
+    methodCtx, _ := method.Start(ctx, "getUser")
+    defer method.End(methodCtx, nil)
+    time.Sleep(time.Duration(1) * time.Second)
+}
+```
+
+### 함수 추적 API
+
+```go
+func Start(ctx context.Context, name string) (*MethodCtx, error)
+func End(methodCtx *MethodCtx, err error) error
+func Trace(ctx context.Context, name string, elapsed int, err error) error
+```
+
+---
+
+## Wrap 함수 (Go 1.18+ Generics)
+
+`Wrap` 함수들은 클로저를 사용하여 계측 코드를 간결하게 작성할 수 있게 해줍니다. Go 1.18 이상의 Generics를 활용합니다.
+
+### Trace Wrap 함수 (범용)
+
+특정 도메인에 속하지 않는 범용 추적에 사용합니다.
+
+```go
+import "github.com/whatap/go-api/trace"
+
+// Wrap - (T, error) 반환하는 범용 함수
+result, err := trace.Wrap(ctx, "ThirdParty.Calculate", func() (int, error) {
+    return thirdPartyLib.Calculate(input)
+})
+
+// WrapError - error만 반환
+err := trace.WrapError(ctx, "FileProcessor.Process", func() error {
+    return processFile(path)
+})
+
+// WrapVoid - 반환값 없음
+trace.WrapVoid(ctx, "Cleanup.Execute", func() {
+    cleanup()
+})
+```
+
+### SQL Wrap 함수
+
+Hook을 지원하지 않는 DB 라이브러리 (Aerospike, 일부 NoSQL 등) 계측에 유용합니다.
+
+```go
+import "github.com/whatap/go-api/sql"
+
+// Wrap - (T, error) 반환하는 쿼리
+record, err := sql.Wrap(ctx, "aerospike://host:3000", "GET ns/set", func() (*aero.Record, error) {
+    return client.Get(policy, key)
+})
+
+// WrapError - error만 반환하는 쿼리 (INSERT, UPDATE, DELETE)
+err := sql.WrapError(ctx, "aerospike://host:3000", "PUT ns/set", func() error {
+    return client.Put(policy, key, bins)
+})
+
+// WrapP - 파라미터 추적 포함
+rows, err := sql.WrapP(ctx, "mysql://host:3306", "SELECT * FROM users WHERE id = ?",
+    []interface{}{userId},
+    func() (*sql.Rows, error) {
+        return db.Query("SELECT * FROM users WHERE id = ?", userId)
+    },
+)
+
+// WrapOpen - DB 연결 추적
+db, err := sql.WrapOpen(ctx, "mysql://host:3306", func() (*sql.DB, error) {
+    return sql.Open("mysql", dsn)
+})
+```
+
+### HTTP Wrap 함수
+
+외부 HTTP API 호출 계측에 사용합니다.
+
+```go
+import "github.com/whatap/go-api/httpc"
+
+// Wrap - (T, error) 반환
+resp, err := httpc.Wrap(ctx, "https://api.payment.com/charge", func() (*PaymentResp, error) {
+    return paymentClient.Charge(amount)
+})
+
+// WrapError - error만 반환
+err := httpc.WrapError(ctx, "https://api.example.com/webhook", func() error {
+    return sendWebhook(payload)
+})
+
+// WrapWithStatus - HTTP 상태 코드 포함
+resp, status, err := httpc.WrapWithStatus(ctx, "https://api.example.com/data",
+    func() (*Response, int, error) {
+        resp, err := client.Get(url)
+        if resp != nil {
+            return resp, resp.StatusCode, err
+        }
+        return nil, 0, err
+    },
+)
+```
+
+### Method Wrap 함수
+
+사용자 정의 메서드/함수 추적에 사용합니다.
+
+```go
+import "github.com/whatap/go-api/method"
+
+// Wrap - (T, error) 반환
+order, err := method.Wrap(ctx, "OrderService.ProcessOrder", func() (*Order, error) {
+    return s.processOrderInternal(orderID)
+})
+
+// WrapError - error만 반환
+err := method.WrapError(ctx, "OrderService.ValidateOrder", func() error {
+    return s.validateOrder(order)
+})
+
+// WrapVoid - 반환값 없음
+method.WrapVoid(ctx, "CacheService.Invalidate", func() {
+    s.cache.Delete(key)
+})
+```
+
+### Wrap 함수 API 요약
+
+| 패키지 | 함수 | 설명 |
+|--------|------|------|
+| `trace` | `Wrap[T]` | 범용 (T, error) 반환 |
+| `trace` | `WrapError` | 범용 error만 반환 |
+| `trace` | `WrapVoid` | 범용 반환값 없음 |
+| `sql` | `Wrap[T]` | (T, error) 반환 쿼리 |
+| `sql` | `WrapError` | error만 반환 쿼리 |
+| `sql` | `WrapP[T]` | 파라미터 추적 포함 |
+| `sql` | `WrapErrorP` | 파라미터 + error만 |
+| `sql` | `WrapOpen[T]` | DB 연결 추적 |
+| `httpc` | `Wrap[T]` | HTTP 호출 |
+| `httpc` | `WrapError` | error만 반환 |
+| `httpc` | `WrapWithStatus[T]` | 상태 코드 포함 |
+| `method` | `Wrap[T]` | 메서드 추적 |
+| `method` | `WrapError` | error만 반환 |
+| `method` | `WrapVoid` | 반환값 없음 |
+
+---
+
+## 로그 수집
+
+### 에이전트 설정
+
+```ini
+logsink_enabled=true              # 로그 수집 활성화 (기본: false)
+logsink_trace_enabled=true        # 트랜잭션 연계 (기본: true)
+logsink_zip_enabled=true          # 압축 전송 (기본: true)
+```
+
+### TraceLogWriter (권장)
+
+`logsink.GetTraceLogWriter()`를 사용하면 로그와 트랜잭션을 연계할 수 있습니다. 로그에 `@txid`, `@mtid`, `@gid` 필드가 자동으로 추가됩니다.
+
+```go
+func GetTraceLogWriter(w io.Writer) io.Writer
+func GetTraceLogWriterWithCategory(w io.Writer, category string) io.Writer
+```
+
+> **변경 안내**: 기존 `GetWriterHookStdout()`, `GetWriterHookStderr()` 대신 `GetTraceLogWriter(os.Stdout)`, `GetTraceLogWriter(os.Stderr)` 사용을 권장합니다.
+
+### 기존 API (호환성 유지)
+
+```go
+func GetWriterHookStdout() io.Writer  // → GetTraceLogWriter(os.Stdout) 권장
+func GetWriterHookStderr() io.Writer  // → GetTraceLogWriter(os.Stderr) 권장
+```
+
+### log package 예제
+
+```go
+import (
+    "log"
+    "os"
+    "github.com/whatap/go-api/logsink"
+    "github.com/whatap/go-api/trace"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    // 권장: TraceLogWriter 사용
+    log.SetOutput(logsink.GetTraceLogWriter(os.Stderr))
+
+    // 기존 방식 (호환성 유지)
+    // log.SetOutput(logsink.GetWriterHookStderr())
+
+    log.Println("Application started")
+}
+```
+
+### go.uber.org/zap 예제
+
+```go
+import (
+    "os"
+    "github.com/whatap/go-api/logsink"
+    "github.com/whatap/go-api/trace"
+    "go.uber.org/zap"
+    "go.uber.org/zap/zapcore"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    // TraceLogWriter로 래핑
+    writer := logsink.GetTraceLogWriter(os.Stdout)
+
+    consoleCore := zapcore.NewCore(
+        zapcore.NewConsoleEncoder(zap.NewDevelopmentEncoderConfig()),
+        zapcore.AddSync(writer),
+        zap.InfoLevel,
+    )
+    logger := zap.New(consoleCore)
+    logger.Info("logger started")
+}
+```
+
+### sirupsen/logrus 예제
+
+```go
+import (
+    "os"
+    log "github.com/sirupsen/logrus"
+    "github.com/whatap/go-api/logsink"
+    "github.com/whatap/go-api/trace"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    // TraceLogWriter로 래핑
+    log.SetOutput(logsink.GetTraceLogWriter(os.Stderr))
+    log.Info("Log message")
+}
+```
+
+---
+
+## 웹 프레임워크 계측
+
+`instrumentation` 패키지를 사용하면 주요 웹 프레임워크에 대한 자동 추적이 가능합니다.
+
+### Gin
+
+```go
+import (
+    "github.com/gin-gonic/gin"
+    "github.com/whatap/go-api/instrumentation/github.com/gin-gonic/gin/whatapgin"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    r := gin.Default()
+    r.Use(whatapgin.Middleware())
+
+    r.GET("/hello", func(c *gin.Context) {
+        c.JSON(200, gin.H{"message": "hello"})
+    })
+    r.Run(":8080")
+}
+```
+
+### Echo v4
+
+```go
+import (
+    "github.com/labstack/echo/v4"
+    "github.com/whatap/go-api/instrumentation/github.com/labstack/echo/v4/whatapecho"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    e := echo.New()
+    e.Use(whatapecho.Middleware())
+
+    e.GET("/hello", func(c echo.Context) error {
+        return c.JSON(200, map[string]string{"message": "hello"})
+    })
+    e.Start(":8080")
+}
+```
+
+### Fiber v2
+
+```go
+import (
+    "github.com/gofiber/fiber/v2"
+    "github.com/whatap/go-api/instrumentation/github.com/gofiber/fiber/v2/whatapfiber"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    app := fiber.New()
+    app.Use(whatapfiber.Middleware())
+
+    app.Get("/hello", func(c *fiber.Ctx) error {
+        return c.JSON(fiber.Map{"message": "hello"})
+    })
+    app.Listen(":8080")
+}
+```
+
+### Chi v5
+
+```go
+import (
+    "net/http"
+    "github.com/go-chi/chi/v5"
+    "github.com/whatap/go-api/instrumentation/github.com/go-chi/chi/whatapchi"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    r := chi.NewRouter()
+    r.Use(whatapchi.Middleware)
+
+    r.Get("/hello", func(w http.ResponseWriter, r *http.Request) {
+        w.Write([]byte("hello"))
+    })
+    http.ListenAndServe(":8080", r)
+}
+```
+
+### Gorilla Mux
+
+```go
+import (
+    "net/http"
+    "github.com/gorilla/mux"
+    "github.com/whatap/go-api/instrumentation/github.com/gorilla/mux/whatapmux"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    r := mux.NewRouter()
+    r.Use(whatapmux.Middleware)
+
+    r.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
+        w.Write([]byte("hello"))
+    })
+    http.ListenAndServe(":8080", r)
+}
+```
+
+### FastHTTP
+
+```go
+import (
+    "github.com/valyala/fasthttp"
+    "github.com/whatap/go-api/instrumentation/github.com/valyala/fasthttp/whatapfasthttp"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    handler := func(ctx *fasthttp.RequestCtx) {
+        ctx.WriteString("hello")
+    }
+
+    fasthttp.ListenAndServe(":8080", whatapfasthttp.Middleware(handler))
+}
+```
+
+### net/http 핸들러 래핑
+
+```go
+import (
+    "net/http"
+    "github.com/whatap/go-api/instrumentation/net/http/whataphttp"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    // HandleFunc 래핑
+    http.HandleFunc("/api", whataphttp.Func(func(w http.ResponseWriter, r *http.Request) {
+        w.Write([]byte("hello"))
+    }))
+
+    // Handler 래핑
+    http.Handle("/handler", whataphttp.Handler(myHandler))
+
+    http.ListenAndServe(":8080", nil)
+}
+```
+
+---
+
+## database/sql 계측 (whatapsql)
+
+`database/sql` 패키지를 래핑하여 자동으로 SQL 쿼리를 추적합니다.
+
+```go
+import (
+    _ "github.com/go-sql-driver/mysql"
+    "github.com/whatap/go-api/instrumentation/database/sql/whatapsql"
+    "github.com/whatap/go-api/trace"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    // sql.Open 대신 whatapsql.Open 사용
+    db, err := whatapsql.Open("mysql", "user:password@tcp(localhost:3306)/dbname")
+    if err != nil {
+        panic(err)
+    }
+    defer db.Close()
+
+    // 이후 db.Query, db.Exec 등이 자동으로 추적됨
+    rows, err := db.QueryContext(ctx, "SELECT * FROM users WHERE id = ?", 1)
+}
+```
+
+### OpenContext (트랜잭션 컨텍스트 연결)
+
+```go
+// 트랜잭션 컨텍스트와 연결
+db, err := whatapsql.OpenContext(ctx, "mysql", dsn)
+```
+
+---
+
+## sqlx 계측
+
+```go
+import (
+    "github.com/whatap/go-api/instrumentation/github.com/jmoiron/sqlx/whatapsqlx"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    // sqlx.Open 대신 whatapsqlx.Open 사용
+    db, err := whatapsqlx.Open("mysql", dsn)
+
+    // sqlx.Connect 대신 whatapsqlx.Connect 사용
+    db, err := whatapsqlx.Connect("postgres", dsn)
+}
+```
+
+---
+
+## GORM 계측
+
+### gorm.io/gorm (GORM v2)
+
+```go
+import (
+    "gorm.io/driver/mysql"
+    "github.com/whatap/go-api/instrumentation/github.com/go-gorm/gorm/whatapgorm"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    // gorm.Open 대신 whatapgorm.Open 사용
+    db, err := whatapgorm.Open(mysql.Open(dsn), &gorm.Config{})
+}
+```
+
+### github.com/jinzhu/gorm (GORM v1)
+
+```go
+import (
+    "github.com/whatap/go-api/instrumentation/github.com/jinzhu/gorm/whatapgorm"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    db, err := whatapgorm.Open("mysql", dsn)
+}
+```
+
+---
+
+## Redis 계측
+
+### go-redis v9
+
+```go
+import (
+    "github.com/whatap/go-api/instrumentation/github.com/redis/go-redis/v9/whatapgoredis"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    // redis.NewClient 대신 whatapgoredis.NewClient 사용
+    rdb := whatapgoredis.NewClient(&redis.Options{
+        Addr: "localhost:6379",
+    })
+
+    // redis.NewClusterClient
+    cluster := whatapgoredis.NewClusterClient(&redis.ClusterOptions{
+        Addrs: []string{"localhost:7000", "localhost:7001"},
+    })
+}
+```
+
+### go-redis v8
+
+```go
+import (
+    "github.com/whatap/go-api/instrumentation/github.com/go-redis/redis/v8/whatapgoredis"
+)
+
+// v9과 동일한 사용법
+rdb := whatapgoredis.NewClient(&redis.Options{
+    Addr: "localhost:6379",
+})
+```
+
+### Redigo
+
+```go
+import (
+    "github.com/whatap/go-api/instrumentation/github.com/gomodule/redigo/whatapredigo"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    // redis.Dial 대신 whatapredigo.Dial 사용
+    conn, err := whatapredigo.Dial("tcp", "localhost:6379")
+    defer conn.Close()
+
+    // 일반적인 redis 명령어 사용
+    conn.Do("SET", "key", "value")
+}
+```
+
+---
+
+## MongoDB 계측
+
+```go
+import (
+    "go.mongodb.org/mongo-driver/mongo"
+    "github.com/whatap/go-api/instrumentation/go.mongodb.org/mongo-driver/mongo/whatapmongo"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    // mongo.Connect 대신 whatapmongo.Connect 사용
+    client, err := whatapmongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
+    defer client.Disconnect(ctx)
+
+    collection := client.Database("test").Collection("users")
+    collection.FindOne(ctx, bson.M{"name": "john"})
+}
+```
+
+---
+
+## gRPC 계측
+
+### 서버 측
+
+```go
+import (
+    "google.golang.org/grpc"
+    "github.com/whatap/go-api/instrumentation/google.golang.org/grpc/whatapgrpc"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    // Interceptor 추가
+    server := grpc.NewServer(
+        grpc.UnaryInterceptor(whatapgrpc.UnaryServerInterceptor()),
+        grpc.StreamInterceptor(whatapgrpc.StreamServerInterceptor()),
+    )
+
+    // 서비스 등록 및 서버 시작
+    pb.RegisterMyServiceServer(server, &myService{})
+    server.Serve(lis)
+}
+```
+
+### 클라이언트 측
+
+```go
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    conn, err := grpc.Dial("localhost:50051",
+        grpc.WithInsecure(),
+        grpc.WithUnaryInterceptor(whatapgrpc.UnaryClientInterceptor()),
+        grpc.WithStreamInterceptor(whatapgrpc.StreamClientInterceptor()),
+    )
+    defer conn.Close()
+
+    client := pb.NewMyServiceClient(conn)
+    resp, err := client.MyMethod(ctx, &pb.Request{})
+}
+```
+
+---
+
+## Kafka 계측 (Sarama)
+
+```go
+import (
+    "github.com/IBM/sarama"
+    "github.com/whatap/go-api/instrumentation/github.com/IBM/sarama/whatapsarama"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    config := sarama.NewConfig()
+
+    // Producer 래핑
+    producer, err := sarama.NewSyncProducer(brokers, config)
+    wrappedProducer := whatapsarama.WrapSyncProducer(producer)
+
+    // Consumer 래핑
+    consumer, err := sarama.NewConsumer(brokers, config)
+    wrappedConsumer := whatapsarama.WrapConsumer(consumer)
+}
+```
+
+---
+
+## Kubernetes client-go 계측
+
+```go
+import (
+    "k8s.io/client-go/kubernetes"
+    "k8s.io/client-go/rest"
+    "github.com/whatap/go-api/instrumentation/k8s.io/client-go/kubernetes/whatapkubernetes"
+)
+
+func main() {
+    trace.Init(nil)
+    defer trace.Shutdown()
+
+    config, err := rest.InClusterConfig()
+    if err != nil {
+        panic(err)
+    }
+
+    // config 래핑
+    config = whatapkubernetes.WrapConfig(config)
+
+    clientset, err := kubernetes.NewForConfig(config)
+    // 이후 Kubernetes API 호출이 자동으로 추적됨
+}
+```
+
+---
+
+## Instrumentation 패키지 요약
+
+| 분류 | 패키지 | Import 경로 |
+|------|--------|-------------|
+| **웹 프레임워크** | Gin | `github.com/whatap/go-api/instrumentation/github.com/gin-gonic/gin/whatapgin` |
+| | Echo v4 | `github.com/whatap/go-api/instrumentation/github.com/labstack/echo/v4/whatapecho` |
+| | Fiber v2 | `github.com/whatap/go-api/instrumentation/github.com/gofiber/fiber/v2/whatapfiber` |
+| | Chi | `github.com/whatap/go-api/instrumentation/github.com/go-chi/chi/whatapchi` |
+| | Gorilla Mux | `github.com/whatap/go-api/instrumentation/github.com/gorilla/mux/whatapmux` |
+| | FastHTTP | `github.com/whatap/go-api/instrumentation/github.com/valyala/fasthttp/whatapfasthttp` |
+| | net/http | `github.com/whatap/go-api/instrumentation/net/http/whataphttp` |
+| **데이터베이스** | database/sql | `github.com/whatap/go-api/instrumentation/database/sql/whatapsql` |
+| | sqlx | `github.com/whatap/go-api/instrumentation/github.com/jmoiron/sqlx/whatapsqlx` |
+| | GORM v2 | `github.com/whatap/go-api/instrumentation/github.com/go-gorm/gorm/whatapgorm` |
+| | GORM v1 | `github.com/whatap/go-api/instrumentation/github.com/jinzhu/gorm/whatapgorm` |
+| **Redis** | go-redis v9 | `github.com/whatap/go-api/instrumentation/github.com/redis/go-redis/v9/whatapgoredis` |
+| | go-redis v8 | `github.com/whatap/go-api/instrumentation/github.com/go-redis/redis/v8/whatapgoredis` |
+| | Redigo | `github.com/whatap/go-api/instrumentation/github.com/gomodule/redigo/whatapredigo` |
+| **NoSQL** | MongoDB | `github.com/whatap/go-api/instrumentation/go.mongodb.org/mongo-driver/mongo/whatapmongo` |
+| **RPC** | gRPC | `github.com/whatap/go-api/instrumentation/google.golang.org/grpc/whatapgrpc` |
+| **메시지큐** | Sarama (IBM) | `github.com/whatap/go-api/instrumentation/github.com/IBM/sarama/whatapsarama` |
+| | Sarama (Shopify) | `github.com/whatap/go-api/instrumentation/github.com/Shopify/sarama/whatapsarama` |
+| **클라우드** | Kubernetes | `github.com/whatap/go-api/instrumentation/k8s.io/client-go/kubernetes/whatapkubernetes` |

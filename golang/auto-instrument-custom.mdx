@@ -1,0 +1,539 @@
+---
+id: auto-instrument-custom
+title: 사용자 정의 계측
+description: whatap-go-inst의 기본 계측으로 처리되지 않는 경우 사용자 정의 계측 규칙을 추가하는 방법을 안내합니다.
+keywords: [ Go, whatap-go-inst, 사용자 정의, custom ]
+---
+
+:::caution 고급 기능
+
+이 문서는 **고급 사용자**를 위한 내용입니다. 대부분의 경우 [기본 사용법](auto-instrument)과 [설정 가이드](auto-instrument-config)만으로 충분합니다.
+
+:::
+
+whatap-go-inst의 기본 계측으로 처리되지 않는 경우, 사용자 정의 계측 규칙을 추가할 수 있습니다.
+
+## 5가지 계측 방법
+
+| 방법 | 설명 | 주요 사용 사례 |
+|------|------|----------------|
+| [add](#add---새-파일함수-생성) | 새 파일/함수 생성 | 헬퍼 함수 추가 |
+| [inject](#inject---함수-정의-내부에-코드-삽입) | 함수 내부에 코드 삽입 | 모든 함수에 trace 추가 |
+| [replace](#replace---함수-호출-교체) | 함수 호출 교체 | `sql.Open` → `whatapsql.Open` |
+| [hook](#hook---함수-호출-전후에-코드-삽입) | 함수 호출 전후 코드 | 레거시 코드 계측 |
+| [transform](#transform---코드-패턴-변환) | 패턴 변환 (고급) | 복잡한 변환 |
+
+**실행 순서:** `add → inject → replace → hook → transform`
+
+**기본 설정 구조**
+
+```yaml
+# .whatap/config.yaml
+custom:
+  add: []         # 새 파일/함수 생성
+  inject: []      # 함수 정의 내부에 코드 삽입
+  replace: []     # 함수 호출 교체
+  hook: []        # 함수 호출 전후에 코드 삽입
+  transform: []   # 코드 패턴 -> 템플릿 변환
+```
+
+#### 언제 사용하나요?
+
+다음과 같은 경우 사용자 정의 계측이 필요합니다.
+
+- **사내 공통 라이브러리**에 모니터링 추가
+- **지원하지 않는 프레임워크** 계측
+- **레거시 코드**에 직접 수정 없이 모니터링 추가
+- **특정 함수만** 선택적으로 계측
+
+---
+
+## add - 새 파일/함수 생성
+
+헬퍼 함수나 래퍼 파일을 생성합니다. 이후 `replace`에서 사용할 수 있습니다.
+
+### 기본 사용
+```yaml
+custom:
+  add:
+    - package: "myapp/helper"             # 대상 패키지
+      file: "whatap_helper.go"            # 생성할 파일
+      content: |
+        package helper
+
+        import "github.com/whatap/go-api/trace"
+
+        func WrapQuery(ctx context.Context, query string) string {
+            ctx = trace.StartMethod(ctx, "WrapQuery")
+            defer trace.EndMethod(ctx, nil)
+            return query
+        }
+```
+
+### 변환 결과
+```go
+// 생성된 파일: myapp/helper/whatap_helper.go
+package helper
+
+import "github.com/whatap/go-api/trace"
+
+func WrapQuery(ctx context.Context, query string) string {
+    ctx = trace.StartMethod(ctx, "WrapQuery")
+    defer trace.EndMethod(ctx, nil)
+    return query
+}
+```
+
+<details>
+<summary>더 많은 예시</summary>
+
+### 템플릿 파일 사용
+```yaml
+custom:
+  add:
+    - package: "myapp/db"
+      file: "whatap_db.go"
+      content_file: "templates/db-helper.go.tmpl"  # 외부 템플릿 파일
+```
+
+### 기존 파일에 함수 추가
+```yaml
+custom:
+  add:
+    - package: "myapp/service"
+      file: "service.go"                   # 기존 파일
+      append: true                          # 파일 끝에 추가
+      content: |
+        func traceMethod(ctx context.Context, name string) (context.Context, func()) {
+            return trace.StartMethod(ctx, name), func() { trace.EndMethod(ctx, nil) }
+        }
+```
+
+### add + replace 조합
+```yaml
+custom:
+  # Step 1: 헬퍼 함수 생성
+  add:
+    - package: "myapp/db"
+      file: "whatap_wrapper.go"
+      content: |
+        package db
+
+        func TracedQuery(ctx context.Context, sql string) (*Result, error) {
+            ctx = trace.StartMethod(ctx, "db.query")
+            defer trace.EndMethod(ctx, nil)
+            return OriginalQuery(sql)
+        }
+
+  # Step 2: 원본 함수 호출을 헬퍼로 교체
+  replace:
+    - package: "myapp/db"
+      function: "Query"
+      with: "TracedQuery"
+```
+
+</details>
+
+---
+
+## inject - 함수 정의 내부에 코드 삽입
+
+함수 본문의 시작/끝에 코드를 삽입합니다.
+
+:::note 제한사항
+
+- 현재 모듈의 사용자 정의 함수만 대상으로 지정할 수 있습니다
+- Go 표준 라이브러리나 외부 패키지 함수는 대상으로 지정할 수 없습니다
+
+:::
+
+### 기본 사용
+```yaml
+custom:
+  inject:
+    - package: "myapp/service"       # Go import 경로
+      function: "*"                   # 함수명 (* = 전체)
+      start: |
+        ctx = trace.StartMethod(ctx)
+        defer trace.EndMethod(ctx, err)
+      imports:
+        - "github.com/whatap/go-api/trace"
+```
+
+### 변환 결과
+```go
+// 변경 전
+func ProcessOrder(ctx context.Context) error {
+    // 비즈니스 로직
+}
+
+// 변경 후
+func ProcessOrder(ctx context.Context) error {
+    ctx = trace.StartMethod(ctx)           // <- start 삽입
+    defer trace.EndMethod(ctx, err)        // <- start 삽입
+    // 비즈니스 로직
+}
+```
+
+:::tip defer 패턴 권장
+
+함수 중간에 return이 있는 경우, `end` 대신 `start`에서 defer 패턴을 사용하세요.
+
+:::
+
+<details>
+<summary>더 많은 예시</summary>
+
+### 특정 함수만 대상
+```yaml
+custom:
+  inject:
+    - package: "myapp/service"
+      function: "ProcessOrder"        # 특정 함수명
+      start: |
+        ctx = trace.StartMethod(ctx, "ProcessOrder")
+        defer trace.EndMethod(ctx, nil)
+      imports:
+        - "github.com/whatap/go-api/trace"
+```
+
+</details>
+
+---
+
+## replace - 함수 호출 교체
+
+함수 호출을 다른 함수로 교체합니다.
+
+### 기본 사용
+```yaml
+custom:
+  replace:
+    - package: "database/sql"
+      function: "Open"
+      with: "whatapsql.Open"
+      imports:
+        - "github.com/whatap/go-api/instrumentation/database/sql/whatapsql"
+```
+
+### 변환 결과
+```go
+// 변경 전
+db, err := sql.Open("mysql", dsn)
+
+// 변경 후
+db, err := whatapsql.Open("mysql", dsn)
+```
+
+<details>
+<summary>더 많은 예시</summary>
+
+### 여러 함수 교체
+```yaml
+custom:
+  replace:
+    - package: "database/sql"
+      function: "Open"
+      with: "whatapsql.Open"
+      imports:
+        - "github.com/whatap/go-api/instrumentation/database/sql/whatapsql"
+
+    - package: "github.com/jmoiron/sqlx"
+      function: "Connect"
+      with: "whatapsqlx.Connect"
+      imports:
+        - "github.com/whatap/go-api/instrumentation/github.com/jmoiron/sqlx/whatapsqlx"
+```
+
+</details>
+
+---
+
+## hook - 함수 호출 전후에 코드 삽입
+
+함수 호출 전후에 코드를 삽입합니다.
+
+:::note
+
+`before`만 또는 `after`만 사용할 수 있습니다.
+
+:::
+
+### 기본 사용
+```yaml
+custom:
+  hook:
+    - package: "mycompany/mydb"
+      function: "Query"
+      before: "ctx, span := trace.Start(ctx, \"db.query\")"
+      after: "span.End()"
+      imports:
+        - "github.com/whatap/go-api/trace"
+```
+
+### 변환 결과
+```go
+// 변경 전
+result, err := mydb.Query(sql)
+
+// 변경 후
+ctx, span := trace.Start(ctx, "db.query")  // <- before 삽입
+result, err := mydb.Query(sql)
+span.End()                                  // <- after 삽입
+```
+
+<details>
+<summary>더 많은 예시</summary>
+
+### before만 사용
+```yaml
+custom:
+  hook:
+    - package: "mycompany/cache"
+      function: "Get"
+      before: "log.Printf(\"cache.Get called: %s\", key)"
+      imports:
+        - "log"
+```
+
+</details>
+
+---
+
+## transform - 코드 패턴 변환
+
+복잡한 코드 패턴을 템플릿으로 변환합니다. 가장 유연한 방식입니다.
+
+### 기본 사용: 미들웨어 추가
+```yaml
+custom:
+  transform:
+    - package: "github.com/gin-gonic/gin"
+      function: "Default"
+      template: |
+        {{.Original}}
+        {{.Var}}.Use(whatapgin.Middleware())
+      imports:
+        - "github.com/whatap/go-api/instrumentation/github.com/gin-gonic/gin/whatapgin"
+```
+
+**변환 결과:**
+```go
+// 변경 전
+r := gin.Default()
+
+// 변경 후
+r := gin.Default()
+r.Use(whatapgin.Middleware())
+```
+
+### 고급 사용: 클로저로 감싸기
+```yaml
+custom:
+  transform:
+    - package: "github.com/aerospike/aerospike-client-go"
+      function: "NewClient"
+      template: |
+        func() (*as.Client, error) {
+            ctx, done := whatapsql.Start(context.Background(), "aerospike")
+            defer done()
+            return {{.Original}}
+        }()
+      imports:
+        - "context"
+        - "github.com/whatap/go-api/instrumentation/database/sql/whatapsql"
+```
+
+**변환 결과:**
+```go
+// 변경 前
+client, err := as.NewClient(policy, hosts...)
+
+// 변경 후
+client, err := func() (*as.Client, error) {
+    ctx, done := whatapsql.Start(context.Background(), "aerospike")
+    defer done()
+    return as.NewClient(policy, hosts...)
+}()
+```
+
+<details>
+<summary>더 많은 예시</summary>
+
+### HTTP 클라이언트 래핑
+```yaml
+custom:
+  transform:
+    - package: "net/http"
+      function: "Get"
+      template: |
+        func() (*http.Response, error) {
+            ctx, done := httpc.Start(context.Background(), {{.Arg0}})
+            defer done()
+            return {{.Original}}
+        }()
+      imports:
+        - "context"
+        - "github.com/whatap/go-api/httpc"
+```
+
+</details>
+
+---
+
+## 템플릿 변수
+
+`transform`에서 사용할 수 있는 템플릿 변수입니다.
+
+| 변수 | 설명 | 예시 |
+|------|------|------|
+| `{{.Original}}` | 매칭된 원본 코드 | `gin.Default()` |
+| `{{.Var}}` | 할당된 변수명 | `r` (r := ...에서) |
+| `{{.Args}}` | 함수 전체 인자 | `policy, hosts...` |
+| `{{.Arg0}}`, `{{.Arg1}}` | 개별 인자 | 첫 번째, 두 번째 인자 |
+| `{{.FuncName}}` | 함수명 | `Default` |
+| `{{.PkgName}}` | 패키지명 | `gin` |
+
+### 사용 예시
+```yaml
+custom:
+  transform:
+    - package: "mycompany/db"
+      function: "Query"
+      template: |
+        func() (*Result, error) {
+            ctx := trace.StartMethod(context.Background(), "{{.PkgName}}.{{.FuncName}}")
+            defer trace.EndMethod(ctx, nil)
+            return {{.Original}}
+        }()
+```
+
+**변환 결과:**
+```go
+// 변경 전
+result, err := db.Query("SELECT * FROM users")
+
+// 변경 후
+result, err := func() (*Result, error) {
+    ctx := trace.StartMethod(context.Background(), "db.Query")
+    defer trace.EndMethod(ctx, nil)
+    return db.Query("SELECT * FROM users")
+}()
+```
+
+---
+
+## 실전 예제
+
+### 예제 1: 내부 라이브러리 계측
+
+사내 공통 라이브러리에 모니터링을 추가합니다.
+```yaml
+# .whatap/config.yaml
+custom:
+  # 모든 서비스 함수에 트레이싱 추가
+  inject:
+    - package: "mycompany/service"
+      function: "*"
+      start: |
+        ctx, span := trace.Start(ctx, "service")
+        defer span.End()
+      imports:
+        - "github.com/whatap/go-api/trace"
+
+  # 내부 DB 라이브러리 교체
+  replace:
+    - package: "mycompany/db"
+      function: "Connect"
+      with: "whatapsql.Open"
+      imports:
+        - "github.com/whatap/go-api/instrumentation/database/sql/whatapsql"
+```
+
+### 예제 2: 레거시 코드 계측
+
+직접 수정하기 어려운 레거시 코드에 모니터링을 추가합니다.
+```yaml
+custom:
+  # 레거시 HTTP 클라이언트 호출에 트레이싱 추가
+  hook:
+    - package: "legacy/httpclient"
+      function: "Do"
+      before: |
+        ctx, span := httpc.Start(ctx, req.URL.String())
+      after: |
+        span.End()
+      imports:
+        - "github.com/whatap/go-api/httpc"
+
+  # 레거시 캐시 호출 로깅
+  hook:
+    - package: "legacy/cache"
+      function: "Get"
+      before: |
+        startTime := time.Now()
+      after: |
+        trace.Step(ctx, "cache.Get", time.Since(startTime).Milliseconds(), nil)
+      imports:
+        - "time"
+        - "github.com/whatap/go-api/trace"
+```
+
+### 예제 3: 커스텀 미들웨어
+
+자체 미들웨어를 자동으로 추가합니다.
+```yaml
+custom:
+  # 헬퍼 미들웨어 생성
+  add:
+    - package: "myapp/middleware"
+      file: "whatap_middleware.go"
+      content: |
+        package middleware
+
+        import (
+            "github.com/gin-gonic/gin"
+            "github.com/whatap/go-api/trace"
+        )
+
+        func CustomTracing() gin.HandlerFunc {
+            return func(c *gin.Context) {
+                ctx := trace.Start(c.Request.Context(), c.Request.URL.Path)
+                c.Request = c.Request.WithContext(ctx)
+                defer trace.End(ctx, nil)
+                c.Next()
+            }
+        }
+
+  # Gin 라우터에 커스텀 미들웨어 추가
+  transform:
+    - package: "github.com/gin-gonic/gin"
+      function: "Default"
+      template: |
+        {{.Original}}
+        {{.Var}}.Use(middleware.CustomTracing())
+      imports:
+        - "myapp/middleware"
+```
+
+### 예제 4: 조건부 계측
+
+특정 조건에서만 계측을 활성화합니다.
+```yaml
+custom:
+  transform:
+    - package: "mycompany/db"
+      function: "Query"
+      template: |
+        func() (*Result, error) {
+            if os.Getenv("WHATAP_ENABLED") == "true" {
+                ctx, done := whatapsql.Start(context.Background(), "db.query")
+                defer done()
+            }
+            return {{.Original}}
+        }()
+      imports:
+        - "os"
+        - "context"
+        - "github.com/whatap/go-api/instrumentation/database/sql/whatapsql"
+```

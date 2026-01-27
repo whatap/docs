@@ -7,19 +7,6 @@ keywords: [ Go, API 가이드, 라이브러리 ]
 
 여러 Go 모듈로 구성된 프로젝트에서 whatap-go-inst를 사용하는 방법을 설명합니다.
 
-## 목차
-
-- [용어 정리](#용어-정리)
-- [패키지 유형별 처리](#패키지-유형별-처리)
-- [멀티 모듈 시나리오](#멀티-모듈-시나리오)
-- [권장 접근 방식](#권장-접근-방식)
-- [모드별 동작 비교](#모드별-동작-비교)
-- [주의사항](#주의사항)
-- [FAQ](#faq)
-- [CI/CD 예제](#cicd-예제)
-
----
-
 ## 용어 정리
 
 | 용어 | 설명 | 예시 |
@@ -29,7 +16,7 @@ keywords: [ Go, API 가이드, 라이브러리 ]
 | **외부 모듈** | go get으로 받은 의존성 | `github.com/gin-gonic/gin` |
 | **로컬 모듈** | 같은 프로젝트 내 별도 모듈 | `replace ../shared-lib` |
 
----
+--- 
 
 ## 패키지 유형별 처리
 
@@ -145,8 +132,6 @@ whatap-go-inst go build ./...
 - db-lib 계측됨 (replace로 로컬 참조)
 - web-lib 계측됨 (replace로 로컬 참조)
 
----
-
 ### 방식 2: 모듈별 별도 inject (배포용)
 
 운영 배포에 권장하는 방법입니다.
@@ -181,8 +166,6 @@ replace mycompany/web-lib => ../web-lib-instrumented
 cd main-app-instrumented
 go build ./...
 ```
-
----
 
 ### 방식 3: Monorepo 구조 (신규 프로젝트)
 

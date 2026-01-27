@@ -5,46 +5,28 @@ description: whatap-go-inst의 기본 계측으로 처리되지 않는 경우 �
 keywords: [ Go, whatap-go-inst, 사용자 정의, custom ]
 ---
 
-`whatap-go-inst`의 기본 계측으로 처리되지 않는 경우, 사용자 정의 계측 규칙을 추가할 수 있습니다.
-
-## 언제 사용하나요?
-
-다음과 같은 경우 사용자 정의 계측이 필요합니다:
-
-- **사내 공통 라이브러리**에 모니터링 추가
-- **지원하지 않는 프레임워크** 계측
-- **레거시 코드**에 직접 수정 없이 모니터링 추가
-- **특정 함수만** 선택적으로 계측
-
 :::caution 고급 기능
 
-이 문서는 **고급 사용자**를 위한 내용입니다. 대부분의 경우 [기본 사용법](auto-instrument.mdx)과 [설정 가이드](auto-instrument-config.mdx)만으로 충분합니다.
+이 문서는 **고급 사용자**를 위한 내용입니다. 대부분의 경우 [기본 사용법](auto-instrument)과 [설정 가이드](auto-instrument-config)만으로 충분합니다.
 
 :::
 
----
+whatap-go-inst의 기본 계측으로 처리되지 않는 경우, 사용자 정의 계측 규칙을 추가할 수 있습니다.
 
-## 개요
-
-### 5가지 계측 방법
+## 5가지 계측 방법
 
 | 방법 | 설명 | 주요 사용 사례 |
 |------|------|----------------|
-| `add` | 새 파일/함수 생성 | 헬퍼 함수 추가 |
-| `inject` | 함수 내부에 코드 삽입 | 모든 함수에 trace 추가 |
-| `replace` | 함수 호출 교체 | `sql.Open` → `whatapsql.Open` |
-| `hook` | 함수 호출 전후 코드 | 레거시 코드 계측 |
-| `transform` | 패턴 변환 (고급) | 복잡한 변환 |
+| [add](#add---새-파일함수-생성) | 새 파일/함수 생성 | 헬퍼 함수 추가 |
+| [inject](#inject---함수-정의-내부에-코드-삽입) | 함수 내부에 코드 삽입 | 모든 함수에 trace 추가 |
+| [replace](#replace---함수-호출-교체) | 함수 호출 교체 | `sql.Open` → `whatapsql.Open` |
+| [hook](#hook---함수-호출-전후에-코드-삽입) | 함수 호출 전후 코드 | 레거시 코드 계측 |
+| [transform](#transform---코드-패턴-변환) | 패턴 변환 (고급) | 복잡한 변환 |
 
-<details>
-<summary>실행 순서 및 설정 구조</summary>
+**실행 순서:** `add → inject → replace → hook → transform`
 
-### 실행 순서
-```
-add → inject → replace → hook → transform (순차 실행)
-```
+**기본 설정 구조**
 
-### 기본 설정 구조
 ```yaml
 # .whatap/config.yaml
 custom:
@@ -55,7 +37,14 @@ custom:
   transform: []   # 코드 패턴 -> 템플릿 변환
 ```
 
-</details>
+#### 언제 사용하나요?
+
+다음과 같은 경우 사용자 정의 계측이 필요합니다.
+
+- **사내 공통 라이브러리**에 모니터링 추가
+- **지원하지 않는 프레임워크** 계측
+- **레거시 코드**에 직접 수정 없이 모니터링 추가
+- **특정 함수만** 선택적으로 계측
 
 ---
 
@@ -315,7 +304,7 @@ custom:
 
 복잡한 코드 패턴을 템플릿으로 변환합니다. 가장 유연한 방식입니다.
 
-### 예시 1: 미들웨어 추가
+### 기본 사용: 미들웨어 추가
 ```yaml
 custom:
   transform:
@@ -338,7 +327,7 @@ r := gin.Default()
 r.Use(whatapgin.Middleware())
 ```
 
-### 예시 2: 클로저로 감싸기
+### 고급 사용: 클로저로 감싸기
 ```yaml
 custom:
   transform:
@@ -357,7 +346,7 @@ custom:
 
 **변환 결과:**
 ```go
-// 변경 전
+// 변경 前
 client, err := as.NewClient(policy, hosts...)
 
 // 변경 후
@@ -461,8 +450,6 @@ custom:
         - "github.com/whatap/go-api/instrumentation/database/sql/whatapsql"
 ```
 
----
-
 ### 예제 2: 레거시 코드 계측
 
 직접 수정하기 어려운 레거시 코드에 모니터링을 추가합니다.
@@ -491,8 +478,6 @@ custom:
         - "time"
         - "github.com/whatap/go-api/trace"
 ```
-
----
 
 ### 예제 3: 커스텀 미들웨어
 
@@ -531,8 +516,6 @@ custom:
         - "myapp/middleware"
 ```
 
----
-
 ### 예제 4: 조건부 계측
 
 특정 조건에서만 계측을 활성화합니다.
@@ -554,12 +537,3 @@ custom:
         - "context"
         - "github.com/whatap/go-api/instrumentation/database/sql/whatapsql"
 ```
-
----
-
-## 관련 문서
-
-- [기본 사용법](auto-instrument.mdx) - whatap-go-inst 시작하기
-- [설정 가이드](auto-instrument-config.mdx) - Preset, 환경 변수, 설정 파일
-- [멀티 모듈 가이드](auto-instrument-multi-module.mdx) - 멀티 모듈 프로젝트
-- [수동 설정 가이드](manual-instrument.mdx) - API 직접 사용

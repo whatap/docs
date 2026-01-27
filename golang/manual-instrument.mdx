@@ -1,23 +1,29 @@
 ---
 id: manual-instrument
-title: Go API 가이드
+title: 수동 적용 가이드
 description: Go 라이브러리를 이용해 와탭 에이전트에 모니터링할 데이터를 전송할 수 있습니다.
+toc_max_heading_level: 2
 keywords: [ Go, API 가이드, 라이브러리 ]
 ---
 
-WhaTap의 Go 모니터링 API 가이드 문서입니다. 예제 코드는 [github.com/whatap/go-api-example](https://github.com/whatap/go-api-example)에서 확인할 수 있습니다.
+Go 라이브러리를 이용해 와탭 에이전트에 모니터링할 데이터를 수동으로 전송할 수 있습니다. 예제 코드는 [github.com/whatap/go-api-example](https://github.com/whatap/go-api-example)에서 확인할 수 있습니다.
 
-**라이브러리 설정 방식:**
-- **go-api 직접 사용**: 이 문서에서 설명하는 API를 직접 코드에 추가
-- **whatap-go-inst 사용 (권장)**: [whatap-go-inst 가이드](auto-instrument)를 참조하여 코드 자동 삽입
+:::note
 
-## 다운로드
+**자동 적용 vs 수동 적용**
+
+* **자동 적용 (권장)**: [자동 적용 가이드](auto-instrument)를 참조하여 코드 자동 삽입
+* **수동 적용**: 이 문서에서 설명하는 API를 직접 코드에 추가
+
+:::
+
+## 시작하기
+
+다음 명령어로 Go API를 설치하세요.
 
 ```go
 go get github.com/whatap/go-api@latest
 ```
- 
-## 시작하기
 
 ### Init, Shutdown
 
@@ -66,6 +72,8 @@ traceCtx.Txid = keygen.Next()
 ctx = context.WithValue(ctx, "whatap", traceCtx)
 ```
 
+---
+
 ## 트랜잭션 추적
 
 ### 웹 트랜잭션 추적
@@ -102,6 +110,8 @@ func Step(ctx context.Context, title, message string, elapsed, value int) error
 func HandlerFunc(handler func(http.ResponseWriter, *http.Request)) http.HandlerFunc
 func Func(handler func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request)
 ```
+
+---
 
 ## DB 연결 및 SQL 추적
 
@@ -175,6 +185,8 @@ func StartWithParamArray(ctx context.Context, dbhost, sql string, param []interf
 func Trace(ctx context.Context, dbhost, sql, param string, elapsed int, err error) error
 ```
 
+---
+
 ## HTTP 요청 추적
 
 ```go
@@ -213,6 +225,8 @@ func Start(ctx context.Context, url string) (*HttpcCtx, error)
 func End(httpcCtx *HttpcCtx, status int, reason string, err error) error
 func Trace(ctx context.Context, host string, port int, url string, elapsed int, status int, reason string, err error) error
 ```
+
+---
 
 ## 멀티 트랜잭션 추적 (분산 추적)
 
@@ -278,6 +292,8 @@ resp, err := client.Get(callUrl)
 client.Transport = NewAccessLogRoundTrip(whataphttp.NewRoundTrip(ctx, http.DefaultTransport))
 ```
 
+---
+
 ## 함수 추적
 
 사용자 함수 또는 특정 구간의 실행 시간 측정:
@@ -304,6 +320,8 @@ func Start(ctx context.Context, name string) (*MethodCtx, error)
 func End(methodCtx *MethodCtx, err error) error
 func Trace(ctx context.Context, name string, elapsed int, err error) error
 ```
+
+---
 
 ## Wrap 함수 (Go 1.18+ Generics)
 
@@ -434,6 +452,8 @@ method.WrapVoid(ctx, "CacheService.Invalidate", func() {
 | `method` | `WrapError` | error만 반환 |
 | `method` | `WrapVoid` | 반환값 없음 |
 
+---
+
 ## 로그 수집
 
 ### 에이전트 설정
@@ -533,6 +553,8 @@ func main() {
     log.Info("Log message")
 }
 ```
+
+---
 
 ## 웹 프레임워크 계측
 
@@ -694,6 +716,8 @@ func main() {
 }
 ```
 
+---
+
 ## database/sql 계측 (whatapsql)
 
 `database/sql` 패키지를 래핑하여 자동으로 SQL 쿼리를 추적합니다.
@@ -728,6 +752,8 @@ func main() {
 db, err := whatapsql.OpenContext(ctx, "mysql", dsn)
 ```
 
+---
+
 ## sqlx 계측
 
 ```go
@@ -746,6 +772,8 @@ func main() {
     db, err := whatapsqlx.Connect("postgres", dsn)
 }
 ```
+
+---
 
 ## GORM 계측
 
@@ -780,6 +808,8 @@ func main() {
     db, err := whatapgorm.Open("mysql", dsn)
 }
 ```
+
+---
 
 ## Redis 계측
 
@@ -839,6 +869,8 @@ func main() {
 }
 ```
 
+---
+
 ## MongoDB 계측
 
 ```go
@@ -859,6 +891,8 @@ func main() {
     collection.FindOne(ctx, bson.M{"name": "john"})
 }
 ```
+
+---
 
 ## gRPC 계측
 
@@ -905,6 +939,8 @@ func main() {
 }
 ```
 
+---
+
 ## Kafka 계측 (Sarama)
 
 ```go
@@ -928,6 +964,8 @@ func main() {
     wrappedConsumer := whatapsarama.WrapConsumer(consumer)
 }
 ```
+
+---
 
 ## Kubernetes client-go 계측
 
@@ -954,6 +992,8 @@ func main() {
     // 이후 Kubernetes API 호출이 자동으로 추적됨
 }
 ```
+
+---
 
 ## Instrumentation 패키지 요약
 

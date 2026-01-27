@@ -13,7 +13,6 @@
 
 `whatap-go-inst` 도구를 사용하여 소스코드에 모니터링 코드를 자동으로 삽입합니다.
 
-
 #### 1. `whatap-go-inst` 설치하기
 
 | Go Version | 설치 방법 |
@@ -51,17 +50,14 @@
 #### 2. 프로젝트 초기화 및 빌드
 
 ```bash
-# 1. 도구 설치
-go install github.com/whatap/go-api-inst/cmd/whatap-go-inst@latest
-
-# 2. 프로젝트 초기화 (go.mod 디렉토리에서)
+# 프로젝트 초기화 (go.mod 디렉토리에서 실행하세요)
 whatap-go-inst init
 
-# 3. go-api 패키지 다운로드 및 설치 
+# go-api 패키지 다운로드 및 설치 
 go get github.com/whatap/go-api@latest
 go mod tidy
 
-# 3. 빌드 (모니터링 코드 자동 삽입)
+# 빌드 (모니터링 코드 자동 삽입)
 whatap-go-inst go build ./...
 ```
 

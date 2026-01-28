@@ -1,0 +1,183 @@
+[
+    {
+        "url": "https://docs.whatap.io/release-notes/service/service-2_25_x",
+        "ver": "Service 2.25.0",
+        "date": "2026-01-28",
+        "Lists": [
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Application",
+                "type": "Changed",
+                "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">비즈니스 대시보드</span> 액티브 트랜잭션 임계 표기 제거</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Application",
+                "category": "Go",
+                "type": "Changed",
+                "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 일부 기능 오픈 및 에이전트 설치 변경</p>",
+                "details": "<ul>\n<li><strong>스택</strong> 메뉴 오픈</li>\n\n<li><strong>트레이스 상세</strong> &gt; <strong>로그</strong> 탭 오픈 </li>\n</ul>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Server",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 설정</span> &gt; <span class=\"uitext\">서버 목록</span> 서버 검색 시 대소문자 구분하지 않고 검색되도록 개선</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Server",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">서버 상세</span> 프로세스 상세 Drawer에서 차트, 테이블 데이터 CSV 데이터로 다운로드 기능 추가</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Server",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">GPU 성능요약</span> Status 컬럼 상태 세분화</p>",
+                "details": "<ul>\n<li>Before: Active, Inactive, N/A 3가지 상태</li>\n<li>After</li>\n<ul>\n<li>Allocated: 기존 Active 상태와 동일</li>\n<li>Unallocated: 기존 Inactive 상태와 동일</li>\n<li>Active: Allocated이면서 5분 평균의 GPU Utilization 값이 1% 이상일 경우</li>\n<li>Idle: Allocated이면서 5분 평균의 GPU Utilization 값이 1% 미만일 경우</li>\n<li>Effective: Allocated이면서 5분 평균의 GPU Utilization 값이 50%를 초과할 경우</li>\n</ul>\n</ul>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Server",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">GPU 성능요약</span> 비교하기 패널의 각 차트에 지표 설명 툴팁 추가</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Server",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">GPU 인벤토리</span> </p>",
+                "details": "<ul>\n<li>Power Limit 컬럼의 MIG와 Physical일 때 소수점 아래 자리수가 달라 모두 소수점 아래 2자리로 통일될 수 있도록 개선</li>\n\n<li>Memory Total 컬럼 값을 표시할 때, 오른쪽 정렬하고 천 단위(,)가 표시될 수 있도록 개선</li>\n\n<li>Memory Total 컬럼명에 단위가 표시될 수 있도록 개선</li></ul>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Server",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">이벤트 설정</span> &gt; <span class=\"uitext\">파일 키워드 감시/윈도우 이벤트 감시/파일 감시</span> 탭에서 이벤트 생성/수정 시 이벤트 발행 조건이 없어도 규칙 생성이 가능했던 이슈 수정</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Database",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">데이터베이스 파라미터</span> 서로 다른 인스턴스를 비교할 수 있도록 추가</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Database",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">멀티 인스턴스 모니터링</span> cpu, mem 위젯이 무한로딩으로 보여지는 현상 수정</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Database",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">통계/보고서</span> &gt; <span class=\"uitext\">SQL 통계</span> SQL Plan Hash로 필터가 되지 않는 현상 수정</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Database",
+                "category": "MySQL, Oracle, Oracle Pro, PostgreSQL, SQL Server, Tibero",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">대시보드</span> &gt; <span class=\"uitext\">인스턴스 모니터링</span> 액티브 세션 테이블에서 1분 통계 추가</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Database",
+                "category": "MySQL, Oracle, Oracle Pro, PostgreSQL",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">세션 히스토리</span> 리뉴얼</p>",
+                "details": "<ul>\n<li>세션 추이 차트 추가</li>\n<li>필터를 적용하여 세션을 검색할 수 있도록 개선</li>\n</ul>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Database",
+                "category": "Oracle, Oracle Pro, Tibero",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">경고 알림</span> &gt; <span class=\"uitext\">이벤트 설정</span> 이벤트를 추가할 수 있는 템플릿 추가</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Database",
+                "category": "Oracle, Oracle Pro",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">분석</span> &gt; <span class=\"uitext\">SQL Plan 분석</span> Plan Change Summary 탭 추가</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Database",
+                "category": "Oracle, Oracle Pro",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">SQL 상세</span> 조회된 플랜이 사라지는 현상 수정</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Kubernetes",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">StatefulSet</span> 목록 데이터가 조회되지 않는 현상 수정</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Network",
+                "category": "Network Management System",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">관리</span> &gt; <span class=\"uitext\">매니저 정보</span> System Log 및 SNMP Polling Failures 정보 표시 추가</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Network",
+                "category": "Network Management System",
+                "type": "Feature",
+                "desc": "<p><code class=\"Feature\" type=\"1\">Feature</code> <span class=\"uitext\">디바이스 인벤토리</span> SNMP Polling 일괄설정 기능 추가</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Network",
+                "category": "Network Management System",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> <span class=\"uitext\">TimeSelector</span> 최근 퀵옵션이 현재 시간을 반영하지 못하는 현상 수정</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Browser",
+                "type": "Changed",
+                "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 통계 개선</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "Mobile",
+                "type": "Changed",
+                "desc": "<p><code class=\"Changed\" type=\"1\">Changed</code> 통계 개선</p>"
+            },
+            {
+                "ver": "Service 2.25.0",
+                "hash": "service-2250",
+                "product": "URL",
+                "type": "Fixed",
+                "desc": "<p><code class=\"Fixed\" type=\"0\">Fixed</code> URL 목록에 전달된 시간 파라미터가 시간 선택자에 반영되지 않는 현상 수정</p>"
+            }                      
+        ]
+    }
+]

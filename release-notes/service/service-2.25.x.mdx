@@ -24,6 +24,40 @@ displayed_sidebar: releaseSidebar
 
     - <Cmdname sid="trace" className="uitext" /> **상세** &gt; <Cmdname sid="log" className="uitext" /> 탭 오픈
 
+### `Server`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverSetting" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 서버 검색 시 대소문자 구분하지 않고 검색되도록 개선
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverDetail" className="uitext" /> 프로세스 상세 Drawer에서 차트, 테이블 데이터 CSV 데이터로 다운로드 기능 추가
+
+- <Status priority='1'>Feature</Status> **GPU 성능요약** Status 컬럼 상태 세분화 
+
+    - Before: Active, Inactive, N/A 3가지 상태
+
+    - After 
+
+        - Allocated: 기존 Active 상태와 동일
+
+        - Unallocated: 기존 Inactive 상태와 동일
+
+        - Active: Allocated이면서 5분 평균의 GPU Utilization의 값이 1% 이상일 경우
+
+        - Idle: Allocated이면서 5분 평균의 GPU Utilization의 값이 1% 미만일 경우
+
+        - Effective: Allocated이면서 5분 평균의 GPU Utilization의 값이 50%를 초과할 경우
+
+- <Status priority='0'>Fixed</Status> **GPU 성능요약** 비교하기 패널의 각 차트에 지표 설명 툴팁 추가
+
+- <Status priority='0'>Fixed</Status> **GPU 인벤토리**
+
+    - Power Limit 컬럼의 MIG와 Physical일 때 소수점 아래 자리수가 달라 모두 소수점 아래 2자리로 통일될 수 있도록 개선
+
+    - Memory Total 컬럼 값을 표시할 때, 오른쪽 정렬하고 천 단위(`,`)가 표시될 수 있도록 개선
+
+    - Memory Total 컬럼명에 단위가 표시될 수 있도록 개선
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_eventSetting" className="uitext" /> &gt; **파일 키워드 감시 / 윈도우 이벤트 감시 / 파일 감시** 탭에서 이벤트 생성/수정 시 이벤트 발행 조건이 없어도 규칙 생성이 가능했던 이슈 수정
+
 ### `Database`
 
 #### 공통

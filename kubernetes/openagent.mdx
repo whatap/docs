@@ -32,7 +32,7 @@ OpenAgent는 프로메테우스 엔드포인트에서 메트릭을 스크래핑�
 apiVersion: v1
 kind: Secret
 metadata:
-  name: whatap-credentials
+  name: whatap-open-credentials
   namespace: whatap-monitoring
 type: Opaque
 stringData:
@@ -164,17 +164,17 @@ spec:
             - name: WHATAP_LICENSE
               valueFrom:
                 secretKeyRef:
-                  name: whatap-credentials
+                  name: whatap-open-credentials
                   key: WHATAP_LICENSE
             - name: WHATAP_HOST
               valueFrom:
                 secretKeyRef:
-                  name: whatap-credentials
+                  name: whatap-open-credentials
                   key: WHATAP_HOST
             - name: WHATAP_PORT
               valueFrom:
                 secretKeyRef:
-                  name: whatap-credentials
+                  name: whatap-open-credentials
                   key: WHATAP_PORT
             - name: debug
               value: "false"

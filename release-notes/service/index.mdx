@@ -13,6 +13,7 @@ toc_min_heading_level: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+import Service225x from "./service-2.25.x.json";
 import Service224x from "./service-2.24.x.json";
 import Service223x from "./service-2.23.x.json";
 import Service222x from "./service-2.22.x.json";
@@ -40,6 +41,10 @@ import Service21x from "./service-2.1.x.json";
 import Service20x from "./service-2.0.x.json";
 
 <Tabs>
+
+<TabItem value="2026">
+    <ImportJson filePath={Service225x} sort="date"/>
+</TabItem>
 
 <TabItem value="2025">
     <ImportJson filePath={Service224x} sort="date"/>

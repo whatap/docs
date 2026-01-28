@@ -1,0 +1,119 @@
+---
+id: service-2_25_x
+title: Service 2.25.X
+toc_max_heading_level: 2
+pagination_next: release-notes/service/service-2_24_x
+displayed_sidebar: releaseSidebar
+---
+
+## Service 2.25.0
+
+2026년 1월 28일
+
+<div class='indentTab'>
+
+### `Application`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; **비즈니스 대시보드** 액티브 트랜잭션 임계 표기 제거
+
+#### Go
+
+- <Status priority='1'>Changed</Status> 일부 기능 오픈 및 에이전트 설치 변경
+
+    - <Cmdname sid="stack" className="uitext" /> 메뉴 오픈
+
+    - <Cmdname sid="trace" className="uitext" /> **상세** &gt; <Cmdname sid="log" className="uitext" /> 탭 오픈
+
+### `Server`
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverSetting" className="uitext" /> &gt; <Cmdname sid="side_serverList" className="uitext" /> 서버 검색 시 대소문자 구분하지 않고 검색되도록 개선
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_serverDetail" className="uitext" /> 프로세스 상세 Drawer에서 차트, 테이블 데이터 CSV 데이터로 다운로드 기능 추가
+
+- <Status priority='1'>Feature</Status> **GPU 성능요약** Status 컬럼 상태 세분화 
+
+    - Before: Active, Inactive, N/A 3가지 상태
+
+    - After 
+
+        - Allocated: 기존 Active 상태와 동일
+
+        - Unallocated: 기존 Inactive 상태와 동일
+
+        - Active: Allocated이면서 5분 평균의 GPU Utilization의 값이 1% 이상일 경우
+
+        - Idle: Allocated이면서 5분 평균의 GPU Utilization의 값이 1% 미만일 경우
+
+        - Effective: Allocated이면서 5분 평균의 GPU Utilization의 값이 50%를 초과할 경우
+
+- <Status priority='0'>Fixed</Status> **GPU 성능요약** 비교하기 패널의 각 차트에 지표 설명 툴팁 추가
+
+- <Status priority='0'>Fixed</Status> **GPU 인벤토리**
+
+    - Power Limit 컬럼의 MIG와 Physical일 때 소수점 아래 자리수가 달라 모두 소수점 아래 2자리로 통일될 수 있도록 개선
+
+    - Memory Total 컬럼 값을 표시할 때, 오른쪽 정렬하고 천 단위(`,`)가 표시될 수 있도록 개선
+
+    - Memory Total 컬럼명에 단위가 표시될 수 있도록 개선
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_eventSetting" className="uitext" /> &gt; **파일 키워드 감시 / 윈도우 이벤트 감시 / 파일 감시** 탭에서 이벤트 생성/수정 시 이벤트 발행 조건이 없어도 규칙 생성이 가능했던 이슈 수정
+
+### `Database`
+
+#### 공통
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="analysis" className="uitext" /> &gt; <Cmdname sid="side_dbParameter" className="uitext" /> 서로 다른 인스턴스를 비교할 수 있도록 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_multiInstance" className="uitext" /> cpu, mem 위젯이 무한로딩으로 보여지는 현상 수정
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="stat_report_upper" className="uitext" /> &gt; <Cmdname sid="statistics_sql" className="uitext" /> SQL Plan Hash로 필터가 되지 않는 현상 수정
+
+#### MySQL, Oracle, Oracle Pro, PostgreSQL, SQL Server, Tibero
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_dashboard" className="uitext" /> &gt; <Cmdname sid="side_dbMonitoring" className="uitext" /> 액티브 세션 테이블에서 1분 통계 추가
+
+#### MySQL, Oracle, Oracle Pro, PostgreSQL
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_sessionHistory" className="uitext" /> 리뉴얼
+
+    - 세션 추이 차트 추가
+
+    - 필터를 적용하여 세션을 검색할 수 있도록 개선
+
+#### Oracle, Oracle Pro, Tibero
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_event" className="uitext" /> &gt; <Cmdname sid="event_setting" className="uitext" /> 이벤트를 추가할 수 있는 템플릿 추가
+
+#### Oracle, Oracle Pro
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_analysis" className="uitext" /> &gt; <Cmdname sid="side_dbSqlPlanAnalysis" className="uitext" /> Plan Change Summary 탭 추가
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="TTL06224" className="uitext" /> 조회된 플랜이 사라지는 현상 수정
+
+### `Kubernetes`
+
+- <Status priority='0'>Fixed</Status>  StatefulSet 목록 데이터 조회되지 않는 현상 수정
+
+### `Network`
+
+#### Network Management System
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_management" className="uitext" /> &gt; **매니저 정보** System Log 및 SNMP Polling Failures 정보 표시 추가
+
+- <Status priority='1'>Feature</Status> <Cmdname sid="side_deviceInventory" className="uitext" /> SNMP Polling 일괄설정 기능 추가
+
+- <Status priority='0'>Fixed</Status> **TimeSelector** 최근 퀵옵션이 현재 시간을 반영하지 못하는 현상 수정
+
+### `Brower`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="statistics" className="uitext" /> 개선
+
+### `Mobile`
+
+- <Status priority='1'>Changed</Status> <Cmdname sid="statistics" className="uitext" /> 개선
+
+### `URL`
+
+- <Status priority='0'>Fixed</Status> <Cmdname sid="url_list" className="uitext" /> 전달된 시간 파라미터가 시간 선택자에 반영되지 않는 현상 수정
+
+</div> 

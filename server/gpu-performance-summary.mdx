@@ -31,8 +31,8 @@ Linux에서만 지원되며, 에이전트 2.9.3 이상 버전이 필요합니다
 ### GPU 정보
 
 | 컬럼명 | 설명 |
-| --- | --- |
-| Status | 해당 GPU 인스턴스의 현재 상태 (예: `Inactive`, `N/A`) |
+| :---: | --- |
+| Status | 해당 GPU 인스턴스의 현재 상태 <br /> - `N/A`: GPU 상태 표시는 Physical GPU 대상만 표시하며 GPU Type이 MIG인 경우 N/A로 표기됨 <br /> - `Allocated`: 기존 Active 상태와 동일 <br /> - `Unallocated`: 기존 Inactive 상태와 동일 <br /> - `Active`: Allocated이면서 5분 평균의 GPU Utilization의 값이 1% 이상일 경우 <br /> - `Idle`: Allocated이면서 5분 평균의 GPU Utilization의 값이 1% 미만일 경우 <br /> - `Effective`: Allocated이면서 5분 평균의 GPU Utilization의 값이 50%를 초과할 경우|
 | HostName | GPU가 연결된 서버의 호스트명 |
 | GPU Index | 물리 GPU 또는 MIG 인스턴스의 고유 인덱스 (MIG 인스턴스는 `0/6/0` 등 형태로 표기) |
 | Model Name | GPU 모델명 (예: NVIDIA A100-SXM4 등) |
@@ -42,7 +42,7 @@ Linux에서만 지원되며, 에이전트 2.9.3 이상 버전이 필요합니다
 ### GPU 성능 지표
 
 | 컬럼명 | 설명 |
-| --------------- |------|
+| :---------------: |------|
 | GPU_Util (%) | GPU 사용률 (%) <br /> - Physical GPU에서만 표시되며, MIG 인스턴스는 제외 |
 | Encoder_Util (%) | 하드웨어 인코더 사용률 (%) <br /> - Physical GPU에서만 표시 |
 | Decoder_Util (%) | 하드웨어 디코더 사용률 (%) <br /> - Physical GPU에서만 표시 |

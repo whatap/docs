@@ -48,8 +48,19 @@
 
 #### 2. 프로젝트 초기화 및 빌드
 
+아래 명령어는 `go.mod`가 있는 프로젝트 루트 디렉토리에서 실행하세요.
+
+:::tip 처음 설치하는 경우
+
+`whatap-go-inst`를 처음 설치했다면, 먼저 PATH 환경 변수를 설정해야 합니다.
+
+:::
+
 ```bash
-# 프로젝트 초기화 (go.mod 디렉토리에서 실행하세요)
+# 환경 변수 추가 (처음 설치 시에만 필요)
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# 프로젝트 초기화
 whatap-go-inst init
 
 # go-api 패키지 다운로드 및 설치 
@@ -57,7 +68,7 @@ go get github.com/whatap/go-api@latest
 go mod tidy
 
 # 빌드 (모니터링 코드 자동 삽입)
-whatap-go-inst go build ./...
+whatap-go-inst go build -o myapp .
 ```
 
 <InDoc product='golang'>

@@ -372,14 +372,14 @@ features:
           interval: "15s"      # 기본값은 전역 설정, 필요시 재정의
           scheme: "http"
           timeout: "10s"
-	        metricRelabelConfigs:  # 스크래핑 후 메트릭 재라벨링 설정
-	          - source_labels: [__name__]
-	            regex: "http_requests_total"
-	            action: keep
-	          - source_labels: [method]
-	            target_label: http_method
-	            replacement: "${1}"
-	            action: replace
+          metricRelabelConfigs:  # 스크래핑 후 메트릭 재라벨링 설정
+            - source_labels: [__name__]
+              regex: "http_requests_total"
+              action: keep
+            - source_labels: [method]
+              target_label: http_method
+              replacement: "${1}"
+              action: replace
 
       # 2. ServiceMonitor: Service 레이블 셀렉터를 이용한 동적 디스커버리
       - targetName: my-service-metrics

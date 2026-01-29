@@ -1,0 +1,138 @@
+---
+id: agent-config
+title: 기본 설정
+description: 와탭 서버 모니터링 에이전트의 기본 설정 방법을 안내합니다.
+keywords: [ Server, 설정, 에이전트 이름, 통신, 리소스 ]
+toc_max_heading_level: 2
+---
+
+와탭 서버 모니터링 에이전트는 *whatap.conf* 설정 파일을 통해 동작을 제어합니다. 이 문서에서는 에이전트의 기본 설정을 안내합니다.
+
+:::note
+
+**설정 파일 위치**
+* **Unix/Linux**: `$WHATAP_HOME/whatap.conf`
+* **Windows**: `%WHATAP_HOME%\whatap.conf`
+
+설정 변경 후 에이전트를 재시작해야 변경사항이 적용됩니다.
+
+:::
+
+## 에이전트 이름 식별 {#agent-name}
+
+와탭은 모니터링 정보 수집 대상인 인프라 서버 식별을 위해 기본적으로 서버로부터 수집한 정보를 활용합니다. 기본값은 서버의 호스트 명(hostname)입니다.
+
+import Agentnamewarning from "../common-items/_agent-name-warning.mdx";
+
+<Agentnamewarning />
+
+:::note
+
+사용자가 설정한 에이전트 이름을 [와탭 모니터링 서비스](https://service.whatap.io)에서 확인하려면 에이전트를 재시작하세요.
+
+:::
+
+사용자 친화적인 이름을 지정하려면 다음과 같이 설정 파일에 추가합니다.
+
+* **Linux Shell**
+
+```bash title=SH
+  export WHATAP_SERVER_NAME=사용자 친화적인 이름
+
+  echo "oname=$WHATAP_SERVER_NAME" | sudo tee -a /usr/whatap/infra/conf/whatap.conf
+```
+
+* **Windows PowerShell** 
+
+```powershell title=PowerShell
+  # 관리자 권한이 필요합니다.
+  $WHATAP_SERVER_NAME="사용자 친화적인 이름"
+
+  Add-Content "C:\Program Files\WhatapInfra\whatap.conf" "oname=$WHATAP_SERVER_NAME"
+```
+
+## 에이전트 통신 {#network}
+
+와탭 에이전트는 TCP 연결을 통해 수집 서버에 모니터링 데이터를 전송합니다.
+
+![와탭 에이전트 네트워크](https://img.whatap.io/media/agent_node/agent_net.png)
+
+에이전트는 하나의 TCP 세션을 통해 데이터 전송과 서버 제어 요청을 처리합니다. 에이전트는 UDP를 사용하지 않습니다. 에이전트에서 와탭 수집 서버 방향으로 방화벽을 개방하세요.
+
+### 수집 서버 주소와 포트
+
+와탭 서버는 데이터 리전 서버, 프론트 서버, 유레카 등으로 구분합니다. 데이터 리전에는 Proxy, Yard, Gateway, Keeper 등이 있습니다. 에이전트는 그중 Proxy 서버와 통신합니다.
+
+에이전트에 와탭 서버의 Proxy 서버 주소를 설정합니다(예: `whatap.server.host=10.0.3.1/10.0.3.2`). 서버 주소를 설정할 때는 Proxy 서버 수만큼 입력합니다. 와탭 서버는 설치 방식에 따라 Proxy 서버를 1개 또는 여러 개 사용할 수 있습니다.
+
+와탭 Proxy 서버는 6600 포트에서 리스닝(Listening)합니다. 에이전트에서 별도 설정을 하지 않으면 6600 포트로 접속을 시도합니다.
+
+```ini title='whatap.conf'
+whatap.server.port=6600
+```
+
+:::note
+
+여러 대의 Proxy 서버를 사용하는 경우 모든 Proxy 서버의 리스닝 포트는 동일해야 합니다.
+
+:::
+
+### 통신 연결 및 보안
+
+와탭은 퍼블릭 네트워크에서 모니터링 데이터를 수집하는 것을 전제로 설계했습니다. 따라서 모든 모니터링 데이터를 암호화해 서버로 전송합니다. 와탭은 오버헤드를 최소화하기 위해 데이터를 선별적으로 암호화합니다. 에이전트와 서버 사이의 통신 과정은 다음과 같습니다.
+
+1. 프로젝트 생성 시 **프로젝트 액세스 키**를 생성하고 복사합니다.
+2. **프로젝트 액세스 키**에는 비밀키가 포함되어 있으므로 외부에 노출되지 않도록 주의하세요.
+3. 에이전트를 시작하면 와탭 수집 서버로 TCP 세션을 연결합니다.
+4. **프로젝트 액세스 키**에 포함된 통신용 비밀키로 데이터를 암호화하여 새로운 세션용 보안 키를 요청합니다.
+5. 서버는 에이전트가 요청한 세션용 보안 키를 생성하여 에이전트에 전달합니다.
+6. 이후 에이전트는 텍스트, 숫자 등 데이터를 암호화하여 서버에 전송합니다.
+
+:::note
+
+설정 변경 후 에이전트를 재시작해야 변경사항이 적용됩니다.
+
+:::
+
+## 에이전트 리소스 제한 {#resource}
+
+와탭 서버 모니터링 에이전트는 과부하 발생 시 서버의 안정성을 유지하고 리소스 사용량 영향을 최소화할 수 있도록 다음과 같은 설정을 제공합니다.
+
+### 공통 설정 (Linux/Windows)
+
+#### 메모리 사용량 보호 
+
+에이전트의 메모리 사용량이 임계값(100MB)을 초과하면 자동으로 프로세스를 재시작하여 서버의 가용 메모리를 보호합니다.
+
+```ini title='whatap.conf'
+memory.usage.limit=104857600  # 메모리 사용량 임계값 (100MB, 바이트 단위)
+```
+
+#### 자동 재시작 
+
+에이전트는 1일 1회 자동으로 재시작됩니다. 재시작 주기는 설정을 통해 조정할 수 있습니다. 이 기능은 데이터 수집 장애 및 일시적인 프로세스 오작동을 해소하기 위해 제공됩니다.
+
+```ini title='whatap.conf'
+housekeeping.enabled=true             # 자동 재시작 기능 활성화 (기본값: true)
+housekeeping.hour=2                   # 재시작 시간 (서버 시간 기준, 기본값: 2시)
+housekeeping.exitoncheckfail=true     # 수집 장애 발생 시 자동 재시작 (기본값: true)
+```
+
+#### CPU 사용량 보호 
+
+CPU 사용량이 임계값을 초과하면 에이전트는 실행 속도를 자동으로 조정하여 서버의 CPU 가용성을 보호합니다. 기본적으로 비활성화되어 있으며 필요 시 활성화할 수 있습니다.
+
+```ini title='whatap.conf'
+cpu.limit.enabled=false           # CPU 사용량 보호 기능 비활성화 (기본값: false)
+cpu.usage.limit=50                # CPU 사용량 임계값 (단일 코어 기준 50%)
+```
+
+### Windows 전용 설정
+
+#### Handle 사용량 보호 
+
+Windows 환경에서는 에이전트가 사용하는 Handle 개수가 임계값(1000개)을 초과할 경우 자동으로 재시작하여 서버의 가용 Handle을 보호합니다.
+
+```ini title='whatap.conf'
+windows.handle.threshold=1000    # Handle 사용량 임계값 (기본값: 1000개)
+```
